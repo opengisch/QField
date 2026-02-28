@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLegendImageProvider" kind="class" language="C++" prot="public">
+    <compoundname>LegendImageProvider</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickImageProvider</basecompoundref>
+    <includes refid="legendimageprovider_8h" local="no">legendimageprovider.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLegendImageProvider_1a3c225c5db216bd6baa181f89f65b811a" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsLayerTreeModel &gt;</type>
+        <definition>QPointer&lt;QgsLayerTreeModel&gt; LegendImageProvider::mLayerTreeModel</definition>
+        <argsstring></argsstring>
+        <name>mLayerTreeModel</name>
+        <qualifiedname>LegendImageProvider::mLayerTreeModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/legendimageprovider.h" line="41" column="14" bodyfile="src/core/legendimageprovider.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLegendImageProvider_1aa003e306e59beb20187e5a45834c82c9" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsLayerTree &gt;</type>
+        <definition>QPointer&lt;QgsLayerTree&gt; LegendImageProvider::mRootNode</definition>
+        <argsstring></argsstring>
+        <name>mRootNode</name>
+        <qualifiedname>LegendImageProvider::mRootNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/legendimageprovider.h" line="42" column="14" bodyfile="src/core/legendimageprovider.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLegendImageProvider_1adbb19bcc14e4900239aeb000666427ce" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LegendImageProvider::LegendImageProvider</definition>
+        <argsstring>(QgsLayerTreeModel *layerTreeModel)</argsstring>
+        <name>LegendImageProvider</name>
+        <qualifiedname>LegendImageProvider::LegendImageProvider</qualifiedname>
+        <param>
+          <type>QgsLayerTreeModel *</type>
+          <declname>layerTreeModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/legendimageprovider.h" line="36" column="14" bodyfile="src/core/legendimageprovider.cpp" bodystart="28" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classLegendImageProvider_1abf866276d688e54f799886e78b00d2de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QPixmap</type>
+        <definition>QPixmap LegendImageProvider::requestPixmap</definition>
+        <argsstring>(const QString &amp;id, QSize *size, const QSize &amp;requestedSize) override</argsstring>
+        <name>requestPixmap</name>
+        <qualifiedname>LegendImageProvider::requestPixmap</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>QSize *</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>const QSize &amp;</type>
+          <declname>requestedSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/legendimageprovider.h" line="38" column="13" bodyfile="src/core/legendimageprovider.cpp" bodystart="35" bodyend="137"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This class provides legend images for the layer tree model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LegendImageProvider</label>
+        <link refid="classLegendImageProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickImageProvider</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LegendImageProvider</label>
+        <link refid="classLegendImageProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickImageProvider</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/legendimageprovider.h" line="33" column="1" bodyfile="src/core/legendimageprovider.h" bodystart="34" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classLegendImageProvider_1adbb19bcc14e4900239aeb000666427ce" prot="public" virt="non-virtual"><scope>LegendImageProvider</scope><name>LegendImageProvider</name></member>
+      <member refid="classLegendImageProvider_1a3c225c5db216bd6baa181f89f65b811a" prot="private" virt="non-virtual"><scope>LegendImageProvider</scope><name>mLayerTreeModel</name></member>
+      <member refid="classLegendImageProvider_1aa003e306e59beb20187e5a45834c82c9" prot="private" virt="non-virtual"><scope>LegendImageProvider</scope><name>mRootNode</name></member>
+      <member refid="classLegendImageProvider_1abf866276d688e54f799886e78b00d2de" prot="public" virt="non-virtual"><scope>LegendImageProvider</scope><name>requestPixmap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

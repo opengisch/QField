@@ -1,0 +1,631 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQuick3DRubberbandGeometry" kind="class" language="C++" prot="public">
+    <compoundname>Quick3DRubberbandGeometry</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuick3DGeometry</basecompoundref>
+    <includes refid="quick3drubberbandgeometry_8h" local="no">quick3drubberbandgeometry.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQuick3DRubberbandGeometry_1adcf2aa83c43186cbfa8a8082c68d9e90" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QML_ELEMENT <ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+        <definition>QML_ELEMENT RubberbandModel * Quick3DRubberbandGeometry::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>Quick3DRubberbandGeometry::rubberbandModel</qualifiedname>
+        <read>rubberbandModel</read>
+        <write>setRubberbandModel</write>
+        <briefdescription>
+<para>The rubberband model providing the vertex coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="42" column="5" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DRubberbandGeometry_1a9fa944562cf562811de6d2aa2b6e8809" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref> *</type>
+        <definition>Quick3DTerrainProvider * Quick3DRubberbandGeometry::terrainProvider</definition>
+        <argsstring></argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>Quick3DRubberbandGeometry::terrainProvider</qualifiedname>
+        <read>terrainProvider</read>
+        <write>setTerrainProvider</write>
+        <briefdescription>
+<para>The terrain provider used for geo-to-3D coordinate conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="44" column="5" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DRubberbandGeometry_1a603ae572b8c6e6ecf2b11b36e1cfe365" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Quick3DRubberbandGeometry::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>Quick3DRubberbandGeometry::radius</qualifiedname>
+        <read>radius</read>
+        <write>setRadius</write>
+        <briefdescription>
+<para>Tube thickness in scene units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="46" column="5" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DRubberbandGeometry_1a31a77dab99d42c0ffc869a3cd50adaf9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Quick3DRubberbandGeometry::segments</definition>
+        <argsstring></argsstring>
+        <name>segments</name>
+        <qualifiedname>Quick3DRubberbandGeometry::segments</qualifiedname>
+        <read>segments</read>
+        <write>setSegments</write>
+        <briefdescription>
+<para>Number of sides in the tube cross-section. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="48" column="5" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DRubberbandGeometry_1acb54e763973880c4435a95947c99bec5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Quick3DRubberbandGeometry::heightOffset</definition>
+        <argsstring></argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>Quick3DRubberbandGeometry::heightOffset</qualifiedname>
+        <read>heightOffset</read>
+        <write>setHeightOffset</write>
+        <briefdescription>
+<para>Extra vertical offset above the terrain surface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="50" column="5" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DRubberbandGeometry_1aaa937bd558d6289f22f88ceb9e8c33eb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor Quick3DRubberbandGeometry::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Quick3DRubberbandGeometry::color</qualifiedname>
+        <read>color</read>
+        <write>setColor</write>
+        <briefdescription>
+<para>Per-vertex color applied to both tubes and joint spheres. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="52" column="5" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQuick3DRubberbandGeometry_1a53fc040f67f0f3d2fde4dd0b4d00c923" prot="private" static="no" mutable="no">
+        <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+        <definition>RubberbandModel* Quick3DRubberbandGeometry::mRubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>mRubberbandModel</name>
+        <qualifiedname>Quick3DRubberbandGeometry::mRubberbandModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="102" column="21" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DRubberbandGeometry_1a8fe6799a010a88c63d9c604afb26ab3b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref> *</type>
+        <definition>Quick3DTerrainProvider* Quick3DRubberbandGeometry::mTerrainProvider</definition>
+        <argsstring></argsstring>
+        <name>mTerrainProvider</name>
+        <qualifiedname>Quick3DRubberbandGeometry::mTerrainProvider</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="103" column="28" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DRubberbandGeometry_1a4a8c7899d6e8a65e12c1d8180b23d76a" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Quick3DRubberbandGeometry::mRadius</definition>
+        <argsstring></argsstring>
+        <name>mRadius</name>
+        <qualifiedname>Quick3DRubberbandGeometry::mRadius</qualifiedname>
+        <initializer>= 3.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="105" column="11" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DRubberbandGeometry_1a8a2f4e66ff70b079ebb71a574ccff625" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Quick3DRubberbandGeometry::mSegments</definition>
+        <argsstring></argsstring>
+        <name>mSegments</name>
+        <qualifiedname>Quick3DRubberbandGeometry::mSegments</qualifiedname>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="106" column="9" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DRubberbandGeometry_1a6ac43d744b1b0dadd924c2d2a40df0e9" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Quick3DRubberbandGeometry::mHeightOffset</definition>
+        <argsstring></argsstring>
+        <name>mHeightOffset</name>
+        <qualifiedname>Quick3DRubberbandGeometry::mHeightOffset</qualifiedname>
+        <initializer>= 15.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="107" column="11" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DRubberbandGeometry_1ac617a8fa0757ca0cb2e8916637281e18" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Quick3DRubberbandGeometry::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>Quick3DRubberbandGeometry::mDirty</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="108" column="10" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DRubberbandGeometry_1afbc64e4011a5df0fa85601f4fa9c1d44" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor Quick3DRubberbandGeometry::mColor</definition>
+        <argsstring></argsstring>
+        <name>mColor</name>
+        <qualifiedname>Quick3DRubberbandGeometry::mColor</qualifiedname>
+        <initializer>= QColor( 255, 240, 50 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="110" column="12" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1ade899e37868ee7717d561604422ecda5" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Quick3DRubberbandGeometry::Quick3DRubberbandGeometry</definition>
+        <argsstring>(QQuick3DObject *parent=nullptr)</argsstring>
+        <name>Quick3DRubberbandGeometry</name>
+        <qualifiedname>Quick3DRubberbandGeometry::Quick3DRubberbandGeometry</qualifiedname>
+        <param>
+          <type>QQuick3DObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="55" column="14" bodyfile="src/core/3d/quick3drubberbandgeometry.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1a074454e682f4ab477937a26c0d84617e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+        <definition>RubberbandModel * Quick3DRubberbandGeometry::rubberbandModel</definition>
+        <argsstring>() const</argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>Quick3DRubberbandGeometry::rubberbandModel</qualifiedname>
+        <briefdescription>
+<para>Returns the rubberband model providing vertex coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="58" column="21" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1add19ef5fc4d075312d10b86908e91423" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::setRubberbandModel</definition>
+        <argsstring>(RubberbandModel *model)</argsstring>
+        <name>setRubberbandModel</name>
+        <qualifiedname>Quick3DRubberbandGeometry::setRubberbandModel</qualifiedname>
+        <param>
+          <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Sets the rubberband model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="60" column="10" bodyfile="src/core/3d/quick3drubberbandgeometry.cpp" bodystart="32" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1abd057eb086b2ce43c87d4a714936591c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref> *</type>
+        <definition>Quick3DTerrainProvider * Quick3DRubberbandGeometry::terrainProvider</definition>
+        <argsstring>() const</argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>Quick3DRubberbandGeometry::terrainProvider</qualifiedname>
+        <briefdescription>
+<para>Returns the terrain provider used for geo-to-3D conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="63" column="28" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1ac2c24151b5df0c9a973fa4d9407697e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::setTerrainProvider</definition>
+        <argsstring>(Quick3DTerrainProvider *provider)</argsstring>
+        <name>setTerrainProvider</name>
+        <qualifiedname>Quick3DRubberbandGeometry::setTerrainProvider</qualifiedname>
+        <param>
+          <type><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref> *</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+<para>Sets the terrain provider. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="65" column="10" bodyfile="src/core/3d/quick3drubberbandgeometry.cpp" bodystart="59" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1ae7ce18baab2f3f7076bb9567d3aefca7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Quick3DRubberbandGeometry::radius</definition>
+        <argsstring>() const</argsstring>
+        <name>radius</name>
+        <qualifiedname>Quick3DRubberbandGeometry::radius</qualifiedname>
+        <briefdescription>
+<para>Returns the tube radius in 3D scene units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="68" column="11" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1a58179f63c377ba8e6ab499affa5cd710" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::setRadius</definition>
+        <argsstring>(float radius)</argsstring>
+        <name>setRadius</name>
+        <qualifiedname>Quick3DRubberbandGeometry::setRadius</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <briefdescription>
+<para>Sets the tube radius. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="70" column="10" bodyfile="src/core/3d/quick3drubberbandgeometry.cpp" bodystart="83" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1a70a0f5b804b5c76b3b6aa12bc0684263" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Quick3DRubberbandGeometry::segments</definition>
+        <argsstring>() const</argsstring>
+        <name>segments</name>
+        <qualifiedname>Quick3DRubberbandGeometry::segments</qualifiedname>
+        <briefdescription>
+<para>Returns the number of segments around the tube circumference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="73" column="9" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1a02ffb3fc2b14fba61d3d926459fe5279" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::setSegments</definition>
+        <argsstring>(int segments)</argsstring>
+        <name>setSegments</name>
+        <qualifiedname>Quick3DRubberbandGeometry::setSegments</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>segments</declname>
+        </param>
+        <briefdescription>
+<para>Sets the segment count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="75" column="10" bodyfile="src/core/3d/quick3drubberbandgeometry.cpp" bodystart="97" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1aed084a3f5400f097f1f60b97afb1d3ee" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Quick3DRubberbandGeometry::heightOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>Quick3DRubberbandGeometry::heightOffset</qualifiedname>
+        <briefdescription>
+<para>Returns the height offset above the terrain surface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="78" column="11" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1a87bdb909ff82c1c231a3a35837a66135" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::setHeightOffset</definition>
+        <argsstring>(float offset)</argsstring>
+        <name>setHeightOffset</name>
+        <qualifiedname>Quick3DRubberbandGeometry::setHeightOffset</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+<para>Sets the height offset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="80" column="10" bodyfile="src/core/3d/quick3drubberbandgeometry.cpp" bodystart="111" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1a44812720994eeb1e46d2e6dfe53a64a7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor Quick3DRubberbandGeometry::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <qualifiedname>Quick3DRubberbandGeometry::color</qualifiedname>
+        <briefdescription>
+<para>Returns the color used for both tubes and sphere joints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="83" column="12" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1ab99fed1e34e5dc2ebdc5e1d6682a1fe1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::setColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setColor</name>
+        <qualifiedname>Quick3DRubberbandGeometry::setColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the rubberband color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="85" column="10" bodyfile="src/core/3d/quick3drubberbandgeometry.cpp" bodystart="124" bodyend="135"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQuick3DRubberbandGeometry_1a540c19d4a9e9c4a6e04a04255090de94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::rubberbandModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rubberbandModelChanged</name>
+        <qualifiedname>Quick3DRubberbandGeometry::rubberbandModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="88" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DRubberbandGeometry_1ad740c3269d685081f16f004e169b2c4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::terrainProviderChanged</definition>
+        <argsstring>()</argsstring>
+        <name>terrainProviderChanged</name>
+        <qualifiedname>Quick3DRubberbandGeometry::terrainProviderChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="89" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DRubberbandGeometry_1a9d43bb3f70ecfd2c996289c779eba907" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::radiusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>radiusChanged</name>
+        <qualifiedname>Quick3DRubberbandGeometry::radiusChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="90" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DRubberbandGeometry_1a4fa5dccf5edeb6aed75c2c507839465a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::segmentsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>segmentsChanged</name>
+        <qualifiedname>Quick3DRubberbandGeometry::segmentsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="91" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DRubberbandGeometry_1abb8e17d92d0351e5c2664d8fb3c44e10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::heightOffsetChanged</definition>
+        <argsstring>()</argsstring>
+        <name>heightOffsetChanged</name>
+        <qualifiedname>Quick3DRubberbandGeometry::heightOffsetChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="92" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DRubberbandGeometry_1a3996f35113999e51a876f5b3f267b262" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::colorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>colorChanged</name>
+        <qualifiedname>Quick3DRubberbandGeometry::colorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="93" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQuick3DRubberbandGeometry_1a870e448398d55f9d92d37819d6889474" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::markDirtyAndUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>markDirtyAndUpdate</name>
+        <qualifiedname>Quick3DRubberbandGeometry::markDirtyAndUpdate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="96" column="10" bodyfile="src/core/3d/quick3drubberbandgeometry.cpp" bodystart="137" bodyend="141"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQuick3DRubberbandGeometry_1a139d37bdd72170ec2f632080b53f5748" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DRubberbandGeometry::updateGeometry</definition>
+        <argsstring>()</argsstring>
+        <name>updateGeometry</name>
+        <qualifiedname>Quick3DRubberbandGeometry::updateGeometry</qualifiedname>
+        <briefdescription>
+<para>Rebuilds the whole tube + sphere mesh from scratch. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3drubberbandgeometry.h" line="100" column="10" bodyfile="src/core/3d/quick3drubberbandgeometry.cpp" bodystart="143" bodyend="403"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Generates 3D tube + sphere geometry to visualize a rubberband path on terrain.</para>
+<para>Geo coordinates from a <ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> are projected onto the terrain surface and connected by extruded tube segments. A sphere joint is placed at each vertex. Everything is packed into a single indexed triangle mesh with per-vertex colors.</para>
+<para><simplesect kind="note"><para>QML Type: <ref refid="classQuick3DRubberbandGeometry" kindref="compound">Quick3DRubberbandGeometry</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="1">
+        <label>Quick3DRubberbandGeometry</label>
+        <link refid="classQuick3DRubberbandGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="1">
+        <label>Quick3DRubberbandGeometry</label>
+        <link refid="classQuick3DRubberbandGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/3d/quick3drubberbandgeometry.h" line="36" column="1" bodyfile="src/core/3d/quick3drubberbandgeometry.h" bodystart="37" bodyend="111"/>
+    <listofallmembers>
+      <member refid="classQuick3DRubberbandGeometry_1aaa937bd558d6289f22f88ceb9e8c33eb" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>color</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a44812720994eeb1e46d2e6dfe53a64a7" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>color</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a3996f35113999e51a876f5b3f267b262" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>colorChanged</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1acb54e763973880c4435a95947c99bec5" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>heightOffset</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1aed084a3f5400f097f1f60b97afb1d3ee" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>heightOffset</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1abb8e17d92d0351e5c2664d8fb3c44e10" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>heightOffsetChanged</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a870e448398d55f9d92d37819d6889474" prot="private" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>markDirtyAndUpdate</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1afbc64e4011a5df0fa85601f4fa9c1d44" prot="private" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>mColor</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1ac617a8fa0757ca0cb2e8916637281e18" prot="private" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>mDirty</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a6ac43d744b1b0dadd924c2d2a40df0e9" prot="private" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>mHeightOffset</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a4a8c7899d6e8a65e12c1d8180b23d76a" prot="private" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>mRadius</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a53fc040f67f0f3d2fde4dd0b4d00c923" prot="private" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>mRubberbandModel</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a8a2f4e66ff70b079ebb71a574ccff625" prot="private" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>mSegments</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a8fe6799a010a88c63d9c604afb26ab3b" prot="private" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>mTerrainProvider</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1ade899e37868ee7717d561604422ecda5" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>Quick3DRubberbandGeometry</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a603ae572b8c6e6ecf2b11b36e1cfe365" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>radius</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1ae7ce18baab2f3f7076bb9567d3aefca7" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>radius</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a9d43bb3f70ecfd2c996289c779eba907" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>radiusChanged</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1adcf2aa83c43186cbfa8a8082c68d9e90" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>rubberbandModel</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a074454e682f4ab477937a26c0d84617e" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>rubberbandModel</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a540c19d4a9e9c4a6e04a04255090de94" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>rubberbandModelChanged</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a31a77dab99d42c0ffc869a3cd50adaf9" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>segments</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a70a0f5b804b5c76b3b6aa12bc0684263" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>segments</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a4fa5dccf5edeb6aed75c2c507839465a" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>segmentsChanged</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1ab99fed1e34e5dc2ebdc5e1d6682a1fe1" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>setColor</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a87bdb909ff82c1c231a3a35837a66135" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>setHeightOffset</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a58179f63c377ba8e6ab499affa5cd710" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>setRadius</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1add19ef5fc4d075312d10b86908e91423" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>setRubberbandModel</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a02ffb3fc2b14fba61d3d926459fe5279" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>setSegments</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1ac2c24151b5df0c9a973fa4d9407697e3" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>setTerrainProvider</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a9fa944562cf562811de6d2aa2b6e8809" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>terrainProvider</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1abd057eb086b2ce43c87d4a714936591c" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>terrainProvider</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1ad740c3269d685081f16f004e169b2c4b" prot="public" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>terrainProviderChanged</name></member>
+      <member refid="classQuick3DRubberbandGeometry_1a139d37bdd72170ec2f632080b53f5748" prot="private" virt="non-virtual"><scope>Quick3DRubberbandGeometry</scope><name>updateGeometry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

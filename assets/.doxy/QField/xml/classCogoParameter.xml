@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCogoParameter" kind="class" language="C++" prot="public">
+    <compoundname>CogoParameter</compoundname>
+    <includes refid="cogooperation_8h" local="no">cogooperation.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classCogoParameter_1ac29c0445accea5a443b5b86eb0f77fa9" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CogoParameter::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>CogoParameter::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The COGO parameter type (&quot;point&quot;, &quot;distance&quot;, &quot;angle, &quot;enum", etc.). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="51" column="5" bodyfile="src/core/cogo/cogooperation.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCogoParameter_1a48f8f1b441ce67ea329898f2d434f647" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CogoParameter::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>CogoParameter::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The COGO parameter name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="56" column="5" bodyfile="src/core/cogo/cogooperation.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCogoParameter_1a481a7ea0d385439c971762e1cc51a81f" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CogoParameter::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <qualifiedname>CogoParameter::label</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The COGO parameter label. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="61" column="5" bodyfile="src/core/cogo/cogooperation.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCogoParameter_1a8bbe77b3a1145305c6538deda9ba9fc8" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor CogoParameter::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>CogoParameter::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The COGO parameter color. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="66" column="5" bodyfile="src/core/cogo/cogooperation.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCogoParameter_1a25eac5e69ea60f8d537b9d01e9351597" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap CogoParameter::configuration</definition>
+        <argsstring></argsstring>
+        <name>configuration</name>
+        <qualifiedname>CogoParameter::configuration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The COGO parameter&apos;s extra configuration details. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="71" column="5" bodyfile="src/core/cogo/cogooperation.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCogoParameter_1a120691a89662909e8121b2a743e1ae3d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CogoParameter::CogoParameter</definition>
+        <argsstring>(const QString &amp;type=QString(), const QString &amp;name=QString(), const QString &amp;label=QString(), const QColor &amp;color=Qt::transparent, const QVariantMap &amp;configuration=QVariantMap())</argsstring>
+        <name>CogoParameter</name>
+        <qualifiedname>CogoParameter::CogoParameter</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>type</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>label</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+          <defval>Qt::transparent</defval>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>configuration</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="74" column="14" bodyfile="src/core/cogo/cogooperation.h" bodystart="74" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classCogoParameter_1a3fdd27983d2e8e5863192c620ccd6a55" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CogoParameter::operator==</definition>
+        <argsstring>(const CogoParameter &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>CogoParameter::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classCogoParameter" kindref="compound">CogoParameter</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="88" column="10" bodyfile="src/core/cogo/cogooperation.h" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classCogoParameter_1a221b8baea80cbd627b033d5bcab7ea2d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CogoParameter::operator!=</definition>
+        <argsstring>(const CogoParameter &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>CogoParameter::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classCogoParameter" kindref="compound">CogoParameter</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="93" column="10" bodyfile="src/core/cogo/cogooperation.h" bodystart="93" bodyend="93"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A COGO operation parameter. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/cogo/cogooperation.h" line="44" column="1" bodyfile="src/core/cogo/cogooperation.h" bodystart="45" bodyend="94"/>
+    <listofallmembers>
+      <member refid="classCogoParameter_1a120691a89662909e8121b2a743e1ae3d" prot="public" virt="non-virtual"><scope>CogoParameter</scope><name>CogoParameter</name></member>
+      <member refid="classCogoParameter_1a8bbe77b3a1145305c6538deda9ba9fc8" prot="public" virt="non-virtual"><scope>CogoParameter</scope><name>color</name></member>
+      <member refid="classCogoParameter_1a25eac5e69ea60f8d537b9d01e9351597" prot="public" virt="non-virtual"><scope>CogoParameter</scope><name>configuration</name></member>
+      <member refid="classCogoParameter_1a481a7ea0d385439c971762e1cc51a81f" prot="public" virt="non-virtual"><scope>CogoParameter</scope><name>label</name></member>
+      <member refid="classCogoParameter_1a48f8f1b441ce67ea329898f2d434f647" prot="public" virt="non-virtual"><scope>CogoParameter</scope><name>name</name></member>
+      <member refid="classCogoParameter_1a221b8baea80cbd627b033d5bcab7ea2d" prot="public" virt="non-virtual"><scope>CogoParameter</scope><name>operator!=</name></member>
+      <member refid="classCogoParameter_1a3fdd27983d2e8e5863192c620ccd6a55" prot="public" virt="non-virtual"><scope>CogoParameter</scope><name>operator==</name></member>
+      <member refid="classCogoParameter_1ac29c0445accea5a443b5b86eb0f77fa9" prot="public" virt="non-virtual"><scope>CogoParameter</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

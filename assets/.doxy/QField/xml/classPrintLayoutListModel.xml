@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPrintLayoutListModel" kind="class" language="C++" prot="public">
+    <compoundname>PrintLayoutListModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <innerclass refid="structPrintLayoutListModel_1_1PrintLayout" prot="private">PrintLayoutListModel::PrintLayout</innerclass>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classPrintLayoutListModel_1abd18ae3af335aca2a59d65aedf34453c" prot="private" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>PrintLayoutListModel::Roles</qualifiedname>
+        <enumvalue id="classPrintLayoutListModel_1abd18ae3af335aca2a59d65aedf34453ca412c91a0256c3ef42798bd44a84814c2" prot="private">
+          <name>TitleRow</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPrintLayoutListModel_1abd18ae3af335aca2a59d65aedf34453ca48a853cd4e7ec8a8115b3777fd99769f" prot="private">
+          <name>IndexRow</name>
+          <briefdescription>
+<para>the name of the print layout </para>
+          </briefdescription>
+          <detaileddescription>
+<para>the position of the print layout in list </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Roles to get the data of the model. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="40" column="5" bodyfile="src/core/printlayoutlistmodel.h" bodystart="41" bodyend="44"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPrintLayoutListModel_1abfc3c0566da941f8773d4452607ece42" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * PrintLayoutListModel::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>PrintLayoutListModel::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="34" column="5" bodyfile="src/core/printlayoutlistmodel.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPrintLayoutListModel_1aa71ce47e61348c9c05d269d3a5e5df3e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * PrintLayoutListModel::atlasCoverageLayer</definition>
+        <argsstring></argsstring>
+        <name>atlasCoverageLayer</name>
+        <qualifiedname>PrintLayoutListModel::atlasCoverageLayer</qualifiedname>
+        <read>atlasCoverageLayer</read>
+        <write>setAtlasCoverageLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="35" column="5" bodyfile="src/core/printlayoutlistmodel.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPrintLayoutListModel_1a236f6909ca05004b89db0b2f51afe984" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* PrintLayoutListModel::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>PrintLayoutListModel::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="86" column="16" bodyfile="src/core/printlayoutlistmodel.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPrintLayoutListModel_1a4589e85ca45f2abd4fcef59ad56b9c28" prot="private" static="no" mutable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer* PrintLayoutListModel::mAtlasCoverageLayr</definition>
+        <argsstring></argsstring>
+        <name>mAtlasCoverageLayr</name>
+        <qualifiedname>PrintLayoutListModel::mAtlasCoverageLayr</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="87" column="20" bodyfile="src/core/printlayoutlistmodel.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPrintLayoutListModel_1a0b5f408d8bdc152e1723456dea86cf93" prot="private" static="no" mutable="no">
+        <type>QList&lt; PrintLayout &gt;</type>
+        <definition>QList&lt;PrintLayout&gt; PrintLayoutListModel::mPrintLayouts</definition>
+        <argsstring></argsstring>
+        <name>mPrintLayouts</name>
+        <qualifiedname>PrintLayoutListModel::mPrintLayouts</qualifiedname>
+        <briefdescription>
+<para>List of PrintLayouts of current project to display. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="90" column="11" bodyfile="src/core/printlayoutlistmodel.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPrintLayoutListModel_1ae69f4a405fa56865abd2b6c060739d04" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PrintLayoutListModel::PrintLayoutListModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>PrintLayoutListModel</name>
+        <qualifiedname>PrintLayoutListModel::PrintLayoutListModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="59" column="14" bodyfile="src/core/printlayoutlistmodel.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classPrintLayoutListModel_1a88af9aeacd81f49bfa3ae286107ee796" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; PrintLayoutListModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>PrintLayoutListModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="61" column="11" bodyfile="src/core/printlayoutlistmodel.cpp" bodystart="26" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classPrintLayoutListModel_1a1859d3c2165d2c60c145588972a7800b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PrintLayoutListModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>PrintLayoutListModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="63" column="9" bodyfile="src/core/printlayoutlistmodel.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classPrintLayoutListModel_1aca9a5a32046618709452571013187bbc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant PrintLayoutListModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>PrintLayoutListModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="64" column="14" bodyfile="src/core/printlayoutlistmodel.cpp" bodystart="96" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classPrintLayoutListModel_1a7538ea2d4497f0e68e3446026895400f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * PrintLayoutListModel::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>PrintLayoutListModel::project</qualifiedname>
+        <briefdescription>
+<para>Returns the current project from which layouts are retrieved. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="67" column="16" bodyfile="src/core/printlayoutlistmodel.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classPrintLayoutListModel_1a726e55f38e0cd5968cc75a6a6cee3dac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintLayoutListModel::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>PrintLayoutListModel::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Sets the project to be used to retrieve layouts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="69" column="10" bodyfile="src/core/printlayoutlistmodel.cpp" bodystart="40" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classPrintLayoutListModel_1a573e548e76613ce4d91f55f6d309c4d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * PrintLayoutListModel::atlasCoverageLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>atlasCoverageLayer</name>
+        <qualifiedname>PrintLayoutListModel::atlasCoverageLayer</qualifiedname>
+        <briefdescription>
+<para>Returns the vector layer used to filter layouts to match atlas coverage layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="72" column="20" bodyfile="src/core/printlayoutlistmodel.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classPrintLayoutListModel_1a77b06e916e00772b19a98a09acc27ee3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintLayoutListModel::setAtlasCoverageLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>setAtlasCoverageLayer</name>
+        <qualifiedname>PrintLayoutListModel::setAtlasCoverageLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Sets the vector layer used to filter layouts to match atlas coverage layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="74" column="10" bodyfile="src/core/printlayoutlistmodel.cpp" bodystart="54" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classPrintLayoutListModel_1aecf5091d66a81ff4ff491d80fe345546" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE const QString</type>
+        <definition>const QString PrintLayoutListModel::titleAt</definition>
+        <argsstring>(int row) const</argsstring>
+        <name>titleAt</name>
+        <qualifiedname>PrintLayoutListModel::titleAt</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="76" column="31" bodyfile="src/core/printlayoutlistmodel.cpp" bodystart="109" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classPrintLayoutListModel_1abdf33d404cccaa81ace9943f72dfc503" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PrintLayoutListModel::reloadModel</definition>
+        <argsstring>()</argsstring>
+        <name>reloadModel</name>
+        <qualifiedname>PrintLayoutListModel::reloadModel</qualifiedname>
+        <briefdescription>
+<para>triggered when set another project </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="79" column="22" bodyfile="src/core/printlayoutlistmodel.cpp" bodystart="65" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classPrintLayoutListModel_1a3ad02736905c9667b4b1e6ab2233e10f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintLayoutListModel::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>PrintLayoutListModel::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="82" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPrintLayoutListModel_1a098bbf0bd4449ee94e75d30af52c179d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintLayoutListModel::atlasCoverageLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>atlasCoverageLayerChanged</name>
+        <qualifiedname>PrintLayoutListModel::atlasCoverageLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/printlayoutlistmodel.h" line="83" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PrintLayoutListModel</label>
+        <link refid="classPrintLayoutListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PrintLayoutListModel</label>
+        <link refid="classPrintLayoutListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/printlayoutlistmodel.h" line="30" column="1" bodyfile="src/core/printlayoutlistmodel.h" bodystart="31" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classPrintLayoutListModel_1aa71ce47e61348c9c05d269d3a5e5df3e" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>atlasCoverageLayer</name></member>
+      <member refid="classPrintLayoutListModel_1a573e548e76613ce4d91f55f6d309c4d4" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>atlasCoverageLayer</name></member>
+      <member refid="classPrintLayoutListModel_1a098bbf0bd4449ee94e75d30af52c179d" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>atlasCoverageLayerChanged</name></member>
+      <member refid="classPrintLayoutListModel_1aca9a5a32046618709452571013187bbc" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>data</name></member>
+      <member refid="classPrintLayoutListModel_1abd18ae3af335aca2a59d65aedf34453ca48a853cd4e7ec8a8115b3777fd99769f" prot="private" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>IndexRow</name></member>
+      <member refid="classPrintLayoutListModel_1a4589e85ca45f2abd4fcef59ad56b9c28" prot="private" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>mAtlasCoverageLayr</name></member>
+      <member refid="classPrintLayoutListModel_1a0b5f408d8bdc152e1723456dea86cf93" prot="private" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>mPrintLayouts</name></member>
+      <member refid="classPrintLayoutListModel_1a236f6909ca05004b89db0b2f51afe984" prot="private" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>mProject</name></member>
+      <member refid="classPrintLayoutListModel_1ae69f4a405fa56865abd2b6c060739d04" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>PrintLayoutListModel</name></member>
+      <member refid="classPrintLayoutListModel_1abfc3c0566da941f8773d4452607ece42" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>project</name></member>
+      <member refid="classPrintLayoutListModel_1a7538ea2d4497f0e68e3446026895400f" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>project</name></member>
+      <member refid="classPrintLayoutListModel_1a3ad02736905c9667b4b1e6ab2233e10f" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>projectChanged</name></member>
+      <member refid="classPrintLayoutListModel_1abdf33d404cccaa81ace9943f72dfc503" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>reloadModel</name></member>
+      <member refid="classPrintLayoutListModel_1a88af9aeacd81f49bfa3ae286107ee796" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>roleNames</name></member>
+      <member refid="classPrintLayoutListModel_1abd18ae3af335aca2a59d65aedf34453c" prot="private" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>Roles</name></member>
+      <member refid="classPrintLayoutListModel_1a1859d3c2165d2c60c145588972a7800b" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>rowCount</name></member>
+      <member refid="classPrintLayoutListModel_1a77b06e916e00772b19a98a09acc27ee3" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>setAtlasCoverageLayer</name></member>
+      <member refid="classPrintLayoutListModel_1a726e55f38e0cd5968cc75a6a6cee3dac" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>setProject</name></member>
+      <member refid="classPrintLayoutListModel_1aecf5091d66a81ff4ff491d80fe345546" prot="public" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>titleAt</name></member>
+      <member refid="classPrintLayoutListModel_1abd18ae3af335aca2a59d65aedf34453ca412c91a0256c3ef42798bd44a84814c2" prot="private" virt="non-virtual"><scope>PrintLayoutListModel</scope><name>TitleRow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

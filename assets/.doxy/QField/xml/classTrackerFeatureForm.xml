@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTrackerFeatureForm" kind="class" language="C++" prot="public">
+    <compoundname>TrackerFeatureForm</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPopup" prot="public" virt="non-virtual">Theme::QfPopup</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTrackerFeatureForm_1a2d0995df42fb7c7108ca99452dd0d4e7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerFeatureForm::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>TrackerFeatureForm::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="11" column="5" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerFeatureForm_1a1d1da69316aa409b67132af63d5b6389" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerFeatureForm::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>TrackerFeatureForm::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="12" column="5" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerFeatureForm_1a15c1c47a2b079c8c7ef6894add4ed127" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerFeatureForm::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>TrackerFeatureForm::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="13" column="5" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerFeatureForm_1a477cba37afdb42d8a7988ce8ec1b18a6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerFeatureForm::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>TrackerFeatureForm::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="14" column="5" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerFeatureForm_1a38e25abeb57c80bb462d14e7f3dc456f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerFeatureForm::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>TrackerFeatureForm::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="15" column="5" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerFeatureForm_1a5fe89d70736f45900ff4bbc99be58b41" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerFeatureForm::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>TrackerFeatureForm::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="16" column="5" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerFeatureForm_1a315071a8330f22621a57fca738f5dae5" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref></type>
+        <definition>FeatureModel TrackerFeatureForm::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>TrackerFeatureForm::featureModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="25" column="14" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerFeatureForm_1a30e0295f88e46d76fb5495768e5212c2" prot="private" static="no" mutable="no">
+        <type><ref refid="classAttributeFormModel" kindref="compound">AttributeFormModel</ref></type>
+        <definition>AttributeFormModel TrackerFeatureForm::embeddedAttributeFormModel</definition>
+        <argsstring></argsstring>
+        <name>embeddedAttributeFormModel</name>
+        <qualifiedname>TrackerFeatureForm::embeddedAttributeFormModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="26" column="20" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerFeatureForm_1a6bb15d6b09a149bd9173ad52a1464d3e" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader TrackerFeatureForm::embeddedFeatureForm</definition>
+        <argsstring></argsstring>
+        <name>embeddedFeatureForm</name>
+        <qualifiedname>TrackerFeatureForm::embeddedFeatureForm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="27" column="8" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerFeatureForm_1a5fe8a35c90c24e285553e1b9991e4fcd" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component TrackerFeatureForm::embeddedFeatureFormComponent</definition>
+        <argsstring></argsstring>
+        <name>embeddedFeatureFormComponent</name>
+        <qualifiedname>TrackerFeatureForm::embeddedFeatureFormComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="28" column="11" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerFeatureForm_1ad966b308c9206250fd461f433d3c632f" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfPopup" kindref="compound">QfPopup</ref></type>
+        <definition>QfPopup TrackerFeatureForm::embeddedFeatureFormPopup</definition>
+        <argsstring></argsstring>
+        <name>embeddedFeatureFormPopup</name>
+        <qualifiedname>TrackerFeatureForm::embeddedFeatureFormPopup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="29" column="9" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerFeatureForm_1a09d8125ea5dee04161f18fc4cbeff443" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureForm" kindref="compound">FeatureForm</ref></type>
+        <definition>FeatureForm TrackerFeatureForm::form</definition>
+        <argsstring></argsstring>
+        <name>form</name>
+        <qualifiedname>TrackerFeatureForm::form</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="30" column="13" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTrackerFeatureForm_1ad3b1272c2085f0c63b78f5b6eaeb9b52" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var TrackerFeatureForm::tracker</definition>
+        <argsstring></argsstring>
+        <name>tracker</name>
+        <qualifiedname>TrackerFeatureForm::tracker</qualifiedname>
+        <read>dummyGetter_tracker_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="19" column="1" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTrackerFeatureForm_1a8dbd97e386c3a985140ff99aa31f8ab3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TrackerFeatureForm::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>TrackerFeatureForm::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="21" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTrackerFeatureForm_1a83f3afaba5c828f8e18e75713e0bb680" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TrackerFeatureForm::startTracking</definition>
+        <argsstring>()</argsstring>
+        <name>startTracking</name>
+        <qualifiedname>TrackerFeatureForm::startTracking</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerFeatureForm.qml" line="23" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>TrackerFeatureForm</label>
+        <link refid="classTrackerFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>TrackerFeatureForm</label>
+        <link refid="classTrackerFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/TrackerFeatureForm.qml" line="10" column="1" bodyfile="src/qml/TrackerFeatureForm.qml" bodystart="10" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classTrackerFeatureForm_1a5fe89d70736f45900ff4bbc99be58b41" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>closePolicy</name></member>
+      <member refid="classTrackerFeatureForm_1a30e0295f88e46d76fb5495768e5212c2" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>embeddedAttributeFormModel</name></member>
+      <member refid="classTrackerFeatureForm_1a6bb15d6b09a149bd9173ad52a1464d3e" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>embeddedFeatureForm</name></member>
+      <member refid="classTrackerFeatureForm_1a5fe8a35c90c24e285553e1b9991e4fcd" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>embeddedFeatureFormComponent</name></member>
+      <member refid="classTrackerFeatureForm_1ad966b308c9206250fd461f433d3c632f" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>embeddedFeatureFormPopup</name></member>
+      <member refid="classTrackerFeatureForm_1a315071a8330f22621a57fca738f5dae5" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>featureModel</name></member>
+      <member refid="classTrackerFeatureForm_1a09d8125ea5dee04161f18fc4cbeff443" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>form</name></member>
+      <member refid="classTrackerFeatureForm_1a15c1c47a2b079c8c7ef6894add4ed127" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>height</name></member>
+      <member refid="classTrackerFeatureForm_1a2d0995df42fb7c7108ca99452dd0d4e7" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>parent</name></member>
+      <member refid="classTrackerFeatureForm_1a8dbd97e386c3a985140ff99aa31f8ab3" prot="public" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>requestJumpToPoint</name></member>
+      <member refid="classTrackerFeatureForm_1a83f3afaba5c828f8e18e75713e0bb680" prot="public" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>startTracking</name></member>
+      <member refid="classTrackerFeatureForm_1ad3b1272c2085f0c63b78f5b6eaeb9b52" prot="public" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>tracker</name></member>
+      <member refid="classTrackerFeatureForm_1a1d1da69316aa409b67132af63d5b6389" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>width</name></member>
+      <member refid="classTrackerFeatureForm_1a477cba37afdb42d8a7988ce8ec1b18a6" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>x</name></member>
+      <member refid="classTrackerFeatureForm_1a38e25abeb57c80bb462d14e7f3dc456f" prot="private" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1715 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File attributeformmodelbase.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-attributeformmodelbasecpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File attributeformmodelbase.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-attributeformmodelbasecpp">File attributeformmodelbase.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../attributeformmodelbase_8cpp/"><strong>attributeformmodelbase.cpp</strong></a></p>
+<p><a href="../attributeformmodelbase_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+  attributeformmodelbase.cpp - AttributeFormModelBase
+
+ ---------------------
+ begin                : 16.8.2016
+ copyright            : (C) 2016 by Matthias Kuhn
+ email                : matthias@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &quot;attributeformmodel.h&quot;
+#include &quot;attributeformmodelbase.h&quot;
+
+#include &lt;QDirIterator&gt;
+#include &lt;QRegularExpression&gt;
+#include &lt;qgsattributeeditorelement.h&gt;
+#include &lt;qgsattributeeditorfield.h&gt;
+#include &lt;qgsattributeeditorhtmlelement.h&gt;
+#include &lt;qgsattributeeditorqmlelement.h&gt;
+#include &lt;qgsattributeeditorrelation.h&gt;
+#include &lt;qgsattributeeditorspacerelement.h&gt;
+#include &lt;qgsattributeeditortextelement.h&gt;
+#include &lt;qgsdatetimefieldformatter.h&gt;
+#include &lt;qgseditorwidgetsetup.h&gt;
+#include &lt;qgsexpressioncontextutils.h&gt;
+#include &lt;qgsmapthemecollection.h&gt;
+#include &lt;qgsproject.h&gt;
+#include &lt;qgsrelationmanager.h&gt;
+#include &lt;qgsvaluerelationfieldformatter.h&gt;
+#include &lt;qgsvectorlayer.h&gt;
+#include &lt;qgsvectorlayerutils.h&gt;
+
+Q_GLOBAL_STATIC( QStringList, sSupportedEditorWidgets );
+
+AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
+  : QStandardItemModel( 0, 1, parent )
+{
+  connect( QgsProject::instance(), &amp;QgsProject::mapThemeCollectionChanged, this, &amp;AttributeFormModelBase::onMapThemeCollectionChanged );
+  if ( QgsProject::instance()-&gt;mapThemeCollection() )
+  {
+    onMapThemeCollectionChanged();
+  }
+
+  if ( sSupportedEditorWidgets-&gt;isEmpty() )
+  {
+    QDirIterator it( &quot;:qml/editorwidgets&quot; );
+    while ( it.hasNext() )
+    {
+      it.next();
+      const QFileInfo fileInfo = it.fileInfo();
+      if ( fileInfo.isFile() )
+      {
+        sSupportedEditorWidgets-&gt;append( fileInfo.baseName() );
+      }
+    }
+    sSupportedEditorWidgets-&gt;append( QStringLiteral( &quot;RelationEditor&quot; ) );
+    sSupportedEditorWidgets-&gt;append( QStringLiteral( &quot;Hidden&quot; ) );
+  }
+}
+
+void AttributeFormModelBase::onMapThemeCollectionChanged()
+{
+  connect( QgsProject::instance()-&gt;mapThemeCollection(), &amp;QgsMapThemeCollection::mapThemeChanged, this, [this] { resetModel(); applyFeatureModel(); } );
+}
+
+QHash&lt;int, QByteArray&gt; AttributeFormModelBase::roleNames() const
+{
+  QHash&lt;int, QByteArray&gt; roles = QAbstractItemModel::roleNames();
+
+  roles[AttributeFormModel::ElementType] = &quot;Type&quot;;
+  roles[AttributeFormModel::Name] = &quot;Name&quot;;
+  roles[AttributeFormModel::AttributeValue] = &quot;AttributeValue&quot;;
+  roles[AttributeFormModel::AttributeEditable] = &quot;AttributeEditable&quot;;
+  roles[AttributeFormModel::EditorWidget] = &quot;EditorWidget&quot;;
+  roles[AttributeFormModel::EditorWidgetConfig] = &quot;EditorWidgetConfig&quot;;
+  roles[AttributeFormModel::RelationEditorWidget] = &quot;RelationEditorWidget&quot;;
+  roles[AttributeFormModel::RelationEditorWidgetConfig] = &quot;RelationEditorWidgetConfig&quot;;
+  roles[AttributeFormModel::CanRememberValue] = &quot;CanRememberValue&quot;;
+  roles[AttributeFormModel::RememberValue] = &quot;RememberValue&quot;;
+  roles[AttributeFormModel::Field] = &quot;Field&quot;;
+  roles[AttributeFormModel::RelationId] = &quot;RelationId&quot;;
+  roles[AttributeFormModel::NmRelationId] = &quot;NmRelationId&quot;;
+  roles[AttributeFormModel::ConstraintHardValid] = &quot;ConstraintHardValid&quot;;
+  roles[AttributeFormModel::ConstraintSoftValid] = &quot;ConstraintSoftValid&quot;;
+  roles[AttributeFormModel::ConstraintDescription] = &quot;ConstraintDescription&quot;;
+  roles[AttributeFormModel::AttributeAllowEdit] = &quot;AttributeAllowEdit&quot;;
+  roles[AttributeFormModel::EditorWidgetCode] = &quot;EditorWidgetCode&quot;;
+  roles[AttributeFormModel::TabIndex] = &quot;TabIndex&quot;;
+  roles[AttributeFormModel::GroupColor] = &quot;GroupColor&quot;;
+  roles[AttributeFormModel::GroupName] = &quot;GroupName&quot;;
+  roles[AttributeFormModel::GroupIndex] = &quot;GroupIndex&quot;;
+  roles[AttributeFormModel::ColumnCount] = &quot;ColumnCount&quot;;
+  roles[AttributeFormModel::LabelOverrideColor] = &quot;LabelOverrideColor&quot;;
+  roles[AttributeFormModel::LabelColor] = &quot;LabelColor&quot;;
+  roles[AttributeFormModel::LabelOverrideFont] = &quot;LabelOverrideFont&quot;;
+  roles[AttributeFormModel::LabelFont] = &quot;LabelFont&quot;;
+
+  return roles;
+}
+
+bool AttributeFormModelBase::setData( const QModelIndex &amp;index, const QVariant &amp;value, int role )
+{
+  QStandardItem *item = itemFromIndex( index );
+  if ( !item )
+    return false;
+
+  if ( !qgsVariantEqual( data( index, role ), value ) )
+  {
+    switch ( role )
+    {
+      case AttributeFormModel::AttributeAllowEdit:
+      {
+        const int fieldIndex = item-&gt;data( AttributeFormModel::FieldIndex ).toInt();
+        mFeatureModel-&gt;setData( mFeatureModel-&gt;index( fieldIndex ), value, FeatureModel::AttributeAllowEdit );
+        item-&gt;setData( value, AttributeFormModel::AttributeAllowEdit );
+        updateVisibilityAndConstraints( fieldIndex );
+        break;
+      }
+
+      case AttributeFormModel::RememberValue:
+      {
+        const int fieldIndex = item-&gt;data( AttributeFormModel::FieldIndex ).toInt();
+        mFeatureModel-&gt;setData( mFeatureModel-&gt;index( fieldIndex ), value, FeatureModel::RememberAttribute );
+        item-&gt;setData( value, AttributeFormModel::RememberValue );
+        break;
+      }
+
+      case AttributeFormModel::AttributeValue:
+      {
+        const int fieldIndex = item-&gt;data( AttributeFormModel::FieldIndex ).toInt();
+        const bool changed = mFeatureModel-&gt;setData( mFeatureModel-&gt;index( fieldIndex ), value, FeatureModel::AttributeValue );
+        if ( changed )
+        {
+          mExpressionContext.popScope();
+          mExpressionContext &lt;&lt; QgsExpressionContextUtils::formScope( mFeatureModel-&gt;feature() );
+          synchronizeFieldValue( fieldIndex, value );
+        }
+        updateDefaultValues( fieldIndex );
+        updateVisibilityAndConstraints( fieldIndex );
+        return changed;
+      }
+    }
+  }
+  return false;
+}
+
+FeatureModel *AttributeFormModelBase::featureModel() const
+{
+  return mFeatureModel;
+}
+
+void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
+{
+  if ( mFeatureModel == featureModel )
+    return;
+
+  if ( mFeatureModel )
+  {
+    disconnect( mFeatureModel, &amp;FeatureModel::currentLayerChanged, this, &amp;AttributeFormModelBase::resetModel );
+    disconnect( mFeatureModel, &amp;FeatureModel::modelReset, this, &amp;AttributeFormModelBase::applyFeatureModel );
+    disconnect( mFeatureModel, &amp;FeatureModel::featureUpdated, this, &amp;AttributeFormModelBase::applyFeatureModel );
+    disconnect( mFeatureModel, &amp;FeatureModel::linkedParentFeatureChanged, this, &amp;AttributeFormModelBase::applyFeatureModel );
+  }
+
+  mFeatureModel = featureModel;
+
+  connect( mFeatureModel, &amp;FeatureModel::currentLayerChanged, this, &amp;AttributeFormModelBase::resetModel );
+  connect( mFeatureModel, &amp;FeatureModel::modelReset, this, &amp;AttributeFormModelBase::applyFeatureModel );
+  connect( mFeatureModel, &amp;FeatureModel::featureUpdated, this, &amp;AttributeFormModelBase::applyFeatureModel );
+  connect( mFeatureModel, &amp;FeatureModel::linkedParentFeatureChanged, this, &amp;AttributeFormModelBase::applyFeatureModel );
+
+  emit featureModelChanged();
+}
+
+void AttributeFormModelBase::resetModel()
+{
+  clear();
+
+  mVisibilityExpressions.clear();
+  mFields.clear();
+  mAliasExpressions.clear();
+  mReadOnlyExpressions.clear();
+  mEditorWidgetCodes.clear();
+  mEditorWidgetCodesRequirements.clear();
+
+  setConstraintsHardValid( true );
+  setConstraintsSoftValid( true );
+  setHasTabs( false );
+  setHasRemembrance( false );
+  setHasConstraints( false );
+
+  if ( !mFeatureModel )
+    return;
+
+  mLayer = mFeatureModel-&gt;layer();
+
+  if ( mLayer )
+  {
+    QgsAttributeEditorContainer *root;
+    if ( mLayer-&gt;editFormConfig().layout() == Qgis::AttributeFormLayout::DragAndDrop )
+    {
+      root = mLayer-&gt;editFormConfig().invisibleRootContainer();
+      mTemporaryContainer.reset();
+    }
+    else
+    {
+      root = generateRootContainer();
+      mTemporaryContainer.reset( root );
+    }
+
+    const bool hasTabs = !root-&gt;children().isEmpty() &amp;&amp; Qgis::AttributeEditorType::Container == root-&gt;children().first()-&gt;type();
+
+    invisibleRootItem()-&gt;setColumnCount( 1 );
+    QList&lt;QStandardItem *&gt; containers;
+    if ( hasTabs )
+    {
+      setHasTabs( true );
+
+      const QList&lt;QgsAttributeEditorElement *&gt; children { root-&gt;children() };
+      int currentTab = 0;
+      for ( QgsAttributeEditorElement *element : children )
+      {
+        if ( element-&gt;type() == Qgis::AttributeEditorType::Container )
+        {
+          QgsAttributeEditorContainer *container = static_cast&lt;QgsAttributeEditorContainer *&gt;( element );
+          const int columnCount = container-&gt;columnCount();
+
+          QStandardItem *item = new QStandardItem();
+          item-&gt;setData( element-&gt;name(), AttributeFormModel::Name );
+          item-&gt;setData( &quot;container&quot;, AttributeFormModel::ElementType );
+          item-&gt;setData( QString(), AttributeFormModel::GroupName );
+          item-&gt;setData( QModelIndex(), AttributeFormModel::GroupIndex );
+          item-&gt;setData( true, AttributeFormModel::CurrentlyVisible );
+          item-&gt;setData( true, AttributeFormModel::ConstraintHardValid );
+          item-&gt;setData( true, AttributeFormModel::ConstraintSoftValid );
+
+          QString visibilityExpression;
+          if ( container-&gt;visibilityExpression().enabled() )
+          {
+            visibilityExpression = container-&gt;visibilityExpression().data().expression();
+          }
+
+          buildForm( container, item, visibilityExpression, containers, currentTab, columnCount );
+          invisibleRootItem()-&gt;appendRow( item );
+
+          if ( !visibilityExpression.isEmpty() )
+          {
+            mVisibilityExpressions.append( qMakePair( container-&gt;visibilityExpression().data(), item ) );
+          }
+
+          currentTab++;
+        }
+      }
+    }
+    else
+    {
+      buildForm( invisibleRootContainer(), invisibleRootItem(), QString(), containers );
+    }
+
+    for ( QStandardItem *container : std::as_const( containers ) )
+    {
+      container-&gt;setData( container-&gt;index(), AttributeFormModel::GroupIndex );
+    }
+  }
+}
+
+void AttributeFormModelBase::applyFeatureModel()
+{
+  mExpressionContext = mFeatureModel-&gt;createExpressionContext();
+  mExpressionContext.setFields( mFeatureModel-&gt;feature().fields() );
+  mExpressionContext.setFeature( mFeatureModel-&gt;feature() );
+  mExpressionContext &lt;&lt; QgsExpressionContextUtils::formScope( mFeatureModel-&gt;feature() );
+
+  for ( int i = 0; i &lt; invisibleRootItem()-&gt;rowCount(); ++i )
+  {
+    updateAttributeValue( invisibleRootItem()-&gt;child( i ) );
+  }
+
+  updateVisibilityAndConstraints();
+}
+
+void AttributeFormModelBase::applyParentDefaultValues()
+{
+  if ( mFeatureModel-&gt;linkedParentFeature().isValid() )
+  {
+    const bool featureIsNew = std::numeric_limits&lt;QgsFeatureId&gt;::min() == mFeatureModel-&gt;feature().id();
+    QgsFields fields = mFeatureModel-&gt;feature().fields();
+    mExpressionContext.setFields( fields );
+    mExpressionContext.setFeature( mFeatureModel-&gt;feature() );
+
+    QMap&lt;QStandardItem *, int&gt;::ConstIterator fieldIterator( mFields.constBegin() );
+    for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+    {
+      const int fidx = fieldIterator.value();
+      if ( !fields.at( fidx ).defaultValueDefinition().isValid() || ( !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() &amp;&amp; !featureIsNew ) )
+        continue;
+
+      if ( fields.at( fidx ).defaultValueDefinition().expression().indexOf( &quot;@current_parent_&quot; ) &gt; -1 )
+      {
+        QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
+        exp.prepare( &amp;mExpressionContext );
+        const QVariant defaultValue = exp.evaluate( &amp;mExpressionContext );
+        const bool success = mFeatureModel-&gt;setData( mFeatureModel-&gt;index( fidx ), defaultValue, FeatureModel::AttributeValue );
+        if ( success )
+        {
+          synchronizeFieldValue( fidx, defaultValue );
+        }
+      }
+    }
+  }
+}
+
+void AttributeFormModelBase::applyRelationshipDefaultValues()
+{
+  const bool featureIsNew = std::numeric_limits&lt;QgsFeatureId&gt;::min() == mFeatureModel-&gt;feature().id();
+  QgsFields fields = mFeatureModel-&gt;feature().fields();
+  mExpressionContext.setFields( fields );
+  mExpressionContext.setFeature( mFeatureModel-&gt;feature() );
+  mExpressionContext.clearCachedValues();
+
+  QMap&lt;QStandardItem *, int&gt;::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    const int fidx = fieldIterator.value();
+    if ( !fields.at( fidx ).defaultValueDefinition().isValid() || ( !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() &amp;&amp; !featureIsNew ) )
+      continue;
+
+    if ( fields.at( fidx ).defaultValueDefinition().expression().indexOf( &quot;relation_aggregate(&quot; ) &gt; -1 )
+    {
+      QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
+      exp.prepare( &amp;mExpressionContext );
+      const QVariant defaultValue = exp.evaluate( &amp;mExpressionContext );
+      const bool success = mFeatureModel-&gt;setData( mFeatureModel-&gt;index( fidx ), defaultValue, FeatureModel::AttributeValue );
+      if ( success )
+      {
+        synchronizeFieldValue( fidx, defaultValue );
+        updateVisibilityAndConstraints( fidx );
+      }
+    }
+  }
+}
+
+void AttributeFormModelBase::activateAllRememberValues()
+{
+  QMap&lt;QStandardItem *, int&gt;::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    setData( fieldIterator.key()-&gt;index(), true, AttributeFormModel::RememberValue );
+  }
+}
+
+void AttributeFormModelBase::deactivateAllRememberValues()
+{
+  QMap&lt;QStandardItem *, int&gt;::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    setData( fieldIterator.key()-&gt;index(), false, AttributeFormModel::RememberValue );
+  }
+}
+
+QgsAttributeEditorContainer *AttributeFormModelBase::generateRootContainer() const
+{
+  QgsAttributeEditorContainer *root = new QgsAttributeEditorContainer( QString(), nullptr );
+  //get fields
+  QgsFields fields = mLayer-&gt;fields();
+  for ( int i = 0; i &lt; fields.size(); ++i )
+  {
+    if ( fields.at( i ).editorWidgetSetup().type() != QStringLiteral( &quot;Hidden&quot; ) )
+    {
+      QgsAttributeEditorField *field = new QgsAttributeEditorField( fields.at( i ).name(), i, root );
+      root-&gt;addChildElement( field );
+    }
+  }
+  //get relations
+  const QList&lt;QgsRelation&gt; referencingRelations = QgsProject::instance()-&gt;relationManager()-&gt;referencedRelations( mLayer );
+  for ( const QgsRelation &amp;referencingRelation : referencingRelations )
+  {
+    QgsAttributeEditorRelation *relation = new QgsAttributeEditorRelation( referencingRelation, root );
+    root-&gt;addChildElement( relation );
+  }
+  return root;
+}
+
+QgsAttributeEditorContainer *AttributeFormModelBase::invisibleRootContainer() const
+{
+  return mTemporaryContainer ? mTemporaryContainer.get() : mLayer-&gt;editFormConfig().invisibleRootContainer();
+}
+
+void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
+{
+  if ( item-&gt;data( AttributeFormModel::ElementType ) == QStringLiteral( &quot;field&quot; ) )
+  {
+    int fieldIndex = item-&gt;data( AttributeFormModel::FieldIndex ).toInt();
+    QVariant attributeValue = mFeatureModel-&gt;data( mFeatureModel-&gt;index( fieldIndex ), FeatureModel::AttributeValue );
+    item-&gt;setData( attributeValue.isNull() ? QVariant() : attributeValue, AttributeFormModel::AttributeValue );
+    item-&gt;setData( mFeatureModel-&gt;data( mFeatureModel-&gt;index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
+    // set item editable state to false in case it's a linked attribute
+    if ( mFeatureModel-&gt;data( mFeatureModel-&gt;index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool() )
+    {
+      item-&gt;setData( false, AttributeFormModel::AttributeEditable );
+    }
+    else
+    {
+      if ( mReadOnlyExpressions.contains( item ) )
+      {
+        QgsExpression exp( mReadOnlyExpressions[item] );
+        exp.prepare( &amp;mExpressionContext );
+        QVariant result = exp.evaluate( &amp;mExpressionContext );
+        item-&gt;setData( result.isValid() &amp;&amp; result.toBool() == true, AttributeFormModel::AttributeEditable );
+      }
+    }
+
+    if ( mAliasExpressions.contains( item ) )
+    {
+      QgsExpression exp( mAliasExpressions[item] );
+      exp.prepare( &amp;mExpressionContext );
+      QVariant result = exp.evaluate( &amp;mExpressionContext );
+      if ( result.isValid() )
+      {
+        item-&gt;setData( result, AttributeFormModel::Name );
+      }
+    }
+  }
+  else if ( item-&gt;data( AttributeFormModel::ElementType ) == QStringLiteral( &quot;qml&quot; ) || item-&gt;data( AttributeFormModel::ElementType ) == QStringLiteral( &quot;html&quot; ) )
+  {
+    QString code = mEditorWidgetCodes[item];
+
+    QRegularExpression re( R&quot;re(expression\.evaluate\s*\(\s*&quot;(.*?[^\\])&quot;\))re&quot;, QRegularExpression::PatternOption::MultilineOption | QRegularExpression::PatternOption::DotMatchesEverythingOption );
+    QRegularExpressionMatch match = re.match( code );
+    while ( match.hasMatch() )
+    {
+      QString expression = match.captured( 1 );
+      expression = expression.replace( QStringLiteral( &quot;\\\&quot;&quot; ), QStringLiteral( &quot;\&quot;&quot; ) );
+
+      mExpressionContext.setFeature( mFeatureModel-&gt;feature() );
+
+      QgsExpression exp = QgsExpression( expression );
+      exp.prepare( &amp;mExpressionContext );
+      QVariant result = exp.evaluate( &amp;mExpressionContext );
+
+      QString resultString;
+      switch ( static_cast&lt;QMetaType::Type&gt;( result.typeId() ) )
+      {
+        case QMetaType::Int:
+        case QMetaType::UInt:
+        case QMetaType::Double:
+        case QMetaType::LongLong:
+        case QMetaType::ULongLong:
+          resultString = result.toString();
+          break;
+        case QMetaType::Bool:
+          resultString = result.toBool() ? QStringLiteral( &quot;true&quot; ) : QStringLiteral( &quot;false&quot; );
+          break;
+        default:
+          resultString = QStringLiteral( &quot;'%1'&quot; ).arg( result.toString() );
+          break;
+      }
+      code = code.mid( 0, match.capturedStart( 0 ) ) + resultString + code.mid( match.capturedEnd( 0 ) );
+      match = re.match( code );
+    }
+    item-&gt;setData( code, AttributeFormModel::EditorWidgetCode );
+  }
+  else if ( item-&gt;data( AttributeFormModel::ElementType ) == QStringLiteral( &quot;text&quot; ) )
+  {
+    QString code = mEditorWidgetCodes[item];
+
+    mExpressionContext.setFeature( mFeatureModel-&gt;feature() );
+    code = QgsExpression::replaceExpressionText( code, &amp;mExpressionContext );
+    item-&gt;setData( code, AttributeFormModel::EditorWidgetCode );
+  }
+  else
+  {
+    for ( int i = 0; i &lt; item-&gt;rowCount(); ++i )
+    {
+      updateAttributeValue( item-&gt;child( i ) );
+    }
+  }
+}
+
+void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &amp;parentVisibilityExpressions, QList&lt;QStandardItem *&gt; &amp;containers, int currentTabIndex, int columnCount )
+{
+  const QList&lt;QgsAttributeEditorElement *&gt; children { container-&gt;children() };
+  for ( QgsAttributeEditorElement *element : children )
+  {
+    QStandardItem *item = new QStandardItem();
+    item-&gt;setData( columnCount, AttributeFormModel::ColumnCount );
+    item-&gt;setData( currentTabIndex, AttributeFormModel::TabIndex );
+    item-&gt;setData( QString(), AttributeFormModel::GroupName );
+    item-&gt;setData( QModelIndex(), AttributeFormModel::GroupIndex );
+    item-&gt;setData( true, AttributeFormModel::ConstraintHardValid );
+    item-&gt;setData( true, AttributeFormModel::ConstraintSoftValid );
+    item-&gt;setData( false, AttributeFormModel::CanRememberValue );
+
+    QgsAttributeEditorElement::LabelStyle labelStyle = element-&gt;labelStyle();
+    item-&gt;setData( labelStyle.overrideColor, AttributeFormModel::LabelOverrideColor );
+    item-&gt;setData( labelStyle.overrideColor ? labelStyle.color : QColor(), AttributeFormModel::LabelColor );
+    item-&gt;setData( labelStyle.overrideFont, AttributeFormModel::LabelOverrideFont );
+    item-&gt;setData( labelStyle.overrideFont ? labelStyle.font : QFont(), AttributeFormModel::LabelFont );
+
+    switch ( element-&gt;type() )
+    {
+      case Qgis::AttributeEditorType::Container:
+      {
+        QString visibilityExpression = parentVisibilityExpressions;
+        QgsAttributeEditorContainer *innerContainer = static_cast&lt;QgsAttributeEditorContainer *&gt;( element );
+        const int innerColumnCount = innerContainer-&gt;columnCount();
+        if ( innerContainer-&gt;visibilityExpression().enabled() )
+        {
+          if ( visibilityExpression.isNull() )
+            visibilityExpression = innerContainer-&gt;visibilityExpression().data().expression();
+          else
+            visibilityExpression += &quot; AND &quot; + innerContainer-&gt;visibilityExpression().data().expression();
+        }
+
+        item-&gt;setData( &quot;container&quot;, AttributeFormModel::ElementType );
+        item-&gt;setData( element-&gt;showLabel() ? innerContainer-&gt;name() : QString(), AttributeFormModel::Name );
+        item-&gt;setData( true, AttributeFormModel::CurrentlyVisible );
+        item-&gt;setData( false, AttributeFormModel::AttributeEditable );
+        item-&gt;setData( false, AttributeFormModel::AttributeAllowEdit );
+        item-&gt;setData( element-&gt;showLabel() ? innerContainer-&gt;name() : QString(), AttributeFormModel::GroupName );
+        if ( innerContainer-&gt;backgroundColor().isValid() )
+          item-&gt;setData( innerContainer-&gt;backgroundColor(), AttributeFormModel::GroupColor );
+
+        buildForm( innerContainer, item, visibilityExpression, containers, 0, innerColumnCount );
+        parent-&gt;appendRow( item );
+        containers &lt;&lt; item;
+
+        if ( !visibilityExpression.isEmpty() )
+          mVisibilityExpressions.append( qMakePair( QgsExpression( visibilityExpression ), item ) );
+        break;
+      }
+
+      case Qgis::AttributeEditorType::Field:
+      {
+        QgsAttributeEditorField *editorField = static_cast&lt;QgsAttributeEditorField *&gt;( element );
+
+        // editorField-&gt;idx() is not working on joined fields
+        const QgsFields fields = mLayer-&gt;fields();
+        int fieldIndex = fields.lookupField( editorField-&gt;name() );
+
+        if ( fieldIndex &lt; 0 || fieldIndex &gt;= mLayer-&gt;fields().size() )
+          continue;
+
+        const QgsField field = mLayer-&gt;fields().at( fieldIndex );
+        const QgsEditorWidgetSetup setup = findBest( fieldIndex );
+
+        item-&gt;setData( element-&gt;showLabel() ? mLayer-&gt;attributeDisplayName( fieldIndex ) : QString(), AttributeFormModel::Name );
+        item-&gt;setData( !mLayer-&gt;editFormConfig().readOnly( fieldIndex ) &amp;&amp; setup.type() != QStringLiteral( &quot;Binary&quot; ), AttributeFormModel::AttributeEditable );
+        item-&gt;setData( setup.type(), AttributeFormModel::EditorWidget );
+        item-&gt;setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
+#if _QGIS_VERSION_INT &gt;= 39900
+        const bool canRemember = mLayer-&gt;editFormConfig().reuseLastValuePolicy( fieldIndex ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed;
+        item-&gt;setData( canRemember, AttributeFormModel::CanRememberValue );
+        if ( canRemember )
+        {
+          setHasRemembrance( true );
+        }
+#else
+        item-&gt;setData( true, AttributeFormModel::CanRememberValue );
+#endif
+        item-&gt;setData( mFeatureModel-&gt;rememberedAttributes().at( fieldIndex ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
+        item-&gt;setData( QgsField( field ), AttributeFormModel::Field );
+        item-&gt;setData( &quot;field&quot;, AttributeFormModel::ElementType );
+        item-&gt;setData( fieldIndex, AttributeFormModel::FieldIndex );
+        item-&gt;setData( true, AttributeFormModel::CurrentlyVisible );
+        item-&gt;setData( mFeatureModel-&gt;data( mFeatureModel-&gt;index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
+
+        // create constraint description
+        QStringList descriptions;
+        if ( field.constraints().constraints() &amp; QgsFieldConstraints::ConstraintExpression )
+        {
+          descriptions &lt;&lt; ( !field.constraints().constraintDescription().isEmpty()
+                              ? field.constraints().constraintDescription()
+                              : tr( &quot;Expression constraint&quot; ) );
+        }
+        if ( field.constraints().constraints() &amp; QgsFieldConstraints::ConstraintNotNull )
+        {
+          descriptions &lt;&lt; tr( &quot;Not NULL&quot; );
+        }
+        if ( field.constraints().constraints() &amp; QgsFieldConstraints::ConstraintUnique )
+        {
+          descriptions &lt;&lt; tr( &quot;Unique&quot; );
+        }
+
+        if ( !descriptions.isEmpty() )
+        {
+          setHasConstraints( true );
+          item-&gt;setData( descriptions.join( &quot;, &quot; ), AttributeFormModel::ConstraintDescription );
+        }
+        else
+        {
+          item-&gt;setData( QString(), AttributeFormModel::ConstraintDescription );
+        }
+
+        QgsProperty property = mLayer-&gt;editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Alias );
+        if ( property.isActive() )
+        {
+          mAliasExpressions.insert( item, property.asExpression() );
+        }
+        property = mLayer-&gt;editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Editable );
+        if ( property.isActive() )
+        {
+          mReadOnlyExpressions.insert( item, property.asExpression() );
+        }
+
+        updateAttributeValue( item );
+
+        mFields.insert( item, fieldIndex );
+
+        parent-&gt;appendRow( item );
+        break;
+      }
+
+      case Qgis::AttributeEditorType::Relation:
+      {
+        QgsAttributeEditorRelation *editorRelation = static_cast&lt;QgsAttributeEditorRelation *&gt;( element );
+        const QgsRelation relation = editorRelation-&gt;relation();
+
+        item-&gt;setData( element-&gt;showLabel() ? !editorRelation-&gt;label().isEmpty() ? editorRelation-&gt;label() : relation.name() : QString(), AttributeFormModel::Name );
+        item-&gt;setData( true, AttributeFormModel::AttributeEditable );
+        item-&gt;setData( true, AttributeFormModel::CurrentlyVisible );
+        item-&gt;setData( &quot;relation&quot;, AttributeFormModel::ElementType );
+        item-&gt;setData( &quot;RelationEditor&quot;, AttributeFormModel::EditorWidget );
+        item-&gt;setData( editorRelation-&gt;relationWidgetTypeId(), AttributeFormModel::RelationEditorWidget );
+        item-&gt;setData( editorRelation-&gt;relationEditorConfiguration(), AttributeFormModel::RelationEditorWidgetConfig );
+        item-&gt;setData( relation.id(), AttributeFormModel::RelationId );
+        item-&gt;setData( editorRelation-&gt;nmRelationId(), AttributeFormModel::NmRelationId );
+        item-&gt;setData( true, AttributeFormModel::CurrentlyVisible );
+        item-&gt;setData( true, AttributeFormModel::ConstraintHardValid );
+        item-&gt;setData( true, AttributeFormModel::ConstraintSoftValid );
+        item-&gt;setData( true, AttributeFormModel::AttributeAllowEdit );
+
+        parent-&gt;appendRow( item );
+        break;
+      }
+
+      case Qgis::AttributeEditorType::QmlElement:
+      {
+        QgsAttributeEditorQmlElement *qmlElement = static_cast&lt;QgsAttributeEditorQmlElement *&gt;( element );
+
+        item-&gt;setData( &quot;qml&quot;, AttributeFormModel::ElementType );
+        item-&gt;setData( element-&gt;showLabel() ? qmlElement-&gt;name() : QString(), AttributeFormModel::Name );
+        item-&gt;setData( true, AttributeFormModel::CurrentlyVisible );
+        item-&gt;setData( false, AttributeFormModel::AttributeEditable );
+        item-&gt;setData( false, AttributeFormModel::AttributeAllowEdit );
+
+
+        updateAttributeValue( item );
+        parent-&gt;appendRow( item );
+        mEditorWidgetCodes.insert( item, qmlElement-&gt;qmlCode() );
+        break;
+      }
+
+      case Qgis::AttributeEditorType::HtmlElement:
+      {
+        QgsAttributeEditorHtmlElement *htmlElement = static_cast&lt;QgsAttributeEditorHtmlElement *&gt;( element );
+
+        item-&gt;setData( &quot;html&quot;, AttributeFormModel::ElementType );
+        item-&gt;setData( element-&gt;showLabel() ? htmlElement-&gt;name() : QString(), AttributeFormModel::Name );
+        item-&gt;setData( true, AttributeFormModel::CurrentlyVisible );
+        item-&gt;setData( false, AttributeFormModel::AttributeEditable );
+        item-&gt;setData( false, AttributeFormModel::AttributeAllowEdit );
+
+        updateAttributeValue( item );
+        parent-&gt;appendRow( item );
+        mEditorWidgetCodes.insert( item, htmlElement-&gt;htmlCode() );
+        break;
+      }
+
+      case Qgis::AttributeEditorType::TextElement:
+      {
+        QgsAttributeEditorTextElement *textElement = static_cast&lt;QgsAttributeEditorTextElement *&gt;( element );
+
+        item-&gt;setData( &quot;text&quot;, AttributeFormModel::ElementType );
+        item-&gt;setData( element-&gt;showLabel() ? textElement-&gt;name() : QString(), AttributeFormModel::Name );
+        item-&gt;setData( true, AttributeFormModel::CurrentlyVisible );
+        item-&gt;setData( false, AttributeFormModel::AttributeEditable );
+        item-&gt;setData( false, AttributeFormModel::AttributeAllowEdit );
+
+        updateAttributeValue( item );
+        parent-&gt;appendRow( item );
+        mEditorWidgetCodes.insert( item, textElement-&gt;text() );
+        break;
+      }
+
+      case Qgis::AttributeEditorType::SpacerElement:
+      {
+        QgsAttributeEditorSpacerElement *spacerElement = static_cast&lt;QgsAttributeEditorSpacerElement *&gt;( element );
+
+        item-&gt;setData( &quot;spacer&quot;, AttributeFormModel::ElementType );
+        item-&gt;setData( spacerElement-&gt;drawLine() ? QStringLiteral( &quot;-&quot; ) : QString(), AttributeFormModel::Name );
+        item-&gt;setData( true, AttributeFormModel::CurrentlyVisible );
+        item-&gt;setData( false, AttributeFormModel::AttributeEditable );
+        item-&gt;setData( false, AttributeFormModel::AttributeAllowEdit );
+
+        parent-&gt;appendRow( item );
+        break;
+      }
+
+      case Qgis::AttributeEditorType::Action:
+      case Qgis::AttributeEditorType::Invalid:
+        // TODO: implement
+        delete item;
+        break;
+    }
+  }
+}
+
+void AttributeFormModelBase::synchronizeFieldValue( int fieldIndex, QVariant value )
+{
+  QMap&lt;QStandardItem *, int&gt;::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    QStandardItem *item = fieldIterator.key();
+    const int fidx = fieldIterator.value();
+    if ( fidx != fieldIndex )
+    {
+      continue;
+    }
+
+    item-&gt;setData( value, AttributeFormModel::AttributeValue );
+  }
+}
+
+void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector&lt;int&gt; updatedFields )
+{
+  const QgsFields fields = mFeatureModel-&gt;feature().fields();
+  if ( fieldIndex &lt; 0 || fieldIndex &gt;= fields.size() )
+    return;
+  const QString fieldName = fields.at( fieldIndex ).name();
+
+  mExpressionContext.setFields( fields );
+  mExpressionContext.setFeature( mFeatureModel-&gt;feature() );
+
+  QMap&lt;QStandardItem *, int&gt;::ConstIterator fieldIterator( mFields.constBegin() );
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    const int fidx = fieldIterator.value();
+    if ( fidx == fieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() )
+      continue;
+
+    QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
+    exp.prepare( &amp;mExpressionContext );
+
+    // avoid cost of value update if expression doesn't contain the field which triggered the default values update
+    if ( !exp.referencedColumns().contains( fieldName ) &amp;&amp; !exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+    {
+      continue;
+    }
+
+    const QVariant defaultValue = exp.evaluate( &amp;mExpressionContext );
+    const QVariant previousValue = mFeatureModel-&gt;data( mFeatureModel-&gt;index( fidx ), FeatureModel::AttributeValue );
+    const bool success = mFeatureModel-&gt;setData( mFeatureModel-&gt;index( fidx ), defaultValue, FeatureModel::AttributeValue );
+    const QVariant updatedValue = mFeatureModel-&gt;data( mFeatureModel-&gt;index( fidx ), FeatureModel::AttributeValue );
+    if ( success &amp;&amp; updatedValue != previousValue )
+    {
+      mExpressionContext.popScope();
+      mExpressionContext &lt;&lt; QgsExpressionContextUtils::formScope( mFeatureModel-&gt;feature() );
+
+      synchronizeFieldValue( fidx, updatedValue );
+      if ( !updatedFields.contains( fidx ) )
+      {
+        updatedFields.append( fidx );
+        updateDefaultValues( fidx, updatedFields );
+      }
+      updateVisibilityAndConstraints( fidx );
+    }
+  }
+
+  updateDataDefinedProperties( fieldName );
+  updateEditorWidgetCodes( fieldName );
+}
+
+bool AttributeFormModelBase::codeRequiresUpdate( const QString &amp;fieldName, const QString &amp;code, const QRegularExpression &amp;regEx )
+{
+  if ( !mEditorWidgetCodesRequirements.contains( code ) )
+  {
+    CodeRequirements codeRequirements;
+    QRegularExpressionMatchIterator matchIt = regEx.globalMatch( code );
+    while ( matchIt.hasNext() )
+    {
+      const QRegularExpressionMatch match = matchIt.next();
+      QString expression = match.captured( 1 );
+      expression = expression.replace( QStringLiteral( &quot;\\\&quot;&quot; ), QStringLiteral( &quot;\&quot;&quot; ) );
+
+      QgsExpression exp( expression );
+      exp.prepare( &amp;mExpressionContext );
+      codeRequirements.referencedColumns.unite( exp.referencedColumns() );
+      codeRequirements.formScope = codeRequirements.formScope || QgsValueRelationFieldFormatter::expressionRequiresFormScope( expression );
+    }
+    mEditorWidgetCodesRequirements.insert( code, codeRequirements );
+  }
+
+  return mEditorWidgetCodesRequirements[code].referencedColumns.contains( fieldName ) || mEditorWidgetCodesRequirements[code].referencedColumns.contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || mEditorWidgetCodesRequirements[code].formScope;
+}
+
+void AttributeFormModelBase::updateDataDefinedProperties( const QString &amp;fieldName )
+{
+  QMap&lt;QStandardItem *, QString&gt;::ConstIterator aliasExpressionsIterator( mAliasExpressions.constBegin() );
+  for ( ; aliasExpressionsIterator != mAliasExpressions.constEnd(); aliasExpressionsIterator++ )
+  {
+    QStandardItem *item = aliasExpressionsIterator.key();
+    if ( !item )
+    {
+      continue;
+    }
+
+    QgsExpression exp( aliasExpressionsIterator.value() );
+    exp.referencedColumns().contains( fieldName );
+    {
+      exp.prepare( &amp;mExpressionContext );
+      QVariant result = exp.evaluate( &amp;mExpressionContext );
+      if ( result.isValid() )
+      {
+        item-&gt;setData( result, AttributeFormModel::Name );
+      }
+    }
+  }
+
+  QMap&lt;QStandardItem *, QString&gt;::ConstIterator readOnlyExpressionsIterator( mReadOnlyExpressions.constBegin() );
+  for ( ; readOnlyExpressionsIterator != mReadOnlyExpressions.constEnd(); readOnlyExpressionsIterator++ )
+  {
+    QStandardItem *item = readOnlyExpressionsIterator.key();
+    if ( !item )
+    {
+      continue;
+    }
+    const int fieldIndex = item-&gt;data( AttributeFormModel::FieldIndex ).toInt();
+    if ( mFeatureModel-&gt;data( mFeatureModel-&gt;index( fieldIndex ), FeatureModel::LinkedAttribute ).toBool() )
+    {
+      continue;
+    }
+
+    QgsExpression exp( readOnlyExpressionsIterator.value() );
+    exp.referencedColumns().contains( fieldName );
+    {
+      exp.prepare( &amp;mExpressionContext );
+      QVariant result = exp.evaluate( &amp;mExpressionContext );
+      item-&gt;setData( result.isValid() &amp;&amp; result.toBool() == true, AttributeFormModel::AttributeEditable );
+    }
+  }
+}
+
+void AttributeFormModelBase::updateEditorWidgetCodes( const QString &amp;fieldName )
+{
+  QMap&lt;QStandardItem *, QString&gt;::ConstIterator editorWidgetCodesIterator( mEditorWidgetCodes.constBegin() );
+  for ( ; editorWidgetCodesIterator != mEditorWidgetCodes.constEnd(); editorWidgetCodesIterator++ )
+  {
+    QStandardItem *item = editorWidgetCodesIterator.key();
+    if ( !item )
+    {
+      continue;
+    }
+    QString code = editorWidgetCodesIterator.value();
+    if ( item-&gt;data( AttributeFormModel::ElementType ) == QStringLiteral( &quot;qml&quot; ) || item-&gt;data( AttributeFormModel::ElementType ) == QStringLiteral( &quot;html&quot; ) )
+    {
+      const thread_local QRegularExpression sRegEx( &quot;expression\\.evaluate\\(\\s*\\\&quot;(.*?[^\\\\])\\\&quot;\\s*\\)&quot;, QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
+      if ( codeRequiresUpdate( fieldName, code, sRegEx ) )
+      {
+        QRegularExpressionMatch match = sRegEx.match( code );
+        while ( match.hasMatch() )
+        {
+          QString expression = match.captured( 1 );
+          expression = expression.replace( QStringLiteral( &quot;\\\&quot;&quot; ), QStringLiteral( &quot;\&quot;&quot; ) );
+
+          QgsExpression exp = QgsExpression( expression );
+          exp.prepare( &amp;mExpressionContext );
+          QVariant result = exp.evaluate( &amp;mExpressionContext );
+
+          QString resultString;
+          switch ( static_cast&lt;QMetaType::Type&gt;( result.typeId() ) )
+          {
+            case QMetaType::Int:
+            case QMetaType::UInt:
+            case QMetaType::Double:
+            case QMetaType::LongLong:
+            case QMetaType::ULongLong:
+              resultString = result.toString();
+              break;
+            case QMetaType::Bool:
+              resultString = result.toBool() ? QStringLiteral( &quot;true&quot; ) : QStringLiteral( &quot;false&quot; );
+              break;
+            default:
+              resultString = QStringLiteral( &quot;'%1'&quot; ).arg( result.toString() );
+              break;
+          }
+          code = code.mid( 0, match.capturedStart( 0 ) ) + resultString + code.mid( match.capturedEnd( 0 ) );
+          match = sRegEx.match( code );
+        }
+        item-&gt;setData( code, AttributeFormModel::EditorWidgetCode );
+      }
+    }
+    else if ( item-&gt;data( AttributeFormModel::ElementType ) == QStringLiteral( &quot;text&quot; ) )
+    {
+      const thread_local QRegularExpression sRegEx( QStringLiteral( &quot;\\[%(.*?)%\\]&quot; ), QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
+      if ( codeRequiresUpdate( fieldName, code, sRegEx ) )
+      {
+        code = QgsExpression::replaceExpressionText( code, &amp;mExpressionContext );
+        item-&gt;setData( code, AttributeFormModel::EditorWidgetCode );
+      }
+    }
+  }
+}
+
+void _checkChildrenValidity( const QStandardItem *parent, bool &amp;hardValidity, bool &amp;softValidity )
+{
+  QStandardItem *item = parent-&gt;child( 0, 0 );
+  while ( item )
+  {
+    const bool isVisible = item-&gt;data( AttributeFormModel::CurrentlyVisible ).toBool();
+    if ( isVisible )
+    {
+      if ( !item-&gt;data( AttributeFormModel::ConstraintHardValid ).toBool() )
+      {
+        hardValidity = false;
+        break;
+      }
+      if ( !item-&gt;data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+      {
+        softValidity = false;
+      }
+    }
+
+    if ( isVisible &amp;&amp; item-&gt;hasChildren() )
+    {
+      _checkChildrenValidity( item, hardValidity, softValidity );
+    }
+    item = parent-&gt;child( item-&gt;row() + 1, 0 );
+  }
+};
+
+void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
+{
+  const QString fieldName = fieldIndex &gt; -1 &amp;&amp; fieldIndex &lt; mLayer-&gt;fields().size() ? mLayer-&gt;fields().at( fieldIndex ).name() : QString();
+  QgsFields fields = mFeatureModel-&gt;feature().fields();
+  mExpressionContext.setFields( fields );
+  mExpressionContext.setFeature( mFeatureModel-&gt;feature() );
+
+  bool visibilityChanged = false;
+  for ( const VisibilityExpression &amp;it : std::as_const( mVisibilityExpressions ) )
+  {
+    // If triggered by an updated field index (fieldIndex), check if the visibility
+    // expression refers to that field
+    if ( fieldIndex == -1 || it.first.referencedColumns().contains( fieldName ) || it.first.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+    {
+      QgsExpression exp = it.first;
+      exp.prepare( &amp;mExpressionContext );
+
+      bool visible = exp.evaluate( &amp;mExpressionContext ).toInt();
+      QStandardItem *item = it.second;
+      if ( item-&gt;data( AttributeFormModel::CurrentlyVisible ).toBool() != visible )
+      {
+        item-&gt;setData( visible, AttributeFormModel::CurrentlyVisible );
+        visibilityChanged = true;
+      }
+    }
+  }
+
+  QMap&lt;QStandardItem *, int&gt;::ConstIterator fieldIterator( mFields.constBegin() );
+  QMap&lt;int, bool&gt; hardConstraintsCache;
+  QMap&lt;int, bool&gt; softConstraintsCache;
+  bool validityChanged = false;
+  for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
+  {
+    QStandardItem *item = fieldIterator.key();
+    int fidx = fieldIterator.value();
+    if ( fieldIndex != -1 &amp;&amp; fidx != fieldIndex )
+    {
+      // Check whether the current field iterator index (fidx) has an expression constraints referencing the
+      // updated field index (fieldIndex) which triggered a constraints update
+      const QgsExpression expression = mLayer-&gt;fields().at( fidx ).constraints().constraintExpression();
+      if ( !expression.referencedColumns().contains( fieldName ) &amp;&amp; !expression.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+      {
+        continue;
+      }
+    }
+
+    if ( mFeatureModel-&gt;data( mFeatureModel-&gt;index( fidx ), FeatureModel::AttributeAllowEdit ) == true )
+    {
+      QStringList errors;
+
+      QgsFeature feature = mFeatureModel-&gt;feature();
+      QString defaultValueClause = mLayer-&gt;dataProvider()-&gt;defaultValueClause( fidx );
+      QString attrValue = feature.attribute( fidx ).toString();
+
+      // Providers will check for a literal &quot;defaultValueClause&quot; to autogenerate PKs.
+      // For example, the gpkg provider will generate a fid if it is set to &quot;Autogenerate&quot;.
+      // On QField, if the user leaves the field empty, we will assume he wants to autogenerate it.
+      // This makes sure, the NOT NULL constraint is skipped in this case.
+      if ( attrValue.isEmpty() &amp;&amp; !defaultValueClause.isEmpty() )
+      {
+        feature.setAttribute( fidx, defaultValueClause );
+      }
+
+      bool hardConstraintSatisfied = false;
+      if ( !hardConstraintsCache.contains( fidx ) )
+      {
+        hardConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, feature, fidx, errors, QgsFieldConstraints::ConstraintStrengthHard );
+        hardConstraintsCache[fidx] = hardConstraintSatisfied;
+      }
+      else
+      {
+        hardConstraintSatisfied = hardConstraintsCache.value( fidx );
+      }
+      if ( hardConstraintSatisfied != item-&gt;data( AttributeFormModel::ConstraintHardValid ).toBool() )
+      {
+        item-&gt;setData( hardConstraintSatisfied, AttributeFormModel::ConstraintHardValid );
+        validityChanged = true;
+      }
+
+      bool softConstraintSatisfied = false;
+      if ( !softConstraintsCache.contains( fidx ) )
+      {
+        softConstraintSatisfied = QgsVectorLayerUtils::validateAttribute( mLayer, mFeatureModel-&gt;feature(), fidx, errors, QgsFieldConstraints::ConstraintStrengthSoft );
+        softConstraintsCache[fidx] = softConstraintSatisfied;
+      }
+      else
+      {
+        softConstraintSatisfied = softConstraintsCache.value( fidx );
+      }
+      if ( softConstraintSatisfied != item-&gt;data( AttributeFormModel::ConstraintSoftValid ).toBool() )
+      {
+        item-&gt;setData( softConstraintSatisfied, AttributeFormModel::ConstraintSoftValid );
+        validityChanged = true;
+      }
+    }
+    else
+    {
+      item-&gt;setData( true, AttributeFormModel::ConstraintHardValid );
+      item-&gt;setData( true, AttributeFormModel::ConstraintSoftValid );
+    }
+  }
+
+  // reset contrainsts status of containers
+  if ( validityChanged || visibilityChanged )
+  {
+    bool allConstraintsHardValid = true;
+    bool allConstraintsSoftValid = true;
+
+    if ( mHasTabs )
+    {
+      QStandardItem *root = invisibleRootItem();
+      for ( int i = 0; i &lt; root-&gt;rowCount(); i++ )
+      {
+        bool hardValidity = true;
+        bool softValidity = true;
+
+        QStandardItem *tab = root-&gt;child( i, 0 );
+        _checkChildrenValidity( tab, hardValidity, softValidity );
+        if ( !hardValidity )
+        {
+          allConstraintsHardValid = false;
+        }
+        if ( !softValidity )
+        {
+          allConstraintsSoftValid = false;
+        }
+        tab-&gt;setData( hardValidity, AttributeFormModel::ConstraintHardValid );
+        tab-&gt;setData( softValidity, AttributeFormModel::ConstraintSoftValid );
+      }
+    }
+    else
+    {
+      bool hardValidity = true;
+      bool softValidity = true;
+      const QStandardItem *tab = invisibleRootItem();
+      _checkChildrenValidity( tab, hardValidity, softValidity );
+
+      if ( !hardValidity )
+      {
+        allConstraintsHardValid = false;
+      }
+      if ( !softValidity )
+      {
+        allConstraintsSoftValid = false;
+      }
+    }
+
+    setConstraintsHardValid( allConstraintsHardValid );
+    setConstraintsSoftValid( allConstraintsSoftValid );
+  }
+}
+
+bool AttributeFormModelBase::constraintsHardValid() const
+{
+  return mConstraintsHardValid;
+}
+
+bool AttributeFormModelBase::constraintsSoftValid() const
+{
+  return mConstraintsSoftValid;
+}
+
+QVariant AttributeFormModelBase::attribute( const QString &amp;name )
+{
+  if ( !mLayer )
+    return QVariant();
+
+  const int fieldIndex = mLayer-&gt;fields().indexOf( name );
+  return mFeatureModel-&gt;data( mFeatureModel-&gt;index( fieldIndex ), FeatureModel::AttributeValue );
+}
+
+bool AttributeFormModelBase::changeAttribute( const QString &amp;name, const QVariant &amp;value )
+{
+  if ( !mLayer || !mFeatureModel )
+    return false;
+
+  const int fieldIndex = mLayer-&gt;fields().indexOf( name );
+  const bool changed = mFeatureModel-&gt;setData( mFeatureModel-&gt;index( fieldIndex ), value, FeatureModel::AttributeValue );
+  if ( changed )
+  {
+    mExpressionContext.popScope();
+    mExpressionContext &lt;&lt; QgsExpressionContextUtils::formScope( mFeatureModel-&gt;feature() );
+    synchronizeFieldValue( fieldIndex, value );
+    updateDefaultValues( fieldIndex );
+    updateVisibilityAndConstraints( fieldIndex );
+  }
+
+  return changed;
+}
+
+bool AttributeFormModelBase::changeGeometry( const QgsGeometry &amp;geometry )
+{
+  if ( !mLayer || !mFeatureModel )
+    return false;
+
+  const bool changed = mFeatureModel-&gt;changeGeometry( geometry );
+  if ( changed )
+  {
+    mExpressionContext.popScope();
+    mExpressionContext &lt;&lt; QgsExpressionContextUtils::formScope( mFeatureModel-&gt;feature() );
+    updateDefaultValues();
+    updateVisibilityAndConstraints();
+  }
+
+  return changed;
+}
+
+void AttributeFormModelBase::setConstraintsHardValid( bool constraintsHardValid )
+{
+  if ( constraintsHardValid == mConstraintsHardValid )
+    return;
+
+  mConstraintsHardValid = constraintsHardValid;
+  emit constraintsHardValidChanged();
+}
+
+void AttributeFormModelBase::setConstraintsSoftValid( bool constraintsSoftValid )
+{
+  if ( constraintsSoftValid == mConstraintsSoftValid )
+    return;
+
+  mConstraintsSoftValid = constraintsSoftValid;
+  emit constraintsSoftValidChanged();
+}
+
+QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
+{
+  QgsFields fields = mLayer-&gt;fields();
+  if ( fieldIndex &gt;= 0 &amp;&amp; fieldIndex &lt; fields.count() )
+  {
+    //when field has a configured setup, take it
+    QgsEditorWidgetSetup configuredSetup = mLayer-&gt;editorWidgetSetup( fieldIndex );
+    if ( !configuredSetup.isNull() )
+    {
+      if ( !sSupportedEditorWidgets-&gt;contains( configuredSetup.type() ) )
+      {
+        return QgsEditorWidgetSetup( QStringLiteral( &quot;TextEdit&quot; ), QVariantMap() );
+      }
+      return configuredSetup;
+    }
+
+    //when it's a provider field with default value clause, take Textedit
+    if ( fields.fieldOrigin( fieldIndex ) == Qgis::FieldOrigin::Provider )
+    {
+      const int providerOrigin = fields.fieldOriginIndex( fieldIndex );
+      if ( !mLayer-&gt;dataProvider()-&gt;defaultValueClause( providerOrigin ).isEmpty() )
+      {
+        return QgsEditorWidgetSetup( QStringLiteral( &quot;TextEdit&quot; ), QVariantMap() );
+      }
+    }
+
+    if ( !mLayer-&gt;referencingRelations( fieldIndex ).isEmpty() )
+    {
+      QgsRelation relation = mLayer-&gt;referencingRelations( fieldIndex )[0];
+      QVariantMap config;
+      config.insert( QStringLiteral( &quot;Relation&quot; ), relation.id() );
+      config.insert( QStringLiteral( &quot;AllowAddFeatures&quot; ), false );
+      config.insert( QStringLiteral( &quot;ShowOpenFormButton&quot; ), true );
+      return QgsEditorWidgetSetup( QStringLiteral( &quot;RelationReference&quot; ), config );
+    }
+
+    // Find the best one based on field type
+    const QgsField field = fields.at( fieldIndex );
+    if ( field.type() == QMetaType::Bool )
+    {
+      // on a boolean type, take &quot;CheckBox&quot;
+      return QgsEditorWidgetSetup( QStringLiteral( &quot;CheckBox&quot; ), QVariantMap() );
+    }
+    else if ( field.isDateOrTime() )
+    {
+      // on a time types, take &quot;DateTime&quot;
+      QVariantMap config;
+      config.insert( QStringLiteral( &quot;field_format&quot; ), QgsDateTimeFieldFormatter::defaultFormat( field.type() ) );
+      config.insert( QStringLiteral( &quot;display_format&quot; ), QgsDateTimeFieldFormatter::defaultFormat( field.type() ) );
+      config.insert( QStringLiteral( &quot;calendar_popup&quot; ), true );
+      config.insert( QStringLiteral( &quot;allow_null&quot; ), true );
+      return QgsEditorWidgetSetup( QStringLiteral( &quot;DateTime&quot; ), config );
+    }
+    else if ( field.type() == QMetaType::Int || field.type() == QMetaType::Double || field.isNumeric() )
+    {
+      // on numeric types, take &quot;Range&quot;
+      return QgsEditorWidgetSetup( QStringLiteral( &quot;Range&quot; ), QVariantMap() );
+    }
+    else if ( field.typeName() == QStringLiteral( &quot;Binary&quot; ) )
+    {
+      // on blob type, take &quot;Binary&quot;
+      return QgsEditorWidgetSetup( QStringLiteral( &quot;Binary&quot; ), QVariantMap() );
+    }
+  }
+
+  return QgsEditorWidgetSetup( QStringLiteral( &quot;TextEdit&quot; ), QVariantMap() );
+}
+
+bool AttributeFormModelBase::hasTabs() const
+{
+  return mHasTabs;
+}
+
+void AttributeFormModelBase::setHasTabs( bool hasTabs )
+{
+  if ( hasTabs == mHasTabs )
+    return;
+
+  mHasTabs = hasTabs;
+  emit hasTabsChanged();
+}
+
+bool AttributeFormModelBase::hasRemembrance() const
+{
+  return mHasRemembrance;
+}
+
+void AttributeFormModelBase::setHasRemembrance( bool hasRemembrance )
+{
+  if ( hasRemembrance == mHasRemembrance )
+    return;
+
+  mHasRemembrance = hasRemembrance;
+  emit hasRemembranceChanged();
+}
+
+bool AttributeFormModelBase::hasConstraints() const
+{
+  return mHasConstraints;
+}
+
+void AttributeFormModelBase::setHasConstraints( bool hasConstraints )
+{
+  if ( hasConstraints == mHasConstraints )
+    return;
+
+  mHasConstraints = hasConstraints;
+  emit hasConstraintsChanged();
+}
+
+bool AttributeFormModelBase::save()
+{
+  return mFeatureModel-&gt;save();
+}
+
+bool AttributeFormModelBase::create()
+{
+  return mFeatureModel-&gt;create();
+}
+
+bool AttributeFormModelBase::deleteFeature()
+{
+  return mFeatureModel-&gt;deleteFeature();
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

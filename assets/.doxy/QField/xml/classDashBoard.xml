@@ -1,0 +1,761 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classDashBoard" kind="class" language="C++" prot="public">
+    <compoundname>DashBoard</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Drawer</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDashBoard_1ae5a160cdea880366ff2f98e7df7e154c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::objectName</definition>
+        <argsstring></argsstring>
+        <name>objectName</name>
+        <qualifiedname>DashBoard::objectName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="12" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a1e85ec7f839f2c3013e7d5a0fe3dd6d3" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component DashBoard::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>DashBoard::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="41" column="14" bodyfile="src/qml/DashBoard.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1aebff39839f29f76fb4ade973be6a5d7d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>DashBoard::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="42" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1af5034846aba4ca7b1b2b66c88c2b48ec" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>DashBoard::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="43" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1ae34aad82f925a631c8ab099c698680d9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::edge</definition>
+        <argsstring></argsstring>
+        <name>edge</name>
+        <qualifiedname>DashBoard::edge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="44" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a12b6190a245a8f6b71ee4cd9dd3200c9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::dragMargin</definition>
+        <argsstring></argsstring>
+        <name>dragMargin</name>
+        <qualifiedname>DashBoard::dragMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="45" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a8ba683348e8b1b8856f8974cec6c6c9b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::interactive</definition>
+        <argsstring></argsstring>
+        <name>interactive</name>
+        <qualifiedname>DashBoard::interactive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="46" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a11223456e79578ea6d0dedd476657234" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::topPadding</definition>
+        <argsstring></argsstring>
+        <name>topPadding</name>
+        <qualifiedname>DashBoard::topPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="47" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a7e8059fc304ae36b05757c46f83edb71" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>DashBoard::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="48" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1abc8ad59eefb3e89bb9f866d9edc90d13" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>DashBoard::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="49" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1afe24c5c861a543e0fb315721400deaf6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::bottomPadding</definition>
+        <argsstring></argsstring>
+        <name>bottomPadding</name>
+        <qualifiedname>DashBoard::bottomPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="50" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a08a3addd82ff41e94fa3968b2d0a747c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>DashBoard::position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="51" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1ad8de0409c522bb65eb8fd062d416ccd2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>DashBoard::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="52" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1aad46790d819f7a004477107ab6b35c1c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>DashBoard::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="53" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a97847ff062d27ad6f63d4451366604f2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::onActiveLayerChanged</definition>
+        <argsstring></argsstring>
+        <name>onActiveLayerChanged</name>
+        <qualifiedname>DashBoard::onActiveLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="54" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a3e0154ddeba3b7b828420fb25c91e3f9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var DashBoard::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>DashBoard::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="55" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a0f64f9c20e863accc91303943b816782" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DashBoard::closeButton</definition>
+        <argsstring></argsstring>
+        <name>closeButton</name>
+        <qualifiedname>DashBoard::closeButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="56" column="14" bodyfile="src/qml/DashBoard.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a7405fca18d7f83783e3e97b96cc5bdcb" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable DashBoard::buttonsRowContainer</definition>
+        <argsstring></argsstring>
+        <name>buttonsRowContainer</name>
+        <qualifiedname>DashBoard::buttonsRowContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="57" column="11" bodyfile="src/qml/DashBoard.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a93bdb3f26ef56534e5d9e93ea85ca5f0" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row DashBoard::buttonsRow</definition>
+        <argsstring></argsstring>
+        <name>buttonsRow</name>
+        <qualifiedname>DashBoard::buttonsRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="58" column="5" bodyfile="src/qml/DashBoard.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1ae28c0a33b81f90b5f102e0b3707873a9" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DashBoard::measurementButton</definition>
+        <argsstring></argsstring>
+        <name>measurementButton</name>
+        <qualifiedname>DashBoard::measurementButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="59" column="14" bodyfile="src/qml/DashBoard.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a3d450eea9903194379e472fba977c6ad" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DashBoard::view3DButton</definition>
+        <argsstring></argsstring>
+        <name>view3DButton</name>
+        <qualifiedname>DashBoard::view3DButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="60" column="14" bodyfile="src/qml/DashBoard.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1ac3d76d48fe1cfb9b144a3eb3c3c2dc9d" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DashBoard::printItemButton</definition>
+        <argsstring></argsstring>
+        <name>printItemButton</name>
+        <qualifiedname>DashBoard::printItemButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="61" column="14" bodyfile="src/qml/DashBoard.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a08c87ba09ed847545d792c851002da71" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DashBoard::cloudButton</definition>
+        <argsstring></argsstring>
+        <name>cloudButton</name>
+        <qualifiedname>DashBoard::cloudButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="62" column="14" bodyfile="src/qml/DashBoard.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a70ee94c682f0eaef60e2ef4dc67297aa" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DashBoard::projectFolderButton</definition>
+        <argsstring></argsstring>
+        <name>projectFolderButton</name>
+        <qualifiedname>DashBoard::projectFolderButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="63" column="14" bodyfile="src/qml/DashBoard.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a7a54a358de4eb5b3116f06c34d76fd86" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DashBoard::menuButton</definition>
+        <argsstring></argsstring>
+        <name>menuButton</name>
+        <qualifiedname>DashBoard::menuButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="64" column="14" bodyfile="src/qml/DashBoard.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1aa01f070ad81edbd67932565858153864" prot="private" static="no" mutable="no">
+        <type>GroupBox</type>
+        <definition>GroupBox DashBoard::mapThemeContainer</definition>
+        <argsstring></argsstring>
+        <name>mapThemeContainer</name>
+        <qualifiedname>DashBoard::mapThemeContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="65" column="10" bodyfile="src/qml/DashBoard.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a9335164ddab59873f79b396a8e1dbc4c" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox DashBoard::mapThemeComboBox</definition>
+        <argsstring></argsstring>
+        <name>mapThemeComboBox</name>
+        <qualifiedname>DashBoard::mapThemeComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="66" column="12" bodyfile="src/qml/DashBoard.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a0310dbd2068029ffb988140b4340e860" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton DashBoard::temporalButton</definition>
+        <argsstring></argsstring>
+        <name>temporalButton</name>
+        <qualifiedname>DashBoard::temporalButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="67" column="14" bodyfile="src/qml/DashBoard.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a616c9be5d90b53ce7c69d95e8aba5067" prot="private" static="no" mutable="no">
+        <type>GroupBox</type>
+        <definition>GroupBox DashBoard::legendContainer</definition>
+        <argsstring></argsstring>
+        <name>legendContainer</name>
+        <qualifiedname>DashBoard::legendContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="68" column="10" bodyfile="src/qml/DashBoard.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a1cf6981d0b6998708b3df5f29bcb3a60" prot="private" static="no" mutable="no">
+        <type><ref refid="classLegend" kindref="compound">Legend</ref></type>
+        <definition>Legend DashBoard::legend</definition>
+        <argsstring></argsstring>
+        <name>legend</name>
+        <qualifiedname>DashBoard::legend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="69" column="8" bodyfile="src/qml/DashBoard.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1a70ff8ab0c3eba9db3784654e7ebe35d1" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle DashBoard::bottomRow</definition>
+        <argsstring></argsstring>
+        <name>bottomRow</name>
+        <qualifiedname>DashBoard::bottomRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="70" column="11" bodyfile="src/qml/DashBoard.qml" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1ab88889ff722fd3298310bc76094dcb81" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem DashBoard::homeButton</definition>
+        <argsstring></argsstring>
+        <name>homeButton</name>
+        <qualifiedname>DashBoard::homeButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="71" column="10" bodyfile="src/qml/DashBoard.qml" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1ad0637066fc60b6a72e4f0c3711e7dab7" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch DashBoard::modeSwitch</definition>
+        <argsstring></argsstring>
+        <name>modeSwitch</name>
+        <qualifiedname>DashBoard::modeSwitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="72" column="10" bodyfile="src/qml/DashBoard.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDashBoard_1afc714e1e59d360e0aea63f75beba8017" prot="private" static="no" mutable="no">
+        <type><ref refid="classTemporalProperties" kindref="compound">TemporalProperties</ref></type>
+        <definition>TemporalProperties DashBoard::temporalProperties</definition>
+        <argsstring></argsstring>
+        <name>temporalProperties</name>
+        <qualifiedname>DashBoard::temporalProperties</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="73" column="20" bodyfile="src/qml/DashBoard.qml" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classDashBoard_1ad34c1e48ba03a1575d1d3b5f1e224ca6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DashBoard::preventFromOpening</definition>
+        <argsstring></argsstring>
+        <name>preventFromOpening</name>
+        <qualifiedname>DashBoard::preventFromOpening</qualifiedname>
+        <read>dummyGetter_preventFromOpening_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="29" column="1" bodyfile="src/qml/DashBoard.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDashBoard_1a34f64f2a5a8090bf038431a90cae4873" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DashBoard::allowInteractive</definition>
+        <argsstring></argsstring>
+        <name>allowInteractive</name>
+        <qualifiedname>DashBoard::allowInteractive</qualifiedname>
+        <read>dummyGetter_allowInteractive_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="31" column="1" bodyfile="src/qml/DashBoard.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDashBoard_1af0a419dc7834a0966f86c6e95032b4a8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DashBoard::allowActiveLayerChange</definition>
+        <argsstring></argsstring>
+        <name>allowActiveLayerChange</name>
+        <qualifiedname>DashBoard::allowActiveLayerChange</qualifiedname>
+        <read>dummyGetter_allowActiveLayerChange_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="33" column="1" bodyfile="src/qml/DashBoard.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDashBoard_1a15351d29c2a9848dbcb22a8d1e8e56e7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer</type>
+        <definition>QgsVectorLayer DashBoard::activeLayer</definition>
+        <argsstring></argsstring>
+        <name>activeLayer</name>
+        <qualifiedname>DashBoard::activeLayer</qualifiedname>
+        <read>dummyGetter_activeLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="35" column="1" bodyfile="src/qml/DashBoard.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDashBoard_1a31594424a7fda7b2fa758bec2fcd8d9e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classFlatLayerTreeModel" kindref="compound">FlatLayerTreeModel</ref></type>
+        <definition>FlatLayerTreeModel DashBoard::layerTree</definition>
+        <argsstring></argsstring>
+        <name>layerTree</name>
+        <qualifiedname>DashBoard::layerTree</qualifiedname>
+        <read>dummyGetter_layerTree_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="37" column="1" bodyfile="src/qml/DashBoard.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDashBoard_1a83d25cf6174c69304e1719045b6b45b3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings DashBoard::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>DashBoard::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="39" column="1" bodyfile="src/qml/DashBoard.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classDashBoard_1a37df6345430af07b2326a32043101e83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DashBoard::showMainMenu</definition>
+        <argsstring>(point p)</argsstring>
+        <name>showMainMenu</name>
+        <qualifiedname>DashBoard::showMainMenu</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="15" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDashBoard_1ac66abe2e7892cfa03af1b873cb5b421b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DashBoard::showPrintLayouts</definition>
+        <argsstring>(point p)</argsstring>
+        <name>showPrintLayouts</name>
+        <qualifiedname>DashBoard::showPrintLayouts</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="17" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDashBoard_1a3e751c2ce756f779296c7135d13f5d2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DashBoard::showCloudPopup</definition>
+        <argsstring>()</argsstring>
+        <name>showCloudPopup</name>
+        <qualifiedname>DashBoard::showCloudPopup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="19" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDashBoard_1a5fd278180a52954f812f3bace7858845" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DashBoard::showProjectFolder</definition>
+        <argsstring>()</argsstring>
+        <name>showProjectFolder</name>
+        <qualifiedname>DashBoard::showProjectFolder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="21" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDashBoard_1a261ce2e3cc122beefd8d48ac5323e665" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DashBoard::toggleMeasurementTool</definition>
+        <argsstring>()</argsstring>
+        <name>toggleMeasurementTool</name>
+        <qualifiedname>DashBoard::toggleMeasurementTool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="23" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDashBoard_1a08a4fff4b867cc0db0be7fa594a6f04e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DashBoard::toggle3DView</definition>
+        <argsstring>()</argsstring>
+        <name>toggle3DView</name>
+        <qualifiedname>DashBoard::toggle3DView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="25" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDashBoard_1ab3df1e8e7284ff7ca288f3021c6297df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DashBoard::returnHome</definition>
+        <argsstring>()</argsstring>
+        <name>returnHome</name>
+        <qualifiedname>DashBoard::returnHome</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/DashBoard.qml" line="27" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DashBoard</label>
+        <link refid="classDashBoard"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Drawer</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DashBoard</label>
+        <link refid="classDashBoard"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Drawer</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/DashBoard.qml" line="11" column="1" bodyfile="src/qml/DashBoard.qml" bodystart="11" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classDashBoard_1a15351d29c2a9848dbcb22a8d1e8e56e7" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>activeLayer</name></member>
+      <member refid="classDashBoard_1af0a419dc7834a0966f86c6e95032b4a8" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>allowActiveLayerChange</name></member>
+      <member refid="classDashBoard_1a34f64f2a5a8090bf038431a90cae4873" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>allowInteractive</name></member>
+      <member refid="classDashBoard_1a3e0154ddeba3b7b828420fb25c91e3f9" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>background</name></member>
+      <member refid="classDashBoard_1afe24c5c861a543e0fb315721400deaf6" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>bottomPadding</name></member>
+      <member refid="classDashBoard_1a70ff8ab0c3eba9db3784654e7ebe35d1" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>bottomRow</name></member>
+      <member refid="classDashBoard_1a93bdb3f26ef56534e5d9e93ea85ca5f0" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>buttonsRow</name></member>
+      <member refid="classDashBoard_1a7405fca18d7f83783e3e97b96cc5bdcb" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>buttonsRowContainer</name></member>
+      <member refid="classDashBoard_1aad46790d819f7a004477107ab6b35c1c" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>clip</name></member>
+      <member refid="classDashBoard_1a0f64f9c20e863accc91303943b816782" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>closeButton</name></member>
+      <member refid="classDashBoard_1a08c87ba09ed847545d792c851002da71" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>cloudButton</name></member>
+      <member refid="classDashBoard_1a12b6190a245a8f6b71ee4cd9dd3200c9" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>dragMargin</name></member>
+      <member refid="classDashBoard_1ae34aad82f925a631c8ab099c698680d9" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>edge</name></member>
+      <member refid="classDashBoard_1ad8de0409c522bb65eb8fd062d416ccd2" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>focus</name></member>
+      <member refid="classDashBoard_1af5034846aba4ca7b1b2b66c88c2b48ec" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>height</name></member>
+      <member refid="classDashBoard_1ab88889ff722fd3298310bc76094dcb81" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>homeButton</name></member>
+      <member refid="classDashBoard_1a8ba683348e8b1b8856f8974cec6c6c9b" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>interactive</name></member>
+      <member refid="classDashBoard_1a31594424a7fda7b2fa758bec2fcd8d9e" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>layerTree</name></member>
+      <member refid="classDashBoard_1a7e8059fc304ae36b05757c46f83edb71" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>leftPadding</name></member>
+      <member refid="classDashBoard_1a1cf6981d0b6998708b3df5f29bcb3a60" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>legend</name></member>
+      <member refid="classDashBoard_1a616c9be5d90b53ce7c69d95e8aba5067" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>legendContainer</name></member>
+      <member refid="classDashBoard_1a83d25cf6174c69304e1719045b6b45b3" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>mapSettings</name></member>
+      <member refid="classDashBoard_1a9335164ddab59873f79b396a8e1dbc4c" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>mapThemeComboBox</name></member>
+      <member refid="classDashBoard_1aa01f070ad81edbd67932565858153864" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>mapThemeContainer</name></member>
+      <member refid="classDashBoard_1ae28c0a33b81f90b5f102e0b3707873a9" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>measurementButton</name></member>
+      <member refid="classDashBoard_1a7a54a358de4eb5b3116f06c34d76fd86" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>menuButton</name></member>
+      <member refid="classDashBoard_1ad0637066fc60b6a72e4f0c3711e7dab7" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>modeSwitch</name></member>
+      <member refid="classDashBoard_1ae5a160cdea880366ff2f98e7df7e154c" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>objectName</name></member>
+      <member refid="classDashBoard_1a97847ff062d27ad6f63d4451366604f2" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>onActiveLayerChanged</name></member>
+      <member refid="classDashBoard_1a1e85ec7f839f2c3013e7d5a0fe3dd6d3" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>onCompleted</name></member>
+      <member refid="classDashBoard_1a08a3addd82ff41e94fa3968b2d0a747c" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>position</name></member>
+      <member refid="classDashBoard_1ad34c1e48ba03a1575d1d3b5f1e224ca6" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>preventFromOpening</name></member>
+      <member refid="classDashBoard_1ac3d76d48fe1cfb9b144a3eb3c3c2dc9d" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>printItemButton</name></member>
+      <member refid="classDashBoard_1a70ee94c682f0eaef60e2ef4dc67297aa" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>projectFolderButton</name></member>
+      <member refid="classDashBoard_1ab3df1e8e7284ff7ca288f3021c6297df" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>returnHome</name></member>
+      <member refid="classDashBoard_1abc8ad59eefb3e89bb9f866d9edc90d13" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>rightPadding</name></member>
+      <member refid="classDashBoard_1a3e751c2ce756f779296c7135d13f5d2e" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>showCloudPopup</name></member>
+      <member refid="classDashBoard_1a37df6345430af07b2326a32043101e83" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>showMainMenu</name></member>
+      <member refid="classDashBoard_1ac66abe2e7892cfa03af1b873cb5b421b" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>showPrintLayouts</name></member>
+      <member refid="classDashBoard_1a5fd278180a52954f812f3bace7858845" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>showProjectFolder</name></member>
+      <member refid="classDashBoard_1a0310dbd2068029ffb988140b4340e860" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>temporalButton</name></member>
+      <member refid="classDashBoard_1afc714e1e59d360e0aea63f75beba8017" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>temporalProperties</name></member>
+      <member refid="classDashBoard_1a08a4fff4b867cc0db0be7fa594a6f04e" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>toggle3DView</name></member>
+      <member refid="classDashBoard_1a261ce2e3cc122beefd8d48ac5323e665" prot="public" virt="non-virtual"><scope>DashBoard</scope><name>toggleMeasurementTool</name></member>
+      <member refid="classDashBoard_1a11223456e79578ea6d0dedd476657234" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>topPadding</name></member>
+      <member refid="classDashBoard_1a3d450eea9903194379e472fba977c6ad" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>view3DButton</name></member>
+      <member refid="classDashBoard_1aebff39839f29f76fb4ade973be6a5d7d" prot="private" virt="non-virtual"><scope>DashBoard</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

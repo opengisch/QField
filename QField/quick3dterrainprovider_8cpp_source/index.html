@@ -1,0 +1,902 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File quick3dterrainprovider.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-quick3dterrainprovidercpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File quick3dterrainprovider.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-quick3dterrainprovidercpp">File quick3dterrainprovider.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_8623093fea4462c874263d69f8dca7e9/"><strong>3d</strong></a> <strong>&gt;</strong> <a href="../quick3dterrainprovider_8cpp/"><strong>quick3dterrainprovider.cpp</strong></a></p>
+<p><a href="../quick3dterrainprovider_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+  quick3dterrainprovider.cpp - Quick3DTerrainProvider
+
+ ---------------------
+ begin                : 26.1.2026
+ copyright            : (C) 2026 by Mohsen Dehghanzadeh
+ email                : mohsen@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &quot;qgsquickmapsettings.h&quot;
+#include &quot;quick3dterrainprovider.h&quot;
+
+#include &lt;QtConcurrent&gt;
+#include &lt;qgscoordinatetransform.h&gt;
+#include &lt;qgsproject.h&gt;
+#include &lt;qgsprojectelevationproperties.h&gt;
+#include &lt;qgsrasterblock.h&gt;
+#include &lt;qgsrasterdataprovider.h&gt;
+#include &lt;qgsrasterlayer.h&gt;
+#include &lt;qgsterrainprovider.h&gt;
+
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+
+Quick3DTerrainProvider::Quick3DTerrainProvider( QObject *parent )
+  : QObject( parent )
+  , mFutureWatcher( new QFutureWatcher&lt;QVector&lt;double&gt;&gt;( this ) )
+{
+  connect( mFutureWatcher, &amp;QFutureWatcher&lt;QVector&lt;double&gt;&gt;::finished, this, &amp;Quick3DTerrainProvider::onTerrainDataCalculated );
+}
+
+Quick3DTerrainProvider::~Quick3DTerrainProvider() = default;
+
+QgsProject *Quick3DTerrainProvider::project() const
+{
+  return mProject;
+}
+
+void Quick3DTerrainProvider::setProject( QgsProject *project )
+{
+  if ( mProject == project )
+  {
+    return;
+  }
+
+  if ( mProject )
+  {
+    disconnect( mProject-&gt;elevationProperties(), &amp;QgsProjectElevationProperties::changed, this, &amp;Quick3DTerrainProvider::updateTerrainProvider );
+  }
+
+  mProject = project;
+  emit projectChanged();
+
+  if ( mProject )
+  {
+    connect( mProject-&gt;elevationProperties(), &amp;QgsProjectElevationProperties::changed, this, &amp;Quick3DTerrainProvider::updateTerrainProvider );
+  }
+
+  updateTerrainProvider();
+}
+
+QgsQuickMapSettings *Quick3DTerrainProvider::mapSettings() const
+{
+  return mMapSettings;
+}
+
+void Quick3DTerrainProvider::setMapSettings( QgsQuickMapSettings *mapSettings )
+{
+  if ( mMapSettings == mapSettings )
+  {
+    return;
+  }
+
+  mMapSettings = mapSettings;
+  emit mapSettingsChanged();
+
+  updateFromMapSettings();
+}
+
+bool Quick3DTerrainProvider::forceSquareSize() const
+{
+  return mForceSquareSize;
+}
+
+void Quick3DTerrainProvider::setForceSquareSize( bool forceSquareSize )
+{
+  if ( mForceSquareSize == forceSquareSize )
+  {
+    return;
+  }
+
+  mForceSquareSize = forceSquareSize;
+  emit forceSquareSizeChanged();
+
+  updateFromMapSettings();
+}
+
+QSize Quick3DTerrainProvider::gridSize() const
+{
+  return mGridSize;
+}
+
+QgsRectangle Quick3DTerrainProvider::extent() const
+{
+  return mExtent;
+}
+
+QSizeF Quick3DTerrainProvider::size() const
+{
+  return mSize;
+}
+
+void Quick3DTerrainProvider::updateFromMapSettings()
+{
+  if ( !mMapSettings || !mProject )
+  {
+    return;
+  }
+
+  QgsRectangle visibleExtent = mMapSettings-&gt;visibleExtent();
+  if ( mForceSquareSize )
+  {
+    if ( visibleExtent.width() &gt;= visibleExtent.height() )
+    {
+      const double adjustement = ( visibleExtent.width() - visibleExtent.height() ) / 2;
+      visibleExtent.setYMinimum( visibleExtent.yMinimum() - adjustement );
+      visibleExtent.setYMaximum( visibleExtent.yMaximum() + adjustement );
+    }
+    else
+    {
+      const double adjustement = ( visibleExtent.height() - visibleExtent.width() ) / 2;
+      visibleExtent.setXMinimum( visibleExtent.xMinimum() - adjustement );
+      visibleExtent.setXMaximum( visibleExtent.xMaximum() + adjustement );
+    }
+  }
+
+  bool changed = mExtent != visibleExtent;
+  if ( changed )
+  {
+    mExtent = visibleExtent;
+    if ( mExtent.width() &gt;= mExtent.height() )
+    {
+      mSize = QSizeF( mBaseSize, mExtent.height() * mBaseSize / mExtent.width() );
+    }
+    else
+    {
+      mSize = QSizeF( mExtent.width() * mBaseSize / mExtent.height(), mBaseSize );
+    }
+    emit extentChanged();
+  }
+
+  calculateResolution();
+
+  if ( changed &amp;&amp; mTerrainProvider )
+  {
+    calcNormalizedData();
+  }
+}
+
+void Quick3DTerrainProvider::calculateResolution()
+{
+  if ( mExtent.isEmpty() )
+  {
+    if ( mGridSize != QSize( 64, 64 ) )
+    {
+      mGridSize = QSize( 64, 64 );
+      emit gridSizeChanged();
+    }
+    return;
+  }
+
+  int baseResolution = 320;
+
+  const double width = mSize.width();
+  const double height = mSize.height();
+  int newGridWidth, newGridHeight;
+
+  if ( width &gt;= height )
+  {
+    newGridWidth = baseResolution;
+    newGridHeight = std::max( 16, static_cast&lt;int&gt;( baseResolution * ( height / width ) ) );
+  }
+  else
+  {
+    newGridWidth = std::max( 16, static_cast&lt;int&gt;( baseResolution * ( width / height ) ) );
+    newGridHeight = baseResolution;
+  }
+
+  QSize newGridSize( newGridWidth, newGridHeight );
+  if ( mGridSize != newGridSize )
+  {
+    mGridSize = newGridSize;
+    emit gridSizeChanged();
+  }
+}
+
+QVariantList Quick3DTerrainProvider::normalizedData() const
+{
+  return mNormalizedData;
+}
+
+double Quick3DTerrainProvider::heightAt( double x, double y ) const
+{
+  if ( mTerrainProvider )
+  {
+    const double h = sampleHeightFromTerrainProvider( x, y );
+    if ( !std::isnan( h ) )
+    {
+      return h;
+    }
+  }
+
+  return 0.0;
+}
+
+double Quick3DTerrainProvider::normalizedHeightAt( double x, double y ) const
+{
+  const double realHeight = heightAt( x, y );
+  const double extentSize = std::max( mExtent.width(), mExtent.height() );
+  const double scale = ( mBaseSize / extentSize ) * calculateVisualExaggeration();
+  return ( realHeight - mMinRealHeight ) * scale;
+}
+
+QVector3D Quick3DTerrainProvider::geoTo3D( double geoX, double geoY, float heightOffset ) const
+{
+  const double extW = mExtent.width();
+  const double extH = mExtent.height();
+
+  if ( extW &lt;= 0 || extH &lt;= 0 )
+  {
+    return QVector3D( std::numeric_limits&lt;float&gt;::quiet_NaN(), 0, 0 );
+  }
+
+  const double nx = ( geoX - mExtent.xMinimum() ) / extW;
+  const double nz = ( geoY - mExtent.yMinimum() ) / extH;
+
+  if ( nx &lt; 0 || nx &gt; 1 || nz &lt; 0 || nz &gt; 1 )
+  {
+    return QVector3D( std::numeric_limits&lt;float&gt;::quiet_NaN(), 0, 0 );
+  }
+
+  const float x3d = static_cast&lt;float&gt;( ( nx - 0.5 ) * mSize.width() );
+  const float z3d = static_cast&lt;float&gt;( ( 0.5 - nz ) * mSize.height() );
+
+  float y3d = static_cast&lt;float&gt;( normalizedHeightAt( geoX, geoY ) );
+  y3d += heightOffset;
+
+  return QVector3D( x3d, y3d, z3d );
+}
+
+double Quick3DTerrainProvider::calculateVisualExaggeration() const
+{
+  const double extentSize = std::max( mExtent.width(), mExtent.height() );
+  if ( extentSize &gt; 100000 )
+  {
+    return 3.0;
+  }
+  if ( extentSize &gt; 50000 )
+  {
+    return 2.0;
+  }
+  return 1.0;
+}
+
+void Quick3DTerrainProvider::calcNormalizedData()
+{
+  if ( mExtent.isEmpty() || !mTerrainProvider )
+  {
+    mNormalizedData.fill( 0.0, static_cast&lt;qsizetype&gt;( mGridSize.width() ) * mGridSize.height() );
+    emit normalizedDataChanged();
+    emit terrainDataReady();
+    return;
+  }
+
+  if ( mFutureWatcher-&gt;isRunning() )
+  {
+    mFutureWatcher-&gt;cancel();
+    mFutureWatcher-&gt;waitForFinished();
+  }
+
+  mIsLoading = true;
+  emit isLoadingChanged();
+
+  QgsAbstractTerrainProvider *terrainProvider;
+  QgsCoordinateReferenceSystem terrainCrs;
+  QgsRasterDataProvider *rasterProvider = nullptr;
+  double scale = 1.0;
+  double offset = 0.0;
+
+  if ( mTerrainProvider )
+  {
+    scale = mTerrainProvider-&gt;scale();
+    offset = mTerrainProvider-&gt;offset();
+
+    if ( QgsRasterDemTerrainProvider *rasterDemProvider = dynamic_cast&lt;QgsRasterDemTerrainProvider *&gt;( mTerrainProvider.get() ) )
+    {
+      QgsRasterLayer *layer = rasterDemProvider-&gt;layer();
+      if ( layer &amp;&amp; layer-&gt;dataProvider() )
+      {
+        terrainCrs = layer-&gt;crs();
+        rasterProvider = layer-&gt;dataProvider()-&gt;clone();
+      }
+    }
+    else
+    {
+      terrainCrs = mTerrainProvider-&gt;crs();
+      terrainProvider = mTerrainProvider-&gt;clone();
+      terrainProvider-&gt;prepare();
+    }
+  }
+
+  QgsRectangle extent = mExtent;
+  const QgsCoordinateReferenceSystem projectCrs = mProject ? mProject-&gt;crs() : QgsCoordinateReferenceSystem();
+  if ( terrainCrs.isValid() &amp;&amp; projectCrs.isValid() &amp;&amp; terrainCrs != projectCrs )
+  {
+    QgsCoordinateTransform transform( projectCrs, terrainCrs, mProject-&gt;transformContext() );
+    try
+    {
+      extent = transform.transformBoundingBox( extent );
+    }
+    catch ( const QgsCsException &amp; )
+    {
+      extent = QgsRectangle();
+    }
+  }
+
+  if ( ( !rasterProvider &amp;&amp; !terrainProvider ) || extent.isEmpty() )
+  {
+    mNormalizedData.fill( 0.0, static_cast&lt;qsizetype&gt;( mGridSize.width() ) * mGridSize.height() );
+    emit normalizedDataChanged();
+    emit terrainDataReady();
+
+    mIsLoading = false;
+    emit isLoadingChanged();
+
+    return;
+  }
+
+  QSize gridSize = mGridSize;
+  QFuture&lt;QVector&lt;double&gt;&gt; future = QtConcurrent::run( [terrainProvider, rasterProvider, extent, gridSize, scale, offset]() {
+    QVector&lt;double&gt; heights( static_cast&lt;qsizetype&gt;( gridSize.width() ) * gridSize.height(), 0.0 );
+    if ( rasterProvider )
+    {
+      std::unique_ptr&lt;QgsRasterBlock&gt; block( rasterProvider-&gt;block( 1, extent, gridSize.width(), gridSize.height() ) );
+      if ( block &amp;&amp; block-&gt;isValid() )
+      {
+        for ( int row = 0; row &lt; gridSize.height(); ++row )
+        {
+          for ( int col = 0; col &lt; gridSize.width(); ++col )
+          {
+            bool isNoData = false;
+            double value = block-&gt;valueAndNoData( row, col, isNoData );
+            if ( !isNoData &amp;&amp; !std::isnan( value ) )
+            {
+              heights[row * gridSize.width() + col] = value * scale + offset;
+            }
+          }
+        }
+      }
+      delete rasterProvider;
+    }
+    else if ( terrainProvider )
+    {
+      for ( int row = 0; row &lt; gridSize.height(); ++row )
+      {
+        for ( int col = 0; col &lt; gridSize.width(); ++col )
+        {
+          const double x = extent.xMinimum() + extent.width() / gridSize.width() * col;
+          const double y = extent.xMinimum() - extent.height() / gridSize.height() * row;
+          double value = terrainProvider-&gt;heightAt( x, y );
+          if ( !std::isnan( value ) )
+          {
+            heights[row * gridSize.width() + col] = value * scale + offset;
+          }
+        }
+      }
+      delete terrainProvider;
+    }
+
+    return heights;
+  } );
+
+  mFutureWatcher-&gt;setFuture( future );
+}
+
+double Quick3DTerrainProvider::sampleHeightFromTerrainProvider( double x, double y ) const
+{
+  if ( !mTerrainProvider || !mProject )
+  {
+    return std::numeric_limits&lt;double&gt;::quiet_NaN();
+  }
+
+  QgsPointXY point( x, y );
+  const QgsCoordinateReferenceSystem terrainCrs = mTerrainProvider-&gt;crs();
+  if ( terrainCrs.isValid() &amp;&amp; terrainCrs != mProject-&gt;crs() )
+  {
+    try
+    {
+      QgsCoordinateTransform transform( mProject-&gt;crs(), terrainCrs, mProject-&gt;transformContext() );
+      point = transform.transform( point );
+    }
+    catch ( const QgsCsException &amp; )
+    {
+      return std::numeric_limits&lt;double&gt;::quiet_NaN();
+    }
+  }
+
+  return mTerrainProvider-&gt;heightAt( point.x(), point.y() );
+}
+
+void Quick3DTerrainProvider::updateTerrainProvider()
+{
+  mTerrainProvider.reset();
+
+  if ( !mProject )
+  {
+    return;
+  }
+
+  QgsAbstractTerrainProvider *const terrain = mProject-&gt;elevationProperties()-&gt;terrainProvider();
+  if ( terrain &amp;&amp; terrain-&gt;type() != QStringLiteral( &quot;flat&quot; ) )
+  {
+    mTerrainProvider.reset( terrain-&gt;clone() );
+    mTerrainProvider-&gt;prepare();
+  }
+
+  if ( mTerrainProvider &amp;&amp; !mExtent.isEmpty() )
+  {
+    calcNormalizedData();
+  }
+}
+
+bool Quick3DTerrainProvider::isLoading() const
+{
+  return mIsLoading;
+}
+
+void Quick3DTerrainProvider::onTerrainDataCalculated()
+{
+  if ( !mFutureWatcher-&gt;isFinished() )
+  {
+    return;
+  }
+
+  const QVector&lt;double&gt; heights = mFutureWatcher-&gt;result();
+
+  const std::pair&lt;QVector&lt;double&gt;::const_iterator, QVector&lt;double&gt;::const_iterator&gt; minmax = std::minmax_element( heights.begin(), heights.end() );
+  mMinRealHeight = *minmax.first;
+  mMaxRealHeight = *minmax.second;
+
+  const double extentSize = std::max( mExtent.width(), mExtent.height() );
+  const double scale = ( mBaseSize / extentSize ) * calculateVisualExaggeration();
+
+  mNormalizedData.clear();
+  mNormalizedData.reserve( heights.size() );
+  for ( const double h : heights )
+  {
+    mNormalizedData.append( ( h - mMinRealHeight ) * scale );
+  }
+
+  mIsLoading = false;
+  emit isLoadingChanged();
+
+  emit normalizedDataChanged();
+  emit terrainDataReady();
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

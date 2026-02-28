@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProcessingUtils" kind="class" language="C++" prot="public">
+    <compoundname>ProcessingUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classProcessingUtils_1a1d49b7df8ff470858053ab8c1f91fdde" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ProcessingUtils::ProcessingUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ProcessingUtils</name>
+        <qualifiedname>ProcessingUtils::ProcessingUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/processingutils.h" line="33" column="14" bodyfile="src/core/utils/processingutils.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classProcessingUtils_1a9edaa181f4a0b93842a565a7443515ed" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double ProcessingUtils::fromAreaUnitToAreaUnitFactor</definition>
+        <argsstring>(Qgis::AreaUnit fromUnit, Qgis::AreaUnit toUnit)</argsstring>
+        <name>fromAreaUnitToAreaUnitFactor</name>
+        <qualifiedname>ProcessingUtils::fromAreaUnitToAreaUnitFactor</qualifiedname>
+        <param>
+          <type>Qgis::AreaUnit</type>
+          <declname>fromUnit</declname>
+        </param>
+        <param>
+          <type>Qgis::AreaUnit</type>
+          <declname>toUnit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the conversion factor between the specified areal units. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fromUnit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>area unit to convert from </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>toUnit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>area unit to convert to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>multiplication factor to convert between units </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/processingutils.h" line="41" column="31" bodyfile="src/core/utils/processingutils.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ProcessingUtils</label>
+        <link refid="classProcessingUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProcessingUtils</label>
+        <link refid="classProcessingUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/processingutils.h" line="28" column="1" bodyfile="src/core/utils/processingutils.h" bodystart="29" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classProcessingUtils_1a9edaa181f4a0b93842a565a7443515ed" prot="public" virt="non-virtual"><scope>ProcessingUtils</scope><name>fromAreaUnitToAreaUnitFactor</name></member>
+      <member refid="classProcessingUtils_1a1d49b7df8ff470858053ab8c1f91fdde" prot="public" virt="non-virtual"><scope>ProcessingUtils</scope><name>ProcessingUtils</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

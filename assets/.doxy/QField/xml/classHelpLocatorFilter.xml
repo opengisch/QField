@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classHelpLocatorFilter" kind="class" language="C++" prot="public">
+    <compoundname>HelpLocatorFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsLocatorFilter</basecompoundref>
+    <includes refid="helplocatorfilter_8h" local="no">helplocatorfilter.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classHelpLocatorFilter_1aece3bad1ce49d1c9ea1ff3eb94a240b7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ActionOrigin</name>
+        <qualifiedname>HelpLocatorFilter::ActionOrigin</qualifiedname>
+        <enumvalue id="classHelpLocatorFilter_1aece3bad1ce49d1c9ea1ff3eb94a240b7a054791af3a0dd1bb342ee18cee1a7ffe" prot="public">
+          <name>Normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Origin of the action which triggers the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="37" column="5" bodyfile="src/core/locator/helplocatorfilter.h" bodystart="38" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classHelpLocatorFilter_1a1029770b9e0e101705eb0d979bb7d99f" prot="private" static="no" mutable="no">
+        <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+        <definition>LocatorModelSuperBridge* HelpLocatorFilter::mLocatorBridge</definition>
+        <argsstring></argsstring>
+        <name>mLocatorBridge</name>
+        <qualifiedname>HelpLocatorFilter::mLocatorBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="55" column="29" bodyfile="src/core/locator/helplocatorfilter.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classHelpLocatorFilter_1a3b27818daf124b6b3a252859eb262018" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HelpLocatorFilter::HelpLocatorFilter</definition>
+        <argsstring>(LocatorModelSuperBridge *locatorBridge, QObject *parent=nullptr)</argsstring>
+        <name>HelpLocatorFilter</name>
+        <qualifiedname>HelpLocatorFilter::HelpLocatorFilter</qualifiedname>
+        <param>
+          <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+          <declname>locatorBridge</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="42" column="14" bodyfile="src/core/locator/helplocatorfilter.cpp" bodystart="27" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classHelpLocatorFilter_1ad3d834893360715c1845074476712e94" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classHelpLocatorFilter" kindref="compound">HelpLocatorFilter</ref> *</type>
+        <definition>HelpLocatorFilter * HelpLocatorFilter::clone</definition>
+        <argsstring>() const override</argsstring>
+        <name>clone</name>
+        <qualifiedname>HelpLocatorFilter::clone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="43" column="23" bodyfile="src/core/locator/helplocatorfilter.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classHelpLocatorFilter_1a1352cbe0e66e87fc0f934f5dfe2f783a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString HelpLocatorFilter::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <qualifiedname>HelpLocatorFilter::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="44" column="13" bodyfile="src/core/locator/helplocatorfilter.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classHelpLocatorFilter_1a8c5daf366c981e26c19a596976a07c85" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString HelpLocatorFilter::displayName</definition>
+        <argsstring>() const override</argsstring>
+        <name>displayName</name>
+        <qualifiedname>HelpLocatorFilter::displayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="45" column="13" bodyfile="src/core/locator/helplocatorfilter.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classHelpLocatorFilter_1a7aaf62cb5adbafd66a15312b8af8dd4b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString HelpLocatorFilter::description</definition>
+        <argsstring>() const override</argsstring>
+        <name>description</name>
+        <qualifiedname>HelpLocatorFilter::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="46" column="13" bodyfile="src/core/locator/helplocatorfilter.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classHelpLocatorFilter_1ad3ea10a8c2dcf0293b3978353a0e466c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Priority</type>
+        <definition>Priority HelpLocatorFilter::priority</definition>
+        <argsstring>() const override</argsstring>
+        <name>priority</name>
+        <qualifiedname>HelpLocatorFilter::priority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="47" column="14" bodyfile="src/core/locator/helplocatorfilter.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classHelpLocatorFilter_1a80b85f6437eaad98fd9c883a6c4628d3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString HelpLocatorFilter::prefix</definition>
+        <argsstring>() const override</argsstring>
+        <name>prefix</name>
+        <qualifiedname>HelpLocatorFilter::prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="48" column="13" bodyfile="src/core/locator/helplocatorfilter.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classHelpLocatorFilter_1aaa1ef6a06256e37bde6c90a4ff14e0da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HelpLocatorFilter::fetchResults</definition>
+        <argsstring>(const QString &amp;string, const QgsLocatorContext &amp;context, QgsFeedback *feedback) override</argsstring>
+        <name>fetchResults</name>
+        <qualifiedname>HelpLocatorFilter::fetchResults</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsLocatorContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>QgsFeedback *</type>
+          <declname>feedback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="50" column="10" bodyfile="src/core/locator/helplocatorfilter.cpp" bodystart="40" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classHelpLocatorFilter_1ad5c352aa225f365d34bfb41d99b4f587" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HelpLocatorFilter::triggerResult</definition>
+        <argsstring>(const QgsLocatorResult &amp;result) override</argsstring>
+        <name>triggerResult</name>
+        <qualifiedname>HelpLocatorFilter::triggerResult</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="51" column="10" bodyfile="src/core/locator/helplocatorfilter.cpp" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classHelpLocatorFilter_1a2f474223c58004041dae4a5f503d20e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HelpLocatorFilter::triggerResultFromAction</definition>
+        <argsstring>(const QgsLocatorResult &amp;result, const int actionId) override</argsstring>
+        <name>triggerResultFromAction</name>
+        <qualifiedname>HelpLocatorFilter::triggerResultFromAction</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>actionId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/helplocatorfilter.h" line="52" column="10" bodyfile="src/core/locator/helplocatorfilter.cpp" bodystart="147" bodyend="151"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classHelpLocatorFilter" kindref="compound">HelpLocatorFilter</ref> is a locator filter to search for and display QField documentation pages. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>HelpLocatorFilter</label>
+        <link refid="classHelpLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>HelpLocatorFilter</label>
+        <link refid="classHelpLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/helplocatorfilter.h" line="31" column="1" bodyfile="src/core/locator/helplocatorfilter.h" bodystart="32" bodyend="56"/>
+    <listofallmembers>
+      <member refid="classHelpLocatorFilter_1aece3bad1ce49d1c9ea1ff3eb94a240b7" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>ActionOrigin</name></member>
+      <member refid="classHelpLocatorFilter_1ad3d834893360715c1845074476712e94" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>clone</name></member>
+      <member refid="classHelpLocatorFilter_1a7aaf62cb5adbafd66a15312b8af8dd4b" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>description</name></member>
+      <member refid="classHelpLocatorFilter_1a8c5daf366c981e26c19a596976a07c85" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>displayName</name></member>
+      <member refid="classHelpLocatorFilter_1aaa1ef6a06256e37bde6c90a4ff14e0da" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>fetchResults</name></member>
+      <member refid="classHelpLocatorFilter_1a3b27818daf124b6b3a252859eb262018" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>HelpLocatorFilter</name></member>
+      <member refid="classHelpLocatorFilter_1a1029770b9e0e101705eb0d979bb7d99f" prot="private" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>mLocatorBridge</name></member>
+      <member refid="classHelpLocatorFilter_1a1352cbe0e66e87fc0f934f5dfe2f783a" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>name</name></member>
+      <member refid="classHelpLocatorFilter_1aece3bad1ce49d1c9ea1ff3eb94a240b7a054791af3a0dd1bb342ee18cee1a7ffe" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>Normal</name></member>
+      <member refid="classHelpLocatorFilter_1a80b85f6437eaad98fd9c883a6c4628d3" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>prefix</name></member>
+      <member refid="classHelpLocatorFilter_1ad3ea10a8c2dcf0293b3978353a0e466c" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>priority</name></member>
+      <member refid="classHelpLocatorFilter_1ad5c352aa225f365d34bfb41d99b4f587" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>triggerResult</name></member>
+      <member refid="classHelpLocatorFilter_1a2f474223c58004041dae4a5f503d20e3" prot="public" virt="non-virtual"><scope>HelpLocatorFilter</scope><name>triggerResultFromAction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAttributeFormModelBase" kind="class" language="C++" prot="public">
+    <compoundname>AttributeFormModelBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QStandardItemModel</basecompoundref>
+    <innerclass refid="structAttributeFormModelBase_1_1CodeRequirements" prot="private">AttributeFormModelBase::CodeRequirements</innerclass>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classAttributeFormModelBase_1ae583d9c1756b24890e1d315a0ed9096f" prot="private" static="no">
+        <type>QPair&lt; QgsExpression, QStandardItem * &gt;</type>
+        <definition>typedef QPair&lt;QgsExpression, QStandardItem *&gt; AttributeFormModelBase::VisibilityExpression</definition>
+        <argsstring></argsstring>
+        <name>VisibilityExpression</name>
+        <qualifiedname>AttributeFormModelBase::VisibilityExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="166" column="19" bodyfile="src/core/attributeformmodelbase.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAttributeFormModelBase_1af74446fa26a7aeba6d38a8aeb9088ef6" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref> *</type>
+        <definition>FeatureModel* AttributeFormModelBase::mFeatureModel</definition>
+        <argsstring></argsstring>
+        <name>mFeatureModel</name>
+        <qualifiedname>AttributeFormModelBase::mFeatureModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="158" column="18" bodyfile="src/core/attributeformmodelbase.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1a99518c2628532d8d745e5f020dc07a25" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; AttributeFormModelBase::mLayer</definition>
+        <argsstring></argsstring>
+        <name>mLayer</name>
+        <qualifiedname>AttributeFormModelBase::mLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="159" column="14" bodyfile="src/core/attributeformmodelbase.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1a8f5637dfee9ae9465169312e7e73b732" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsAttributeEditorContainer &gt;</type>
+        <definition>std::unique_ptr&lt;QgsAttributeEditorContainer&gt; AttributeFormModelBase::mTemporaryContainer</definition>
+        <argsstring></argsstring>
+        <name>mTemporaryContainer</name>
+        <qualifiedname>AttributeFormModelBase::mTemporaryContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="160" column="21" bodyfile="src/core/attributeformmodelbase.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1a754e3cfd46ae556d1e1fa48725b1ba00" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::mHasTabs</definition>
+        <argsstring></argsstring>
+        <name>mHasTabs</name>
+        <qualifiedname>AttributeFormModelBase::mHasTabs</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="162" column="10" bodyfile="src/core/attributeformmodelbase.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1aa17d8261176252d7f80595fbd2f4e705" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::mHasRemembrance</definition>
+        <argsstring></argsstring>
+        <name>mHasRemembrance</name>
+        <qualifiedname>AttributeFormModelBase::mHasRemembrance</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="163" column="10" bodyfile="src/core/attributeformmodelbase.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1a71c0b18a772ee28dee0f394229c1bae8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::mHasConstraints</definition>
+        <argsstring></argsstring>
+        <name>mHasConstraints</name>
+        <qualifiedname>AttributeFormModelBase::mHasConstraints</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="164" column="10" bodyfile="src/core/attributeformmodelbase.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1aeda7fe595b9f313fad9d1e9350b938de" prot="private" static="no" mutable="no">
+        <type>QList&lt; VisibilityExpression &gt;</type>
+        <definition>QList&lt;VisibilityExpression&gt; AttributeFormModelBase::mVisibilityExpressions</definition>
+        <argsstring></argsstring>
+        <name>mVisibilityExpressions</name>
+        <qualifiedname>AttributeFormModelBase::mVisibilityExpressions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="167" column="11" bodyfile="src/core/attributeformmodelbase.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1a851396903c1267d1fa152071c3f34914" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QStandardItem *, int &gt;</type>
+        <definition>QMap&lt;QStandardItem *, int&gt; AttributeFormModelBase::mFields</definition>
+        <argsstring></argsstring>
+        <name>mFields</name>
+        <qualifiedname>AttributeFormModelBase::mFields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="168" column="10" bodyfile="src/core/attributeformmodelbase.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1a6f60c68ea9c323273420e09f412cc44e" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QStandardItem *, QString &gt;</type>
+        <definition>QMap&lt;QStandardItem *, QString&gt; AttributeFormModelBase::mAliasExpressions</definition>
+        <argsstring></argsstring>
+        <name>mAliasExpressions</name>
+        <qualifiedname>AttributeFormModelBase::mAliasExpressions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="169" column="10" bodyfile="src/core/attributeformmodelbase.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1a68d93b60d4caeeb17da49285aa7e57f0" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QStandardItem *, QString &gt;</type>
+        <definition>QMap&lt;QStandardItem *, QString&gt; AttributeFormModelBase::mReadOnlyExpressions</definition>
+        <argsstring></argsstring>
+        <name>mReadOnlyExpressions</name>
+        <qualifiedname>AttributeFormModelBase::mReadOnlyExpressions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="170" column="10" bodyfile="src/core/attributeformmodelbase.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1abdf25c212d3352ea612fec4b0093e85e" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QStandardItem *, QString &gt;</type>
+        <definition>QMap&lt;QStandardItem *, QString&gt; AttributeFormModelBase::mEditorWidgetCodes</definition>
+        <argsstring></argsstring>
+        <name>mEditorWidgetCodes</name>
+        <qualifiedname>AttributeFormModelBase::mEditorWidgetCodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="171" column="10" bodyfile="src/core/attributeformmodelbase.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1a6e0e5cc9f2c3c6e40b2c48beda133c64" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, CodeRequirements &gt;</type>
+        <definition>QMap&lt;QString, CodeRequirements&gt; AttributeFormModelBase::mEditorWidgetCodesRequirements</definition>
+        <argsstring></argsstring>
+        <name>mEditorWidgetCodesRequirements</name>
+        <qualifiedname>AttributeFormModelBase::mEditorWidgetCodesRequirements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="172" column="10" bodyfile="src/core/attributeformmodelbase.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1a5b6aa02c5a2974ef8e7a7bce1e165f13" prot="private" static="no" mutable="no">
+        <type>QgsExpressionContext</type>
+        <definition>QgsExpressionContext AttributeFormModelBase::mExpressionContext</definition>
+        <argsstring></argsstring>
+        <name>mExpressionContext</name>
+        <qualifiedname>AttributeFormModelBase::mExpressionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="174" column="26" bodyfile="src/core/attributeformmodelbase.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1a3c4bce337aa72099f9d05d32c953b74f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::mConstraintsHardValid</definition>
+        <argsstring></argsstring>
+        <name>mConstraintsHardValid</name>
+        <qualifiedname>AttributeFormModelBase::mConstraintsHardValid</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="175" column="10" bodyfile="src/core/attributeformmodelbase.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAttributeFormModelBase_1aac66fc744d5039856ea9a88e613b4bd4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::mConstraintsSoftValid</definition>
+        <argsstring></argsstring>
+        <name>mConstraintsSoftValid</name>
+        <qualifiedname>AttributeFormModelBase::mConstraintsSoftValid</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="176" column="10" bodyfile="src/core/attributeformmodelbase.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAttributeFormModelBase_1a39fcdbde8190656d76764f4175c8e17a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AttributeFormModelBase::AttributeFormModelBase</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>AttributeFormModelBase</name>
+        <qualifiedname>AttributeFormModelBase::AttributeFormModelBase</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="35" column="14" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="41" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a85db096b270fccab502cbc2b60378eae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; AttributeFormModelBase::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>AttributeFormModelBase::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="37" column="11" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="72" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a0d09db7a5ccdd16ce8c1a75870ebf824" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>AttributeFormModelBase::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::EditRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="39" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="107" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a087594e832395b1e9a67286339ef5151" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref> *</type>
+        <definition>FeatureModel * AttributeFormModelBase::featureModel</definition>
+        <argsstring>() const</argsstring>
+        <name>featureModel</name>
+        <qualifiedname>AttributeFormModelBase::featureModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="41" column="18" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1ad3bf29dbbf8af00cce1cb710b6ded93a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::setFeatureModel</definition>
+        <argsstring>(FeatureModel *featureModel)</argsstring>
+        <name>setFeatureModel</name>
+        <qualifiedname>AttributeFormModelBase::setFeatureModel</qualifiedname>
+        <param>
+          <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref> *</type>
+          <declname>featureModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="42" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="158" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1ad52d9d0468de29cb4918f3d1036e5ab6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::hasTabs</definition>
+        <argsstring>() const</argsstring>
+        <name>hasTabs</name>
+        <qualifiedname>AttributeFormModelBase::hasTabs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="44" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1231" bodyend="1234"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a70fbb2175c01fa2927019844541547d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::setHasTabs</definition>
+        <argsstring>(bool hasTabs)</argsstring>
+        <name>setHasTabs</name>
+        <qualifiedname>AttributeFormModelBase::setHasTabs</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>hasTabs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="45" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1236" bodyend="1243"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1afdb8e449f6fe909fe6a7a14c3e6a6adc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::hasRemembrance</definition>
+        <argsstring>() const</argsstring>
+        <name>hasRemembrance</name>
+        <qualifiedname>AttributeFormModelBase::hasRemembrance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="47" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1245" bodyend="1248"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1ae325b463b3c1019ee36fff80525f388a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::setHasRemembrance</definition>
+        <argsstring>(bool hasRemembrance)</argsstring>
+        <name>setHasRemembrance</name>
+        <qualifiedname>AttributeFormModelBase::setHasRemembrance</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>hasRemembrance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="48" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1250" bodyend="1257"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a38ad3401718a67cd6ff3f58c63539f60" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::hasConstraints</definition>
+        <argsstring>() const</argsstring>
+        <name>hasConstraints</name>
+        <qualifiedname>AttributeFormModelBase::hasConstraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="50" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1259" bodyend="1262"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1ae19bbe10d784c3783f6779699a690a04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::setHasConstraints</definition>
+        <argsstring>(bool hasConstraints)</argsstring>
+        <name>setHasConstraints</name>
+        <qualifiedname>AttributeFormModelBase::setHasConstraints</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>hasConstraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="51" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1264" bodyend="1271"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a0e208a3dcffa1b052b30fc1060c57f2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::save</definition>
+        <argsstring>()</argsstring>
+        <name>save</name>
+        <qualifiedname>AttributeFormModelBase::save</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Save the current (already existing) feature   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="54" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1273" bodyend="1276"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a883dd44f8a69b3a75ab9c4d5b0eaa84f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::create</definition>
+        <argsstring>()</argsstring>
+        <name>create</name>
+        <qualifiedname>AttributeFormModelBase::create</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the current (not existing yet) feature   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="57" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1278" bodyend="1281"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a2ef5c953581373d27586fafadcfb23e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::deleteFeature</definition>
+        <argsstring>()</argsstring>
+        <name>deleteFeature</name>
+        <qualifiedname>AttributeFormModelBase::deleteFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Delete the current feature   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="60" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1283" bodyend="1286"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1aa7e52f7b9e498b4d8fd12baa9e63d28f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::constraintsHardValid</definition>
+        <argsstring>() const</argsstring>
+        <name>constraintsHardValid</name>
+        <qualifiedname>AttributeFormModelBase::constraintsHardValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="62" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1090" bodyend="1093"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1acd719f691558b8e3720080224e86ca3a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::constraintsSoftValid</definition>
+        <argsstring>() const</argsstring>
+        <name>constraintsSoftValid</name>
+        <qualifiedname>AttributeFormModelBase::constraintsSoftValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="64" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1095" bodyend="1098"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1add1a1065d8b8b401cc893b55dc7426c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant AttributeFormModelBase::attribute</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>attribute</name>
+        <qualifiedname>AttributeFormModelBase::attribute</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the value for an attribute <emphasis>name</emphasis> of the current feature. <simplesect kind="return"><para>value of the attribute   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="67" column="14" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1100" bodyend="1107"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a7a4c89cfcca398f54fd3a7236524cfeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::changeAttribute</definition>
+        <argsstring>(const QString &amp;name, const QVariant &amp;value)</argsstring>
+        <name>changeAttribute</name>
+        <qualifiedname>AttributeFormModelBase::changeAttribute</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="70" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1109" bodyend="1126"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a8c0c3b2b5517ba25d690fd859b96c3a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::changeGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>changeGeometry</name>
+        <qualifiedname>AttributeFormModelBase::changeGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <emphasis>geometry</emphasis> of the current feature   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="73" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1128" bodyend="1143"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a4d283979799c715ff9fb319d4ea9352c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::applyFeatureModel</definition>
+        <argsstring>()</argsstring>
+        <name>applyFeatureModel</name>
+        <qualifiedname>AttributeFormModelBase::applyFeatureModel</qualifiedname>
+        <briefdescription>
+<para>Applies feature model data such as attribute values, constraints, visibility to the attribute form model.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="76" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="273" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1ae6b343ec98baf2fc92864e7202a5b7f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::applyParentDefaultValues</definition>
+        <argsstring>()</argsstring>
+        <name>applyParentDefaultValues</name>
+        <qualifiedname>AttributeFormModelBase::applyParentDefaultValues</qualifiedname>
+        <briefdescription>
+<para>Applies default values linked to a parent feature.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="79" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="288" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a1d77072c5fe8b6c5855fc2fa85620f7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::applyRelationshipDefaultValues</definition>
+        <argsstring>()</argsstring>
+        <name>applyRelationshipDefaultValues</name>
+        <qualifiedname>AttributeFormModelBase::applyRelationshipDefaultValues</qualifiedname>
+        <briefdescription>
+<para>Applies default values linked to relationships.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="82" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="319" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a4a76e5abfa8147a2d08be5880b42e67e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::activateAllRememberValues</definition>
+        <argsstring>()</argsstring>
+        <name>activateAllRememberValues</name>
+        <qualifiedname>AttributeFormModelBase::activateAllRememberValues</qualifiedname>
+        <briefdescription>
+<para>Activate all available value that can be remembered and reused.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="85" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="349" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1afbe61754b633d39ebcc49d068156c101" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::deactivateAllRememberValues</definition>
+        <argsstring>()</argsstring>
+        <name>deactivateAllRememberValues</name>
+        <qualifiedname>AttributeFormModelBase::deactivateAllRememberValues</qualifiedname>
+        <briefdescription>
+<para>Deactivate all available value that can be remembered and reused.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="88" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="358" bodyend="365"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classAttributeFormModelBase_1a870254c5e4c9a24c10f5e98f83b0bf15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::featureModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureModelChanged</name>
+        <qualifiedname>AttributeFormModelBase::featureModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="91" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModelBase_1ab3e5501c84f0e2ef834923bbfc836847" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::hasTabsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasTabsChanged</name>
+        <qualifiedname>AttributeFormModelBase::hasTabsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="92" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModelBase_1a8ca0633eb7a65ce32a7e6328382dd3fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::hasRemembranceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasRemembranceChanged</name>
+        <qualifiedname>AttributeFormModelBase::hasRemembranceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="93" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModelBase_1a29623a2366ab6b98147b03539deb4034" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::hasConstraintsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasConstraintsChanged</name>
+        <qualifiedname>AttributeFormModelBase::hasConstraintsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="94" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModelBase_1ae6634374fe302c264193d680e244d36f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::featureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureChanged</name>
+        <qualifiedname>AttributeFormModelBase::featureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="95" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModelBase_1a293e2907bd9376e835bc93982e7b2f84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::constraintsHardValidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>constraintsHardValidChanged</name>
+        <qualifiedname>AttributeFormModelBase::constraintsHardValidChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="96" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModelBase_1a64154c79e5c9ba4fde986fd0e688304f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::constraintsSoftValidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>constraintsSoftValidChanged</name>
+        <qualifiedname>AttributeFormModelBase::constraintsSoftValidChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="97" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classAttributeFormModelBase_1aa168257d68915af385b1066c4650cd4b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsAttributeEditorContainer *</type>
+        <definition>QgsAttributeEditorContainer * AttributeFormModelBase::generateRootContainer</definition>
+        <argsstring>() const</argsstring>
+        <name>generateRootContainer</name>
+        <qualifiedname>AttributeFormModelBase::generateRootContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a root container for autogenerated layouts, so we can just use the same form logic to deal with them. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="110" column="33" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="367" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1aa4bcfa62bdb0a7ed3d3efe393439d921" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsAttributeEditorContainer *</type>
+        <definition>QgsAttributeEditorContainer * AttributeFormModelBase::invisibleRootContainer</definition>
+        <argsstring>() const</argsstring>
+        <name>invisibleRootContainer</name>
+        <qualifiedname>AttributeFormModelBase::invisibleRootContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="112" column="33" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="390" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a965a413c8903b6f6a9633fd9a568125c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::updateAttributeValue</definition>
+        <argsstring>(QStandardItem *item)</argsstring>
+        <name>updateAttributeValue</name>
+        <qualifiedname>AttributeFormModelBase::updateAttributeValue</qualifiedname>
+        <param>
+          <type>QStandardItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="114" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="395" bodyend="484"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a47f56a3bd99dd6568be151bfb9953f79" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::buildForm</definition>
+        <argsstring>(QgsAttributeEditorContainer *container, QStandardItem *parent, const QString &amp;parentVisibilityExpressions, QList&lt; QStandardItem * &gt; &amp;containers, int currentTabIndex=0, int columnCount=1)</argsstring>
+        <name>buildForm</name>
+        <qualifiedname>AttributeFormModelBase::buildForm</qualifiedname>
+        <param>
+          <type>QgsAttributeEditorContainer *</type>
+          <declname>container</declname>
+        </param>
+        <param>
+          <type>QStandardItem *</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>parentVisibilityExpressions</declname>
+        </param>
+        <param>
+          <type>QList&lt; QStandardItem * &gt; &amp;</type>
+          <declname>containers</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>currentTabIndex</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>columnCount</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="116" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="486" bodyend="713"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a1bfa016db30af00491062ab958ba7572" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::synchronizeFieldValue</definition>
+        <argsstring>(int fieldIndex, QVariant value)</argsstring>
+        <name>synchronizeFieldValue</name>
+        <qualifiedname>AttributeFormModelBase::synchronizeFieldValue</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fieldIndex</declname>
+        </param>
+        <param>
+          <type>QVariant</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Synchronize all items linked to the <emphasis>fieldIndex</emphasis> to have the same <emphasis>value</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="124" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="715" bodyend="729"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a3c9ae1ab71100fa31b4df5b54be5e931" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::updateDefaultValues</definition>
+        <argsstring>(int fieldIndex=-1, QVector&lt; int &gt; updatedFields=QVector&lt; int &gt;())</argsstring>
+        <name>updateDefaultValues</name>
+        <qualifiedname>AttributeFormModelBase::updateDefaultValues</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fieldIndex</declname>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>QVector&lt; int &gt;</type>
+          <declname>updatedFields</declname>
+          <defval>QVector&lt; int &gt;()</defval>
+        </param>
+        <briefdescription>
+<para>Update default values refering to the <emphasis>fieldIndex</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="127" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="731" bodyend="778"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1ad58b6582ac4e8a0817212f60ecd9f53e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::updateEditorWidgetCodes</definition>
+        <argsstring>(const QString &amp;fieldName)</argsstring>
+        <name>updateEditorWidgetCodes</name>
+        <qualifiedname>AttributeFormModelBase::updateEditorWidgetCodes</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fieldName</declname>
+        </param>
+        <briefdescription>
+<para>Update QML, HTML, and text widget code. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="130" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="850" bodyend="909"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a173e3b977f0a70f62f1687a21617d180" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::updateDataDefinedProperties</definition>
+        <argsstring>(const QString &amp;fieldName)</argsstring>
+        <name>updateDataDefinedProperties</name>
+        <qualifiedname>AttributeFormModelBase::updateDataDefinedProperties</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fieldName</declname>
+        </param>
+        <briefdescription>
+<para>Update expression-driven alias and read-only values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="133" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="803" bodyend="848"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1add390ec00b6bd2b5c18af77d43220887" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::codeRequiresUpdate</definition>
+        <argsstring>(const QString &amp;fieldName, const QString &amp;code, const QRegularExpression &amp;regEx)</argsstring>
+        <name>codeRequiresUpdate</name>
+        <qualifiedname>AttributeFormModelBase::codeRequiresUpdate</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fieldName</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>const QRegularExpression &amp;</type>
+          <declname>regEx</declname>
+        </param>
+        <briefdescription>
+<para>Check if the given <emphasis>code</emphasis> requires update. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="136" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="780" bodyend="801"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1ae62e4cbce79397e6863df8c078a58926" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::updateVisibilityAndConstraints</definition>
+        <argsstring>(int fieldIndex=-1)</argsstring>
+        <name>updateVisibilityAndConstraints</name>
+        <qualifiedname>AttributeFormModelBase::updateVisibilityAndConstraints</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fieldIndex</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+<para>Udate the visibility state of groups as well as constraints of field items. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="139" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="938" bodyend="1088"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1aaf05999d5a16b1c49c2484786714d98c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::setConstraintsHardValid</definition>
+        <argsstring>(bool constraintsHardValid)</argsstring>
+        <name>setConstraintsHardValid</name>
+        <qualifiedname>AttributeFormModelBase::setConstraintsHardValid</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>constraintsHardValid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="141" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1145" bodyend="1152"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1ac9b50fca3f8795b26e3a5fca2dd63172" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::setConstraintsSoftValid</definition>
+        <argsstring>(bool constraintsSoftValid)</argsstring>
+        <name>setConstraintsSoftValid</name>
+        <qualifiedname>AttributeFormModelBase::setConstraintsSoftValid</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>constraintsSoftValid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="143" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1154" bodyend="1161"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a0007cd8999e347c0a4c4d45330ffe6ca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsEditorWidgetSetup</type>
+        <definition>QgsEditorWidgetSetup AttributeFormModelBase::findBest</definition>
+        <argsstring>(int fieldIndex)</argsstring>
+        <name>findBest</name>
+        <qualifiedname>AttributeFormModelBase::findBest</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fieldIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>finds the best widget type regarding to the field type or the configured widget setup <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fieldIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to get the field </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>widget setup containing the best widget type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="150" column="26" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="1163" bodyend="1229"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a004ea5e28adfb5d6a330f8ce6f84fe14" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::resetModel</definition>
+        <argsstring>()</argsstring>
+        <name>resetModel</name>
+        <qualifiedname>AttributeFormModelBase::resetModel</qualifiedname>
+        <briefdescription>
+<para>Resets the attribute form model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="153" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="181" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModelBase_1a0b0ae539cd84da37e3dd155799dfb8f1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModelBase::onMapThemeCollectionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onMapThemeCollectionChanged</name>
+        <qualifiedname>AttributeFormModelBase::onMapThemeCollectionChanged</qualifiedname>
+        <briefdescription>
+<para>Sets up a connection to listen to project map theme change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="156" column="10" bodyfile="src/core/attributeformmodelbase.cpp" bodystart="67" bodyend="70"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AttributeFormModelBase</label>
+        <link refid="classAttributeFormModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AttributeFormModelBase</label>
+        <link refid="classAttributeFormModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/attributeformmodelbase.h" line="30" column="1" bodyfile="src/core/attributeformmodelbase.h" bodystart="31" bodyend="177"/>
+    <listofallmembers>
+      <member refid="classAttributeFormModelBase_1a4a76e5abfa8147a2d08be5880b42e67e" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>activateAllRememberValues</name></member>
+      <member refid="classAttributeFormModelBase_1a4d283979799c715ff9fb319d4ea9352c" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>applyFeatureModel</name></member>
+      <member refid="classAttributeFormModelBase_1ae6b343ec98baf2fc92864e7202a5b7f7" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>applyParentDefaultValues</name></member>
+      <member refid="classAttributeFormModelBase_1a1d77072c5fe8b6c5855fc2fa85620f7f" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>applyRelationshipDefaultValues</name></member>
+      <member refid="classAttributeFormModelBase_1add1a1065d8b8b401cc893b55dc7426c6" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>attribute</name></member>
+      <member refid="classAttributeFormModelBase_1a39fcdbde8190656d76764f4175c8e17a" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>AttributeFormModelBase</name></member>
+      <member refid="classAttributeFormModelBase_1a47f56a3bd99dd6568be151bfb9953f79" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>buildForm</name></member>
+      <member refid="classAttributeFormModelBase_1a7a4c89cfcca398f54fd3a7236524cfeb" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>changeAttribute</name></member>
+      <member refid="classAttributeFormModelBase_1a8c0c3b2b5517ba25d690fd859b96c3a2" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>changeGeometry</name></member>
+      <member refid="classAttributeFormModelBase_1add390ec00b6bd2b5c18af77d43220887" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>codeRequiresUpdate</name></member>
+      <member refid="classAttributeFormModelBase_1aa7e52f7b9e498b4d8fd12baa9e63d28f" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>constraintsHardValid</name></member>
+      <member refid="classAttributeFormModelBase_1a293e2907bd9376e835bc93982e7b2f84" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>constraintsHardValidChanged</name></member>
+      <member refid="classAttributeFormModelBase_1acd719f691558b8e3720080224e86ca3a" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>constraintsSoftValid</name></member>
+      <member refid="classAttributeFormModelBase_1a64154c79e5c9ba4fde986fd0e688304f" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>constraintsSoftValidChanged</name></member>
+      <member refid="classAttributeFormModelBase_1a883dd44f8a69b3a75ab9c4d5b0eaa84f" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>create</name></member>
+      <member refid="classAttributeFormModelBase_1afbe61754b633d39ebcc49d068156c101" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>deactivateAllRememberValues</name></member>
+      <member refid="classAttributeFormModelBase_1a2ef5c953581373d27586fafadcfb23e6" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>deleteFeature</name></member>
+      <member refid="classAttributeFormModelBase_1ae6634374fe302c264193d680e244d36f" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>featureChanged</name></member>
+      <member refid="classAttributeFormModelBase_1a087594e832395b1e9a67286339ef5151" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>featureModel</name></member>
+      <member refid="classAttributeFormModelBase_1a870254c5e4c9a24c10f5e98f83b0bf15" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>featureModelChanged</name></member>
+      <member refid="classAttributeFormModelBase_1a0007cd8999e347c0a4c4d45330ffe6ca" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>findBest</name></member>
+      <member refid="classAttributeFormModelBase_1aa168257d68915af385b1066c4650cd4b" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>generateRootContainer</name></member>
+      <member refid="classAttributeFormModelBase_1a38ad3401718a67cd6ff3f58c63539f60" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>hasConstraints</name></member>
+      <member refid="classAttributeFormModelBase_1a29623a2366ab6b98147b03539deb4034" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>hasConstraintsChanged</name></member>
+      <member refid="classAttributeFormModelBase_1afdb8e449f6fe909fe6a7a14c3e6a6adc" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>hasRemembrance</name></member>
+      <member refid="classAttributeFormModelBase_1a8ca0633eb7a65ce32a7e6328382dd3fd" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>hasRemembranceChanged</name></member>
+      <member refid="classAttributeFormModelBase_1ad52d9d0468de29cb4918f3d1036e5ab6" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>hasTabs</name></member>
+      <member refid="classAttributeFormModelBase_1ab3e5501c84f0e2ef834923bbfc836847" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>hasTabsChanged</name></member>
+      <member refid="classAttributeFormModelBase_1aa4bcfa62bdb0a7ed3d3efe393439d921" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>invisibleRootContainer</name></member>
+      <member refid="classAttributeFormModelBase_1a6f60c68ea9c323273420e09f412cc44e" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mAliasExpressions</name></member>
+      <member refid="classAttributeFormModelBase_1a3c4bce337aa72099f9d05d32c953b74f" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mConstraintsHardValid</name></member>
+      <member refid="classAttributeFormModelBase_1aac66fc744d5039856ea9a88e613b4bd4" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mConstraintsSoftValid</name></member>
+      <member refid="classAttributeFormModelBase_1abdf25c212d3352ea612fec4b0093e85e" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mEditorWidgetCodes</name></member>
+      <member refid="classAttributeFormModelBase_1a6e0e5cc9f2c3c6e40b2c48beda133c64" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mEditorWidgetCodesRequirements</name></member>
+      <member refid="classAttributeFormModelBase_1a5b6aa02c5a2974ef8e7a7bce1e165f13" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mExpressionContext</name></member>
+      <member refid="classAttributeFormModelBase_1af74446fa26a7aeba6d38a8aeb9088ef6" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mFeatureModel</name></member>
+      <member refid="classAttributeFormModelBase_1a851396903c1267d1fa152071c3f34914" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mFields</name></member>
+      <member refid="classAttributeFormModelBase_1a71c0b18a772ee28dee0f394229c1bae8" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mHasConstraints</name></member>
+      <member refid="classAttributeFormModelBase_1aa17d8261176252d7f80595fbd2f4e705" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mHasRemembrance</name></member>
+      <member refid="classAttributeFormModelBase_1a754e3cfd46ae556d1e1fa48725b1ba00" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mHasTabs</name></member>
+      <member refid="classAttributeFormModelBase_1a99518c2628532d8d745e5f020dc07a25" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mLayer</name></member>
+      <member refid="classAttributeFormModelBase_1a68d93b60d4caeeb17da49285aa7e57f0" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mReadOnlyExpressions</name></member>
+      <member refid="classAttributeFormModelBase_1a8f5637dfee9ae9465169312e7e73b732" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mTemporaryContainer</name></member>
+      <member refid="classAttributeFormModelBase_1aeda7fe595b9f313fad9d1e9350b938de" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>mVisibilityExpressions</name></member>
+      <member refid="classAttributeFormModelBase_1a0b0ae539cd84da37e3dd155799dfb8f1" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>onMapThemeCollectionChanged</name></member>
+      <member refid="classAttributeFormModelBase_1a004ea5e28adfb5d6a330f8ce6f84fe14" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>resetModel</name></member>
+      <member refid="classAttributeFormModelBase_1a85db096b270fccab502cbc2b60378eae" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>roleNames</name></member>
+      <member refid="classAttributeFormModelBase_1a0e208a3dcffa1b052b30fc1060c57f2d" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>save</name></member>
+      <member refid="classAttributeFormModelBase_1aaf05999d5a16b1c49c2484786714d98c" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>setConstraintsHardValid</name></member>
+      <member refid="classAttributeFormModelBase_1ac9b50fca3f8795b26e3a5fca2dd63172" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>setConstraintsSoftValid</name></member>
+      <member refid="classAttributeFormModelBase_1a0d09db7a5ccdd16ce8c1a75870ebf824" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>setData</name></member>
+      <member refid="classAttributeFormModelBase_1ad3bf29dbbf8af00cce1cb710b6ded93a" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>setFeatureModel</name></member>
+      <member refid="classAttributeFormModelBase_1ae19bbe10d784c3783f6779699a690a04" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>setHasConstraints</name></member>
+      <member refid="classAttributeFormModelBase_1ae325b463b3c1019ee36fff80525f388a" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>setHasRemembrance</name></member>
+      <member refid="classAttributeFormModelBase_1a70fbb2175c01fa2927019844541547d3" prot="public" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>setHasTabs</name></member>
+      <member refid="classAttributeFormModelBase_1a1bfa016db30af00491062ab958ba7572" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>synchronizeFieldValue</name></member>
+      <member refid="classAttributeFormModelBase_1a965a413c8903b6f6a9633fd9a568125c" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>updateAttributeValue</name></member>
+      <member refid="classAttributeFormModelBase_1a173e3b977f0a70f62f1687a21617d180" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>updateDataDefinedProperties</name></member>
+      <member refid="classAttributeFormModelBase_1a3c9ae1ab71100fa31b4df5b54be5e931" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>updateDefaultValues</name></member>
+      <member refid="classAttributeFormModelBase_1ad58b6582ac4e8a0817212f60ecd9f53e" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>updateEditorWidgetCodes</name></member>
+      <member refid="classAttributeFormModelBase_1ae62e4cbce79397e6863df8c078a58926" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>updateVisibilityAndConstraints</name></member>
+      <member refid="classAttributeFormModelBase_1ae583d9c1756b24890e1d315a0ed9096f" prot="private" virt="non-virtual"><scope>AttributeFormModelBase</scope><name>VisibilityExpression</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

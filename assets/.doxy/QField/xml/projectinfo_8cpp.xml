@@ -1,0 +1,1405 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="projectinfo_8cpp" kind="file" language="C++">
+    <compoundname>projectinfo.cpp</compoundname>
+    <includes refid="expressioncontextutils_8h" local="yes">expressioncontextutils.h</includes>
+    <includes refid="projectinfo_8h" local="yes">projectinfo.h</includes>
+    <includes local="no">QDateTime</includes>
+    <includes local="no">QFileInfo</includes>
+    <includes local="no">QString</includes>
+    <includes local="no">QTextDocument</includes>
+    <includes local="no">qgscolorutils.h</includes>
+    <includes local="no">qgslayertree.h</includes>
+    <includes local="no">qgslayertreemodel.h</includes>
+    <includes local="no">qgslinesymbol.h</includes>
+    <includes local="no">qgsmaplayerstyle.h</includes>
+    <includes local="no">qgsmarkersymbol.h</includes>
+    <includes local="no">qgssymbollayerutils.h</includes>
+    <incdepgraph>
+      <node id="41">
+        <label>layertreemodel.h</label>
+        <link refid="layertreemodel_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>gnsspositioninformation.h</label>
+        <link refid="gnsspositioninformation_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/projectinfo.cpp</label>
+        <link refid="projectinfo_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>projectinfo.h</label>
+        <link refid="projectinfo_8h_source"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>deltafilewrapper.h</label>
+        <link refid="deltafilewrapper_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>networkmanager.h</label>
+        <link refid="networkmanager_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>networkreply.h</label>
+        <link refid="networkreply_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>qfieldcloudconnection.h</label>
+        <link refid="qfieldcloudconnection_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>qfieldcloudproject.h</label>
+        <link refid="qfieldcloudproject_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>qfieldcloudprojectsmodel.h</label>
+        <link refid="qfieldcloudprojectsmodel_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>qgsgpkgflusher.h</label>
+        <link refid="qgsgpkgflusher_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>qgsquickmapcanvasmap.h</label>
+        <link refid="qgsquickmapcanvasmap_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>snappingresult.h</label>
+        <link refid="snappingresult_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>tracker.h</label>
+        <link refid="tracker_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>trackingmodel.h</label>
+        <link refid="trackingmodel_8h_source"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>expressioncontextutils.h</label>
+        <link refid="expressioncontextutils_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>qfieldcloudutils.h</label>
+        <link refid="qfieldcloudutils_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="30">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="55">
+        <label>QColor</label>
+      </node>
+      <node id="4">
+        <label>QDateTime</label>
+      </node>
+      <node id="59">
+        <label>QFileInfo</label>
+      </node>
+      <node id="50">
+        <label>QFutureSynchronizer</label>
+      </node>
+      <node id="19">
+        <label>QJsonArray</label>
+      </node>
+      <node id="20">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="21">
+        <label>QJsonObject</label>
+      </node>
+      <node id="12">
+        <label>QNetworkAccessManager</label>
+      </node>
+      <node id="34">
+        <label>QNetworkInformation</label>
+      </node>
+      <node id="13">
+        <label>QNetworkReply</label>
+      </node>
+      <node id="5">
+        <label>QObject</label>
+      </node>
+      <node id="25">
+        <label>QPointer</label>
+      </node>
+      <node id="51">
+        <label>QQuickItem</label>
+      </node>
+      <node id="35">
+        <label>QSet</label>
+      </node>
+      <node id="58">
+        <label>QSettings</label>
+      </node>
+      <node id="31">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="6">
+        <label>QString</label>
+      </node>
+      <node id="60">
+        <label>QTextDocument</label>
+      </node>
+      <node id="28">
+        <label>QThread</label>
+      </node>
+      <node id="32">
+        <label>QTimer</label>
+      </node>
+      <node id="26">
+        <label>QVariantMap</label>
+      </node>
+      <node id="52">
+        <label>memory</label>
+      </node>
+      <node id="45">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="7">
+        <label>qgis.h</label>
+      </node>
+      <node id="61">
+        <label>qgscolorutils.h</label>
+      </node>
+      <node id="46">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="56">
+        <label>qgsdistancearea.h</label>
+      </node>
+      <node id="39">
+        <label>qgsexpressioncontext.h</label>
+      </node>
+      <node id="22">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="62">
+        <label>qgslayertree.h</label>
+      </node>
+      <node id="42">
+        <label>qgslayertreelayer.h</label>
+      </node>
+      <node id="63">
+        <label>qgslayertreemodel.h</label>
+      </node>
+      <node id="64">
+        <label>qgslinesymbol.h</label>
+      </node>
+      <node id="23">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="29">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="65">
+        <label>qgsmaplayerstyle.h</label>
+      </node>
+      <node id="47">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="48">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="66">
+        <label>qgsmarkersymbol.h</label>
+      </node>
+      <node id="14">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+      <node id="37">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="38">
+        <label>qgspointlocator.h</label>
+      </node>
+      <node id="33">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="49">
+        <label>qgsrectangle.h</label>
+      </node>
+      <node id="8">
+        <label>qgssatelliteinformation.h</label>
+      </node>
+      <node id="67">
+        <label>qgssymbollayerutils.h</label>
+      </node>
+      <node id="24">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>projectinfo.cpp<sp/>-<sp/>ProjectInfo</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>14.2.2021</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2021<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>nirvn<sp/>dot<sp/>asia<sp/>at<sp/>gmail<sp/>dot<sp/>com</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;expressioncontextutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;projectinfo.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDateTime&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFileInfo&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QString&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QTextDocument&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgscolorutils.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslayertree.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslayertreemodel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslinesymbol.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmaplayerstyle.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmarkersymbol.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgssymbollayerutils.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">ProjectInfo::ProjectInfo(<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>:<sp/>QObject(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>mSaveExtentTimer.setSingleShot(<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>mSaveRotationTimer.setSingleShot(<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>mSaveTemporalStateTimer.setSingleShot(<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>connect(<sp/>&amp;mSaveExtentTimer,<sp/>&amp;QTimer::timeout,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ProjectInfo::saveExtent<sp/>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>connect(<sp/>&amp;mSaveRotationTimer,<sp/>&amp;QTimer::timeout,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ProjectInfo::saveRotation<sp/>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>connect(<sp/>&amp;mSaveTemporalStateTimer,<sp/>&amp;QTimer::timeout,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ProjectInfo::saveTemporalState<sp/>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1a9953204f04bd5e29c0af67d4bd788a68" kindref="member">ProjectInfo::setFilePath</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;filePath<sp/>)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath<sp/>==<sp/><ref refid="classProjectInfo_1a8b42409f0bc2e06c77e780adf93decbd" kindref="member">filePath</ref><sp/>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>mFilePath<sp/>=<sp/><ref refid="classProjectInfo_1a8b42409f0bc2e06c77e780adf93decbd" kindref="member">filePath</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>emit<sp/>filePathChanged();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>emit<sp/>stateModeChanged();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>emit<sp/>activeLayerChanged();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">QString<sp/><ref refid="classProjectInfo_1a8b42409f0bc2e06c77e780adf93decbd" kindref="member">ProjectInfo::filePath</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="57"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mFilePath;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1a20610396121bf1f1f913855ee740f061" kindref="member">ProjectInfo::setMapSettings</ref>(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings<sp/>)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!<ref refid="classProjectInfo_1a8a29dc7b80ed0f757844021792309e73" kindref="member">mapSettings</ref><sp/>)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mMapSettings<sp/>)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a1956e57291066171d306c1981691f5be" kindref="member">QgsQuickMapSettings::extentChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ProjectInfo::extentChanged<sp/>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1adbaa9fe6328d1267c71dc5887808ec65" kindref="member">QgsQuickMapSettings::rotationChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ProjectInfo::rotationChanged<sp/>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a62d7172a3898e29d941d2ad8e443e486" kindref="member">QgsQuickMapSettings::temporalStateChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ProjectInfo::temporalStateChanged<sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>mMapSettings<sp/>=<sp/><ref refid="classProjectInfo_1a8a29dc7b80ed0f757844021792309e73" kindref="member">mapSettings</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>connect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a1956e57291066171d306c1981691f5be" kindref="member">QgsQuickMapSettings::extentChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ProjectInfo::extentChanged<sp/>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>connect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1adbaa9fe6328d1267c71dc5887808ec65" kindref="member">QgsQuickMapSettings::rotationChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ProjectInfo::rotationChanged<sp/>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>connect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a62d7172a3898e29d941d2ad8e443e486" kindref="member">QgsQuickMapSettings::temporalStateChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ProjectInfo::temporalStateChanged<sp/>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>emit<sp/>mapSettingsChanged();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classProjectInfo_1a8a29dc7b80ed0f757844021792309e73" kindref="member">ProjectInfo::mapSettings</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="82"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mMapSettings;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1ae56f0ca90cc3dfa47c242a9e82bfba05" kindref="member">ProjectInfo::setLayerTree</ref>(<sp/><ref refid="classFlatLayerTreeModel" kindref="compound">FlatLayerTreeModel</ref><sp/>*layerTree<sp/>)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mLayerTree<sp/>==<sp/><ref refid="classProjectInfo_1a085bbf8f23e9b5162426c477282e7501" kindref="member">layerTree</ref><sp/>)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mLayerTree<sp/>)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mLayerTree,<sp/>&amp;FlatLayerTreeModel::mapThemeChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ProjectInfo::mapThemeChanged<sp/>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>mLayerTree<sp/>=<sp/><ref refid="classProjectInfo_1a085bbf8f23e9b5162426c477282e7501" kindref="member">layerTree</ref>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mLayerTree<sp/>)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mLayerTree,<sp/>&amp;FlatLayerTreeModel::mapThemeChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ProjectInfo::mapThemeChanged<sp/>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>emit<sp/>layerTreeChanged();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><ref refid="classFlatLayerTreeModel" kindref="compound">FlatLayerTreeModel</ref><sp/>*<ref refid="classProjectInfo_1a085bbf8f23e9b5162426c477282e7501" kindref="member">ProjectInfo::layerTree</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="107"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mLayerTree;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1a9df6c713e27a0afff2d11a7167858fd0" kindref="member">ProjectInfo::setTrackingModel</ref>(<sp/><ref refid="classTrackingModel" kindref="compound">TrackingModel</ref><sp/>*trackingModel<sp/>)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mTrackingModel<sp/>==<sp/><ref refid="classProjectInfo_1ad259b02265ded1281b43c8c000d9c48c" kindref="member">trackingModel</ref><sp/>)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>mTrackingModel<sp/>=<sp/><ref refid="classProjectInfo_1ad259b02265ded1281b43c8c000d9c48c" kindref="member">trackingModel</ref>;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>emit<sp/>trackingModelChanged();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><ref refid="classTrackingModel" kindref="compound">TrackingModel</ref><sp/>*<ref refid="classProjectInfo_1ad259b02265ded1281b43c8c000d9c48c" kindref="member">ProjectInfo::trackingModel</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="122"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mTrackingModel;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1ae6881a71a52ab5b8be134c8ead490467" kindref="member">ProjectInfo::saveTracker</ref>(<sp/>QgsVectorLayer<sp/>*layer<sp/>)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!layer<sp/>||<sp/>!mTrackingModel<sp/>||<sp/>!mTrackingModel-&gt;<ref refid="classTrackingModel_1a493f4b262b0aae471f6d452268f7f61f" kindref="member">layerInTracking</ref>(<sp/>layer<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classTracker" kindref="compound">Tracker</ref><sp/>*tracker<sp/>=<sp/>mTrackingModel-&gt;<ref refid="classTrackingModel_1afb3073b1358437e27078326eb1d31bd6" kindref="member">trackerForLayer</ref>(<sp/>layer<sp/>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/trackers/%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>layer-&gt;id()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/></highlight><highlight class="stringliteral">&quot;minimumDistance&quot;</highlight><highlight class="normal">,<sp/>tracker-&gt;minimumDistance()<sp/>);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/></highlight><highlight class="stringliteral">&quot;timeInterval&quot;</highlight><highlight class="normal">,<sp/>tracker-&gt;timeInterval()<sp/>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/></highlight><highlight class="stringliteral">&quot;sensorCapture&quot;</highlight><highlight class="normal">,<sp/>tracker-&gt;sensorCapture()<sp/>);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/></highlight><highlight class="stringliteral">&quot;conjunction&quot;</highlight><highlight class="normal">,<sp/>tracker-&gt;conjunction()<sp/>);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/></highlight><highlight class="stringliteral">&quot;maximumDistance&quot;</highlight><highlight class="normal">,<sp/>tracker-&gt;maximumDistance()<sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/></highlight><highlight class="stringliteral">&quot;measureType&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>tracker-&gt;measureType()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/></highlight><highlight class="stringliteral">&quot;visible&quot;</highlight><highlight class="normal">,<sp/>tracker-&gt;visible()<sp/>);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/></highlight><highlight class="stringliteral">&quot;featureId&quot;</highlight><highlight class="normal">,<sp/>tracker-&gt;feature().id()<sp/>);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal">QModelIndex<sp/><ref refid="classProjectInfo_1a52efa096c831c72d75f3674a8132dffe" kindref="member">ProjectInfo::restoreTracker</ref>(<sp/>QgsVectorLayer<sp/>*layer<sp/>)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!layer<sp/>||<sp/>!mTrackingModel<sp/>||<sp/>mTrackingModel-&gt;<ref refid="classTrackingModel_1a493f4b262b0aae471f6d452268f7f61f" kindref="member">layerInTracking</ref>(<sp/>layer<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QModelIndex();</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mSettings.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/trackers/%1/minimumDistance&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>layer-&gt;id()<sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QModelIndex();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>QModelIndex<sp/>index<sp/>=<sp/>mTrackingModel-&gt;<ref refid="classTrackingModel_1a7d930718806b1241b220babbe9b477aa" kindref="member">createTracker</ref>(<sp/>layer<sp/>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><ref refid="classTracker" kindref="compound">Tracker</ref><sp/>*tracker<sp/>=<sp/>mTrackingModel-&gt;data(<sp/>index,<sp/>TrackingModel::TrackerPointer<sp/>).value&lt;<ref refid="classTracker" kindref="compound">Tracker</ref><sp/>*&gt;();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/trackers/%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>layer-&gt;id()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>tracker-&gt;<ref refid="classTracker_1a97a7c45461d511d2cb5967c86dafc87e" kindref="member">setTimeInterval</ref>(<sp/>mSettings.value(<sp/></highlight><highlight class="stringliteral">&quot;timeInterval&quot;</highlight><highlight class="normal">,<sp/>0<sp/>).toInt()<sp/>);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>tracker-&gt;<ref refid="classTracker_1a2016eb5caf4ec02693d06d296de2dcda" kindref="member">setMinimumDistance</ref>(<sp/>mSettings.value(<sp/></highlight><highlight class="stringliteral">&quot;minimumDistance&quot;</highlight><highlight class="normal">,<sp/>0<sp/>).toDouble()<sp/>);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>tracker-&gt;<ref refid="classTracker_1a371d79168b1a922caa6ef22424dc5d98" kindref="member">setMaximumDistance</ref>(<sp/>mSettings.value(<sp/></highlight><highlight class="stringliteral">&quot;maximumDistance&quot;</highlight><highlight class="normal">,<sp/>0<sp/>).toDouble()<sp/>);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>tracker-&gt;<ref refid="classTracker_1a6371881a7236b7d588442496ac0c7f1f" kindref="member">setSensorCapture</ref>(<sp/>mSettings.value(<sp/></highlight><highlight class="stringliteral">&quot;sensorCapture&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>).toBool()<sp/>);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>tracker-&gt;<ref refid="classTracker_1abd49bfe32d3c1d468fba4626a73940a0" kindref="member">setConjunction</ref>(<sp/>mSettings.value(<sp/></highlight><highlight class="stringliteral">&quot;conjunction&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>).toBool()<sp/>);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>tracker-&gt;<ref refid="classTracker_1a2890f65ec63532ba6d98b38d1b110b61" kindref="member">setMeasureType</ref>(<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">Tracker::MeasureType</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>mSettings.value(<sp/></highlight><highlight class="stringliteral">&quot;measureType&quot;</highlight><highlight class="normal">,<sp/>0<sp/>).toInt()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>tracker-&gt;<ref refid="classTracker_1ad356005f28ea12a5d7610b3021ced009" kindref="member">setVisible</ref>(<sp/>mSettings.value(<sp/></highlight><highlight class="stringliteral">&quot;visible&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>).toBool()<sp/>);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeatureId<sp/>fid<sp/>=<sp/>mSettings.value(<sp/></highlight><highlight class="stringliteral">&quot;featureId&quot;</highlight><highlight class="normal">,<sp/>FID_NULL<sp/>).toLongLong();</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>fid<sp/>&gt;=<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsFeature<sp/>feature<sp/>=<sp/>layer-&gt;getFeature(<sp/>fid<sp/>);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>tracker-&gt;<ref refid="classTracker_1a3a6becf553d613bb08164a60375556cc" kindref="member">setFeature</ref>(<sp/>feature<sp/>);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>tracker-&gt;<ref refid="classTracker_1a3a6becf553d613bb08164a60375556cc" kindref="member">setFeature</ref>(<sp/>QgsFeature(<sp/>layer-&gt;fields()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>index;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ProjectInfo::extentChanged()</highlight></codeline>
+<codeline lineno="181"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>mSaveExtentTimer.start(<sp/>1000<sp/>);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ProjectInfo::saveExtent()</highlight></codeline>
+<codeline lineno="186"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsRectangle<sp/>extent<sp/>=<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1a1fae7b1cc02972fbdb36c05b331d1cb8" kindref="member">extent</ref>();</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;extent&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1|%2|%3|%4&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>qgsDoubleToString(<sp/>extent.xMinimum()<sp/>),<sp/>qgsDoubleToString(<sp/>extent.xMaximum()<sp/>),<sp/>qgsDoubleToString(<sp/>extent.yMinimum()<sp/>),<sp/>qgsDoubleToString(<sp/>extent.yMaximum()<sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ProjectInfo::rotationChanged()</highlight></codeline>
+<codeline lineno="197"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/>mSaveRotationTimer.start(<sp/>1000<sp/>);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ProjectInfo::saveRotation()</highlight></codeline>
+<codeline lineno="202"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;rotation&quot;</highlight><highlight class="normal"><sp/>),<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1a1f111f2e3247c552c77519c698ea3719" kindref="member">rotation</ref>()<sp/>);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ProjectInfo::temporalStateChanged()</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>mSaveTemporalStateTimer.start(<sp/>1000<sp/>);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ProjectInfo::saveTemporalState()</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;isTemporal&quot;</highlight><highlight class="normal"><sp/>),<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1a4b103fcf5ffc8a440aee6950a7ca4d90" kindref="member">isTemporal</ref>()<sp/>);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;StartDateTime&quot;</highlight><highlight class="normal"><sp/>),<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1a2b883afc5dcc3dc73978288790b4e8b5" kindref="member">temporalBegin</ref>().toTimeZone(<sp/>QTimeZone(<sp/>QTimeZone::Initialization::LocalTime<sp/>)<sp/>).toString(<sp/>Qt::ISODateWithMs<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;EndDateTime&quot;</highlight><highlight class="normal"><sp/>),<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1abcf4b768670a784d288e2d0cac03de73" kindref="member">temporalEnd</ref>().toTimeZone(<sp/>QTimeZone(<sp/>QTimeZone::Initialization::LocalTime<sp/>)<sp/>).toString(<sp/>Qt::ISODateWithMs<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="226"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1a5f7700e9d6d72e66869305ee8a12ef5b" kindref="member">ProjectInfo::saveLayerStyle</ref>(<sp/>QgsMapLayer<sp/>*layer<sp/>)</highlight></codeline>
+<codeline lineno="229"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>||<sp/>!layer<sp/>)</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isDataset<sp/>=<sp/>QgsProject::instance()-&gt;readBoolEntry(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;isDataset&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Prefix<sp/>id<sp/>with<sp/>::<sp/>to<sp/>avoid<sp/>loss<sp/>of<sp/>slash<sp/>on<sp/>linux<sp/>paths</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/>QString<sp/>id(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;::&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>isDataset<sp/>)</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>non-project<sp/>datasets,<sp/>the<sp/>layer<sp/>id<sp/>is<sp/>random,<sp/>use<sp/>the<sp/>source<sp/>URI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>+=<sp/>layer-&gt;source();</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>+=<sp/>layer-&gt;id();</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/layerStyles/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath,<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;opacity&quot;</highlight><highlight class="normal"><sp/>),<sp/>layer-&gt;opacity()<sp/>);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QgsVectorLayer<sp/>*vlayer<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>layer<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;labelsEnabled&quot;</highlight><highlight class="normal"><sp/>),<sp/>vlayer-&gt;labelsEnabled()<sp/>);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="254"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1a10d26c85159544a7f367fea5f8bd88e5" kindref="member">ProjectInfo::saveLayerTreeState</ref>()</highlight></codeline>
+<codeline lineno="257"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>||<sp/>!mLayerTree<sp/>)</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isDataset<sp/>=<sp/>QgsProject::instance()-&gt;readBoolEntry(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;isDataset&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!isDataset<sp/>)</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsMapThemeCollection<sp/>mapCollection(<sp/>QgsProject::instance()<sp/>);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsMapThemeCollection::MapThemeRecord<sp/>rec<sp/>=<sp/>QgsMapThemeCollection::createThemeFromCurrentState(<sp/>mLayerTree-&gt;layerTreeModel()-&gt;rootGroup(),<sp/>mLayerTree-&gt;layerTreeModel()<sp/>);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>mapCollection.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;::QFieldLayerTreeState&quot;</highlight><highlight class="normal"><sp/>),<sp/>rec<sp/>);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QDomDocumentType<sp/>documentType<sp/>=<sp/>QDomImplementation().createDocumentType(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qgis&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;http://mrcc.com/qgis.dtd&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;SYSTEM&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>QDomDocument<sp/>document(<sp/>documentType<sp/>);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>document.appendChild(<sp/>document.createElement(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qgis&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>mapCollection.writeXml(<sp/>document<sp/>);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;layertreestate&quot;</highlight><highlight class="normal"><sp/>),<sp/>document.toString()<sp/>);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>mSettings.remove(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;maptheme&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1ae7332dad2e1326220ece8bf5fe7bde29" kindref="member">ProjectInfo::snappingEnabled</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="282"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mSettings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/layerSnapping/enabled&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>).toBool();</highlight></codeline>
+<codeline lineno="287"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1ab8c3e7ca0e729c6459befb380386f230" kindref="member">ProjectInfo::setSnappingEnabled</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enabled<sp/>)</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/layerSnapping&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;enabled&quot;</highlight><highlight class="normal"><sp/>),<sp/>enabled<sp/>);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/>emit<sp/>snappingEnabledChanged();</highlight></codeline>
+<codeline lineno="299"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref><sp/><ref refid="classProjectInfo_1a2a7505b8f0ee3c7e2f542e54faaa1487" kindref="member">ProjectInfo::cloudUserInformation</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="302"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref>(<sp/>QString(),<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref><sp/>userinfo(</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>mSettings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/cloudUserInfo/json&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;{}&quot;</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.toJsonValue()</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.toObject()<sp/>);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>userinfo;</highlight></codeline>
+<codeline lineno="312"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1ae864f25d5840217103fc897c04a246a5" kindref="member">ProjectInfo::setCloudUserInformation</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref><sp/>cloudUserInformation<sp/>)</highlight></codeline>
+<codeline lineno="315"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/><ref refid="classProjectInfo_1a2a7505b8f0ee3c7e2f542e54faaa1487" kindref="member">cloudUserInformation</ref>.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/cloudUserInfo&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;json&quot;</highlight><highlight class="normal"><sp/>),<sp/><ref refid="classProjectInfo_1a2a7505b8f0ee3c7e2f542e54faaa1487" kindref="member">cloudUserInformation</ref>.toJson()<sp/>);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/>emit<sp/>cloudUserInformationChanged();</highlight></codeline>
+<codeline lineno="327"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1abe95a4b571d74d41156d9576bac4755c" kindref="member">ProjectInfo::restoreCloudUserInformation</ref>()</highlight></codeline>
+<codeline lineno="330"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/>emit<sp/>cloudUserInformationChanged();</highlight></codeline>
+<codeline lineno="332"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1a092a92f87776cc61d0498d09b8f49ee7" kindref="member">ProjectInfo::saveLayerSnappingConfiguration</ref>(<sp/>QgsMapLayer<sp/>*layer<sp/>)</highlight></codeline>
+<codeline lineno="335"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/>QgsVectorLayer<sp/>*vlayer<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>layer<sp/>);</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!vlayer<sp/>)</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/>QgsSnappingConfig<sp/>config<sp/>=<sp/>QgsProject::instance()-&gt;snappingConfig();</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/>QgsSnappingConfig::IndividualLayerSettings<sp/>layerConfig<sp/>=<sp/>config.individualLayerSettings(<sp/>vlayer<sp/>);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isDataset<sp/>=<sp/>QgsProject::instance()-&gt;readBoolEntry(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;isDataset&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Prefix<sp/>id<sp/>with<sp/>::<sp/>to<sp/>avoid<sp/>loss<sp/>of<sp/>slash<sp/>on<sp/>linux<sp/>paths</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/>QString<sp/>id(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;::&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>isDataset<sp/>)</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>non-project<sp/>datasets,<sp/>the<sp/>layer<sp/>id<sp/>is<sp/>random,<sp/>use<sp/>the<sp/>source<sp/>URI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>+=<sp/>layer-&gt;source();</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>+=<sp/>layer-&gt;id();</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/layerSnapping/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath,<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;enabled&quot;</highlight><highlight class="normal"><sp/>),<sp/>layerConfig.enabled()<sp/>);</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="363"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1ab2c041bfec09c741fd34b1f9399a6e79" kindref="member">ProjectInfo::saveLayerRememberedFields</ref>(<sp/>QgsMapLayer<sp/>*layer<sp/>)</highlight></codeline>
+<codeline lineno="366"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/>QgsVectorLayer<sp/>*vlayer<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>layer<sp/>);</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!vlayer<sp/>)</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/>QVariantMap<sp/>rememberedFields;</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/>QgsEditFormConfig<sp/>config<sp/>=<sp/>vlayer-&gt;editFormConfig();</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFields<sp/>fields<sp/>=<sp/>vlayer-&gt;fields();</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>fields.size();<sp/>i++<sp/>)</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>_QGIS_VERSION_INT<sp/>&gt;=<sp/>39900</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/>rememberedFields.insert(<sp/>fields.at(<sp/>i<sp/>).name(),<sp/>config.reuseLastValuePolicy(<sp/>i<sp/>)<sp/>==<sp/>Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn<sp/>);</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/>rememberedFields.insert(<sp/>fields.at(<sp/>i<sp/>).name(),<sp/>config.reuseLastValue(<sp/>i<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"></highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isDataset<sp/>=<sp/>QgsProject::instance()-&gt;readBoolEntry(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;isDataset&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"></highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Prefix<sp/>id<sp/>with<sp/>::<sp/>to<sp/>avoid<sp/>loss<sp/>of<sp/>slash<sp/>on<sp/>linux<sp/>paths</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/>QString<sp/>id(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;::&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>isDataset<sp/>)</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>non-project<sp/>datasets,<sp/>the<sp/>layer<sp/>id<sp/>is<sp/>random,<sp/>use<sp/>the<sp/>source<sp/>URI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>+=<sp/>layer-&gt;source();</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>+=<sp/>layer-&gt;id();</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"></highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/layerFields/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath,<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="401"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;remembered&quot;</highlight><highlight class="normal"><sp/>),<sp/>rememberedFields<sp/>);</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="403"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"></highlight></codeline>
+<codeline lineno="405"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1aad786bdcc6b246ec44bdd61710cfa991" kindref="member">ProjectInfo::setStateMode</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;mode<sp/>)</highlight></codeline>
+<codeline lineno="406"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"></highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;stateMode&quot;</highlight><highlight class="normal"><sp/>),<sp/>mode<sp/>);</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="413"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"></highlight></codeline>
+<codeline lineno="415"><highlight class="normal">QString<sp/><ref refid="classProjectInfo_1a2dca6f039e4bf5d8d64901f57cc170bb" kindref="member">ProjectInfo::stateMode</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="416"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="417"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mSettings.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/stateMode&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="418"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="419"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mSettings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/stateMode&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;browse&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString();</highlight></codeline>
+<codeline lineno="420"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="421"><highlight class="normal"></highlight></codeline>
+<codeline lineno="422"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QgsProject::instance()-&gt;readEntry(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qfieldsync&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;initialMapMode&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;browse&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="423"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="424"><highlight class="normal"></highlight></codeline>
+<codeline lineno="425"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1ad766f8d90e1c93ba82ed3ed240fe101c" kindref="member">ProjectInfo::setActiveLayer</ref>(<sp/>QgsMapLayer<sp/>*layer<sp/>)</highlight></codeline>
+<codeline lineno="426"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>||<sp/>!layer<sp/>)</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"></highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;activeLayer&quot;</highlight><highlight class="normal"><sp/>),<sp/>layer-&gt;id()<sp/>);</highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"></highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/>emit<sp/>activeLayerChanged();</highlight></codeline>
+<codeline lineno="435"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="436"><highlight class="normal"></highlight></codeline>
+<codeline lineno="437"><highlight class="normal">QgsMapLayer<sp/>*<ref refid="classProjectInfo_1a8e49a660151d67e4732736a7b7f7ddb7" kindref="member">ProjectInfo::activeLayer</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="438"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/>QString<sp/>layerId;</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mSettings.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/activeLayer&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/>layerId<sp/>=<sp/>mSettings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/activeLayer&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>).toString();</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/>layerId<sp/>=<sp/>QgsProject::instance()-&gt;readEntry(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qfieldsync&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;initialActiveLayer&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!layerId.isEmpty()<sp/>?<sp/>QgsProject::instance()-&gt;mapLayer(<sp/>layerId<sp/>)<sp/>:<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="449"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"></highlight></codeline>
+<codeline lineno="451"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ProjectInfo::mapThemeChanged()</highlight></codeline>
+<codeline lineno="452"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="454"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="455"><highlight class="normal"></highlight></codeline>
+<codeline lineno="456"><highlight class="normal"><sp/><sp/>mSettings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="457"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mLayerTree-&gt;mapTheme().isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="458"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="459"><highlight class="normal"><sp/><sp/><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;maptheme&quot;</highlight><highlight class="normal"><sp/>),<sp/>mLayerTree-&gt;mapTheme()<sp/>);</highlight></codeline>
+<codeline lineno="460"><highlight class="normal"><sp/><sp/><sp/><sp/>mSettings.remove(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;layertreestate&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="462"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="463"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="464"><highlight class="normal"><sp/><sp/><sp/><sp/>mSettings.remove(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;maptheme&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="465"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"><sp/><sp/>mSettings.endGroup();</highlight></codeline>
+<codeline lineno="467"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="468"><highlight class="normal"></highlight></codeline>
+<codeline lineno="469"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ProjectInfo::saveVariable(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;value<sp/>)</highlight></codeline>
+<codeline lineno="470"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilePath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="473"><highlight class="normal"></highlight></codeline>
+<codeline lineno="474"><highlight class="normal"><sp/><sp/>mSettings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/variables/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mFilePath,<sp/>name<sp/>),<sp/>value<sp/>);</highlight></codeline>
+<codeline lineno="475"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="476"><highlight class="normal"></highlight></codeline>
+<codeline lineno="477"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProjectInfo_1ae24ce624e79edf3444ac4b7047259471" kindref="member">ProjectInfo::restoreSettings</ref>(<sp/>QString<sp/>&amp;projectFilePath,<sp/>QgsProject<sp/>*project,<sp/><ref refid="classQgsQuickMapCanvasMap" kindref="compound">QgsQuickMapCanvasMap</ref><sp/>*mapCanvas,<sp/><ref refid="classFlatLayerTreeModel" kindref="compound">FlatLayerTreeModel</ref><sp/>*layerTree<sp/>)</highlight></codeline>
+<codeline lineno="478"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"><sp/><sp/>QSettings<sp/>settings;</highlight></codeline>
+<codeline lineno="480"><highlight class="normal"></highlight></codeline>
+<codeline lineno="481"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rotation<sp/>=<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qgis/projectInfo/%1/rotation&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectFilePath<sp/>),<sp/>mapCanvas-&gt;<ref refid="classQgsQuickMapCanvasMap_1aa64410b42a637f2440325637afba6194" kindref="member">mapSettings</ref>()-&gt;<ref refid="classQgsQuickMapSettings_1a1f111f2e3247c552c77519c698ea3719" kindref="member">rotation</ref>()<sp/>).toDouble();</highlight></codeline>
+<codeline lineno="482"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>rotation<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="483"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="484"><highlight class="normal"><sp/><sp/><sp/><sp/>mapCanvas-&gt;<ref refid="classQgsQuickMapCanvasMap_1aa64410b42a637f2440325637afba6194" kindref="member">mapSettings</ref>()-&gt;<ref refid="classQgsQuickMapSettings_1a0d62b47f8092a072a830bb2be2776625" kindref="member">setRotation</ref>(<sp/>rotation<sp/>);</highlight></codeline>
+<codeline lineno="485"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="486"><highlight class="normal"></highlight></codeline>
+<codeline lineno="487"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isTemporal<sp/>=<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/isTemporal&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectFilePath<sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>).toBool();</highlight></codeline>
+<codeline lineno="488"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>begin<sp/>=<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/StartDateTime&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectFilePath<sp/>),<sp/>QString()<sp/>).toString();</highlight></codeline>
+<codeline lineno="489"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>end<sp/>=<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/EndDateTime&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectFilePath<sp/>),<sp/>QString()<sp/>).toString();</highlight></codeline>
+<codeline lineno="490"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!begin.isEmpty()<sp/>&amp;&amp;<sp/>!end.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="491"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="492"><highlight class="normal"><sp/><sp/><sp/><sp/>mapCanvas-&gt;<ref refid="classQgsQuickMapCanvasMap_1aa64410b42a637f2440325637afba6194" kindref="member">mapSettings</ref>()-&gt;<ref refid="classQgsQuickMapSettings_1af2ad6b3bfa672520969085acf960c107" kindref="member">setTemporalBegin</ref>(<sp/>QDateTime::fromString(<sp/>begin,<sp/>Qt::ISODateWithMs<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="493"><highlight class="normal"><sp/><sp/><sp/><sp/>mapCanvas-&gt;<ref refid="classQgsQuickMapCanvasMap_1aa64410b42a637f2440325637afba6194" kindref="member">mapSettings</ref>()-&gt;<ref refid="classQgsQuickMapSettings_1ad6276a8c90c711d0ab32237a39be738e" kindref="member">setTemporalEnd</ref>(<sp/>QDateTime::fromString(<sp/>end,<sp/>Qt::ISODateWithMs<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="494"><highlight class="normal"><sp/><sp/><sp/><sp/>mapCanvas-&gt;<ref refid="classQgsQuickMapCanvasMap_1aa64410b42a637f2440325637afba6194" kindref="member">mapSettings</ref>()-&gt;<ref refid="classQgsQuickMapSettings_1a0934bce893b9b17d5dee70008fcc937b" kindref="member">setIsTemporal</ref>(<sp/>isTemporal<sp/>);</highlight></codeline>
+<codeline lineno="495"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="496"><highlight class="normal"></highlight></codeline>
+<codeline lineno="497"><highlight class="normal"><sp/><sp/>settings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/layerStyles&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="498"><highlight class="normal"><sp/><sp/>QStringList<sp/>ids<sp/>=<sp/>settings.childGroups();</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!ids.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="500"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isDataset<sp/>=<sp/>project-&gt;readBoolEntry(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;isDataset&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>mapLayers<sp/>=<sp/>isDataset<sp/>?<sp/>project-&gt;layerStore()-&gt;mapLayers().values()<sp/>:<sp/>QList&lt;QgsMapLayer<sp/>*&gt;();</highlight></codeline>
+<codeline lineno="503"><highlight class="normal"></highlight></codeline>
+<codeline lineno="504"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>QString<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>:<sp/>std::as_const(<sp/>ids<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="505"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="506"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>opacity<sp/>=<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/opacity&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>),<sp/>1.0<sp/>).toDouble();</highlight></codeline>
+<codeline lineno="507"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>labelsEnabled<sp/>=<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/labelsEnabled&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>).toBool();</highlight></codeline>
+<codeline lineno="508"><highlight class="normal"></highlight></codeline>
+<codeline lineno="509"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Remove<sp/>the<sp/>::<sp/>prefix<sp/>to<sp/>get<sp/>actual<sp/>layer<sp/>id<sp/>or<sp/>source</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="510"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">.mid(<sp/>2<sp/>);</highlight></codeline>
+<codeline lineno="511"><highlight class="normal"></highlight></codeline>
+<codeline lineno="512"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsMapLayer<sp/>*layer<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="513"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>isDataset<sp/>)</highlight></codeline>
+<codeline lineno="514"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="515"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>match<sp/>=<sp/>std::find_if(<sp/>mapLayers.begin(),<sp/>mapLayers.end(),<sp/>[&amp;</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">](<sp/>QgsMapLayer<sp/>*ml<sp/>)<sp/>{<sp/>return<sp/>ml<sp/>&amp;&amp;<sp/>ml-&gt;source()<sp/>==<sp/>id;<sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="516"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>match<sp/>!=<sp/>mapLayers.end()<sp/>)</highlight></codeline>
+<codeline lineno="517"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="518"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>layer<sp/>=<sp/>*match;</highlight></codeline>
+<codeline lineno="519"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="520"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="521"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="522"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="523"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>layer<sp/>=<sp/>project-&gt;layerStore()-&gt;mapLayer(<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="524"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="525"><highlight class="normal"></highlight></codeline>
+<codeline lineno="526"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>layer<sp/>)</highlight></codeline>
+<codeline lineno="527"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="528"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>layer-&gt;setOpacity(<sp/>opacity<sp/>);</highlight></codeline>
+<codeline lineno="529"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QgsVectorLayer<sp/>*vlayer<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>layer<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="530"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="531"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>vlayer-&gt;labeling()<sp/>)</highlight></codeline>
+<codeline lineno="532"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="533"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vlayer-&gt;setLabelsEnabled(<sp/>labelsEnabled<sp/>);</highlight></codeline>
+<codeline lineno="534"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="535"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="536"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="537"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="538"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="539"><highlight class="normal"><sp/><sp/>settings.endGroup();</highlight></codeline>
+<codeline lineno="540"><highlight class="normal"></highlight></codeline>
+<codeline lineno="541"><highlight class="normal"></highlight></codeline>
+<codeline lineno="542"><highlight class="normal"><sp/><sp/>settings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/layerFields&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="543"><highlight class="normal"><sp/><sp/>ids<sp/>=<sp/>settings.childGroups();</highlight></codeline>
+<codeline lineno="544"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!ids.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="545"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="546"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isDataset<sp/>=<sp/>project-&gt;readBoolEntry(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;isDataset&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="547"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>mapLayers<sp/>=<sp/>isDataset<sp/>?<sp/>project-&gt;layerStore()-&gt;mapLayers().values()<sp/>:<sp/>QList&lt;QgsMapLayer<sp/>*&gt;();</highlight></codeline>
+<codeline lineno="548"><highlight class="normal"></highlight></codeline>
+<codeline lineno="549"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>QString<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>:<sp/>std::as_const(<sp/>ids<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="550"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="551"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>rememberedFields<sp/>=<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/remembered&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>),<sp/>QStringList()<sp/>).toMap();</highlight></codeline>
+<codeline lineno="552"><highlight class="normal"></highlight></codeline>
+<codeline lineno="553"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Remove<sp/>the<sp/>::<sp/>prefix<sp/>to<sp/>get<sp/>actual<sp/>layer<sp/>id<sp/>or<sp/>source</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="554"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">.mid(<sp/>2<sp/>);</highlight></codeline>
+<codeline lineno="555"><highlight class="normal"></highlight></codeline>
+<codeline lineno="556"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsMapLayer<sp/>*layer<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="557"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>isDataset<sp/>)</highlight></codeline>
+<codeline lineno="558"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="559"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>match<sp/>=<sp/>std::find_if(<sp/>mapLayers.begin(),<sp/>mapLayers.end(),<sp/>[&amp;</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">](<sp/>QgsMapLayer<sp/>*ml<sp/>)<sp/>{<sp/>return<sp/>ml<sp/>&amp;&amp;<sp/>ml-&gt;source()<sp/>==<sp/>id;<sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="560"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>match<sp/>!=<sp/>mapLayers.end()<sp/>)</highlight></codeline>
+<codeline lineno="561"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="562"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>layer<sp/>=<sp/>*match;</highlight></codeline>
+<codeline lineno="563"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="564"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="565"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="566"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="567"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>layer<sp/>=<sp/>project-&gt;layerStore()-&gt;mapLayer(<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="568"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="569"><highlight class="normal"></highlight></codeline>
+<codeline lineno="570"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QgsVectorLayer<sp/>*vlayer<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>layer<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="571"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="572"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QgsEditFormConfig<sp/>config<sp/>=<sp/>vlayer-&gt;editFormConfig();</highlight></codeline>
+<codeline lineno="573"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>fieldNames<sp/>=<sp/>rememberedFields.keys();</highlight></codeline>
+<codeline lineno="574"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;fieldName<sp/>:<sp/>fieldNames<sp/>)</highlight></codeline>
+<codeline lineno="575"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="576"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>_QGIS_VERSION_INT<sp/>&gt;=<sp/>39900</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="577"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>config.setReuseLastValuePolicy(<sp/>vlayer-&gt;fields().indexFromName(<sp/>fieldName<sp/>),<sp/>Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn<sp/>);</highlight></codeline>
+<codeline lineno="578"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="579"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>config.setReuseLastValue(<sp/>vlayer-&gt;fields().indexFromName(<sp/>fieldName<sp/>),<sp/>rememberedFields[fieldName].toBool()<sp/>);</highlight></codeline>
+<codeline lineno="580"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="581"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="582"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vlayer-&gt;setEditFormConfig(<sp/>config<sp/>);</highlight></codeline>
+<codeline lineno="583"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="584"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="585"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="586"><highlight class="normal"><sp/><sp/>settings.endGroup();</highlight></codeline>
+<codeline lineno="587"><highlight class="normal"></highlight></codeline>
+<codeline lineno="588"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>mapTheme<sp/>=<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/maptheme&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectFilePath<sp/>),<sp/>QString()<sp/>).toString();</highlight></codeline>
+<codeline lineno="589"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>layerTreeState<sp/>=<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/layertreestate&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectFilePath<sp/>),<sp/>QString()<sp/>).toString();</highlight></codeline>
+<codeline lineno="590"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mapTheme.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="591"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="592"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classProjectInfo_1a085bbf8f23e9b5162426c477282e7501" kindref="member">layerTree</ref>-&gt;setMapTheme(<sp/>mapTheme<sp/>);</highlight></codeline>
+<codeline lineno="593"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="594"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!layerTreeState.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="595"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="596"><highlight class="normal"><sp/><sp/><sp/><sp/>QDomDocument<sp/>document;</highlight></codeline>
+<codeline lineno="597"><highlight class="normal"><sp/><sp/><sp/><sp/>document.setContent(<sp/>layerTreeState<sp/>);</highlight></codeline>
+<codeline lineno="598"><highlight class="normal"></highlight></codeline>
+<codeline lineno="599"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsMapThemeCollection<sp/>mapCollection(<sp/>project<sp/>);</highlight></codeline>
+<codeline lineno="600"><highlight class="normal"><sp/><sp/><sp/><sp/>mapCollection.readXml(<sp/>document<sp/>);</highlight></codeline>
+<codeline lineno="601"><highlight class="normal"><sp/><sp/><sp/><sp/>mapCollection.applyTheme(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;::QFieldLayerTreeState&quot;</highlight><highlight class="normal"><sp/>),<sp/><ref refid="classProjectInfo_1a085bbf8f23e9b5162426c477282e7501" kindref="member">layerTree</ref>-&gt;layerTreeModel()-&gt;rootGroup(),<sp/><ref refid="classProjectInfo_1a085bbf8f23e9b5162426c477282e7501" kindref="member">layerTree</ref>-&gt;layerTreeModel()<sp/>);</highlight></codeline>
+<codeline lineno="602"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="603"><highlight class="normal"></highlight></codeline>
+<codeline lineno="604"><highlight class="normal"><sp/><sp/>settings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/layerSnapping&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="605"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>values<sp/>=<sp/>settings.allKeys();</highlight></codeline>
+<codeline lineno="606"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!values.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="607"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="608"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsSnappingConfig<sp/>config<sp/>=<sp/>project-&gt;snappingConfig();</highlight></codeline>
+<codeline lineno="609"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>values.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;enabled&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="610"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="611"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>config.setEnabled(<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;enabled&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>).toBool()<sp/>);</highlight></codeline>
+<codeline lineno="612"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="613"><highlight class="normal"></highlight></codeline>
+<codeline lineno="614"><highlight class="normal"><sp/><sp/><sp/><sp/>ids<sp/>=<sp/>settings.childGroups();</highlight></codeline>
+<codeline lineno="615"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!ids.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="616"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="617"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isDataset<sp/>=<sp/>project-&gt;readBoolEntry(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QField&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;isDataset&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="618"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>mapLayers<sp/>=<sp/>isDataset<sp/>?<sp/>project-&gt;layerStore()-&gt;mapLayers().values()<sp/>:<sp/>QList&lt;QgsMapLayer<sp/>*&gt;();</highlight></codeline>
+<codeline lineno="619"><highlight class="normal"></highlight></codeline>
+<codeline lineno="620"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>QString<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>:<sp/>std::as_const(<sp/>ids<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="621"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="622"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>enabled<sp/>=<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/enabled&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>).toBool();</highlight></codeline>
+<codeline lineno="623"><highlight class="normal"></highlight></codeline>
+<codeline lineno="624"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Remove<sp/>the<sp/>::<sp/>prefix<sp/>to<sp/>get<sp/>actual<sp/>layer<sp/>id<sp/>or<sp/>source</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="625"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">.mid(<sp/>2<sp/>);</highlight></codeline>
+<codeline lineno="626"><highlight class="normal"></highlight></codeline>
+<codeline lineno="627"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QgsMapLayer<sp/>*layer<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="628"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>isDataset<sp/>)</highlight></codeline>
+<codeline lineno="629"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="630"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>match<sp/>=<sp/>std::find_if(<sp/>mapLayers.begin(),<sp/>mapLayers.end(),<sp/>[&amp;</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">](<sp/>QgsMapLayer<sp/>*ml<sp/>)<sp/>{<sp/>return<sp/>ml<sp/>&amp;&amp;<sp/>ml-&gt;source()<sp/>==<sp/>id;<sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="631"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>match<sp/>!=<sp/>mapLayers.end()<sp/>)</highlight></codeline>
+<codeline lineno="632"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="633"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>layer<sp/>=<sp/>*match;</highlight></codeline>
+<codeline lineno="634"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="635"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="636"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="637"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="638"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>layer<sp/>=<sp/>project-&gt;layerStore()-&gt;mapLayer(<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="639"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="640"><highlight class="normal"></highlight></codeline>
+<codeline lineno="641"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>layer<sp/>)</highlight></codeline>
+<codeline lineno="642"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="643"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QgsVectorLayer<sp/>*vlayer<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>layer<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="644"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="645"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QgsSnappingConfig::IndividualLayerSettings<sp/>layerConfig<sp/>=<sp/>config.individualLayerSettings(<sp/>vlayer<sp/>);</highlight></codeline>
+<codeline lineno="646"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>layerConfig.setEnabled(<sp/>enabled<sp/>);</highlight></codeline>
+<codeline lineno="647"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>config.setIndividualLayerSettings(<sp/>vlayer,<sp/>layerConfig<sp/>);</highlight></codeline>
+<codeline lineno="648"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="649"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="650"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="651"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="652"><highlight class="normal"><sp/><sp/><sp/><sp/>project-&gt;setSnappingConfig(<sp/>config<sp/>);</highlight></codeline>
+<codeline lineno="653"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="654"><highlight class="normal"><sp/><sp/>settings.endGroup();</highlight></codeline>
+<codeline lineno="655"><highlight class="normal"></highlight></codeline>
+<codeline lineno="656"><highlight class="normal"><sp/><sp/>settings.beginGroup(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/qgis/projectInfo/%1/variables&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectFilePath<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="657"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>variableNames<sp/>=<sp/>settings.allKeys();</highlight></codeline>
+<codeline lineno="658"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;name<sp/>:<sp/>variableNames<sp/>)</highlight></codeline>
+<codeline lineno="659"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="660"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classExpressionContextUtils_1adf292a86d632f7fe7c1872b5ad1a2ab6" kindref="member">ExpressionContextUtils::setProjectVariable</ref>(<sp/>project,<sp/>name,<sp/>settings.value(<sp/>name<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="661"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="662"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="663"><highlight class="normal"></highlight></codeline>
+<codeline lineno="664"><highlight class="normal">QVariantMap<sp/><ref refid="classProjectInfo_1a9efd9094e56941915e5b0b5e6218d6df" kindref="member">ProjectInfo::getTitleDecorationConfiguration</ref>()</highlight></codeline>
+<codeline lineno="665"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="666"><highlight class="normal"><sp/><sp/>QVariantMap<sp/>configuration;</highlight></codeline>
+<codeline lineno="667"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>configurationName<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;TitleLabel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="668"><highlight class="normal"></highlight></codeline>
+<codeline lineno="669"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QgsProject::instance()-&gt;readBoolEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/Enabled&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="670"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="671"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>text<sp/>=<sp/>QgsProject::instance()-&gt;readEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/Label&quot;</highlight><highlight class="normal"><sp/>),<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="672"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!text.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="673"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="674"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>text.replace(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;&lt;br&gt;&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="675"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QTextDocument<sp/>doc;</highlight></codeline>
+<codeline lineno="676"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>doc.setHtml(<sp/>text<sp/>);</highlight></codeline>
+<codeline lineno="677"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>text<sp/>=<sp/>doc.toPlainText();</highlight></codeline>
+<codeline lineno="678"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="679"><highlight class="normal"></highlight></codeline>
+<codeline lineno="680"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>backgroundColor<sp/>=<sp/>QgsColorUtils::colorFromString(<sp/>QgsProject::instance()-&gt;readEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/BackgroundColor&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;0,0,0,99&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="681"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>color<sp/>=<sp/>QColor(<sp/>Qt::black<sp/>);</highlight></codeline>
+<codeline lineno="682"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>outlineColor<sp/>=<sp/>QColor(<sp/>Qt::white<sp/>);</highlight></codeline>
+<codeline lineno="683"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasOutline<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="684"><highlight class="normal"></highlight></codeline>
+<codeline lineno="685"><highlight class="normal"><sp/><sp/><sp/><sp/>QDomDocument<sp/>doc;</highlight></codeline>
+<codeline lineno="686"><highlight class="normal"><sp/><sp/><sp/><sp/>QDomElement<sp/>elem;</highlight></codeline>
+<codeline lineno="687"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>textXml<sp/>=<sp/>QgsProject::instance()-&gt;readEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/Font&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="688"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!textXml.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="689"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="690"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>doc.setContent(<sp/>textXml<sp/>);</highlight></codeline>
+<codeline lineno="691"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>elem<sp/>=<sp/>doc.documentElement();</highlight></codeline>
+<codeline lineno="692"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsReadWriteContext<sp/>rwContext;</highlight></codeline>
+<codeline lineno="693"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>rwContext.setPathResolver(<sp/>QgsProject::instance()-&gt;pathResolver()<sp/>);</highlight></codeline>
+<codeline lineno="694"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsTextFormat<sp/>textFormat;</highlight></codeline>
+<codeline lineno="695"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>textFormat.readXml(<sp/>elem,<sp/>rwContext<sp/>);</highlight></codeline>
+<codeline lineno="696"><highlight class="normal"></highlight></codeline>
+<codeline lineno="697"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>color<sp/>=<sp/>textFormat.color();</highlight></codeline>
+<codeline lineno="698"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>color.setAlphaF(<sp/>textFormat.opacity()<sp/>);</highlight></codeline>
+<codeline lineno="699"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>textFormat.buffer().enabled()<sp/>)</highlight></codeline>
+<codeline lineno="700"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="701"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hasOutline<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="702"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outlineColor<sp/>=<sp/>textFormat.buffer().color();</highlight></codeline>
+<codeline lineno="703"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outlineColor.setAlphaF(<sp/>textFormat.buffer().opacity()<sp/>);</highlight></codeline>
+<codeline lineno="704"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="705"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="706"><highlight class="normal"></highlight></codeline>
+<codeline lineno="707"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;text&quot;</highlight><highlight class="normal">]<sp/>=<sp/>text;</highlight></codeline>
+<codeline lineno="708"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;backgroundColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>backgroundColor;</highlight></codeline>
+<codeline lineno="709"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;color&quot;</highlight><highlight class="normal">]<sp/>=<sp/>color;</highlight></codeline>
+<codeline lineno="710"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;hasOutline&quot;</highlight><highlight class="normal">]<sp/>=<sp/>hasOutline;</highlight></codeline>
+<codeline lineno="711"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;outlineColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>outlineColor;</highlight></codeline>
+<codeline lineno="712"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="713"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="714"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="715"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;text&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QString();</highlight></codeline>
+<codeline lineno="716"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;backgroundColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor(<sp/>Qt::transparent<sp/>);</highlight></codeline>
+<codeline lineno="717"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;color&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor(<sp/>Qt::black<sp/>);</highlight></codeline>
+<codeline lineno="718"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;hasOutline&quot;</highlight><highlight class="normal">]<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="719"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;outlineColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor(<sp/>Qt::white<sp/>);</highlight></codeline>
+<codeline lineno="720"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="721"><highlight class="normal"></highlight></codeline>
+<codeline lineno="722"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>configuration;</highlight></codeline>
+<codeline lineno="723"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="724"><highlight class="normal"></highlight></codeline>
+<codeline lineno="725"><highlight class="normal">QVariantMap<sp/><ref refid="classProjectInfo_1aa8e97c879be0be21f29bcf9d01106169" kindref="member">ProjectInfo::getCopyrightDecorationConfiguration</ref>()</highlight></codeline>
+<codeline lineno="726"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="727"><highlight class="normal"><sp/><sp/>QVariantMap<sp/>configuration;</highlight></codeline>
+<codeline lineno="728"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>configurationName<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;CopyrightLabel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="729"><highlight class="normal"></highlight></codeline>
+<codeline lineno="730"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QgsProject::instance()-&gt;readBoolEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/Enabled&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="731"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="732"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>text<sp/>=<sp/>QgsProject::instance()-&gt;readEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/Label&quot;</highlight><highlight class="normal"><sp/>),<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="733"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!text.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="734"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="735"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>text.replace(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;&lt;br&gt;&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="736"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QTextDocument<sp/>doc;</highlight></codeline>
+<codeline lineno="737"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>doc.setHtml(<sp/>text<sp/>);</highlight></codeline>
+<codeline lineno="738"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>text<sp/>=<sp/>doc.toPlainText();</highlight></codeline>
+<codeline lineno="739"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="740"><highlight class="normal"></highlight></codeline>
+<codeline lineno="741"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>backgroundColor<sp/>=<sp/>QColor(<sp/>Qt::transparent<sp/>);</highlight></codeline>
+<codeline lineno="742"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>color<sp/>=<sp/>QColor(<sp/>Qt::black<sp/>);</highlight></codeline>
+<codeline lineno="743"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>outlineColor<sp/>=<sp/>QColor(<sp/>Qt::white<sp/>);</highlight></codeline>
+<codeline lineno="744"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasOutline<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="745"><highlight class="normal"></highlight></codeline>
+<codeline lineno="746"><highlight class="normal"><sp/><sp/><sp/><sp/>QDomDocument<sp/>doc;</highlight></codeline>
+<codeline lineno="747"><highlight class="normal"><sp/><sp/><sp/><sp/>QDomElement<sp/>elem;</highlight></codeline>
+<codeline lineno="748"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>textXml<sp/>=<sp/>QgsProject::instance()-&gt;readEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/Font&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="749"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!textXml.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="750"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="751"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>doc.setContent(<sp/>textXml<sp/>);</highlight></codeline>
+<codeline lineno="752"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>elem<sp/>=<sp/>doc.documentElement();</highlight></codeline>
+<codeline lineno="753"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsReadWriteContext<sp/>rwContext;</highlight></codeline>
+<codeline lineno="754"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>rwContext.setPathResolver(<sp/>QgsProject::instance()-&gt;pathResolver()<sp/>);</highlight></codeline>
+<codeline lineno="755"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsTextFormat<sp/>textFormat;</highlight></codeline>
+<codeline lineno="756"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>textFormat.readXml(<sp/>elem,<sp/>rwContext<sp/>);</highlight></codeline>
+<codeline lineno="757"><highlight class="normal"></highlight></codeline>
+<codeline lineno="758"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>color<sp/>=<sp/>textFormat.color();</highlight></codeline>
+<codeline lineno="759"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>color.setAlphaF(<sp/>textFormat.opacity()<sp/>);</highlight></codeline>
+<codeline lineno="760"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>textFormat.buffer().enabled()<sp/>)</highlight></codeline>
+<codeline lineno="761"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="762"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hasOutline<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="763"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outlineColor<sp/>=<sp/>textFormat.buffer().color();</highlight></codeline>
+<codeline lineno="764"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outlineColor.setAlphaF(<sp/>textFormat.buffer().opacity()<sp/>);</highlight></codeline>
+<codeline lineno="765"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="766"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="767"><highlight class="normal"></highlight></codeline>
+<codeline lineno="768"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;text&quot;</highlight><highlight class="normal">]<sp/>=<sp/>text;</highlight></codeline>
+<codeline lineno="769"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;backgroundColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>backgroundColor;</highlight></codeline>
+<codeline lineno="770"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;color&quot;</highlight><highlight class="normal">]<sp/>=<sp/>color;</highlight></codeline>
+<codeline lineno="771"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;hasOutline&quot;</highlight><highlight class="normal">]<sp/>=<sp/>hasOutline;</highlight></codeline>
+<codeline lineno="772"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;outlineColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>outlineColor;</highlight></codeline>
+<codeline lineno="773"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="774"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="775"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="776"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;text&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QString();</highlight></codeline>
+<codeline lineno="777"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;backgroundColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor(<sp/>Qt::transparent<sp/>);</highlight></codeline>
+<codeline lineno="778"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;color&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor(<sp/>Qt::black<sp/>);</highlight></codeline>
+<codeline lineno="779"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;hasOutline&quot;</highlight><highlight class="normal">]<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="780"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;outlineColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor(<sp/>Qt::white<sp/>);</highlight></codeline>
+<codeline lineno="781"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="782"><highlight class="normal"></highlight></codeline>
+<codeline lineno="783"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>configuration;</highlight></codeline>
+<codeline lineno="784"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="785"><highlight class="normal"></highlight></codeline>
+<codeline lineno="786"><highlight class="normal">QVariantMap<sp/><ref refid="classProjectInfo_1afae1c4fe58864df94ffedb21fb375e4d" kindref="member">ProjectInfo::getImageDecorationConfiguration</ref>()</highlight></codeline>
+<codeline lineno="787"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="788"><highlight class="normal"><sp/><sp/>QVariantMap<sp/>configuration;</highlight></codeline>
+<codeline lineno="789"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>configurationName<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;Image&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="790"><highlight class="normal"></highlight></codeline>
+<codeline lineno="791"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QgsProject::instance()-&gt;readBoolEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/Enabled&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="792"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="793"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>imagePath<sp/>=<sp/>QgsProject::instance()-&gt;readEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/ImagePath&quot;</highlight><highlight class="normal"><sp/>),<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="794"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>resolvedPath<sp/>=<sp/>QgsSymbolLayerUtils::svgSymbolNameToPath(<sp/>imagePath,<sp/>QgsProject::instance()-&gt;pathResolver()<sp/>);</highlight></codeline>
+<codeline lineno="795"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QFileInfo<sp/>fileInfo(<sp/>resolvedPath<sp/>);</highlight></codeline>
+<codeline lineno="796"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>fileInfo.exists()<sp/>)</highlight></codeline>
+<codeline lineno="797"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="798"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>imagePath<sp/>=<sp/>resolvedPath;</highlight></codeline>
+<codeline lineno="799"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="800"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="801"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="802"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>imagePath<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;:/images/app_logo.svg&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="803"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="804"><highlight class="normal"></highlight></codeline>
+<codeline lineno="805"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>fillColor<sp/>=<sp/>QgsColorUtils::colorFromString(<sp/>QgsProject::instance()-&gt;readEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/Color&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;#000000&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="806"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>strokeColor<sp/>=<sp/>QgsColorUtils::colorFromString(<sp/>QgsProject::instance()-&gt;readEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/OutlineColor&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;#FFFFFF&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="807"><highlight class="normal"></highlight></codeline>
+<codeline lineno="808"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;source&quot;</highlight><highlight class="normal">]<sp/>=<sp/>imagePath;</highlight></codeline>
+<codeline lineno="809"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;fillColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>fillColor;</highlight></codeline>
+<codeline lineno="810"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;strokeColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>strokeColor;</highlight></codeline>
+<codeline lineno="811"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="812"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="813"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="814"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;source&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QString();</highlight></codeline>
+<codeline lineno="815"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;fillColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor(<sp/>Qt::black<sp/>);</highlight></codeline>
+<codeline lineno="816"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;strokeColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor(<sp/>Qt::white<sp/>);</highlight></codeline>
+<codeline lineno="817"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="818"><highlight class="normal"></highlight></codeline>
+<codeline lineno="819"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>configuration;</highlight></codeline>
+<codeline lineno="820"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="821"><highlight class="normal"></highlight></codeline>
+<codeline lineno="822"><highlight class="normal">QVariantMap<sp/><ref refid="classProjectInfo_1aedef58dcbe8b0204514f09cb06a8d1f7" kindref="member">ProjectInfo::getGridDecorationConfiguration</ref>()</highlight></codeline>
+<codeline lineno="823"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="824"><highlight class="normal"><sp/><sp/>QVariantMap<sp/>configuration;</highlight></codeline>
+<codeline lineno="825"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>configurationName<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;Grid&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="826"><highlight class="normal"></highlight></codeline>
+<codeline lineno="827"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QgsProject::instance()-&gt;readBoolEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/Enabled&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="828"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="829"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasLines<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="830"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>lineColor<sp/>=<sp/>QColor(<sp/>Qt::black<sp/>);</highlight></codeline>
+<codeline lineno="831"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasMarkers<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="832"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>markerColor<sp/>=<sp/>QColor(<sp/>Qt::black<sp/>);</highlight></codeline>
+<codeline lineno="833"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasAnnotations<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="834"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>annotationColor<sp/>=<sp/>QColor(<sp/>Qt::black<sp/>);</highlight></codeline>
+<codeline lineno="835"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>annotationOutlineColor<sp/>=<sp/>QColor(<sp/>Qt::white<sp/>);</highlight></codeline>
+<codeline lineno="836"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasAnnotationOutline<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="837"><highlight class="normal"></highlight></codeline>
+<codeline lineno="838"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xInterval<sp/>=<sp/>QgsProject::instance()-&gt;readDoubleEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/IntervalX&quot;</highlight><highlight class="normal"><sp/>),<sp/>50.0<sp/>);</highlight></codeline>
+<codeline lineno="839"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yInterval<sp/>=<sp/>QgsProject::instance()-&gt;readDoubleEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/IntervalY&quot;</highlight><highlight class="normal"><sp/>),<sp/>50.0<sp/>);</highlight></codeline>
+<codeline lineno="840"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xOffset<sp/>=<sp/>QgsProject::instance()-&gt;readDoubleEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/OffsetX&quot;</highlight><highlight class="normal"><sp/>),<sp/>0.0<sp/>);</highlight></codeline>
+<codeline lineno="841"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yOffset<sp/>=<sp/>QgsProject::instance()-&gt;readDoubleEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/OffsetY&quot;</highlight><highlight class="normal"><sp/>),<sp/>0.0<sp/>);</highlight></codeline>
+<codeline lineno="842"><highlight class="normal"></highlight></codeline>
+<codeline lineno="843"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsReadWriteContext<sp/>rwContext;</highlight></codeline>
+<codeline lineno="844"><highlight class="normal"><sp/><sp/><sp/><sp/>rwContext.setPathResolver(<sp/>QgsProject::instance()-&gt;pathResolver()<sp/>);</highlight></codeline>
+<codeline lineno="845"><highlight class="normal"><sp/><sp/><sp/><sp/>QDomDocument<sp/>doc;</highlight></codeline>
+<codeline lineno="846"><highlight class="normal"><sp/><sp/><sp/><sp/>QDomElement<sp/>elem;</highlight></codeline>
+<codeline lineno="847"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>xml;</highlight></codeline>
+<codeline lineno="848"><highlight class="normal"></highlight></codeline>
+<codeline lineno="849"><highlight class="normal"><sp/><sp/><sp/><sp/>hasAnnotations<sp/>=<sp/>QgsProject::instance()-&gt;readBoolEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/ShowAnnotation&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="850"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>annotationPrecision<sp/>=<sp/>QgsProject::instance()-&gt;readNumEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/AnnotationPrecision&quot;</highlight><highlight class="normal"><sp/>),<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="851"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>hasAnnotations<sp/>)</highlight></codeline>
+<codeline lineno="852"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="853"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>xml<sp/>=<sp/>QgsProject::instance()-&gt;readEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/Font&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="854"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!xml.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="855"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="856"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>doc.setContent(<sp/>xml<sp/>);</highlight></codeline>
+<codeline lineno="857"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>elem<sp/>=<sp/>doc.documentElement();</highlight></codeline>
+<codeline lineno="858"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QgsTextFormat<sp/>textFormat;</highlight></codeline>
+<codeline lineno="859"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>textFormat.readXml(<sp/>elem,<sp/>rwContext<sp/>);</highlight></codeline>
+<codeline lineno="860"><highlight class="normal"></highlight></codeline>
+<codeline lineno="861"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>annotationColor<sp/>=<sp/>textFormat.color();</highlight></codeline>
+<codeline lineno="862"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>annotationColor.setAlphaF(<sp/>textFormat.opacity()<sp/>);</highlight></codeline>
+<codeline lineno="863"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>textFormat.buffer().enabled()<sp/>)</highlight></codeline>
+<codeline lineno="864"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="865"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hasAnnotationOutline<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="866"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>annotationOutlineColor<sp/>=<sp/>textFormat.buffer().color();</highlight></codeline>
+<codeline lineno="867"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>annotationOutlineColor.setAlphaF(<sp/>textFormat.buffer().opacity()<sp/>);</highlight></codeline>
+<codeline lineno="868"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="869"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="870"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="871"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="872"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hasAnnotations<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="873"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="874"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="875"><highlight class="normal"></highlight></codeline>
+<codeline lineno="876"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>QgsDecorationGrid::GridStyle<sp/>values:<sp/>0<sp/>=<sp/>line,<sp/>1<sp/>=<sp/>marker</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="877"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>gridStyle<sp/>=<sp/>QgsProject::instance()-&gt;readNumEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/Style&quot;</highlight><highlight class="normal"><sp/>),<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="878"><highlight class="normal"></highlight></codeline>
+<codeline lineno="879"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>gridStyle<sp/>==<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="880"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="881"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>xml<sp/>=<sp/>QgsProject::instance()-&gt;readEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/LineSymbol&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="882"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!xml.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="883"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="884"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>doc.setContent(<sp/>xml<sp/>);</highlight></codeline>
+<codeline lineno="885"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>elem<sp/>=<sp/>doc.documentElement();</highlight></codeline>
+<codeline lineno="886"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;QgsLineSymbol&gt;<sp/>lineSymbol(<sp/>QgsSymbolLayerUtils::loadSymbol&lt;QgsLineSymbol&gt;(<sp/>elem,<sp/>rwContext<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="887"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>lineSymbol<sp/>)</highlight></codeline>
+<codeline lineno="888"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="889"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hasLines<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="890"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lineColor<sp/>=<sp/>lineSymbol-&gt;color();</highlight></codeline>
+<codeline lineno="891"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="892"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="893"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="894"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="895"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="896"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>xml<sp/>=<sp/>QgsProject::instance()-&gt;readEntry(<sp/>configurationName,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/MarkerSymbol&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="897"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!xml.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="898"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="899"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>doc.setContent(<sp/>xml<sp/>);</highlight></codeline>
+<codeline lineno="900"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>elem<sp/>=<sp/>doc.documentElement();</highlight></codeline>
+<codeline lineno="901"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;QgsMarkerSymbol&gt;<sp/>markerSymbol(<sp/>QgsSymbolLayerUtils::loadSymbol&lt;QgsMarkerSymbol&gt;(<sp/>elem,<sp/>rwContext<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="902"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>markerSymbol<sp/>)</highlight></codeline>
+<codeline lineno="903"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="904"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hasMarkers<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="905"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>markerColor<sp/>=<sp/>markerSymbol-&gt;color();</highlight></codeline>
+<codeline lineno="906"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="907"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="908"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="909"><highlight class="normal"></highlight></codeline>
+<codeline lineno="910"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;xInterval&quot;</highlight><highlight class="normal">]<sp/>=<sp/>xInterval;</highlight></codeline>
+<codeline lineno="911"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;yInterval&quot;</highlight><highlight class="normal">]<sp/>=<sp/>yInterval;</highlight></codeline>
+<codeline lineno="912"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;xOffset&quot;</highlight><highlight class="normal">]<sp/>=<sp/>xOffset;</highlight></codeline>
+<codeline lineno="913"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;yOffset&quot;</highlight><highlight class="normal">]<sp/>=<sp/>yOffset;</highlight></codeline>
+<codeline lineno="914"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;hasLines&quot;</highlight><highlight class="normal">]<sp/>=<sp/>hasLines;</highlight></codeline>
+<codeline lineno="915"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;lineColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>lineColor;</highlight></codeline>
+<codeline lineno="916"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;hasMarkers&quot;</highlight><highlight class="normal">]<sp/>=<sp/>hasMarkers;</highlight></codeline>
+<codeline lineno="917"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;markerColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>markerColor;</highlight></codeline>
+<codeline lineno="918"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;hasAnnotations&quot;</highlight><highlight class="normal">]<sp/>=<sp/>hasAnnotations;</highlight></codeline>
+<codeline lineno="919"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;annotationPrecision&quot;</highlight><highlight class="normal">]<sp/>=<sp/>annotationPrecision;</highlight></codeline>
+<codeline lineno="920"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;annotationColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>annotationColor;</highlight></codeline>
+<codeline lineno="921"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;annotationHasOutline&quot;</highlight><highlight class="normal">]<sp/>=<sp/>hasAnnotationOutline;</highlight></codeline>
+<codeline lineno="922"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;annotationOutlineColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>annotationOutlineColor;</highlight></codeline>
+<codeline lineno="923"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="924"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="925"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="926"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;xInterval&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="927"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;yInterval&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="928"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;xOffset&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="929"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;yOffset&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="930"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;hasLines&quot;</highlight><highlight class="normal">]<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="931"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;lineColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor();</highlight></codeline>
+<codeline lineno="932"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;hasMarkers&quot;</highlight><highlight class="normal">]<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="933"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;markerColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor();</highlight></codeline>
+<codeline lineno="934"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;hasAnnotations&quot;</highlight><highlight class="normal">]<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="935"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;annotationPrecision&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="936"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;annotationColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor();</highlight></codeline>
+<codeline lineno="937"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;annotationHasOutline&quot;</highlight><highlight class="normal">]<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="938"><highlight class="normal"><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;annotationOutlineColor&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QColor();</highlight></codeline>
+<codeline lineno="939"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="940"><highlight class="normal"></highlight></codeline>
+<codeline lineno="941"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>configuration;</highlight></codeline>
+<codeline lineno="942"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="943"><highlight class="normal"></highlight></codeline>
+<codeline lineno="944"><highlight class="normal">QgsMapLayer<sp/>*<ref refid="classProjectInfo_1ad95862c7dbfb1507fa00d268d3965c22" kindref="member">ProjectInfo::getDefaultActiveLayerForMapTheme</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;mapTheme<sp/>)</highlight></codeline>
+<codeline lineno="945"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="946"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mapTheme.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="947"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="948"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="949"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="950"><highlight class="normal"></highlight></codeline>
+<codeline lineno="951"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>json<sp/>=<sp/>QgsProject::instance()-&gt;readEntry(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;qfieldsync&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/mapThemesActiveLayers&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="952"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonDocument<sp/>document<sp/>=<sp/>QJsonDocument::fromJson(<sp/>json.toUtf8()<sp/>);</highlight></codeline>
+<codeline lineno="953"><highlight class="normal"></highlight></codeline>
+<codeline lineno="954"><highlight class="normal"><sp/><sp/>QJsonObject<sp/>entries<sp/>=<sp/>document.object();</highlight></codeline>
+<codeline lineno="955"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>entries.contains(<sp/>mapTheme<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="956"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="957"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>mapLayerId<sp/>=<sp/>entries.value(<sp/>mapTheme<sp/>).toString();</highlight></codeline>
+<codeline lineno="958"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QgsProject::instance()-&gt;mapLayer(<sp/>mapLayerId<sp/>);</highlight></codeline>
+<codeline lineno="959"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="960"><highlight class="normal"></highlight></codeline>
+<codeline lineno="961"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="962"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/projectinfo.cpp"/>
+  </compounddef>
+</doxygen>

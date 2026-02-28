@@ -1,0 +1,1906 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class QFieldXmlHttpRequest - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-qfieldxmlhttprequest" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class QFieldXmlHttpRequest
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-readystate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum ReadyState
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-onaborted-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property onaborted [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-ondownloadprogress-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property ondownloadprogress [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-onerror-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property onerror [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-onload-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property onload [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-onloadend-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property onloadend [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-onreadystatechange-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property onreadystatechange [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-onredirected-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property onredirected [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-ontimeout-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property ontimeout [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-onuploadprogress-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property onuploadprogress [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-readystate-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property readyState [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-response-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property response [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-responsetext-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property responseText [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-responsetype-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property responseType [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-responseurl-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property responseUrl [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-status-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property status [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-statustext-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property statusText [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-timeout-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property timeout [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-readystatechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal readyStateChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-responsechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal responseChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-timeoutchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal timeoutChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-qfieldxmlhttprequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function QFieldXmlHttpRequest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-abort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function abort
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getallresponseheaders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getAllResponseHeaders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getresponseheader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getResponseHeader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-onaborted-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function onaborted [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-ondownloadprogress-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ondownloadprogress [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-onerror-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function onerror [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-onload-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function onload [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-onloadend-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function onloadend [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-onreadystatechange-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function onreadystatechange [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-onredirected-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function onredirected [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-ontimeout-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ontimeout [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-onuploadprogress-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function onuploadprogress [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function open
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-readystate-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function readyState [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-response-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function response [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-responsetext-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function responseText [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-responsetype-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function responseType [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-responseurl-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function responseUrl [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-send" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function send
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setonaborted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOnaborted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setondownloadprogress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOndownloadprogress
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setonerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOnerror
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setonload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOnload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setonloadend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOnloadend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setonreadystatechange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOnreadystatechange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setonredirected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOnredirected
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setontimeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOntimeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setonuploadprogress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOnuploadprogress
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setrequestheader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setRequestHeader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-settimeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setTimeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-status-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function status [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-statustext-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function statusText [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-timeout-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function timeout [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-qfieldxmlhttprequest_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~QFieldXmlHttpRequest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Static Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-newrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function newRequest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-qfieldxmlhttprequest">Class QFieldXmlHttpRequest</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>QFieldXmlHttpRequest</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;qfieldxmlhttprequest.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QObject</p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum uchar</td>
+<td style="text-align: left;"><a href="#enum-readystate"><strong>ReadyState</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property QJSValue</td>
+<td style="text-align: left;"><a href="./#property-onaborted-12"><strong>onaborted</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QJSValue</td>
+<td style="text-align: left;"><a href="./#property-ondownloadprogress-12"><strong>ondownloadprogress</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QJSValue</td>
+<td style="text-align: left;"><a href="./#property-onerror-12"><strong>onerror</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QJSValue</td>
+<td style="text-align: left;"><a href="./#property-onload-12"><strong>onload</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QJSValue</td>
+<td style="text-align: left;"><a href="./#property-onloadend-12"><strong>onloadend</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QJSValue</td>
+<td style="text-align: left;"><a href="./#property-onreadystatechange-12"><strong>onreadystatechange</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QJSValue</td>
+<td style="text-align: left;"><a href="./#property-onredirected-12"><strong>onredirected</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QJSValue</td>
+<td style="text-align: left;"><a href="./#property-ontimeout-12"><strong>ontimeout</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QJSValue</td>
+<td style="text-align: left;"><a href="./#property-onuploadprogress-12"><strong>onuploadprogress</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="./#enum-readystate"><strong>ReadyState</strong></a></td>
+<td style="text-align: left;"><a href="./#property-readystate-12"><strong>readyState</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QVariant</td>
+<td style="text-align: left;"><a href="./#property-response-12"><strong>response</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-responsetext-12"><strong>responseText</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-responsetype-12"><strong>responseType</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QUrl</td>
+<td style="text-align: left;"><a href="./#property-responseurl-12"><strong>responseUrl</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-status-12"><strong>status</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-statustext-12"><strong>statusText</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-timeout-12"><strong>timeout</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-readystatechanged"><strong>readyStateChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-responsechanged"><strong>responseChanged</strong></a>  <br><em>Emitted whenever response-related properties change.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-timeoutchanged"><strong>timeoutChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qfieldxmlhttprequest"><strong>QFieldXmlHttpRequest</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-abort"><strong>abort</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QString</td>
+<td style="text-align: left;"><a href="#function-getallresponseheaders"><strong>getAllResponseHeaders</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QString</td>
+<td style="text-align: left;"><a href="#function-getresponseheader"><strong>getResponseHeader</strong></a> (const QString &amp; name) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QJSValue</td>
+<td style="text-align: left;"><a href="#function-onaborted-22"><strong>onaborted</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QJSValue</td>
+<td style="text-align: left;"><a href="#function-ondownloadprogress-22"><strong>ondownloadprogress</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QJSValue</td>
+<td style="text-align: left;"><a href="#function-onerror-22"><strong>onerror</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QJSValue</td>
+<td style="text-align: left;"><a href="#function-onload-22"><strong>onload</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QJSValue</td>
+<td style="text-align: left;"><a href="#function-onloadend-22"><strong>onloadend</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QJSValue</td>
+<td style="text-align: left;"><a href="#function-onreadystatechange-22"><strong>onreadystatechange</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QJSValue</td>
+<td style="text-align: left;"><a href="#function-onredirected-22"><strong>onredirected</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QJSValue</td>
+<td style="text-align: left;"><a href="#function-ontimeout-22"><strong>ontimeout</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QJSValue</td>
+<td style="text-align: left;"><a href="#function-onuploadprogress-22"><strong>onuploadprogress</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-open"><strong>open</strong></a> (const QString &amp; method, const QUrl &amp; url) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="./#enum-readystate"><strong>ReadyState</strong></a></td>
+<td style="text-align: left;"><a href="#function-readystate-22"><strong>readyState</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVariant</td>
+<td style="text-align: left;"><a href="#function-response-22"><strong>response</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-responsetext-22"><strong>responseText</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-responsetype-22"><strong>responseType</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QUrl</td>
+<td style="text-align: left;"><a href="#function-responseurl-22"><strong>responseUrl</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-send"><strong>send</strong></a> (const QVariant &amp; body=QVariant()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setonaborted"><strong>setOnaborted</strong></a> (const QJSValue &amp; callback) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setondownloadprogress"><strong>setOndownloadprogress</strong></a> (const QJSValue &amp; callback) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setonerror"><strong>setOnerror</strong></a> (const QJSValue &amp; callback) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setonload"><strong>setOnload</strong></a> (const QJSValue &amp; callback) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setonloadend"><strong>setOnloadend</strong></a> (const QJSValue &amp; callback) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setonreadystatechange"><strong>setOnreadystatechange</strong></a> (const QJSValue &amp; callback) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setonredirected"><strong>setOnredirected</strong></a> (const QJSValue &amp; callback) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setontimeout"><strong>setOntimeout</strong></a> (const QJSValue &amp; callback) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setonuploadprogress"><strong>setOnuploadprogress</strong></a> (const QJSValue &amp; callback) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-setrequestheader"><strong>setRequestHeader</strong></a> (const QString &amp; headerName, const QString &amp; headerValue) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-settimeout"><strong>setTimeout</strong></a> (int milliseconds) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-status-22"><strong>status</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-statustext-22"><strong>statusText</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-timeout-22"><strong>timeout</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qfieldxmlhttprequest"><strong>~QFieldXmlHttpRequest</strong></a> () override<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-functions">Public Static Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE <a href="./"><strong>QFieldXmlHttpRequest</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-newrequest"><strong>newRequest</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>This class exposes a lightweight, XMLHttpRequest-like API to QML for making HTTP requests in a predictable way. It follows the familiar <a href="./#function-open"><strong>open()</strong></a>, <a href="./#function-setrequestheader"><strong>setRequestHeader()</strong></a>, <a href="./#function-send"><strong>send()</strong></a>, and <a href="./#function-abort"><strong>abort()</strong></a> workflow while exposing request state, response data, and lifecycle callbacks as QML properties.</p>
+<p>Payload encoding is deterministic. QByteArray payloads are transmitted as-is. QString payloads are sent as UTF-8 text. QVariantMap and QVariantList payloads are encoded as JSON. When the caller does not explicitly set a Content-Type header, an appropriate Content-Type is inferred from the payload type.</p>
+<p>Multipart uploads are supported when the body contains "file://..." URL strings, or when the caller sets a Content-Type header starting with "multipart/form-data". Local file uploads are restricted to paths inside the current project directory or inside the QFieldCloud local directory.</p>
+<p>Requests created for QML usage are expected to be short-lived. The object schedules deleteLater() automatically once the request lifecycle ends (success, error, abort, or timeout).</p>
+<p><strong>Note:</strong></p>
+<p>This is not a full browser XMLHttpRequest implementation. It focuses on a clean QML API and predictable behavior within QField. </p>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-readystate">enum ReadyState</h3>
+<pre><code class="language-C++">enum QFieldXmlHttpRequest::ReadyState {
+    Unsent = 0,
+    Opened,
+    HeadersReceived,
+    Loading,
+    Done
+};
+</code></pre>
+<p>ReadyState values aligned with browser XMLHttpRequest. </p>
+<hr>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-onaborted-12">property onaborted [1/2]</h3>
+<pre><code class="language-C++">QJSValue QFieldXmlHttpRequest::onaborted;
+</code></pre>
+<p>Called when the request is aborted. </p>
+<hr>
+
+<h3 id="property-ondownloadprogress-12">property ondownloadprogress [1/2]</h3>
+<pre><code class="language-C++">QJSValue QFieldXmlHttpRequest::ondownloadprogress;
+</code></pre>
+<p>Called during download progress as (receivedBytes, totalBytes). </p>
+<hr>
+
+<h3 id="property-onerror-12">property onerror [1/2]</h3>
+<pre><code class="language-C++">QJSValue QFieldXmlHttpRequest::onerror;
+</code></pre>
+<p>Called for network-level failures as (errorCode, errorMessage). </p>
+<hr>
+
+<h3 id="property-onload-12">property onload [1/2]</h3>
+<pre><code class="language-C++">QJSValue QFieldXmlHttpRequest::onload;
+</code></pre>
+<p>Called when the request completes and a status code is available.</p>
+<p><strong>Note:</strong></p>
+<p>HTTP errors such as 404 or 500 still trigger onload. Callers should inspect status. </p>
+<hr>
+
+<h3 id="property-onloadend-12">property onloadend [1/2]</h3>
+<pre><code class="language-C++">QJSValue QFieldXmlHttpRequest::onloadend;
+</code></pre>
+<p>Called at the end of the request lifecycle for success, error, abort, or timeout. </p>
+<hr>
+
+<h3 id="property-onreadystatechange-12">property onreadystatechange [1/2]</h3>
+<pre><code class="language-C++">QJSValue QFieldXmlHttpRequest::onreadystatechange;
+</code></pre>
+<p>Called whenever readyState changes. </p>
+<hr>
+
+<h3 id="property-onredirected-12">property onredirected [1/2]</h3>
+<pre><code class="language-C++">QJSValue QFieldXmlHttpRequest::onredirected;
+</code></pre>
+<p>Called when a redirect is reported by Qt as (urlString). </p>
+<hr>
+
+<h3 id="property-ontimeout-12">property ontimeout [1/2]</h3>
+<pre><code class="language-C++">QJSValue QFieldXmlHttpRequest::ontimeout;
+</code></pre>
+<p>Called when the timeout triggers. </p>
+<hr>
+
+<h3 id="property-onuploadprogress-12">property onuploadprogress [1/2]</h3>
+<pre><code class="language-C++">QJSValue QFieldXmlHttpRequest::onuploadprogress;
+</code></pre>
+<p>Called during upload progress as (sentBytes, totalBytes). </p>
+<hr>
+
+<h3 id="property-readystate-12">property readyState [1/2]</h3>
+<pre><code class="language-C++">ReadyState QFieldXmlHttpRequest::readyState;
+</code></pre>
+<p>The current request state aligned with browser XMLHttpRequest readyState values. </p>
+<hr>
+
+<h3 id="property-response-12">property response [1/2]</h3>
+<pre><code class="language-C++">QVariant QFieldXmlHttpRequest::response;
+</code></pre>
+<p>The parsed response value when the response is JSON, otherwise this equals responseText. </p>
+<hr>
+
+<h3 id="property-responsetext-12">property responseText [1/2]</h3>
+<pre><code class="language-C++">QString QFieldXmlHttpRequest::responseText;
+</code></pre>
+<p>The response body decoded as UTF-8 text. </p>
+<hr>
+
+<h3 id="property-responsetype-12">property responseType [1/2]</h3>
+<pre><code class="language-C++">QString QFieldXmlHttpRequest::responseType;
+</code></pre>
+<p>The response Content-Type value as provided by the server. </p>
+<hr>
+
+<h3 id="property-responseurl-12">property responseUrl [1/2]</h3>
+<pre><code class="language-C++">QUrl QFieldXmlHttpRequest::responseUrl;
+</code></pre>
+<p>The final response URL. This may differ from the requested URL when redirects were followed. </p>
+<hr>
+
+<h3 id="property-status-12">property status [1/2]</h3>
+<pre><code class="language-C++">int QFieldXmlHttpRequest::status;
+</code></pre>
+<p>The HTTP status code of the final response. For network-level failures, this is 0. </p>
+<hr>
+
+<h3 id="property-statustext-12">property statusText [1/2]</h3>
+<pre><code class="language-C++">QString QFieldXmlHttpRequest::statusText;
+</code></pre>
+<p>The HTTP reason phrase of the final response when available. </p>
+<hr>
+
+<h3 id="property-timeout-12">property timeout [1/2]</h3>
+<pre><code class="language-C++">int QFieldXmlHttpRequest::timeout;
+</code></pre>
+<p>The request timeout in milliseconds. A value of 0 disables the timeout.</p>
+<p>When the timeout triggers, the request is aborted and ontimeout and onloadend are called. </p>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-readystatechanged">signal readyStateChanged</h3>
+<pre><code class="language-C++">void QFieldXmlHttpRequest::readyStateChanged;
+</code></pre>
+<p>The current request state aligned with browser XMLHttpRequest readyState values.   </p>
+<hr>
+
+<h3 id="signal-responsechanged">signal responseChanged</h3>
+<p><em>Emitted whenever response-related properties change.</em> </p>
+<pre><code class="language-C++">void QFieldXmlHttpRequest::responseChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-timeoutchanged">signal timeoutChanged</h3>
+<pre><code class="language-C++">void QFieldXmlHttpRequest::timeoutChanged;
+</code></pre>
+<p>The request timeout in milliseconds. A value of 0 disables the timeout.</p>
+<p>When the timeout triggers, the request is aborted and ontimeout and onloadend are called.   </p>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-qfieldxmlhttprequest">function QFieldXmlHttpRequest</h3>
+<pre><code class="language-C++">explicit QFieldXmlHttpRequest::QFieldXmlHttpRequest (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-abort">function abort</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldXmlHttpRequest::abort () 
+</code></pre>
+<p>Aborts the current request if one is active.</p>
+<p><strong>Note:</strong></p>
+<p>This triggers onaborted and onloadend if set and transitions readyState to Done. </p>
+<hr>
+
+<h3 id="function-getallresponseheaders">function getAllResponseHeaders</h3>
+<pre><code class="language-C++">Q_INVOKABLE QString QFieldXmlHttpRequest::getAllResponseHeaders () const
+</code></pre>
+<p>Returns all response headers in HTTP-style format. This is available only after the request finishes. </p>
+<hr>
+
+<h3 id="function-getresponseheader">function getResponseHeader</h3>
+<pre><code class="language-C++">Q_INVOKABLE QString QFieldXmlHttpRequest::getResponseHeader (
+    const QString &amp; name
+) const
+</code></pre>
+<p>Returns a response header value by name. This is available only after the request finishes. </p>
+<hr>
+
+<h3 id="function-onaborted-22">function onaborted [2/2]</h3>
+<pre><code class="language-C++">inline QJSValue QFieldXmlHttpRequest::onaborted () const
+</code></pre>
+<p>Called when the request is aborted.   </p>
+<hr>
+
+<h3 id="function-ondownloadprogress-22">function ondownloadprogress [2/2]</h3>
+<pre><code class="language-C++">inline QJSValue QFieldXmlHttpRequest::ondownloadprogress () const
+</code></pre>
+<p>Called during download progress as (receivedBytes, totalBytes).   </p>
+<hr>
+
+<h3 id="function-onerror-22">function onerror [2/2]</h3>
+<pre><code class="language-C++">inline QJSValue QFieldXmlHttpRequest::onerror () const
+</code></pre>
+<p>Called for network-level failures as (errorCode, errorMessage).   </p>
+<hr>
+
+<h3 id="function-onload-22">function onload [2/2]</h3>
+<pre><code class="language-C++">inline QJSValue QFieldXmlHttpRequest::onload () const
+</code></pre>
+<p>Called when the request completes and a status code is available.</p>
+<p><strong>Note:</strong></p>
+<p>HTTP errors such as 404 or 500 still trigger onload. Callers should inspect status.   </p>
+<hr>
+
+<h3 id="function-onloadend-22">function onloadend [2/2]</h3>
+<pre><code class="language-C++">inline QJSValue QFieldXmlHttpRequest::onloadend () const
+</code></pre>
+<p>Called at the end of the request lifecycle for success, error, abort, or timeout.   </p>
+<hr>
+
+<h3 id="function-onreadystatechange-22">function onreadystatechange [2/2]</h3>
+<pre><code class="language-C++">inline QJSValue QFieldXmlHttpRequest::onreadystatechange () const
+</code></pre>
+<p>Called whenever readyState changes.   </p>
+<hr>
+
+<h3 id="function-onredirected-22">function onredirected [2/2]</h3>
+<pre><code class="language-C++">inline QJSValue QFieldXmlHttpRequest::onredirected () const
+</code></pre>
+<p>Called when a redirect is reported by Qt as (urlString).   </p>
+<hr>
+
+<h3 id="function-ontimeout-22">function ontimeout [2/2]</h3>
+<pre><code class="language-C++">inline QJSValue QFieldXmlHttpRequest::ontimeout () const
+</code></pre>
+<p>Called when the timeout triggers.   </p>
+<hr>
+
+<h3 id="function-onuploadprogress-22">function onuploadprogress [2/2]</h3>
+<pre><code class="language-C++">inline QJSValue QFieldXmlHttpRequest::onuploadprogress () const
+</code></pre>
+<p>Called during upload progress as (sentBytes, totalBytes).   </p>
+<hr>
+
+<h3 id="function-open">function open</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldXmlHttpRequest::open (
+    const QString &amp; method,
+    const QUrl &amp; url
+) 
+</code></pre>
+<p>Prepares the request. This must be called before <a href="./#function-send"><strong>send()</strong></a>.</p>
+<p>Calling <a href="./#function-open"><strong>open()</strong></a> while a request is active aborts the active request. Supported methods are GET, POST, PUT, and DELETE. </p>
+<hr>
+
+<h3 id="function-readystate-22">function readyState [2/2]</h3>
+<pre><code class="language-C++">inline ReadyState QFieldXmlHttpRequest::readyState () const
+</code></pre>
+<p>The current request state aligned with browser XMLHttpRequest readyState values.   </p>
+<hr>
+
+<h3 id="function-response-22">function response [2/2]</h3>
+<pre><code class="language-C++">inline QVariant QFieldXmlHttpRequest::response () const
+</code></pre>
+<p>The parsed response value when the response is JSON, otherwise this equals responseText.   </p>
+<hr>
+
+<h3 id="function-responsetext-22">function responseText [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldXmlHttpRequest::responseText () const
+</code></pre>
+<p>The response body decoded as UTF-8 text.   </p>
+<hr>
+
+<h3 id="function-responsetype-22">function responseType [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldXmlHttpRequest::responseType () const
+</code></pre>
+<p>The response Content-Type value as provided by the server.   </p>
+<hr>
+
+<h3 id="function-responseurl-22">function responseUrl [2/2]</h3>
+<pre><code class="language-C++">inline QUrl QFieldXmlHttpRequest::responseUrl () const
+</code></pre>
+<p>The final response URL. This may differ from the requested URL when redirects were followed.   </p>
+<hr>
+
+<h3 id="function-send">function send</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldXmlHttpRequest::send (
+    const QVariant &amp; body=QVariant()
+) 
+</code></pre>
+<p>Starts the request.</p>
+<p>The body can be provided as QByteArray, QString, QVariantMap, or QVariantList. QByteArray is sent as-is, QString is encoded as UTF-8 text, and QVariantMap/QVariantList are JSON-encoded. If multipart upload is desired, the caller can pass a QVariantMap containing "file://..." string values, or can set a Content-Type header starting with "multipart/form-data". Local file URLs are accepted only when they resolve inside the current project directory or the QFieldCloud local directory. </p>
+<hr>
+
+<h3 id="function-setonaborted">function setOnaborted</h3>
+<pre><code class="language-C++">inline void QFieldXmlHttpRequest::setOnaborted (
+    const QJSValue &amp; callback
+) 
+</code></pre>
+<p>Called when the request is aborted.   </p>
+<hr>
+
+<h3 id="function-setondownloadprogress">function setOndownloadprogress</h3>
+<pre><code class="language-C++">inline void QFieldXmlHttpRequest::setOndownloadprogress (
+    const QJSValue &amp; callback
+) 
+</code></pre>
+<p>Called during download progress as (receivedBytes, totalBytes).   </p>
+<hr>
+
+<h3 id="function-setonerror">function setOnerror</h3>
+<pre><code class="language-C++">inline void QFieldXmlHttpRequest::setOnerror (
+    const QJSValue &amp; callback
+) 
+</code></pre>
+<p>Called for network-level failures as (errorCode, errorMessage).   </p>
+<hr>
+
+<h3 id="function-setonload">function setOnload</h3>
+<pre><code class="language-C++">inline void QFieldXmlHttpRequest::setOnload (
+    const QJSValue &amp; callback
+) 
+</code></pre>
+<p>Called when the request completes and a status code is available.</p>
+<p><strong>Note:</strong></p>
+<p>HTTP errors such as 404 or 500 still trigger onload. Callers should inspect status.   </p>
+<hr>
+
+<h3 id="function-setonloadend">function setOnloadend</h3>
+<pre><code class="language-C++">inline void QFieldXmlHttpRequest::setOnloadend (
+    const QJSValue &amp; callback
+) 
+</code></pre>
+<p>Called at the end of the request lifecycle for success, error, abort, or timeout.   </p>
+<hr>
+
+<h3 id="function-setonreadystatechange">function setOnreadystatechange</h3>
+<pre><code class="language-C++">inline void QFieldXmlHttpRequest::setOnreadystatechange (
+    const QJSValue &amp; callback
+) 
+</code></pre>
+<p>Called whenever readyState changes.   </p>
+<hr>
+
+<h3 id="function-setonredirected">function setOnredirected</h3>
+<pre><code class="language-C++">inline void QFieldXmlHttpRequest::setOnredirected (
+    const QJSValue &amp; callback
+) 
+</code></pre>
+<p>Called when a redirect is reported by Qt as (urlString).   </p>
+<hr>
+
+<h3 id="function-setontimeout">function setOntimeout</h3>
+<pre><code class="language-C++">inline void QFieldXmlHttpRequest::setOntimeout (
+    const QJSValue &amp; callback
+) 
+</code></pre>
+<p>Called when the timeout triggers.   </p>
+<hr>
+
+<h3 id="function-setonuploadprogress">function setOnuploadprogress</h3>
+<pre><code class="language-C++">inline void QFieldXmlHttpRequest::setOnuploadprogress (
+    const QJSValue &amp; callback
+) 
+</code></pre>
+<p>Called during upload progress as (sentBytes, totalBytes).   </p>
+<hr>
+
+<h3 id="function-setrequestheader">function setRequestHeader</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldXmlHttpRequest::setRequestHeader (
+    const QString &amp; headerName,
+    const QString &amp; headerValue
+) 
+</code></pre>
+<p>Sets a raw HTTP request header.</p>
+<p>Headers are only applied after <a href="./#function-open"><strong>open()</strong></a> and before <a href="./#function-send"><strong>send()</strong></a>. Newline protection is applied to prevent CR/LF header injection. </p>
+<hr>
+
+<h3 id="function-settimeout">function setTimeout</h3>
+<pre><code class="language-C++">void QFieldXmlHttpRequest::setTimeout (
+    int milliseconds
+) 
+</code></pre>
+<p>The request timeout in milliseconds. A value of 0 disables the timeout.</p>
+<p>When the timeout triggers, the request is aborted and ontimeout and onloadend are called.   </p>
+<hr>
+
+<h3 id="function-status-22">function status [2/2]</h3>
+<pre><code class="language-C++">inline int QFieldXmlHttpRequest::status () const
+</code></pre>
+<p>The HTTP status code of the final response. For network-level failures, this is 0.   </p>
+<hr>
+
+<h3 id="function-statustext-22">function statusText [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldXmlHttpRequest::statusText () const
+</code></pre>
+<p>The HTTP reason phrase of the final response when available.   </p>
+<hr>
+
+<h3 id="function-timeout-22">function timeout [2/2]</h3>
+<pre><code class="language-C++">inline int QFieldXmlHttpRequest::timeout () const
+</code></pre>
+<p>The request timeout in milliseconds. A value of 0 disables the timeout.</p>
+<p>When the timeout triggers, the request is aborted and ontimeout and onloadend are called.   </p>
+<hr>
+
+<h3 id="function-qfieldxmlhttprequest_1">function ~QFieldXmlHttpRequest</h3>
+<pre><code class="language-C++">QFieldXmlHttpRequest::~QFieldXmlHttpRequest () override
+</code></pre>
+<hr>
+<h2 id="public-static-functions-documentation">Public Static Functions Documentation</h2>
+<h3 id="function-newrequest">function newRequest</h3>
+<pre><code class="language-C++">static Q_INVOKABLE QFieldXmlHttpRequest * QFieldXmlHttpRequest::newRequest (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<p>Creates a new request instance. </p>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/qfieldxmlhttprequest.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

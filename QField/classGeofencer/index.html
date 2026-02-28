@@ -1,0 +1,1367 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class Geofencer - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-geofencer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class Geofencer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-behaviors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum Behaviors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-active-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property active [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-areaslayer-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property areasLayer [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-behavior-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property behavior [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isalerting-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isAlerting [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-iswithin-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isWithin [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-iswithinareaname-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isWithinAreaName [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-lastwithinareaname-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property lastWithinAreaName [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-position-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property position [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-positioncrs-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property positionCrs [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-activechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal activeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-areaslayerchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal areasLayerChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-behaviorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal behaviorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-invertlogicchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal invertLogicChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isalertingchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isAlertingChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-iswithinchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isWithinChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-positionchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal positionChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-positioncrschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal positionCrsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-projectchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal projectChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-geofencer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function Geofencer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-active-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function active [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-applyprojectsettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function applyProjectSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-areaslayer-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function areasLayer [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-behavior-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function behavior [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isalerting-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isAlerting [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-iswithin-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isWithin [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-iswithinareaname-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isWithinAreaName [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lastwithinareaname-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function lastWithinAreaName [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-position-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function position [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-positioncrs-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function positionCrs [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setactive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setActive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setareaslayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAreasLayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setbehavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setBehavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPosition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setpositioncrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPositionCrs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-geofencer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~Geofencer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-geofencer">Class Geofencer</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>Geofencer</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;geofencer.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QObject</p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-behaviors"><strong>Behaviors</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-active-12"><strong>active</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsVectorLayer *</td>
+<td style="text-align: left;"><a href="./#property-areaslayer-12"><strong>areasLayer</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property Behaviors</td>
+<td style="text-align: left;"><a href="./#property-behavior-12"><strong>behavior</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isalerting-12"><strong>isAlerting</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-iswithin-12"><strong>isWithin</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-iswithinareaname-12"><strong>isWithinAreaName</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-lastwithinareaname-12"><strong>lastWithinAreaName</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsPoint</td>
+<td style="text-align: left;"><a href="./#property-position-12"><strong>position</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsCoordinateReferenceSystem</td>
+<td style="text-align: left;"><a href="./#property-positioncrs-12"><strong>positionCrs</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-activechanged"><strong>activeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-areaslayerchanged"><strong>areasLayerChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-behaviorchanged"><strong>behaviorChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-invertlogicchanged"><strong>invertLogicChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isalertingchanged"><strong>isAlertingChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-iswithinchanged"><strong>isWithinChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-positionchanged"><strong>positionChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-positioncrschanged"><strong>positionCrsChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-projectchanged"><strong>projectChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-geofencer"><strong>Geofencer</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-active-22"><strong>active</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-applyprojectsettings"><strong>applyProjectSettings</strong></a> (QgsProject * project) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsVectorLayer *</td>
+<td style="text-align: left;"><a href="#function-areaslayer-22"><strong>areasLayer</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Behaviors</td>
+<td style="text-align: left;"><a href="#function-behavior-22"><strong>behavior</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isalerting-22"><strong>isAlerting</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-iswithin-22"><strong>isWithin</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-iswithinareaname-22"><strong>isWithinAreaName</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-lastwithinareaname-22"><strong>lastWithinAreaName</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-position-22"><strong>position</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsCoordinateReferenceSystem</td>
+<td style="text-align: left;"><a href="#function-positioncrs-22"><strong>positionCrs</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setactive"><strong>setActive</strong></a> (bool active) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setareaslayer"><strong>setAreasLayer</strong></a> (QgsVectorLayer * layer) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setbehavior"><strong>setBehavior</strong></a> (Behaviors behavior) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setposition"><strong>setPosition</strong></a> (const QgsPoint &amp; position) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setpositioncrs"><strong>setPositionCrs</strong></a> (const QgsCoordinateReferenceSystem &amp; crs) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual</td>
+<td style="text-align: left;"><a href="#function-geofencer"><strong>~Geofencer</strong></a> () <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>This class provides an interface to manage geofencing of areas as well as providing feedback whenever the position trespasses into or out of those areas. </p>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-behaviors">enum Behaviors</h3>
+<pre><code class="language-C++">enum Geofencer::Behaviors {
+    AlertWhenInsideGeofencedArea = 1,
+    AlertWhenOutsideGeofencedArea,
+    InformWhenEnteringLeavingGeofencedArea
+};
+</code></pre>
+<hr>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-active-12">property active [1/2]</h3>
+<pre><code class="language-C++">bool Geofencer::active;
+</code></pre>
+<hr>
+
+<h3 id="property-areaslayer-12">property areasLayer [1/2]</h3>
+<pre><code class="language-C++">QgsVectorLayer * Geofencer::areasLayer;
+</code></pre>
+<hr>
+
+<h3 id="property-behavior-12">property behavior [1/2]</h3>
+<pre><code class="language-C++">Behaviors Geofencer::behavior;
+</code></pre>
+<hr>
+
+<h3 id="property-isalerting-12">property isAlerting [1/2]</h3>
+<pre><code class="language-C++">bool Geofencer::isAlerting;
+</code></pre>
+<hr>
+
+<h3 id="property-iswithin-12">property isWithin [1/2]</h3>
+<pre><code class="language-C++">bool Geofencer::isWithin;
+</code></pre>
+<hr>
+
+<h3 id="property-iswithinareaname-12">property isWithinAreaName [1/2]</h3>
+<pre><code class="language-C++">QString Geofencer::isWithinAreaName;
+</code></pre>
+<hr>
+
+<h3 id="property-lastwithinareaname-12">property lastWithinAreaName [1/2]</h3>
+<pre><code class="language-C++">QString Geofencer::lastWithinAreaName;
+</code></pre>
+<hr>
+
+<h3 id="property-position-12">property position [1/2]</h3>
+<pre><code class="language-C++">QgsPoint Geofencer::position;
+</code></pre>
+<hr>
+
+<h3 id="property-positioncrs-12">property positionCrs [1/2]</h3>
+<pre><code class="language-C++">QgsCoordinateReferenceSystem Geofencer::positionCrs;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-activechanged">signal activeChanged</h3>
+<pre><code class="language-C++">void Geofencer::activeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-areaslayerchanged">signal areasLayerChanged</h3>
+<pre><code class="language-C++">void Geofencer::areasLayerChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-behaviorchanged">signal behaviorChanged</h3>
+<pre><code class="language-C++">void Geofencer::behaviorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-invertlogicchanged">signal invertLogicChanged</h3>
+<pre><code class="language-C++">void Geofencer::invertLogicChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-isalertingchanged">signal isAlertingChanged</h3>
+<pre><code class="language-C++">void Geofencer::isAlertingChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-iswithinchanged">signal isWithinChanged</h3>
+<pre><code class="language-C++">void Geofencer::isWithinChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-positionchanged">signal positionChanged</h3>
+<pre><code class="language-C++">void Geofencer::positionChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-positioncrschanged">signal positionCrsChanged</h3>
+<pre><code class="language-C++">void Geofencer::positionCrsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-projectchanged">signal projectChanged</h3>
+<pre><code class="language-C++">void Geofencer::projectChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-geofencer">function Geofencer</h3>
+<pre><code class="language-C++">explicit Geofencer::Geofencer (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-active-22">function active [2/2]</h3>
+<pre><code class="language-C++">inline bool Geofencer::active () const
+</code></pre>
+<p>Returns TRUE when geofencing is active. </p>
+<p><strong>See also:</strong> <a href="./#function-setactive"><strong>setActive</strong></a> </p>
+<hr>
+
+<h3 id="function-applyprojectsettings">function applyProjectSettings</h3>
+<pre><code class="language-C++">Q_INVOKABLE void Geofencer::applyProjectSettings (
+    QgsProject * project
+) 
+</code></pre>
+<p>Sets the polygon layer holding areas from a given <em>project</em>. </p>
+<hr>
+
+<h3 id="function-areaslayer-22">function areasLayer [2/2]</h3>
+<pre><code class="language-C++">inline QgsVectorLayer * Geofencer::areasLayer () const
+</code></pre>
+<p>Returns the polygon layer holding areas. </p>
+<hr>
+
+<h3 id="function-behavior-22">function behavior [2/2]</h3>
+<pre><code class="language-C++">inline Behaviors Geofencer::behavior () const
+</code></pre>
+<p>Returns thegeofencing behavior. </p>
+<hr>
+
+<h3 id="function-isalerting-22">function isAlerting [2/2]</h3>
+<pre><code class="language-C++">inline bool Geofencer::isAlerting () const
+</code></pre>
+<p>Returns TRUE when the geofencer's behavior is triggering an alarm. </p>
+<hr>
+
+<h3 id="function-iswithin-22">function isWithin [2/2]</h3>
+<pre><code class="language-C++">bool Geofencer::isWithin () const
+</code></pre>
+<p>Returns whether the current position is within an area. </p>
+<hr>
+
+<h3 id="function-iswithinareaname-22">function isWithinAreaName [2/2]</h3>
+<pre><code class="language-C++">QString Geofencer::isWithinAreaName () const
+</code></pre>
+<p>Returns the area name within which the current position overlaps. If no overlap, an empty string will be returned. </p>
+<hr>
+
+<h3 id="function-lastwithinareaname-22">function lastWithinAreaName [2/2]</h3>
+<pre><code class="language-C++">QString Geofencer::lastWithinAreaName () const
+</code></pre>
+<p>Returns the last area name within which the position had overlapped. If no overlap has yet to occur, an empty string will be returned. </p>
+<hr>
+
+<h3 id="function-position-22">function position [2/2]</h3>
+<pre><code class="language-C++">inline QgsPoint Geofencer::position () const
+</code></pre>
+<p>Returns the position to be used to check for overlap with areas. </p>
+<hr>
+
+<h3 id="function-positioncrs-22">function positionCrs [2/2]</h3>
+<pre><code class="language-C++">inline QgsCoordinateReferenceSystem Geofencer::positionCrs () const
+</code></pre>
+<p>Returns the position's coordinate reference system (CRS). </p>
+<hr>
+
+<h3 id="function-setactive">function setActive</h3>
+<pre><code class="language-C++">void Geofencer::setActive (
+    bool active
+) 
+</code></pre>
+<p>Sets the geofencing <em>active</em> state. </p>
+<p><strong>See also:</strong> active </p>
+<hr>
+
+<h3 id="function-setareaslayer">function setAreasLayer</h3>
+<pre><code class="language-C++">void Geofencer::setAreasLayer (
+    QgsVectorLayer * layer
+) 
+</code></pre>
+<p>Sets the polygon layer holding areas. </p>
+<hr>
+
+<h3 id="function-setbehavior">function setBehavior</h3>
+<pre><code class="language-C++">void Geofencer::setBehavior (
+    Behaviors behavior
+) 
+</code></pre>
+<p>Sets the geofencing behavior. </p>
+<hr>
+
+<h3 id="function-setposition">function setPosition</h3>
+<pre><code class="language-C++">void Geofencer::setPosition (
+    const QgsPoint &amp; position
+) 
+</code></pre>
+<p>Sets the <em>position</em> to be used to check for overlap with areas. </p>
+<hr>
+
+<h3 id="function-setpositioncrs">function setPositionCrs</h3>
+<pre><code class="language-C++">void Geofencer::setPositionCrs (
+    const QgsCoordinateReferenceSystem &amp; crs
+) 
+</code></pre>
+<p>Sets the position's coordinate reference system (CRS). </p>
+<hr>
+
+<h3 id="function-geofencer_1">function ~Geofencer</h3>
+<pre><code class="language-C++">virtual Geofencer::~Geofencer () 
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/positioning/geofencer.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

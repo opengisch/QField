@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSettings" kind="class" language="C++" prot="public">
+    <compoundname>Settings</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSettings</basecompoundref>
+    <derivedcompoundref refid="classPositioningSettings" prot="public" virt="non-virtual">PositioningSettings</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSettings_1a3abd21a33038a6a9392f9d79eece8a89" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Settings::Settings</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Settings</name>
+        <qualifiedname>Settings::Settings</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/settings.h" line="31" column="14" bodyfile="src/core/settings.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classSettings_1a698a3505556a77d515c5a4c07f29ecee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Settings::setValue</definition>
+        <argsstring>(const QString &amp;key, const QVariant &amp;value)</argsstring>
+        <name>setValue</name>
+        <qualifiedname>Settings::setValue</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/settings.h" line="33" column="22" bodyfile="src/core/settings.cpp" bodystart="26" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classSettings_1aa897da6683a2edf44b6fa6f3640b958c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>QVariant Settings::value</definition>
+        <argsstring>(const QString &amp;key, const QVariant &amp;defaultValue)</argsstring>
+        <name>value</name>
+        <qualifiedname>Settings::value</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>defaultValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/settings.h" line="35" column="26" bodyfile="src/core/settings.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classSettings_1a3df7fd3ab9dbbe14b28259842cc607c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool Settings::valueBool</definition>
+        <argsstring>(const QString &amp;key, bool defaultValue)</argsstring>
+        <name>valueBool</name>
+        <qualifiedname>Settings::valueBool</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>defaultValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Properly evaluates the returned value to be boolean. If the normal value() is used instead, a string &quot;true&quot; or &quot;false&quot; will be returned which will be evaluated to true either way by JS. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/settings.h" line="42" column="22" bodyfile="src/core/settings.cpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classSettings_1a1500a2392ad8580d3949d4375c463095" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int Settings::valueInt</definition>
+        <argsstring>(const QString &amp;key, int defaultValue)</argsstring>
+        <name>valueInt</name>
+        <qualifiedname>Settings::valueInt</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>defaultValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Properly evaluates the returned value to be int. If the normal value() is used instead, a string &quot;1&quot; or &quot;-456&quot; will be returned. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/settings.h" line="49" column="21" bodyfile="src/core/settings.cpp" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classSettings_1a3bffbef208c01e1d1dfdfae9c2ff74b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Settings::remove</definition>
+        <argsstring>(const QString &amp;key)</argsstring>
+        <name>remove</name>
+        <qualifiedname>Settings::remove</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the given <emphasis>key</emphasis> from settings. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/settings.h" line="54" column="22" bodyfile="src/core/settings.cpp" bodystart="47" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classSettings_1ac400a8d624512cf65be4fb918dd3b155" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Settings::sync</definition>
+        <argsstring>()</argsstring>
+        <name>sync</name>
+        <qualifiedname>Settings::sync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes any unsaved changes to permanent storage, and reloads the settings. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/settings.h" line="59" column="22" bodyfile="src/core/settings.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classSettings_1a0ea7e963cbe534c958c86f04fa4dcef7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Settings::settingChanged</definition>
+        <argsstring>(const QString &amp;key)</argsstring>
+        <name>settingChanged</name>
+        <qualifiedname>Settings::settingChanged</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/settings.h" line="62" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>PositioningSettings</label>
+        <link refid="classPositioningSettings"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QSettings</label>
+      </node>
+      <node id="1">
+        <label>Settings</label>
+        <link refid="classSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QSettings</label>
+      </node>
+      <node id="1">
+        <label>Settings</label>
+        <link refid="classSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/settings.h" line="26" column="1" bodyfile="src/core/settings.h" bodystart="27" bodyend="63"/>
+    <listofallmembers>
+      <member refid="classSettings_1a3bffbef208c01e1d1dfdfae9c2ff74b4" prot="public" virt="non-virtual"><scope>Settings</scope><name>remove</name></member>
+      <member refid="classSettings_1a0ea7e963cbe534c958c86f04fa4dcef7" prot="public" virt="non-virtual"><scope>Settings</scope><name>settingChanged</name></member>
+      <member refid="classSettings_1a3abd21a33038a6a9392f9d79eece8a89" prot="public" virt="non-virtual"><scope>Settings</scope><name>Settings</name></member>
+      <member refid="classSettings_1a698a3505556a77d515c5a4c07f29ecee" prot="public" virt="non-virtual"><scope>Settings</scope><name>setValue</name></member>
+      <member refid="classSettings_1ac400a8d624512cf65be4fb918dd3b155" prot="public" virt="non-virtual"><scope>Settings</scope><name>sync</name></member>
+      <member refid="classSettings_1aa897da6683a2edf44b6fa6f3640b958c" prot="public" virt="non-virtual"><scope>Settings</scope><name>value</name></member>
+      <member refid="classSettings_1a3df7fd3ab9dbbe14b28259842cc607c7" prot="public" virt="non-virtual"><scope>Settings</scope><name>valueBool</name></member>
+      <member refid="classSettings_1a1500a2392ad8580d3949d4375c463095" prot="public" virt="non-virtual"><scope>Settings</scope><name>valueInt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

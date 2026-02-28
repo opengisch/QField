@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfTextField" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfTextField</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">TextField</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfTextField_1ae805a29f5d284a6dc4b2ef203fc69ce5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfTextField::echoMode</definition>
+        <argsstring></argsstring>
+        <name>echoMode</name>
+        <qualifiedname>Theme::QfTextField::echoMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTextField.qml" line="11" column="5" bodyfile="src/qml/imports/Theme/QfTextField.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTextField_1a0793bf65d2094df3fc0cc6525446b443" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfTextField::passwordMaskDelay</definition>
+        <argsstring></argsstring>
+        <name>passwordMaskDelay</name>
+        <qualifiedname>Theme::QfTextField::passwordMaskDelay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTextField.qml" line="12" column="5" bodyfile="src/qml/imports/Theme/QfTextField.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTextField_1a0595df528e55d61d06a07e7937bd7c97" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfTextField::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>Theme::QfTextField::font</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTextField.qml" line="13" column="5" bodyfile="src/qml/imports/Theme/QfTextField.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTextField_1adc335dded2e776c4c5e11b7285145f83" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfTextField::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>Theme::QfTextField::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTextField.qml" line="14" column="5" bodyfile="src/qml/imports/Theme/QfTextField.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTextField_1a321c0e57afe959fe9433440f950d4eec" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfTextField::inputMethodHints</definition>
+        <argsstring></argsstring>
+        <name>inputMethodHints</name>
+        <qualifiedname>Theme::QfTextField::inputMethodHints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTextField.qml" line="15" column="5" bodyfile="src/qml/imports/Theme/QfTextField.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTextField_1a2fbe120bcf7987bbd68bc7849851acb1" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Theme::QfTextField::showPasswordButton</definition>
+        <argsstring></argsstring>
+        <name>showPasswordButton</name>
+        <qualifiedname>Theme::QfTextField::showPasswordButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTextField.qml" line="16" column="14" bodyfile="src/qml/imports/Theme/QfTextField.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTextField_1adda002b48c16d82424751d48e6b485d2" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics Theme::QfTextField::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>Theme::QfTextField::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTextField.qml" line="17" column="13" bodyfile="src/qml/imports/Theme/QfTextField.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>TextField</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfTextField</label>
+        <link refid="classTheme_1_1QfTextField"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>TextField</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfTextField</label>
+        <link refid="classTheme_1_1QfTextField"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfTextField.qml" line="10" column="1" bodyfile="src/qml/imports/Theme/QfTextField.qml" bodystart="10" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfTextField_1ae805a29f5d284a6dc4b2ef203fc69ce5" prot="private" virt="non-virtual"><scope>Theme::QfTextField</scope><name>echoMode</name></member>
+      <member refid="classTheme_1_1QfTextField_1a0595df528e55d61d06a07e7937bd7c97" prot="private" virt="non-virtual"><scope>Theme::QfTextField</scope><name>font</name></member>
+      <member refid="classTheme_1_1QfTextField_1adda002b48c16d82424751d48e6b485d2" prot="private" virt="non-virtual"><scope>Theme::QfTextField</scope><name>fontMetrics</name></member>
+      <member refid="classTheme_1_1QfTextField_1a321c0e57afe959fe9433440f950d4eec" prot="private" virt="non-virtual"><scope>Theme::QfTextField</scope><name>inputMethodHints</name></member>
+      <member refid="classTheme_1_1QfTextField_1a0793bf65d2094df3fc0cc6525446b443" prot="private" virt="non-virtual"><scope>Theme::QfTextField</scope><name>passwordMaskDelay</name></member>
+      <member refid="classTheme_1_1QfTextField_1adc335dded2e776c4c5e11b7285145f83" prot="private" virt="non-virtual"><scope>Theme::QfTextField</scope><name>rightPadding</name></member>
+      <member refid="classTheme_1_1QfTextField_1a2fbe120bcf7987bbd68bc7849851acb1" prot="private" virt="non-virtual"><scope>Theme::QfTextField</scope><name>showPasswordButton</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

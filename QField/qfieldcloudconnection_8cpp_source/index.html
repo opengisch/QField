@@ -1,0 +1,1462 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File qfieldcloudconnection.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-qfieldcloudconnectioncpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File qfieldcloudconnection.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-qfieldcloudconnectioncpp">File qfieldcloudconnection.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_d27ac98b23548f5810403c734ce9817b/"><strong>qfieldcloud</strong></a> <strong>&gt;</strong> <a href="../qfieldcloudconnection_8cpp/"><strong>qfieldcloudconnection.cpp</strong></a></p>
+<p><a href="../qfieldcloudconnection_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+    qfieldcloudconnection.cpp
+    ---------------------
+    begin                : January 2020
+    copyright            : (C) 2020 by Matthias Kuhn
+    email                : matthias at opengis dot ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &quot;qfield.h&quot;
+#include &quot;qfieldcloudconnection.h&quot;
+#include &quot;qfieldcloudutils.h&quot;
+
+#include &lt;QDirIterator&gt;
+#include &lt;QFile&gt;
+#include &lt;QHttpMultiPart&gt;
+#include &lt;QJsonDocument&gt;
+#include &lt;QJsonObject&gt;
+#include &lt;QLockFile&gt;
+#include &lt;QNetworkCookie&gt;
+#include &lt;QNetworkCookieJar&gt;
+#include &lt;QSettings&gt;
+#include &lt;QTextDocumentFragment&gt;
+#include &lt;QTimer&gt;
+#include &lt;QUrlQuery&gt;
+#include &lt;qgsapplication.h&gt;
+#include &lt;qgsauthmanager.h&gt;
+#include &lt;qgsmessagelog.h&gt;
+#include &lt;qgsnetworkaccessmanager.h&gt;
+#include &lt;qgssettings.h&gt;
+
+
+QFieldCloudConnection::QFieldCloudConnection()
+  : mUrl( QSettings().value( QStringLiteral( &quot;/QFieldCloud/url&quot; ), defaultUrl() ).toString() )
+  , mUsername( QSettings().value( QStringLiteral( &quot;/QFieldCloud/username&quot; ) ).toString() )
+  , mTokenConfigId( QSettings().value( QStringLiteral( &quot;/QFieldCloud/tokenConfigId&quot; ) ).toString() )
+  , mProvider( QSettings().value( QStringLiteral( &quot;/QFieldCloud/provider&quot; ) ).toString() )
+  , mProviderConfigId( QSettings().value( QStringLiteral( &quot;/QFieldCloud/providerConfigId&quot; ) ).toString() )
+{
+  if ( !QgsApplication::authManager()-&gt;availableAuthMethodConfigs().contains( mProviderConfigId ) )
+  {
+    mProviderConfigId.clear();
+    QSettings().remove( &quot;/QFieldCloud/providerConfigId&quot; );
+  }
+
+  if ( QgsApplication::authManager()-&gt;availableAuthMethodConfigs().contains( mTokenConfigId ) )
+  {
+    QgsAuthMethodConfig config;
+    QgsApplication::authManager()-&gt;loadAuthenticationConfig( mTokenConfigId, config, true );
+    mToken = config.config( &quot;qfieldcloud-token&quot; ).toLatin1();
+  }
+  else
+  {
+    mTokenConfigId.clear();
+    QSettings().remove( &quot;/QFieldCloud/tokenConfigId&quot; );
+  }
+
+  QNetworkInformation::loadBackendByFeatures( QNetworkInformation::Feature::Reachability );
+  mNetworkInformation = QNetworkInformation::instance();
+
+  if ( mNetworkInformation )
+  {
+    connect( mNetworkInformation, &amp;QNetworkInformation::reachabilityChanged, this,
+             [this]( QNetworkInformation::Reachability ) {
+               emit isReachableChanged();
+               tryFlushQueuedProjectPushes();
+             } );
+  }
+}
+
+void QFieldCloudConnection::queueProjectPush( const QString &amp;projectId )
+{
+  if ( projectId.isEmpty() )
+  {
+    return;
+  }
+
+  mQueuedProjectPushes.insert( projectId );
+  tryFlushQueuedProjectPushes();
+}
+
+void QFieldCloudConnection::tryFlushQueuedProjectPushes()
+{
+  if ( mIsFlushingQueuedProjectPushes )
+  {
+    return;
+  }
+
+  if ( mQueuedProjectPushes.isEmpty() )
+  {
+    return;
+  }
+
+  if ( status() != ConnectionStatus::LoggedIn )
+  {
+    return;
+  }
+
+  if ( !isReachable() )
+  {
+    return;
+  }
+
+  mIsFlushingQueuedProjectPushes = true;
+
+  const QSet&lt;QString&gt; queued = mQueuedProjectPushes;
+  mQueuedProjectPushes.clear();
+
+  for ( const QString &amp;id : queued )
+  {
+    emit queuedProjectPushRequested( id );
+  }
+
+  mIsFlushingQueuedProjectPushes = false;
+}
+
+bool QFieldCloudConnection::isReachable() const
+{
+  if ( !mNetworkInformation || !mNetworkInformation-&gt;supports( QNetworkInformation::Feature::Reachability ) )
+  {
+    // No backend or no reachability support, dont change behaviour
+    return true;
+  }
+
+  switch ( mNetworkInformation-&gt;reachability() )
+  {
+    case QNetworkInformation::Reachability::Online:
+    case QNetworkInformation::Reachability::Unknown:
+      return true;
+
+    case QNetworkInformation::Reachability::Disconnected:
+    case QNetworkInformation::Reachability::Local:
+    case QNetworkInformation::Reachability::Site:
+      return false;
+  }
+
+  return true;
+}
+
+QMap&lt;QString, QString&gt; QFieldCloudConnection::sErrors = QMap&lt;QString, QString&gt;(
+  {
+    { &quot;unknown_error&quot;, QObject::tr( &quot;QFieldCloud Unknown Error&quot; ) },
+    { &quot;status_not_ok&quot;, QObject::tr( &quot;Status not ok&quot; ) },
+    { &quot;empty_content&quot;, QObject::tr( &quot;Empty content&quot; ) },
+    { &quot;object_not_found&quot;, QObject::tr( &quot;Object not found&quot; ) },
+    { &quot;api_error&quot;, QObject::tr( &quot;API Error&quot; ) },
+    { &quot;validation_error&quot;, QObject::tr( &quot;Validation Error&quot; ) },
+    { &quot;multiple_projects&quot;, QObject::tr( &quot;Multiple Projects&quot; ) },
+    { &quot;invalid_deltafile&quot;, QObject::tr( &quot;Invalid delta file&quot; ) },
+    { &quot;no_qgis_project&quot;, QObject::tr( &quot;The project does not contain a valid QGIS project file&quot; ) },
+    { &quot;invalid_job&quot;, QObject::tr( &quot;Invalid job&quot; ) },
+    { &quot;qgis_export_error&quot;, QObject::tr( &quot;QGIS export failed&quot; ) },
+    { &quot;qgis_cannot_open_project&quot;, QObject::tr( &quot;QGIS is unable to open the QGIS project&quot; ) },
+  } );
+
+QString QFieldCloudConnection::errorString( QNetworkReply *reply )
+{
+  return CloudError( reply ).message();
+}
+
+QString QFieldCloudConnection::url() const
+{
+  return mUrl;
+}
+
+void QFieldCloudConnection::setUrl( const QString &amp;url )
+{
+  if ( url == mUrl )
+  {
+    return;
+  }
+
+  mUrl = url;
+  QSettings().setValue( QStringLiteral( &quot;/QFieldCloud/url&quot; ), url );
+
+  if ( mStatus != ConnectionStatus::Disconnected )
+  {
+    // Disconnect from the previously used endpoint
+    logout();
+  }
+
+  emit urlChanged();
+}
+
+QString QFieldCloudConnection::defaultUrl()
+{
+  return QStringLiteral( &quot;https://app.qfield.cloud&quot; );
+}
+
+QStringList QFieldCloudConnection::urls() const
+{
+  QStringList savedUrls = QSettings().value( QStringLiteral( &quot;/QFieldCloud/urls&quot; ) ).toStringList();
+  if ( !savedUrls.contains( defaultUrl() ) )
+  {
+    savedUrls.prepend( defaultUrl() );
+  }
+  if ( !savedUrls.contains( mUrl ) )
+  {
+    savedUrls &lt;&lt; mUrl;
+  }
+  return savedUrls;
+}
+
+QString QFieldCloudConnection::avatarUrl() const
+{
+  return mAvatarUrl;
+}
+
+QString QFieldCloudConnection::provider() const
+{
+  return mProvider;
+}
+
+void QFieldCloudConnection::setProvider( const QString &amp;provider )
+{
+  if ( mProvider == provider )
+  {
+    return;
+  }
+
+  mProvider = provider;
+  QSettings().setValue( QStringLiteral( &quot;/QFieldCloud/provider&quot; ), provider );
+
+  emit providerChanged();
+}
+
+QString QFieldCloudConnection::username() const
+{
+  return mUsername;
+}
+
+void QFieldCloudConnection::setUsername( const QString &amp;username )
+{
+  if ( mUsername == username )
+  {
+    return;
+  }
+
+  mQueuedProjectPushes.clear();
+  mUsername = username;
+
+  if ( mStatus != ConnectionStatus::Disconnected )
+  {
+    // Disconnect from the previously used username
+    logout();
+  }
+
+  emit usernameChanged();
+}
+
+QString QFieldCloudConnection::password() const
+{
+  return mPassword;
+}
+
+void QFieldCloudConnection::setPassword( const QString &amp;password )
+{
+  if ( password == mPassword )
+  {
+    return;
+  }
+
+  mPassword = password;
+  emit passwordChanged();
+}
+
+QString QFieldCloudConnection::token() const
+{
+  return mToken;
+}
+
+CloudUserInformation QFieldCloudConnection::userInformation() const
+{
+  return mUserInformation;
+}
+
+bool QFieldCloudConnection::isFetchingAvailableProviders() const
+{
+  return mIsFetchingAvailableProviders;
+}
+
+QList&lt;AuthenticationProvider&gt; QFieldCloudConnection::availableProviders() const
+{
+  return mAvailableProviders.values();
+}
+
+void QFieldCloudConnection::getAuthenticationProviders()
+{
+  if ( !mAvailableProviders.isEmpty() )
+  {
+    mAvailableProviders.clear();
+    emit availableProvidersChanged();
+  }
+
+  mIsFetchingAvailableProviders = true;
+  emit isFetchingAvailableProvidersChanged();
+
+  QNetworkRequest request;
+  request.setHeader( QNetworkRequest::ContentTypeHeader, &quot;application/json&quot; );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  NetworkReply *reply = get( request, &quot;/api/v1/auth/providers/&quot; );
+
+  connect( reply, &amp;NetworkReply::finished, this, [this, reply]() {
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+
+    Q_ASSERT( reply-&gt;isFinished() );
+    Q_ASSERT( rawReply );
+
+    reply-&gt;deleteLater();
+    rawReply-&gt;deleteLater();
+
+    mIsFetchingAvailableProviders = false;
+    emit isFetchingAvailableProvidersChanged();
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      return;
+    }
+
+    const QVariantList providers = QJsonDocument::fromJson( rawReply-&gt;readAll() ).toVariant().toList();
+    for ( const QVariant &amp;provider : providers )
+    {
+      const QVariantMap providerDetails = provider.toMap();
+      const QString providerId = providerDetails.value( QStringLiteral( &quot;id&quot; ) ).toString();
+      mAvailableProviders[providerId] = AuthenticationProvider( providerId, providerDetails.value( QStringLiteral( &quot;name&quot; ) ).toString(), providerDetails );
+    }
+    emit availableProvidersChanged();
+  } );
+}
+
+void QFieldCloudConnection::login( const QString &amp;password )
+{
+  if ( !mProvider.isEmpty() )
+  {
+    if ( mProviderConfigId.isEmpty() &amp;&amp; !mAvailableProviders.contains( mProvider ) )
+    {
+      emit loginFailed( tr( &quot;Authentication provider missing&quot; ) );
+      return;
+    }
+  }
+  else
+  {
+    if ( mToken.isEmpty() &amp;&amp; password.isEmpty() )
+    {
+      emit loginFailed( tr( &quot;Password missing&quot; ) );
+      return;
+    }
+  }
+
+  setPassword( password );
+  setStatus( ConnectionStatus::Connecting );
+
+  const bool loginUsingToken = !mProvider.isEmpty() || ( !mToken.isEmpty() &amp;&amp; ( mPassword.isEmpty() || mUsername.isEmpty() ) );
+
+  NetworkReply *reply = loginUsingToken
+                          ? get( QStringLiteral( &quot;/api/v1/auth/user/&quot; ) )
+                          : post( QStringLiteral( &quot;/api/v1/auth/token/&quot; ), QVariantMap(
+                                                                             {
+                                                                               { &quot;username&quot;, mUsername },
+                                                                               { &quot;password&quot;, mPassword },
+                                                                             } ) );
+
+  // Handle login redirect as an error state
+  connect( reply, &amp;NetworkReply::redirected, this, [this, reply]() {
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+    reply-&gt;deleteLater();
+    rawReply-&gt;deleteLater();
+
+    emit loginFailed( tr( &quot;Login error due to unexpected redirect, please retry later&quot; ) );
+
+    setStatus( ConnectionStatus::Disconnected );
+    return;
+  } );
+
+  connect( reply, &amp;NetworkReply::finished, this, [this, reply, loginUsingToken]() {
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+
+    Q_ASSERT( reply-&gt;isFinished() );
+    Q_ASSERT( rawReply );
+
+    reply-&gt;deleteLater();
+    rawReply-&gt;deleteLater();
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      const int httpCode = rawReply-&gt;attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+
+      if ( rawReply-&gt;error() == QNetworkReply::HostNotFoundError )
+      {
+        emit loginFailed( tr( &quot;Server not found, please check the server URL&quot; ) );
+      }
+      else if ( rawReply-&gt;error() == QNetworkReply::TimeoutError )
+      {
+        emit loginFailed( tr( &quot;Timeout error, please retry&quot; ) );
+      }
+      else if ( httpCode == 400 || httpCode == 401 )
+      {
+        if ( !loginUsingToken )
+        {
+          emit loginFailed( tr( &quot;Wrong username or password&quot; ) );
+        }
+        else
+        {
+          emit loginFailed( tr( &quot;Session expired&quot; ) );
+        }
+      }
+      else
+      {
+        QString message( errorString( rawReply ) );
+        emit loginFailed( message );
+      }
+
+      if ( !mProvider.isEmpty() &amp;&amp; !mProviderConfigId.isEmpty() )
+      {
+        QgsApplication::authManager()-&gt;removeAuthenticationConfig( mProviderConfigId );
+        mProviderConfigId.clear();
+        QSettings().remove( &quot;/QFieldCloud/providerConfigId&quot; );
+        emit providerConfigurationChanged();
+      }
+
+      setStatus( ConnectionStatus::Disconnected );
+      return;
+    }
+
+    QJsonObject resp = QJsonDocument::fromJson( rawReply-&gt;readAll() ).object();
+
+    if ( resp.isEmpty() )
+    {
+      emit loginFailed( tr( &quot;Login temporary unavailable&quot; ) );
+      setStatus( ConnectionStatus::Disconnected );
+      return;
+    }
+
+    QByteArray token = resp.value( QStringLiteral( &quot;token&quot; ) ).toString().toUtf8();
+
+    if ( !token.isEmpty() )
+    {
+      setToken( token );
+    }
+
+    QSettings settings;
+    mUsername = resp.value( QStringLiteral( &quot;username&quot; ) ).toString();
+    settings.setValue( QStringLiteral( &quot;/QFieldCloud/username&quot; ), mUsername );
+    emit usernameChanged();
+
+    mAvatarUrl = resp.value( QStringLiteral( &quot;avatar_url&quot; ) ).toString();
+    emit avatarUrlChanged();
+    mUserInformation = CloudUserInformation( mUsername, resp.value( QStringLiteral( &quot;email&quot; ) ).toString() );
+    emit userInformationChanged();
+
+    QStringList savedUrls = settings.value( QStringLiteral( &quot;/QFieldCloud/urls&quot; ), QStringList() &lt;&lt; defaultUrl() ).toStringList();
+    if ( !savedUrls.contains( mUrl ) )
+    {
+      savedUrls &lt;&lt; mUrl;
+      settings.setValue( QStringLiteral( &quot;/QFieldCloud/urls&quot; ), savedUrls );
+      emit urlsChanged();
+    }
+    setStatus( ConnectionStatus::LoggedIn );
+  } );
+}
+
+void QFieldCloudConnection::logout()
+{
+  QgsNetworkAccessManager *nam = QgsNetworkAccessManager::instance();
+  QNetworkRequest request( mUrl + QStringLiteral( &quot;/api/v1/auth/logout/&quot; ) );
+  request.setHeader( QNetworkRequest::ContentTypeHeader, &quot;application/json&quot; );
+  setAuthenticationDetails( request );
+
+  QNetworkReply *reply = nam-&gt;post( request, QByteArray() );
+
+  connect( reply, &amp;QNetworkReply::finished, this, [reply]() {
+    reply-&gt;deleteLater();
+  } );
+
+  setPassword( QString() );
+  invalidateToken();
+
+  mAvatarUrl.clear();
+  emit avatarUrlChanged();
+
+  if ( !mProviderConfigId.isEmpty() )
+  {
+    QgsApplication::authManager()-&gt;removeAuthenticationConfig( mProviderConfigId );
+    mProviderConfigId.clear();
+    QSettings().remove( &quot;/QFieldCloud/providerConfigId&quot; );
+    emit providerConfigurationChanged();
+  }
+
+  const QList&lt;QNetworkCookie&gt; cookies = QgsNetworkAccessManager::instance()-&gt;cookieJar()-&gt;cookiesForUrl( mUrl );
+  for ( const QNetworkCookie &amp;cookie : cookies )
+  {
+    QgsNetworkAccessManager::instance()-&gt;cookieJar()-&gt;deleteCookie( cookie );
+  }
+
+  setStatus( ConnectionStatus::Disconnected );
+}
+
+QFieldCloudConnection::ConnectionStatus QFieldCloudConnection::status() const
+{
+  return mStatus;
+}
+
+QFieldCloudConnection::ConnectionState QFieldCloudConnection::state() const
+{
+  return mState;
+}
+
+NetworkReply *QFieldCloudConnection::post( const QString &amp;endpoint, const QVariantMap &amp;params, const QStringList &amp;fileNames )
+{
+  QNetworkRequest request;
+  return post( request, endpoint, params, fileNames );
+}
+
+NetworkReply *QFieldCloudConnection::post( QNetworkRequest &amp;request, const QString &amp;endpoint, const QVariantMap &amp;params, const QStringList &amp;fileNames )
+{
+  request.setUrl( mUrl + endpoint );
+
+  QByteArray requestBody = QJsonDocument( QJsonObject::fromVariantMap( params ) ).toJson();
+  setAuthenticationDetails( request );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+
+  if ( fileNames.isEmpty() )
+  {
+    request.setHeader( QNetworkRequest::ContentTypeHeader, &quot;application/json&quot; );
+
+    return NetworkManager::post( request, requestBody );
+  }
+
+  QHttpMultiPart *multiPart = new QHttpMultiPart( QHttpMultiPart::FormDataType );
+  QHttpPart textPart;
+
+  QJsonDocument doc( QJsonObject::fromVariantMap( params ) );
+  textPart.setHeader( QNetworkRequest::ContentTypeHeader, QVariant( &quot;application/json&quot; ) );
+  textPart.setHeader( QNetworkRequest::ContentDispositionHeader, QVariant( &quot;form-data; name=\&quot;text\&quot;&quot; ) );
+  textPart.setBody( doc.toJson() );
+
+  multiPart-&gt;append( textPart );
+
+  for ( const QString &amp;fileName : fileNames )
+  {
+    QHttpPart filePart;
+    QFile *file = new QFile( fileName, multiPart );
+
+    if ( !file-&gt;open( QIODevice::ReadOnly ) )
+      return nullptr;
+
+    const QString header = QStringLiteral( &quot;form-data; name=\&quot;file\&quot;; filename=\&quot;%1\&quot;&quot; ).arg( fileName );
+    filePart.setHeader( QNetworkRequest::ContentTypeHeader, QVariant( &quot;application/json&quot; ) );
+    filePart.setHeader( QNetworkRequest::ContentDispositionHeader, header );
+    filePart.setBodyDevice( file );
+
+    multiPart-&gt;append( filePart );
+  }
+
+  setClientHeaders( request );
+
+  NetworkReply *reply = NetworkManager::post( request, multiPart );
+
+  multiPart-&gt;setParent( reply );
+
+  mPendingRequests++;
+  setState( ConnectionState::Busy );
+  connect( reply, &amp;NetworkReply::finished, this, [this, reply]() {
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+    if ( --mPendingRequests == 0 )
+    {
+      if ( rawReply-&gt;error() != QNetworkReply::NoError )
+      {
+        int httpCode = rawReply-&gt;attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+        if ( httpCode == 401 )
+        {
+          // Access token has been invalidated remotely
+          invalidateToken();
+          setStatus( ConnectionStatus::Disconnected );
+        }
+      }
+      setState( ConnectionState::Idle );
+    }
+  } );
+
+  return reply;
+}
+
+NetworkReply *QFieldCloudConnection::get( const QString &amp;endpoint, const QVariantMap &amp;params )
+{
+  QNetworkRequest request;
+
+  request.setHeader( QNetworkRequest::ContentTypeHeader, &quot;application/json&quot; );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  setAuthenticationDetails( request );
+
+  return get( request, endpoint, params );
+}
+
+
+NetworkReply *QFieldCloudConnection::get( QNetworkRequest &amp;request, const QString &amp;endpoint, const QVariantMap &amp;params )
+{
+  QUrl url( endpoint );
+
+  if ( url.isRelative() )
+  {
+    url.setUrl( mUrl + endpoint );
+  }
+
+  return get( request, url, params );
+}
+
+NetworkReply *QFieldCloudConnection::get( QNetworkRequest &amp;request, const QUrl &amp;url, const QVariantMap &amp;params )
+{
+  QUrlQuery urlQuery = QUrlQuery( url.query() );
+
+  for ( auto [key, value] : qfield::asKeyValueRange( params ) )
+  {
+    urlQuery.addQueryItem( key, value.toString() );
+  }
+
+  QUrl requestUrl = url;
+  requestUrl.setQuery( urlQuery );
+
+  request.setUrl( requestUrl );
+
+  setClientHeaders( request );
+
+  NetworkReply *reply = NetworkManager::get( request );
+
+  mPendingRequests++;
+  setState( ConnectionState::Busy );
+  connect( reply, &amp;NetworkReply::finished, this, [this, reply]() {
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+    if ( --mPendingRequests == 0 )
+    {
+      if ( rawReply-&gt;error() != QNetworkReply::NoError )
+      {
+        int httpCode = rawReply-&gt;attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+        if ( httpCode == 401 )
+        {
+          // Access token has been invalidated remotely
+          invalidateToken();
+          setStatus( ConnectionStatus::Disconnected );
+        }
+      }
+      setState( ConnectionState::Idle );
+    }
+  } );
+
+  // assume all redirect will never emit &quot;redirected&quot;
+  connect( reply, &amp;NetworkReply::redirected, this, [this]() {
+    if ( --mPendingRequests == 0 )
+    {
+      setState( ConnectionState::Idle );
+    }
+  } );
+
+  return reply;
+}
+
+void QFieldCloudConnection::setToken( const QByteArray &amp;token )
+{
+  if ( mToken == token )
+  {
+    return;
+  }
+
+  mToken = token;
+
+  if ( !mToken.isEmpty() )
+  {
+    QgsAuthMethodConfig config;
+    if ( QgsApplication::authManager()-&gt;availableAuthMethodConfigs().contains( mTokenConfigId ) )
+    {
+      QgsApplication::authManager()-&gt;loadAuthenticationConfig( mProviderConfigId, config, true );
+    }
+    else
+    {
+      config.setName( &quot;qfieldcloud-credentials&quot; );
+      config.setMethod( &quot;Basic&quot; );
+    }
+    config.setConfig( &quot;qfieldcloud-token&quot;, mToken );
+    QgsApplication::authManager()-&gt;storeAuthenticationConfig( config, true );
+    QSettings().setValue( &quot;/QFieldCloud/tokenConfigId&quot;, config.id() );
+  }
+  else
+  {
+    if ( !mTokenConfigId.isEmpty() )
+    {
+      QgsApplication::authManager()-&gt;removeAuthenticationConfig( mTokenConfigId );
+      mTokenConfigId.clear();
+      QSettings().remove( &quot;/QFieldCloud/tokenConfigId&quot; );
+    }
+  }
+
+  emit tokenChanged();
+}
+
+void QFieldCloudConnection::invalidateToken()
+{
+  mQueuedProjectPushes.clear();
+  if ( mToken.isNull() )
+  {
+    return;
+  }
+
+  mToken = QByteArray();
+
+  if ( !mTokenConfigId.isEmpty() )
+  {
+    QgsApplication::authManager()-&gt;removeAuthenticationConfig( mTokenConfigId );
+    mTokenConfigId.clear();
+    QSettings().remove( &quot;/QFieldCloud/tokenConfigId&quot; );
+  }
+
+  emit tokenChanged();
+}
+
+void QFieldCloudConnection::setStatus( ConnectionStatus status )
+{
+  if ( mStatus == status )
+  {
+    return;
+  }
+
+  mStatus = status;
+  emit statusChanged();
+
+  // If we just logged in and we have queued pushes waiting from offline mode,
+  // try to flush them now (reachabilityChanged will also handle later changes).
+  if ( mStatus == ConnectionStatus::LoggedIn )
+  {
+    tryFlushQueuedProjectPushes();
+  }
+}
+
+void QFieldCloudConnection::setState( ConnectionState state )
+{
+  if ( mState == state )
+  {
+    return;
+  }
+
+  mState = state;
+  emit stateChanged();
+}
+
+void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &amp;request )
+{
+  if ( !mToken.isNull() )
+  {
+    request.setRawHeader( &quot;Authorization&quot;, &quot;Token &quot; + mToken );
+  }
+
+  if ( !mProvider.isEmpty() )
+  {
+    QString providerId;
+    if ( mProviderConfigId.isEmpty() &amp;&amp; mAvailableProviders.contains( mProvider ) )
+    {
+      const QVariantMap providerDetails = mAvailableProviders[mProvider].details();
+      providerId = providerDetails.value( &quot;id&quot; ).toString();
+
+      QVariantMap configMap;
+      configMap[&quot;accessMethod&quot;] = 0;
+      configMap[&quot;clientId&quot;] = providerDetails.value( &quot;client_id&quot; ).toString();
+      configMap[&quot;clientSecret&quot;] = providerDetails.value( &quot;client_secret&quot; ).toString();
+      configMap[&quot;configType&quot;] = 1;
+      configMap[&quot;description&quot;] = QString( &quot;Connection details for QFieldCloud using %1 provider&quot; ).arg( mProvider );
+      configMap[&quot;extraTokens&quot;] = providerDetails.value( &quot;extra_tokens&quot; ).toMap();
+      configMap[&quot;grantFlow&quot;] = providerDetails.value( &quot;grant_flow&quot; ).toInt();
+      configMap[&quot;name&quot;] = QString( &quot;Autogenerated by QField&quot; );
+      configMap[&quot;persistToken&quot;] = true;
+      configMap[&quot;redirectHost&quot;] = QString( &quot;localhost&quot; );
+      configMap[&quot;redirectPort&quot;] = 7070;
+      configMap[&quot;refreshTokenUrl&quot;] = providerDetails.value( &quot;refresh_token_url&quot; ).toString();
+      configMap[&quot;requestTimeout&quot;] = 30;
+      configMap[&quot;requestUrl&quot;] = providerDetails.value( &quot;request_url&quot; ).toString();
+      configMap[&quot;scope&quot;] = providerDetails.value( &quot;scope&quot; ).toString();
+      configMap[&quot;tokenUrl&quot;] = providerDetails.value( &quot;token_url&quot; ).toString();
+      configMap[&quot;version&quot;] = 1;
+      QJsonDocument json = QJsonDocument::fromVariant( configMap );
+
+      QgsAuthMethodConfig config;
+      config.setName( &quot;qfieldcloud-sso&quot; );
+      config.setMethod( &quot;OAuth2&quot; );
+      config.setConfig( &quot;oauth2config&quot;, json.toJson() );
+      config.setConfig( &quot;qfieldcloud-sso-id&quot;, providerId );
+      QgsApplication::authManager()-&gt;storeAuthenticationConfig( config, true );
+
+      mProviderConfigId = config.id();
+      QSettings().setValue( QStringLiteral( &quot;/QFieldCloud/providerConfigId&quot; ), mProviderConfigId );
+      emit providerConfigurationChanged();
+    }
+    else
+    {
+      QgsAuthMethodConfig config;
+      QgsApplication::authManager()-&gt;loadAuthenticationConfig( mProviderConfigId, config, true );
+      providerId = config.config( &quot;qfieldcloud-sso-id&quot; );
+    }
+
+    QgsApplication::authManager()-&gt;updateNetworkRequest( request, mProviderConfigId );
+    request.setRawHeader( &quot;X-QFC-IDP-ID&quot;, providerId.toLatin1() );
+
+    const QList&lt;QNetworkCookie&gt; cookies = QgsNetworkAccessManager::instance()-&gt;cookieJar()-&gt;cookiesForUrl( mUrl );
+    auto match = std::find_if( cookies.begin(), cookies.end(), []( const QNetworkCookie &amp;cookie ) { return cookie.name() == QLatin1String( &quot;csrftoken&quot; ); } );
+    if ( match != cookies.end() )
+    {
+      request.setRawHeader( &quot;X-CSRFToken&quot;, match-&gt;value() );
+      request.setRawHeader( &quot;Referer&quot;, mUrl.toLatin1() );
+    }
+  }
+}
+
+void QFieldCloudConnection::setClientHeaders( QNetworkRequest &amp;request )
+{
+  const QByteArray acceptLanguageHeader( &quot;Accept-Language&quot; );
+  if ( !request.hasRawHeader( acceptLanguageHeader ) )
+  {
+    // the standard requires locales with dash instead of underscore
+    request.setRawHeader( acceptLanguageHeader, QLocale::system().name().replace( QStringLiteral( &quot;_&quot; ), QStringLiteral( &quot;-&quot; ) ).toUtf8() );
+  }
+}
+
+QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
+{
+  if ( !reply )
+  {
+    return;
+  }
+
+  QString errorMessage;
+
+  mError = reply-&gt;error();
+  mHttpCode = reply-&gt;attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+
+  switch ( mError )
+  {
+    case QNetworkReply::NoError:
+      break;
+    case QNetworkReply::TimeoutError:
+      errorMessage += tr( &quot;[timeout] The request took too long to finish, please retry.&quot; );
+      break;
+    case QNetworkReply::OperationCanceledError:
+      errorMessage += tr( &quot;[aborted] The request has been aborted.&quot; );
+      break;
+    default:
+      mPayload = reply-&gt;readAll();
+      QJsonParseError jsonError;
+      mJson = QJsonDocument::fromJson( mPayload.toUtf8(), &amp;jsonError );
+      mJsonError = jsonError;
+
+      QJsonObject doc = mJson.object();
+
+      if ( jsonError.error == QJsonParseError::NoError )
+      {
+        if ( doc.contains( QStringLiteral( &quot;code&quot; ) ) )
+        {
+          mQfcCode = doc.value( QStringLiteral( &quot;code&quot; ) ).toString();
+          errorMessage += QStringLiteral( &quot;[QF/%1] &quot; ).arg( mQfcCode );
+
+          if ( sErrors.contains( mQfcCode ) )
+          {
+            errorMessage += sErrors.value( mQfcCode );
+          }
+          else
+          {
+            errorMessage += doc.value( QStringLiteral( &quot;message&quot; ) ).toString();
+          }
+        }
+        else
+        {
+          errorMessage += QStringLiteral( &quot;&lt;no server details&gt;&quot; );
+        }
+
+        if ( errorMessage.isEmpty() )
+        {
+          errorMessage += QStringLiteral( &quot;&lt;empty server details&gt;&quot; );
+        }
+      }
+      break;
+  }
+
+  errorMessage = QTextDocumentFragment::fromHtml( errorMessage ).toPlainText().trimmed();
+
+  QString httpErrorMessage = QStringLiteral( &quot;[HTTP/%1] %2 &quot; ).arg( mHttpCode ).arg( reply-&gt;url().toString() );
+  httpErrorMessage += ( mHttpCode &gt;= 400 )
+                        ? tr( &quot;Server Error.&quot; )
+                        : tr( &quot;Network Error.&quot; );
+  httpErrorMessage += mPayload.left( 200 );
+  httpErrorMessage = QTextDocumentFragment::fromHtml( httpErrorMessage ).toPlainText().trimmed();
+  QString payloadPlainText = QTextDocumentFragment::fromHtml( mPayload ).toPlainText().trimmed();
+
+  if ( mPayload.size() &gt; 200 )
+  {
+    errorMessage += QStringLiteral( &quot;…&quot; );
+  }
+
+  if ( errorMessage.isEmpty() )
+  {
+    errorMessage = httpErrorMessage;
+    QgsMessageLog::logMessage( QStringLiteral( &quot;%1\n%2\n%3&quot; ).arg( errorMessage, payloadPlainText ).arg( reply-&gt;errorString() ) );
+  }
+  else
+  {
+    QgsMessageLog::logMessage( QStringLiteral( &quot;%1\n%2\n%3\n%4&quot; ).arg( errorMessage, httpErrorMessage, payloadPlainText ).arg( reply-&gt;errorString() ) );
+  }
+
+  // strip HTML tags
+  errorMessage = QTextDocumentFragment::fromHtml( httpErrorMessage ).toPlainText();
+
+  mMessage = errorMessage;
+}
+
+qsizetype QFieldCloudConnection::uploadPendingAttachments()
+{
+  if ( mUploadPendingCount &gt; 0 )
+  {
+    return mUploadPendingCount;
+  }
+
+  QMultiMap&lt;QString, QString&gt; attachments = QFieldCloudUtils::getPendingAttachments( mUsername );
+  if ( attachments.isEmpty() )
+  {
+    emit pendingAttachmentsUploadFinished();
+    return 0;
+  }
+
+  mUploadPendingCount = attachments.size();
+  mUploadDoneCount = 0;
+  mUploadFailingCount = 0;
+  processPendingAttachments();
+  return mUploadPendingCount;
+}
+
+void QFieldCloudConnection::processPendingAttachments()
+{
+  QMultiMap&lt;QString, QString&gt; attachments = QFieldCloudUtils::getPendingAttachments( mUsername );
+  mUploadPendingCount = attachments.size();
+
+  QMultiMap&lt;QString, QString&gt;::const_iterator it = attachments.constBegin();
+  while ( it != attachments.constEnd() )
+  {
+    if ( !QFileInfo( it.value() ).exists() )
+    {
+      // A pending attachment has been deleted from the local device, remove
+      // This can happen when for e.g. users remove a cloud project from their devices
+      QFieldCloudUtils::removePendingAttachment( mUsername, it.key(), it.value() );
+      ++it;
+      continue;
+    }
+
+    QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, it.key() ) );
+    QDir projectDir( projectInfo.absolutePath() );
+    const QString apiPath = projectDir.relativeFilePath( it.value() );
+    NetworkReply *attachmentCloudReply = post( QStringLiteral( &quot;/api/v1/files/%1/%2/&quot; ).arg( it.key(), apiPath ), QVariantMap(), QStringList( { it.value() } ) );
+
+    const QString projectId = it.key();
+    const QString fileName = it.value();
+    const QString statusName = QStringLiteral( &quot;%1:%2&quot; ).arg( QFieldCloudUtils::projectSetting( projectId, QStringLiteral( &quot;name&quot; ), QString() ).toString(), apiPath );
+    emit pendingAttachmentsUploadStatus( statusName, 0.0, mUploadPendingCount - 1 );
+
+    connect( attachmentCloudReply, &amp;NetworkReply::uploadProgress, this, [this, statusName]( qint64 bytesSent, qint64 bytesTotal ) {
+      emit pendingAttachmentsUploadStatus( statusName, bytesTotal &gt; 0 ? static_cast&lt;double&gt;( bytesSent ) / bytesTotal : 0, mUploadPendingCount - 1 );
+    } );
+
+    connect( attachmentCloudReply, &amp;NetworkReply::finished, this, [this, attachmentCloudReply, fileName, projectId]() {
+      QNetworkReply *attachmentReply = attachmentCloudReply-&gt;currentRawReply();
+      attachmentCloudReply-&gt;deleteLater();
+
+      Q_ASSERT( attachmentCloudReply-&gt;isFinished() );
+      Q_ASSERT( attachmentReply );
+
+      // If there is an error, don't panic, we continue uploading. The files may be later manually synced.
+      const int httpCode = attachmentReply-&gt;attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      if ( attachmentReply-&gt;error() != QNetworkReply::NoError )
+      {
+        QgsMessageLog::logMessage( tr( &quot;Failed to upload attachment stored at `%1`, reason:\n%2&quot; )
+                                     .arg( fileName )
+                                     .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
+
+        // Retry uploading for non-404 errors
+        if ( httpCode != 404 )
+        {
+          mUploadFailingCount++;
+
+          if ( mUploadFailingCount &lt; 5 )
+          {
+            // Retry the last attachment to upload after a brief delay
+            QTimer::singleShot( std::pow( 5, mUploadFailingCount ) * 1000, this, [this] { processPendingAttachments(); } );
+          }
+          else
+          {
+            // Too many fails, bailing out for now
+            emit pendingAttachmentsUploadFinished();
+          }
+          return;
+        }
+      }
+
+      if ( httpCode != 201 &amp;&amp; httpCode != 404 )
+      {
+        qDebug() &lt;&lt; QStringLiteral( &quot;Attachment project ID: %1 %2 %3&quot; ).arg( projectId ).arg( fileName ).arg( httpCode );
+
+        for ( const QByteArray &amp;header : attachmentReply-&gt;rawHeaderList() )
+        {
+          qDebug() &lt;&lt; QStringLiteral( &quot;Attachment reply header: %1 =&gt; %2&quot; ).arg( header ).arg( attachmentReply-&gt;rawHeader( header ) );
+        }
+
+        qDebug() &lt;&lt; QStringLiteral( &quot;Attachment reply content: %1&quot; ).arg( attachmentReply-&gt;readAll() );
+      }
+
+      QFieldCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
+      mUploadPendingCount--;
+      mUploadDoneCount++;
+      mUploadFailingCount = 0;
+
+      if ( mUploadPendingCount &gt; 0 )
+      {
+        // Move onto the next attachment to upload
+        processPendingAttachments();
+      }
+      else
+      {
+        emit pendingAttachmentsUploadFinished();
+      }
+    } );
+
+    break;
+  }
+  return;
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

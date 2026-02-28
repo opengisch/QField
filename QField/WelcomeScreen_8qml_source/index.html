@@ -1,0 +1,1417 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File WelcomeScreen.qml - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-welcomescreenqml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File WelcomeScreen.qml
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-welcomescreenqml">File WelcomeScreen.qml</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_1d81f7f4362e4398c0a695c4e466fcb0/"><strong>qml</strong></a> <strong>&gt;</strong> <a href="../WelcomeScreen_8qml/"><strong>WelcomeScreen.qml</strong></a></p>
+<p><a href="../WelcomeScreen_8qml/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Particles
+import QtCore
+import org.qfield
+import Theme
+
+Page {
+  id: welcomeScreen
+
+  property bool firstShown: false
+
+  property alias model: table.model
+  signal showLocalDataPicker
+  signal showQFieldCloudScreen
+  signal showSettings
+  signal showProjectCreationScreen
+
+  visible: false
+  focus: visible
+
+  Settings {
+    id: registry
+    category: 'QField'
+
+    property string baseMapProject: ''
+    property string defaultProject: ''
+    property bool loadProjectOnLaunch: false
+  }
+
+  Rectangle {
+    id: welcomeBackground
+    anchors.fill: parent
+    gradient: Gradient {
+      GradientStop {
+        position: 0.0
+        color: Theme.darkTheme ? &quot;#99000000&quot; : &quot;#99A5A5A5&quot;
+      }
+      GradientStop {
+        position: 0.33
+        color: Theme.mainBackgroundColor
+      }
+    }
+  }
+
+  ScrollView {
+    padding: 0
+    topPadding: Math.max(0, Math.min(80, (mainWindow.height - welcomeGrid.height) / 2 - 45))
+    leftPadding: mainWindow.sceneLeftMargin
+    rightPadding: mainWindow.sceneRighMargin
+    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+    ScrollBar.vertical: QfScrollBar {
+      opacity: active
+      _maxSize: 4
+      _minSize: 2
+
+      Behavior on opacity {
+        NumberAnimation {
+          duration: 200
+        }
+      }
+    }
+    contentItem: welcomeGrid
+    contentWidth: welcomeGrid.width
+    contentHeight: welcomeGrid.height
+    anchors.fill: parent
+    clip: true
+
+    GridLayout {
+      id: welcomeGrid
+      columns: 1
+      rowSpacing: 4
+
+      width: mainWindow.width - mainWindow.sceneLeftMargin - mainWindow.sceneRightMargin
+
+      ImageDial {
+        id: imageDialLogo
+        value: 1
+
+        Layout.margins: 6
+        Layout.topMargin: 14 + mainWindow.sceneTopMargin
+        Layout.bottomMargin: 6
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        Layout.preferredWidth: Math.min(138, mainWindow.height / 8)
+        Layout.preferredHeight: Math.min(138, mainWindow.height / 8)
+
+        source: &quot;qrc:/images/app_logo.svg&quot;
+        rotationOffset: 220
+      }
+
+      SwipeView {
+        id: feedbackView
+        visible: false
+
+        Layout.margins: 6
+        Layout.topMargin: 10
+        Layout.bottomMargin: 10
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        Layout.preferredWidth: Math.min(410, welcomeGrid.width - 30)
+        Layout.preferredHeight: Math.max(ohno.childrenRect.height, intro.childrenRect.height, ohyeah.childrenRect.height)
+        clip: true
+
+        Behavior on Layout.preferredHeight {
+          NumberAnimation {
+            duration: 100
+            easing.type: Easing.InQuad
+          }
+        }
+
+        interactive: false
+        currentIndex: 1
+        Item {
+          id: ohno
+
+          Rectangle {
+            anchors.fill: parent
+            gradient: Gradient {
+              GradientStop {
+                position: 0.0
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
+              }
+              GradientStop {
+                position: 0.88
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
+              }
+            }
+
+            radius: 6
+          }
+
+          ColumnLayout {
+            spacing: 0
+            anchors.centerIn: parent
+
+            Text {
+              Layout.margins: 6
+              Layout.topMargin: 12
+              Layout.maximumWidth: feedbackView.width - 12
+              text: qsTr(&quot;We're sorry to hear that. Click on the button below to comment or seek support.&quot;)
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
+
+            RowLayout {
+              spacing: 6
+              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+              Layout.bottomMargin: 10
+
+              QfButton {
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
+
+                text: qsTr(&quot;Reach out&quot;)
+                icon.source: Theme.getThemeVectorIcon('ic_create_white_24dp')
+
+                onClicked: {
+                  Qt.openUrlExternally(&quot;https://www.qfield.org/&quot;);
+                  feedbackView.Layout.preferredHeight = 0;
+                }
+              }
+            }
+          }
+        }
+
+        Item {
+          id: intro
+
+          Rectangle {
+            anchors.fill: parent
+            gradient: Gradient {
+              GradientStop {
+                position: 0.0
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
+              }
+              GradientStop {
+                position: 0.88
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
+              }
+            }
+
+            radius: 6
+          }
+
+          ColumnLayout {
+            spacing: 0
+            anchors.centerIn: parent
+
+            Text {
+              Layout.margins: 6
+              Layout.topMargin: 12
+              Layout.maximumWidth: feedbackView.width - 12
+              text: qsTr(&quot;Hey there, how do you like your experience with %1 so far?&quot;).arg(appName)
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
+
+            RowLayout {
+              spacing: 6
+              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+              Layout.bottomMargin: 10
+              QfToolButton {
+                iconSource: Theme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
+                iconColor: Theme.mainOverlayColor
+                bgcolor: Theme.mainColor
+                round: true
+
+                onClicked: {
+                  feedbackView.currentIndex = 0;
+                }
+              }
+              QfToolButton {
+                iconSource: Theme.getThemeVectorIcon('ic_satisfied_white_24dp')
+                iconColor: Theme.mainOverlayColor
+                bgcolor: Theme.mainColor
+                round: true
+
+                onClicked: {
+                  if (Qt.platform.os === &quot;android&quot; || Qt.platform.os === &quot;ios&quot; || Qt.platform.os === &quot;windows&quot;) {
+                    feedbackView.currentIndex = 2;
+                  } else {
+                    feedbackView.Layout.preferredHeight = 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+        Item {
+          id: ohyeah
+
+          Rectangle {
+            anchors.fill: parent
+            gradient: Gradient {
+              GradientStop {
+                position: 0.0
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
+              }
+              GradientStop {
+                position: 0.88
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
+              }
+            }
+
+            radius: 6
+          }
+
+          ColumnLayout {
+            spacing: 0
+            anchors.centerIn: parent
+
+            Text {
+              Layout.margins: 6
+              Layout.topMargin: 12
+              Layout.maximumWidth: feedbackView.width - 12
+              text: qsTr(&quot;That's great! We'd love for you to click on the button below and leave a review.&quot;)
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
+
+            RowLayout {
+              spacing: 6
+              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+              Layout.margins: 6
+              Layout.bottomMargin: 10
+              QfButton {
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
+
+                text: qsTr(&quot;Rate us&quot;)
+                icon.source: Theme.getThemeVectorIcon('ic_star_white_24dp')
+
+                onClicked: {
+                  if (Qt.platform.os === &quot;windows&quot;) {
+                    Qt.openUrlExternally(&quot;https://apps.microsoft.com/detail/xp99h3bcx4bw7f&quot;);
+                  } else if (Qt.platform.os === &quot;android&quot;) {
+                    Qt.openUrlExternally(&quot;market://details?id=ch.opengis.qfield&quot;);
+                  } else if (Qt.platform.os === &quot;ios&quot;) {
+                    Qt.openUrlExternally(&quot;itms-apps://itunes.apple.com/app/qfield-for-qgis/id1531726814&quot;);
+                  }
+                  feedbackView.Layout.preferredHeight = 0;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      SwipeView {
+        id: collectionView
+        visible: false
+
+        Layout.margins: 0
+        Layout.topMargin: 10
+        Layout.bottomMargin: 10
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        Layout.preferredWidth: Math.min(410, welcomeGrid.width - 20)
+        Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
+        clip: true
+
+        Behavior on Layout.preferredHeight {
+          NumberAnimation {
+            duration: 100
+            easing.type: Easing.InQuad
+          }
+        }
+
+        interactive: false
+        currentIndex: 1
+        Item {
+          id: collectionOhno
+
+          Rectangle {
+            anchors.fill: parent
+            gradient: Gradient {
+              GradientStop {
+                position: 0.0
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
+              }
+              GradientStop {
+                position: 0.88
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
+              }
+            }
+
+            radius: 6
+          }
+
+          ColumnLayout {
+            spacing: 0
+            anchors.centerIn: parent
+
+            Text {
+              Layout.margins: 6
+              Layout.topMargin: 12
+              Layout.maximumWidth: collectionView.width - 12
+              text: qsTr(&quot;Anonymized metrics collection has been disabled. You can re-enable through the settings panel.&quot;)
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
+          }
+        }
+
+        Item {
+          id: collectionIntro
+
+          Rectangle {
+            anchors.fill: parent
+            gradient: Gradient {
+              GradientStop {
+                position: 0.0
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
+              }
+              GradientStop {
+                position: 0.88
+                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
+              }
+            }
+
+            radius: 6
+          }
+
+          ColumnLayout {
+            spacing: 0
+            anchors.centerIn: parent
+
+            Text {
+              Layout.margins: 6
+              Layout.topMargin: 12
+              Layout.maximumWidth: collectionView.width - 12
+              text: qsTr(&quot;To improve stability for everyone, %1 collects and sends anonymized metrics.&quot;).arg(appName)
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              horizontalAlignment: Text.AlignHCenter
+              wrapMode: Text.WordWrap
+            }
+
+            RowLayout {
+              spacing: 6
+              Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+              Layout.bottomMargin: 10
+              QfButton {
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
+
+                text: qsTr('I agree')
+
+                onClicked: {
+                  qfieldSettings.enableInfoCollection = true;
+                  collectionView.visible = false;
+                }
+              }
+
+              QfButton {
+                topPadding: 8
+                bottomPadding: 8
+                leftPadding: 10
+                rightPadding: 10
+
+                text: qsTr('I prefer not')
+                bgcolor: &quot;transparent&quot;
+                color: Theme.mainColor
+
+                onClicked: {
+                  qfieldSettings.enableInfoCollection = false;
+                  collectionView.visible = false;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      Text {
+        id: welcomeText
+        visible: !feedbackView.visible
+        Layout.leftMargin: 6
+        Layout.rightMargin: 6
+        Layout.topMargin: 2
+        Layout.bottomMargin: 8
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        text: &quot;&quot;
+        font: Theme.defaultFont
+        color: Theme.mainTextColor
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WordWrap
+      }
+
+      Rectangle {
+        Layout.leftMargin: 6
+        Layout.rightMargin: 6
+        Layout.topMargin: 2
+        Layout.bottomMargin: 8
+        Layout.fillWidth: true
+        Layout.maximumWidth: 410
+        Layout.preferredHeight: welcomeActions.height
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        color: &quot;transparent&quot;
+
+        ColumnLayout {
+          id: welcomeActions
+          width: parent.width - 12
+          spacing: 12
+
+          GridLayout {
+            Layout.fillWidth: true
+            columns: 3
+            rows: 2
+
+            Repeater {
+              id: actionsRepeater
+              model: [
+                {
+                  &quot;icon&quot;: Theme.getThemeVectorIcon(&quot;ic_cloud_active_24dp&quot;),
+                  &quot;iconColor&quot;: Theme.cloudColor,
+                  &quot;action&quot;: function () {
+                    showQFieldCloudScreen();
+                  }
+                },
+                {
+                  &quot;icon&quot;: Theme.getThemeVectorIcon(&quot;ic_folder_open_black_24dp&quot;),
+                  &quot;iconColor&quot;: Theme.mainColor,
+                  &quot;action&quot;: function () {
+                    platformUtilities.requestStoragePermission();
+                    showLocalDataPicker();
+                  }
+                },
+                {
+                  &quot;icon&quot;: Theme.getThemeVectorIcon(&quot;ic_add_white_24dp&quot;),
+                  &quot;iconColor&quot;: Theme.mainColor,
+                  &quot;action&quot;: function () {
+                    showProjectCreationScreen();
+                  }
+                }
+              ]
+
+              delegate: QfToolButton {
+                Layout.alignment: Qt.AlignHCenter
+                Layout.preferredWidth: Math.min(mainWindow.height / 4, welcomeActions.width / actionsRepeater.count / 1.5)
+                Layout.preferredHeight: Layout.preferredWidth
+                icon.width: width / 2.2
+                icon.height: height / 2.2
+                bgcolor: Theme.controlBackgroundAlternateColor
+                round: false
+                roundborder: true
+                iconSource: modelData.icon
+                iconColor: modelData.iconColor
+                smooth: true
+                onClicked: modelData.action()
+              }
+            }
+
+            Repeater {
+              model: [qsTr(&quot;QFieldCloud\nprojects&quot;), qsTr(&quot;Local projects and\n datasets&quot;), qsTr(&quot;Create new\nproject&quot;)]
+
+              delegate: Text {
+                Layout.preferredWidth: welcomeActions.width / 3
+                text: modelData
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+                color: Theme.mainTextColor
+              }
+            }
+          }
+
+          Text {
+            id: recentText
+            visible: table.count &gt; 0
+            text: qsTr(&quot;Recent Projects&quot;)
+            font.pointSize: Theme.tipFont.pointSize
+            font.bold: true
+            color: Theme.mainTextColor
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
+            Layout.topMargin: 10
+          }
+
+          Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: table.height
+            color: &quot;transparent&quot;
+
+            ListView {
+              id: table
+              ScrollBar.vertical: QfScrollBar {}
+              flickableDirection: Flickable.AutoFlickIfNeeded
+              boundsBehavior: Flickable.StopAtBounds
+              clip: true
+              width: parent.width
+              height: contentItem.childrenRect.height
+
+              delegate: QfProjectThumbnail {
+                property string path: ProjectPath
+                property var type: ProjectType
+                property int changesCount: {
+                  const project = cloudProjectsModel.findProject(QFieldCloudUtils.getProjectId(ProjectPath));
+                  if (project) {
+                    return project.deltasCount;
+                  }
+                  return 0;
+                }
+                property bool isOutdated: {
+                  const project = cloudProjectsModel.findProject(QFieldCloudUtils.getProjectId(ProjectPath));
+                  if (project) {
+                    return project.isOutdated;
+                  }
+                  return 0;
+                }
+                readonly property bool showSync: isOutdated
+                readonly property bool showPush: changesCount &gt; 0
+
+                objectName: &quot;loadProjectItem_1&quot; // todo, suffix with e.g. ProjectTitle
+                previewImageSource: welcomeScreen.visible ? 'image://projects/' + ProjectPath : ''
+                showType: true
+
+                primaryBadge.badgeText.text: changesCount &gt; 0 ? changesCount : ''
+                primaryBadge.badgeText.color: Theme.light
+                primaryBadge.visible: showSync || showPush
+                primaryBadge.color: showSync ? Theme.mainColor : Theme.cloudColor
+                primaryBadge.border.color: Theme.mainBackgroundColor
+                primaryBadge.border.width: 1
+                primaryBadge.enableGradient: showSync &amp;&amp; showPush
+
+                projectTypeSource: switch (ProjectType) {
+                case 0:
+                  return Theme.getThemeVectorIcon('ic_map_param_48dp');     // local project
+                case 1:
+                  return Theme.getThemeVectorIcon('ic_cloud_project_param_48dp'); // cloud project
+                case 2:
+                  return Theme.getThemeVectorIcon('ic_file_param_48dp');    // local dataset
+                default:
+                  return '';
+                }
+                projectTitle.text: ProjectTitle
+                projectNote: {
+                  var notes = [];
+                  if (index == 0) {
+                    var firstRun = settings &amp;&amp; !settings.value(&quot;/QField/FirstRunFlag&quot;, false);
+                    if (!firstRun &amp;&amp; firstShown === false)
+                      notes.push(qsTr(&quot;Last session&quot;));
+                  }
+                  if (ProjectPath === registry.defaultProject) {
+                    notes.push(qsTr(&quot;Default project&quot;));
+                  }
+                  if (ProjectPath === registry.baseMapProject) {
+                    notes.push(qsTr(&quot;Base map&quot;));
+                  }
+                  if (notes.length &gt; 0) {
+                    return notes.join('; ');
+                  } else {
+                    return &quot;&quot;;
+                  }
+                }
+              }
+
+              MouseArea {
+                property Item pressedItem
+                anchors.fill: parent
+                onClicked: mouse =&gt; {
+                  var item = table.itemAt(mouse.x, mouse.y);
+                  if (item) {
+                    if (item.type === 1 &amp;&amp; cloudConnection.hasToken &amp;&amp; cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
+                      cloudConnection.login();
+                    }
+                    iface.loadFile(item.path, item.projectTitle.text);
+                  }
+                }
+                onPressed: mouse =&gt; {
+                  var item = table.itemAt(mouse.x, mouse.y);
+                  if (item) {
+                    pressedItem = item;
+                    pressedItem.isPressed = true;
+                  }
+                }
+                onCanceled: {
+                  if (pressedItem) {
+                    pressedItem.isPressed = false;
+                    pressedItem = null;
+                  }
+                }
+                onReleased: {
+                  if (pressedItem) {
+                    pressedItem.isPressed = false;
+                    pressedItem = null;
+                  }
+                }
+                onPressAndHold: mouse =&gt; {
+                  var item = table.itemAt(mouse.x, mouse.y);
+                  if (item) {
+                    recentProjectActions.recentProjectPath = item.path;
+                    recentProjectActions.recentProjectType = item.type;
+                    recentProjectActions.popup(mouse.x, mouse.y);
+                  }
+                }
+              }
+
+              QfMenu {
+                id: recentProjectActions
+
+                property string recentProjectPath: ''
+                property int recentProjectType: 0
+
+                title: qsTr('Recent Project Actions')
+
+                topMargin: mainWindow.sceneTopMargin
+                bottomMargin: mainWindow.sceneBottomMargin
+
+                MenuItem {
+                  id: defaultProject
+                  visible: recentProjectActions.recentProjectType != 2
+
+                  font: Theme.defaultFont
+                  width: parent.width
+                  height: visible ? 48 : 0
+                  leftPadding: Theme.menuItemCheckLeftPadding
+                  checkable: true
+                  checked: recentProjectActions.recentProjectPath === registry.defaultProject
+
+                  text: qsTr(&quot;Default Project&quot;)
+                  onTriggered: {
+                    registry.defaultProject = recentProjectActions.recentProjectPath === registry.defaultProject ? '' : recentProjectActions.recentProjectPath;
+                  }
+                }
+
+                MenuItem {
+                  id: baseMapProject
+                  visible: recentProjectActions.recentProjectType != 2
+
+                  font: Theme.defaultFont
+                  width: parent.width
+                  height: visible ? 48 : 0
+                  leftPadding: Theme.menuItemCheckLeftPadding
+                  checkable: true
+                  checked: recentProjectActions.recentProjectPath === registry.baseMapProject
+
+                  text: qsTr(&quot;Individual Datasets Base Map&quot;)
+                  onTriggered: {
+                    registry.baseMapProject = recentProjectActions.recentProjectPath === registry.baseMapProject ? '' : recentProjectActions.recentProjectPath;
+                  }
+                }
+
+                MenuSeparator {
+                  visible: baseMapProject.visible
+                  width: parent.width
+                  height: visible ? undefined : 0
+                }
+
+                MenuItem {
+                  id: removeProject
+
+                  font: Theme.defaultFont
+                  width: parent.width
+                  height: visible ? 48 : 0
+                  leftPadding: Theme.menuItemIconlessLeftPadding
+
+                  text: qsTr(&quot;Remove from Recent Projects&quot;)
+                  onTriggered: {
+                    iface.removeRecentProject(recentProjectActions.recentProjectPath);
+                    model.reloadModel();
+                  }
+                }
+              }
+            }
+          }
+
+          RowLayout {
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+            Layout.bottomMargin: mainWindow.sceneBottomMargin
+            Label {
+              Layout.fillWidth: true
+              Layout.alignment: Qt.AlignVCenter
+              topPadding: 10
+              bottomPadding: 10
+              font: Theme.tipFont
+              wrapMode: Text.WordWrap
+              color: Theme.mainTextColor
+
+              text: registry.defaultProject != '' ? qsTr('Load default project on launch') : qsTr('Load last opened project on launch')
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: reloadOnLaunch.checked = !reloadOnLaunch.checked
+              }
+            }
+
+            QfSwitch {
+              id: reloadOnLaunch
+              Layout.preferredWidth: implicitContentWidth
+              Layout.alignment: Qt.AlignVCenter
+              width: implicitContentWidth
+
+              checked: registry.loadProjectOnLaunch
+              onCheckedChanged: {
+                registry.loadProjectOnLaunch = checked;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  Column {
+    spacing: 4
+    anchors {
+      top: parent.top
+      left: parent.left
+      topMargin: mainWindow.sceneTopMargin + 4
+      leftMargin: mainWindow.sceneLeftMargin + 4
+    }
+
+    QfActionButton {
+      id: currentProjectButton
+      toolImage: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+      toolText: welcomeScreen.width &gt; 420 ? qsTr('Return to map') : &quot;&quot;
+      visible: qgisProject &amp;&amp; !!qgisProject.homePath
+      innerActionIcon.visible: false
+
+      onClicked: {
+        welcomeScreen.visible = false;
+      }
+    }
+
+    QfToolButton {
+      id: settingsButton
+      iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
+      iconColor: Theme.mainTextColor
+      bgcolor: &quot;transparent&quot;
+      round: true
+
+      onClicked: {
+        showSettings();
+      }
+    }
+  }
+
+  QfToolButton {
+    id: exitButton
+    visible: (Qt.platform.os === &quot;ios&quot; || Qt.platform.os === &quot;android&quot; || mainWindow.sceneBorderless)
+    anchors {
+      top: parent.top
+      right: parent.right
+      topMargin: mainWindow.sceneTopMargin + 4
+      rightMargin: mainWindow.sceneRightMargin + 4
+    }
+    iconSource: Theme.getThemeVectorIcon('ic_shutdown_24dp')
+    iconColor: Theme.mainTextColor
+    bgcolor: &quot;transparent&quot;
+    round: true
+
+    onClicked: {
+      mainWindow.closeAlreadyRequested = true;
+      mainWindow.close();
+    }
+  }
+
+  // Sparkles &amp; unicorns
+  Rectangle {
+    anchors.fill: parent
+    color: &quot;#00000000&quot;
+    visible: imageDialLogo.value &lt; 0.1
+
+    MouseArea {
+      id: mouseArea
+      anchors.fill: parent
+      acceptedButtons: Qt.LeftButton | Qt.RightButton
+      hoverEnabled: true
+      propagateComposedEvents: true
+      onReleased: mouse.accepted = false
+      onDoubleClicked: mouse.accepted = false
+      onPressAndHold: mouse.accepted = false
+      onClicked: mouse =&gt; {
+        burstSomeSparkles(mouse.x, mouse.y);
+        mouse.accepted = false;
+      }
+      onPressed: mouse =&gt; {
+        burstSomeSparkles(mouse.x, mouse.y);
+        mouse.accepted = false;
+      }
+      onPositionChanged: mouse =&gt; {
+        burstSomeSparkles(mouse.x, mouse.y);
+        mouse.accepted = false;
+      }
+    }
+
+    ParticleSystem {
+      id: particles
+      running: imageDialLogo.value &lt; 0.1
+    }
+
+    ParticleSystem {
+      id: unicorns
+      running: imageDialLogo.value &lt; 0.1
+    }
+
+    ImageParticle {
+      anchors.fill: parent
+      system: particles
+      source: &quot;qrc:///particleresources/star.png&quot;
+      sizeTable: &quot;qrc:///images/sparkleSize.png&quot;
+      alpha: 1
+      colorVariation: 0.3
+    }
+
+    ImageParticle {
+      anchors.fill: parent
+      system: unicorns
+      source: &quot;qrc:///images/icons/unicorn.png&quot;
+      alpha: 1
+      redVariation: 0
+      blueVariation: 0
+      greenVariation: 0
+      rotation: 0
+      rotationVariation: 360
+    }
+
+    Emitter {
+      id: emitterParticles
+      x: -100
+      y: -100
+      system: particles
+      emitRate: 60
+      lifeSpan: 700
+      size: 50
+      sizeVariation: 10
+      maximumEmitted: 100
+      velocity: AngleDirection {
+        angle: 0
+        angleVariation: 360
+        magnitude: 100
+        magnitudeVariation: 50
+      }
+    }
+
+    Emitter {
+      id: emitterUnicorns
+      x: -100
+      y: -100
+      system: unicorns
+      emitRate: 20
+      lifeSpan: 900
+      size: 70
+      sizeVariation: 10
+      maximumEmitted: 100
+      velocity: AngleDirection {
+        angle: 90
+        angleVariation: 20
+        magnitude: 200
+        magnitudeVariation: 50
+      }
+    }
+  }
+
+  function burstSomeSparkles(x, y) {
+    emitterParticles.burst(50, x, y);
+    emitterUnicorns.burst(1, x, y);
+  }
+
+  function adjustWelcomeScreen() {
+    if (visible) {
+      if (firstShown) {
+        welcomeText.text = &quot;&quot;;
+      } else {
+        var firstRun = !settings.valueBool(&quot;/QField/FirstRunDone&quot;, false);
+        if (firstRun) {
+          welcomeText.text = qsTr(&quot;Welcome to %1.&quot;).arg(appName) + (table.count &gt; 0 ? qsTr(&quot;First time using this application? Try the sample projects listed below.&quot;) : &quot;&quot;);
+          settings.setValue(&quot;/QField/FirstRunDone&quot;, true);
+          settings.setValue(&quot;/QField/showMapCanvasGuide&quot;, true);
+        } else {
+          welcomeText.text = qsTr(&quot;Welcome back to %1.&quot;).arg(appName);
+        }
+      }
+    }
+  }
+
+  Component.onCompleted: {
+    adjustWelcomeScreen();
+    var runCount = settings.value(&quot;/QField/RunCount&quot;, 0) * 1;
+    var feedbackFormShown = settings.value(&quot;/QField/FeedbackFormShown&quot;, false);
+    if (!feedbackFormShown) {
+      var now = new Date();
+      var dt = settings.value(&quot;/QField/FirstRunDate&quot;, &quot;&quot;);
+      if (dt != &quot;&quot;) {
+        dt = new Date(dt);
+        var daysToPrompt = 30;
+        var runsToPrompt = 5;
+        if (runCount &gt;= runsToPrompt &amp;&amp; (now - dt) &gt;= (daysToPrompt * 24 * 60 * 60 * 1000)) {
+          if (appName === &quot;QField&quot;) {
+            feedbackView.visible = true;
+          }
+          settings.setValue(&quot;/QField/FeedbackFormShown&quot;, true);
+        }
+      } else {
+        settings.setValue(&quot;/QField/FirstRunDate&quot;, now.toISOString());
+      }
+    }
+    if (platformUtilities.capabilities &amp; PlatformUtilities.SentryFramework) {
+      var collectionFormShown = settings.value(&quot;/QField/CollectionFormShownV2&quot;, false);
+      if (!collectionFormShown) {
+        collectionView.visible = true;
+        settings.setValue(&quot;/QField/CollectionFormShownV2&quot;, true);
+      }
+    }
+    settings.setValue(&quot;/QField/RunCount&quot;, runCount + 1);
+    if (registry.defaultProject != '') {
+      if (!FileUtils.fileExists(registry.defaultProject)) {
+        registry.defaultProject = '';
+      }
+    }
+  }
+
+  onVisibleChanged: {
+    if (!visible) {
+      welcomeText.text = &quot;&quot;;
+      feedbackView.visible = false;
+      collectionView.visible = false;
+      firstShown = true;
+    }
+  }
+
+  Keys.onReleased: event =&gt; {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      if (qgisProject.fileName != '') {
+        event.accepted = true;
+        visible = false;
+      } else {
+        event.accepted = false;
+      }
+    }
+  }
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

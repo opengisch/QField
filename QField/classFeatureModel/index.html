@@ -1,0 +1,2642 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class FeatureModel - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-featuremodel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class FeatureModel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-featureroles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum FeatureRoles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-modelmodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum ModelModes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-appexpressioncontextscopesgenerator-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property appExpressionContextScopesGenerator [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-attributeeditinglocked-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property attributeEditingLocked [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-batchmode-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property batchMode [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-currentlayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property currentLayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-feature-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property feature [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-featureadditionlocked-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property featureAdditionLocked [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-featuredeletionlocked-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property featureDeletionLocked [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-features-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property features [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-geometry-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property geometry [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-geometryeditinglocked-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property geometryEditingLocked [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-linkedparentfeature-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property linkedParentFeature [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-linkedrelation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property linkedRelation [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-linkedrelationorderingfield-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property linkedRelationOrderingField [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-modelmode-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property modelMode [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-project-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property project [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-topsnappingresult-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property topSnappingResult [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vertexmodel-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vertexModel [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-slots-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Slots Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Slots Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slot-removelayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot removeLayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-appexpressioncontextscopesgeneratorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal appExpressionContextScopesGeneratorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-attributeeditinglockedchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal attributeEditingLockedChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-batchmodechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal batchModeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-currentlayerchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal currentLayerChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-featureadditionlockedchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal featureAdditionLockedChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-featurechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal featureChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-featuredeletionlockedchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal featureDeletionLockedChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-featureupdated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal featureUpdated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-featureschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal featuresChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-geometrychanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal geometryChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-geometryeditinglockedchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal geometryEditingLockedChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-linkedparentfeaturechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal linkedParentFeatureChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-linkedrelationchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal linkedRelationChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-linkedrelationorderingfieldchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal linkedRelationOrderingFieldChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-modelmodechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal modelModeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-projectchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal projectChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-topsnappingresultchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal topSnappingResultChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-vertexmodelchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal vertexModelChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal warning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-featuremodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function FeatureModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-appexpressioncontextscopesgenerator-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function appExpressionContextScopesGenerator [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-applygeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function applyGeometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-applygeometrytovertexmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function applyGeometryToVertexModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-attributeeditinglocked-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function attributeEditingLocked [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-batchmode-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function batchMode [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-changegeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function changeGeometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-createexpressioncontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function createExpressionContext
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-deletefeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deleteFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-feature-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function feature [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-featureadditionlocked-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function featureAdditionLocked [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-featuredeletionlocked-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function featureDeletionLocked [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-features-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function features [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-geometry-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function geometry [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-geometryeditinglocked-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function geometryEditingLocked [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-linkedparentfeature-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function linkedParentFeature [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-linkedrelation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function linkedRelation [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-linkedrelationorderingfield-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function linkedRelationOrderingField [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-modelmode-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function modelMode [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-positionlocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function positionLocked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-project-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function project [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function refresh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-rememberedattributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function rememberedAttributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-resetattributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function resetAttributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-resetfeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function resetFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-resetfeatureid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function resetFeatureId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-rolenames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function roleNames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-rowcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function rowCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-save" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function save
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setappexpressioncontextscopesgenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAppExpressionContextScopesGenerator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setbatchmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setBatchMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcurrentlayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCurrentLayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setData
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setfeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setfeatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setFeatures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setgeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setGeometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlinkedparentfeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLinkedParentFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlinkedrelation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLinkedRelation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlinkedrelationorderingfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLinkedRelationOrderingField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmodelmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setModelMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setpositionlocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPositionLocked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-settopsnappingresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setTopSnappingResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setvertexmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setVertexModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-suppressfeatureform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function suppressFeatureForm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-topsnappingresult-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function topSnappingResult [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-updateattributesfromfeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function updateAttributesFromFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-updaterubberband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function updateRubberband
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vertexmodel-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vertexModel [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-featuremodel">Class FeatureModel</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>FeatureModel</strong></a></p>
+<p>Inherits the following classes: QAbstractListModel</p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structFeatureModel_1_1RememberValues/"><strong>RememberValues</strong></a> <br><em>keeping the information what attributes are remembered and the last edited feature</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-featureroles"><strong>FeatureRoles</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-modelmodes"><strong>ModelModes</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-slots">Public Slots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-removelayer"><strong>removeLayer</strong></a> (QObject * layer) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property <a href="../classAppExpressionContextScopesGenerator/"><strong>AppExpressionContextScopesGenerator</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-appexpressioncontextscopesgenerator-12"><strong>appExpressionContextScopesGenerator</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-attributeeditinglocked-12"><strong>attributeEditingLocked</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-batchmode-12"><strong>batchMode</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsVectorLayer *</td>
+<td style="text-align: left;"><a href="./#property-currentlayer"><strong>currentLayer</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsFeature</td>
+<td style="text-align: left;"><a href="./#property-feature-12"><strong>feature</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-featureadditionlocked-12"><strong>featureAdditionLocked</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-featuredeletionlocked-12"><strong>featureDeletionLocked</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QList&lt; QgsFeature &gt;</td>
+<td style="text-align: left;"><a href="./#property-features-12"><strong>features</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classGeometry/"><strong>Geometry</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-geometry-12"><strong>geometry</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-geometryeditinglocked-12"><strong>geometryEditingLocked</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsFeature</td>
+<td style="text-align: left;"><a href="./#property-linkedparentfeature-12"><strong>linkedParentFeature</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsRelation</td>
+<td style="text-align: left;"><a href="./#property-linkedrelation-12"><strong>linkedRelation</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-linkedrelationorderingfield-12"><strong>linkedRelationOrderingField</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property FeatureModel::ModelModes</td>
+<td style="text-align: left;"><a href="./#property-modelmode-12"><strong>modelMode</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsProject *</td>
+<td style="text-align: left;"><a href="./#property-project-12"><strong>project</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classSnappingResult/"><strong>SnappingResult</strong></a></td>
+<td style="text-align: left;"><a href="./#property-topsnappingresult-12"><strong>topSnappingResult</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classVertexModel/"><strong>VertexModel</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-vertexmodel-12"><strong>vertexModel</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-appexpressioncontextscopesgeneratorchanged"><strong>appExpressionContextScopesGeneratorChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-attributeeditinglockedchanged"><strong>attributeEditingLockedChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-batchmodechanged"><strong>batchModeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-currentlayerchanged"><strong>currentLayerChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-featureadditionlockedchanged"><strong>featureAdditionLockedChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-featurechanged"><strong>featureChanged</strong></a>  <br><em>Emitted when the model's single feature has been changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-featuredeletionlockedchanged"><strong>featureDeletionLockedChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-featureupdated"><strong>featureUpdated</strong></a>  <br><em>Emitted when the model's feature has been saved (i.e. updated) but not changed as a result.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-featureschanged"><strong>featuresChanged</strong></a>  <br><em>Emitted when the model's multi features list has been changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-geometrychanged"><strong>geometryChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-geometryeditinglockedchanged"><strong>geometryEditingLockedChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-linkedparentfeaturechanged"><strong>linkedParentFeatureChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-linkedrelationchanged"><strong>linkedRelationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-linkedrelationorderingfieldchanged"><strong>linkedRelationOrderingFieldChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-modelmodechanged"><strong>modelModeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-projectchanged"><strong>projectChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-topsnappingresultchanged"><strong>topSnappingResultChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-vertexmodelchanged"><strong>vertexModelChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-warning"><strong>warning</strong></a> (const QString &amp; text) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-featuremodel"><strong>FeatureModel</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classAppExpressionContextScopesGenerator/"><strong>AppExpressionContextScopesGenerator</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-appexpressioncontextscopesgenerator-22"><strong>appExpressionContextScopesGenerator</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-applygeometry"><strong>applyGeometry</strong></a> (bool fromVertexModel=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-applygeometrytovertexmodel"><strong>applyGeometryToVertexModel</strong></a> () <br><em>Apply the feature geometry to a vertex model if present.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-attributeeditinglocked-22"><strong>attributeEditingLocked</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-batchmode-22"><strong>batchMode</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-changegeometry"><strong>changeGeometry</strong></a> (const QgsGeometry &amp; geometry) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-create"><strong>create</strong></a> (bool flushBuffer=true) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsExpressionContext</td>
+<td style="text-align: left;"><a href="#function-createexpressioncontext"><strong>createExpressionContext</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVariant</td>
+<td style="text-align: left;"><a href="#function-data"><strong>data</strong></a> (const QModelIndex &amp; index, int role) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-deletefeature"><strong>deleteFeature</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsFeature</td>
+<td style="text-align: left;"><a href="#function-feature-22"><strong>feature</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-featureadditionlocked-22"><strong>featureAdditionLocked</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-featuredeletionlocked-22"><strong>featureDeletionLocked</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; QgsFeature &gt;</td>
+<td style="text-align: left;"><a href="#function-features-22"><strong>features</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classGeometry/"><strong>Geometry</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-geometry-22"><strong>geometry</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-geometryeditinglocked-22"><strong>geometryEditingLocked</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsVectorLayer *</td>
+<td style="text-align: left;"><a href="#function-layer"><strong>layer</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsFeature</td>
+<td style="text-align: left;"><a href="#function-linkedparentfeature-22"><strong>linkedParentFeature</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsRelation</td>
+<td style="text-align: left;"><a href="#function-linkedrelation-22"><strong>linkedRelation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-linkedrelationorderingfield-22"><strong>linkedRelationOrderingField</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">ModelModes</td>
+<td style="text-align: left;"><a href="#function-modelmode-22"><strong>modelMode</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-positionlocked"><strong>positionLocked</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsProject *</td>
+<td style="text-align: left;"><a href="#function-project-22"><strong>project</strong></a> () const<br><em>Returns the current project from which the digitizing logs will be sought.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-refresh"><strong>refresh</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVector&lt; bool &gt;</td>
+<td style="text-align: left;"><a href="#function-rememberedattributes"><strong>rememberedAttributes</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-reset"><strong>reset</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-resetattributes"><strong>resetAttributes</strong></a> (bool partialReset=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-resetfeature"><strong>resetFeature</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-resetfeatureid"><strong>resetFeatureId</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QHash&lt; int, QByteArray &gt;</td>
+<td style="text-align: left;"><a href="#function-rolenames"><strong>roleNames</strong></a> () override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-rowcount"><strong>rowCount</strong></a> (const QModelIndex &amp; parent) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-save"><strong>save</strong></a> (bool flushBuffer=true) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setappexpressioncontextscopesgenerator"><strong>setAppExpressionContextScopesGenerator</strong></a> (<a href="../classAppExpressionContextScopesGenerator/"><strong>AppExpressionContextScopesGenerator</strong></a> * generator) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setbatchmode"><strong>setBatchMode</strong></a> (bool batchMode) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcurrentlayer"><strong>setCurrentLayer</strong></a> (QgsVectorLayer * layer) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-setdata"><strong>setData</strong></a> (const QModelIndex &amp; index, const QVariant &amp; value, int role=Qt::EditRole) override<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setfeature"><strong>setFeature</strong></a> (const QgsFeature &amp; feature) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setfeatures"><strong>setFeatures</strong></a> (const QList&lt; QgsFeature &gt; &amp; features) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setgeometry"><strong>setGeometry</strong></a> (<a href="../classGeometry/"><strong>Geometry</strong></a> * geometry) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlinkedparentfeature"><strong>setLinkedParentFeature</strong></a> (const QgsFeature &amp; feature) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlinkedrelation"><strong>setLinkedRelation</strong></a> (const QgsRelation &amp; relation) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlinkedrelationorderingfield"><strong>setLinkedRelationOrderingField</strong></a> (const QString &amp; orderingField) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setmodelmode"><strong>setModelMode</strong></a> (const ModelModes mode) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setpositionlocked"><strong>setPositionLocked</strong></a> (bool positionLocked) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setproject"><strong>setProject</strong></a> (QgsProject * project) <br><em>Sets the</em> <em>project</em> <em>used to find the digitizing logs layer.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-settopsnappingresult"><strong>setTopSnappingResult</strong></a> (const <a href="../classSnappingResult/"><strong>SnappingResult</strong></a> &amp; topSnappingResult) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setvertexmodel"><strong>setVertexModel</strong></a> (<a href="../classVertexModel/"><strong>VertexModel</strong></a> * model) <br><em>Sets the vertex</em> <em>model</em> <em>is used to highlight vertices on the map.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-suppressfeatureform"><strong>suppressFeatureForm</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classSnappingResult/"><strong>SnappingResult</strong></a></td>
+<td style="text-align: left;"><a href="#function-topsnappingresult-22"><strong>topSnappingResult</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-updateattributesfromfeature"><strong>updateAttributesFromFeature</strong></a> (const QgsFeature &amp; feature) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-updaterubberband"><strong>updateRubberband</strong></a> () const<br><em>Update the linked geometry rubber band to match the feature's geometry.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classVertexModel/"><strong>VertexModel</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-vertexmodel-22"><strong>vertexModel</strong></a> () <br><em>Returns the vertex model is used to highlight vertices on the map.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-featureroles">enum FeatureRoles</h3>
+<pre><code class="language-C++">enum FeatureModel::FeatureRoles {
+    AttributeName = Qt::UserRole + 1,
+    AttributeValue,
+    Field,
+    RememberAttribute,
+    LinkedAttribute,
+    AttributeAllowEdit
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-modelmodes">enum ModelModes</h3>
+<pre><code class="language-C++">enum FeatureModel::ModelModes {
+    SingleFeatureModel = 1,
+    MultiFeatureModel
+};
+</code></pre>
+<hr>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-appexpressioncontextscopesgenerator-12">property appExpressionContextScopesGenerator [1/2]</h3>
+<pre><code class="language-C++">AppExpressionContextScopesGenerator * FeatureModel::appExpressionContextScopesGenerator;
+</code></pre>
+<hr>
+
+<h3 id="property-attributeeditinglocked-12">property attributeEditingLocked [1/2]</h3>
+<pre><code class="language-C++">bool FeatureModel::attributeEditingLocked;
+</code></pre>
+<hr>
+
+<h3 id="property-batchmode-12">property batchMode [1/2]</h3>
+<pre><code class="language-C++">bool FeatureModel::batchMode;
+</code></pre>
+<hr>
+
+<h3 id="property-currentlayer">property currentLayer</h3>
+<pre><code class="language-C++">QgsVectorLayer * FeatureModel::currentLayer;
+</code></pre>
+<hr>
+
+<h3 id="property-feature-12">property feature [1/2]</h3>
+<pre><code class="language-C++">QgsFeature FeatureModel::feature;
+</code></pre>
+<hr>
+
+<h3 id="property-featureadditionlocked-12">property featureAdditionLocked [1/2]</h3>
+<pre><code class="language-C++">bool FeatureModel::featureAdditionLocked;
+</code></pre>
+<hr>
+
+<h3 id="property-featuredeletionlocked-12">property featureDeletionLocked [1/2]</h3>
+<pre><code class="language-C++">bool FeatureModel::featureDeletionLocked;
+</code></pre>
+<hr>
+
+<h3 id="property-features-12">property features [1/2]</h3>
+<pre><code class="language-C++">QList&lt;QgsFeature&gt; FeatureModel::features;
+</code></pre>
+<hr>
+
+<h3 id="property-geometry-12">property geometry [1/2]</h3>
+<pre><code class="language-C++">Geometry * FeatureModel::geometry;
+</code></pre>
+<hr>
+
+<h3 id="property-geometryeditinglocked-12">property geometryEditingLocked [1/2]</h3>
+<pre><code class="language-C++">bool FeatureModel::geometryEditingLocked;
+</code></pre>
+<hr>
+
+<h3 id="property-linkedparentfeature-12">property linkedParentFeature [1/2]</h3>
+<pre><code class="language-C++">QgsFeature FeatureModel::linkedParentFeature;
+</code></pre>
+<hr>
+
+<h3 id="property-linkedrelation-12">property linkedRelation [1/2]</h3>
+<pre><code class="language-C++">QgsRelation FeatureModel::linkedRelation;
+</code></pre>
+<hr>
+
+<h3 id="property-linkedrelationorderingfield-12">property linkedRelationOrderingField [1/2]</h3>
+<pre><code class="language-C++">QString FeatureModel::linkedRelationOrderingField;
+</code></pre>
+<hr>
+
+<h3 id="property-modelmode-12">property modelMode [1/2]</h3>
+<pre><code class="language-C++">FeatureModel::ModelModes FeatureModel::modelMode;
+</code></pre>
+<hr>
+
+<h3 id="property-project-12">property project [1/2]</h3>
+<pre><code class="language-C++">QgsProject * FeatureModel::project;
+</code></pre>
+<hr>
+
+<h3 id="property-topsnappingresult-12">property topSnappingResult [1/2]</h3>
+<pre><code class="language-C++">SnappingResult FeatureModel::topSnappingResult;
+</code></pre>
+<hr>
+
+<h3 id="property-vertexmodel-12">property vertexModel [1/2]</h3>
+<pre><code class="language-C++">VertexModel * FeatureModel::vertexModel;
+</code></pre>
+<hr>
+<h2 id="public-slots-documentation">Public Slots Documentation</h2>
+<h3 id="slot-removelayer">slot removeLayer</h3>
+<pre><code class="language-C++">void FeatureModel::removeLayer;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-appexpressioncontextscopesgeneratorchanged">signal appExpressionContextScopesGeneratorChanged</h3>
+<pre><code class="language-C++">void FeatureModel::appExpressionContextScopesGeneratorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-attributeeditinglockedchanged">signal attributeEditingLockedChanged</h3>
+<pre><code class="language-C++">void FeatureModel::attributeEditingLockedChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-batchmodechanged">signal batchModeChanged</h3>
+<pre><code class="language-C++">void FeatureModel::batchModeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-currentlayerchanged">signal currentLayerChanged</h3>
+<pre><code class="language-C++">void FeatureModel::currentLayerChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-featureadditionlockedchanged">signal featureAdditionLockedChanged</h3>
+<pre><code class="language-C++">void FeatureModel::featureAdditionLockedChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-featurechanged">signal featureChanged</h3>
+<p><em>Emitted when the model's single feature has been changed.</em> </p>
+<pre><code class="language-C++">void FeatureModel::featureChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-featuredeletionlockedchanged">signal featureDeletionLockedChanged</h3>
+<pre><code class="language-C++">void FeatureModel::featureDeletionLockedChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-featureupdated">signal featureUpdated</h3>
+<p><em>Emitted when the model's feature has been saved (i.e. updated) but not changed as a result.</em> </p>
+<pre><code class="language-C++">void FeatureModel::featureUpdated;
+</code></pre>
+<hr>
+
+<h3 id="signal-featureschanged">signal featuresChanged</h3>
+<p><em>Emitted when the model's multi features list has been changed.</em> </p>
+<pre><code class="language-C++">void FeatureModel::featuresChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-geometrychanged">signal geometryChanged</h3>
+<pre><code class="language-C++">void FeatureModel::geometryChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-geometryeditinglockedchanged">signal geometryEditingLockedChanged</h3>
+<pre><code class="language-C++">void FeatureModel::geometryEditingLockedChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-linkedparentfeaturechanged">signal linkedParentFeatureChanged</h3>
+<pre><code class="language-C++">void FeatureModel::linkedParentFeatureChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-linkedrelationchanged">signal linkedRelationChanged</h3>
+<pre><code class="language-C++">void FeatureModel::linkedRelationChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-linkedrelationorderingfieldchanged">signal linkedRelationOrderingFieldChanged</h3>
+<pre><code class="language-C++">void FeatureModel::linkedRelationOrderingFieldChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-modelmodechanged">signal modelModeChanged</h3>
+<pre><code class="language-C++">void FeatureModel::modelModeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-projectchanged">signal projectChanged</h3>
+<pre><code class="language-C++">void FeatureModel::projectChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-topsnappingresultchanged">signal topSnappingResultChanged</h3>
+<pre><code class="language-C++">void FeatureModel::topSnappingResultChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-vertexmodelchanged">signal vertexModelChanged</h3>
+<pre><code class="language-C++">void FeatureModel::vertexModelChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-warning">signal warning</h3>
+<pre><code class="language-C++">void FeatureModel::warning;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-featuremodel">function FeatureModel</h3>
+<pre><code class="language-C++">explicit FeatureModel::FeatureModel (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-appexpressioncontextscopesgenerator-22">function appExpressionContextScopesGenerator [2/2]</h3>
+<pre><code class="language-C++">AppExpressionContextScopesGenerator * FeatureModel::appExpressionContextScopesGenerator () const
+</code></pre>
+<p>Returns the application expression context scopes generator object </p>
+<hr>
+
+<h3 id="function-applygeometry">function applyGeometry</h3>
+<pre><code class="language-C++">Q_INVOKABLE void FeatureModel::applyGeometry (
+    bool fromVertexModel=false
+) 
+</code></pre>
+<p>Apply the geometry object or vertex model object's geometry to the feature geometry. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>fromVertexModel</code> set to TRUE to use the vertex model </li>
+</ul>
+<hr>
+
+<h3 id="function-applygeometrytovertexmodel">function applyGeometryToVertexModel</h3>
+<p><em>Apply the feature geometry to a vertex model if present.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void FeatureModel::applyGeometryToVertexModel () 
+</code></pre>
+<hr>
+
+<h3 id="function-attributeeditinglocked-22">function attributeEditingLocked [2/2]</h3>
+<pre><code class="language-C++">inline bool FeatureModel::attributeEditingLocked () const
+</code></pre>
+<hr>
+
+<h3 id="function-batchmode-22">function batchMode [2/2]</h3>
+<pre><code class="language-C++">inline bool FeatureModel::batchMode () const
+</code></pre>
+<p>Returns TRUE if the feature model is in batch mode. When enabled, the vector layer will remain in editing mode until batch mode is disabled. </p>
+<hr>
+
+<h3 id="function-changegeometry">function changeGeometry</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool FeatureModel::changeGeometry (
+    const QgsGeometry &amp; geometry
+) 
+</code></pre>
+<p>Sets the <em>geometry</em> of the feature. </p>
+<hr>
+
+<h3 id="function-create">function create</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool FeatureModel::create (
+    bool flushBuffer=true
+) 
+</code></pre>
+<p>Will create this feature as a new feature on the data source.</p>
+<p>By setting <em>flushBuffer</em> to FALSE, the created feature will remain in the edit buffer provided the vector layer was already in editing mode. The flushBuffer parameter will be ignored for layers containing relationships.</p>
+<p><strong>Returns:</strong></p>
+<p>TRUE if a feature was successfully created </p>
+<hr>
+
+<h3 id="function-createexpressioncontext">function createExpressionContext</h3>
+<pre><code class="language-C++">QgsExpressionContext FeatureModel::createExpressionContext () const
+</code></pre>
+<hr>
+
+<h3 id="function-data">function data</h3>
+<pre><code class="language-C++">QVariant FeatureModel::data (
+    const QModelIndex &amp; index,
+    int role
+) override const
+</code></pre>
+<hr>
+
+<h3 id="function-deletefeature">function deleteFeature</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool FeatureModel::deleteFeature () 
+</code></pre>
+<p>Deletes the current feature from the data source. </p>
+<hr>
+
+<h3 id="function-feature-22">function feature [2/2]</h3>
+<pre><code class="language-C++">QgsFeature FeatureModel::feature () const
+</code></pre>
+<p>Return the feature wrapped in a QVariant for passing it around in QML </p>
+<hr>
+
+<h3 id="function-featureadditionlocked-22">function featureAdditionLocked [2/2]</h3>
+<pre><code class="language-C++">inline bool FeatureModel::featureAdditionLocked () const
+</code></pre>
+<hr>
+
+<h3 id="function-featuredeletionlocked-22">function featureDeletionLocked [2/2]</h3>
+<pre><code class="language-C++">inline bool FeatureModel::featureDeletionLocked () const
+</code></pre>
+<hr>
+
+<h3 id="function-features-22">function features [2/2]</h3>
+<pre><code class="language-C++">QList&lt; QgsFeature &gt; FeatureModel::features () const
+</code></pre>
+<p>Return the features list for passing it around in QML </p>
+<hr>
+
+<h3 id="function-geometry-22">function geometry [2/2]</h3>
+<pre><code class="language-C++">Geometry * FeatureModel::geometry () 
+</code></pre>
+<p>Returns the geometry object that will drive the feature geometry. </p>
+<hr>
+
+<h3 id="function-geometryeditinglocked-22">function geometryEditingLocked [2/2]</h3>
+<pre><code class="language-C++">inline bool FeatureModel::geometryEditingLocked () const
+</code></pre>
+<hr>
+
+<h3 id="function-layer">function layer</h3>
+<pre><code class="language-C++">QgsVectorLayer * FeatureModel::layer () const
+</code></pre>
+<hr>
+
+<h3 id="function-linkedparentfeature-22">function linkedParentFeature [2/2]</h3>
+<pre><code class="language-C++">QgsFeature FeatureModel::linkedParentFeature () const
+</code></pre>
+<p>A linked feature is a parent feature of a relation passing it's pk(s) to the created child features fk(s) </p>
+<p><strong>Returns:</strong></p>
+<p>the parent feature linked to this feature </p>
+<p><strong>See also:</strong> <a href="./#function-setlinkedparentfeature"><strong>setLinkedParentFeature</strong></a> </p>
+<hr>
+
+<h3 id="function-linkedrelation-22">function linkedRelation [2/2]</h3>
+<pre><code class="language-C++">QgsRelation FeatureModel::linkedRelation () const
+</code></pre>
+<p>The relation connecting this feature to the parent, over which this feature has been loaded (e.g. over relation editor widget) </p>
+<p><strong>Returns:</strong></p>
+<p>the relation connecting the parent </p>
+<p><strong>See also:</strong> <a href="./#function-setlinkedrelation"><strong>setLinkedRelation</strong></a> </p>
+<hr>
+
+<h3 id="function-linkedrelationorderingfield-22">function linkedRelationOrderingField [2/2]</h3>
+<pre><code class="language-C++">QString FeatureModel::linkedRelationOrderingField () const
+</code></pre>
+<p>Returns the field name used for ordering in ordered relations. Empty string if not available. </p>
+<p><strong>See also:</strong> <a href="./#function-setlinkedrelationorderingfield"><strong>setLinkedRelationOrderingField</strong></a> </p>
+<hr>
+
+<h3 id="function-modelmode-22">function modelMode [2/2]</h3>
+<pre><code class="language-C++">ModelModes FeatureModel::modelMode () const
+</code></pre>
+<hr>
+
+<h3 id="function-positionlocked">function positionLocked</h3>
+<pre><code class="language-C++">bool FeatureModel::positionLocked () const
+</code></pre>
+<p>Returns whether the position is locked to the GNSS </p>
+<hr>
+
+<h3 id="function-project-22">function project [2/2]</h3>
+<p><em>Returns the current project from which the digitizing logs will be sought.</em> </p>
+<pre><code class="language-C++">inline QgsProject * FeatureModel::project () const
+</code></pre>
+<hr>
+
+<h3 id="function-refresh">function refresh</h3>
+<pre><code class="language-C++">Q_INVOKABLE void FeatureModel::refresh () 
+</code></pre>
+<p>Will refresh the feature values and geometry from the data source. </p>
+<hr>
+
+<h3 id="function-rememberedattributes">function rememberedAttributes</h3>
+<pre><code class="language-C++">QVector&lt; bool &gt; FeatureModel::rememberedAttributes () const
+</code></pre>
+<hr>
+
+<h3 id="function-reset">function reset</h3>
+<pre><code class="language-C++">Q_INVOKABLE void FeatureModel::reset () 
+</code></pre>
+<p>Will reset the feature to the original values and dismiss any buffered edits. </p>
+<hr>
+
+<h3 id="function-resetattributes">function resetAttributes</h3>
+<pre><code class="language-C++">Q_INVOKABLE void FeatureModel::resetAttributes (
+    bool partialReset=false
+) 
+</code></pre>
+<p>Resets the attribute values of the current feature </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>partialReset</code> when set to TRUE, only attributes with default or remembered values will be reset </li>
+</ul>
+<hr>
+
+<h3 id="function-resetfeature">function resetFeature</h3>
+<pre><code class="language-C++">Q_INVOKABLE void FeatureModel::resetFeature () 
+</code></pre>
+<hr>
+
+<h3 id="function-resetfeatureid">function resetFeatureId</h3>
+<pre><code class="language-C++">Q_INVOKABLE void FeatureModel::resetFeatureId () 
+</code></pre>
+<hr>
+
+<h3 id="function-rolenames">function roleNames</h3>
+<pre><code class="language-C++">QHash&lt; int, QByteArray &gt; FeatureModel::roleNames () override const
+</code></pre>
+<hr>
+
+<h3 id="function-rowcount">function rowCount</h3>
+<pre><code class="language-C++">int FeatureModel::rowCount (
+    const QModelIndex &amp; parent
+) override const
+</code></pre>
+<hr>
+
+<h3 id="function-save">function save</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool FeatureModel::save (
+    bool flushBuffer=true
+) 
+</code></pre>
+<p>Will commit the edit buffer of this layer. May change in the future to only commit the changes buffered in this model.</p>
+<p>By setting <em>flushBuffer</em> to FALSE, the edits made to the feature will remain in the edit buffer provided the vector layer was already in editing mode.</p>
+<p><strong>Returns:</strong></p>
+<p>TRUE if a feature was successfully saved </p>
+<hr>
+
+<h3 id="function-setappexpressioncontextscopesgenerator">function setAppExpressionContextScopesGenerator</h3>
+<pre><code class="language-C++">void FeatureModel::setAppExpressionContextScopesGenerator (
+    AppExpressionContextScopesGenerator * generator
+) 
+</code></pre>
+<p>Sets the application expression context scopes <em>generator</em> object </p>
+<hr>
+
+<h3 id="function-setbatchmode">function setBatchMode</h3>
+<pre><code class="language-C++">void FeatureModel::setBatchMode (
+    bool batchMode
+) 
+</code></pre>
+<p>Toggles the feature model batch mode. When enabled, the vector layer will remain in editing mode until batch mode is disabled. </p>
+<hr>
+
+<h3 id="function-setcurrentlayer">function setCurrentLayer</h3>
+<pre><code class="language-C++">void FeatureModel::setCurrentLayer (
+    QgsVectorLayer * layer
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdata">function setData</h3>
+<pre><code class="language-C++">bool FeatureModel::setData (
+    const QModelIndex &amp; index,
+    const QVariant &amp; value,
+    int role=Qt::EditRole
+) override
+</code></pre>
+<hr>
+
+<h3 id="function-setfeature">function setFeature</h3>
+<pre><code class="language-C++">void FeatureModel::setFeature (
+    const QgsFeature &amp; feature
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setfeatures">function setFeatures</h3>
+<pre><code class="language-C++">void FeatureModel::setFeatures (
+    const QList&lt; QgsFeature &gt; &amp; features
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setgeometry">function setGeometry</h3>
+<pre><code class="language-C++">void FeatureModel::setGeometry (
+    Geometry * geometry
+) 
+</code></pre>
+<p>Sets the geometry object that will drive the feature geometry. </p>
+<p><strong>Note:</strong></p>
+<p>This is not the QgsGeometry of the feature. To change that, use the changeGeometry function. </p>
+<hr>
+
+<h3 id="function-setlinkedparentfeature">function setLinkedParentFeature</h3>
+<pre><code class="language-C++">void FeatureModel::setLinkedParentFeature (
+    const QgsFeature &amp; feature
+) 
+</code></pre>
+<p>A linked feature is a parent feature of a relation passing it's pk(s) to the created child features fk(s) The fk fields are evaluated over the linked relation. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>feature</code> </li>
+</ul>
+<p><strong>See also:</strong> linkedParentFeature </p>
+<hr>
+
+<h3 id="function-setlinkedrelation">function setLinkedRelation</h3>
+<pre><code class="language-C++">void FeatureModel::setLinkedRelation (
+    const QgsRelation &amp; relation
+) 
+</code></pre>
+<p>The relation connecting this feature to the parent, over which this feature has been loaded (e.g. over relation editor widget) The relation is userd to evaluate the parents pk(s) and the childs fk(s) </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>relation</code> </li>
+</ul>
+<p><strong>See also:</strong> linkedRelation </p>
+<hr>
+
+<h3 id="function-setlinkedrelationorderingfield">function setLinkedRelationOrderingField</h3>
+<pre><code class="language-C++">void FeatureModel::setLinkedRelationOrderingField (
+    const QString &amp; orderingField
+) 
+</code></pre>
+<p>Sets the field name used for ordering in ordered relations. Empty string if not available. </p>
+<p><strong>See also:</strong> linkedRelationOrderingField </p>
+<hr>
+
+<h3 id="function-setmodelmode">function setModelMode</h3>
+<pre><code class="language-C++">void FeatureModel::setModelMode (
+    const ModelModes mode
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setpositionlocked">function setPositionLocked</h3>
+<pre><code class="language-C++">void FeatureModel::setPositionLocked (
+    bool positionLocked
+) 
+</code></pre>
+<p>Sets whether the position is locked to the GNSS </p>
+<hr>
+
+<h3 id="function-setproject">function setProject</h3>
+<p><em>Sets the</em> <em>project</em> <em>used to find the digitizing logs layer.</em></p>
+<pre><code class="language-C++">void FeatureModel::setProject (
+    QgsProject * project
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-settopsnappingresult">function setTopSnappingResult</h3>
+<pre><code class="language-C++">void FeatureModel::setTopSnappingResult (
+    const SnappingResult &amp; topSnappingResult
+) 
+</code></pre>
+<p>Sets the top snapping result of the coordinate locator </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>topSnappingResult</code> the top snapping result object </li>
+</ul>
+<hr>
+
+<h3 id="function-setvertexmodel">function setVertexModel</h3>
+<p><em>Sets the vertex</em> <em>model</em> <em>is used to highlight vertices on the map.</em></p>
+<pre><code class="language-C++">void FeatureModel::setVertexModel (
+    VertexModel * model
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-suppressfeatureform">function suppressFeatureForm</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool FeatureModel::suppressFeatureForm () const
+</code></pre>
+<p>Returns whether the feature form should be suppressed when adding new features. </p>
+<hr>
+
+<h3 id="function-topsnappingresult-22">function topSnappingResult [2/2]</h3>
+<pre><code class="language-C++">SnappingResult FeatureModel::topSnappingResult () const
+</code></pre>
+<p>Returns the top snapping result of the coordinate locator </p>
+<hr>
+
+<h3 id="function-updateattributesfromfeature">function updateAttributesFromFeature</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool FeatureModel::updateAttributesFromFeature (
+    const QgsFeature &amp; feature
+) 
+</code></pre>
+<p>Update attributes to match that of a given feature </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>feature</code> feature from which attributes will be taken </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>TRUE if one or more attribute was updated </p>
+<hr>
+
+<h3 id="function-updaterubberband">function updateRubberband</h3>
+<p><em>Update the linked geometry rubber band to match the feature's geometry.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void FeatureModel::updateRubberband () const
+</code></pre>
+<hr>
+
+<h3 id="function-vertexmodel-22">function vertexModel [2/2]</h3>
+<p><em>Returns the vertex model is used to highlight vertices on the map.</em> </p>
+<pre><code class="language-C++">VertexModel * FeatureModel::vertexModel () 
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/featuremodel.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

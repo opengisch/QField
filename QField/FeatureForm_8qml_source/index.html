@@ -1,0 +1,1475 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File FeatureForm.qml - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-featureformqml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File FeatureForm.qml
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-featureformqml">File FeatureForm.qml</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_1d81f7f4362e4398c0a695c4e466fcb0/"><strong>qml</strong></a> <strong>&gt;</strong> <a href="../FeatureForm_8qml/"><strong>FeatureForm.qml</strong></a></p>
+<p><a href="../FeatureForm_8qml/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Layouts
+import QtQml.Models
+import QtQml
+import QtCharts
+import QtWebView
+import org.qgis
+import org.qfield
+import Theme
+
+Page {
+  id: form
+
+  signal confirmed
+  signal cancelled
+  signal temporaryStored
+  signal valueChanged(var field, var oldValue, var newValue)
+  signal aboutToSave
+
+  signal toolbarDragged(var deltaX, var deltaY)
+  signal toolbarDragAcquired
+  signal toolbarDragReleased
+
+  signal requestGeometry(var item, var layer)
+  signal requestBarcode(var item)
+  signal requestJumpToPoint(var center, real scale, bool handleMargins)
+
+  property DigitizingToolbar digitizingToolbar
+  property CodeReader codeReader
+
+  property AttributeFormModel model
+  property alias currentTab: swipeView.currentIndex
+  property alias toolbarVisible: toolbar.visible
+  property bool embedded: false
+  property int embeddedLevel: 0
+  //setupOnly means data would be neither saved nor cleared (feature creation is handled elsewhere like e.g. in the tracking)
+  property bool setupOnly: false
+  property bool featureCreated: false
+  property bool isVertical: false
+  property bool isDraggable: false
+
+  property double topMargin: 0.0
+  property double leftMargin: 0.0
+  property double rightMargin: 0.0
+  property double bottomMargin: 0.0
+
+  function requestCancel() {
+    if (!qfieldSettings.autoSave) {
+      cancelDialog.open();
+    } else {
+      cancel();
+    }
+  }
+
+  function resetTabs() {
+    tabRow.currentIndex = 0;
+  }
+
+  clip: true
+  states: [
+    State {
+      name: 'ReadOnly'
+    },
+    State {
+      name: 'Edit'
+    },
+    State {
+      name: 'Add'
+    }
+  ]
+
+  QtObject {
+    id: master
+
+    property bool ignoreChanges: false
+  }
+
+  ColumnLayout {
+    id: container
+    anchors.fill: parent
+    anchors.leftMargin: form.leftMargin
+    anchors.rightMargin: form.rightMargin
+
+    QfTabBar {
+      id: tabRow
+      objectName: &quot;tabRow&quot;
+      visible: form.model.hasTabs
+      model: form.model.hasTabs ? form.model : 0
+      Layout.fillWidth: true
+      Layout.preferredHeight: defaultHeight
+
+      delegate: TabButton {
+        id: tabButton
+
+        property bool isCurrentIndex: index == tabRow.currentIndex
+
+        objectName: &quot;tabRowdDelegate_&quot; + index
+        text: Name
+        topPadding: 0
+        bottomPadding: 0
+        leftPadding: !ConstraintHardValid || !ConstraintSoftValid ? 22 : 8
+        rightPadding: 8
+        width: contentItem.width + leftPadding + rightPadding
+        height: 48
+
+        onClicked: {
+          tabRow.currentIndex = index;
+        }
+
+        background: Rectangle {
+          implicitWidth: parent.width
+          implicitHeight: parent.height
+          color: &quot;transparent&quot;
+
+          Rectangle {
+            anchors.left: parent.left
+            anchors.leftMargin: 8
+            anchors.verticalCenter: parent.verticalCenter
+            width: 10
+            height: 10
+            radius: 5
+            color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
+            visible: !ConstraintHardValid || !ConstraintSoftValid
+          }
+        }
+
+        contentItem: Text {
+          // Make sure the width is derived from the text so we can get wider
+          // than the parent item and the Flickable is useful
+          width: paintedWidth
+          height: parent.height
+          text: tabButton.text
+          color: !tabButton.enabled ? Theme.mainTextDisabledColor : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : isCurrentIndex ? Theme.mainColor : Theme.mainTextColor
+          font.pointSize: Theme.tipFont.pointSize
+          font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
+
+          horizontalAlignment: Text.AlignHCenter
+          verticalAlignment: Text.AlignVCenter
+        }
+      }
+    }
+
+    SwipeView {
+      id: swipeView
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      currentIndex: tabRow.currentIndex
+      onCurrentIndexChanged: tabRow.currentIndex = swipeView.currentIndex
+      clip: true
+
+      Repeater {
+        // One page per tab in tabbed forms, 1 page in auto forms
+        model: form.model.hasTabs ? form.model : 1
+
+        Flickable {
+          id: contentView
+
+          property int contentIndex: index
+
+          width: form.width - form.leftMargin - form.rightMargin
+          contentWidth: content.width
+          contentHeight: content.height
+          bottomMargin: form.bottomMargin
+          clip: true
+          ScrollBar.vertical: QfScrollBar {}
+          boundsBehavior: Flickable.StopAtBounds
+
+          Rectangle {
+            anchors.fill: parent
+            color: Theme.mainBackgroundColor
+          }
+
+          Flow {
+            id: content
+            width: form.width - form.leftMargin - form.rightMargin
+            bottomPadding: 10
+
+            SubModel {
+              id: contentModel
+              model: form.model
+              rootIndex: form.model.index(form.model.hasTabs ? contentIndex : -1, 0)
+            }
+
+            Repeater {
+              // Note: digitizing a child geometry will temporarily hide the feature form,
+              // we need to preserve items so signal connections are kept alive
+              model: form.model.hasTabs ? contentModel : form.model
+              objectName: &quot;fieldRepeater&quot;
+              delegate: fieldItem
+            }
+          }
+        }
+      }
+    }
+  }
+
+  Component {
+    id: spacerContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: 12
+        rightMargin: 12
+      }
+
+      Item {
+        width: parent.width
+        height: 36
+
+        Rectangle {
+          anchors.centerIn: parent
+          width: parent.width * 0.66
+          height: 3
+          radius: 1
+          color: Theme.controlBackgroundAlternateColor
+          visible: containerName !== &quot;&quot;
+        }
+      }
+    }
+  }
+
+  Component {
+    id: textContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: 12
+        rightMargin: 12
+      }
+
+      Label {
+        id: textLabel
+        width: parent.width
+        height: containerName !== '' ? undefined : topPadding + bottomPadding
+        text: containerName
+        wrapMode: Text.WordWrap
+        font.pointSize: Theme.tinyFont.pointSize
+        font.bold: true
+        topPadding: 10
+        bottomPadding: 5
+        color: labelOverrideColor !== undefined &amp;&amp; labelOverrideColor ? labelColor : Theme.mainTextColor
+      }
+
+      Text {
+        id: textContent
+        text: containerCode
+        wrapMode: Text.WordWrap
+        font: Theme.defaultFont
+        anchors {
+          left: parent.left
+          right: parent.right
+          top: textLabel.bottom
+        }
+        bottomPadding: 10
+        opacity: textLabel.opacity
+        color: Theme.mainTextColor
+        linkColor: Theme.mainColor
+        onLinkActivated: link =&gt; {
+          Qt.openUrlExternally(link);
+        }
+      }
+    }
+  }
+
+  Component {
+    id: qmlContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: 12
+      }
+
+      Label {
+        id: qmlLabel
+        width: parent.width
+        height: containerName !== '' ? undefined : topPadding + bottomPadding
+        text: containerName
+        wrapMode: Text.WordWrap
+        font.pointSize: Theme.tinyFont.pointSize
+        font.bold: true
+        topPadding: 10
+        bottomPadding: 5
+        color: labelOverrideColor !== undefined &amp;&amp; labelOverrideColor ? labelColor : Theme.mainTextColor
+      }
+
+      Item {
+        id: qmlItem
+
+        property string code: containerCode
+        property var obj: undefined
+
+        onCodeChanged: {
+          if (obj !== undefined) {
+            obj.destroy();
+          }
+          obj = Qt.createQmlObject(code, qmlItem, 'qmlContent');
+        }
+
+        height: childrenRect.height
+        anchors {
+          left: parent.left
+          rightMargin: 12
+          right: parent.right
+          top: qmlLabel.bottom
+        }
+      }
+    }
+  }
+
+  Component {
+    id: htmlContainer
+
+    Item {
+      property string htmlCode: containerCode
+      property var htmlItem: undefined
+
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: 12
+      }
+
+      Label {
+        id: htmlLabel
+        width: parent.width
+        height: containerName !== '' ? undefined : topPadding + bottomPadding
+        text: containerName
+        wrapMode: Text.WordWrap
+        font.pointSize: Theme.tinyFont.pointSize
+        font.bold: true
+        topPadding: 10
+        bottomPadding: 5
+        color: labelOverrideColor !== undefined &amp;&amp; labelOverrideColor ? labelColor : Theme.mainTextColor
+      }
+
+      Item {
+        id: htmlContent
+        height: childrenRect.height
+        anchors {
+          left: parent.left
+          rightMargin: 12
+          right: parent.right
+          top: htmlLabel.bottom
+        }
+      }
+
+      onHtmlCodeChanged: {
+        if (htmlItem === undefined) {
+          htmlItem = Qt.createQmlObject('import QtWebView;
+            WebView {
+              id: htmlItem;
+              height: 0;
+              opacity: 0;
+              anchors { top: parent.top; left: parent.left; right: parent.right; }
+              onLoadingChanged: {
+                if (!loading) {
+                  runJavaScript(&quot;document.body.offsetHeight&quot;, function(result) {
+                    anchors.left = parent.left;
+                    width = parent.width;
+                    height = (result + 18);
+                    opacity = 1.0;
+                  });
+                }
+              }
+            }', htmlContent);
+        }
+        htmlItem.loadHtml(htmlCode);
+      }
+    }
+  }
+
+  Component {
+    id: innerContainer
+
+    Item {
+      height: childrenRect.height
+      anchors {
+        left: parent.left
+        right: parent.right
+      }
+
+      Flow {
+        id: innerContainerContent
+        anchors {
+          left: parent.left
+          right: parent.right
+        }
+
+        Repeater {
+          model: SubModel {
+            id: innerSubModel
+            model: form.model
+            rootIndex: form.model.mapFromSource(containerGroupIndex)
+          }
+          delegate: fieldItem
+        }
+
+        Connections {
+          target: form.model
+
+          function onModelReset() {
+            if (containerGroupIndex !== undefined &amp;&amp; innerContainer.visible) {
+              innerSubModel.rootIndex = form.model.mapFromSource(containerGroupIndex);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  Component {
+    id: dummyContainer
+
+    Item {}
+  }
+
+  Component {
+    id: fieldItem
+
+    Item {
+      width: parent &amp;&amp; parent.width &gt; 0 ? parent.width / ColumnCount &gt; 190 ? parent.width / ColumnCount : parent.width : form.width
+      height: fieldGroupTitle.height + fieldContent.childrenRect.height
+
+      Rectangle {
+        id: fieldGroupBackground
+
+        anchors.fill: parent
+        visible: GroupColor ? true : false
+        color: GroupColor ? Qt.hsla(GroupColor.hslHue, GroupColor.hslSaturation, GroupColor.hslLightness, 0.05) : &quot;transparent&quot;
+      }
+
+      Rectangle {
+        id: fieldGroupTitle
+
+        width: parent.width
+        height: GroupName !== '' ? childrenRect.height : 0
+        color: GroupColor ? Qt.hsla(GroupColor.hslHue, GroupColor.hslSaturation, GroupColor.hslLightness, 0.5) : Theme.controlBorderColor
+
+        Rectangle {
+          width: 5
+          height: parent.height
+          anchors.top: parent.top
+          anchors.left: parent.left
+          color: GroupColor ? GroupColor : &quot;transparent&quot;
+        }
+
+        Text {
+          leftPadding: 10
+          rightPadding: 10
+          topPadding: 5
+          bottomPadding: 5
+          width: parent.width
+          font.pointSize: Theme.tipFont.pointSize
+          font.bold: true
+          color: Theme.mainTextColor
+          text: GroupName || ''
+          wrapMode: Text.WordWrap
+        }
+      }
+
+      Item {
+        id: fieldContent
+
+        anchors {
+          top: fieldGroupTitle.bottom
+          left: parent.left
+          right: parent.right
+        }
+
+        Loader {
+          property string containerName: Name || ''
+          property string containerCode: EditorWidgetCode || ''
+          property var containerGroupIndex: GroupIndex
+          property var labelOverrideColor: LabelOverrideColor
+          property var labelColor: LabelColor
+          property string itemType: Type
+
+          active: (Type === 'container' &amp;&amp; GroupIndex !== undefined &amp;&amp; GroupIndex.valid) || ((Type === 'text' || Type === 'html' || Type === 'qml' || Type === 'spacer') &amp;&amp; form.model.featureModel.modelMode != FeatureModel.MultiFeatureModel)
+          height: status == Loader.Ready ? item.childrenRect.height : 0
+          anchors {
+            left: parent.left
+            right: parent.right
+          }
+
+          sourceComponent: {
+            if (Type === 'container') {
+              if (GroupIndex !== undefined &amp;&amp; GroupIndex.valid) {
+                return innerContainer;
+              }
+            } else if (Type === 'qml') {
+              return qmlContainer;
+            } else if (Type === 'html') {
+              return htmlContainer;
+            } else if (Type === 'text') {
+              return textContainer;
+            } else if (Type === 'spacer') {
+              return spacerContainer;
+            }
+            return dummyContainer;
+          }
+        }
+
+        Item {
+          id: fieldContainer
+
+          property bool isVisible: (Type === 'field' &amp;&amp; EditorWidget !== &quot;Hidden&quot;) || Type === 'relation'
+
+          visible: isVisible
+          height: isVisible ? childrenRect.height : 0
+          anchors {
+            left: parent.left
+            right: parent.right
+            leftMargin: 12
+          }
+
+          Label {
+            id: fieldLabel
+            width: parent.width
+            height: Name !== '' ? undefined : topPadding + bottomPadding
+            text: Name || ''
+            wrapMode: Text.WordWrap
+            font.family: LabelOverrideFont ? LabelFont.family : Theme.tinyFont.family
+            font.pointSize: Theme.tinyFont.pointSize
+            font.bold: LabelOverrideFont ? LabelFont.bold : true
+            font.italic: LabelOverrideFont ? LabelFont.italic : false
+            font.underline: LabelOverrideFont ? LabelFont.underline : false
+            font.strikeout: LabelOverrideFont ? LabelFont.strikeout : false
+            topPadding: 10
+            bottomPadding: 5
+            opacity: !AttributeEditable &amp;&amp; form.state === &quot;Edit&quot; ? (LabelOverrideColor ? 0.5 : 1.0) : 1.0
+            color: LabelOverrideColor ? LabelColor : (!AttributeEditable &amp;&amp; form.state !== &quot;ReadOnly&quot; ? Theme.mainTextDisabledColor : Theme.mainTextColor)
+          }
+
+          Label {
+            id: constraintDescriptionLabel
+            anchors {
+              left: parent.left
+              right: parent.right
+              top: fieldLabel.bottom
+              rightMargin: 10
+            }
+
+            font.pointSize: fieldLabel.font.pointSize * 0.8
+            text: {
+              if (ConstraintHardValid &amp;&amp; ConstraintSoftValid)
+                return '';
+              return ConstraintDescription || '';
+            }
+            height: !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
+            visible: !ConstraintHardValid || !ConstraintSoftValid
+            opacity: fieldLabel.opacity
+            color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
+            wrapMode: Text.WordWrap
+          }
+
+          Item {
+            id: placeholder
+            height: attributeEditorLoader.childrenRect.height
+            anchors {
+              left: parent.left
+              right: fieldMenuButton.left
+              top: constraintDescriptionLabel.bottom
+              rightMargin: fieldMenuButton.visible ? 5 : 0
+            }
+
+            Loader {
+              id: attributeEditorLoader
+              objectName: &quot;attributeEditorLoader&quot; + Name
+
+              anchors {
+                left: parent.left
+                right: parent.right
+              }
+
+              //disable widget if it's:
+              // - not activated in multi edit mode
+              // - not set to editable in the widget configuration
+              // - not in edit mode (ReadOnly)
+              // - a relation in multi edit mode
+              property bool isAdding: form.state === 'Add'
+              property bool isEditing: form.state !== 'ReadOnly'
+              property bool isEnabled: !!AttributeEditable &amp;&amp; form.state !== 'ReadOnly' &amp;&amp; !(Type === 'relation' &amp;&amp; form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
+              property bool isEditable: !!AttributeEditable &amp;&amp; !(Type === 'relation' &amp;&amp; form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
+
+              property var value: AttributeValue
+              property var config: (EditorWidgetConfig || {})
+              property var widget: EditorWidget
+              property var relationEditorWidget: RelationEditorWidget
+              property var relationEditorWidgetConfig: RelationEditorWidgetConfig
+              property var field: Field
+              property var fieldLabel: Name
+              property var relationId: RelationId
+              property var nmRelationId: NmRelationId
+              property var constraintHardValid: ConstraintHardValid
+              property var constraintSoftValid: ConstraintSoftValid
+              property bool constraintsHardValid: form.model.constraintsHardValid
+              property bool constraintsSoftValid: form.model.constraintsSoftValid
+              property var currentFeature: form.model.featureModel.feature
+              property var currentLayer: form.model.featureModel.currentLayer
+              property bool autoSave: qfieldSettings.autoSave
+
+              active: widget !== undefined &amp;&amp; widget !== &quot;Hidden&quot;
+              source: {
+                if (widget === 'RelationEditor') {
+                  return 'editorwidgets/relationeditors/' + (RelationEditorWidget || 'relation_editor') + '.qml';
+                }
+                return 'editorwidgets/' + (widget || 'TextEdit') + '.qml';
+              }
+
+              onLoaded: {
+                item.isLoaded = true;
+              }
+
+              onStatusChanged: {
+                if (attributeEditorLoader.status === Loader.Error) {
+                  source = (widget === 'RelationEditor') ? 'editorwidgets/relationeditors/relation_editor.qml' : 'editorwidgets/TextEdit.qml';
+                }
+              }
+            }
+
+            Connections {
+              target: form
+
+              function onAboutToSave() {
+                // it may not be implemented
+                if (attributeEditorLoader.item &amp;&amp; attributeEditorLoader.item.pushChanges) {
+                  attributeEditorLoader.item.pushChanges(form.model.featureModel.feature);
+                }
+              }
+
+              function onValueChanged(field, oldValue, newValue) {
+                // it may not be implemented
+                if (attributeEditorLoader.item &amp;&amp; attributeEditorLoader.item.siblingValueChanged) {
+                  attributeEditorLoader.item.siblingValueChanged(field, form.model.featureModel.feature);
+                }
+              }
+            }
+
+            Connections {
+              target: attributeEditorLoader.item
+
+              function onValueChangeRequested(value, isNull) {
+                //do not compare AttributeValue and value with strict comparison operators
+                if ((AttributeValue != value || (AttributeValue !== undefined &amp;&amp; isNull)) &amp;&amp; !(AttributeValue === undefined &amp;&amp; isNull)) {
+                  let oldValue = AttributeValue;
+                  AttributeValue = isNull ? undefined : value;
+                  valueChanged(Field, oldValue, AttributeValue);
+                  if (!AttributeAllowEdit &amp;&amp; form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel) {
+                    AttributeAllowEdit = true;
+                  }
+                  if (qfieldSettings.autoSave &amp;&amp; !setupOnly &amp;&amp; !master.ignoreChanges) {
+                    // indirect action, no need to check for success and display a toast, the log is enough
+                    save();
+                  }
+                }
+              }
+              function onRequestGeometry(item, layer) {
+                form.digitizingToolbar.geometryRequested = true;
+                form.digitizingToolbar.geometryRequestedItem = item;
+                form.digitizingToolbar.geometryRequestedLayer = layer;
+              }
+
+              function onRequestBarcode(item) {
+                form.codeReader.barcodeRequestedItem = item;
+                form.codeReader.open();
+              }
+
+              function onRequestJumpToPoint(center, scale, handleMargins) {
+                form.requestJumpToPoint(center, scale, handleMargins);
+              }
+            }
+          }
+
+          QfToolButton {
+            id: fieldMenuButton
+            anchors {
+              right: rememberButton.left
+              top: constraintDescriptionLabel.bottom
+              rightMargin: 5
+            }
+
+            visible: attributeEditorLoader.isEnabled &amp;&amp; attributeEditorLoader.item &amp;&amp; attributeEditorLoader.item.hasMenu
+            enabled: visible
+            width: visible ? 48 : 0
+
+            iconSource: Theme.getThemeVectorIcon(&quot;ic_dot_menu_black_24dp&quot;)
+            iconColor: Theme.mainTextColor
+            bgcolor: &quot;transparent&quot;
+
+            onClicked: {
+              attributeEditorLoader.item.menu.popup(fieldMenuButton.x, fieldMenuButton.y);
+            }
+          }
+
+          QfToolButton {
+            id: rememberButton
+            visible: !!CanRememberValue &amp;&amp; form.state === &quot;Add&quot; &amp;&amp; EditorWidget !== &quot;Hidden&quot; &amp;&amp; EditorWidget !== 'RelationEditor'
+            width: visible ? 48 : 0
+
+            iconSource: Theme.getThemeVectorIcon(&quot;ic_pin_black_24dp&quot;)
+            iconColor: RememberValue ? Theme.mainColor : Theme.mainTextDisabledColor
+            bgcolor: &quot;transparent&quot;
+
+            anchors {
+              right: parent.right
+              top: constraintDescriptionLabel.bottom
+              verticalCenter: fieldMenuButton.verticalCenter
+              rightMargin: visible ? 0 : 10
+            }
+
+            onClicked: {
+              RememberValue = !RememberValue;
+              if (RememberValue) {
+                displayToast(qsTr(&quot;The last entered value for this field will be remembered and reused when creating new features&quot;));
+              } else {
+                displayToast(qsTr(&quot;The last entered value for this field will not be reused when creating new features&quot;));
+              }
+              projectInfo.saveLayerRememberedFields(form.model.featureModel.currentLayer);
+            }
+          }
+
+          Label {
+            id: multiEditAttributeLabel
+            text: (AttributeAllowEdit ? qsTr(&quot;Value applied&quot;) : qsTr(&quot;Value skipped&quot;)) + qsTr(&quot; (click to toggle)&quot;)
+            visible: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel &amp;&amp; Type !== 'relation'
+            height: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? undefined : 0
+            bottomPadding: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? 15 : 0
+            anchors {
+              left: parent.left
+              top: placeholder.bottom
+              rightMargin: 10
+            }
+            font: Theme.tipFont
+            color: AttributeAllowEdit ? Theme.mainColor : Theme.secondaryTextColor
+
+            MouseArea {
+              anchors.fill: parent
+              onClicked: {
+                AttributeAllowEdit = !AttributeAllowEdit;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function confirm() {
+    if (form.state === &quot;ReadOnly&quot;) {
+      return;
+    }
+
+    //if this is not handled before (e.g. when this is called because the drawer is closed by tipping on the map)
+    if (!model.constraintsHardValid) {
+      displayToast(qsTr('Hard constraints not satisfied'), 'error');
+      cancel();
+      return;
+    } else if (!model.constraintsSoftValid) {
+      displayToast(qsTr('Soft constraints were not satisified'));
+    }
+    parent.focus = true;
+    if (setupOnly) {
+      temporaryStored();
+      return;
+    }
+    if (!save()) {
+      featureCreated = false;
+      return;
+    }
+    state = 'Edit';
+    featureCreated = false;
+    confirmed();
+  }
+
+  function save() {
+    if (!model.constraintsHardValid) {
+      return false;
+    }
+    aboutToSave();
+    master.ignoreChanges = true;
+    let isSuccess = false;
+    let errorPushed = false;
+    if (form.state === 'Add' &amp;&amp; !featureCreated) {
+      if (!model.featureModel.featureAdditionLocked) {
+        isSuccess = model.create();
+        featureCreated = isSuccess;
+      } else {
+        isSuccess = false;
+        errorPushed = true;
+        displayToast(qsTr('Feature addition disabled'), 'warning');
+      }
+    } else {
+      isSuccess = model.save();
+    }
+    master.ignoreChanges = false;
+    if (!isSuccess &amp;&amp; !errorPushed) {
+      displayToast(qsTr('Unable to save changes'), 'error');
+    }
+    return isSuccess;
+  }
+
+  function cancel() {
+    if (form.state === 'Add' &amp;&amp; featureCreated) {
+      // indirect action, no need to check for success and display a toast, the log is enough
+      model.deleteFeature();
+    }
+    cancelled();
+    featureCreated = false;
+  }
+
+  Connections {
+    target: Qt.inputMethod
+
+    function onVisibleChanged() {
+      Qt.inputMethod.commit();
+    }
+  }
+
+  header: ToolBar {
+    id: toolbar
+
+    topPadding: 0
+    leftPadding: 0
+    rightPadding: 0
+    bottomPadding: 0
+
+    height: visible ? form.topMargin + 58 : 0
+    visible: form.state === 'Add'
+    objectName: &quot;toolbar&quot;
+    background: Rectangle {
+      color: &quot;transparent&quot;
+    }
+
+    Rectangle {
+      width: parent.width * 0.3
+      height: 5
+      radius: 10
+
+      anchors.horizontalCenter: parent.horizontalCenter
+      anchors.top: parent.top
+      anchors.topMargin: form.topMargin + 6
+
+      color: Theme.controlBorderColor
+      visible: isDraggable
+    }
+
+    RowLayout {
+      anchors.fill: parent
+      anchors.topMargin: form.topMargin + 10
+      anchors.leftMargin: form.leftMargin
+      anchors.rightMargin: form.rightMargin
+
+      QfToolButton {
+        id: saveButton
+
+        property bool isVisible: form.state === 'Add' || form.state === 'Edit'
+
+        Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+        visible: isVisible
+        width: 48
+        height: 48
+        clip: true
+
+        iconSource: Theme.getThemeVectorIcon(&quot;ic_check_white_24dp&quot;)
+        iconColor: (form.state === 'Add' &amp;&amp; model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
+        bgcolor: (form.state === 'Add' &amp;&amp; model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : model.hasConstraints ? Theme.goodColor : &quot;transparent&quot;
+        borderColor: Theme.mainBackgroundColor
+        roundborder: true
+        round: true
+
+        onClicked: {
+          if (model.constraintsHardValid) {
+            if (!model.constraintsSoftValid) {
+              displayToast(qsTr('Soft constraints were not satisified'));
+            }
+            confirm();
+          } else {
+            displayToast(qsTr('Hard constraints not satisfied'), 'error');
+          }
+        }
+      }
+
+      Text {
+        id: titleLabel
+
+        Layout.fillWidth: true
+        Layout.preferredHeight: parent.height
+        Layout.leftMargin: form.state === &quot;ReadOnly&quot; || (!setupOnly &amp;&amp; form.model.hasRemembrance) ? 48 : 0
+        Layout.rightMargin: !setupOnly ? 0 : 48
+        objectName: &quot;titleLabel&quot;
+
+        font: Theme.strongFont
+        color: Theme.mainTextColor
+
+        text: {
+          const featureModel = model.featureModel;
+          var currentLayer = featureModel ? featureModel.currentLayer : null;
+          var layerName = 'N/A';
+          if (currentLayer !== null)
+            layerName = currentLayer.name;
+          if (form.state === 'Add')
+            qsTr('Add feature on %1').arg(layerName);
+          else if (form.state === 'Edit')
+            qsTr('Edit feature on %1').arg(layerName);
+          else
+            qsTr('View feature on %1').arg(layerName);
+        }
+
+        fontSizeMode: Text.Fit
+        wrapMode: Text.Wrap
+        elide: Label.ElideRight
+        horizontalAlignment: Qt.AlignHCenter
+        verticalAlignment: Qt.AlignVCenter
+
+        DragHandler {
+          enabled: true
+          target: null
+          acceptedButtons: Qt.LeftButton
+          grabPermissions: PointerHandler.CanTakeOverFromAnything
+          dragThreshold: 5
+
+          property var oldPos
+
+          onActiveChanged: {
+            if (active) {
+              form.toolbarDragAcquired();
+              oldPos = centroid.scenePosition;
+            } else {
+              form.toolbarDragReleased();
+            }
+          }
+
+          onCentroidChanged: {
+            if (active) {
+              var dx = centroid.scenePosition.x - oldPos.x;
+              var dy = centroid.scenePosition.y - oldPos.y;
+              if (dx !== 0 || dy !== 0) {
+                form.toolbarDragged(dx, dy);
+                oldPos = centroid.scenePosition;
+              }
+            }
+          }
+        }
+      }
+
+      QfToolButton {
+        id: closeButton
+
+        property bool isVisible: !setupOnly
+
+        Layout.alignment: Qt.AlignTop | Qt.AlignRight
+        width: 48
+        height: 48
+        clip: true
+        visible: isVisible
+
+        iconSource: form.state === 'Add' ? Theme.getThemeVectorIcon('ic_delete_forever_white_24dp') : Theme.getThemeVectorIcon('ic_close_white_24dp')
+        iconColor: Theme.mainTextColor
+
+        onClicked: {
+          Qt.inputMethod.hide();
+          if ((form.state === 'Add' || form.state === 'Edit')) {
+            form.requestCancel();
+          } else {
+            cancel();
+          }
+        }
+      }
+
+      QfToolButton {
+        id: featureFormMenuButton
+
+        property bool isVisible: !setupOnly &amp;&amp; form.model.hasRemembrance
+
+        Layout.alignment: Qt.AlignTop | Qt.AlignRight
+
+        width: 48
+        height: 48
+        clip: true
+        visible: isVisible
+
+        iconSource: Theme.getThemeVectorIcon(&quot;ic_dot_menu_black_24dp&quot;)
+        iconColor: Theme.mainTextColor
+
+        onClicked: {
+          featureFormMenu.popup(featureFormMenuButton.x + featureFormMenuButton.width - featureFormMenuButton.width, featureFormMenuButton.y);
+        }
+      }
+    }
+  }
+
+  QfMenu {
+    id: featureFormMenu
+    title: qsTr(&quot;Feature Form Menu&quot;)
+
+    topMargin: mainWindow.sceneTopMargin
+    bottomMargin: mainWindow.sceneBottomMargin
+
+    MenuItem {
+      text: qsTr('Remember All Reusable Values')
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+
+      onTriggered: form.model.activateAllRememberValues()
+    }
+
+    MenuItem {
+      text: qsTr('Forget All Reusable Values')
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+
+      onTriggered: form.model.deactivateAllRememberValues()
+    }
+  }
+
+  QfDialog {
+    id: cancelDialog
+    parent: mainWindow.contentItem
+    z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
+    title: qsTr(&quot;Cancel editing&quot;)
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: form.state === 'Add' ? qsTr(&quot;You are about to dismiss the new feature, proceed?&quot;) : qsTr(&quot;You are about to leave editing state, any changes will be lost. Proceed?&quot;)
+    }
+    onAccepted: {
+      form.cancel();
+    }
+  }
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

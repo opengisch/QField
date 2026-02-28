@@ -1,0 +1,871 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File LayerTreeItemProperties.qml - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-layertreeitempropertiesqml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File LayerTreeItemProperties.qml
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-layertreeitempropertiesqml">File LayerTreeItemProperties.qml</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_1d81f7f4362e4398c0a695c4e466fcb0/"><strong>qml</strong></a> <strong>&gt;</strong> <a href="../LayerTreeItemProperties_8qml/"><strong>LayerTreeItemProperties.qml</strong></a></p>
+<p><a href="../LayerTreeItemProperties_8qml/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.qgis
+import org.qfield
+import Theme
+
+QfPopup {
+  id: popup
+
+  property var layerTree
+  property var index
+
+  property bool zoomToButtonVisible: false
+  property bool showFeaturesListButtonVisible: false
+  property bool showVisibleFeaturesListDropdownVisible: false
+  property bool reloadDataButtonVisible: false
+
+  property bool trackingButtonVisible: false
+  property var trackingButtonText
+
+  property bool opacitySliderVisible: false
+
+  parent: mainWindow.contentItem
+  width: Math.min(childrenRect.width, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
+  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  x: (mainWindow.width - width) / 2
+  y: (mainWindow.height - height) / 2
+  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+  focus: visible
+
+  onClosed: {
+    index = undefined;
+  }
+
+  onIndexChanged: {
+    if (index === undefined)
+      return;
+    updateTitle();
+    updateCredits();
+    itemVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.Visible);
+    itemLabelsVisibleCheckBox.checked = layerTree.data(index, FlatLayerTreeModel.LabelsVisible);
+    expandCheckBox.text = layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Group ? qsTr('Expand group') : qsTr('Expand legend item');
+    expandCheckBox.checked = !layerTree.data(index, FlatLayerTreeModel.IsCollapsed);
+    reloadDataButtonVisible = layerTree.data(index, FlatLayerTreeModel.CanReloadData);
+    zoomToButtonVisible = layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent);
+    showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
+    showVisibleFeaturesListDropdownVisible = isShowVisibleFeaturesListDropdownVisible();
+    trackingButtonVisible = isTrackingButtonVisible();
+    trackingButtonText = trackingModel.layerInActiveTracking(layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) ? qsTr('Stop tracking') : qsTr('Setup tracking');
+
+    // the layer tree model returns -1 for items that do not support the opacity setting
+    opacitySliderVisible = layerTree.data(index, FlatLayerTreeModel.Opacity) &gt; -1;
+  }
+
+  Page {
+    id: popupContent
+    width: parent.width
+    height: parent.height
+    padding: 0
+    header: RowLayout {
+      id: headerLayout
+      spacing: 2
+      Label {
+        id: titleLabel
+        Layout.fillWidth: true
+        Layout.leftMargin: reloadDataButtonVisible ? zoomInButton.width + headerLayout.spacing : 0
+        topPadding: 10
+        bottomPadding: 10
+        text: ''
+        font: Theme.strongFont
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WrapAnywhere
+      }
+      QfToolButton {
+        id: zoomInButton
+        Layout.alignment: Qt.AlignTop
+        Layout.rightMargin: 0
+        round: true
+        visible: reloadDataButtonVisible
+
+        bgcolor: &quot;transparent&quot;
+        iconSource: Theme.getThemeVectorIcon('refresh_24dp')
+        iconColor: Theme.mainTextColor
+
+        onClicked: {
+          layerTree.data(index, FlatLayerTreeModel.MapLayerPointer).reload();
+          close();
+          dashBoard.visible = false;
+          displayToast(qsTr('Reload of layer %1 triggered').arg(layerTree.data(index, Qt.DisplayName)));
+        }
+      }
+    }
+
+    ScrollView {
+      anchors.fill: parent
+      padding: 5
+      ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+      ScrollBar.vertical: QfScrollBar {}
+      contentWidth: popupLayout.childrenRect.width
+      contentHeight: popupLayout.childrenRect.height
+      clip: true
+
+      ColumnLayout {
+        id: popupLayout
+        width: popupContent.width - 10
+        spacing: 4
+
+        FontMetrics {
+          id: fontMetrics
+          font: lockText.font
+        }
+
+        Text {
+          id: invalidText
+          visible: index !== undefined &amp;&amp; !layerTree.data(index, FlatLayerTreeModel.IsValid)
+          Layout.fillWidth: true
+          bottomPadding: 15
+
+          wrapMode: Text.WordWrap
+          textFormat: Text.RichText
+          text: qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.')
+          font: Theme.tipFont
+          color: Theme.errorColor
+        }
+
+        CheckBox {
+          id: expandCheckBox
+          Layout.fillWidth: true
+          topPadding: 5
+          bottomPadding: 5
+          text: qsTr('Expand legend item')
+          font: Theme.defaultFont
+          visible: index &amp;&amp; layerTree.data(index, FlatLayerTreeModel.HasChildren) ? true : false
+
+          onClicked: {
+            layerTree.setData(index, checkState === Qt.Unchecked, FlatLayerTreeModel.IsCollapsed);
+            close();
+          }
+        }
+
+        CheckBox {
+          id: itemVisibleCheckBox
+          Layout.fillWidth: true
+          topPadding: 5
+          bottomPadding: 5
+          text: qsTr('Show on map')
+          font: Theme.defaultFont
+          // visible for all layer tree items but nonspatial layers
+          visible: index &amp;&amp; layerTree.data(index, FlatLayerTreeModel.Checkable) &amp;&amp; layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent) ? true : false
+          indicator.height: 16
+          indicator.width: 16
+          indicator.implicitHeight: 24
+          indicator.implicitWidth: 24
+
+          onClicked: {
+            layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.Visible);
+            flatLayerTree.mapTheme = '';
+            projectInfo.saveLayerTreeState();
+            close();
+          }
+        }
+
+        CheckBox {
+          id: itemLabelsVisibleCheckBox
+          Layout.fillWidth: true
+          topPadding: 5
+          bottomPadding: 5
+          text: qsTr('Show labels')
+          font: Theme.defaultFont
+          visible: index &amp;&amp; layerTree.data(index, FlatLayerTreeModel.HasLabels) ? true : false
+          indicator.height: 16
+          indicator.width: 16
+          indicator.implicitHeight: 24
+          indicator.implicitWidth: 24
+
+          onClicked: {
+            layerTree.setData(index, checkState === Qt.Checked, FlatLayerTreeModel.LabelsVisible);
+            projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer));
+            close();
+          }
+        }
+
+        RowLayout {
+          id: opacitySlider
+
+          Layout.fillWidth: true
+          Layout.topMargin: 4
+          Layout.bottomMargin: 4
+          spacing: 4
+          visible: opacitySliderVisible
+
+          QfToolButton {
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.preferredWidth: 24
+            Layout.leftMargin: 4
+            width: 24
+            height: 24
+            padding: 0
+            enabled: false
+            bgcolor: &quot;transparent&quot;
+
+            icon.source: Theme.getThemeVectorIcon(&quot;ic_opacity_black_24dp&quot;)
+            icon.color: Theme.mainTextColor
+          }
+
+          Text {
+            Layout.alignment: Qt.AlignVCenter
+            text: qsTr(&quot;Opacity&quot;)
+            font: Theme.defaultFont
+            color: Theme.mainTextColor
+          }
+
+          QfSlider {
+            id: slider
+            Layout.fillWidth: true
+            Layout.rightMargin: 5
+            Layout.alignment: Qt.AlignVCenter
+            value: index !== undefined ? layerTree.data(index, FlatLayerTreeModel.Opacity) * 100 : 0
+            from: 0
+            to: 100
+            stepSize: 1
+            suffixText: &quot; %&quot;
+            height: 40
+
+            onMoved: function () {
+              layerTree.setData(index, value / 100, FlatLayerTreeModel.Opacity);
+              projectInfo.saveLayerStyle(layerTree.data(index, FlatLayerTreeModel.MapLayerPointer));
+            }
+          }
+        }
+
+        QfButton {
+          id: zoomToButton
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          text: index ? layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Group ? qsTr('Zoom to group') : layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Legend &amp;&amp; layerTree.data(index, FlatLayerTreeModel.LayerType) === &quot;vectorlayer&quot; ? qsTr('Zoom to parent layer') : qsTr('Zoom to layer') : ''
+          visible: zoomToButtonVisible
+          icon.source: Theme.getThemeVectorIcon('zoom_out_map_24dp')
+
+          onClicked: {
+            mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings);
+            close();
+            dashBoard.visible = false;
+          }
+        }
+
+        QfButton {
+          id: showFeaturesList
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          dropdown: showVisibleFeaturesListDropdownVisible
+          text: qsTr('Show features list')
+          visible: showFeaturesListButtonVisible
+          icon.source: Theme.getThemeVectorIcon('ic_list_black_24dp')
+
+          onClicked: {
+            if (parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0) {
+              displayToast(qsTr(&quot;The layer has no features&quot;));
+            } else {
+              var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+              var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression);
+              featureListForm.model.setFeatures(vl, filter);
+              if (layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent)) {
+                mapCanvas.mapSettings.extent = layerTree.nodeExtent(index, mapCanvas.mapSettings);
+              }
+            }
+            close();
+            dashBoard.visible = false;
+          }
+
+          onDropdownClicked: {
+            showFeaturesMenu.popup(showFeaturesList.width - showFeaturesMenu.width + 10, showFeaturesList.y + 10);
+          }
+        }
+
+        QfButton {
+          id: trackingButton
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          text: trackingButtonText
+          visible: trackingButtonVisible
+          icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
+
+          onClicked: {
+            const layer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+            popup.close();
+            if (trackingModel.layerInActiveTracking(layer)) {
+              trackingModel.stopTracker(layer);
+              displayToast(qsTr('Tracking on layer %1 stopped').arg(layer.name));
+            } else {
+              trackerSettings.prepareSettings(layer);
+              trackerSettings.open();
+            }
+          }
+        }
+
+        Text {
+          id: lockText
+
+          property var padlockIcon: Theme.getThemeVectorIcon('ic_lock_black_24dp')
+          property real padlockSize: fontMetrics.height - 5
+
+          property bool isReadOnly: index !== undefined &amp;&amp; layerTree.data(index, FlatLayerTreeModel.ReadOnly)
+          property bool isFeatureAdditionLocked: index !== undefined &amp;&amp; layerTree.data(index, FlatLayerTreeModel.FeatureAdditionLocked)
+          property bool isAttributeEditingLocked: index !== undefined &amp;&amp; layerTree.data(index, FlatLayerTreeModel.AttributeEditingLocked)
+          property bool isGeometryEditingLocked: index !== undefined &amp;&amp; layerTree.data(index, FlatLayerTreeModel.GeometryEditingLocked)
+          property bool isFeatureDeletionLocked: index !== undefined &amp;&amp; layerTree.data(index, FlatLayerTreeModel.FeatureDeletionLocked)
+
+          visible: isReadOnly || isFeatureAdditionLocked || isAttributeEditingLocked || isGeometryEditingLocked || isFeatureDeletionLocked
+          Layout.fillWidth: true
+          topPadding: 5
+
+          wrapMode: Text.WordWrap
+          textFormat: Text.RichText
+          text: {
+            if (isReadOnly) {
+              return qsTr('Read-only layer');
+            } else if (isFeatureAdditionLocked || isAttributeEditingLocked || isGeometryEditingLocked || isFeatureDeletionLocked) {
+              let locks = [];
+              if (isFeatureAdditionLocked) {
+                locks.push(qsTr('feature addition'));
+              }
+              if (isAttributeEditingLocked) {
+                locks.push(qsTr('attribute editing'));
+              }
+              if (isGeometryEditingLocked) {
+                locks.push(qsTr('geometry editing'));
+              }
+              if (isFeatureDeletionLocked) {
+                locks.push(qsTr('feature deletion'));
+              }
+              return qsTr('Disabled layer permissions: %1').arg(locks.join(', '));
+            }
+            return '';
+          }
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+        }
+
+        Text {
+          id: creditsText
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          wrapMode: Text.WordWrap
+          textFormat: Text.RichText
+          text: ''
+          font.pointSize: Theme.tipFont.pointSize
+          font.italic: true
+          color: Theme.secondaryTextColor
+
+          onLinkActivated: link =&gt; {
+            Qt.openUrlExternally(link);
+          }
+        }
+      }
+    }
+  }
+
+  QfMenu {
+    id: showFeaturesMenu
+    title: qsTr(&quot;Show Features Menu&quot;)
+
+    MenuItem {
+      text: qsTr('Show visible features list')
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        if (parseInt(layerTree.data(index, FlatLayerTreeModel.FeatureCount)) === 0) {
+          displayToast(qsTr(&quot;The layer has no features&quot;));
+        } else {
+          var vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+          var filter = layerTree.data(index, FlatLayerTreeModel.FilterExpression);
+          featureListForm.model.setFeatures(vl, filter, mapCanvas.mapSettings.visibleExtent);
+        }
+        close();
+        dashBoard.visible = false;
+      }
+    }
+  }
+
+  Connections {
+    target: layerTree
+
+    function onDataChanged(topleft, bottomright, roles) {
+      if (index === undefined)
+        return;
+      if (roles.includes(FlatLayerTreeModel.FeatureCount)) {
+        updateTitle();
+      }
+    }
+  }
+
+  function updateTitle() {
+    if (index === undefined)
+      return;
+    const type = layerTree.data(index, FlatLayerTreeModel.Type);
+    const vl = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+    let title = layerTree.data(index, Qt.Name);
+    if (vl) {
+      if (type === FlatLayerTreeModel.Legend) {
+        title += ' (' + vl.name + ')';
+      } else if (type === FlatLayerTreeModel.Layer &amp;&amp; layerTree.data(index, FlatLayerTreeModel.IsValid)) {
+        var count = layerTree.data(index, FlatLayerTreeModel.FeatureCount);
+        if (count !== undefined &amp;&amp; count &gt;= 0) {
+          var countSuffix = ' [' + count + ']';
+          if (!title.endsWith(countSuffix))
+            title += countSuffix;
+        }
+      }
+    }
+    titleLabel.text = title !== undefined ? title : &quot;&quot;;
+  }
+
+  function updateCredits() {
+    var credits = '';
+    if (index !== undefined) {
+      credits = StringUtils.insertLinks(layerTree.data(index, FlatLayerTreeModel.Credits));
+    } else {
+      credits = '';
+    }
+    creditsText.text = credits;
+    creditsText.visible = credits !== '';
+  }
+
+  function isTrackingButtonVisible() {
+    if (!index)
+      return false;
+    return layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Layer &amp;&amp; !layerTree.data(index, FlatLayerTreeModel.ReadOnly) &amp;&amp; layerTree.data(index, FlatLayerTreeModel.Trackable);
+  }
+
+  function isShowFeaturesListButtonVisible() {
+    return layerTree.data(index, FlatLayerTreeModel.IsValid) &amp;&amp; layerTree.data(index, FlatLayerTreeModel.LayerType) === 'vectorlayer';
+  }
+
+  function isShowVisibleFeaturesListDropdownVisible() {
+    return isShowFeaturesListButtonVisible() &amp;&amp; layerTree.data(index, FlatLayerTreeModel.HasSpatialExtent);
+  }
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

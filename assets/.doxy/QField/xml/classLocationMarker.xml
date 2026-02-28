@@ -1,0 +1,467 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLocationMarker" kind="class" language="C++" prot="public">
+    <compoundname>LocationMarker</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classLocationMarker_1ad43b497be463486fc3694ed452cb0bb3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint LocationMarker::location</definition>
+        <argsstring></argsstring>
+        <name>location</name>
+        <qualifiedname>LocationMarker::location</qualifiedname>
+        <read>dummyGetter_location_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="13" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1a3ad6c75663236b8270bdd07252424ae1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        <definition>point LocationMarker::screenLocation</definition>
+        <argsstring></argsstring>
+        <name>screenLocation</name>
+        <qualifiedname>LocationMarker::screenLocation</qualifiedname>
+        <read>dummyGetter_screenLocation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="15" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1a0d00eb4a75131f007d131a3dc0f058b8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real LocationMarker::screenAccuracy</definition>
+        <argsstring></argsstring>
+        <name>screenAccuracy</name>
+        <qualifiedname>LocationMarker::screenAccuracy</qualifiedname>
+        <read>dummyGetter_screenAccuracy_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="17" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1a89da1b3205d6430e89c00a322c0c3b6f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LocationMarker::isOnMapCanvas</definition>
+        <argsstring></argsstring>
+        <name>isOnMapCanvas</name>
+        <qualifiedname>LocationMarker::isOnMapCanvas</qualifiedname>
+        <read>dummyGetter_isOnMapCanvas_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="20" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1aac0dbc5d9da229685d4bc9fcd8e2b468" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LocationMarker::bubbleVisible</definition>
+        <argsstring></argsstring>
+        <name>bubbleVisible</name>
+        <qualifiedname>LocationMarker::bubbleVisible</qualifiedname>
+        <read>dummyGetter_bubbleVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="22" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1a31a9bc8efa446c897f82bcc635b4e35b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string LocationMarker::bubbleText</definition>
+        <argsstring></argsstring>
+        <name>bubbleText</name>
+        <qualifiedname>LocationMarker::bubbleText</qualifiedname>
+        <read>dummyGetter_bubbleText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="24" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1a7440da897b188be87abf527235ee76e9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color LocationMarker::bubbleTextColor</definition>
+        <argsstring></argsstring>
+        <name>bubbleTextColor</name>
+        <qualifiedname>LocationMarker::bubbleTextColor</qualifiedname>
+        <read>dummyGetter_bubbleTextColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="26" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1a4a996718c14bbb718d57bfd6c6c66e84" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color LocationMarker::bubbleColor</definition>
+        <argsstring></argsstring>
+        <name>bubbleColor</name>
+        <qualifiedname>LocationMarker::bubbleColor</qualifiedname>
+        <read>dummyGetter_bubbleColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="28" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1abf44a042f6cd8f7821de8aec4dd64958" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var LocationMarker::bubbleAction</definition>
+        <argsstring></argsstring>
+        <name>bubbleAction</name>
+        <qualifiedname>LocationMarker::bubbleAction</qualifiedname>
+        <read>dummyGetter_bubbleAction_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="30" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1aa9fb02a324dbbd69254824c95a8e6af6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real LocationMarker::accuracy</definition>
+        <argsstring></argsstring>
+        <name>accuracy</name>
+        <qualifiedname>LocationMarker::accuracy</qualifiedname>
+        <read>dummyGetter_accuracy_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="32" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1ab79d463d988890a76be733b3f66d0409" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real LocationMarker::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <qualifiedname>LocationMarker::direction</qualifiedname>
+        <read>dummyGetter_direction_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="34" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1a4f2c2fb04bf6b19baaf96d081771ad9e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real LocationMarker::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <qualifiedname>LocationMarker::speed</qualifiedname>
+        <read>dummyGetter_speed_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="36" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1a5d0fe17dfb118ce09e497618aa5092fd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real LocationMarker::orientation</definition>
+        <argsstring></argsstring>
+        <name>orientation</name>
+        <qualifiedname>LocationMarker::orientation</qualifiedname>
+        <read>dummyGetter_orientation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="38" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1aa2737e1ab6366a434dddea0ceb891cd5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color LocationMarker::strokeColor</definition>
+        <argsstring></argsstring>
+        <name>strokeColor</name>
+        <qualifiedname>LocationMarker::strokeColor</qualifiedname>
+        <read>dummyGetter_strokeColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="40" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1a9a1743edb48ea217905e3adfcd272d9e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color LocationMarker::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>LocationMarker::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="42" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1a83cb19dea2af7ce0471e78260d8f25bb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color LocationMarker::semiOpaqueColor</definition>
+        <argsstring></argsstring>
+        <name>semiOpaqueColor</name>
+        <qualifiedname>LocationMarker::semiOpaqueColor</qualifiedname>
+        <read>dummyGetter_semiOpaqueColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="44" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocationMarker_1a4266af4a685814b9bdf730796d491056" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings LocationMarker::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>LocationMarker::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="46" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLocationMarker_1ad199c6d365ce8cc90eac594468c1eaa4" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle LocationMarker::accuracyMarker</definition>
+        <argsstring></argsstring>
+        <name>accuracyMarker</name>
+        <qualifiedname>LocationMarker::accuracyMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="50" column="11" bodyfile="src/qml/LocationMarker.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocationMarker_1a30afe360a277b56f95e007b8bc621263" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item LocationMarker::compassDirectionMarker</definition>
+        <argsstring></argsstring>
+        <name>compassDirectionMarker</name>
+        <qualifiedname>LocationMarker::compassDirectionMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="51" column="6" bodyfile="src/qml/LocationMarker.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocationMarker_1ad03570dc7988c9d3459aea6aac3d7fdf" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item LocationMarker::locationMarkerBubbleMessage</definition>
+        <argsstring></argsstring>
+        <name>locationMarkerBubbleMessage</name>
+        <qualifiedname>LocationMarker::locationMarkerBubbleMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="52" column="6" bodyfile="src/qml/LocationMarker.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocationMarker_1acc86514b93828a71dee1e88dd7f41f49" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape LocationMarker::pointerToLocationMarker</definition>
+        <argsstring></argsstring>
+        <name>pointerToLocationMarker</name>
+        <qualifiedname>LocationMarker::pointerToLocationMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="53" column="7" bodyfile="src/qml/LocationMarker.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocationMarker_1a1cfad53dff0ff1a932725df83b64121c" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text LocationMarker::bubbleMessage</definition>
+        <argsstring></argsstring>
+        <name>bubbleMessage</name>
+        <qualifiedname>LocationMarker::bubbleMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="54" column="6" bodyfile="src/qml/LocationMarker.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocationMarker_1ac9720f56d17214aa2cc51816e0454521" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape LocationMarker::movementMarker</definition>
+        <argsstring></argsstring>
+        <name>movementMarker</name>
+        <qualifiedname>LocationMarker::movementMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="55" column="7" bodyfile="src/qml/LocationMarker.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocationMarker_1ae6d4f9d24cf61ad02a884c863ad9c8ff" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle LocationMarker::positionMarker</definition>
+        <argsstring></argsstring>
+        <name>positionMarker</name>
+        <qualifiedname>LocationMarker::positionMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="56" column="11" bodyfile="src/qml/LocationMarker.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocationMarker_1ab090f7acccd20bbc1611a7d1c873445b" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape LocationMarker::edgeMarker</definition>
+        <argsstring></argsstring>
+        <name>edgeMarker</name>
+        <qualifiedname>LocationMarker::edgeMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="57" column="7" bodyfile="src/qml/LocationMarker.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocationMarker_1a32a11539221daa3e424ffab3b4b6342e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LocationMarker::onLocationChanged</definition>
+        <argsstring></argsstring>
+        <name>onLocationChanged</name>
+        <qualifiedname>LocationMarker::onLocationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="58" column="5" bodyfile="src/qml/LocationMarker.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLocationMarker_1a2ce185bb6cfac40558d32bbd26456c81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LocationMarker::updateScreenLocation</definition>
+        <argsstring>()</argsstring>
+        <name>updateScreenLocation</name>
+        <qualifiedname>LocationMarker::updateScreenLocation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocationMarker.qml" line="48" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LocationMarker</label>
+        <link refid="classLocationMarker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LocationMarker</label>
+        <link refid="classLocationMarker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/LocationMarker.qml" line="10" column="1" bodyfile="src/qml/LocationMarker.qml" bodystart="10" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classLocationMarker_1aa9fb02a324dbbd69254824c95a8e6af6" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>accuracy</name></member>
+      <member refid="classLocationMarker_1ad199c6d365ce8cc90eac594468c1eaa4" prot="private" virt="non-virtual"><scope>LocationMarker</scope><name>accuracyMarker</name></member>
+      <member refid="classLocationMarker_1abf44a042f6cd8f7821de8aec4dd64958" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>bubbleAction</name></member>
+      <member refid="classLocationMarker_1a4a996718c14bbb718d57bfd6c6c66e84" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>bubbleColor</name></member>
+      <member refid="classLocationMarker_1a1cfad53dff0ff1a932725df83b64121c" prot="private" virt="non-virtual"><scope>LocationMarker</scope><name>bubbleMessage</name></member>
+      <member refid="classLocationMarker_1a31a9bc8efa446c897f82bcc635b4e35b" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>bubbleText</name></member>
+      <member refid="classLocationMarker_1a7440da897b188be87abf527235ee76e9" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>bubbleTextColor</name></member>
+      <member refid="classLocationMarker_1aac0dbc5d9da229685d4bc9fcd8e2b468" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>bubbleVisible</name></member>
+      <member refid="classLocationMarker_1a9a1743edb48ea217905e3adfcd272d9e" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>color</name></member>
+      <member refid="classLocationMarker_1a30afe360a277b56f95e007b8bc621263" prot="private" virt="non-virtual"><scope>LocationMarker</scope><name>compassDirectionMarker</name></member>
+      <member refid="classLocationMarker_1ab79d463d988890a76be733b3f66d0409" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>direction</name></member>
+      <member refid="classLocationMarker_1ab090f7acccd20bbc1611a7d1c873445b" prot="private" virt="non-virtual"><scope>LocationMarker</scope><name>edgeMarker</name></member>
+      <member refid="classLocationMarker_1a89da1b3205d6430e89c00a322c0c3b6f" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>isOnMapCanvas</name></member>
+      <member refid="classLocationMarker_1ad43b497be463486fc3694ed452cb0bb3" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>location</name></member>
+      <member refid="classLocationMarker_1ad03570dc7988c9d3459aea6aac3d7fdf" prot="private" virt="non-virtual"><scope>LocationMarker</scope><name>locationMarkerBubbleMessage</name></member>
+      <member refid="classLocationMarker_1a4266af4a685814b9bdf730796d491056" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>mapSettings</name></member>
+      <member refid="classLocationMarker_1ac9720f56d17214aa2cc51816e0454521" prot="private" virt="non-virtual"><scope>LocationMarker</scope><name>movementMarker</name></member>
+      <member refid="classLocationMarker_1a32a11539221daa3e424ffab3b4b6342e" prot="private" virt="non-virtual"><scope>LocationMarker</scope><name>onLocationChanged</name></member>
+      <member refid="classLocationMarker_1a5d0fe17dfb118ce09e497618aa5092fd" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>orientation</name></member>
+      <member refid="classLocationMarker_1acc86514b93828a71dee1e88dd7f41f49" prot="private" virt="non-virtual"><scope>LocationMarker</scope><name>pointerToLocationMarker</name></member>
+      <member refid="classLocationMarker_1ae6d4f9d24cf61ad02a884c863ad9c8ff" prot="private" virt="non-virtual"><scope>LocationMarker</scope><name>positionMarker</name></member>
+      <member refid="classLocationMarker_1a0d00eb4a75131f007d131a3dc0f058b8" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>screenAccuracy</name></member>
+      <member refid="classLocationMarker_1a3ad6c75663236b8270bdd07252424ae1" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>screenLocation</name></member>
+      <member refid="classLocationMarker_1a83cb19dea2af7ce0471e78260d8f25bb" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>semiOpaqueColor</name></member>
+      <member refid="classLocationMarker_1a4f2c2fb04bf6b19baaf96d081771ad9e" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>speed</name></member>
+      <member refid="classLocationMarker_1aa2737e1ab6366a434dddea0ceb891cd5" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>strokeColor</name></member>
+      <member refid="classLocationMarker_1a2ce185bb6cfac40558d32bbd26456c81" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>updateScreenLocation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

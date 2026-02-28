@@ -1,0 +1,2868 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classqgismobileapp" kind="class" language="C++" prot="public">
+    <compoundname>qgismobileapp</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ApplicationWindow</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classqgismobileapp_1a5548cb4e3d0f601596b92a12cbe12a01" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var qgismobileapp::objectName</definition>
+        <argsstring></argsstring>
+        <name>objectName</name>
+        <qualifiedname>qgismobileapp::objectName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="38" column="5" bodyfile="src/qml/qgismobileapp.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a343e7cf7a7efce6f2ecc6423533f2d8b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var qgismobileapp::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>qgismobileapp::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="39" column="5" bodyfile="src/qml/qgismobileapp.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a0067756d1046c813d32c1ef625b561ed" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var qgismobileapp::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <qualifiedname>qgismobileapp::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="40" column="5" bodyfile="src/qml/qgismobileapp.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ab7dbc3e80174d8d23bfa1d42b8acaacf" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var qgismobileapp::topPadding</definition>
+        <argsstring></argsstring>
+        <name>topPadding</name>
+        <qualifiedname>qgismobileapp::topPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="41" column="5" bodyfile="src/qml/qgismobileapp.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a092f158548cdfe39e66b4dc0bf64d0ec" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var qgismobileapp::bottomPadding</definition>
+        <argsstring></argsstring>
+        <name>bottomPadding</name>
+        <qualifiedname>qgismobileapp::bottomPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="42" column="5" bodyfile="src/qml/qgismobileapp.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a8b2966bef78c51202c9f2888d3c0c08f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var qgismobileapp::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>qgismobileapp::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="43" column="5" bodyfile="src/qml/qgismobileapp.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ade78c9f424689232f1a76164cfd95601" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var qgismobileapp::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>qgismobileapp::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="44" column="5" bodyfile="src/qml/qgismobileapp.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a72e04550ef7f59249b7fee04923967dc" prot="private" static="no" mutable="no">
+        <type>var Material</type>
+        <definition>var Material qgismobileapp::theme</definition>
+        <argsstring></argsstring>
+        <name>theme</name>
+        <qualifiedname>qgismobileapp::theme</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="45" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a423247c4f5ed19d2deb5d7bd59959a8b" prot="private" static="no" mutable="no">
+        <type>var Material</type>
+        <definition>var Material qgismobileapp::accent</definition>
+        <argsstring></argsstring>
+        <name>accent</name>
+        <qualifiedname>qgismobileapp::accent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="46" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a0c749e520bab1725da4ac17e3ec2f379" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var qgismobileapp::onSceneLoadedChanged</definition>
+        <argsstring></argsstring>
+        <name>onSceneLoadedChanged</name>
+        <qualifiedname>qgismobileapp::onSceneLoadedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="61" column="5" bodyfile="src/qml/qgismobileapp.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aa836d054b420c89324e8100de62e8e58" prot="private" static="no" mutable="no">
+        <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref></type>
+        <definition>LocatorModelSuperBridge qgismobileapp::locatorBridge</definition>
+        <argsstring></argsstring>
+        <name>locatorBridge</name>
+        <qualifiedname>qgismobileapp::locatorBridge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="62" column="25" bodyfile="src/qml/qgismobileapp.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a9718bf6bfe255cd3991308e70a6ee517" prot="private" static="no" mutable="no">
+        <type><ref refid="classFocusStack" kindref="compound">FocusStack</ref></type>
+        <definition>FocusStack qgismobileapp::focusstack</definition>
+        <argsstring></argsstring>
+        <name>focusstack</name>
+        <qualifiedname>qgismobileapp::focusstack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="63" column="12" bodyfile="src/qml/qgismobileapp.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1abdd014cc5050775a3766bfc8488403d5" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item qgismobileapp::keyHandler</definition>
+        <argsstring></argsstring>
+        <name>keyHandler</name>
+        <qualifiedname>qgismobileapp::keyHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="65" column="6" bodyfile="src/qml/qgismobileapp.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a7b35554abb3cf8f9cf3621e767ddd224" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item qgismobileapp::stateMachine</definition>
+        <argsstring></argsstring>
+        <name>stateMachine</name>
+        <qualifiedname>qgismobileapp::stateMachine</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="82" column="6" bodyfile="src/qml/qgismobileapp.qml" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ae30e4ea835f7693473f5f25ccb9a0f17" prot="private" static="no" mutable="no">
+        <type><ref refid="classPositioning" kindref="compound">Positioning</ref></type>
+        <definition>Positioning qgismobileapp::positionSource</definition>
+        <argsstring></argsstring>
+        <name>positionSource</name>
+        <qualifiedname>qgismobileapp::positionSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The position source to access GNSS devices </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="86" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1afbdbb9c403df70ca70474c51df1c23da" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer qgismobileapp::replayTimer</definition>
+        <argsstring></argsstring>
+        <name>replayTimer</name>
+        <qualifiedname>qgismobileapp::replayTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="87" column="7" bodyfile="src/qml/qgismobileapp.qml" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a7150619cb84f9863e97738b721567293" prot="private" static="no" mutable="no">
+        <type><ref refid="classPositioningSettings" kindref="compound">PositioningSettings</ref></type>
+        <definition>PositioningSettings qgismobileapp::positioningSettings</definition>
+        <argsstring></argsstring>
+        <name>positioningSettings</name>
+        <qualifiedname>qgismobileapp::positioningSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="88" column="21" bodyfile="src/qml/qgismobileapp.qml" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1afec9733037db22c46a1d231644cca550" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer qgismobileapp::positionTimer</definition>
+        <argsstring></argsstring>
+        <name>positionTimer</name>
+        <qualifiedname>qgismobileapp::positionTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="89" column="7" bodyfile="src/qml/qgismobileapp.qml" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a5beb72b150e1d4b1b2043c48065f881c" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item qgismobileapp::mapCanvas</definition>
+        <argsstring></argsstring>
+        <name>mapCanvas</name>
+        <qualifiedname>qgismobileapp::mapCanvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="90" column="6" bodyfile="src/qml/qgismobileapp.qml" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a1aca1bd0385f87fedc1ad1aadbcbeef1" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler qgismobileapp::freehandHandler</definition>
+        <argsstring></argsstring>
+        <name>freehandHandler</name>
+        <qualifiedname>qgismobileapp::freehandHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="91" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ae76fdebc6a05b835e01d95c012ca99fb" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler qgismobileapp::rotateDragHandler</definition>
+        <argsstring></argsstring>
+        <name>rotateDragHandler</name>
+        <qualifiedname>qgismobileapp::rotateDragHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="92" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a6191e399cabbc51b8d3cb91a9cb6a8d0" prot="private" static="no" mutable="no">
+        <type>HoverHandler</type>
+        <definition>HoverHandler qgismobileapp::hoverHandler</definition>
+        <argsstring></argsstring>
+        <name>hoverHandler</name>
+        <qualifiedname>qgismobileapp::hoverHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="93" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a55666cd013d0f5af36cdd89d7c4ce267" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer qgismobileapp::dummyHoverTimer</definition>
+        <argsstring></argsstring>
+        <name>dummyHoverTimer</name>
+        <qualifiedname>qgismobileapp::dummyHoverTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="103" column="7" bodyfile="src/qml/qgismobileapp.qml" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aa6b4b995eebe8d87d136e2e6d7a86b93" prot="private" static="no" mutable="no">
+        <type>HoverHandler</type>
+        <definition>HoverHandler qgismobileapp::dummyHoverHandler</definition>
+        <argsstring></argsstring>
+        <name>dummyHoverHandler</name>
+        <qualifiedname>qgismobileapp::dummyHoverHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="104" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a181d2537a4d1318e3f1ad81faa6ac9ba" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle qgismobileapp::mapCanvasBackground</definition>
+        <argsstring></argsstring>
+        <name>mapCanvasBackground</name>
+        <qualifiedname>qgismobileapp::mapCanvasBackground</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="105" column="11" bodyfile="src/qml/qgismobileapp.qml" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a04a505a470fe23f77d0de90d11f95fd3" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader qgismobileapp::mapCanvas3DLoader</definition>
+        <argsstring></argsstring>
+        <name>mapCanvas3DLoader</name>
+        <qualifiedname>qgismobileapp::mapCanvas3DLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="106" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aae82b7e4ca596dca0ac504ba8cce4ca8" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle qgismobileapp::loadingOverlay</definition>
+        <argsstring></argsstring>
+        <name>loadingOverlay</name>
+        <qualifiedname>qgismobileapp::loadingOverlay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="107" column="11" bodyfile="src/qml/qgismobileapp.qml" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a2066a3e646392b739af6ec8601d165e0" prot="private" static="no" mutable="no">
+        <type><ref refid="classMapCanvas" kindref="compound">MapCanvas</ref></type>
+        <definition>MapCanvas qgismobileapp::mapCanvasMap</definition>
+        <argsstring></argsstring>
+        <name>mapCanvasMap</name>
+        <qualifiedname>qgismobileapp::mapCanvasMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="109" column="11" bodyfile="src/qml/qgismobileapp.qml" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a36f1907526e470a656bbac6c69f0edf6" prot="private" static="no" mutable="no">
+        <type><ref refid="classGridRenderer" kindref="compound">GridRenderer</ref></type>
+        <definition>GridRenderer qgismobileapp::gridDecoration</definition>
+        <argsstring></argsstring>
+        <name>gridDecoration</name>
+        <qualifiedname>qgismobileapp::gridDecoration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="110" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a820b0d43ca3dc028a1cb5ac83803cc9a" prot="private" static="no" mutable="no">
+        <type><ref refid="classMapCanvasPointHandler" kindref="compound">MapCanvasPointHandler</ref></type>
+        <definition>MapCanvasPointHandler qgismobileapp::pointHandler</definition>
+        <argsstring></argsstring>
+        <name>pointHandler</name>
+        <qualifiedname>qgismobileapp::pointHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="111" column="23" bodyfile="src/qml/qgismobileapp.qml" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a294c81f5989692896b7a384154a334d0" prot="private" static="no" mutable="no">
+        <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref></type>
+        <definition>MultiFeatureListModel qgismobileapp::menuFeatureListModel</definition>
+        <argsstring></argsstring>
+        <name>menuFeatureListModel</name>
+        <qualifiedname>qgismobileapp::menuFeatureListModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="113" column="23" bodyfile="src/qml/qgismobileapp.qml" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ab006784353ef703fa166ebbacd359559" prot="private" static="no" mutable="no">
+        <type><ref refid="classIdentifyTool" kindref="compound">IdentifyTool</ref></type>
+        <definition>IdentifyTool qgismobileapp::identifyTool</definition>
+        <argsstring></argsstring>
+        <name>identifyTool</name>
+        <qualifiedname>qgismobileapp::identifyTool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The identify tool </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="115" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a43c4b0fb4f3ae66676273e355057f49d" prot="private" static="no" mutable="no">
+        <type><ref refid="classMeasuringTool" kindref="compound">MeasuringTool</ref></type>
+        <definition>MeasuringTool qgismobileapp::measuringTool</definition>
+        <argsstring></argsstring>
+        <name>measuringTool</name>
+        <qualifiedname>qgismobileapp::measuringTool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A rubberband for measuring </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="117" column="15" bodyfile="src/qml/qgismobileapp.qml" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ac27fae9eda21bd5516d1c9e99598cf26" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater qgismobileapp::trackings</definition>
+        <argsstring></argsstring>
+        <name>trackings</name>
+        <qualifiedname>qgismobileapp::trackings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tracking sessions </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="119" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1adb53f1622c4cef3258d10018b2fdaecc" prot="private" static="no" mutable="no">
+        <type><ref refid="classCogoOperationPreview" kindref="compound">CogoOperationPreview</ref></type>
+        <definition>CogoOperationPreview qgismobileapp::cogoOperationPreview</definition>
+        <argsstring></argsstring>
+        <name>cogoOperationPreview</name>
+        <qualifiedname>qgismobileapp::cogoOperationPreview</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>COGO operation visual guides </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="121" column="22" bodyfile="src/qml/qgismobileapp.qml" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ab2e49583c93e96f87a3303659625326e" prot="private" static="no" mutable="no">
+        <type><ref refid="classRubberband" kindref="compound">Rubberband</ref></type>
+        <definition>Rubberband qgismobileapp::digitizingRubberband</definition>
+        <argsstring></argsstring>
+        <name>digitizingRubberband</name>
+        <qualifiedname>qgismobileapp::digitizingRubberband</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A rubberband for ditizing </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="123" column="12" bodyfile="src/qml/qgismobileapp.qml" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ac14d7a1d367e0ed4a7cf87dddc35d4ff" prot="private" static="no" mutable="no">
+        <type><ref refid="classGeometryRenderer" kindref="compound">GeometryRenderer</ref></type>
+        <definition>GeometryRenderer qgismobileapp::geometryEditorRenderer</definition>
+        <argsstring></argsstring>
+        <name>geometryEditorRenderer</name>
+        <qualifiedname>qgismobileapp::geometryEditorRenderer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="124" column="18" bodyfile="src/qml/qgismobileapp.qml" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ac068b1d75a327d4dd64eccda0d0605ab" prot="private" static="no" mutable="no">
+        <type><ref refid="classRubberband" kindref="compound">Rubberband</ref></type>
+        <definition>Rubberband qgismobileapp::geometryEditorsRubberband</definition>
+        <argsstring></argsstring>
+        <name>geometryEditorsRubberband</name>
+        <qualifiedname>qgismobileapp::geometryEditorsRubberband</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A rubberband for the different geometry editors </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="126" column="12" bodyfile="src/qml/qgismobileapp.qml" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ab74ae15e8b98715f1aa8a24cdb96acfb" prot="private" static="no" mutable="no">
+        <type><ref refid="classBookmarkHighlight" kindref="compound">BookmarkHighlight</ref></type>
+        <definition>BookmarkHighlight qgismobileapp::bookmarkHighlight</definition>
+        <argsstring></argsstring>
+        <name>bookmarkHighlight</name>
+        <qualifiedname>qgismobileapp::bookmarkHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="127" column="19" bodyfile="src/qml/qgismobileapp.qml" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a232aed19b7340e12c6e2e67de344c9b3" prot="private" static="no" mutable="no">
+        <type><ref refid="classNavigation" kindref="compound">Navigation</ref></type>
+        <definition>Navigation qgismobileapp::navigation</definition>
+        <argsstring></argsstring>
+        <name>navigation</name>
+        <qualifiedname>qgismobileapp::navigation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="128" column="12" bodyfile="src/qml/qgismobileapp.qml" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a75ae9d44333e2f33eb028d183715c1f3" prot="private" static="no" mutable="no">
+        <type><ref refid="classNavigationHighlight" kindref="compound">NavigationHighlight</ref></type>
+        <definition>NavigationHighlight qgismobileapp::navigationHighlight</definition>
+        <argsstring></argsstring>
+        <name>navigationHighlight</name>
+        <qualifiedname>qgismobileapp::navigationHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="129" column="21" bodyfile="src/qml/qgismobileapp.qml" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a47d91475fc3700add8397a74b1618cf6" prot="private" static="no" mutable="no">
+        <type><ref refid="classLinePolygon" kindref="compound">LinePolygon</ref></type>
+        <definition>LinePolygon qgismobileapp::elevationProfileHighlight</definition>
+        <argsstring></argsstring>
+        <name>elevationProfileHighlight</name>
+        <qualifiedname>qgismobileapp::elevationProfileHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="130" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a99e041f7736a3e0b0de763882e5a979b" prot="private" static="no" mutable="no">
+        <type><ref refid="classCoordinateLocator" kindref="compound">CoordinateLocator</ref></type>
+        <definition>CoordinateLocator qgismobileapp::coordinateLocator</definition>
+        <argsstring></argsstring>
+        <name>coordinateLocator</name>
+        <qualifiedname>qgismobileapp::coordinateLocator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A coordinate locator for digitizing </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="132" column="19" bodyfile="src/qml/qgismobileapp.qml" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aaf370c1f3444c4e4818b3bf57177f62d" prot="private" static="no" mutable="no">
+        <type><ref refid="classLocationMarker" kindref="compound">LocationMarker</ref></type>
+        <definition>LocationMarker qgismobileapp::locationMarker</definition>
+        <argsstring></argsstring>
+        <name>locationMarker</name>
+        <qualifiedname>qgismobileapp::locationMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="134" column="16" bodyfile="src/qml/qgismobileapp.qml" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a99b106575e6b6f7419e444455189d2a4" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButtonPie" kindref="compound">QfToolButtonPie</ref></type>
+        <definition>QfToolButtonPie qgismobileapp::actionsPieMenu</definition>
+        <argsstring></argsstring>
+        <name>actionsPieMenu</name>
+        <qualifiedname>qgismobileapp::actionsPieMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="135" column="17" bodyfile="src/qml/qgismobileapp.qml" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ab68b3bb3cffaed2d789e9ff7c7c1bb78" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::gnssCursorLockButton</definition>
+        <argsstring></argsstring>
+        <name>gnssCursorLockButton</name>
+        <qualifiedname>qgismobileapp::gnssCursorLockButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="136" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aea3fc012b2c746598a7e37eb801d2e31" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::gnssCanvasLockButton</definition>
+        <argsstring></argsstring>
+        <name>gnssCanvasLockButton</name>
+        <qualifiedname>qgismobileapp::gnssCanvasLockButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="137" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a119cda630bde2e8164f74a47a71bf6cc" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::addBookmarkAtCurrentLocationButton</definition>
+        <argsstring></argsstring>
+        <name>addBookmarkAtCurrentLocationButton</name>
+        <qualifiedname>qgismobileapp::addBookmarkAtCurrentLocationButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="138" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1af587971cce3e3e67121bf7a0e04a9c65" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::copyCurrentLocationButton</definition>
+        <argsstring></argsstring>
+        <name>copyCurrentLocationButton</name>
+        <qualifiedname>qgismobileapp::copyCurrentLocationButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="139" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a857f0dbc64006dc2de0469ef259a399a" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::showGnssInformation</definition>
+        <argsstring></argsstring>
+        <name>showGnssInformation</name>
+        <qualifiedname>qgismobileapp::showGnssInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="140" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1af4a67287dc3aa2570ee2e92485af5bad" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::trackingButton</definition>
+        <argsstring></argsstring>
+        <name>trackingButton</name>
+        <qualifiedname>qgismobileapp::trackingButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="141" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a5d6638d1258b3c4b1607e605cb748747" prot="private" static="no" mutable="no">
+        <type><ref refid="classRubberband" kindref="compound">Rubberband</ref></type>
+        <definition>Rubberband qgismobileapp::editingRubberband</definition>
+        <argsstring></argsstring>
+        <name>editingRubberband</name>
+        <qualifiedname>qgismobileapp::editingRubberband</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="143" column="12" bodyfile="src/qml/qgismobileapp.qml" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ae3a9bbf2c1e4219297673e9dc839b2b4" prot="private" static="no" mutable="no">
+        <type><ref refid="classVertexRubberband" kindref="compound">VertexRubberband</ref></type>
+        <definition>VertexRubberband qgismobileapp::vertexRubberband</definition>
+        <argsstring></argsstring>
+        <name>vertexRubberband</name>
+        <qualifiedname>qgismobileapp::vertexRubberband</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="145" column="18" bodyfile="src/qml/qgismobileapp.qml" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a64903fb616e258ee18834a838969674a" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureListSelectionHighlight" kindref="compound">FeatureListSelectionHighlight</ref></type>
+        <definition>FeatureListSelectionHighlight qgismobileapp::featureListHighlight</definition>
+        <argsstring></argsstring>
+        <name>featureListHighlight</name>
+        <qualifiedname>qgismobileapp::featureListHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="147" column="31" bodyfile="src/qml/qgismobileapp.qml" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a7640f9bde06f6cb3d36e691bd7c14610" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureListSelectionHighlight" kindref="compound">FeatureListSelectionHighlight</ref></type>
+        <definition>FeatureListSelectionHighlight qgismobileapp::moveAndRotateFeaturesHighlight</definition>
+        <argsstring></argsstring>
+        <name>moveAndRotateFeaturesHighlight</name>
+        <qualifiedname>qgismobileapp::moveAndRotateFeaturesHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="149" column="31" bodyfile="src/qml/qgismobileapp.qml" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a9acd4eebbc5d5c0e42b3e77c8d449b2a" prot="private" static="no" mutable="no">
+        <type><ref refid="classGeometryHighlighter" kindref="compound">GeometryHighlighter</ref></type>
+        <definition>GeometryHighlighter qgismobileapp::geometryHighlighter</definition>
+        <argsstring></argsstring>
+        <name>geometryHighlighter</name>
+        <qualifiedname>qgismobileapp::geometryHighlighter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="151" column="21" bodyfile="src/qml/qgismobileapp.qml" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a3e2e54a77e0d7dcd1d1fa42ddd13b42f" prot="private" static="no" mutable="no">
+        <type><ref refid="classMapToScreen" kindref="compound">MapToScreen</ref></type>
+        <definition>MapToScreen qgismobileapp::mapToScreenTranslateX</definition>
+        <argsstring></argsstring>
+        <name>mapToScreenTranslateX</name>
+        <qualifiedname>qgismobileapp::mapToScreenTranslateX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="152" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1adffebb6040d03fd53183bb57b4beae25" prot="private" static="no" mutable="no">
+        <type><ref refid="classMapToScreen" kindref="compound">MapToScreen</ref></type>
+        <definition>MapToScreen qgismobileapp::mapToScreenTranslateY</definition>
+        <argsstring></argsstring>
+        <name>mapToScreenTranslateY</name>
+        <qualifiedname>qgismobileapp::mapToScreenTranslateY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="153" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a5e4f8792dae57da10707653e482b8b33" prot="private" static="no" mutable="no">
+        <type><ref refid="classProcessingAlgorithmPreview" kindref="compound">ProcessingAlgorithmPreview</ref></type>
+        <definition>ProcessingAlgorithmPreview qgismobileapp::processingAlgorithmPreview</definition>
+        <argsstring></argsstring>
+        <name>processingAlgorithmPreview</name>
+        <qualifiedname>qgismobileapp::processingAlgorithmPreview</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="154" column="28" bodyfile="src/qml/qgismobileapp.qml" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a3bbcb43ddf12e9c6ab6d9fa2f79dba95" prot="private" static="no" mutable="no">
+        <type><ref refid="classGeofencer" kindref="compound">Geofencer</ref></type>
+        <definition>Geofencer qgismobileapp::geofencer</definition>
+        <argsstring></argsstring>
+        <name>geofencer</name>
+        <qualifiedname>qgismobileapp::geofencer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="155" column="11" bodyfile="src/qml/qgismobileapp.qml" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a0a1dcfd3bf455ddb3a358c758b51eb78" prot="private" static="no" mutable="no">
+        <type>MultiEffect</type>
+        <definition>MultiEffect qgismobileapp::geofencerFeedback</definition>
+        <argsstring></argsstring>
+        <name>geofencerFeedback</name>
+        <qualifiedname>qgismobileapp::geofencerFeedback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="156" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a475b3d9d352d0327fee20aeefaf5107c" prot="private" static="no" mutable="no">
+        <type>SequentialAnimation</type>
+        <definition>SequentialAnimation qgismobileapp::geofencerFeedbackAnimation</definition>
+        <argsstring></argsstring>
+        <name>geofencerFeedbackAnimation</name>
+        <qualifiedname>qgismobileapp::geofencerFeedbackAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="157" column="21" bodyfile="src/qml/qgismobileapp.qml" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a6e8d445b009e9f6f72b8a815da5f7fe8" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle qgismobileapp::geofencerFeedbackSource</definition>
+        <argsstring></argsstring>
+        <name>geofencerFeedbackSource</name>
+        <qualifiedname>qgismobileapp::geofencerFeedbackSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="158" column="11" bodyfile="src/qml/qgismobileapp.qml" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a63b73dbb9d1eb85c15dfb3285af4710d" prot="private" static="no" mutable="no">
+        <type><ref refid="classInformationDrawer" kindref="compound">InformationDrawer</ref></type>
+        <definition>InformationDrawer qgismobileapp::informationDrawer</definition>
+        <argsstring></argsstring>
+        <name>informationDrawer</name>
+        <qualifiedname>qgismobileapp::informationDrawer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="159" column="19" bodyfile="src/qml/qgismobileapp.qml" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a4ac5aa5fe98860d0493e1de55a557737" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item qgismobileapp::mapCanvasOverlays</definition>
+        <argsstring></argsstring>
+        <name>mapCanvasOverlays</name>
+        <qualifiedname>qgismobileapp::mapCanvasOverlays</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="166" column="6" bodyfile="src/qml/qgismobileapp.qml" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ae3be5c28b6cb8005f8c06d69b1821734" prot="private" static="no" mutable="no">
+        <type><ref refid="classExpressionEvaluator" kindref="compound">ExpressionEvaluator</ref></type>
+        <definition>ExpressionEvaluator qgismobileapp::decorationExpressionEvaluator</definition>
+        <argsstring></argsstring>
+        <name>decorationExpressionEvaluator</name>
+        <qualifiedname>qgismobileapp::decorationExpressionEvaluator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="167" column="21" bodyfile="src/qml/qgismobileapp.qml" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a0d4fc1f8c9b856a8c31be085b7ea31ba" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle qgismobileapp::titleDecorationBackground</definition>
+        <argsstring></argsstring>
+        <name>titleDecorationBackground</name>
+        <qualifiedname>qgismobileapp::titleDecorationBackground</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="168" column="11" bodyfile="src/qml/qgismobileapp.qml" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1af40debbbf9f99b8e556eab1779f11862" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text qgismobileapp::titleDecoration</definition>
+        <argsstring></argsstring>
+        <name>titleDecoration</name>
+        <qualifiedname>qgismobileapp::titleDecoration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="169" column="6" bodyfile="src/qml/qgismobileapp.qml" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1abc87c0f80c25947433f09a32b0e1296f" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle qgismobileapp::copyrightDecorationBackground</definition>
+        <argsstring></argsstring>
+        <name>copyrightDecorationBackground</name>
+        <qualifiedname>qgismobileapp::copyrightDecorationBackground</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="170" column="11" bodyfile="src/qml/qgismobileapp.qml" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a4cb90c7af0468fec0ad62b12ab82ff87" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text qgismobileapp::copyrightDecoration</definition>
+        <argsstring></argsstring>
+        <name>copyrightDecoration</name>
+        <qualifiedname>qgismobileapp::copyrightDecoration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="171" column="6" bodyfile="src/qml/qgismobileapp.qml" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a37c59d889a5ddc6689b68ab2fd8dc2b7" prot="private" static="no" mutable="no">
+        <type><ref refid="classParametizedImage" kindref="compound">ParametizedImage</ref></type>
+        <definition>ParametizedImage qgismobileapp::imageDecoration</definition>
+        <argsstring></argsstring>
+        <name>imageDecoration</name>
+        <qualifiedname>qgismobileapp::imageDecoration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="172" column="18" bodyfile="src/qml/qgismobileapp.qml" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aa0c526cabb85cefc653fbb47c565bb0e" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text qgismobileapp::coordinateLocatorInformationOverlay</definition>
+        <argsstring></argsstring>
+        <name>coordinateLocatorInformationOverlay</name>
+        <qualifiedname>qgismobileapp::coordinateLocatorInformationOverlay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="173" column="6" bodyfile="src/qml/qgismobileapp.qml" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a079879f8b35b2521abddf4faa8fe98b9" prot="private" static="no" mutable="no">
+        <type><ref refid="classDistanceArea" kindref="compound">DistanceArea</ref></type>
+        <definition>DistanceArea qgismobileapp::digitizingGeometryMeasure</definition>
+        <argsstring></argsstring>
+        <name>digitizingGeometryMeasure</name>
+        <qualifiedname>qgismobileapp::digitizingGeometryMeasure</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="174" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1acd0efeaf3a0357cf36901c1dac130acd" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::compassArrow</definition>
+        <argsstring></argsstring>
+        <name>compassArrow</name>
+        <qualifiedname>qgismobileapp::compassArrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="175" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ab9f045004d305dfd6547dc65608a37cc" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column qgismobileapp::pluginsToolbar</definition>
+        <argsstring></argsstring>
+        <name>pluginsToolbar</name>
+        <qualifiedname>qgismobileapp::pluginsToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="176" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1abd4a0977f9408d10e900c4594b5bb9a5" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column qgismobileapp::zoomToolbar</definition>
+        <argsstring></argsstring>
+        <name>zoomToolbar</name>
+        <qualifiedname>qgismobileapp::zoomToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="177" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a924280fada9772493ec4c3be9c3aecce" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::zoomInButton</definition>
+        <argsstring></argsstring>
+        <name>zoomInButton</name>
+        <qualifiedname>qgismobileapp::zoomInButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="178" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1af69c44de314e76282a510cf512ea3006" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::zoomOutButton</definition>
+        <argsstring></argsstring>
+        <name>zoomOutButton</name>
+        <qualifiedname>qgismobileapp::zoomOutButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="179" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ad7a3527a2a1625b781defb25f0cc156a" prot="private" static="no" mutable="no">
+        <type><ref refid="classLocatorItem" kindref="compound">LocatorItem</ref></type>
+        <definition>LocatorItem qgismobileapp::locatorItem</definition>
+        <argsstring></argsstring>
+        <name>locatorItem</name>
+        <qualifiedname>qgismobileapp::locatorItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="180" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1af68b83f0eaf37ad195445210766a14ae" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row qgismobileapp::mainMenuBar</definition>
+        <argsstring></argsstring>
+        <name>mainMenuBar</name>
+        <qualifiedname>qgismobileapp::mainMenuBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="182" column="5" bodyfile="src/qml/qgismobileapp.qml" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a9c471c2f6f15393113a71fefc1020f38" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::menuButton</definition>
+        <argsstring></argsstring>
+        <name>menuButton</name>
+        <qualifiedname>qgismobileapp::menuButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="183" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a069da7edda6e4f51f9a81e684a0b6fba" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfActionButton" kindref="compound">QfActionButton</ref></type>
+        <definition>QfActionButton qgismobileapp::closeMeasureTool</definition>
+        <argsstring></argsstring>
+        <name>closeMeasureTool</name>
+        <qualifiedname>qgismobileapp::closeMeasureTool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="184" column="16" bodyfile="src/qml/qgismobileapp.qml" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a01a97c80907e9073777634801fbb8cae" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfActionButton" kindref="compound">QfActionButton</ref></type>
+        <definition>QfActionButton qgismobileapp::close3DView</definition>
+        <argsstring></argsstring>
+        <name>close3DView</name>
+        <qualifiedname>qgismobileapp::close3DView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="185" column="16" bodyfile="src/qml/qgismobileapp.qml" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1abbe0b0471aba86f141b8b36bf42edfe3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfActionButton" kindref="compound">QfActionButton</ref></type>
+        <definition>QfActionButton qgismobileapp::closeGeometryEditorsTool</definition>
+        <argsstring></argsstring>
+        <name>closeGeometryEditorsTool</name>
+        <qualifiedname>qgismobileapp::closeGeometryEditorsTool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="186" column="16" bodyfile="src/qml/qgismobileapp.qml" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ac1363b804bd8bf4f40bd6c23e201a5c3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfActionButton" kindref="compound">QfActionButton</ref></type>
+        <definition>QfActionButton qgismobileapp::abortRequestGeometry</definition>
+        <argsstring></argsstring>
+        <name>abortRequestGeometry</name>
+        <qualifiedname>qgismobileapp::abortRequestGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="187" column="16" bodyfile="src/qml/qgismobileapp.qml" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a7590d2503a7a719a034288b3ef3511c0" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column qgismobileapp::mainToolbar</definition>
+        <argsstring></argsstring>
+        <name>mainToolbar</name>
+        <qualifiedname>qgismobileapp::mainToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="188" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1af4dc6b76d33fafb7a34d46f1174028ee" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::cogoButton</definition>
+        <argsstring></argsstring>
+        <name>cogoButton</name>
+        <qualifiedname>qgismobileapp::cogoButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="189" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ae430411234ee45bc0bfe96679f2622da" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::snappingButton</definition>
+        <argsstring></argsstring>
+        <name>snappingButton</name>
+        <qualifiedname>qgismobileapp::snappingButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="190" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a27c32584b3a4c02eea18fd1f0c97f14b" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::topologyButton</definition>
+        <argsstring></argsstring>
+        <name>topologyButton</name>
+        <qualifiedname>qgismobileapp::topologyButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="191" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a331f3f6f40d999eb36fb5dcf676fa083" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::freehandButton</definition>
+        <argsstring></argsstring>
+        <name>freehandButton</name>
+        <qualifiedname>qgismobileapp::freehandButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="192" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ab9854a6f12a92a918bf2b0aadb323622" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::snapToCommonAngleButton</definition>
+        <argsstring></argsstring>
+        <name>snapToCommonAngleButton</name>
+        <qualifiedname>qgismobileapp::snapToCommonAngleButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="193" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a8fc9499862e77ddb8f00d0115bd52004" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::elevationProfileButton</definition>
+        <argsstring></argsstring>
+        <name>elevationProfileButton</name>
+        <qualifiedname>qgismobileapp::elevationProfileButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="194" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a3da5f8ff280961bcaa4edf44a7f1fb84" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator qgismobileapp::busyIndicator</definition>
+        <argsstring></argsstring>
+        <name>busyIndicator</name>
+        <qualifiedname>qgismobileapp::busyIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="195" column="15" bodyfile="src/qml/qgismobileapp.qml" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1abc676091c062767fa0ab1e2543dbd306" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column qgismobileapp::locationToolbar</definition>
+        <argsstring></argsstring>
+        <name>locationToolbar</name>
+        <qualifiedname>qgismobileapp::locationToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="196" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1acac0ec009ff5560f9540b81211fb69a5" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::navigationButton</definition>
+        <argsstring></argsstring>
+        <name>navigationButton</name>
+        <qualifiedname>qgismobileapp::navigationButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="197" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a04bd5eff7d0039c1c7dec556d40a2971" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton qgismobileapp::gnssButton</definition>
+        <argsstring></argsstring>
+        <name>gnssButton</name>
+        <qualifiedname>qgismobileapp::gnssButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="198" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a7ed98233bbf58495852db91c1070a0be" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column qgismobileapp::digitizingToolbarContainer</definition>
+        <argsstring></argsstring>
+        <name>digitizingToolbarContainer</name>
+        <qualifiedname>qgismobileapp::digitizingToolbarContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="199" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ae8195a8ee5d9008893064e008c00ff07" prot="private" static="no" mutable="no">
+        <type><ref refid="classDigitizingToolbar" kindref="compound">DigitizingToolbar</ref></type>
+        <definition>DigitizingToolbar qgismobileapp::digitizingToolbar</definition>
+        <argsstring></argsstring>
+        <name>digitizingToolbar</name>
+        <qualifiedname>qgismobileapp::digitizingToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="200" column="19" bodyfile="src/qml/qgismobileapp.qml" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a9e646fd3392f173f79fad1d23e58f462" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref></type>
+        <definition>FeatureModel qgismobileapp::digitizingFeature</definition>
+        <argsstring></argsstring>
+        <name>digitizingFeature</name>
+        <qualifiedname>qgismobileapp::digitizingFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="201" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a74c5e3d3a11713aa3cf7697ef5d1aef9" prot="private" static="no" mutable="no">
+        <type><ref refid="classGeometryEditorsToolbar" kindref="compound">GeometryEditorsToolbar</ref></type>
+        <definition>GeometryEditorsToolbar qgismobileapp::geometryEditorsToolbar</definition>
+        <argsstring></argsstring>
+        <name>geometryEditorsToolbar</name>
+        <qualifiedname>qgismobileapp::geometryEditorsToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="202" column="24" bodyfile="src/qml/qgismobileapp.qml" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a4009b6ae2fac6dad20b237c494ca4804" prot="private" static="no" mutable="no">
+        <type><ref refid="classConfirmationToolbar" kindref="compound">ConfirmationToolbar</ref></type>
+        <definition>ConfirmationToolbar qgismobileapp::moveFeaturesToolbar</definition>
+        <argsstring></argsstring>
+        <name>moveFeaturesToolbar</name>
+        <qualifiedname>qgismobileapp::moveFeaturesToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="203" column="21" bodyfile="src/qml/qgismobileapp.qml" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ac7456afecedae61d3c310b281c6553bb" prot="private" static="no" mutable="no">
+        <type><ref refid="classConfirmationToolbar" kindref="compound">ConfirmationToolbar</ref></type>
+        <definition>ConfirmationToolbar qgismobileapp::rotateFeaturesToolbar</definition>
+        <argsstring></argsstring>
+        <name>rotateFeaturesToolbar</name>
+        <qualifiedname>qgismobileapp::rotateFeaturesToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="204" column="21" bodyfile="src/qml/qgismobileapp.qml" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a591c943bd74cf4ff0e9219750edca1a8" prot="private" static="no" mutable="no">
+        <type><ref refid="classLocatorSettings" kindref="compound">LocatorSettings</ref></type>
+        <definition>LocatorSettings qgismobileapp::locatorSettings</definition>
+        <argsstring></argsstring>
+        <name>locatorSettings</name>
+        <qualifiedname>qgismobileapp::locatorSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="205" column="17" bodyfile="src/qml/qgismobileapp.qml" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a5cd030fe3a21d0f72ed483ef2d590721" prot="private" static="no" mutable="no">
+        <type><ref refid="classPluginManagerSettings" kindref="compound">PluginManagerSettings</ref></type>
+        <definition>PluginManagerSettings qgismobileapp::pluginManagerSettings</definition>
+        <argsstring></argsstring>
+        <name>pluginManagerSettings</name>
+        <qualifiedname>qgismobileapp::pluginManagerSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="206" column="23" bodyfile="src/qml/qgismobileapp.qml" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ad71d36be141fe50b7e5f63dff5e44a36" prot="private" static="no" mutable="no">
+        <type><ref refid="classDashBoard" kindref="compound">DashBoard</ref></type>
+        <definition>DashBoard qgismobileapp::dashBoard</definition>
+        <argsstring></argsstring>
+        <name>dashBoard</name>
+        <qualifiedname>qgismobileapp::dashBoard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="207" column="11" bodyfile="src/qml/qgismobileapp.qml" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a1c3567e445dcb578be60de38d1c654a5" prot="private" static="no" mutable="no">
+        <type><ref refid="classBookmarkProperties" kindref="compound">BookmarkProperties</ref></type>
+        <definition>BookmarkProperties qgismobileapp::bookmarkProperties</definition>
+        <argsstring></argsstring>
+        <name>bookmarkProperties</name>
+        <qualifiedname>qgismobileapp::bookmarkProperties</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="208" column="20" bodyfile="src/qml/qgismobileapp.qml" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a211a9e16d6afdab70ab11c0057bf9b10" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu qgismobileapp::mainMenu</definition>
+        <argsstring></argsstring>
+        <name>mainMenu</name>
+        <qualifiedname>qgismobileapp::mainMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="209" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aaeb39abe898bf41a69ef24b6de563816" prot="private" static="no" mutable="no">
+        <type>TextMetrics</type>
+        <definition>TextMetrics qgismobileapp::undoRedoMetrics</definition>
+        <argsstring></argsstring>
+        <name>undoRedoMetrics</name>
+        <qualifiedname>qgismobileapp::undoRedoMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="210" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a8661f7a1dc4708fd60b9bd253f0ce72d" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem qgismobileapp::undoButton</definition>
+        <argsstring></argsstring>
+        <name>undoButton</name>
+        <qualifiedname>qgismobileapp::undoButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="211" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a5c139893fd3ec16f3db7d4f9b66b09e5" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem qgismobileapp::redoButton</definition>
+        <argsstring></argsstring>
+        <name>redoButton</name>
+        <qualifiedname>qgismobileapp::redoButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="212" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ae9e1a30e7102412555bad70a11f31a55" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem qgismobileapp::sensorItem</definition>
+        <argsstring></argsstring>
+        <name>sensorItem</name>
+        <qualifiedname>qgismobileapp::sensorItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="213" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1affec9c9b03d76f19b7f03b668fc65738" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu qgismobileapp::sensorMenu</definition>
+        <argsstring></argsstring>
+        <name>sensorMenu</name>
+        <qualifiedname>qgismobileapp::sensorMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="214" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a6fa56f5e24dc2f3ad8f72eaae4323441" prot="private" static="no" mutable="no">
+        <type>Instantiator</type>
+        <definition>Instantiator qgismobileapp::sensorListInstantiator</definition>
+        <argsstring></argsstring>
+        <name>sensorListInstantiator</name>
+        <qualifiedname>qgismobileapp::sensorListInstantiator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="215" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a7bf26b68436378867082c7e0ca2efcb3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu qgismobileapp::printMenu</definition>
+        <argsstring></argsstring>
+        <name>printMenu</name>
+        <qualifiedname>qgismobileapp::printMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="216" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a5666691dbe15ce9de661f1172150c621" prot="private" static="no" mutable="no">
+        <type>Instantiator</type>
+        <definition>Instantiator qgismobileapp::layoutListInstantiator</definition>
+        <argsstring></argsstring>
+        <name>layoutListInstantiator</name>
+        <qualifiedname>qgismobileapp::layoutListInstantiator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="217" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aa3bc659d58fe9e44a95f4922b252da4e" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer qgismobileapp::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <qualifiedname>qgismobileapp::timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="218" column="7" bodyfile="src/qml/qgismobileapp.qml" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ab7eeb0339a754d170cd94052a8e0705b" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu qgismobileapp::canvasMenu</definition>
+        <argsstring></argsstring>
+        <name>canvasMenu</name>
+        <qualifiedname>qgismobileapp::canvasMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="219" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a0287f5c04b8ceaf2b3384aadd57aa1b1" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row qgismobileapp::canvasMenuActionsToolbar</definition>
+        <argsstring></argsstring>
+        <name>canvasMenuActionsToolbar</name>
+        <qualifiedname>qgismobileapp::canvasMenuActionsToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="220" column="5" bodyfile="src/qml/qgismobileapp.qml" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aa48e34ee00a2c761ddd46928cf0e64d4" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem qgismobileapp::cordinateItem</definition>
+        <argsstring></argsstring>
+        <name>cordinateItem</name>
+        <qualifiedname>qgismobileapp::cordinateItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="221" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a7e34c9cfbc952fbbf968ca14e28905a0" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem qgismobileapp::addBookmarkItem</definition>
+        <argsstring></argsstring>
+        <name>addBookmarkItem</name>
+        <qualifiedname>qgismobileapp::addBookmarkItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="222" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a6ead8db0eac42a0a28848f64cf5de0b8" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem qgismobileapp::setDestinationItem</definition>
+        <argsstring></argsstring>
+        <name>setDestinationItem</name>
+        <qualifiedname>qgismobileapp::setDestinationItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="223" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a294b4c040f9fb4455f4a4a71cb3d7dde" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem qgismobileapp::lockMapRotation</definition>
+        <argsstring></argsstring>
+        <name>lockMapRotation</name>
+        <qualifiedname>qgismobileapp::lockMapRotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="224" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a0296c53043e22de60b64860606502432" prot="private" static="no" mutable="no">
+        <type>Instantiator</type>
+        <definition>Instantiator qgismobileapp::canvasMenuFeatureListInstantiator</definition>
+        <argsstring></argsstring>
+        <name>canvasMenuFeatureListInstantiator</name>
+        <qualifiedname>qgismobileapp::canvasMenuFeatureListInstantiator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="225" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a956670f0d316930e67cb52ace3693de4" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu qgismobileapp::featureMenu</definition>
+        <argsstring></argsstring>
+        <name>featureMenu</name>
+        <qualifiedname>qgismobileapp::featureMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="226" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a3ebfe0539bad334df786b1275fb7427c" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu qgismobileapp::pasteIntoLayers</definition>
+        <argsstring></argsstring>
+        <name>pasteIntoLayers</name>
+        <qualifiedname>qgismobileapp::pasteIntoLayers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="227" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a1afcdbfc29077bf35360d2eccfd83c17" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu qgismobileapp::navigationMenu</definition>
+        <argsstring></argsstring>
+        <name>navigationMenu</name>
+        <qualifiedname>qgismobileapp::navigationMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="228" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aca63eab375332ba41d3cd212f00e826d" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem qgismobileapp::preciseViewItem</definition>
+        <argsstring></argsstring>
+        <name>preciseViewItem</name>
+        <qualifiedname>qgismobileapp::preciseViewItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="229" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aa6e1e2494e921dcf51fcf1ad15cd3143" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem qgismobileapp::cancelNavigationItem</definition>
+        <argsstring></argsstring>
+        <name>cancelNavigationItem</name>
+        <qualifiedname>qgismobileapp::cancelNavigationItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="230" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a0594a4829234fb1813031c7e5a7fc891" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu qgismobileapp::preciseViewMenu</definition>
+        <argsstring></argsstring>
+        <name>preciseViewMenu</name>
+        <qualifiedname>qgismobileapp::preciseViewMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="231" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a6cca8a19cf23ab571fc0004fb26bb106" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu qgismobileapp::gnssMenu</definition>
+        <argsstring></argsstring>
+        <name>gnssMenu</name>
+        <qualifiedname>qgismobileapp::gnssMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="232" column="8" bodyfile="src/qml/qgismobileapp.qml" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a55274dc3e78430a32bc4da2b1ffe8787" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem qgismobileapp::positioningDeviceName</definition>
+        <argsstring></argsstring>
+        <name>positioningDeviceName</name>
+        <qualifiedname>qgismobileapp::positioningDeviceName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="233" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a53aab94d168cce0a225046eaef11b444" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem qgismobileapp::positioningItem</definition>
+        <argsstring></argsstring>
+        <name>positioningItem</name>
+        <qualifiedname>qgismobileapp::positioningItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="234" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a5c94396678aefc756bbbe6487de42ebd" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureListForm" kindref="compound">FeatureListForm</ref></type>
+        <definition>FeatureListForm qgismobileapp::featureListForm</definition>
+        <argsstring></argsstring>
+        <name>featureListForm</name>
+        <qualifiedname>qgismobileapp::featureListForm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="236" column="17" bodyfile="src/qml/qgismobileapp.qml" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ae78def18fbb29021ab813ca672645402" prot="private" static="no" mutable="no">
+        <type><ref refid="classOverlayFeatureFormDrawer" kindref="compound">OverlayFeatureFormDrawer</ref></type>
+        <definition>OverlayFeatureFormDrawer qgismobileapp::overlayFeatureFormDrawer</definition>
+        <argsstring></argsstring>
+        <name>overlayFeatureFormDrawer</name>
+        <qualifiedname>qgismobileapp::overlayFeatureFormDrawer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="237" column="26" bodyfile="src/qml/qgismobileapp.qml" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ad151df016c6eaaa415797772641c8d50" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer qgismobileapp::readProjectTimer</definition>
+        <argsstring></argsstring>
+        <name>readProjectTimer</name>
+        <qualifiedname>qgismobileapp::readProjectTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="238" column="7" bodyfile="src/qml/qgismobileapp.qml" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a62d9cd9bcda6b98ff5b6b984834bc622" prot="private" static="no" mutable="no">
+        <type><ref refid="classProjectInfo" kindref="compound">ProjectInfo</ref></type>
+        <definition>ProjectInfo qgismobileapp::projectInfo</definition>
+        <argsstring></argsstring>
+        <name>projectInfo</name>
+        <qualifiedname>qgismobileapp::projectInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="239" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1af8b6db05682d7d07468d7de6ae873406" prot="private" static="no" mutable="no">
+        <type><ref refid="classMessageLog" kindref="compound">MessageLog</ref></type>
+        <definition>MessageLog qgismobileapp::messageLog</definition>
+        <argsstring></argsstring>
+        <name>messageLog</name>
+        <qualifiedname>qgismobileapp::messageLog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="240" column="12" bodyfile="src/qml/qgismobileapp.qml" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a0863b5007777b26dde6f416eb9bf06ae" prot="private" static="no" mutable="no">
+        <type><ref refid="classBadLayerItem" kindref="compound">BadLayerItem</ref></type>
+        <definition>BadLayerItem qgismobileapp::badLayersView</definition>
+        <argsstring></argsstring>
+        <name>badLayersView</name>
+        <qualifiedname>qgismobileapp::badLayersView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="241" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1af488649e65d5f95ac2ede46208ceff89" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item qgismobileapp::layerLogin</definition>
+        <argsstring></argsstring>
+        <name>layerLogin</name>
+        <qualifiedname>qgismobileapp::layerLogin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="242" column="6" bodyfile="src/qml/qgismobileapp.qml" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aec10488aa021b69b54174f591703dd5d" prot="private" static="no" mutable="no">
+        <type><ref refid="classBrowserPanel" kindref="compound">BrowserPanel</ref></type>
+        <definition>BrowserPanel qgismobileapp::browserPopup</definition>
+        <argsstring></argsstring>
+        <name>browserPopup</name>
+        <qualifiedname>qgismobileapp::browserPopup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="243" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a788442d33331547d6be7f5060f4c59a4" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfPopup" kindref="compound">QfPopup</ref></type>
+        <definition>QfPopup qgismobileapp::loginDialogPopup</definition>
+        <argsstring></argsstring>
+        <name>loginDialogPopup</name>
+        <qualifiedname>qgismobileapp::loginDialogPopup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="244" column="9" bodyfile="src/qml/qgismobileapp.qml" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a0362ef69ac414f69ca3ab911a668dc57" prot="private" static="no" mutable="no">
+        <type><ref refid="classLayerLoginDialog" kindref="compound">LayerLoginDialog</ref></type>
+        <definition>LayerLoginDialog qgismobileapp::loginDialog</definition>
+        <argsstring></argsstring>
+        <name>loginDialog</name>
+        <qualifiedname>qgismobileapp::loginDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="245" column="18" bodyfile="src/qml/qgismobileapp.qml" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a117c3a76c5c7a6cb142b55bd521515b5" prot="private" static="no" mutable="no">
+        <type><ref refid="classAbout" kindref="compound">About</ref></type>
+        <definition>About qgismobileapp::aboutDialog</definition>
+        <argsstring></argsstring>
+        <name>aboutDialog</name>
+        <qualifiedname>qgismobileapp::aboutDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="246" column="7" bodyfile="src/qml/qgismobileapp.qml" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a6e7dddd9a7d882bcbd4da0eb33111117" prot="private" static="no" mutable="no">
+        <type><ref refid="classTrackerSettings" kindref="compound">TrackerSettings</ref></type>
+        <definition>TrackerSettings qgismobileapp::trackerSettings</definition>
+        <argsstring></argsstring>
+        <name>trackerSettings</name>
+        <qualifiedname>qgismobileapp::trackerSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="247" column="17" bodyfile="src/qml/qgismobileapp.qml" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aa66aa2b3a7703a4aba52adcccd8b9a7e" prot="private" static="no" mutable="no">
+        <type><ref refid="classTrackerFeatureForm" kindref="compound">TrackerFeatureForm</ref></type>
+        <definition>TrackerFeatureForm qgismobileapp::trackerFeatureForm</definition>
+        <argsstring></argsstring>
+        <name>trackerFeatureForm</name>
+        <qualifiedname>qgismobileapp::trackerFeatureForm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="248" column="20" bodyfile="src/qml/qgismobileapp.qml" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a70b36f39a6cf71c2af216a9315ad281a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref></type>
+        <definition>QFieldCloudConnection qgismobileapp::cloudConnection</definition>
+        <argsstring></argsstring>
+        <name>cloudConnection</name>
+        <qualifiedname>qgismobileapp::cloudConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="249" column="23" bodyfile="src/qml/qgismobileapp.qml" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a394896ea9a03740689089feedecb7dea" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldCloudProjectsModel" kindref="compound">QFieldCloudProjectsModel</ref></type>
+        <definition>QFieldCloudProjectsModel qgismobileapp::cloudProjectsModel</definition>
+        <argsstring></argsstring>
+        <name>cloudProjectsModel</name>
+        <qualifiedname>qgismobileapp::cloudProjectsModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="250" column="26" bodyfile="src/qml/qgismobileapp.qml" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a73b677786a72d5739cf2604749c75d21" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldCloudDeltaHistory" kindref="compound">QFieldCloudDeltaHistory</ref></type>
+        <definition>QFieldCloudDeltaHistory qgismobileapp::qfieldCloudDeltaHistory</definition>
+        <argsstring></argsstring>
+        <name>qfieldCloudDeltaHistory</name>
+        <qualifiedname>qgismobileapp::qfieldCloudDeltaHistory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="251" column="25" bodyfile="src/qml/qgismobileapp.qml" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1aaaeafebe7f247f29ebda01c9ce02921b" prot="private" static="no" mutable="no">
+        <type><ref refid="classWelcomeScreen" kindref="compound">WelcomeScreen</ref></type>
+        <definition>WelcomeScreen qgismobileapp::welcomeScreen</definition>
+        <argsstring></argsstring>
+        <name>welcomeScreen</name>
+        <qualifiedname>qgismobileapp::welcomeScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="252" column="15" bodyfile="src/qml/qgismobileapp.qml" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a371fb1dd51a203747426ac2328f0e00c" prot="private" static="no" mutable="no">
+        <type><ref refid="classProjectCreationScreen" kindref="compound">ProjectCreationScreen</ref></type>
+        <definition>ProjectCreationScreen qgismobileapp::projectCreationScreen</definition>
+        <argsstring></argsstring>
+        <name>projectCreationScreen</name>
+        <qualifiedname>qgismobileapp::projectCreationScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="253" column="23" bodyfile="src/qml/qgismobileapp.qml" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1af36feafab4a2c2cc9319c00a17942dae" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldCloudScreen" kindref="compound">QFieldCloudScreen</ref></type>
+        <definition>QFieldCloudScreen qgismobileapp::qfieldCloudScreen</definition>
+        <argsstring></argsstring>
+        <name>qfieldCloudScreen</name>
+        <qualifiedname>qgismobileapp::qfieldCloudScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="254" column="19" bodyfile="src/qml/qgismobileapp.qml" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ad7a4582eaa6049ead2b53990153b986f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldCloudPopup" kindref="compound">QFieldCloudPopup</ref></type>
+        <definition>QFieldCloudPopup qgismobileapp::qfieldCloudPopup</definition>
+        <argsstring></argsstring>
+        <name>qfieldCloudPopup</name>
+        <qualifiedname>qgismobileapp::qfieldCloudPopup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="255" column="18" bodyfile="src/qml/qgismobileapp.qml" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ad1f7ac4ca0a1cc4b8f29ff69573dbab9" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldCloudPackageLayersFeedback" kindref="compound">QFieldCloudPackageLayersFeedback</ref></type>
+        <definition>QFieldCloudPackageLayersFeedback qgismobileapp::cloudPackageLayersFeedback</definition>
+        <argsstring></argsstring>
+        <name>cloudPackageLayersFeedback</name>
+        <qualifiedname>qgismobileapp::cloudPackageLayersFeedback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="256" column="34" bodyfile="src/qml/qgismobileapp.qml" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a5f7b59a501f90308a61220f79f20cd64" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldLocalDataPickerScreen" kindref="compound">QFieldLocalDataPickerScreen</ref></type>
+        <definition>QFieldLocalDataPickerScreen qgismobileapp::qfieldLocalDataPickerScreen</definition>
+        <argsstring></argsstring>
+        <name>qfieldLocalDataPickerScreen</name>
+        <qualifiedname>qgismobileapp::qfieldLocalDataPickerScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="257" column="29" bodyfile="src/qml/qgismobileapp.qml" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a8f8978629943cf84530e340ce2ca7745" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldSettings" kindref="compound">QFieldSettings</ref></type>
+        <definition>QFieldSettings qgismobileapp::qfieldSettings</definition>
+        <argsstring></argsstring>
+        <name>qfieldSettings</name>
+        <qualifiedname>qgismobileapp::qfieldSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="258" column="16" bodyfile="src/qml/qgismobileapp.qml" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a27dcf8dc1331fafa4a5c8e0122559bea" prot="private" static="no" mutable="no">
+        <type><ref refid="classChangelog" kindref="compound">Changelog</ref></type>
+        <definition>Changelog qgismobileapp::changelogPopup</definition>
+        <argsstring></argsstring>
+        <name>changelogPopup</name>
+        <qualifiedname>qgismobileapp::changelogPopup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="259" column="11" bodyfile="src/qml/qgismobileapp.qml" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a800d9ffb1dd0ac096b9c8f8dd2d28566" prot="private" static="no" mutable="no">
+        <type><ref refid="classToast" kindref="compound">Toast</ref></type>
+        <definition>Toast qgismobileapp::toast</definition>
+        <argsstring></argsstring>
+        <name>toast</name>
+        <qualifiedname>qgismobileapp::toast</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="260" column="7" bodyfile="src/qml/qgismobileapp.qml" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a7351ee549a3185e373df62a82ab396d3" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea qgismobileapp::codeReaderCatcher</definition>
+        <argsstring></argsstring>
+        <name>codeReaderCatcher</name>
+        <qualifiedname>qgismobileapp::codeReaderCatcher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="261" column="11" bodyfile="src/qml/qgismobileapp.qml" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1abe11a15ef1c856caf30a74ccf7fb3b56" prot="private" static="no" mutable="no">
+        <type><ref refid="classCodeReader" kindref="compound">CodeReader</ref></type>
+        <definition>CodeReader qgismobileapp::codeReader</definition>
+        <argsstring></argsstring>
+        <name>codeReader</name>
+        <qualifiedname>qgismobileapp::codeReader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="262" column="12" bodyfile="src/qml/qgismobileapp.qml" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a69e5d910741baff1d85646a299440b8d" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldSketcher" kindref="compound">QFieldSketcher</ref></type>
+        <definition>QFieldSketcher qgismobileapp::sketcher</definition>
+        <argsstring></argsstring>
+        <name>sketcher</name>
+        <qualifiedname>qgismobileapp::sketcher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="263" column="16" bodyfile="src/qml/qgismobileapp.qml" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a5755b8db59e4733e7c13e47fe0bc9f70" prot="private" static="no" mutable="no">
+        <type><ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref></type>
+        <definition>AppExpressionContextScopesGenerator qgismobileapp::appScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>appScopesGenerator</name>
+        <qualifiedname>qgismobileapp::appScopesGenerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="264" column="37" bodyfile="src/qml/qgismobileapp.qml" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a788636dcdafd153f8edb304c774e16eb" prot="private" static="no" mutable="no">
+        <type><ref refid="classNyuki" kindref="compound">Nyuki</ref></type>
+        <definition>Nyuki qgismobileapp::nyuki</definition>
+        <argsstring></argsstring>
+        <name>nyuki</name>
+        <qualifiedname>qgismobileapp::nyuki</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="265" column="7" bodyfile="src/qml/qgismobileapp.qml" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1af1b1d52ac4c1589099eab1fc1b858665" prot="private" static="no" mutable="no">
+        <type>DropArea</type>
+        <definition>DropArea qgismobileapp::dropArea</definition>
+        <argsstring></argsstring>
+        <name>dropArea</name>
+        <qualifiedname>qgismobileapp::dropArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="266" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a6c9b8505b13c1865f510a82b255861cc" prot="private" static="no" mutable="no">
+        <type><ref refid="classBusyOverlay" kindref="compound">BusyOverlay</ref></type>
+        <definition>BusyOverlay qgismobileapp::busyOverlay</definition>
+        <argsstring></argsstring>
+        <name>busyOverlay</name>
+        <qualifiedname>qgismobileapp::busyOverlay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="267" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a71ee84fe436e07808a04964e8c2b3b70" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer qgismobileapp::closingTimer</definition>
+        <argsstring></argsstring>
+        <name>closingTimer</name>
+        <qualifiedname>qgismobileapp::closingTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="268" column="7" bodyfile="src/qml/qgismobileapp.qml" bodystart="268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a6625c7ba6387fd4fb63ed2147b8422d0" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref></type>
+        <definition>FeatureModel qgismobileapp::geometryEditingFeature</definition>
+        <argsstring></argsstring>
+        <name>geometryEditingFeature</name>
+        <qualifiedname>qgismobileapp::geometryEditingFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="270" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a29c8876c32f183f32ee29e6a5c8d3b16" prot="private" static="no" mutable="no">
+        <type><ref refid="classVertexModel" kindref="compound">VertexModel</ref></type>
+        <definition>VertexModel qgismobileapp::geometryEditingVertexModel</definition>
+        <argsstring></argsstring>
+        <name>geometryEditingVertexModel</name>
+        <qualifiedname>qgismobileapp::geometryEditingVertexModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="271" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1ac94e0a21029827eb18e71bf1bacb6213" prot="private" static="no" mutable="no">
+        <type><ref refid="classScreenLocker" kindref="compound">ScreenLocker</ref></type>
+        <definition>ScreenLocker qgismobileapp::screenLocker</definition>
+        <argsstring></argsstring>
+        <name>screenLocker</name>
+        <qualifiedname>qgismobileapp::screenLocker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="272" column="14" bodyfile="src/qml/qgismobileapp.qml" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a2ea15c704111eaeb6f703431bc35f5b8" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog qgismobileapp::importPermissionDialog</definition>
+        <argsstring></argsstring>
+        <name>importPermissionDialog</name>
+        <qualifiedname>qgismobileapp::importPermissionDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="273" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a029d9a7b6bfb5c07912f525a765f08ec" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog qgismobileapp::pluginPermissionDialog</definition>
+        <argsstring></argsstring>
+        <name>pluginPermissionDialog</name>
+        <qualifiedname>qgismobileapp::pluginPermissionDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="274" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a48fa7d3158a764b1b548e70ecc55c8ac" prot="private" static="no" mutable="no">
+        <type><ref refid="classCheckBox" kindref="compound">CheckBox</ref></type>
+        <definition>CheckBox qgismobileapp::permanentCheckBox</definition>
+        <argsstring></argsstring>
+        <name>permanentCheckBox</name>
+        <qualifiedname>qgismobileapp::permanentCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="275" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="275" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a33696fc9906cddf54bb1a9407473c037" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog qgismobileapp::cancelAlgorithmDialog</definition>
+        <argsstring></argsstring>
+        <name>cancelAlgorithmDialog</name>
+        <qualifiedname>qgismobileapp::cancelAlgorithmDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="276" column="10" bodyfile="src/qml/qgismobileapp.qml" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a985ec4ad6a229e970843f4625bd832ed" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldGuide" kindref="compound">QFieldGuide</ref></type>
+        <definition>QFieldGuide qgismobileapp::mapCanvasTour</definition>
+        <argsstring></argsstring>
+        <name>mapCanvasTour</name>
+        <qualifiedname>qgismobileapp::mapCanvasTour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="277" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqgismobileapp_1a0fb7b026f8338d01ef4ec73fbe75ec2e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldGuide" kindref="compound">QFieldGuide</ref></type>
+        <definition>QFieldGuide qgismobileapp::dashboardTour</definition>
+        <argsstring></argsstring>
+        <name>dashboardTour</name>
+        <qualifiedname>qgismobileapp::dashboardTour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="278" column="13" bodyfile="src/qml/qgismobileapp.qml" bodystart="278" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classqgismobileapp_1a522fd8c94c2e00719cc47de3d4bb10ee" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool qgismobileapp::sceneLoaded</definition>
+        <argsstring></argsstring>
+        <name>sceneLoaded</name>
+        <qualifiedname>qgismobileapp::sceneLoaded</qualifiedname>
+        <read>dummyGetter_sceneLoaded_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="49" column="1" bodyfile="src/qml/qgismobileapp.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classqgismobileapp_1aba22e5835e44840ee9b93b75c5098def" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool qgismobileapp::sceneBorderless</definition>
+        <argsstring></argsstring>
+        <name>sceneBorderless</name>
+        <qualifiedname>qgismobileapp::sceneBorderless</qualifiedname>
+        <read>dummyGetter_sceneBorderless_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="51" column="1" bodyfile="src/qml/qgismobileapp.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classqgismobileapp_1ad2e90fd89cef1241d66920632d11a73d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double qgismobileapp::sceneTopMargin</definition>
+        <argsstring></argsstring>
+        <name>sceneTopMargin</name>
+        <qualifiedname>qgismobileapp::sceneTopMargin</qualifiedname>
+        <read>dummyGetter_sceneTopMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="53" column="1" bodyfile="src/qml/qgismobileapp.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classqgismobileapp_1a50f62c6437a0f83a33a6ee918c9a1646" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double qgismobileapp::sceneBottomMargin</definition>
+        <argsstring></argsstring>
+        <name>sceneBottomMargin</name>
+        <qualifiedname>qgismobileapp::sceneBottomMargin</qualifiedname>
+        <read>dummyGetter_sceneBottomMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="55" column="1" bodyfile="src/qml/qgismobileapp.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classqgismobileapp_1aa7dc353966e115259dc56b991e64773d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double qgismobileapp::sceneLeftMargin</definition>
+        <argsstring></argsstring>
+        <name>sceneLeftMargin</name>
+        <qualifiedname>qgismobileapp::sceneLeftMargin</qualifiedname>
+        <read>dummyGetter_sceneLeftMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="57" column="1" bodyfile="src/qml/qgismobileapp.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classqgismobileapp_1a9001f101ff824356d13b62c5b459620e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double qgismobileapp::sceneRightMargin</definition>
+        <argsstring></argsstring>
+        <name>sceneRightMargin</name>
+        <qualifiedname>qgismobileapp::sceneRightMargin</qualifiedname>
+        <read>dummyGetter_sceneRightMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="59" column="1" bodyfile="src/qml/qgismobileapp.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classqgismobileapp_1adcf9b1d79729e46d255c53f36751d7c4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classRubberband" kindref="compound">Rubberband</ref></type>
+        <definition>Rubberband qgismobileapp::currentRubberband</definition>
+        <argsstring></argsstring>
+        <name>currentRubberband</name>
+        <qualifiedname>qgismobileapp::currentRubberband</qualifiedname>
+        <read>dummyGetter_currentRubberband_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="68" column="1" bodyfile="src/qml/qgismobileapp.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classqgismobileapp_1af43a19f2013e5ce10c93531538d0734e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classLayerObserver" kindref="compound">LayerObserver</ref></type>
+        <definition>LayerObserver qgismobileapp::layerObserverAlias</definition>
+        <argsstring></argsstring>
+        <name>layerObserverAlias</name>
+        <qualifiedname>qgismobileapp::layerObserverAlias</qualifiedname>
+        <read>dummyGetter_layerObserverAlias_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="70" column="1" bodyfile="src/qml/qgismobileapp.qml" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classqgismobileapp_1af70db6b3c6720d590dd9efecb74be021" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsGpkgFlusher" kindref="compound">QgsGpkgFlusher</ref></type>
+        <definition>QgsGpkgFlusher qgismobileapp::gpkgFlusherAlias</definition>
+        <argsstring></argsstring>
+        <name>gpkgFlusherAlias</name>
+        <qualifiedname>qgismobileapp::gpkgFlusherAlias</qualifiedname>
+        <read>dummyGetter_gpkgFlusherAlias_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="72" column="1" bodyfile="src/qml/qgismobileapp.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classqgismobileapp_1aceca69314be5938d14b71f303f1fc859" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void qgismobileapp::closeMeasureTool</definition>
+        <argsstring>()</argsstring>
+        <name>closeMeasureTool</name>
+        <qualifiedname>qgismobileapp::closeMeasureTool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="74" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classqgismobileapp_1a8e37fb3ae5f1da32ad81bcd6ded3629b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void qgismobileapp::close3DView</definition>
+        <argsstring>()</argsstring>
+        <name>close3DView</name>
+        <qualifiedname>qgismobileapp::close3DView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="76" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classqgismobileapp_1a425de13cb8d21d4cf17f7f95f832320d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void qgismobileapp::changeMode</definition>
+        <argsstring>(string mode)</argsstring>
+        <name>changeMode</name>
+        <qualifiedname>qgismobileapp::changeMode</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="78" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classqgismobileapp_1a971b7645cf040610199aff6928388569" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void qgismobileapp::toggleDigitizeMode</definition>
+        <argsstring>()</argsstring>
+        <name>toggleDigitizeMode</name>
+        <qualifiedname>qgismobileapp::toggleDigitizeMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/qgismobileapp.qml" line="80" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ApplicationWindow</label>
+      </node>
+      <node id="1">
+        <label>qgismobileapp</label>
+        <link refid="classqgismobileapp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ApplicationWindow</label>
+      </node>
+      <node id="1">
+        <label>qgismobileapp</label>
+        <link refid="classqgismobileapp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/qgismobileapp.qml" line="37" column="1" bodyfile="src/qml/qgismobileapp.qml" bodystart="37" bodyend="279"/>
+    <listofallmembers>
+      <member refid="classqgismobileapp_1ac1363b804bd8bf4f40bd6c23e201a5c3" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>abortRequestGeometry</name></member>
+      <member refid="classqgismobileapp_1a117c3a76c5c7a6cb142b55bd521515b5" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>aboutDialog</name></member>
+      <member refid="classqgismobileapp_1a423247c4f5ed19d2deb5d7bd59959a8b" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>accent</name></member>
+      <member refid="classqgismobileapp_1a99b106575e6b6f7419e444455189d2a4" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>actionsPieMenu</name></member>
+      <member refid="classqgismobileapp_1a119cda630bde2e8164f74a47a71bf6cc" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>addBookmarkAtCurrentLocationButton</name></member>
+      <member refid="classqgismobileapp_1a7e34c9cfbc952fbbf968ca14e28905a0" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>addBookmarkItem</name></member>
+      <member refid="classqgismobileapp_1a5755b8db59e4733e7c13e47fe0bc9f70" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>appScopesGenerator</name></member>
+      <member refid="classqgismobileapp_1a0863b5007777b26dde6f416eb9bf06ae" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>badLayersView</name></member>
+      <member refid="classqgismobileapp_1ab74ae15e8b98715f1aa8a24cdb96acfb" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>bookmarkHighlight</name></member>
+      <member refid="classqgismobileapp_1a1c3567e445dcb578be60de38d1c654a5" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>bookmarkProperties</name></member>
+      <member refid="classqgismobileapp_1a092f158548cdfe39e66b4dc0bf64d0ec" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>bottomPadding</name></member>
+      <member refid="classqgismobileapp_1aec10488aa021b69b54174f591703dd5d" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>browserPopup</name></member>
+      <member refid="classqgismobileapp_1a3da5f8ff280961bcaa4edf44a7f1fb84" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>busyIndicator</name></member>
+      <member refid="classqgismobileapp_1a6c9b8505b13c1865f510a82b255861cc" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>busyOverlay</name></member>
+      <member refid="classqgismobileapp_1a33696fc9906cddf54bb1a9407473c037" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>cancelAlgorithmDialog</name></member>
+      <member refid="classqgismobileapp_1aa6e1e2494e921dcf51fcf1ad15cd3143" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>cancelNavigationItem</name></member>
+      <member refid="classqgismobileapp_1ab7eeb0339a754d170cd94052a8e0705b" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>canvasMenu</name></member>
+      <member refid="classqgismobileapp_1a0287f5c04b8ceaf2b3384aadd57aa1b1" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>canvasMenuActionsToolbar</name></member>
+      <member refid="classqgismobileapp_1a0296c53043e22de60b64860606502432" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>canvasMenuFeatureListInstantiator</name></member>
+      <member refid="classqgismobileapp_1a27dcf8dc1331fafa4a5c8e0122559bea" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>changelogPopup</name></member>
+      <member refid="classqgismobileapp_1a425de13cb8d21d4cf17f7f95f832320d" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>changeMode</name></member>
+      <member refid="classqgismobileapp_1a01a97c80907e9073777634801fbb8cae" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>close3DView</name></member>
+      <member refid="classqgismobileapp_1a8e37fb3ae5f1da32ad81bcd6ded3629b" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>close3DView</name></member>
+      <member refid="classqgismobileapp_1abbe0b0471aba86f141b8b36bf42edfe3" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>closeGeometryEditorsTool</name></member>
+      <member refid="classqgismobileapp_1a069da7edda6e4f51f9a81e684a0b6fba" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>closeMeasureTool</name></member>
+      <member refid="classqgismobileapp_1aceca69314be5938d14b71f303f1fc859" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>closeMeasureTool</name></member>
+      <member refid="classqgismobileapp_1a71ee84fe436e07808a04964e8c2b3b70" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>closingTimer</name></member>
+      <member refid="classqgismobileapp_1a70b36f39a6cf71c2af216a9315ad281a" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>cloudConnection</name></member>
+      <member refid="classqgismobileapp_1ad1f7ac4ca0a1cc4b8f29ff69573dbab9" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>cloudPackageLayersFeedback</name></member>
+      <member refid="classqgismobileapp_1a394896ea9a03740689089feedecb7dea" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>cloudProjectsModel</name></member>
+      <member refid="classqgismobileapp_1abe11a15ef1c856caf30a74ccf7fb3b56" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>codeReader</name></member>
+      <member refid="classqgismobileapp_1a7351ee549a3185e373df62a82ab396d3" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>codeReaderCatcher</name></member>
+      <member refid="classqgismobileapp_1af4dc6b76d33fafb7a34d46f1174028ee" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>cogoButton</name></member>
+      <member refid="classqgismobileapp_1adb53f1622c4cef3258d10018b2fdaecc" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>cogoOperationPreview</name></member>
+      <member refid="classqgismobileapp_1acd0efeaf3a0357cf36901c1dac130acd" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>compassArrow</name></member>
+      <member refid="classqgismobileapp_1a99e041f7736a3e0b0de763882e5a979b" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>coordinateLocator</name></member>
+      <member refid="classqgismobileapp_1aa0c526cabb85cefc653fbb47c565bb0e" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>coordinateLocatorInformationOverlay</name></member>
+      <member refid="classqgismobileapp_1af587971cce3e3e67121bf7a0e04a9c65" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>copyCurrentLocationButton</name></member>
+      <member refid="classqgismobileapp_1a4cb90c7af0468fec0ad62b12ab82ff87" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>copyrightDecoration</name></member>
+      <member refid="classqgismobileapp_1abc87c0f80c25947433f09a32b0e1296f" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>copyrightDecorationBackground</name></member>
+      <member refid="classqgismobileapp_1aa48e34ee00a2c761ddd46928cf0e64d4" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>cordinateItem</name></member>
+      <member refid="classqgismobileapp_1adcf9b1d79729e46d255c53f36751d7c4" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>currentRubberband</name></member>
+      <member refid="classqgismobileapp_1ad71d36be141fe50b7e5f63dff5e44a36" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>dashBoard</name></member>
+      <member refid="classqgismobileapp_1a0fb7b026f8338d01ef4ec73fbe75ec2e" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>dashboardTour</name></member>
+      <member refid="classqgismobileapp_1ae3be5c28b6cb8005f8c06d69b1821734" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>decorationExpressionEvaluator</name></member>
+      <member refid="classqgismobileapp_1a9e646fd3392f173f79fad1d23e58f462" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>digitizingFeature</name></member>
+      <member refid="classqgismobileapp_1a079879f8b35b2521abddf4faa8fe98b9" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>digitizingGeometryMeasure</name></member>
+      <member refid="classqgismobileapp_1ab2e49583c93e96f87a3303659625326e" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>digitizingRubberband</name></member>
+      <member refid="classqgismobileapp_1ae8195a8ee5d9008893064e008c00ff07" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>digitizingToolbar</name></member>
+      <member refid="classqgismobileapp_1a7ed98233bbf58495852db91c1070a0be" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>digitizingToolbarContainer</name></member>
+      <member refid="classqgismobileapp_1af1b1d52ac4c1589099eab1fc1b858665" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>dropArea</name></member>
+      <member refid="classqgismobileapp_1aa6b4b995eebe8d87d136e2e6d7a86b93" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>dummyHoverHandler</name></member>
+      <member refid="classqgismobileapp_1a55666cd013d0f5af36cdd89d7c4ce267" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>dummyHoverTimer</name></member>
+      <member refid="classqgismobileapp_1a5d6638d1258b3c4b1607e605cb748747" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>editingRubberband</name></member>
+      <member refid="classqgismobileapp_1a8fc9499862e77ddb8f00d0115bd52004" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>elevationProfileButton</name></member>
+      <member refid="classqgismobileapp_1a47d91475fc3700add8397a74b1618cf6" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>elevationProfileHighlight</name></member>
+      <member refid="classqgismobileapp_1a5c94396678aefc756bbbe6487de42ebd" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>featureListForm</name></member>
+      <member refid="classqgismobileapp_1a64903fb616e258ee18834a838969674a" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>featureListHighlight</name></member>
+      <member refid="classqgismobileapp_1a956670f0d316930e67cb52ace3693de4" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>featureMenu</name></member>
+      <member refid="classqgismobileapp_1a0067756d1046c813d32c1ef625b561ed" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>flags</name></member>
+      <member refid="classqgismobileapp_1a9718bf6bfe255cd3991308e70a6ee517" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>focusstack</name></member>
+      <member refid="classqgismobileapp_1a331f3f6f40d999eb36fb5dcf676fa083" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>freehandButton</name></member>
+      <member refid="classqgismobileapp_1a1aca1bd0385f87fedc1ad1aadbcbeef1" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>freehandHandler</name></member>
+      <member refid="classqgismobileapp_1a3bbcb43ddf12e9c6ab6d9fa2f79dba95" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>geofencer</name></member>
+      <member refid="classqgismobileapp_1a0a1dcfd3bf455ddb3a358c758b51eb78" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>geofencerFeedback</name></member>
+      <member refid="classqgismobileapp_1a475b3d9d352d0327fee20aeefaf5107c" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>geofencerFeedbackAnimation</name></member>
+      <member refid="classqgismobileapp_1a6e8d445b009e9f6f72b8a815da5f7fe8" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>geofencerFeedbackSource</name></member>
+      <member refid="classqgismobileapp_1a6625c7ba6387fd4fb63ed2147b8422d0" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>geometryEditingFeature</name></member>
+      <member refid="classqgismobileapp_1a29c8876c32f183f32ee29e6a5c8d3b16" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>geometryEditingVertexModel</name></member>
+      <member refid="classqgismobileapp_1ac14d7a1d367e0ed4a7cf87dddc35d4ff" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>geometryEditorRenderer</name></member>
+      <member refid="classqgismobileapp_1ac068b1d75a327d4dd64eccda0d0605ab" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>geometryEditorsRubberband</name></member>
+      <member refid="classqgismobileapp_1a74c5e3d3a11713aa3cf7697ef5d1aef9" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>geometryEditorsToolbar</name></member>
+      <member refid="classqgismobileapp_1a9acd4eebbc5d5c0e42b3e77c8d449b2a" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>geometryHighlighter</name></member>
+      <member refid="classqgismobileapp_1a04bd5eff7d0039c1c7dec556d40a2971" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>gnssButton</name></member>
+      <member refid="classqgismobileapp_1aea3fc012b2c746598a7e37eb801d2e31" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>gnssCanvasLockButton</name></member>
+      <member refid="classqgismobileapp_1ab68b3bb3cffaed2d789e9ff7c7c1bb78" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>gnssCursorLockButton</name></member>
+      <member refid="classqgismobileapp_1a6cca8a19cf23ab571fc0004fb26bb106" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>gnssMenu</name></member>
+      <member refid="classqgismobileapp_1af70db6b3c6720d590dd9efecb74be021" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>gpkgFlusherAlias</name></member>
+      <member refid="classqgismobileapp_1a36f1907526e470a656bbac6c69f0edf6" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>gridDecoration</name></member>
+      <member refid="classqgismobileapp_1a6191e399cabbc51b8d3cb91a9cb6a8d0" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>hoverHandler</name></member>
+      <member refid="classqgismobileapp_1ab006784353ef703fa166ebbacd359559" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>identifyTool</name></member>
+      <member refid="classqgismobileapp_1a37c59d889a5ddc6689b68ab2fd8dc2b7" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>imageDecoration</name></member>
+      <member refid="classqgismobileapp_1a2ea15c704111eaeb6f703431bc35f5b8" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>importPermissionDialog</name></member>
+      <member refid="classqgismobileapp_1a63b73dbb9d1eb85c15dfb3285af4710d" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>informationDrawer</name></member>
+      <member refid="classqgismobileapp_1abdd014cc5050775a3766bfc8488403d5" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>keyHandler</name></member>
+      <member refid="classqgismobileapp_1af488649e65d5f95ac2ede46208ceff89" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>layerLogin</name></member>
+      <member refid="classqgismobileapp_1af43a19f2013e5ce10c93531538d0734e" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>layerObserverAlias</name></member>
+      <member refid="classqgismobileapp_1a5666691dbe15ce9de661f1172150c621" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>layoutListInstantiator</name></member>
+      <member refid="classqgismobileapp_1a8b2966bef78c51202c9f2888d3c0c08f" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>leftPadding</name></member>
+      <member refid="classqgismobileapp_1aae82b7e4ca596dca0ac504ba8cce4ca8" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>loadingOverlay</name></member>
+      <member refid="classqgismobileapp_1aaf370c1f3444c4e4818b3bf57177f62d" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>locationMarker</name></member>
+      <member refid="classqgismobileapp_1abc676091c062767fa0ab1e2543dbd306" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>locationToolbar</name></member>
+      <member refid="classqgismobileapp_1aa836d054b420c89324e8100de62e8e58" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>locatorBridge</name></member>
+      <member refid="classqgismobileapp_1ad7a3527a2a1625b781defb25f0cc156a" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>locatorItem</name></member>
+      <member refid="classqgismobileapp_1a591c943bd74cf4ff0e9219750edca1a8" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>locatorSettings</name></member>
+      <member refid="classqgismobileapp_1a294b4c040f9fb4455f4a4a71cb3d7dde" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>lockMapRotation</name></member>
+      <member refid="classqgismobileapp_1a0362ef69ac414f69ca3ab911a668dc57" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>loginDialog</name></member>
+      <member refid="classqgismobileapp_1a788442d33331547d6be7f5060f4c59a4" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>loginDialogPopup</name></member>
+      <member refid="classqgismobileapp_1a211a9e16d6afdab70ab11c0057bf9b10" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>mainMenu</name></member>
+      <member refid="classqgismobileapp_1af68b83f0eaf37ad195445210766a14ae" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>mainMenuBar</name></member>
+      <member refid="classqgismobileapp_1a7590d2503a7a719a034288b3ef3511c0" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>mainToolbar</name></member>
+      <member refid="classqgismobileapp_1a5beb72b150e1d4b1b2043c48065f881c" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>mapCanvas</name></member>
+      <member refid="classqgismobileapp_1a04a505a470fe23f77d0de90d11f95fd3" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>mapCanvas3DLoader</name></member>
+      <member refid="classqgismobileapp_1a181d2537a4d1318e3f1ad81faa6ac9ba" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>mapCanvasBackground</name></member>
+      <member refid="classqgismobileapp_1a2066a3e646392b739af6ec8601d165e0" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>mapCanvasMap</name></member>
+      <member refid="classqgismobileapp_1a4ac5aa5fe98860d0493e1de55a557737" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>mapCanvasOverlays</name></member>
+      <member refid="classqgismobileapp_1a985ec4ad6a229e970843f4625bd832ed" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>mapCanvasTour</name></member>
+      <member refid="classqgismobileapp_1a3e2e54a77e0d7dcd1d1fa42ddd13b42f" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>mapToScreenTranslateX</name></member>
+      <member refid="classqgismobileapp_1adffebb6040d03fd53183bb57b4beae25" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>mapToScreenTranslateY</name></member>
+      <member refid="classqgismobileapp_1a43c4b0fb4f3ae66676273e355057f49d" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>measuringTool</name></member>
+      <member refid="classqgismobileapp_1a9c471c2f6f15393113a71fefc1020f38" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>menuButton</name></member>
+      <member refid="classqgismobileapp_1a294c81f5989692896b7a384154a334d0" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>menuFeatureListModel</name></member>
+      <member refid="classqgismobileapp_1af8b6db05682d7d07468d7de6ae873406" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>messageLog</name></member>
+      <member refid="classqgismobileapp_1a7640f9bde06f6cb3d36e691bd7c14610" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>moveAndRotateFeaturesHighlight</name></member>
+      <member refid="classqgismobileapp_1a4009b6ae2fac6dad20b237c494ca4804" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>moveFeaturesToolbar</name></member>
+      <member refid="classqgismobileapp_1a232aed19b7340e12c6e2e67de344c9b3" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>navigation</name></member>
+      <member refid="classqgismobileapp_1acac0ec009ff5560f9540b81211fb69a5" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>navigationButton</name></member>
+      <member refid="classqgismobileapp_1a75ae9d44333e2f33eb028d183715c1f3" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>navigationHighlight</name></member>
+      <member refid="classqgismobileapp_1a1afcdbfc29077bf35360d2eccfd83c17" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>navigationMenu</name></member>
+      <member refid="classqgismobileapp_1a788636dcdafd153f8edb304c774e16eb" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>nyuki</name></member>
+      <member refid="classqgismobileapp_1a5548cb4e3d0f601596b92a12cbe12a01" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>objectName</name></member>
+      <member refid="classqgismobileapp_1a0c749e520bab1725da4ac17e3ec2f379" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>onSceneLoadedChanged</name></member>
+      <member refid="classqgismobileapp_1ae78def18fbb29021ab813ca672645402" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>overlayFeatureFormDrawer</name></member>
+      <member refid="classqgismobileapp_1a3ebfe0539bad334df786b1275fb7427c" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>pasteIntoLayers</name></member>
+      <member refid="classqgismobileapp_1a48fa7d3158a764b1b548e70ecc55c8ac" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>permanentCheckBox</name></member>
+      <member refid="classqgismobileapp_1a5cd030fe3a21d0f72ed483ef2d590721" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>pluginManagerSettings</name></member>
+      <member refid="classqgismobileapp_1a029d9a7b6bfb5c07912f525a765f08ec" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>pluginPermissionDialog</name></member>
+      <member refid="classqgismobileapp_1ab9f045004d305dfd6547dc65608a37cc" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>pluginsToolbar</name></member>
+      <member refid="classqgismobileapp_1a820b0d43ca3dc028a1cb5ac83803cc9a" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>pointHandler</name></member>
+      <member refid="classqgismobileapp_1a55274dc3e78430a32bc4da2b1ffe8787" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>positioningDeviceName</name></member>
+      <member refid="classqgismobileapp_1a53aab94d168cce0a225046eaef11b444" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>positioningItem</name></member>
+      <member refid="classqgismobileapp_1a7150619cb84f9863e97738b721567293" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>positioningSettings</name></member>
+      <member refid="classqgismobileapp_1ae30e4ea835f7693473f5f25ccb9a0f17" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>positionSource</name></member>
+      <member refid="classqgismobileapp_1afec9733037db22c46a1d231644cca550" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>positionTimer</name></member>
+      <member refid="classqgismobileapp_1aca63eab375332ba41d3cd212f00e826d" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>preciseViewItem</name></member>
+      <member refid="classqgismobileapp_1a0594a4829234fb1813031c7e5a7fc891" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>preciseViewMenu</name></member>
+      <member refid="classqgismobileapp_1a7bf26b68436378867082c7e0ca2efcb3" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>printMenu</name></member>
+      <member refid="classqgismobileapp_1a5e4f8792dae57da10707653e482b8b33" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>processingAlgorithmPreview</name></member>
+      <member refid="classqgismobileapp_1a371fb1dd51a203747426ac2328f0e00c" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>projectCreationScreen</name></member>
+      <member refid="classqgismobileapp_1a62d9cd9bcda6b98ff5b6b984834bc622" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>projectInfo</name></member>
+      <member refid="classqgismobileapp_1a73b677786a72d5739cf2604749c75d21" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>qfieldCloudDeltaHistory</name></member>
+      <member refid="classqgismobileapp_1ad7a4582eaa6049ead2b53990153b986f" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>qfieldCloudPopup</name></member>
+      <member refid="classqgismobileapp_1af36feafab4a2c2cc9319c00a17942dae" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>qfieldCloudScreen</name></member>
+      <member refid="classqgismobileapp_1a5f7b59a501f90308a61220f79f20cd64" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>qfieldLocalDataPickerScreen</name></member>
+      <member refid="classqgismobileapp_1a8f8978629943cf84530e340ce2ca7745" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>qfieldSettings</name></member>
+      <member refid="classqgismobileapp_1ad151df016c6eaaa415797772641c8d50" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>readProjectTimer</name></member>
+      <member refid="classqgismobileapp_1a5c139893fd3ec16f3db7d4f9b66b09e5" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>redoButton</name></member>
+      <member refid="classqgismobileapp_1afbdbb9c403df70ca70474c51df1c23da" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>replayTimer</name></member>
+      <member refid="classqgismobileapp_1ade78c9f424689232f1a76164cfd95601" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>rightPadding</name></member>
+      <member refid="classqgismobileapp_1ae76fdebc6a05b835e01d95c012ca99fb" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>rotateDragHandler</name></member>
+      <member refid="classqgismobileapp_1ac7456afecedae61d3c310b281c6553bb" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>rotateFeaturesToolbar</name></member>
+      <member refid="classqgismobileapp_1aba22e5835e44840ee9b93b75c5098def" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>sceneBorderless</name></member>
+      <member refid="classqgismobileapp_1a50f62c6437a0f83a33a6ee918c9a1646" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>sceneBottomMargin</name></member>
+      <member refid="classqgismobileapp_1aa7dc353966e115259dc56b991e64773d" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>sceneLeftMargin</name></member>
+      <member refid="classqgismobileapp_1a522fd8c94c2e00719cc47de3d4bb10ee" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>sceneLoaded</name></member>
+      <member refid="classqgismobileapp_1a9001f101ff824356d13b62c5b459620e" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>sceneRightMargin</name></member>
+      <member refid="classqgismobileapp_1ad2e90fd89cef1241d66920632d11a73d" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>sceneTopMargin</name></member>
+      <member refid="classqgismobileapp_1ac94e0a21029827eb18e71bf1bacb6213" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>screenLocker</name></member>
+      <member refid="classqgismobileapp_1ae9e1a30e7102412555bad70a11f31a55" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>sensorItem</name></member>
+      <member refid="classqgismobileapp_1a6fa56f5e24dc2f3ad8f72eaae4323441" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>sensorListInstantiator</name></member>
+      <member refid="classqgismobileapp_1affec9c9b03d76f19b7f03b668fc65738" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>sensorMenu</name></member>
+      <member refid="classqgismobileapp_1a6ead8db0eac42a0a28848f64cf5de0b8" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>setDestinationItem</name></member>
+      <member refid="classqgismobileapp_1a857f0dbc64006dc2de0469ef259a399a" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>showGnssInformation</name></member>
+      <member refid="classqgismobileapp_1a69e5d910741baff1d85646a299440b8d" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>sketcher</name></member>
+      <member refid="classqgismobileapp_1ae430411234ee45bc0bfe96679f2622da" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>snappingButton</name></member>
+      <member refid="classqgismobileapp_1ab9854a6f12a92a918bf2b0aadb323622" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>snapToCommonAngleButton</name></member>
+      <member refid="classqgismobileapp_1a7b35554abb3cf8f9cf3621e767ddd224" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>stateMachine</name></member>
+      <member refid="classqgismobileapp_1a72e04550ef7f59249b7fee04923967dc" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>theme</name></member>
+      <member refid="classqgismobileapp_1aa3bc659d58fe9e44a95f4922b252da4e" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>timer</name></member>
+      <member refid="classqgismobileapp_1af40debbbf9f99b8e556eab1779f11862" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>titleDecoration</name></member>
+      <member refid="classqgismobileapp_1a0d4fc1f8c9b856a8c31be085b7ea31ba" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>titleDecorationBackground</name></member>
+      <member refid="classqgismobileapp_1a800d9ffb1dd0ac096b9c8f8dd2d28566" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>toast</name></member>
+      <member refid="classqgismobileapp_1a971b7645cf040610199aff6928388569" prot="public" virt="non-virtual"><scope>qgismobileapp</scope><name>toggleDigitizeMode</name></member>
+      <member refid="classqgismobileapp_1a27c32584b3a4c02eea18fd1f0c97f14b" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>topologyButton</name></member>
+      <member refid="classqgismobileapp_1ab7dbc3e80174d8d23bfa1d42b8acaacf" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>topPadding</name></member>
+      <member refid="classqgismobileapp_1aa66aa2b3a7703a4aba52adcccd8b9a7e" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>trackerFeatureForm</name></member>
+      <member refid="classqgismobileapp_1a6e7dddd9a7d882bcbd4da0eb33111117" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>trackerSettings</name></member>
+      <member refid="classqgismobileapp_1af4a67287dc3aa2570ee2e92485af5bad" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>trackingButton</name></member>
+      <member refid="classqgismobileapp_1ac27fae9eda21bd5516d1c9e99598cf26" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>trackings</name></member>
+      <member refid="classqgismobileapp_1a8661f7a1dc4708fd60b9bd253f0ce72d" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>undoButton</name></member>
+      <member refid="classqgismobileapp_1aaeb39abe898bf41a69ef24b6de563816" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>undoRedoMetrics</name></member>
+      <member refid="classqgismobileapp_1ae3a9bbf2c1e4219297673e9dc839b2b4" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>vertexRubberband</name></member>
+      <member refid="classqgismobileapp_1a343e7cf7a7efce6f2ecc6423533f2d8b" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>visible</name></member>
+      <member refid="classqgismobileapp_1aaaeafebe7f247f29ebda01c9ce02921b" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>welcomeScreen</name></member>
+      <member refid="classqgismobileapp_1a924280fada9772493ec4c3be9c3aecce" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>zoomInButton</name></member>
+      <member refid="classqgismobileapp_1af69c44de314e76282a510cf512ea3006" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>zoomOutButton</name></member>
+      <member refid="classqgismobileapp_1abd4a0977f9408d10e900c4594b5bb9a5" prot="private" virt="non-virtual"><scope>qgismobileapp</scope><name>zoomToolbar</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

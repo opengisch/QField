@@ -1,0 +1,541 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTrackerSettings" kind="class" language="C++" prot="public">
+    <compoundname>TrackerSettings</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPopup" prot="public" virt="non-virtual">Theme::QfPopup</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTrackerSettings_1ac35d0f1af80fb743524fdeb06f042ccd" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerSettings::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>TrackerSettings::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="11" column="5" bodyfile="src/qml/TrackerSettings.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1ae191c64cbac2233cf93365f0dc560aac" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerSettings::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>TrackerSettings::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="12" column="5" bodyfile="src/qml/TrackerSettings.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1ad460f98afdb10f9f157b32e22161ab0a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerSettings::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>TrackerSettings::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="13" column="5" bodyfile="src/qml/TrackerSettings.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a85195ff637ae48997e44dfa3d963d061" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerSettings::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>TrackerSettings::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="14" column="5" bodyfile="src/qml/TrackerSettings.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a2dcd697d19701d1d15f1a9f42bcc0eb6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerSettings::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>TrackerSettings::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="15" column="5" bodyfile="src/qml/TrackerSettings.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a929b10d960474bd0d137601b5fd8fa30" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerSettings::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>TrackerSettings::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="16" column="5" bodyfile="src/qml/TrackerSettings.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1afc8454ab6af35485c6f819466d234b61" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerSettings::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>TrackerSettings::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="17" column="5" bodyfile="src/qml/TrackerSettings.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a84317d6c09f24421519ca2ea55fa8c4d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerSettings::onLayerChanged</definition>
+        <argsstring></argsstring>
+        <name>onLayerChanged</name>
+        <qualifiedname>TrackerSettings::onLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="26" column="5" bodyfile="src/qml/TrackerSettings.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a891f4d4010e5b30a1880b03815264237" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TrackerSettings::onAboutToHide</definition>
+        <argsstring></argsstring>
+        <name>onAboutToHide</name>
+        <qualifiedname>TrackerSettings::onAboutToHide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="33" column="5" bodyfile="src/qml/TrackerSettings.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a60f114006fc925f9ca28a0b4b7b6d6ef" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout TrackerSettings::trackerSettingsGrid</definition>
+        <argsstring></argsstring>
+        <name>trackerSettingsGrid</name>
+        <qualifiedname>TrackerSettings::trackerSettingsGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="34" column="12" bodyfile="src/qml/TrackerSettings.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a88fb8dc801d581dd95285aa1c2f51bbd" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox TrackerSettings::layersComboBox</definition>
+        <argsstring></argsstring>
+        <name>layersComboBox</name>
+        <qualifiedname>TrackerSettings::layersComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="35" column="12" bodyfile="src/qml/TrackerSettings.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a38f7ac87dffc3ec1669a1ed91521541f" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch TrackerSettings::timeInterval</definition>
+        <argsstring></argsstring>
+        <name>timeInterval</name>
+        <qualifiedname>TrackerSettings::timeInterval</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="36" column="10" bodyfile="src/qml/TrackerSettings.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a7296e3c1c95dff143a228ce540ad9f27" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField TrackerSettings::timeIntervalValue</definition>
+        <argsstring></argsstring>
+        <name>timeIntervalValue</name>
+        <qualifiedname>TrackerSettings::timeIntervalValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="37" column="13" bodyfile="src/qml/TrackerSettings.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a792690abbd6c467b6af2e9ae7d2fd62a" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch TrackerSettings::minimumDistance</definition>
+        <argsstring></argsstring>
+        <name>minimumDistance</name>
+        <qualifiedname>TrackerSettings::minimumDistance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="38" column="10" bodyfile="src/qml/TrackerSettings.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a05e7603a2c1351b2b68a5b837a1e816a" prot="private" static="no" mutable="no">
+        <type><ref refid="classDistanceArea" kindref="compound">DistanceArea</ref></type>
+        <definition>DistanceArea TrackerSettings::infoDistanceArea</definition>
+        <argsstring></argsstring>
+        <name>infoDistanceArea</name>
+        <qualifiedname>TrackerSettings::infoDistanceArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="39" column="14" bodyfile="src/qml/TrackerSettings.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a11f9f5eebb972aa1d643412a5fae92e5" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField TrackerSettings::minimumDistanceValue</definition>
+        <argsstring></argsstring>
+        <name>minimumDistanceValue</name>
+        <qualifiedname>TrackerSettings::minimumDistanceValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="40" column="13" bodyfile="src/qml/TrackerSettings.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a67d60d369a0487116649370f4bf671aa" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch TrackerSettings::sensorCapture</definition>
+        <argsstring></argsstring>
+        <name>sensorCapture</name>
+        <qualifiedname>TrackerSettings::sensorCapture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="41" column="10" bodyfile="src/qml/TrackerSettings.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a8cb9e1f334f9a08a8176e91661b4d70d" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch TrackerSettings::allConstraints</definition>
+        <argsstring></argsstring>
+        <name>allConstraints</name>
+        <qualifiedname>TrackerSettings::allConstraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="42" column="10" bodyfile="src/qml/TrackerSettings.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a1cf93b28f409f1fa7cc981576f0b3f63" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch TrackerSettings::erroneousDistanceSafeguard</definition>
+        <argsstring></argsstring>
+        <name>erroneousDistanceSafeguard</name>
+        <qualifiedname>TrackerSettings::erroneousDistanceSafeguard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="43" column="10" bodyfile="src/qml/TrackerSettings.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a5c03e0e10d2e067d30b60fb6624174a0" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField TrackerSettings::erroneousDistanceValue</definition>
+        <argsstring></argsstring>
+        <name>erroneousDistanceValue</name>
+        <qualifiedname>TrackerSettings::erroneousDistanceValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="44" column="13" bodyfile="src/qml/TrackerSettings.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a2d718f8de535885d4da29bb0970f46e0" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label TrackerSettings::measureLabel</definition>
+        <argsstring></argsstring>
+        <name>measureLabel</name>
+        <qualifiedname>TrackerSettings::measureLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="45" column="7" bodyfile="src/qml/TrackerSettings.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1ae4afd6f664b8b8c914f692656f67e4a4" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox TrackerSettings::measureComboBox</definition>
+        <argsstring></argsstring>
+        <name>measureComboBox</name>
+        <qualifiedname>TrackerSettings::measureComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="46" column="12" bodyfile="src/qml/TrackerSettings.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1af32910b775621199fb83af02a5ecbcdb" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label TrackerSettings::measureTipLabel</definition>
+        <argsstring></argsstring>
+        <name>measureTipLabel</name>
+        <qualifiedname>TrackerSettings::measureTipLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="47" column="7" bodyfile="src/qml/TrackerSettings.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a48fe08ae2567d96051a1171e0faa3a09" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle TrackerSettings::bottomRow</definition>
+        <argsstring></argsstring>
+        <name>bottomRow</name>
+        <qualifiedname>TrackerSettings::bottomRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="48" column="11" bodyfile="src/qml/TrackerSettings.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a41ee58a89d7b759784c9ffde1e8b8f56" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton TrackerSettings::startTrackingButton</definition>
+        <argsstring></argsstring>
+        <name>startTrackingButton</name>
+        <qualifiedname>TrackerSettings::startTrackingButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="49" column="10" bodyfile="src/qml/TrackerSettings.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1a1f4f9b7b24d7f628884e5de00e76e519" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton TrackerSettings::resumeTrackingButton</definition>
+        <argsstring></argsstring>
+        <name>resumeTrackingButton</name>
+        <qualifiedname>TrackerSettings::resumeTrackingButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="50" column="10" bodyfile="src/qml/TrackerSettings.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackerSettings_1aabeb9be3d1a5df0b658516020a3c6bf0" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref></type>
+        <definition>FeatureModel TrackerSettings::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>TrackerSettings::featureModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="51" column="14" bodyfile="src/qml/TrackerSettings.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTrackerSettings_1a44ef3501b5a879b8058a8066de7e0eba" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias TrackerSettings::availableLayersCount</definition>
+        <argsstring></argsstring>
+        <name>availableLayersCount</name>
+        <qualifiedname>TrackerSettings::availableLayersCount</qualifiedname>
+        <read>dummyGetter_availableLayersCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="20" column="1" bodyfile="src/qml/TrackerSettings.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTrackerSettings_1a0121082eed74a965d36e290d863768e2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var TrackerSettings::tracker</definition>
+        <argsstring></argsstring>
+        <name>tracker</name>
+        <qualifiedname>TrackerSettings::tracker</qualifiedname>
+        <read>dummyGetter_tracker_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="22" column="1" bodyfile="src/qml/TrackerSettings.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTrackerSettings_1a486421708593d3e3aae7d84b88ccb97d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var TrackerSettings::layer</definition>
+        <argsstring></argsstring>
+        <name>layer</name>
+        <qualifiedname>TrackerSettings::layer</qualifiedname>
+        <read>dummyGetter_layer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="24" column="1" bodyfile="src/qml/TrackerSettings.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTrackerSettings_1abf497c91f85e3846f71e9a8b94e54e85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TrackerSettings::applySettingsToTracker</definition>
+        <argsstring>()</argsstring>
+        <name>applySettingsToTracker</name>
+        <qualifiedname>TrackerSettings::applySettingsToTracker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="29" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classTrackerSettings_1a3deeb5ec57b84d0462d34754434b33e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TrackerSettings::prepareSettings</definition>
+        <argsstring>(requestedLayer=undefined)</argsstring>
+        <name>prepareSettings</name>
+        <qualifiedname>TrackerSettings::prepareSettings</qualifiedname>
+        <param>
+          <type>requestedLayer</type>
+          <defval>undefined</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackerSettings.qml" line="31" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>TrackerSettings</label>
+        <link refid="classTrackerSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>TrackerSettings</label>
+        <link refid="classTrackerSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/TrackerSettings.qml" line="10" column="1" bodyfile="src/qml/TrackerSettings.qml" bodystart="10" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classTrackerSettings_1a8cb9e1f334f9a08a8176e91661b4d70d" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>allConstraints</name></member>
+      <member refid="classTrackerSettings_1abf497c91f85e3846f71e9a8b94e54e85" prot="public" virt="non-virtual"><scope>TrackerSettings</scope><name>applySettingsToTracker</name></member>
+      <member refid="classTrackerSettings_1a44ef3501b5a879b8058a8066de7e0eba" prot="public" virt="non-virtual"><scope>TrackerSettings</scope><name>availableLayersCount</name></member>
+      <member refid="classTrackerSettings_1a48fe08ae2567d96051a1171e0faa3a09" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>bottomRow</name></member>
+      <member refid="classTrackerSettings_1a929b10d960474bd0d137601b5fd8fa30" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>closePolicy</name></member>
+      <member refid="classTrackerSettings_1a1cf93b28f409f1fa7cc981576f0b3f63" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>erroneousDistanceSafeguard</name></member>
+      <member refid="classTrackerSettings_1a5c03e0e10d2e067d30b60fb6624174a0" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>erroneousDistanceValue</name></member>
+      <member refid="classTrackerSettings_1aabeb9be3d1a5df0b658516020a3c6bf0" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>featureModel</name></member>
+      <member refid="classTrackerSettings_1afc8454ab6af35485c6f819466d234b61" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>focus</name></member>
+      <member refid="classTrackerSettings_1ad460f98afdb10f9f157b32e22161ab0a" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>height</name></member>
+      <member refid="classTrackerSettings_1a05e7603a2c1351b2b68a5b837a1e816a" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>infoDistanceArea</name></member>
+      <member refid="classTrackerSettings_1a486421708593d3e3aae7d84b88ccb97d" prot="public" virt="non-virtual"><scope>TrackerSettings</scope><name>layer</name></member>
+      <member refid="classTrackerSettings_1a88fb8dc801d581dd95285aa1c2f51bbd" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>layersComboBox</name></member>
+      <member refid="classTrackerSettings_1ae4afd6f664b8b8c914f692656f67e4a4" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>measureComboBox</name></member>
+      <member refid="classTrackerSettings_1a2d718f8de535885d4da29bb0970f46e0" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>measureLabel</name></member>
+      <member refid="classTrackerSettings_1af32910b775621199fb83af02a5ecbcdb" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>measureTipLabel</name></member>
+      <member refid="classTrackerSettings_1a792690abbd6c467b6af2e9ae7d2fd62a" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>minimumDistance</name></member>
+      <member refid="classTrackerSettings_1a11f9f5eebb972aa1d643412a5fae92e5" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>minimumDistanceValue</name></member>
+      <member refid="classTrackerSettings_1a891f4d4010e5b30a1880b03815264237" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>onAboutToHide</name></member>
+      <member refid="classTrackerSettings_1a84317d6c09f24421519ca2ea55fa8c4d" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>onLayerChanged</name></member>
+      <member refid="classTrackerSettings_1ac35d0f1af80fb743524fdeb06f042ccd" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>parent</name></member>
+      <member refid="classTrackerSettings_1a3deeb5ec57b84d0462d34754434b33e5" prot="public" virt="non-virtual"><scope>TrackerSettings</scope><name>prepareSettings</name></member>
+      <member refid="classTrackerSettings_1a1f4f9b7b24d7f628884e5de00e76e519" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>resumeTrackingButton</name></member>
+      <member refid="classTrackerSettings_1a67d60d369a0487116649370f4bf671aa" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>sensorCapture</name></member>
+      <member refid="classTrackerSettings_1a41ee58a89d7b759784c9ffde1e8b8f56" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>startTrackingButton</name></member>
+      <member refid="classTrackerSettings_1a38f7ac87dffc3ec1669a1ed91521541f" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>timeInterval</name></member>
+      <member refid="classTrackerSettings_1a7296e3c1c95dff143a228ce540ad9f27" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>timeIntervalValue</name></member>
+      <member refid="classTrackerSettings_1a0121082eed74a965d36e290d863768e2" prot="public" virt="non-virtual"><scope>TrackerSettings</scope><name>tracker</name></member>
+      <member refid="classTrackerSettings_1a60f114006fc925f9ca28a0b4b7b6d6ef" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>trackerSettingsGrid</name></member>
+      <member refid="classTrackerSettings_1ae191c64cbac2233cf93365f0dc560aac" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>width</name></member>
+      <member refid="classTrackerSettings_1a85195ff637ae48997e44dfa3d963d061" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>x</name></member>
+      <member refid="classTrackerSettings_1a2dcd697d19701d1d15f1a9f42bcc0eb6" prot="private" virt="non-virtual"><scope>TrackerSettings</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

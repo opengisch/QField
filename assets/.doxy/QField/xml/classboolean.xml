@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classboolean" kind="class" language="C++" prot="public">
+    <compoundname>boolean</compoundname>
+    <basecompoundref refid="classProcessingParameterWidgetBase" prot="public" virt="non-virtual">ProcessingParameterWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classboolean_1aeb2214c18349c4e32e951332c1a4cd12" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var boolean::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>boolean::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/boolean.qml" line="7" column="5" bodyfile="src/qml/processingparameterwidgets/boolean.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classboolean_1a69f1a24b2ed5f652e5d3b97bc39e5783" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label boolean::labelValue</definition>
+        <argsstring></argsstring>
+        <name>labelValue</name>
+        <qualifiedname>boolean::labelValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/boolean.qml" line="8" column="7" bodyfile="src/qml/processingparameterwidgets/boolean.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classboolean_1a08bbea0d9b39a305f4534e60f4e720d5" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch boolean::checkBox</definition>
+        <argsstring></argsstring>
+        <name>checkBox</name>
+        <qualifiedname>boolean::checkBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/boolean.qml" line="9" column="10" bodyfile="src/qml/processingparameterwidgets/boolean.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classboolean_1a3846609469f0722ec0270aea70ebb2f2" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea boolean::checkArea</definition>
+        <argsstring></argsstring>
+        <name>checkArea</name>
+        <qualifiedname>boolean::checkArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/boolean.qml" line="10" column="11" bodyfile="src/qml/processingparameterwidgets/boolean.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>boolean</label>
+        <link refid="classboolean"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>boolean</label>
+        <link refid="classboolean"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/processingparameterwidgets/boolean.qml" line="6" column="1" bodyfile="src/qml/processingparameterwidgets/boolean.qml" bodystart="6" bodyend="11"/>
+    <listofallmembers>
+      <member refid="classboolean_1a3846609469f0722ec0270aea70ebb2f2" prot="private" virt="non-virtual"><scope>boolean</scope><name>checkArea</name></member>
+      <member refid="classboolean_1a08bbea0d9b39a305f4534e60f4e720d5" prot="private" virt="non-virtual"><scope>boolean</scope><name>checkBox</name></member>
+      <member refid="classboolean_1aeb2214c18349c4e32e951332c1a4cd12" prot="private" virt="non-virtual"><scope>boolean</scope><name>height</name></member>
+      <member refid="classboolean_1a69f1a24b2ed5f652e5d3b97bc39e5783" prot="private" virt="non-virtual"><scope>boolean</scope><name>labelValue</name></member>
+      <member refid="classProcessingParameterWidgetBase_1ad9696e0221e7fc60b474690077fc900a" prot="public" virt="non-virtual"><scope>boolean</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

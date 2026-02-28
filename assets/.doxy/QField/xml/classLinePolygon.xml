@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLinePolygon" kind="class" language="C++" prot="public">
+    <compoundname>LinePolygon</compoundname>
+    <basecompoundref refid="classLinePolygonShape" prot="public" virt="non-virtual">LinePolygonShape</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLinePolygon_1a99de80892e5d60afee7df869604db2dd" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LinePolygon::onPolylinesChanged</definition>
+        <argsstring></argsstring>
+        <name>onPolylinesChanged</name>
+        <qualifiedname>LinePolygon::onPolylinesChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LinePolygon.qml" line="10" column="5" bodyfile="src/qml/LinePolygon.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLinePolygon_1af4ae9e95171d8426b4a6d12481486ae4" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component LinePolygon::componentPathPolyline</definition>
+        <argsstring></argsstring>
+        <name>componentPathPolyline</name>
+        <qualifiedname>LinePolygon::componentPathPolyline</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LinePolygon.qml" line="11" column="11" bodyfile="src/qml/LinePolygon.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLinePolygon_1af4d53cdf3fa7db61ca1db2e6dcdce672" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape LinePolygon::shape</definition>
+        <argsstring></argsstring>
+        <name>shape</name>
+        <qualifiedname>LinePolygon::shape</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LinePolygon.qml" line="12" column="7" bodyfile="src/qml/LinePolygon.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLinePolygon_1a4b0dfd0da49a843fdd14f88d2a2ab350" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath LinePolygon::shapePath</definition>
+        <argsstring></argsstring>
+        <name>shapePath</name>
+        <qualifiedname>LinePolygon::shapePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LinePolygon.qml" line="13" column="11" bodyfile="src/qml/LinePolygon.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LinePolygon</label>
+        <link refid="classLinePolygon"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>LinePolygonShape</label>
+        <link refid="classLinePolygonShape"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QQuickItem</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LinePolygon</label>
+        <link refid="classLinePolygon"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>LinePolygonShape</label>
+        <link refid="classLinePolygonShape"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QQuickItem</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/LinePolygon.qml" line="9" column="1" bodyfile="src/qml/LinePolygon.qml" bodystart="9" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classLinePolygonShape_1a96c2707d973dc37ebebf66ee9b8f5e0f" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>color</name></member>
+      <member refid="classLinePolygonShape_1a8f41e4f9ac6bd0631b9601818e059db5" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>color</name></member>
+      <member refid="classLinePolygonShape_1a84461799fb19119a9cd3908114eaff26" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>colorChanged</name></member>
+      <member refid="classLinePolygon_1af4ae9e95171d8426b4a6d12481486ae4" prot="private" virt="non-virtual"><scope>LinePolygon</scope><name>componentPathPolyline</name></member>
+      <member refid="classLinePolygonShape_1a4ccd3a24b48a10cae8d6e41f65964327" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>geometry</name></member>
+      <member refid="classLinePolygonShape_1a5702f9abcd94329b610fe284a5e4c917" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>geometry</name></member>
+      <member refid="classLinePolygonShape_1a7b49e944c44ebb288ff01318f398c0ad" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>LinePolygonShape</name></member>
+      <member refid="classLinePolygonShape_1a500621ceaa977c96509dfbab0ff0914b" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>lineWidth</name></member>
+      <member refid="classLinePolygonShape_1a6fb021496696e57a84f86cedfaebd710" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>lineWidth</name></member>
+      <member refid="classLinePolygonShape_1a9077abc6f473c683243d86fbb86a8858" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>lineWidthChanged</name></member>
+      <member refid="classLinePolygonShape_1aa0302d40557077dd44eda46470314eec" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>mapSettings</name></member>
+      <member refid="classLinePolygonShape_1a03a421a997dd8449e389eaa8b4f64426" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>mapSettings</name></member>
+      <member refid="classLinePolygonShape_1a3ac0f0414261b4f7f839e23ba78b044b" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>mapSettingsChanged</name></member>
+      <member refid="classLinePolygon_1a99de80892e5d60afee7df869604db2dd" prot="private" virt="non-virtual"><scope>LinePolygon</scope><name>onPolylinesChanged</name></member>
+      <member refid="classLinePolygonShape_1a8959c5b170bc2e13616d532cde95b913" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>polylines</name></member>
+      <member refid="classLinePolygonShape_1a8c61e54e53567b698b97265821dbfabf" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>polylines</name></member>
+      <member refid="classLinePolygonShape_1a9a32178fca0d6f03ed51491b6e9f9199" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>polylinesChanged</name></member>
+      <member refid="classLinePolygonShape_1ad87706b6a34cd9e371e49dbcc65373aa" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>polylinesType</name></member>
+      <member refid="classLinePolygonShape_1a4f32b0c54685f75c3e138903ee3e33db" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>polylinesType</name></member>
+      <member refid="classLinePolygonShape_1aa5bf4ef8d4eee021c519d354fa500b3c" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>polylinesTypeChanged</name></member>
+      <member refid="classLinePolygonShape_1a1591dc4935f8187d391cfe21c21d6170" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>qgsGeometryChanged</name></member>
+      <member refid="classLinePolygonShape_1a7cb2dd156b53792fdd8eaadfbab93bf0" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>setColor</name></member>
+      <member refid="classLinePolygonShape_1afaa0ff19bf103f21a9ceab7022589c23" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>setGeometry</name></member>
+      <member refid="classLinePolygonShape_1a5c558d2c3d06bf6b66523798c8956553" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>setLineWidth</name></member>
+      <member refid="classLinePolygonShape_1a33dbcc7ad1855cfaa138960951f6ac25" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>setMapSettings</name></member>
+      <member refid="classLinePolygon_1af4d53cdf3fa7db61ca1db2e6dcdce672" prot="private" virt="non-virtual"><scope>LinePolygon</scope><name>shape</name></member>
+      <member refid="classLinePolygon_1a4b0dfd0da49a843fdd14f88d2a2ab350" prot="private" virt="non-virtual"><scope>LinePolygon</scope><name>shapePath</name></member>
+      <member refid="classLinePolygonShape_1a4682231d7b3600d9d5f20f52144820f4" prot="public" virt="non-virtual"><scope>LinePolygon</scope><name>updated</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

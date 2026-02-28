@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfDropShadow_8qml" kind="file" language="C++">
+    <compoundname>QfDropShadow.qml</compoundname>
+    <innerclass refid="classTheme_1_1QfDropShadow" prot="public">Theme::QfDropShadow</innerclass>
+    <innernamespace refid="namespaceTheme">Theme</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Effects</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">MultiEffect<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/>id:<sp/>effect</highlight></codeline>
+<codeline lineno="6" refid="classTheme_1_1QfDropShadow" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>dummy<sp/>properties<sp/>to<sp/>support<sp/>Qt5<sp/>and<sp/>Qt6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>property<sp/>int<sp/>samples</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>property<sp/>int<sp/>radius</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>transparentBorder</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>property<sp/>aliases</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>color:<sp/>effect.shadowColor</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>horizontalOffset:<sp/>effect.shadowHorizontalOffset</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>verticalOffset:<sp/>effect.shadowVerticalOffset</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>shadowEnabled:<sp/>true</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/imports/Theme/QfDropShadow.qml"/>
+  </compounddef>
+</doxygen>

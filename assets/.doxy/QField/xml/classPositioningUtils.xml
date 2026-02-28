@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningUtils" kind="class" language="C++" prot="public">
+    <compoundname>PositioningUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPositioningUtils_1a35f9a242cb6e388f9932722c06517225" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PositioningUtils::PositioningUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>PositioningUtils</name>
+        <qualifiedname>PositioningUtils::PositioningUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/positioningutils.h" line="35" column="14" bodyfile="src/core/utils/positioningutils.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classPositioningUtils_1a59808a3be843fa5394aec3d937bbd9e4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation PositioningUtils::createGnssPositionInformation</definition>
+        <argsstring>(double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &amp;timestamp, const QString &amp;sourceName)</argsstring>
+        <name>createGnssPositionInformation</name>
+        <qualifiedname>PositioningUtils::createGnssPositionInformation</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>longitude</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>altitude</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>speed</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>horizontalAccuracy</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>verticalAcurracy</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>verticalSpeed</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>magneticVariation</declname>
+        </param>
+        <param>
+          <type>const QDateTime &amp;</type>
+          <declname>timestamp</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourceName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> with values. The status will be set to &quot;A&quot;ctive by default. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/positioningutils.h" line="41" column="48" bodyfile="src/core/utils/positioningutils.cpp" bodystart="36" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningUtils_1aa60e046dd1b6b02b67be125255c12b22" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation PositioningUtils::createEmptyGnssPositionInformation</definition>
+        <argsstring>()</argsstring>
+        <name>createEmptyGnssPositionInformation</name>
+        <qualifiedname>PositioningUtils::createEmptyGnssPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates an empty <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/positioningutils.h" line="46" column="48" bodyfile="src/core/utils/positioningutils.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningUtils_1a00edb14b4cf9c406fddf1d76e28b3a91" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation PositioningUtils::averagedPositionInformation</definition>
+        <argsstring>(const QList&lt; GnssPositionInformation &gt; &amp;positionsInformation)</argsstring>
+        <name>averagedPositionInformation</name>
+        <qualifiedname>PositioningUtils::averagedPositionInformation</qualifiedname>
+        <param>
+          <type>const QList&lt; <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &gt; &amp;</type>
+          <declname>positionsInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an average <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> from a list of position information. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/positioningutils.h" line="51" column="48" bodyfile="src/core/utils/positioningutils.cpp" bodystart="63" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningUtils_1ac96167e3075bc5d04c980582928af7ef" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation PositioningUtils::averagedPositionInformation</definition>
+        <argsstring>(const QList&lt; QVariant &gt; &amp;positionsInformation)</argsstring>
+        <name>averagedPositionInformation</name>
+        <qualifiedname>PositioningUtils::averagedPositionInformation</qualifiedname>
+        <param>
+          <type>const QList&lt; QVariant &gt; &amp;</type>
+          <declname>positionsInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an average <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> from a list of position information </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/positioningutils.h" line="56" column="48" bodyfile="src/core/utils/positioningutils.cpp" bodystart="50" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningUtils_1a9847d79c5651b7a8052c281e8a445fb5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double PositioningUtils::bearingTrueNorth</definition>
+        <argsstring>(const QgsPoint &amp;position, const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>bearingTrueNorth</name>
+        <qualifiedname>PositioningUtils::bearingTrueNorth</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the true north bearing from a given position and CRS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/positioningutils.h" line="61" column="31" bodyfile="src/core/utils/positioningutils.cpp" bodystart="204" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningUtils_1a4091070ae1d8eb66e477110fd9053a69" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsRectangle</type>
+        <definition>QgsRectangle PositioningUtils::createExtentForDevice</definition>
+        <argsstring>(const GnssPositionInformation &amp;positionInformation, const QgsCoordinateReferenceSystem &amp;crs=QgsCoordinateReferenceSystem::fromEpsgId(4326), const QgsRectangle &amp;withinRectangle=QgsRectangle())</argsstring>
+        <name>createExtentForDevice</name>
+        <qualifiedname>PositioningUtils::createExtentForDevice</qualifiedname>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+          <defval>QgsCoordinateReferenceSystem::fromEpsgId(4326)</defval>
+        </param>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>withinRectangle</declname>
+          <defval>QgsRectangle()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a reasonable default extent derived from a device&apos;s timezone and positioning if available. The extent can optionally be clipped to a QgsRectangle. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/positioningutils.h" line="67" column="37" bodyfile="src/core/utils/positioningutils.cpp" bodystart="222" bodyend="290"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classPositioningUtils_1ad4dd4dcb797ead35fe52a4aba836c005" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningUtils::initTimeZones</definition>
+        <argsstring>()</argsstring>
+        <name>initTimeZones</name>
+        <qualifiedname>PositioningUtils::initTimeZones</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/positioningutils.h" line="70" column="17" bodyfile="src/core/utils/positioningutils.cpp" bodystart="292" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningUtils_1a631033b113622380659139bcf271ac00" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningUtils::buildTimeZones</definition>
+        <argsstring>()</argsstring>
+        <name>buildTimeZones</name>
+        <qualifiedname>PositioningUtils::buildTimeZones</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>not available in Python bindings </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/positioningutils.h" line="72" column="17" bodyfile="src/core/utils/positioningutils.cpp" bodystart="298" bodyend="338"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PositioningUtils</label>
+        <link refid="classPositioningUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PositioningUtils</label>
+        <link refid="classPositioningUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/positioningutils.h" line="30" column="1" bodyfile="src/core/utils/positioningutils.h" bodystart="31" bodyend="73"/>
+    <listofallmembers>
+      <member refid="classPositioningUtils_1a00edb14b4cf9c406fddf1d76e28b3a91" prot="public" virt="non-virtual"><scope>PositioningUtils</scope><name>averagedPositionInformation</name></member>
+      <member refid="classPositioningUtils_1ac96167e3075bc5d04c980582928af7ef" prot="public" virt="non-virtual"><scope>PositioningUtils</scope><name>averagedPositionInformation</name></member>
+      <member refid="classPositioningUtils_1a9847d79c5651b7a8052c281e8a445fb5" prot="public" virt="non-virtual"><scope>PositioningUtils</scope><name>bearingTrueNorth</name></member>
+      <member refid="classPositioningUtils_1a631033b113622380659139bcf271ac00" prot="private" virt="non-virtual"><scope>PositioningUtils</scope><name>buildTimeZones</name></member>
+      <member refid="classPositioningUtils_1aa60e046dd1b6b02b67be125255c12b22" prot="public" virt="non-virtual"><scope>PositioningUtils</scope><name>createEmptyGnssPositionInformation</name></member>
+      <member refid="classPositioningUtils_1a4091070ae1d8eb66e477110fd9053a69" prot="public" virt="non-virtual"><scope>PositioningUtils</scope><name>createExtentForDevice</name></member>
+      <member refid="classPositioningUtils_1a59808a3be843fa5394aec3d937bbd9e4" prot="public" virt="non-virtual"><scope>PositioningUtils</scope><name>createGnssPositionInformation</name></member>
+      <member refid="classPositioningUtils_1ad4dd4dcb797ead35fe52a4aba836c005" prot="private" virt="non-virtual"><scope>PositioningUtils</scope><name>initTimeZones</name></member>
+      <member refid="classPositioningUtils_1a35f9a242cb6e388f9932722c06517225" prot="public" virt="non-virtual"><scope>PositioningUtils</scope><name>PositioningUtils</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

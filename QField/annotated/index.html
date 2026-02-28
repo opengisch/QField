@@ -1,0 +1,849 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class List - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-list" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class List
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-list">Class List</h1>
+<p>Here are the classes, structs, unions and interfaces with brief descriptions:</p>
+<ul>
+<li><strong>class</strong> <a href="../classAbout/"><strong>About</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAbstractGnssReceiver/"><strong>AbstractGnssReceiver</strong></a>     </li>
+<li><strong>class</strong> <a href="../classActiveLayerFeaturesLocatorFilter/"><strong>ActiveLayerFeaturesLocatorFilter</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAlgorithmItem/"><strong>AlgorithmItem</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAndroidPlatformUtilities/"><strong>AndroidPlatformUtilities</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAndroidProjectSource/"><strong>AndroidProjectSource</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAndroidResourceSource/"><strong>AndroidResourceSource</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAndroidViewStatus/"><strong>AndroidViewStatus</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAppExpressionContextScopesGenerator/"><strong>AppExpressionContextScopesGenerator</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAppInterface/"><strong>AppInterface</strong></a> <em>App interface made available in QML as</em> <code>iface</code> <em>.</em>    </li>
+<li><strong>class</strong> <a href="../classAppMissingGridHandler/"><strong>AppMissingGridHandler</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAsyncLegendImageProvider/"><strong>AsyncLegendImageProvider</strong></a> <em>This class prepares asynchrnous legend images requests. Used for online WMS and AMS layers.</em>     </li>
+<li><strong>class</strong> <a href="../classAsyncLegendImageResponse/"><strong>AsyncLegendImageResponse</strong></a> <em>This class provides responses of asynchronously requested legend images for the layer tree model . Used for online WMS and AMS layers.</em>     </li>
+<li><strong>class</strong> <a href="../classAttributeFormModel/"><strong>AttributeFormModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAttributeFormModelBase/"><strong>AttributeFormModelBase</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structAttributeFormModelBase_1_1CodeRequirements/"><strong>CodeRequirements</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAudioRecorder/"><strong>AudioRecorder</strong></a>     </li>
+<li><strong>class</strong> <a href="../classAuthenticationProvider/"><strong>AuthenticationProvider</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBadLayerHandler/"><strong>BadLayerHandler</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBadLayerItem/"><strong>BadLayerItem</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBarcodeDecoder/"><strong>BarcodeDecoder</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBarcodeDecoderThread/"><strong>BarcodeDecoderThread</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBarcodeImageProvider/"><strong>BarcodeImageProvider</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBarcodeVideoFilter/"><strong>BarcodeVideoFilter</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBarcodeVideoFilterRunnable/"><strong>BarcodeVideoFilterRunnable</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBinary/"><strong>Binary</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBluetoothDeviceChooser/"><strong>BluetoothDeviceChooser</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBluetoothDeviceModel/"><strong>BluetoothDeviceModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBluetoothReceiver/"><strong>BluetoothReceiver</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBookmarkHighlight/"><strong>BookmarkHighlight</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBookmarkLocatorFilter/"><strong>BookmarkLocatorFilter</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBookmarkModel/"><strong>BookmarkModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBookmarkProperties/"><strong>BookmarkProperties</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBookmarkRenderer/"><strong>BookmarkRenderer</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBrowserPanel/"><strong>BrowserPanel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classBusyOverlay/"><strong>BusyOverlay</strong></a>     </li>
+<li><strong>class</strong> <a href="../classCameraPermission/"><strong>CameraPermission</strong></a>     </li>
+<li><strong>class</strong> <a href="../classChangelog/"><strong>Changelog</strong></a>     </li>
+<li><strong>class</strong> <a href="../classChangelogContents/"><strong>ChangelogContents</strong></a>     </li>
+<li><strong>class</strong> <a href="../classCheckBox/"><strong>CheckBox</strong></a>     </li>
+<li><strong>class</strong> <a href="../classClipboardManager/"><strong>ClipboardManager</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structCloudUserInformation/"><strong>CloudUserInformation</strong></a>     </li>
+<li><strong>class</strong> <a href="../classCodeReader/"><strong>CodeReader</strong></a>     </li>
+<li><strong>class</strong> <a href="../classCogoExecutor/"><strong>CogoExecutor</strong></a> <em>A COGO operation exeuctor object allowing for property-driven access to COGO operations.</em>     </li>
+<li><strong>class</strong> <a href="../classCogoOperation/"><strong>CogoOperation</strong></a> <em>A COGO operation.</em>     </li>
+<li><strong>class</strong> <a href="../classCogoOperationPointAtDistanceAngle/"><strong>CogoOperationPointAtDistanceAngle</strong></a> <em>A COGO operation to generate a point at a given distance and angle from a provided point.</em>     </li>
+<li><strong>class</strong> <a href="../classCogoOperationPointAtIntersectionCircles/"><strong>CogoOperationPointAtIntersectionCircles</strong></a> <em>A COGO operation to generate a point at the intersection of two defined circles.</em>     </li>
+<li><strong>class</strong> <a href="../classCogoOperationPointAtXYZ/"><strong>CogoOperationPointAtXYZ</strong></a> <em>A COGO operation to generate a point at a given XY location.</em>     </li>
+<li><strong>class</strong> <a href="../classCogoOperationPreview/"><strong>CogoOperationPreview</strong></a>     </li>
+<li><strong>class</strong> <a href="../classCogoOperationSettings/"><strong>CogoOperationSettings</strong></a>     </li>
+<li><strong>class</strong> <a href="../classCogoOperations/"><strong>CogoOperations</strong></a>     </li>
+<li><strong>class</strong> <a href="../classCogoOperationsModel/"><strong>CogoOperationsModel</strong></a> <em>A model holding the list of COGO operations available in the COGO registry.</em>     </li>
+<li><strong>class</strong> <a href="../classCogoParameter/"><strong>CogoParameter</strong></a> <em>A COGO operation parameter.</em>     </li>
+<li><strong>class</strong> <a href="../classCogoParameterWidgetBase/"><strong>CogoParameterWidgetBase</strong></a>     </li>
+<li><strong>class</strong> <a href="../classCogoRegistry/"><strong>CogoRegistry</strong></a> <em>A registry managing available COGO operations.</em>     </li>
+<li><strong>class</strong> <a href="../classCogoVisualGuide/"><strong>CogoVisualGuide</strong></a> <em>A COGO visual guide.</em>     </li>
+<li><strong>class</strong> <a href="../classColor/"><strong>Color</strong></a>     </li>
+<li><strong>class</strong> <a href="../classConfirmationToolbar/"><strong>ConfirmationToolbar</strong></a>     </li>
+<li><strong>class</strong> <a href="../classCoordinateLocator/"><strong>CoordinateLocator</strong></a>     </li>
+<li><strong>class</strong> <a href="../classCoordinateReferenceSystemUtils/"><strong>CoordinateReferenceSystemUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classDashBoard/"><strong>DashBoard</strong></a>     </li>
+<li><strong>class</strong> <a href="../classDateTime/"><strong>DateTime</strong></a>     </li>
+<li><strong>class</strong> <a href="../classDeltaFileWrapper/"><strong>DeltaFileWrapper</strong></a>     </li>
+<li><strong>class</strong> <a href="../classDeltaListModel/"><strong>DeltaListModel</strong></a>     <ul>
+<li><strong>struct</strong> <a href="../structDeltaListModel_1_1Delta/"><strong>Delta</strong></a>     </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classDigitizingLogger/"><strong>DigitizingLogger</strong></a>     </li>
+<li><strong>class</strong> <a href="../classDigitizingToolbar/"><strong>DigitizingToolbar</strong></a>     </li>
+<li><strong>class</strong> <a href="../classDistanceArea/"><strong>DistanceArea</strong></a>     </li>
+<li><strong>class</strong> <a href="../classDrawingCanvas/"><strong>DrawingCanvas</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structDrawingStroke/"><strong>DrawingStroke</strong></a>     </li>
+<li><strong>class</strong> <a href="../classDrawingTemplateModel/"><strong>DrawingTemplateModel</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structDrawingTemplateModel_1_1Template/"><strong>Template</strong></a>     </li>
+<li><strong>class</strong> <a href="../classDummy/"><strong>Dummy</strong></a> </li>
+<li><strong>class</strong> <a href="../classEditorWidgetBase/"><strong>EditorWidgetBase</strong></a>     </li>
+<li><strong>class</strong> <a href="../classEgenioussDeviceChooser/"><strong>EgenioussDeviceChooser</strong></a>     </li>
+<li><strong>class</strong> <a href="../classEgenioussReceiver/"><strong>EgenioussReceiver</strong></a>     </li>
+<li><strong>class</strong> <a href="../classElevationProfile/"><strong>ElevationProfile</strong></a>     </li>
+<li><strong>class</strong> <a href="../classEmbeddedFeatureForm/"><strong>EmbeddedFeatureForm</strong></a>     </li>
+<li><strong>class</strong> <a href="../classErase/"><strong>Erase</strong></a>     </li>
+<li><strong>class</strong> <a href="../classExpressionCalculatorLocatorFilter/"><strong>ExpressionCalculatorLocatorFilter</strong></a>     </li>
+<li><strong>class</strong> <a href="../classExpressionContextUtils/"><strong>ExpressionContextUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classExpressionEvaluator/"><strong>ExpressionEvaluator</strong></a> <em>The</em> <a href="../classExpressionEvaluator/"><em><strong>ExpressionEvaluator</strong></em></a> <em>class enables evaluation of expression strings and expression templates.</em>    </li>
+<li><strong>class</strong> <a href="../classExpressionVariableModel/"><strong>ExpressionVariableModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classExternalResource/"><strong>ExternalResource</strong></a>     </li>
+<li><strong>class</strong> <a href="../classExternalStorage/"><strong>ExternalStorage</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeatureCheckListModel/"><strong>FeatureCheckListModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeatureCheckListModelBase/"><strong>FeatureCheckListModelBase</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeatureExpressionValuesGatherer/"><strong>FeatureExpressionValuesGatherer</strong></a>     <ul>
+<li><strong>struct</strong> <a href="../structFeatureExpressionValuesGatherer_1_1Entry/"><strong>Entry</strong></a>     </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classFeatureForm/"><strong>FeatureForm</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeatureGatherer/"><strong>FeatureGatherer</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeatureHistory/"><strong>FeatureHistory</strong></a>     <ul>
+<li><strong>struct</strong> <a href="../structFeatureHistory_1_1FeatureModifications/"><strong>FeatureModifications</strong></a>     </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classFeatureIterator/"><strong>FeatureIterator</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeatureListExtentController/"><strong>FeatureListExtentController</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeatureListForm/"><strong>FeatureListForm</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeatureListModel/"><strong>FeatureListModel</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structFeatureListModel_1_1Entry/"><strong>Entry</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeatureListModelSelection/"><strong>FeatureListModelSelection</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeatureListSelectionHighlight/"><strong>FeatureListSelectionHighlight</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeatureModel/"><strong>FeatureModel</strong></a>     <ul>
+<li><strong>struct</strong> <a href="../structFeatureModel_1_1RememberValues/"><strong>RememberValues</strong></a> <em>keeping the information what attributes are remembered and the last edited feature</em>     </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classFeatureUtils/"><strong>FeatureUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFeaturesLocatorFilter/"><strong>FeaturesLocatorFilter</strong></a>     <ul>
+<li><strong>struct</strong> <a href="../structFeaturesLocatorFilter_1_1PreparedLayer/"><strong>PreparedLayer</strong></a>     </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classFileDeviceChooser/"><strong>FileDeviceChooser</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFileReceiver/"><strong>FileReceiver</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFileUtils/"><strong>FileUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFillRing/"><strong>FillRing</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFinlandLocatorFilter/"><strong>FinlandLocatorFilter</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFlatLayerTreeModel/"><strong>FlatLayerTreeModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFlatLayerTreeModelBase/"><strong>FlatLayerTreeModelBase</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFlusher/"><strong>Flusher</strong></a>     </li>
+<li><strong>class</strong> <a href="../classFocusStack/"><strong>FocusStack</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGeofencer/"><strong>Geofencer</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGeometry/"><strong>Geometry</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGeometryEditorBase/"><strong>GeometryEditorBase</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGeometryEditorsModel/"><strong>GeometryEditorsModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGeometryEditorsToolbar/"><strong>GeometryEditorsToolbar</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGeometryHighlighter/"><strong>GeometryHighlighter</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGeometryRenderer/"><strong>GeometryRenderer</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGeometryUtils/"><strong>GeometryUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGnssPositionDetails/"><strong>GnssPositionDetails</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGnssPositionInformation/"><strong>GnssPositionInformation</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGotoLocatorFilter/"><strong>GotoLocatorFilter</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGridAnnotation/"><strong>GridAnnotation</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGridModel/"><strong>GridModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classGridRenderer/"><strong>GridRenderer</strong></a>     </li>
+<li><strong>class</strong> <a href="../classHelpLocatorFilter/"><strong>HelpLocatorFilter</strong></a>     </li>
+<li><strong>class</strong> <a href="../classIdentifyTool/"><strong>IdentifyTool</strong></a>     <ul>
+<li><strong>struct</strong> <a href="../structIdentifyTool_1_1IdentifyResult/"><strong>IdentifyResult</strong></a>     </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classImageDial/"><strong>ImageDial</strong></a>     </li>
+<li><strong>class</strong> <a href="../classInformationDrawer/"><strong>InformationDrawer</strong></a>     </li>
+<li><strong>class</strong> <a href="../classInternalGnssReceiver/"><strong>InternalGnssReceiver</strong></a>     </li>
+<li><strong>class</strong> <a href="../classIosPlatformUtilities/"><strong>IosPlatformUtilities</strong></a>     </li>
+<li><strong>class</strong> <a href="../classIosProjectSource/"><strong>IosProjectSource</strong></a>     </li>
+<li><strong>class</strong> <a href="../classIosResourceSource/"><strong>IosResourceSource</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLayerLoginDialog/"><strong>LayerLoginDialog</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLayerObserver/"><strong>LayerObserver</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLayerResolver/"><strong>LayerResolver</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLayerTreeItemProperties/"><strong>LayerTreeItemProperties</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLayerTreeMapCanvasBridge/"><strong>LayerTreeMapCanvasBridge</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLayerUtils/"><strong>LayerUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLegend/"><strong>Legend</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLegendImageProvider/"><strong>LegendImageProvider</strong></a> <em>This class provides legend images for the layer tree model.</em>     </li>
+<li><strong>class</strong> <a href="../classLinePolygon/"><strong>LinePolygon</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLinePolygonShape/"><strong>LinePolygonShape</strong></a> <em>The</em> <a href="../classLinePolygonShape/"><em><strong>LinePolygonShape</strong></em></a> <em>class is used to provide the shape data to draw geometries on the map canvas using the QML Shape item.</em>    </li>
+<li><strong>class</strong> <a href="../classLocalFileItem/"><strong>LocalFileItem</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLocalFilesImageProvider/"><strong>LocalFilesImageProvider</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLocalFilesModel/"><strong>LocalFilesModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLocationMarker/"><strong>LocationMarker</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLocatorActionsModel/"><strong>LocatorActionsModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLocatorFiltersModel/"><strong>LocatorFiltersModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLocatorItem/"><strong>LocatorItem</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLocatorModelSuperBridge/"><strong>LocatorModelSuperBridge</strong></a>     </li>
+<li><strong>class</strong> <a href="../classLocatorSettings/"><strong>LocatorSettings</strong></a>     </li>
+<li><strong>class</strong> <a href="../classMapCanvas/"><strong>MapCanvas</strong></a>     </li>
+<li><strong>class</strong> <a href="../classMapCanvas3D/"><strong>MapCanvas3D</strong></a>     </li>
+<li><strong>class</strong> <a href="../classMapCanvasPointHandler/"><strong>MapCanvasPointHandler</strong></a>     </li>
+<li><strong>class</strong> <a href="../classMapLayerBaseModel/"><strong>MapLayerBaseModel</strong></a> <em>A project map layers base model.</em>     </li>
+<li><strong>class</strong> <a href="../classMapLayerModel/"><strong>MapLayerModel</strong></a> <em>A project map layers model within filtering capabilities.</em>     </li>
+<li><strong>class</strong> <a href="../classMapToScreen/"><strong>MapToScreen</strong></a> <em>The</em> <a href="../classMapToScreen/"><em><strong>MapToScreen</strong></em></a> <em>class transform a map point to screen coordinates. The map point CRS is the one from the map settings. Screen point will be automatically updated on map extent changes.</em>    </li>
+<li><strong>class</strong> <a href="../classMeasuringTool/"><strong>MeasuringTool</strong></a>     </li>
+<li><strong>class</strong> <a href="../classMessageLog/"><strong>MessageLog</strong></a>     </li>
+<li><strong>class</strong> <a href="../classMessageLogModel/"><strong>MessageLogModel</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structMessageLogModel_1_1LogMessage/"><strong>LogMessage</strong></a>     </li>
+<li><strong>class</strong> <a href="../classMicrophonePermission/"><strong>MicrophonePermission</strong></a>     </li>
+<li><strong>class</strong> <a href="../classMultiFeatureListModel/"><strong>MultiFeatureListModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classMultiFeatureListModelBase/"><strong>MultiFeatureListModelBase</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNavigation/"><strong>Navigation</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNavigationBar/"><strong>NavigationBar</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNavigationHighlight/"><strong>NavigationHighlight</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNavigationInformationView/"><strong>NavigationInformationView</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNavigationModel/"><strong>NavigationModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNavigationRenderer/"><strong>NavigationRenderer</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNearFieldReader/"><strong>NearFieldReader</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNetworkManager/"><strong>NetworkManager</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNetworkReply/"><strong>NetworkReply</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNmeaGnssReceiver/"><strong>NmeaGnssReceiver</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structNmeaGnssReceiver_1_1ImuPosition/"><strong>ImuPosition</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNotesItem/"><strong>NotesItem</strong></a>     </li>
+<li><strong>class</strong> <a href="../classNyuki/"><strong>Nyuki</strong></a>     </li>
+<li><strong>class</strong> <a href="../classOrderedRelationModel/"><strong>OrderedRelationModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classOverlayFeatureFormDrawer/"><strong>OverlayFeatureFormDrawer</strong></a>     </li>
+<li><strong>class</strong> <a href="../classParametizedImage/"><strong>ParametizedImage</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPeliasGeocoder/"><strong>PeliasGeocoder</strong></a> <em>A geocoder which uses the Pelias geocoding API to retrieve results.</em>     </li>
+<li><strong>class</strong> <a href="../classPlatformUtilities/"><strong>PlatformUtilities</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPluginInformation/"><strong>PluginInformation</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPluginItem/"><strong>PluginItem</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPluginManager/"><strong>PluginManager</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPluginManagerSettings/"><strong>PluginManagerSettings</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPluginModel/"><strong>PluginModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPluginProxyModel/"><strong>PluginProxyModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPositioning/"><strong>Positioning</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPositioningDeviceModel/"><strong>PositioningDeviceModel</strong></a>     <ul>
+<li><strong>struct</strong> <a href="../structPositioningDeviceModel_1_1Device/"><strong>Device</strong></a>     </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classPositioningDeviceSettings/"><strong>PositioningDeviceSettings</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPositioningInformationModel/"><strong>PositioningInformationModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPositioningInformationView/"><strong>PositioningInformationView</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPositioningPreciseView/"><strong>PositioningPreciseView</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPositioningSettings/"><strong>PositioningSettings</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPositioningSource/"><strong>PositioningSource</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPositioningUtils/"><strong>PositioningUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classPrintLayoutListModel/"><strong>PrintLayoutListModel</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structPrintLayoutListModel_1_1PrintLayout/"><strong>PrintLayout</strong></a>     </li>
+<li><strong>class</strong> <a href="../classProcessingAlgorithm/"><strong>ProcessingAlgorithm</strong></a> <em>A processing algorithm item capable of runnning a given algorithm.</em>     </li>
+<li><strong>class</strong> <a href="../classProcessingAlgorithmForm/"><strong>ProcessingAlgorithmForm</strong></a>     </li>
+<li><strong>class</strong> <a href="../classProcessingAlgorithmParametersModel/"><strong>ProcessingAlgorithmParametersModel</strong></a> <em>A sort/filter proxy model for providers and algorithms available within QField which automatically sorts the toolbox in a logical fashion and supports filtering the results.</em>     </li>
+<li><strong>class</strong> <a href="../classProcessingAlgorithmParametersModelBase/"><strong>ProcessingAlgorithmParametersModelBase</strong></a> <em>A model for configuring processing algorithm parameters.</em>     </li>
+<li><strong>class</strong> <a href="../classProcessingAlgorithmPreview/"><strong>ProcessingAlgorithmPreview</strong></a>     </li>
+<li><strong>class</strong> <a href="../classProcessingAlgorithmsList/"><strong>ProcessingAlgorithmsList</strong></a>     </li>
+<li><strong>class</strong> <a href="../classProcessingAlgorithmsModel/"><strong>ProcessingAlgorithmsModel</strong></a> <em>A sort/filter proxy model for providers and algorithms available within QField which automatically sorts the toolbox in a logical fashion and supports filtering the results.</em>     </li>
+<li><strong>class</strong> <a href="../classProcessingAlgorithmsModelBase/"><strong>ProcessingAlgorithmsModelBase</strong></a> <em>A model for providers and algorithms available within QField.</em>     </li>
+<li><strong>class</strong> <a href="../classProcessingParameterWidgetBase/"><strong>ProcessingParameterWidgetBase</strong></a>     </li>
+<li><strong>class</strong> <a href="../classProcessingUtils/"><strong>ProcessingUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classProjectCreationScreen/"><strong>ProjectCreationScreen</strong></a>     </li>
+<li><strong>class</strong> <a href="../classProjectInfo/"><strong>ProjectInfo</strong></a>     </li>
+<li><strong>class</strong> <a href="../classProjectSource/"><strong>ProjectSource</strong></a>     </li>
+<li><strong>class</strong> <a href="../classProjectUtils/"><strong>ProjectUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classProjectsImageProvider/"><strong>ProjectsImageProvider</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldAppAuthRequestHandler/"><strong>QFieldAppAuthRequestHandler</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structQFieldAppAuthRequestHandler_1_1RealmEntry/"><strong>RealmEntry</strong></a> <em>the realms that are not (yet) successfully logged in into</em>     </li>
+<li><strong>class</strong> <a href="../classQFieldAudioRecorder/"><strong>QFieldAudioRecorder</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldCamera/"><strong>QFieldCamera</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldCloudConnection/"><strong>QFieldCloudConnection</strong></a>     <ul>
+<li><strong>class</strong> <a href="../classQFieldCloudConnection_1_1CloudError/"><strong>CloudError</strong></a>     </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classQFieldCloudDeltaHistory/"><strong>QFieldCloudDeltaHistory</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldCloudLogin/"><strong>QFieldCloudLogin</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldCloudPackageLayersFeedback/"><strong>QFieldCloudPackageLayersFeedback</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldCloudPopup/"><strong>QFieldCloudPopup</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldCloudProject/"><strong>QFieldCloudProject</strong></a>     <ul>
+<li><strong>struct</strong> <a href="../structQFieldCloudProject_1_1FileTransfer/"><strong>FileTransfer</strong></a>     </li>
+</ul>
+</li>
+<li><strong>struct</strong> <a href="../structQFieldCloudProject_1_1Job/"><strong>Job</strong></a> <em>Tracks the job status (status, error etc) for a particular project. For now 1 project can have only 1 job of a type.</em>     </li>
+<li><strong>class</strong> <a href="../classQFieldCloudProjectDetails/"><strong>QFieldCloudProjectDetails</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldCloudProjectsFilterModel/"><strong>QFieldCloudProjectsFilterModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldCloudProjectsModel/"><strong>QFieldCloudProjectsModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldCloudScreen/"><strong>QFieldCloudScreen</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldCloudService/"><strong>QFieldCloudService</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldCloudUtils/"><strong>QFieldCloudUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldGuide/"><strong>QFieldGuide</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldLocalDataPickerScreen/"><strong>QFieldLocalDataPickerScreen</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldLocatorFilter/"><strong>QFieldLocatorFilter</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldPositioningService/"><strong>QFieldPositioningService</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldSettings/"><strong>QFieldSettings</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldSketcher/"><strong>QFieldSketcher</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldUrlHandler/"><strong>QFieldUrlHandler</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQFieldXmlHttpRequest/"><strong>QFieldXmlHttpRequest</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQgisMobileapp/"><strong>QgisMobileapp</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQgsElevationProfilePlotItem/"><strong>QgsElevationProfilePlotItem</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQgsGeometryWrapper/"><strong>QgsGeometryWrapper</strong></a> <em>The</em> <a href="../classQgsGeometryWrapper/"><em><strong>QgsGeometryWrapper</strong></em></a> <em>class wraps QGIS geometry and CRS classes to have their contents available from QML.</em>    </li>
+<li><strong>class</strong> <a href="../classQgsGpkgFlusher/"><strong>QgsGpkgFlusher</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQgsQuickCoordinateTransformer/"><strong>QgsQuickCoordinateTransformer</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQgsQuickElevationProfileCanvas/"><strong>QgsQuickElevationProfileCanvas</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQgsQuickMapCanvasMap/"><strong>QgsQuickMapCanvasMap</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQgsQuickMapTransform/"><strong>QgsQuickMapTransform</strong></a>     </li>
+<li><strong>namespace</strong> <a href="../namespaceQtCharts/"><strong>QtCharts</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtCore/"><strong>QtCore</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtMultimedia/"><strong>QtMultimedia</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQml/"><strong>QtQml</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQml_1_1Models/"><strong>Models</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick/"><strong>QtQuick</strong></a>     <ul>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick_1_1Templates/"><strong>Templates</strong></a> </li>
+</ul>
+</li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick3D/"><strong>QtQuick3D</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick3D_1_1AssetUtils/"><strong>AssetUtils</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick3D_1_1Helpers/"><strong>Helpers</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick3D_1_1Particles3D/"><strong>Particles3D</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick_1_1Controls/"><strong>Controls</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick_1_1Controls_1_1Material/"><strong>Material</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick_1_1Controls_1_1Material_1_1impl/"><strong>impl</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick_1_1Controls_1_1impl/"><strong>impl</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick_1_1Dialogs/"><strong>Dialogs</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick_1_1Effects/"><strong>Effects</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick_1_1Layouts/"><strong>Layouts</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick_1_1Particles/"><strong>Particles</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick_1_1Shapes/"><strong>Shapes</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtQuick_1_1Window/"><strong>Window</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtSensors/"><strong>QtSensors</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtWebSockets/"><strong>QtWebSockets</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceQtWebView/"><strong>QtWebView</strong></a> </li>
+<li><strong>class</strong> <a href="../classQuick3DMapTextureData/"><strong>Quick3DMapTextureData</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQuick3DRubberbandGeometry/"><strong>Quick3DRubberbandGeometry</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQuick3DTerrainGeometry/"><strong>Quick3DTerrainGeometry</strong></a>     </li>
+<li><strong>class</strong> <a href="../classQuick3DTerrainProvider/"><strong>Quick3DTerrainProvider</strong></a>     </li>
+<li><strong>class</strong> <a href="../classRange/"><strong>Range</strong></a>     </li>
+<li><strong>class</strong> <a href="../classRecentProjectListModel/"><strong>RecentProjectListModel</strong></a>     <ul>
+<li><strong>struct</strong> <a href="../structRecentProjectListModel_1_1RecentProject/"><strong>RecentProject</strong></a>     </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classReferencingFeatureListModel/"><strong>ReferencingFeatureListModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classReferencingFeatureListModelBase/"><strong>ReferencingFeatureListModelBase</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structReferencingFeatureListModelBase_1_1Entry/"><strong>Entry</strong></a>     </li>
+<li><strong>class</strong> <a href="../classRelationCombobox/"><strong>RelationCombobox</strong></a>     </li>
+<li><strong>class</strong> <a href="../classRelationEditorBase/"><strong>RelationEditorBase</strong></a>     </li>
+<li><strong>class</strong> <a href="../classRelationReference/"><strong>RelationReference</strong></a>     </li>
+<li><strong>class</strong> <a href="../classRelationUtils/"><strong>RelationUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classReshape/"><strong>Reshape</strong></a>     </li>
+<li><strong>class</strong> <a href="../classResourceSource/"><strong>ResourceSource</strong></a>     </li>
+<li><strong>class</strong> <a href="../classRubberband/"><strong>Rubberband</strong></a>     </li>
+<li><strong>class</strong> <a href="../classRubberband3D/"><strong>Rubberband3D</strong></a>     </li>
+<li><strong>class</strong> <a href="../classRubberbandModel/"><strong>RubberbandModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classRubberbandShape/"><strong>RubberbandShape</strong></a> <em>The</em> <a href="../classRubberbandShape/"><em><strong>RubberbandShape</strong></em></a> <em>class is used to provide the shape data to draw rubber bands on the map canvas using the QML Shape item. It is aimed to be used with either a</em><a href="../classVertexModel/"><em><strong>VertexModel</strong></em></a> <em>or a</em><a href="../classRubberbandModel/"><em><strong>RubberbandModel</strong></em></a> <em>.</em>    </li>
+<li><strong>class</strong> <a href="../classScaleBar/"><strong>ScaleBar</strong></a>     </li>
+<li><strong>class</strong> <a href="../classScaleBarMeasurement/"><strong>ScaleBarMeasurement</strong></a>     </li>
+<li><strong>class</strong> <a href="../classScreenDimmer/"><strong>ScreenDimmer</strong></a> <em>The</em> <a href="../classScreenDimmer/"><em><strong>ScreenDimmer</strong></em></a> <em>class handles dimming of screen brightness.</em>    </li>
+<li><strong>class</strong> <a href="../classScreenLocker/"><strong>ScreenLocker</strong></a>     </li>
+<li><strong>class</strong> <a href="../classSensorInformationView/"><strong>SensorInformationView</strong></a>     </li>
+<li><strong>class</strong> <a href="../classSensorListModel/"><strong>SensorListModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classSerialPortDeviceChooser/"><strong>SerialPortDeviceChooser</strong></a>     </li>
+<li><strong>class</strong> <a href="../classSerialPortModel/"><strong>SerialPortModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classSerialPortReceiver/"><strong>SerialPortReceiver</strong></a>     </li>
+<li><strong>class</strong> <a href="../classSettings/"><strong>Settings</strong></a>     </li>
+<li><strong>class</strong> <a href="../classSnappingResult/"><strong>SnappingResult</strong></a>     </li>
+<li><strong>class</strong> <a href="../classSnappingUtils/"><strong>SnappingUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classSplitFeature/"><strong>SplitFeature</strong></a>     </li>
+<li><strong>class</strong> <a href="../classStringUtils/"><strong>StringUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classSubModel/"><strong>SubModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTcpDeviceChooser/"><strong>TcpDeviceChooser</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTcpReceiver/"><strong>TcpReceiver</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTemporalProperties/"><strong>TemporalProperties</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTerrainMesh/"><strong>TerrainMesh</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTextEdit/"><strong>TextEdit</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme/"><strong>Theme</strong></a> <em>Provides all color, font scale, and layout constants used throughout the QField UI. Registered as a QML singleton under URI "Theme" 1.0.</em>     </li>
+<li><strong>namespace</strong> <a href="../namespaceTheme/"><strong>Theme</strong></a>     <ul>
+<li><strong>class</strong> <a href="../classTheme_1_1QfActionButton/"><strong>QfActionButton</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfBadge/"><strong>QfBadge</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfButton/"><strong>QfButton</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfCalendarItem/"><strong>QfCalendarItem</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfCalendarPanel/"><strong>QfCalendarPanel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfCollapsibleMessage/"><strong>QfCollapsibleMessage</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfComboBox/"><strong>QfComboBox</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfDialog/"><strong>QfDialog</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfDropShadow/"><strong>QfDropShadow</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfExpandableGroupBox/"><strong>QfExpandableGroupBox</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfMenu/"><strong>QfMenu</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfOpacityMask/"><strong>QfOpacityMask</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfOverlayContainer/"><strong>QfOverlayContainer</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfPageHeader/"><strong>QfPageHeader</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfPopup/"><strong>QfPopup</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfProgrerssRing/"><strong>QfProgrerssRing</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfProjectThumbnail/"><strong>QfProjectThumbnail</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfScrollBar/"><strong>QfScrollBar</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfSearchBar/"><strong>QfSearchBar</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfSlider/"><strong>QfSlider</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfSwipeAnimator/"><strong>QfSwipeAnimator</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfSwitch/"><strong>QfSwitch</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfTabBar/"><strong>QfTabBar</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfTextField/"><strong>QfTextField</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfTimeItem/"><strong>QfTimeItem</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfToggleButtonGroup/"><strong>QfToggleButtonGroup</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfToolButton/"><strong>QfToolButton</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfToolButtonDrawer/"><strong>QfToolButtonDrawer</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfToolButtonPie/"><strong>QfToolButtonPie</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTheme_1_1QfVisibilityFadingRow/"><strong>QfVisibilityFadingRow</strong></a>     </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classToast/"><strong>Toast</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTouchCameraController/"><strong>TouchCameraController</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTracker/"><strong>Tracker</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTrackerFeatureForm/"><strong>TrackerFeatureForm</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTrackerSettings/"><strong>TrackerSettings</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTrackingModel/"><strong>TrackingModel</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structTrackingModel_1_1TrackerRequest/"><strong>TrackerRequest</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTrackingSession/"><strong>TrackingSession</strong></a>     </li>
+<li><strong>class</strong> <a href="../classTranslatorManager/"><strong>TranslatorManager</strong></a> <em>Provides access to shared translator instances for runtime language switching.</em>     </li>
+<li><strong>class</strong> <a href="../classUdpDeviceChooser/"><strong>UdpDeviceChooser</strong></a>     </li>
+<li><strong>class</strong> <a href="../classUdpReceiver/"><strong>UdpReceiver</strong></a>     </li>
+<li><strong>class</strong> <a href="../classUrlUtils/"><strong>UrlUtils</strong></a>     </li>
+<li><strong>class</strong> <a href="../classUuidGenerator/"><strong>UuidGenerator</strong></a>     </li>
+<li><strong>class</strong> <a href="../classValueMap/"><strong>ValueMap</strong></a>     </li>
+<li><strong>class</strong> <a href="../classValueMapModel/"><strong>ValueMapModel</strong></a>     </li>
+<li><strong>class</strong> <a href="../classValueMapModelBase/"><strong>ValueMapModelBase</strong></a>     </li>
+<li><strong>class</strong> <a href="../classValueRelation/"><strong>ValueRelation</strong></a>     </li>
+<li><strong>class</strong> <a href="../classVariableEditor/"><strong>VariableEditor</strong></a>     </li>
+<li><strong>class</strong> <a href="../classVertexEditor/"><strong>VertexEditor</strong></a>     </li>
+<li><strong>class</strong> <a href="../classVertexModel/"><strong>VertexModel</strong></a>     <ul>
+<li><strong>struct</strong> <a href="../structVertexModel_1_1Vertex/"><strong>Vertex</strong></a>     </li>
+<li><strong>struct</strong> <a href="../structVertexModel_1_1VertexChange/"><strong>VertexChange</strong></a>     </li>
+</ul>
+</li>
+<li><strong>class</strong> <a href="../classVertexRubberband/"><strong>VertexRubberband</strong></a>     </li>
+<li><strong>class</strong> <a href="../classViewStatus/"><strong>ViewStatus</strong></a>     </li>
+<li><strong>class</strong> <a href="../classWebdavConnection/"><strong>WebdavConnection</strong></a>     </li>
+<li><strong>class</strong> <a href="../classWelcomeScreen/"><strong>WelcomeScreen</strong></a>     </li>
+<li><strong>class</strong> <a href="../classangle/"><strong>angle</strong></a>     </li>
+<li><strong>namespace</strong> <a href="../namespace_0d221/"><strong>anonymous namespace{src/core/qfieldxmlhttprequest.cpp}</strong></a> </li>
+<li><strong>class</strong> <a href="../classarea/"><strong>area</strong></a>     </li>
+<li><strong>class</strong> <a href="../classboolean/"><strong>boolean</strong></a>     </li>
+<li><strong>class</strong> <a href="../classdistance/"><strong>distance</strong></a>     </li>
+<li><strong>class</strong> <a href="../classelevation/"><strong>elevation</strong></a>     </li>
+<li><strong>class</strong> <a href="../classenum/"><strong>enum</strong></a>     </li>
+<li><strong>class</strong> <a href="../classnumber/"><strong>number</strong></a>     </li>
+<li><strong>class</strong> <a href="../classordered__relation__editor/"><strong>ordered_relation_editor</strong></a>     </li>
+<li><strong>namespace</strong> <a href="../namespaceorg_1_1qfield/"><strong>qfield</strong></a> </li>
+<li><strong>namespace</strong> <a href="../namespaceorg_1_1qgis/"><strong>qgis</strong></a> </li>
+<li><strong>class</strong> <a href="../classpoint/"><strong>point</strong></a>     </li>
+<li><strong>class</strong> <a href="../classqgismobileapp/"><strong>qgismobileapp</strong></a>     </li>
+<li><strong>class</strong> <a href="../classrelation__editor/"><strong>relation_editor</strong></a>     </li>
+<li><strong>namespace</strong> <a href="../namespacesentry__wrapper/"><strong>sentry_wrapper</strong></a>     </li>
+<li><strong>class</strong> <a href="../classsource/"><strong>source</strong></a>     </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

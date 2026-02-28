@@ -1,0 +1,865 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLocalFilesModel" kind="class" language="C++" prot="public">
+    <compoundname>LocalFilesModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ItemMetaType</name>
+        <qualifiedname>LocalFilesModel::ItemMetaType</qualifiedname>
+        <enumvalue id="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926a82d322d1e89712476bdd3f6d8d09c4d1" prot="public">
+          <name>Favorite</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926ad4413459bbd45e3c29862a7c956486db" prot="public">
+          <name>Folder</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926afe15fc32c229f9f5f5d81d9f1f56f698" prot="public">
+          <name>File</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926ada6a70cdc96aef68987c526680402b49" prot="public">
+          <name>Project</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926a55d06b62973712bbc6a236306cb218e6" prot="public">
+          <name>Dataset</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="37" column="5" bodyfile="src/core/localfilesmodel.h" bodystart="38" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="enum" id="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ItemType</name>
+        <qualifiedname>LocalFilesModel::ItemType</qualifiedname>
+        <enumvalue id="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3abfe5005829e663e22b4b7b48a126fd63" prot="public">
+          <name>ApplicationFolder</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3a11672b24af757b62cef0980cd15bf62c" prot="public">
+          <name>ExternalStorage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3ad95b61723976b33a357d2b89af9e7be6" prot="public">
+          <name>SimpleFolder</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3aa4c736c7c3c62675f558354a3dbf7825" prot="public">
+          <name>ProjectFile</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3a658bfd4dc10bd9f7f0a65699d3bd7574" prot="public">
+          <name>VectorDataset</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3aeca66c47390b26d28a340842f07def72" prot="public">
+          <name>RasterDataset</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3a05ff9ceac5eec02192b0d1bcee57e15c" prot="public">
+          <name>OtherFile</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="47" column="5" bodyfile="src/core/localfilesmodel.h" bodystart="48" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="enum" id="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Role</name>
+        <qualifiedname>LocalFilesModel::Role</qualifiedname>
+        <enumvalue id="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a10a6e0159f75bfbad4e2ba3d9ad0b29b" prot="public">
+          <name>ItemMetaTypeRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a5fe8e8ce20698a1ace78cecde59cdf6f" prot="public">
+          <name>ItemTypeRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a943a6bd3e0b7cf1026136d766459b7dd" prot="public">
+          <name>ItemTitleRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a7950f7810ab0e2eafee4a002ee2819b0" prot="public">
+          <name>ItemFormatRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a9b63eac23678924a8f5263a9af376049" prot="public">
+          <name>ItemPathRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a404cb2c497eef1089893a235b0208840" prot="public">
+          <name>ItemSizeRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1add9a8120d66119649746dd57ec8d26d8" prot="public">
+          <name>ItemHasThumbnailRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a182ff16882a8cf51cd041bc05b30697f" prot="public">
+          <name>ItemIsFavoriteRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1aaabd27fea09b1ac53968c456e04edc78" prot="public">
+          <name>ItemHasWebdavConfigurationRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a037b21f90da5191db781a0340230bfd4" prot="public">
+          <name>ItemCheckedRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="59" column="5" bodyfile="src/core/localfilesmodel.h" bodystart="60" bodyend="71"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classLocalFilesModel_1aa74baa05cc16d8bc1689faec74f1c63d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString LocalFilesModel::currentTitle</definition>
+        <argsstring></argsstring>
+        <name>currentTitle</name>
+        <qualifiedname>LocalFilesModel::currentTitle</qualifiedname>
+        <read>currentTitle</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="30" column="5" bodyfile="src/core/localfilesmodel.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocalFilesModel_1a8994f38c8e10975c9a8f23014d3e77e6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString LocalFilesModel::currentPath</definition>
+        <argsstring></argsstring>
+        <name>currentPath</name>
+        <qualifiedname>LocalFilesModel::currentPath</qualifiedname>
+        <read>currentPath</read>
+        <write>setCurrentPath</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="31" column="5" bodyfile="src/core/localfilesmodel.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocalFilesModel_1a2f80f8c44d6907bd242e29d1ddb0f0d1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int LocalFilesModel::currentDepth</definition>
+        <argsstring></argsstring>
+        <name>currentDepth</name>
+        <qualifiedname>LocalFilesModel::currentDepth</qualifiedname>
+        <read>currentDepth</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="32" column="5" bodyfile="src/core/localfilesmodel.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocalFilesModel_1a056cdec534fc296b55a830077c711455" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LocalFilesModel::isDeletedAllowedInCurrentPath</definition>
+        <argsstring></argsstring>
+        <name>isDeletedAllowedInCurrentPath</name>
+        <qualifiedname>LocalFilesModel::isDeletedAllowedInCurrentPath</qualifiedname>
+        <read>isDeletedAllowedInCurrentPath</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="33" column="5" bodyfile="src/core/localfilesmodel.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocalFilesModel_1a654c585e2918a82e7f81bce3d61d6fe5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LocalFilesModel::inSelectionMode</definition>
+        <argsstring></argsstring>
+        <name>inSelectionMode</name>
+        <qualifiedname>LocalFilesModel::inSelectionMode</qualifiedname>
+        <read>inSelectionMode</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="34" column="5" bodyfile="src/core/localfilesmodel.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLocalFilesModel_1a740c0ee0a6daf8dcf9cde15ab68724e2" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList LocalFilesModel::mHistory</definition>
+        <argsstring></argsstring>
+        <name>mHistory</name>
+        <qualifiedname>LocalFilesModel::mHistory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="140" column="17" bodyfile="src/core/localfilesmodel.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocalFilesModel_1a3a34843b1704383d398902d7a575b246" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classLocalFileItem" kindref="compound">LocalFileItem</ref> &gt;</type>
+        <definition>QList&lt;LocalFileItem&gt; LocalFilesModel::mItems</definition>
+        <argsstring></argsstring>
+        <name>mItems</name>
+        <qualifiedname>LocalFilesModel::mItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="141" column="11" bodyfile="src/core/localfilesmodel.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocalFilesModel_1aa0e5cab25829f79f3ab6019f8fe08208" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList LocalFilesModel::mFavorites</definition>
+        <argsstring></argsstring>
+        <name>mFavorites</name>
+        <qualifiedname>LocalFilesModel::mFavorites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="143" column="17" bodyfile="src/core/localfilesmodel.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocalFilesModel_1aaf22bfbee90a1ad8f9094234399677c2" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString LocalFilesModel::mCreatedProjectsPath</definition>
+        <argsstring></argsstring>
+        <name>mCreatedProjectsPath</name>
+        <qualifiedname>LocalFilesModel::mCreatedProjectsPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="145" column="13" bodyfile="src/core/localfilesmodel.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocalFilesModel_1a05b629c664c1c258abc2e9f9ff4d3a1f" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString LocalFilesModel::mImportedProjectsPath</definition>
+        <argsstring></argsstring>
+        <name>mImportedProjectsPath</name>
+        <qualifiedname>LocalFilesModel::mImportedProjectsPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="146" column="13" bodyfile="src/core/localfilesmodel.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocalFilesModel_1accb94b97d6d41a3b40bb47797e520524" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString LocalFilesModel::mImportedDatasetsPath</definition>
+        <argsstring></argsstring>
+        <name>mImportedDatasetsPath</name>
+        <qualifiedname>LocalFilesModel::mImportedDatasetsPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="147" column="13" bodyfile="src/core/localfilesmodel.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocalFilesModel_1a9f4376dd65aa2c676ffc4871c7689741" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString LocalFilesModel::mSampleProjectsPath</definition>
+        <argsstring></argsstring>
+        <name>mSampleProjectsPath</name>
+        <qualifiedname>LocalFilesModel::mSampleProjectsPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="148" column="13" bodyfile="src/core/localfilesmodel.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLocalFilesModel_1a9d02c5f354d02c03883aae7ca80f22e3" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LocalFilesModel::LocalFilesModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>LocalFilesModel</name>
+        <qualifiedname>LocalFilesModel::LocalFilesModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="75" column="14" bodyfile="src/core/localfilesmodel.cpp" bodystart="27" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1aa9bc4ab3073bfc09d8b8523ede3afa78" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; LocalFilesModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>LocalFilesModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="77" column="11" bodyfile="src/core/localfilesmodel.cpp" bodystart="72" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1a46ab8e8b4e9331733c33601e5fb92560" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int LocalFilesModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>LocalFilesModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="79" column="9" bodyfile="src/core/localfilesmodel.cpp" bodystart="360" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1a2a86208e76cce9e76d0afbdede60937f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant LocalFilesModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>LocalFilesModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="80" column="14" bodyfile="src/core/localfilesmodel.cpp" bodystart="368" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1ae520e24415b8db8d84cc6b7b6d940198" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classLocalFileItem" kindref="compound">LocalFileItem</ref></type>
+        <definition>LocalFileItem LocalFilesModel::get</definition>
+        <argsstring>(int index) const</argsstring>
+        <name>get</name>
+        <qualifiedname>LocalFilesModel::get</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="classLocalFileItem" kindref="compound">LocalFileItem</ref> at the given <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="83" column="31" bodyfile="src/core/localfilesmodel.cpp" bodystart="411" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1ad06e464856fd19a001dcb8bfb2c48d1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void LocalFilesModel::resetToRoot</definition>
+        <argsstring>()</argsstring>
+        <name>resetToRoot</name>
+        <qualifiedname>LocalFilesModel::resetToRoot</qualifiedname>
+        <briefdescription>
+<para>Resets the model and sets the first navigation history item to root. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="86" column="22" bodyfile="src/core/localfilesmodel.cpp" bodystart="88" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1a835a07899c8e72d844d792f20ba28b90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void LocalFilesModel::resetToPath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>resetToPath</name>
+        <qualifiedname>LocalFilesModel::resetToPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Resets the model and sets the first navigation history item to the provided <emphasis>path</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="89" column="22" bodyfile="src/core/localfilesmodel.cpp" bodystart="98" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1acab0d0f25ef2b944fb2cc87df9afd05c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool LocalFilesModel::isPathFavoriteEditable</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>isPathFavoriteEditable</name>
+        <qualifiedname>LocalFilesModel::isPathFavoriteEditable</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether <emphasis>path&apos;s</emphasis> favorite state is editable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="92" column="22" bodyfile="src/core/localfilesmodel.cpp" bodystart="109" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1a1a99e0d9ba0d316a18671311078fb971" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void LocalFilesModel::addToFavorites</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>addToFavorites</name>
+        <qualifiedname>LocalFilesModel::addToFavorites</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Adds the <emphasis>path</emphasis> to the favorites list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="95" column="22" bodyfile="src/core/localfilesmodel.cpp" bodystart="115" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1a9a1bfef78b19f284ec5be42bd276a2f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void LocalFilesModel::removeFromFavorites</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>removeFromFavorites</name>
+        <qualifiedname>LocalFilesModel::removeFromFavorites</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Removes the <emphasis>path</emphasis> to the favorites list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="98" column="22" bodyfile="src/core/localfilesmodel.cpp" bodystart="125" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1a6ace2eaa9ef7e8257dbd1f0417874eaa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString LocalFilesModel::currentTitle</definition>
+        <argsstring>() const</argsstring>
+        <name>currentTitle</name>
+        <qualifiedname>LocalFilesModel::currentTitle</qualifiedname>
+        <briefdescription>
+<para>Returns the current title derived from the current path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="101" column="13" bodyfile="src/core/localfilesmodel.cpp" bodystart="134" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1a1caf1edb8c0a817a2e48ce2e8f9e2d09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LocalFilesModel::setCurrentPath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>setCurrentPath</name>
+        <qualifiedname>LocalFilesModel::setCurrentPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Appends the provided <emphasis>path</emphasis> to the navigation history. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="104" column="10" bodyfile="src/core/localfilesmodel.cpp" bodystart="181" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1a576b12193c0d175cf1584304ef82dd58" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString LocalFilesModel::currentPath</definition>
+        <argsstring>() const</argsstring>
+        <name>currentPath</name>
+        <qualifiedname>LocalFilesModel::currentPath</qualifiedname>
+        <briefdescription>
+<para>Returns the current path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="107" column="13" bodyfile="src/core/localfilesmodel.cpp" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1a8344da790381f653b86e942e0f04cd7b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int LocalFilesModel::currentDepth</definition>
+        <argsstring>() const</argsstring>
+        <name>currentDepth</name>
+        <qualifiedname>LocalFilesModel::currentDepth</qualifiedname>
+        <briefdescription>
+<para>Returns the current navigation history depth. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="110" column="9" bodyfile="src/core/localfilesmodel.h" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1ab7538c5ce9dc7fb44f48fd49d5b9c7ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LocalFilesModel::isDeletedAllowedInCurrentPath</definition>
+        <argsstring>() const</argsstring>
+        <name>isDeletedAllowedInCurrentPath</name>
+        <qualifiedname>LocalFilesModel::isDeletedAllowedInCurrentPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if deletation of files and folders is allow in the current path <simplesect kind="note"><para>Currently, deletion is only allowed when the path is a sub-child of an application directory </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="116" column="10" bodyfile="src/core/localfilesmodel.cpp" bodystart="203" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1ab3b37603f4617df307a80441655aa016" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void LocalFilesModel::moveUp</definition>
+        <argsstring>()</argsstring>
+        <name>moveUp</name>
+        <qualifiedname>LocalFilesModel::moveUp</qualifiedname>
+        <briefdescription>
+<para>Walks the navigation history back up on step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="119" column="22" bodyfile="src/core/localfilesmodel.cpp" bodystart="223" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1a74661b0b6093d4a52aa6facb75baa6ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LocalFilesModel::inSelectionMode</definition>
+        <argsstring>()</argsstring>
+        <name>inSelectionMode</name>
+        <qualifiedname>LocalFilesModel::inSelectionMode</qualifiedname>
+        <briefdescription>
+<para>Returns whether list is in multi-selection mode or not. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="122" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1ad07702e0ac3a690c97706d72004e580e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void LocalFilesModel::setChecked</definition>
+        <argsstring>(const int &amp;mIdx, const bool &amp;checked)</argsstring>
+        <name>setChecked</name>
+        <qualifiedname>LocalFilesModel::setChecked</qualifiedname>
+        <param>
+          <type>const int &amp;</type>
+          <declname>mIdx</declname>
+        </param>
+        <param>
+          <type>const bool &amp;</type>
+          <declname>checked</declname>
+        </param>
+        <briefdescription>
+<para>Set checked state of an item in list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="125" column="22" bodyfile="src/core/localfilesmodel.cpp" bodystart="427" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1a061fa947d0094c5db09ae602be986815" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void LocalFilesModel::clearSelection</definition>
+        <argsstring>()</argsstring>
+        <name>clearSelection</name>
+        <qualifiedname>LocalFilesModel::clearSelection</qualifiedname>
+        <briefdescription>
+<para>Set checked state of all items to false. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="128" column="22" bodyfile="src/core/localfilesmodel.cpp" bodystart="450" bodyend="458"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classLocalFilesModel_1a6385973c40ab5ca27d96192d853c636b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LocalFilesModel::currentPathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentPathChanged</name>
+        <qualifiedname>LocalFilesModel::currentPathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="132" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classLocalFilesModel_1a73e1abd2876b9ce8309e91d6802ec94a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LocalFilesModel::inSelectionModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>inSelectionModeChanged</name>
+        <qualifiedname>LocalFilesModel::inSelectionModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="134" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classLocalFilesModel_1ac384356982bec25f1a739d33433d3c05" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LocalFilesModel::reloadModel</definition>
+        <argsstring>()</argsstring>
+        <name>reloadModel</name>
+        <qualifiedname>LocalFilesModel::reloadModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="137" column="10" bodyfile="src/core/localfilesmodel.cpp" bodystart="232" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="function" id="classLocalFilesModel_1ace84fa17d8062246f5b9f654812848e9" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const QString</type>
+        <definition>const QString LocalFilesModel::getCurrentTitleFromPath</definition>
+        <argsstring>(const QString &amp;path) const</argsstring>
+        <name>getCurrentTitleFromPath</name>
+        <qualifiedname>LocalFilesModel::getCurrentTitleFromPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/localfilesmodel.h" line="138" column="19" bodyfile="src/core/localfilesmodel.cpp" bodystart="139" bodyend="179"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LocalFilesModel</label>
+        <link refid="classLocalFilesModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LocalFilesModel</label>
+        <link refid="classLocalFilesModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/localfilesmodel.h" line="26" column="1" bodyfile="src/core/localfilesmodel.h" bodystart="27" bodyend="149"/>
+    <listofallmembers>
+      <member refid="classLocalFilesModel_1a1a99e0d9ba0d316a18671311078fb971" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>addToFavorites</name></member>
+      <member refid="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3abfe5005829e663e22b4b7b48a126fd63" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ApplicationFolder</name></member>
+      <member refid="classLocalFilesModel_1a061fa947d0094c5db09ae602be986815" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>clearSelection</name></member>
+      <member refid="classLocalFilesModel_1a2f80f8c44d6907bd242e29d1ddb0f0d1" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>currentDepth</name></member>
+      <member refid="classLocalFilesModel_1a8344da790381f653b86e942e0f04cd7b" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>currentDepth</name></member>
+      <member refid="classLocalFilesModel_1a8994f38c8e10975c9a8f23014d3e77e6" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>currentPath</name></member>
+      <member refid="classLocalFilesModel_1a576b12193c0d175cf1584304ef82dd58" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>currentPath</name></member>
+      <member refid="classLocalFilesModel_1a6385973c40ab5ca27d96192d853c636b" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>currentPathChanged</name></member>
+      <member refid="classLocalFilesModel_1aa74baa05cc16d8bc1689faec74f1c63d" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>currentTitle</name></member>
+      <member refid="classLocalFilesModel_1a6ace2eaa9ef7e8257dbd1f0417874eaa" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>currentTitle</name></member>
+      <member refid="classLocalFilesModel_1a2a86208e76cce9e76d0afbdede60937f" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>data</name></member>
+      <member refid="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926a55d06b62973712bbc6a236306cb218e6" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>Dataset</name></member>
+      <member refid="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3a11672b24af757b62cef0980cd15bf62c" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ExternalStorage</name></member>
+      <member refid="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926a82d322d1e89712476bdd3f6d8d09c4d1" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>Favorite</name></member>
+      <member refid="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926afe15fc32c229f9f5f5d81d9f1f56f698" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>File</name></member>
+      <member refid="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926ad4413459bbd45e3c29862a7c956486db" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>Folder</name></member>
+      <member refid="classLocalFilesModel_1ae520e24415b8db8d84cc6b7b6d940198" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>get</name></member>
+      <member refid="classLocalFilesModel_1ace84fa17d8062246f5b9f654812848e9" prot="private" virt="non-virtual"><scope>LocalFilesModel</scope><name>getCurrentTitleFromPath</name></member>
+      <member refid="classLocalFilesModel_1a654c585e2918a82e7f81bce3d61d6fe5" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>inSelectionMode</name></member>
+      <member refid="classLocalFilesModel_1a74661b0b6093d4a52aa6facb75baa6ee" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>inSelectionMode</name></member>
+      <member refid="classLocalFilesModel_1a73e1abd2876b9ce8309e91d6802ec94a" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>inSelectionModeChanged</name></member>
+      <member refid="classLocalFilesModel_1a056cdec534fc296b55a830077c711455" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>isDeletedAllowedInCurrentPath</name></member>
+      <member refid="classLocalFilesModel_1ab7538c5ce9dc7fb44f48fd49d5b9c7ca" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>isDeletedAllowedInCurrentPath</name></member>
+      <member refid="classLocalFilesModel_1acab0d0f25ef2b944fb2cc87df9afd05c" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>isPathFavoriteEditable</name></member>
+      <member refid="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a037b21f90da5191db781a0340230bfd4" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemCheckedRole</name></member>
+      <member refid="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a7950f7810ab0e2eafee4a002ee2819b0" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemFormatRole</name></member>
+      <member refid="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1add9a8120d66119649746dd57ec8d26d8" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemHasThumbnailRole</name></member>
+      <member refid="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1aaabd27fea09b1ac53968c456e04edc78" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemHasWebdavConfigurationRole</name></member>
+      <member refid="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a182ff16882a8cf51cd041bc05b30697f" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemIsFavoriteRole</name></member>
+      <member refid="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemMetaType</name></member>
+      <member refid="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a10a6e0159f75bfbad4e2ba3d9ad0b29b" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemMetaTypeRole</name></member>
+      <member refid="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a9b63eac23678924a8f5263a9af376049" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemPathRole</name></member>
+      <member refid="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a404cb2c497eef1089893a235b0208840" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemSizeRole</name></member>
+      <member refid="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a943a6bd3e0b7cf1026136d766459b7dd" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemTitleRole</name></member>
+      <member refid="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemType</name></member>
+      <member refid="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1a5fe8e8ce20698a1ace78cecde59cdf6f" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ItemTypeRole</name></member>
+      <member refid="classLocalFilesModel_1a9d02c5f354d02c03883aae7ca80f22e3" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>LocalFilesModel</name></member>
+      <member refid="classLocalFilesModel_1aaf22bfbee90a1ad8f9094234399677c2" prot="private" virt="non-virtual"><scope>LocalFilesModel</scope><name>mCreatedProjectsPath</name></member>
+      <member refid="classLocalFilesModel_1aa0e5cab25829f79f3ab6019f8fe08208" prot="private" virt="non-virtual"><scope>LocalFilesModel</scope><name>mFavorites</name></member>
+      <member refid="classLocalFilesModel_1a740c0ee0a6daf8dcf9cde15ab68724e2" prot="private" virt="non-virtual"><scope>LocalFilesModel</scope><name>mHistory</name></member>
+      <member refid="classLocalFilesModel_1accb94b97d6d41a3b40bb47797e520524" prot="private" virt="non-virtual"><scope>LocalFilesModel</scope><name>mImportedDatasetsPath</name></member>
+      <member refid="classLocalFilesModel_1a05b629c664c1c258abc2e9f9ff4d3a1f" prot="private" virt="non-virtual"><scope>LocalFilesModel</scope><name>mImportedProjectsPath</name></member>
+      <member refid="classLocalFilesModel_1a3a34843b1704383d398902d7a575b246" prot="private" virt="non-virtual"><scope>LocalFilesModel</scope><name>mItems</name></member>
+      <member refid="classLocalFilesModel_1ab3b37603f4617df307a80441655aa016" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>moveUp</name></member>
+      <member refid="classLocalFilesModel_1a9f4376dd65aa2c676ffc4871c7689741" prot="private" virt="non-virtual"><scope>LocalFilesModel</scope><name>mSampleProjectsPath</name></member>
+      <member refid="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3a05ff9ceac5eec02192b0d1bcee57e15c" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>OtherFile</name></member>
+      <member refid="classLocalFilesModel_1a32b9cc596957d1f9aaf4bc1063a72926ada6a70cdc96aef68987c526680402b49" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>Project</name></member>
+      <member refid="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3aa4c736c7c3c62675f558354a3dbf7825" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>ProjectFile</name></member>
+      <member refid="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3aeca66c47390b26d28a340842f07def72" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>RasterDataset</name></member>
+      <member refid="classLocalFilesModel_1ac384356982bec25f1a739d33433d3c05" prot="private" virt="non-virtual"><scope>LocalFilesModel</scope><name>reloadModel</name></member>
+      <member refid="classLocalFilesModel_1a9a1bfef78b19f284ec5be42bd276a2f9" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>removeFromFavorites</name></member>
+      <member refid="classLocalFilesModel_1a835a07899c8e72d844d792f20ba28b90" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>resetToPath</name></member>
+      <member refid="classLocalFilesModel_1ad06e464856fd19a001dcb8bfb2c48d1d" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>resetToRoot</name></member>
+      <member refid="classLocalFilesModel_1a3551d70c5366531ee0c50e22fcf48ec1" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>Role</name></member>
+      <member refid="classLocalFilesModel_1aa9bc4ab3073bfc09d8b8523ede3afa78" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>roleNames</name></member>
+      <member refid="classLocalFilesModel_1a46ab8e8b4e9331733c33601e5fb92560" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>rowCount</name></member>
+      <member refid="classLocalFilesModel_1ad07702e0ac3a690c97706d72004e580e" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>setChecked</name></member>
+      <member refid="classLocalFilesModel_1a1caf1edb8c0a817a2e48ce2e8f9e2d09" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>setCurrentPath</name></member>
+      <member refid="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3ad95b61723976b33a357d2b89af9e7be6" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>SimpleFolder</name></member>
+      <member refid="classLocalFilesModel_1aa2e82e8c6e9cd2987d1f815547f3eaa3a658bfd4dc10bd9f7f0a65699d3bd7574" prot="public" virt="non-virtual"><scope>LocalFilesModel</scope><name>VectorDataset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

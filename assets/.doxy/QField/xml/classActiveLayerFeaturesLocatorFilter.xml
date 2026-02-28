@@ -1,0 +1,509 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classActiveLayerFeaturesLocatorFilter" kind="class" language="C++" prot="public">
+    <compoundname>ActiveLayerFeaturesLocatorFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsLocatorFilter</basecompoundref>
+    <includes refid="activelayerfeatureslocatorfilter_8h" local="no">activelayerfeatureslocatorfilter.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classActiveLayerFeaturesLocatorFilter_1ae9e64ed9f1b8b312aca6f7b5b0a602c7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ActionOrigin</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::ActionOrigin</qualifiedname>
+        <enumvalue id="classActiveLayerFeaturesLocatorFilter_1ae9e64ed9f1b8b312aca6f7b5b0a602c7ac94a247887aa8610a9b4a278c5024a5e" prot="public">
+          <name>Normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classActiveLayerFeaturesLocatorFilter_1ae9e64ed9f1b8b312aca6f7b5b0a602c7ae61e05ae9f7068a54a6088c3bdfd8e8f" prot="public">
+          <name>OpenForm</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classActiveLayerFeaturesLocatorFilter_1ae9e64ed9f1b8b312aca6f7b5b0a602c7a6d98a7df1236c1c99133d9d0788c0a01" prot="public">
+          <name>Navigation</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Origin of the action which triggers the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="40" column="5" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="41" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="enum" id="classActiveLayerFeaturesLocatorFilter_1af283de5b8f628a60f1e4b2bee98d4425" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ResultType</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::ResultType</qualifiedname>
+        <enumvalue id="classActiveLayerFeaturesLocatorFilter_1af283de5b8f628a60f1e4b2bee98d4425a21021ea0e52be8e9c599f4dff41e5be0" prot="public">
+          <name>Feature</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classActiveLayerFeaturesLocatorFilter_1af283de5b8f628a60f1e4b2bee98d4425ab72e5bcb7731e77935ae131b59f0f4bd" prot="public">
+          <name>FieldRestriction</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="47" column="5" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="48" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classActiveLayerFeaturesLocatorFilter_1aa332508d3bfd2c4453835b5a3057225c" prot="private" static="no" mutable="no">
+        <type>QgsExpression</type>
+        <definition>QgsExpression ActiveLayerFeaturesLocatorFilter::mDispExpression</definition>
+        <argsstring></argsstring>
+        <name>mDispExpression</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::mDispExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="71" column="19" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classActiveLayerFeaturesLocatorFilter_1ac1429a6ad0fe81991fbca4ec450ce113" prot="private" static="no" mutable="no">
+        <type>QgsExpressionContext</type>
+        <definition>QgsExpressionContext ActiveLayerFeaturesLocatorFilter::mContext</definition>
+        <argsstring></argsstring>
+        <name>mContext</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::mContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="72" column="26" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classActiveLayerFeaturesLocatorFilter_1ab79b7cbfd15a824c15266b5d49bb737b" prot="private" static="no" mutable="no">
+        <type>QgsFeatureIterator</type>
+        <definition>QgsFeatureIterator ActiveLayerFeaturesLocatorFilter::mDisplayTitleIterator</definition>
+        <argsstring></argsstring>
+        <name>mDisplayTitleIterator</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::mDisplayTitleIterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="73" column="24" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classActiveLayerFeaturesLocatorFilter_1ab27cb892448ca140c46331cf2a44d708" prot="private" static="no" mutable="no">
+        <type>QgsFeatureIterator</type>
+        <definition>QgsFeatureIterator ActiveLayerFeaturesLocatorFilter::mFieldIterator</definition>
+        <argsstring></argsstring>
+        <name>mFieldIterator</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::mFieldIterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="74" column="24" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classActiveLayerFeaturesLocatorFilter_1a27d4ea451c0aef1cfef57cdcd9b8a083" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ActiveLayerFeaturesLocatorFilter::mLayerId</definition>
+        <argsstring></argsstring>
+        <name>mLayerId</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::mLayerId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="75" column="13" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classActiveLayerFeaturesLocatorFilter_1a726c0cf0dac528301415c93ce492bc74" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ActiveLayerFeaturesLocatorFilter::mLayerName</definition>
+        <argsstring></argsstring>
+        <name>mLayerName</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::mLayerName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="76" column="13" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classActiveLayerFeaturesLocatorFilter_1aff975195f6e5151bd7229ed468dad4ad" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ActiveLayerFeaturesLocatorFilter::mLayerIsSpatial</definition>
+        <argsstring></argsstring>
+        <name>mLayerIsSpatial</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::mLayerIsSpatial</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="77" column="10" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classActiveLayerFeaturesLocatorFilter_1a7dd3d669c6dba11fbef4ae6a5b894306" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList ActiveLayerFeaturesLocatorFilter::mAttributeAliases</definition>
+        <argsstring></argsstring>
+        <name>mAttributeAliases</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::mAttributeAliases</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="78" column="17" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classActiveLayerFeaturesLocatorFilter_1abefc6aca1436f46ad00d906d83829827" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList ActiveLayerFeaturesLocatorFilter::mFieldsCompletion</definition>
+        <argsstring></argsstring>
+        <name>mFieldsCompletion</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::mFieldsCompletion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="79" column="17" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classActiveLayerFeaturesLocatorFilter_1a67b4fbf265d711012c177cddd7065a35" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ActiveLayerFeaturesLocatorFilter::mMaxTotalResults</definition>
+        <argsstring></argsstring>
+        <name>mMaxTotalResults</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::mMaxTotalResults</qualifiedname>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="81" column="9" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classActiveLayerFeaturesLocatorFilter_1ab632bfed45a3f248cbbdd76b122dc10d" prot="private" static="no" mutable="no">
+        <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+        <definition>LocatorModelSuperBridge* ActiveLayerFeaturesLocatorFilter::mLocatorBridge</definition>
+        <argsstring></argsstring>
+        <name>mLocatorBridge</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::mLocatorBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="82" column="29" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1a28d6956763e21788965985d7aa0d0086" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ActiveLayerFeaturesLocatorFilter::ActiveLayerFeaturesLocatorFilter</definition>
+        <argsstring>(LocatorModelSuperBridge *locatorBridge, QObject *parent=nullptr)</argsstring>
+        <name>ActiveLayerFeaturesLocatorFilter</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::ActiveLayerFeaturesLocatorFilter</qualifiedname>
+        <param>
+          <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+          <declname>locatorBridge</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="54" column="14" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.cpp" bodystart="32" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1a9e3c53627d66178eacdb7de06a43b906" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classActiveLayerFeaturesLocatorFilter" kindref="compound">ActiveLayerFeaturesLocatorFilter</ref> *</type>
+        <definition>ActiveLayerFeaturesLocatorFilter * ActiveLayerFeaturesLocatorFilter::clone</definition>
+        <argsstring>() const override</argsstring>
+        <name>clone</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::clone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="55" column="38" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.cpp" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1af55873c99adcb81d630492b6352e4e9f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ActiveLayerFeaturesLocatorFilter::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="57" column="13" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1ab1dd9d61775f4611411cf6c3ce19e530" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ActiveLayerFeaturesLocatorFilter::displayName</definition>
+        <argsstring>() const override</argsstring>
+        <name>displayName</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::displayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="58" column="13" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1a2b1e6e44db6d8d05c52a5825016252c0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ActiveLayerFeaturesLocatorFilter::description</definition>
+        <argsstring>() const override</argsstring>
+        <name>description</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="59" column="13" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1a2cd724e17021902661c2be59f89a48d4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Priority</type>
+        <definition>Priority ActiveLayerFeaturesLocatorFilter::priority</definition>
+        <argsstring>() const override</argsstring>
+        <name>priority</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::priority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="60" column="14" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1a39b83e356ec03d4948ea2467cdf172f7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ActiveLayerFeaturesLocatorFilter::prefix</definition>
+        <argsstring>() const override</argsstring>
+        <name>prefix</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="61" column="13" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1ab627f917448168df7e5915dc80dc9182" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList ActiveLayerFeaturesLocatorFilter::prepare</definition>
+        <argsstring>(const QString &amp;string, const QgsLocatorContext &amp;locatorContext) override</argsstring>
+        <name>prepare</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::prepare</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsLocatorContext &amp;</type>
+          <declname>locatorContext</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="63" column="17" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.cpp" bodystart="60" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1a2c5a05409f16354198df5f590e29069e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ActiveLayerFeaturesLocatorFilter::fetchResults</definition>
+        <argsstring>(const QString &amp;string, const QgsLocatorContext &amp;context, QgsFeedback *feedback) override</argsstring>
+        <name>fetchResults</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::fetchResults</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsLocatorContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>QgsFeedback *</type>
+          <declname>feedback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="64" column="10" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.cpp" bodystart="180" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1a7a68168801545fb7058e29e850f9264e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ActiveLayerFeaturesLocatorFilter::triggerResult</definition>
+        <argsstring>(const QgsLocatorResult &amp;result) override</argsstring>
+        <name>triggerResult</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::triggerResult</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="65" column="10" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.cpp" bodystart="289" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1aeffbe4d1038bdbe279d1ffa8c39534ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction</definition>
+        <argsstring>(const QgsLocatorResult &amp;result, const int actionId) override</argsstring>
+        <name>triggerResultFromAction</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::triggerResultFromAction</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>actionId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="66" column="10" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.cpp" bodystart="294" bodyend="410"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classActiveLayerFeaturesLocatorFilter_1a35648101d27e609b725d001da51cf903" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ActiveLayerFeaturesLocatorFilter::fieldRestriction</definition>
+        <argsstring>(QString &amp;searchString, bool *isRestricting=nullptr)</argsstring>
+        <name>fieldRestriction</name>
+        <qualifiedname>ActiveLayerFeaturesLocatorFilter::fieldRestriction</qualifiedname>
+        <param>
+          <type>QString &amp;</type>
+          <declname>searchString</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>isRestricting</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="69" column="13" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.cpp" bodystart="44" bodyend="58"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classFeaturesLocatorFilter" kindref="compound">FeaturesLocatorFilter</ref> is a locator filter to search for features across layers in the project. Reimplemented from QGIS code (app). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ActiveLayerFeaturesLocatorFilter</label>
+        <link refid="classActiveLayerFeaturesLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ActiveLayerFeaturesLocatorFilter</label>
+        <link refid="classActiveLayerFeaturesLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/activelayerfeatureslocatorfilter.h" line="34" column="1" bodyfile="src/core/locator/activelayerfeatureslocatorfilter.h" bodystart="35" bodyend="83"/>
+    <listofallmembers>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1ae9e64ed9f1b8b312aca6f7b5b0a602c7" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>ActionOrigin</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a28d6956763e21788965985d7aa0d0086" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>ActiveLayerFeaturesLocatorFilter</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a9e3c53627d66178eacdb7de06a43b906" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>clone</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a2b1e6e44db6d8d05c52a5825016252c0" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>description</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1ab1dd9d61775f4611411cf6c3ce19e530" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>displayName</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a2c5a05409f16354198df5f590e29069e" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>fetchResults</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a35648101d27e609b725d001da51cf903" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>fieldRestriction</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a7dd3d669c6dba11fbef4ae6a5b894306" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>mAttributeAliases</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1ac1429a6ad0fe81991fbca4ec450ce113" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>mContext</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1aa332508d3bfd2c4453835b5a3057225c" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>mDispExpression</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1ab79b7cbfd15a824c15266b5d49bb737b" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>mDisplayTitleIterator</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1ab27cb892448ca140c46331cf2a44d708" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>mFieldIterator</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1abefc6aca1436f46ad00d906d83829827" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>mFieldsCompletion</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a27d4ea451c0aef1cfef57cdcd9b8a083" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>mLayerId</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1aff975195f6e5151bd7229ed468dad4ad" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>mLayerIsSpatial</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a726c0cf0dac528301415c93ce492bc74" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>mLayerName</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1ab632bfed45a3f248cbbdd76b122dc10d" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>mLocatorBridge</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a67b4fbf265d711012c177cddd7065a35" prot="private" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>mMaxTotalResults</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1af55873c99adcb81d630492b6352e4e9f" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>name</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1ae9e64ed9f1b8b312aca6f7b5b0a602c7a6d98a7df1236c1c99133d9d0788c0a01" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>Navigation</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1ae9e64ed9f1b8b312aca6f7b5b0a602c7ac94a247887aa8610a9b4a278c5024a5e" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>Normal</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1ae9e64ed9f1b8b312aca6f7b5b0a602c7ae61e05ae9f7068a54a6088c3bdfd8e8f" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>OpenForm</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a39b83e356ec03d4948ea2467cdf172f7" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>prefix</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1ab627f917448168df7e5915dc80dc9182" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>prepare</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a2cd724e17021902661c2be59f89a48d4" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>priority</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1af283de5b8f628a60f1e4b2bee98d4425" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>ResultType</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1a7a68168801545fb7058e29e850f9264e" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>triggerResult</name></member>
+      <member refid="classActiveLayerFeaturesLocatorFilter_1aeffbe4d1038bdbe279d1ffa8c39534ac" prot="public" virt="non-virtual"><scope>ActiveLayerFeaturesLocatorFilter</scope><name>triggerResultFromAction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

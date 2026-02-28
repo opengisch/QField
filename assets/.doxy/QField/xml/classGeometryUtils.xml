@@ -1,0 +1,649 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGeometryUtils" kind="class" language="C++" prot="public">
+    <compoundname>GeometryUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4db" prot="public" static="no" strong="yes">
+        <type>int</type>
+        <name>GeometryOperationResult</name>
+        <qualifiedname>GeometryUtils::GeometryOperationResult</qualifiedname>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dba505a83f220c02df2f85c3810cd9ceb38" prot="public">
+          <name>Success</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Operation succeeded. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dbad9b9351155ad4e06e43730e654728ed0" prot="public">
+          <name>NothingHappened</name>
+          <initializer>= 1000</initializer>
+          <briefdescription>
+<para>Nothing happened, without any error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dbadfab31971f0b606a43c7711109935d67" prot="public">
+          <name>InvalidBaseGeometry</name>
+          <briefdescription>
+<para>The base geometry on which the operation is done is invalid or empty. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dba2888f1aee3f18ef8ec8fa5a6c60f2fd8" prot="public">
+          <name>InvalidInputGeometryType</name>
+          <briefdescription>
+<para>The input geometry (ring, part, split line, etc.) has not the correct geometry type. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dba541125b403a14e67d72d0d1367f0c23e" prot="public">
+          <name>SelectionIsEmpty</name>
+          <briefdescription>
+<para>No features were selected. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dba8a7070164a9384d5c041aeb27a3960db" prot="public">
+          <name>SelectionIsGreaterThanOne</name>
+          <briefdescription>
+<para>More than one features were selected. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dbabccdc591c606618da07df70c7466e4af" prot="public">
+          <name>GeometryEngineError</name>
+          <briefdescription>
+<para><ref refid="classGeometry" kindref="compound">Geometry</ref> engine misses a method implemented or an error occurred in the geometry engine. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dbae233a30f4e29977f105d851687b1209d" prot="public">
+          <name>LayerNotEditable</name>
+          <briefdescription>
+<para>Cannot edit layer. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dba16251923440dba609380eaf6482bb37c" prot="public">
+          <name>AddPartSelectedGeometryNotFound</name>
+          <briefdescription>
+<para>The selected geometry cannot be found. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dba65cdf852725557fc95a752a2f5ddd891" prot="public">
+          <name>AddPartNotMultiGeometry</name>
+          <briefdescription>
+<para>The source geometry is not multi. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dba6826e996638ef3cd74313ec614402428" prot="public">
+          <name>AddRingNotClosed</name>
+          <briefdescription>
+<para>The input ring is not closed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dbae6e0f913d0cae04b1e5e684307805242" prot="public">
+          <name>AddRingNotValid</name>
+          <briefdescription>
+<para>The input ring is not valid. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dba62761cb40b667689eca8865856a77028" prot="public">
+          <name>AddRingCrossesExistingRings</name>
+          <briefdescription>
+<para>The input ring crosses existing rings (it is not disjoint) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dba5a360ae745cee3d27feccdb195d568ae" prot="public">
+          <name>AddRingNotInExistingFeature</name>
+          <briefdescription>
+<para>The input ring doesn&apos;t have any existing ring to fit into. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4dba8dd53f475853673a36cfea51263633e7" prot="public">
+          <name>SplitCannotSplitPoint</name>
+          <briefdescription>
+<para>Cannot split points. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="39" column="5" bodyfile="src/core/utils/geometryutils.h" bodystart="40" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGeometryUtils_1aad6323cc3185d78a28a8b2d744c8ea36" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GeometryUtils::GeometryUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>GeometryUtils</name>
+        <qualifiedname>GeometryUtils::GeometryUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="62" column="14" bodyfile="src/core/utils/geometryutils.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classGeometryUtils_1ade375b26bee18ed5a5c70f589984fecb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsGeometry</type>
+        <definition>QgsGeometry GeometryUtils::polygonFromRubberband</definition>
+        <argsstring>(RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &amp;crs, Qgis::WkbType wkbType=Qgis::WkbType::Unknown)</argsstring>
+        <name>polygonFromRubberband</name>
+        <qualifiedname>GeometryUtils::polygonFromRubberband</qualifiedname>
+        <param>
+          <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+          <declname>rubberBandModel</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <param>
+          <type>Qgis::WkbType</type>
+          <declname>wkbType</declname>
+          <defval>Qgis::WkbType::Unknown</defval>
+        </param>
+        <briefdescription>
+<para>Returns a QgsGeometry with a polygon by using the point sequence in the rubberband model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="65" column="36" bodyfile="src/core/utils/geometryutils.cpp" bodystart="32" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1aea2ffbf6f69cd4bee87faab3facaede3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsGeometry</type>
+        <definition>QgsGeometry GeometryUtils::lineFromRubberband</definition>
+        <argsstring>(RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &amp;crs, Qgis::WkbType wkbType=Qgis::WkbType::Unknown)</argsstring>
+        <name>lineFromRubberband</name>
+        <qualifiedname>GeometryUtils::lineFromRubberband</qualifiedname>
+        <param>
+          <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+          <declname>rubberBandModel</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <param>
+          <type>Qgis::WkbType</type>
+          <declname>wkbType</declname>
+          <defval>Qgis::WkbType::Unknown</defval>
+        </param>
+        <briefdescription>
+<para>Returns a QgsGeometry with a line by using the point sequence in the rubberband model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="68" column="36" bodyfile="src/core/utils/geometryutils.cpp" bodystart="47" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1a742eefc791f5a0c122baf6405a9682f1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsGeometry</type>
+        <definition>QgsGeometry GeometryUtils::variableWidthBufferByMFromRubberband</definition>
+        <argsstring>(RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>variableWidthBufferByMFromRubberband</name>
+        <qualifiedname>GeometryUtils::variableWidthBufferByMFromRubberband</qualifiedname>
+        <param>
+          <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+          <declname>rubberBandModel</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+<para>Creates a variable width buffer polygon using M values from a rubberband model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="71" column="36" bodyfile="src/core/utils/geometryutils.cpp" bodystart="60" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1a024640d2ade1b9d9af01cecf315d67ee" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4db" kindref="member">GeometryOperationResult</ref></type>
+        <definition>GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel)</argsstring>
+        <name>reshapeFromRubberband</name>
+        <qualifiedname>GeometryUtils::reshapeFromRubberband</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+          <declname>rubberBandModel</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classReshape" kindref="compound">Reshape</ref> a polygon with given <emphasis>fid</emphasis> using the ring in the rubberband model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="74" column="48" bodyfile="src/core/utils/geometryutils.cpp" bodystart="68" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1a65087208ea3d8b8f6aafd1d62e915b87" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4db" kindref="member">GeometryOperationResult</ref></type>
+        <definition>GeometryUtils::GeometryOperationResult GeometryUtils::eraseFromRubberband</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel)</argsstring>
+        <name>eraseFromRubberband</name>
+        <qualifiedname>GeometryUtils::eraseFromRubberband</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+          <declname>rubberBandModel</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classReshape" kindref="compound">Reshape</ref> a polygon with given <emphasis>fid</emphasis> using the ring in the rubberband model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="77" column="48" bodyfile="src/core/utils/geometryutils.cpp" bodystart="220" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1a0e5e0050a7c504b8fb51fde632088686" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4db" kindref="member">GeometryOperationResult</ref></type>
+        <definition>GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel)</argsstring>
+        <name>addRingFromRubberband</name>
+        <qualifiedname>GeometryUtils::addRingFromRubberband</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+          <declname>rubberBandModel</declname>
+        </param>
+        <briefdescription>
+<para>Adds a ring to a polygon with given <emphasis>fid</emphasis> using the ring in the rubberband model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="80" column="48" bodyfile="src/core/utils/geometryutils.cpp" bodystart="250" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1ad9ae9a2fae85efa5ab810209163fca5a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4db" kindref="member">GeometryOperationResult</ref></type>
+        <definition>GeometryUtils::GeometryOperationResult GeometryUtils::splitFeatureFromRubberband</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel)</argsstring>
+        <name>splitFeatureFromRubberband</name>
+        <qualifiedname>GeometryUtils::splitFeatureFromRubberband</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+          <declname>rubberBandModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a split using the line in the rubberband model. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="85" column="48" bodyfile="src/core/utils/geometryutils.cpp" bodystart="295" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1a089a2936b0483fbab512bc4712146961" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>QgsPoint GeometryUtils::coordinateToPoint</definition>
+        <argsstring>(const QGeoCoordinate &amp;coor)</argsstring>
+        <name>coordinateToPoint</name>
+        <qualifiedname>GeometryUtils::coordinateToPoint</qualifiedname>
+        <param>
+          <type>const QGeoCoordinate &amp;</type>
+          <declname>coor</declname>
+        </param>
+        <briefdescription>
+<para>Converts QGeoCoordinate to QgsPoint. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="88" column="33" bodyfile="src/core/utils/geometryutils.cpp" bodystart="347" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1aa657468a5ea06e7246938c49ac150368" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double GeometryUtils::distanceBetweenPoints</definition>
+        <argsstring>(const QgsPoint &amp;start, const QgsPoint &amp;end)</argsstring>
+        <name>distanceBetweenPoints</name>
+        <qualifiedname>GeometryUtils::distanceBetweenPoints</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+<para>Returns the distance between a pair of <emphasis>start</emphasis> and <emphasis>end</emphasis> points. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="91" column="31" bodyfile="src/core/utils/geometryutils.cpp" bodystart="352" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1a44d2aeb62f1e679ad77b6eca0a2b2018" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>QgsPoint GeometryUtils::reprojectPointToWgs84</definition>
+        <argsstring>(const QgsPoint &amp;point, const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>reprojectPointToWgs84</name>
+        <qualifiedname>GeometryUtils::reprojectPointToWgs84</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+<para>Returns a reprojected <emphasis>point</emphasis> from the stated <emphasis>crs</emphasis> to WGS84. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="94" column="33" bodyfile="src/core/utils/geometryutils.cpp" bodystart="357" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1afd274863b81cfb12a760335791c3c533" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>QgsPoint GeometryUtils::reprojectPoint</definition>
+        <argsstring>(const QgsPoint &amp;point, const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs)</argsstring>
+        <name>reprojectPoint</name>
+        <qualifiedname>GeometryUtils::reprojectPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <briefdescription>
+<para>Returns a reprojected <emphasis>point</emphasis> from the stated <emphasis>sourceCrs</emphasis> to a <emphasis>destinationCrs</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="97" column="33" bodyfile="src/core/utils/geometryutils.cpp" bodystart="388" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1a2c6a32b36e34669db0b2dd183e2c343e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>static Q_INVOKABLE QgsPoint GeometryUtils::emptyPoint</definition>
+        <argsstring>()</argsstring>
+        <name>emptyPoint</name>
+        <qualifiedname>GeometryUtils::emptyPoint</qualifiedname>
+        <briefdescription>
+<para>Returns an empty (i.e. null) point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="100" column="33" bodyfile="src/core/utils/geometryutils.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1a3ae485892a95fdb8972a97790b43871b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>static Q_INVOKABLE QgsPoint GeometryUtils::point</definition>
+        <argsstring>(double x, double y, double z=std::numeric_limits&lt; double &gt;::quiet_NaN(), double m=std::numeric_limits&lt; double &gt;::quiet_NaN())</argsstring>
+        <name>point</name>
+        <qualifiedname>GeometryUtils::point</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>m</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <briefdescription>
+<para>Creates a point from <emphasis>x</emphasis> and <emphasis>y</emphasis> with optional <emphasis>z</emphasis> and <emphasis>values</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="103" column="33" bodyfile="src/core/utils/geometryutils.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1a8b10654e6679ce9a13a39640843a176b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>QgsPoint GeometryUtils::centroid</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>centroid</name>
+        <qualifiedname>GeometryUtils::centroid</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+<para>Creates a centroid point from a given <emphasis>geometry</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="106" column="33" bodyfile="src/core/utils/geometryutils.cpp" bodystart="378" bodyend="386"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1ad4cbe79d674007e0ca2b5aa93f7b7324" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsGeometry</type>
+        <definition>QgsGeometry GeometryUtils::createGeometryFromWkt</definition>
+        <argsstring>(const QString &amp;wkt)</argsstring>
+        <name>createGeometryFromWkt</name>
+        <qualifiedname>GeometryUtils::createGeometryFromWkt</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>wkt</declname>
+        </param>
+        <briefdescription>
+<para>Creates a geometry from a WKT string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="109" column="36" bodyfile="src/core/utils/geometryutils.cpp" bodystart="430" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1a7d37f474798a81cf4ae80a22cfe85ccd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QgsRectangle</type>
+        <definition>static Q_INVOKABLE QgsRectangle GeometryUtils::boundingBox</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>boundingBox</name>
+        <qualifiedname>GeometryUtils::boundingBox</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+<para>Returns the bounding box of a given <emphasis>geometry</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="112" column="37" bodyfile="src/core/utils/geometryutils.h" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1aafe494a5f05e50e535d40142fc00ccaf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsRectangle</type>
+        <definition>QgsRectangle GeometryUtils::reprojectRectangle</definition>
+        <argsstring>(const QgsRectangle &amp;rectangle, const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs)</argsstring>
+        <name>reprojectRectangle</name>
+        <qualifiedname>GeometryUtils::reprojectRectangle</qualifiedname>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>rectangle</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <briefdescription>
+<para>Returns a reprojected <emphasis>rectangle</emphasis> from the stated <emphasis>sourceCrs</emphasis> to a <emphasis>destinationCrs</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="115" column="37" bodyfile="src/core/utils/geometryutils.cpp" bodystart="411" bodyend="428"/>
+      </memberdef>
+      <memberdef kind="function" id="classGeometryUtils_1a6f8183233e363c348b7dbba4fe923008" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsRectangle</type>
+        <definition>QgsRectangle GeometryUtils::createRectangleFromPoints</definition>
+        <argsstring>(const QgsPoint &amp;p1, const QgsPoint &amp;p2)</argsstring>
+        <name>createRectangleFromPoints</name>
+        <qualifiedname>GeometryUtils::createRectangleFromPoints</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+<para>Returns a rectangle from two points. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/geometryutils.h" line="118" column="37" bodyfile="src/core/utils/geometryutils.cpp" bodystart="435" bodyend="438"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GeometryUtils</label>
+        <link refid="classGeometryUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GeometryUtils</label>
+        <link refid="classGeometryUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/geometryutils.h" line="34" column="1" bodyfile="src/core/utils/geometryutils.h" bodystart="35" bodyend="119"/>
+    <listofallmembers>
+      <member refid="classGeometryUtils_1a0e5e0050a7c504b8fb51fde632088686" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>addRingFromRubberband</name></member>
+      <member refid="classGeometryUtils_1a7d37f474798a81cf4ae80a22cfe85ccd" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>boundingBox</name></member>
+      <member refid="classGeometryUtils_1a8b10654e6679ce9a13a39640843a176b" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>centroid</name></member>
+      <member refid="classGeometryUtils_1a089a2936b0483fbab512bc4712146961" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>coordinateToPoint</name></member>
+      <member refid="classGeometryUtils_1ad4cbe79d674007e0ca2b5aa93f7b7324" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>createGeometryFromWkt</name></member>
+      <member refid="classGeometryUtils_1a6f8183233e363c348b7dbba4fe923008" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>createRectangleFromPoints</name></member>
+      <member refid="classGeometryUtils_1aa657468a5ea06e7246938c49ac150368" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>distanceBetweenPoints</name></member>
+      <member refid="classGeometryUtils_1a2c6a32b36e34669db0b2dd183e2c343e" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>emptyPoint</name></member>
+      <member refid="classGeometryUtils_1a65087208ea3d8b8f6aafd1d62e915b87" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>eraseFromRubberband</name></member>
+      <member refid="classGeometryUtils_1a4fbda5f2f27bb6d5cff2b3b65397a4db" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>GeometryOperationResult</name></member>
+      <member refid="classGeometryUtils_1aad6323cc3185d78a28a8b2d744c8ea36" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>GeometryUtils</name></member>
+      <member refid="classGeometryUtils_1aea2ffbf6f69cd4bee87faab3facaede3" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>lineFromRubberband</name></member>
+      <member refid="classGeometryUtils_1a3ae485892a95fdb8972a97790b43871b" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>point</name></member>
+      <member refid="classGeometryUtils_1ade375b26bee18ed5a5c70f589984fecb" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>polygonFromRubberband</name></member>
+      <member refid="classGeometryUtils_1afd274863b81cfb12a760335791c3c533" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>reprojectPoint</name></member>
+      <member refid="classGeometryUtils_1a44d2aeb62f1e679ad77b6eca0a2b2018" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>reprojectPointToWgs84</name></member>
+      <member refid="classGeometryUtils_1aafe494a5f05e50e535d40142fc00ccaf" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>reprojectRectangle</name></member>
+      <member refid="classGeometryUtils_1a024640d2ade1b9d9af01cecf315d67ee" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>reshapeFromRubberband</name></member>
+      <member refid="classGeometryUtils_1ad9ae9a2fae85efa5ab810209163fca5a" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>splitFeatureFromRubberband</name></member>
+      <member refid="classGeometryUtils_1a742eefc791f5a0c122baf6405a9682f1" prot="public" virt="non-virtual"><scope>GeometryUtils</scope><name>variableWidthBufferByMFromRubberband</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

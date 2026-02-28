@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_14e4815d6f2d5bd986fc95a1af67243d" kind="dir">
+    <compoundname>src/core/processing</compoundname>
+    <innerfile refid="processingalgorithm_8cpp">processingalgorithm.cpp</innerfile>
+    <innerfile refid="processingalgorithm_8h">processingalgorithm.h</innerfile>
+    <innerfile refid="processingalgorithmparametersmodel_8cpp">processingalgorithmparametersmodel.cpp</innerfile>
+    <innerfile refid="processingalgorithmparametersmodel_8h">processingalgorithmparametersmodel.h</innerfile>
+    <innerfile refid="processingalgorithmsmodel_8cpp">processingalgorithmsmodel.cpp</innerfile>
+    <innerfile refid="processingalgorithmsmodel_8h">processingalgorithmsmodel.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/processing/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,875 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAttributeFormModel" kind="class" language="C++" prot="public">
+    <compoundname>AttributeFormModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051" prot="public" static="no" strong="no">
+        <type></type>
+        <name>FeatureRoles</name>
+        <qualifiedname>AttributeFormModel::FeatureRoles</qualifiedname>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051aafe406f74e59d43e3e7348ff9f8f0e13" prot="public">
+          <name>ElementType</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051aaad17da0f81ee04222ce56983b20c3f8" prot="public">
+          <name>Name</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051acb678afa73e40d2e7f8f1709ceb91cb4" prot="public">
+          <name>AttributeValue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a25c98fbcccaa730ac9109d93ce4d6a1e" prot="public">
+          <name>AttributeEditable</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a12ea4bd7afb5f7c610617927f58a255e" prot="public">
+          <name>EditorWidget</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a77a2e7eec6c3044028b42224c0eee1c4" prot="public">
+          <name>EditorWidgetConfig</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051aa2feee1b6e62cc27071a594c5811fcb5" prot="public">
+          <name>RelationEditorWidget</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a0d40711576772b40d37bd28fb15b046c" prot="public">
+          <name>RelationEditorWidgetConfig</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ab56eca77f46c58130e094e7fbd3e75d7" prot="public">
+          <name>CanRememberValue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a4b749f26dc13b8349132f264f4fb6522" prot="public">
+          <name>RememberValue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a4b4db8ed227e0bdd4deda2b34ff7c067" prot="public">
+          <name>Field</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ac863b63f6855b954aa4c7ad99041d48f" prot="public">
+          <name>RelationId</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a2b189ddcf09ba1cca65ca241c3a61512" prot="public">
+          <name>NmRelationId</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ab0760bd7668c2f6c4234fec53ba5ebf4" prot="public">
+          <name>FieldIndex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a326d17d21757b864e74b76dca24acca7" prot="public">
+          <name>AttributeEditorElement</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a75068a9cdacbcc01b3fdfdb049022272" prot="public">
+          <name>CurrentlyVisible</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051aafc2191b86e91f29e8679ffb9cabdcd8" prot="public">
+          <name>ConstraintHardValid</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a77cbd7e5175f4e4b09b8bdbcdf9eaba9" prot="public">
+          <name>ConstraintSoftValid</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a83d15cfb364b15a68e4dc9fb3aa47dd5" prot="public">
+          <name>ConstraintDescription</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ac6ee3652699b229a2bc68742b144122f" prot="public">
+          <name>AttributeAllowEdit</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a46ae9a09d52e4d6306d7285f9461c0a0" prot="public">
+          <name>EditorWidgetCode</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a3cddba38fb60e556f4b7920671453b76" prot="public">
+          <name>TabIndex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ac282468529c815b42ebcd9fcefea8c31" prot="public">
+          <name>GroupColor</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a9fd163425cef12dbf09c50031df0f03e" prot="public">
+          <name>GroupName</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ad2aa1939f319deafdaa68a70bd465d12" prot="public">
+          <name>GroupIndex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ae8aedab6a440de0406c78689ed721d41" prot="public">
+          <name>ColumnCount</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a5fa2145ae44104b1d4f59724d16dc301" prot="public">
+          <name>LabelOverrideColor</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ac873481c98aaeac93acea516ba070eae" prot="public">
+          <name>LabelColor</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a6b542a9a22d066e35803a025f9effa52" prot="public">
+          <name>LabelOverrideFont</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051aa47bbdf3f499f28f0f53c5764aea73d2" prot="public">
+          <name>LabelFont</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="40" column="5" bodyfile="src/core/attributeformmodel.h" bodystart="41" bodyend="72"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classAttributeFormModel_1a2fd509dc065ddef99ab03cbf72225bcf" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref> *</type>
+        <definition>FeatureModel * AttributeFormModel::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>AttributeFormModel::featureModel</qualifiedname>
+        <read>featureModel</read>
+        <write>setFeatureModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="32" column="5" bodyfile="src/core/attributeformmodel.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classAttributeFormModel_1a247962e46315098fd2a30f4e841cf182" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool AttributeFormModel::hasTabs</definition>
+        <argsstring></argsstring>
+        <name>hasTabs</name>
+        <qualifiedname>AttributeFormModel::hasTabs</qualifiedname>
+        <read>hasTabs</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="33" column="5" bodyfile="src/core/attributeformmodel.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classAttributeFormModel_1ae2e0495a2b59c26574517729ceafbc39" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool AttributeFormModel::hasRemembrance</definition>
+        <argsstring></argsstring>
+        <name>hasRemembrance</name>
+        <qualifiedname>AttributeFormModel::hasRemembrance</qualifiedname>
+        <read>hasRemembrance</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="34" column="5" bodyfile="src/core/attributeformmodel.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classAttributeFormModel_1a72917e7baa3854f5e6f13cd3997a3413" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool AttributeFormModel::hasConstraints</definition>
+        <argsstring></argsstring>
+        <name>hasConstraints</name>
+        <qualifiedname>AttributeFormModel::hasConstraints</qualifiedname>
+        <read>hasConstraints</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="35" column="5" bodyfile="src/core/attributeformmodel.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classAttributeFormModel_1a2766e890e7dcd06f42f66640659a6ceb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool AttributeFormModel::constraintsHardValid</definition>
+        <argsstring></argsstring>
+        <name>constraintsHardValid</name>
+        <qualifiedname>AttributeFormModel::constraintsHardValid</qualifiedname>
+        <read>constraintsHardValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="36" column="5" bodyfile="src/core/attributeformmodel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classAttributeFormModel_1a0e50aaaefd764aa156b286c43648d85d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool AttributeFormModel::constraintsSoftValid</definition>
+        <argsstring></argsstring>
+        <name>constraintsSoftValid</name>
+        <qualifiedname>AttributeFormModel::constraintsSoftValid</qualifiedname>
+        <read>constraintsSoftValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="37" column="5" bodyfile="src/core/attributeformmodel.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAttributeFormModel_1a733a9f50c6209fdd6172548684bafbd7" prot="private" static="no" mutable="no">
+        <type><ref refid="classAttributeFormModelBase" kindref="compound">AttributeFormModelBase</ref> *</type>
+        <definition>AttributeFormModelBase* AttributeFormModel::mSourceModel</definition>
+        <argsstring></argsstring>
+        <name>mSourceModel</name>
+        <qualifiedname>AttributeFormModel::mSourceModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="148" column="28" bodyfile="src/core/attributeformmodel.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAttributeFormModel_1aa33bf271e46a71452ab59520510b9cb0" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AttributeFormModel::AttributeFormModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>AttributeFormModel</name>
+        <qualifiedname>AttributeFormModel::AttributeFormModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="76" column="14" bodyfile="src/core/attributeformmodel.cpp" bodystart="20" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1ab96326fc3f50798a47c7405e838e08e5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModel::hasTabs</definition>
+        <argsstring>() const</argsstring>
+        <name>hasTabs</name>
+        <qualifiedname>AttributeFormModel::hasTabs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="78" column="10" bodyfile="src/core/attributeformmodel.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a8ea17f67c5b23ac50b6af512717f6728" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModel::hasRemembrance</definition>
+        <argsstring>() const</argsstring>
+        <name>hasRemembrance</name>
+        <qualifiedname>AttributeFormModel::hasRemembrance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="79" column="10" bodyfile="src/core/attributeformmodel.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a69f7f4f09032f3dc931dd5f765f4a7d2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModel::hasConstraints</definition>
+        <argsstring>() const</argsstring>
+        <name>hasConstraints</name>
+        <qualifiedname>AttributeFormModel::hasConstraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="80" column="10" bodyfile="src/core/attributeformmodel.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a4659e52924fea35b328b5104c25abab2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref> *</type>
+        <definition>FeatureModel * AttributeFormModel::featureModel</definition>
+        <argsstring>() const</argsstring>
+        <name>featureModel</name>
+        <qualifiedname>AttributeFormModel::featureModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="82" column="18" bodyfile="src/core/attributeformmodel.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a61daa76ec09b914c871fd6a90a695811" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModel::setFeatureModel</definition>
+        <argsstring>(FeatureModel *featureModel)</argsstring>
+        <name>setFeatureModel</name>
+        <qualifiedname>AttributeFormModel::setFeatureModel</qualifiedname>
+        <param>
+          <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref> *</type>
+          <declname>featureModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="83" column="10" bodyfile="src/core/attributeformmodel.cpp" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a19bc8db7b94caa4590ae3cce0870f549" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModel::constraintsHardValid</definition>
+        <argsstring>() const</argsstring>
+        <name>constraintsHardValid</name>
+        <qualifiedname>AttributeFormModel::constraintsHardValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="85" column="10" bodyfile="src/core/attributeformmodel.cpp" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a47d327c89329ed4751d64ab4e2f411ae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModel::constraintsSoftValid</definition>
+        <argsstring>() const</argsstring>
+        <name>constraintsSoftValid</name>
+        <qualifiedname>AttributeFormModel::constraintsSoftValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="86" column="10" bodyfile="src/core/attributeformmodel.cpp" bodystart="65" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1aa4eeba27ee1a07848c366e90e0081bae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AttributeFormModel::save</definition>
+        <argsstring>()</argsstring>
+        <name>save</name>
+        <qualifiedname>AttributeFormModel::save</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Save the current (already existing) feature </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="91" column="22" bodyfile="src/core/attributeformmodel.cpp" bodystart="70" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a21aefb884a405622ce7e2f56fdbfb936" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AttributeFormModel::create</definition>
+        <argsstring>()</argsstring>
+        <name>create</name>
+        <qualifiedname>AttributeFormModel::create</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the current (not existing yet) feature </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="96" column="22" bodyfile="src/core/attributeformmodel.cpp" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a8ee25e471a206a894c82bfebaacce39b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AttributeFormModel::deleteFeature</definition>
+        <argsstring>()</argsstring>
+        <name>deleteFeature</name>
+        <qualifiedname>AttributeFormModel::deleteFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Delete the current feature </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="101" column="22" bodyfile="src/core/attributeformmodel.cpp" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1af800e06fcad9c7375dad7c683e24bdff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>QVariant AttributeFormModel::attribute</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>attribute</name>
+        <qualifiedname>AttributeFormModel::attribute</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the value for an attribute <emphasis>name</emphasis> of the current feature. <simplesect kind="return"><para>value of the attribute </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="107" column="26" bodyfile="src/core/attributeformmodel.cpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a30504a90731f75eef12b236b4b15a97c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AttributeFormModel::changeAttribute</definition>
+        <argsstring>(const QString &amp;name, const QVariant &amp;value)</argsstring>
+        <name>changeAttribute</name>
+        <qualifiedname>AttributeFormModel::changeAttribute</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the <emphasis>value</emphasis> for an attribute <emphasis>name</emphasis> of the current feature <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value of the attribute </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="113" column="22" bodyfile="src/core/attributeformmodel.cpp" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a79fca8a5f8f1f059cd205ab371b678b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AttributeFormModel::changeGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>changeGeometry</name>
+        <qualifiedname>AttributeFormModel::changeGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <emphasis>geometry</emphasis> of the current feature </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="118" column="22" bodyfile="src/core/attributeformmodel.cpp" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1ac64f305823ad33fe20f52ecb83438367" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AttributeFormModel::applyFeatureModel</definition>
+        <argsstring>()</argsstring>
+        <name>applyFeatureModel</name>
+        <qualifiedname>AttributeFormModel::applyFeatureModel</qualifiedname>
+        <briefdescription>
+<para>Applies feature model data such as attribute values, constraints, visibility to the attribute form model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="121" column="22" bodyfile="src/core/attributeformmodel.cpp" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a35995fe4d985973ed29f861b9160f393" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AttributeFormModel::applyParentDefaultValues</definition>
+        <argsstring>()</argsstring>
+        <name>applyParentDefaultValues</name>
+        <qualifiedname>AttributeFormModel::applyParentDefaultValues</qualifiedname>
+        <briefdescription>
+<para>Applies default values linked to a parent feature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="124" column="22" bodyfile="src/core/attributeformmodel.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a7ab3afa94ea4664a2e28ec6613176e2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AttributeFormModel::applyRelationshipDefaultValues</definition>
+        <argsstring>()</argsstring>
+        <name>applyRelationshipDefaultValues</name>
+        <qualifiedname>AttributeFormModel::applyRelationshipDefaultValues</qualifiedname>
+        <briefdescription>
+<para>Applies default values linked to relationships. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="127" column="22" bodyfile="src/core/attributeformmodel.cpp" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a161e0d8762a7f7e3e87c88296d6fd1a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AttributeFormModel::activateAllRememberValues</definition>
+        <argsstring>()</argsstring>
+        <name>activateAllRememberValues</name>
+        <qualifiedname>AttributeFormModel::activateAllRememberValues</qualifiedname>
+        <briefdescription>
+<para>Activate all available value that can be remembered and reused. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="130" column="22" bodyfile="src/core/attributeformmodel.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classAttributeFormModel_1a5bdd92c4481bcf32ca2f59396d74d0f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AttributeFormModel::deactivateAllRememberValues</definition>
+        <argsstring>()</argsstring>
+        <name>deactivateAllRememberValues</name>
+        <qualifiedname>AttributeFormModel::deactivateAllRememberValues</qualifiedname>
+        <briefdescription>
+<para>Deactivate all available value that can be remembered and reused. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="133" column="22" bodyfile="src/core/attributeformmodel.cpp" bodystart="120" bodyend="123"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classAttributeFormModel_1a326ae73175d6b235a8a24ad45570655a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModel::featureModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureModelChanged</name>
+        <qualifiedname>AttributeFormModel::featureModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="136" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModel_1acd6f9285b9eefec50a30b62c50172ad1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModel::hasTabsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasTabsChanged</name>
+        <qualifiedname>AttributeFormModel::hasTabsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="137" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModel_1af2543a9bcd41d8ffd0beb0c0efe3f842" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModel::hasRemembranceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasRemembranceChanged</name>
+        <qualifiedname>AttributeFormModel::hasRemembranceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="138" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModel_1a0a85c58490bfcea049381c97c531e428" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModel::hasConstraintsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasConstraintsChanged</name>
+        <qualifiedname>AttributeFormModel::hasConstraintsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="139" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModel_1a5214738e1b38e1fa1842457b0e410fd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModel::featureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureChanged</name>
+        <qualifiedname>AttributeFormModel::featureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="140" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModel_1a5a34e6b6060350628d05715d64711913" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModel::constraintsHardValidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>constraintsHardValidChanged</name>
+        <qualifiedname>AttributeFormModel::constraintsHardValidChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="141" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAttributeFormModel_1a63a0f1e51d78a7b940a618e6596a33d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AttributeFormModel::constraintsSoftValidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>constraintsSoftValidChanged</name>
+        <qualifiedname>AttributeFormModel::constraintsSoftValidChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="142" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classAttributeFormModel_1a564cb430ec2751b187f99e7602b780e6" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool AttributeFormModel::filterAcceptsRow</definition>
+        <argsstring>(int sourceRow, const QModelIndex &amp;sourceParent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>AttributeFormModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceParent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodel.h" line="145" column="18" bodyfile="src/core/attributeformmodel.cpp" bodystart="125" bodyend="128"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AttributeFormModel</label>
+        <link refid="classAttributeFormModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AttributeFormModel</label>
+        <link refid="classAttributeFormModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/attributeformmodel.h" line="28" column="1" bodyfile="src/core/attributeformmodel.h" bodystart="29" bodyend="149"/>
+    <listofallmembers>
+      <member refid="classAttributeFormModel_1a161e0d8762a7f7e3e87c88296d6fd1a4" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>activateAllRememberValues</name></member>
+      <member refid="classAttributeFormModel_1ac64f305823ad33fe20f52ecb83438367" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>applyFeatureModel</name></member>
+      <member refid="classAttributeFormModel_1a35995fe4d985973ed29f861b9160f393" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>applyParentDefaultValues</name></member>
+      <member refid="classAttributeFormModel_1a7ab3afa94ea4664a2e28ec6613176e2d" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>applyRelationshipDefaultValues</name></member>
+      <member refid="classAttributeFormModel_1af800e06fcad9c7375dad7c683e24bdff" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>attribute</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ac6ee3652699b229a2bc68742b144122f" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>AttributeAllowEdit</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a25c98fbcccaa730ac9109d93ce4d6a1e" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>AttributeEditable</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a326d17d21757b864e74b76dca24acca7" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>AttributeEditorElement</name></member>
+      <member refid="classAttributeFormModel_1aa33bf271e46a71452ab59520510b9cb0" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>AttributeFormModel</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051acb678afa73e40d2e7f8f1709ceb91cb4" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>AttributeValue</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ab56eca77f46c58130e094e7fbd3e75d7" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>CanRememberValue</name></member>
+      <member refid="classAttributeFormModel_1a30504a90731f75eef12b236b4b15a97c" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>changeAttribute</name></member>
+      <member refid="classAttributeFormModel_1a79fca8a5f8f1f059cd205ab371b678b0" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>changeGeometry</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ae8aedab6a440de0406c78689ed721d41" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>ColumnCount</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a83d15cfb364b15a68e4dc9fb3aa47dd5" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>ConstraintDescription</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051aafc2191b86e91f29e8679ffb9cabdcd8" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>ConstraintHardValid</name></member>
+      <member refid="classAttributeFormModel_1a2766e890e7dcd06f42f66640659a6ceb" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>constraintsHardValid</name></member>
+      <member refid="classAttributeFormModel_1a19bc8db7b94caa4590ae3cce0870f549" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>constraintsHardValid</name></member>
+      <member refid="classAttributeFormModel_1a5a34e6b6060350628d05715d64711913" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>constraintsHardValidChanged</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a77cbd7e5175f4e4b09b8bdbcdf9eaba9" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>ConstraintSoftValid</name></member>
+      <member refid="classAttributeFormModel_1a0e50aaaefd764aa156b286c43648d85d" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>constraintsSoftValid</name></member>
+      <member refid="classAttributeFormModel_1a47d327c89329ed4751d64ab4e2f411ae" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>constraintsSoftValid</name></member>
+      <member refid="classAttributeFormModel_1a63a0f1e51d78a7b940a618e6596a33d4" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>constraintsSoftValidChanged</name></member>
+      <member refid="classAttributeFormModel_1a21aefb884a405622ce7e2f56fdbfb936" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>create</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a75068a9cdacbcc01b3fdfdb049022272" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>CurrentlyVisible</name></member>
+      <member refid="classAttributeFormModel_1a5bdd92c4481bcf32ca2f59396d74d0f9" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>deactivateAllRememberValues</name></member>
+      <member refid="classAttributeFormModel_1a8ee25e471a206a894c82bfebaacce39b" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>deleteFeature</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a12ea4bd7afb5f7c610617927f58a255e" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>EditorWidget</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a46ae9a09d52e4d6306d7285f9461c0a0" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>EditorWidgetCode</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a77a2e7eec6c3044028b42224c0eee1c4" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>EditorWidgetConfig</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051aafe406f74e59d43e3e7348ff9f8f0e13" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>ElementType</name></member>
+      <member refid="classAttributeFormModel_1a5214738e1b38e1fa1842457b0e410fd8" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>featureChanged</name></member>
+      <member refid="classAttributeFormModel_1a2fd509dc065ddef99ab03cbf72225bcf" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>featureModel</name></member>
+      <member refid="classAttributeFormModel_1a4659e52924fea35b328b5104c25abab2" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>featureModel</name></member>
+      <member refid="classAttributeFormModel_1a326ae73175d6b235a8a24ad45570655a" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>featureModelChanged</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>FeatureRoles</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a4b4db8ed227e0bdd4deda2b34ff7c067" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>Field</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ab0760bd7668c2f6c4234fec53ba5ebf4" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>FieldIndex</name></member>
+      <member refid="classAttributeFormModel_1a564cb430ec2751b187f99e7602b780e6" prot="protected" virt="virtual"><scope>AttributeFormModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ac282468529c815b42ebcd9fcefea8c31" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>GroupColor</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ad2aa1939f319deafdaa68a70bd465d12" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>GroupIndex</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a9fd163425cef12dbf09c50031df0f03e" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>GroupName</name></member>
+      <member refid="classAttributeFormModel_1a72917e7baa3854f5e6f13cd3997a3413" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>hasConstraints</name></member>
+      <member refid="classAttributeFormModel_1a69f7f4f09032f3dc931dd5f765f4a7d2" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>hasConstraints</name></member>
+      <member refid="classAttributeFormModel_1a0a85c58490bfcea049381c97c531e428" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>hasConstraintsChanged</name></member>
+      <member refid="classAttributeFormModel_1ae2e0495a2b59c26574517729ceafbc39" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>hasRemembrance</name></member>
+      <member refid="classAttributeFormModel_1a8ea17f67c5b23ac50b6af512717f6728" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>hasRemembrance</name></member>
+      <member refid="classAttributeFormModel_1af2543a9bcd41d8ffd0beb0c0efe3f842" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>hasRemembranceChanged</name></member>
+      <member refid="classAttributeFormModel_1a247962e46315098fd2a30f4e841cf182" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>hasTabs</name></member>
+      <member refid="classAttributeFormModel_1ab96326fc3f50798a47c7405e838e08e5" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>hasTabs</name></member>
+      <member refid="classAttributeFormModel_1acd6f9285b9eefec50a30b62c50172ad1" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>hasTabsChanged</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ac873481c98aaeac93acea516ba070eae" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>LabelColor</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051aa47bbdf3f499f28f0f53c5764aea73d2" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>LabelFont</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a5fa2145ae44104b1d4f59724d16dc301" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>LabelOverrideColor</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a6b542a9a22d066e35803a025f9effa52" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>LabelOverrideFont</name></member>
+      <member refid="classAttributeFormModel_1a733a9f50c6209fdd6172548684bafbd7" prot="private" virt="non-virtual"><scope>AttributeFormModel</scope><name>mSourceModel</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051aaad17da0f81ee04222ce56983b20c3f8" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>Name</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a2b189ddcf09ba1cca65ca241c3a61512" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>NmRelationId</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051aa2feee1b6e62cc27071a594c5811fcb5" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>RelationEditorWidget</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a0d40711576772b40d37bd28fb15b046c" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>RelationEditorWidgetConfig</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051ac863b63f6855b954aa4c7ad99041d48f" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>RelationId</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a4b749f26dc13b8349132f264f4fb6522" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>RememberValue</name></member>
+      <member refid="classAttributeFormModel_1aa4eeba27ee1a07848c366e90e0081bae" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>save</name></member>
+      <member refid="classAttributeFormModel_1a61daa76ec09b914c871fd6a90a695811" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>setFeatureModel</name></member>
+      <member refid="classAttributeFormModel_1a8d7cfde97066c2453e477d4719fc9051a3cddba38fb60e556f4b7920671453b76" prot="public" virt="non-virtual"><scope>AttributeFormModel</scope><name>TabIndex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1927 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGridModel" kind="class" language="C++" prot="public">
+    <compoundname>GridModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="gridmodel_8h" local="no">gridmodel.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classGridModel_1ac1899d93317dcd193ec9a0e8e4164b9e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GridModel::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>GridModel::enabled</qualifiedname>
+        <read>enabled</read>
+        <write>setEnabled</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="63" column="5" bodyfile="src/core/gridmodel.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1ae25c8689a468c200d7f2bfe6da186893" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GridModel::indeterminate</definition>
+        <argsstring></argsstring>
+        <name>indeterminate</name>
+        <qualifiedname>GridModel::indeterminate</qualifiedname>
+        <read>indeterminate</read>
+        <write>setIndeterminate</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="64" column="5" bodyfile="src/core/gridmodel.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1ae19589f84c3b41cc473bc656698199e0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * GridModel::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>GridModel::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="66" column="5" bodyfile="src/core/gridmodel.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a947b9201d837eb41ac9936b4efa4288a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GridModel::xInterval</definition>
+        <argsstring></argsstring>
+        <name>xInterval</name>
+        <qualifiedname>GridModel::xInterval</qualifiedname>
+        <read>xInterval</read>
+        <write>setXInterval</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="68" column="5" bodyfile="src/core/gridmodel.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1abefdeddfe54a3db8755cc72178e86160" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GridModel::yInterval</definition>
+        <argsstring></argsstring>
+        <name>yInterval</name>
+        <qualifiedname>GridModel::yInterval</qualifiedname>
+        <read>yInterval</read>
+        <write>setYInterval</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="69" column="5" bodyfile="src/core/gridmodel.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a0b09af4b0749184b9600b567f84887bc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GridModel::xOffset</definition>
+        <argsstring></argsstring>
+        <name>xOffset</name>
+        <qualifiedname>GridModel::xOffset</qualifiedname>
+        <read>xOffset</read>
+        <write>setXOffset</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="70" column="5" bodyfile="src/core/gridmodel.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a02d1501dd23edfed5548859abd8889fd" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GridModel::yOffset</definition>
+        <argsstring></argsstring>
+        <name>yOffset</name>
+        <qualifiedname>GridModel::yOffset</qualifiedname>
+        <read>yOffset</read>
+        <write>setYOffset</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="71" column="5" bodyfile="src/core/gridmodel.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a4bd07c804cbb4da3bb6b0033e6ad7b0e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GridModel::prepareLines</definition>
+        <argsstring></argsstring>
+        <name>prepareLines</name>
+        <qualifiedname>GridModel::prepareLines</qualifiedname>
+        <read>prepareLines</read>
+        <write>setPrepareLines</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="73" column="5" bodyfile="src/core/gridmodel.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a47d8285a2ac5e0d1a63e90638ffea312" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GridModel::prepareMarkers</definition>
+        <argsstring></argsstring>
+        <name>prepareMarkers</name>
+        <qualifiedname>GridModel::prepareMarkers</qualifiedname>
+        <read>prepareMarkers</read>
+        <write>setPrepareMarkers</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="74" column="5" bodyfile="src/core/gridmodel.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a26f9fd0ec7d5f41367a67eb0411c639b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GridModel::prepareAnnotations</definition>
+        <argsstring></argsstring>
+        <name>prepareAnnotations</name>
+        <qualifiedname>GridModel::prepareAnnotations</qualifiedname>
+        <read>prepareAnnotations</read>
+        <write>setPrepareAnnotations</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="75" column="5" bodyfile="src/core/gridmodel.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1ae8b0447cdb65025b355230f65f88cd5f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QListQList&lt; QPointF &gt;</type>
+        <definition>QListQList&lt;QPointF&gt; GridModel::majorLines</definition>
+        <argsstring></argsstring>
+        <name>majorLines</name>
+        <qualifiedname>GridModel::majorLines</qualifiedname>
+        <read>majorLines</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="77" column="5" bodyfile="src/core/gridmodel.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1ae3969a6855d33235a792f7da3b2c3e61" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QListQList&lt; QPointF &gt;</type>
+        <definition>QListQList&lt;QPointF&gt; GridModel::minorLines</definition>
+        <argsstring></argsstring>
+        <name>minorLines</name>
+        <qualifiedname>GridModel::minorLines</qualifiedname>
+        <read>minorLines</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="78" column="5" bodyfile="src/core/gridmodel.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a29279a9c75c5ca76760402c8899fe4d8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; QPointF &gt;</type>
+        <definition>QList&lt;QPointF&gt; GridModel::markers</definition>
+        <argsstring></argsstring>
+        <name>markers</name>
+        <qualifiedname>GridModel::markers</qualifiedname>
+        <read>markers</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="79" column="5" bodyfile="src/core/gridmodel.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a5b673a5e0cb6cdffd321454d96d5a16f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classGridAnnotation" kindref="compound">GridAnnotation</ref> &gt;</type>
+        <definition>QList&lt;GridAnnotation&gt; GridModel::annotations</definition>
+        <argsstring></argsstring>
+        <name>annotations</name>
+        <qualifiedname>GridModel::annotations</qualifiedname>
+        <read>annotations</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="80" column="5" bodyfile="src/core/gridmodel.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1ab9d65f003c650364403b6744221cfc9e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GridModel::autoColor</definition>
+        <argsstring></argsstring>
+        <name>autoColor</name>
+        <qualifiedname>GridModel::autoColor</qualifiedname>
+        <read>autoColor</read>
+        <write>setAutoColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="82" column="5" bodyfile="src/core/gridmodel.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1abfbd32f903e42fd6e5b81185f3f6f71d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor GridModel::majorLineColor</definition>
+        <argsstring></argsstring>
+        <name>majorLineColor</name>
+        <qualifiedname>GridModel::majorLineColor</qualifiedname>
+        <read>majorLineColor</read>
+        <write>setMajorLineColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="83" column="5" bodyfile="src/core/gridmodel.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1aeb28da4a5e437ed89e233879d1bd2476" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor GridModel::minorLineColor</definition>
+        <argsstring></argsstring>
+        <name>minorLineColor</name>
+        <qualifiedname>GridModel::minorLineColor</qualifiedname>
+        <read>minorLineColor</read>
+        <write>setMinorLineColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="84" column="5" bodyfile="src/core/gridmodel.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a6441c308510367122284e9b66efbab94" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor GridModel::markerColor</definition>
+        <argsstring></argsstring>
+        <name>markerColor</name>
+        <qualifiedname>GridModel::markerColor</qualifiedname>
+        <read>markerColor</read>
+        <write>setMarkerColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="85" column="5" bodyfile="src/core/gridmodel.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a23d3c2fd5214c033e224889edc4e00f0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor GridModel::annotationColor</definition>
+        <argsstring></argsstring>
+        <name>annotationColor</name>
+        <qualifiedname>GridModel::annotationColor</qualifiedname>
+        <read>annotationColor</read>
+        <write>setAnnotationColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="87" column="5" bodyfile="src/core/gridmodel.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1af4a2da107a7de69b53ade66ed6a5cef8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor GridModel::annotationOutlineColor</definition>
+        <argsstring></argsstring>
+        <name>annotationOutlineColor</name>
+        <qualifiedname>GridModel::annotationOutlineColor</qualifiedname>
+        <read>annotationOutlineColor</read>
+        <write>setAnnotationOutlineColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="88" column="5" bodyfile="src/core/gridmodel.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a34d7b4454c5aa6629db72c62f82dad2f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GridModel::annotationHasOutline</definition>
+        <argsstring></argsstring>
+        <name>annotationHasOutline</name>
+        <qualifiedname>GridModel::annotationHasOutline</qualifiedname>
+        <read>annotationHasOutline</read>
+        <write>setAnnotationHasOutline</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="89" column="5" bodyfile="src/core/gridmodel.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridModel_1a770565912008f29964c14ee8103834cf" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int GridModel::annotationPrecision</definition>
+        <argsstring></argsstring>
+        <name>annotationPrecision</name>
+        <qualifiedname>GridModel::annotationPrecision</qualifiedname>
+        <read>annotationPrecision</read>
+        <write>setAnnotationPrecision</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="90" column="5" bodyfile="src/core/gridmodel.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGridModel_1a772295a38ad3f9c63a60d771a083908e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GridModel::mEnabled</definition>
+        <argsstring></argsstring>
+        <name>mEnabled</name>
+        <qualifiedname>GridModel::mEnabled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="300" column="10" bodyfile="src/core/gridmodel.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1aba60a6fa33a19c00f0a81af840176566" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* GridModel::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>GridModel::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="302" column="25" bodyfile="src/core/gridmodel.h" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a8ae874be0f9778374e24534f01cd7aef" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GridModel::mIndeterminate</definition>
+        <argsstring></argsstring>
+        <name>mIndeterminate</name>
+        <qualifiedname>GridModel::mIndeterminate</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="304" column="10" bodyfile="src/core/gridmodel.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a1985a0e124ea2c1d230622eebfcef2cd" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GridModel::mIndeterminateInterval</definition>
+        <argsstring></argsstring>
+        <name>mIndeterminateInterval</name>
+        <qualifiedname>GridModel::mIndeterminateInterval</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="305" column="12" bodyfile="src/core/gridmodel.h" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1ab4783187d8181ca2f165ed39a8b8205c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GridModel::mXInterval</definition>
+        <argsstring></argsstring>
+        <name>mXInterval</name>
+        <qualifiedname>GridModel::mXInterval</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="307" column="12" bodyfile="src/core/gridmodel.h" bodystart="307" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a934b0149a01c0f61607d0047fe11f8f6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GridModel::mYInterval</definition>
+        <argsstring></argsstring>
+        <name>mYInterval</name>
+        <qualifiedname>GridModel::mYInterval</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="308" column="12" bodyfile="src/core/gridmodel.h" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a30baa4cad0447598eb0417feb8f051a4" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GridModel::mXOffset</definition>
+        <argsstring></argsstring>
+        <name>mXOffset</name>
+        <qualifiedname>GridModel::mXOffset</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="309" column="12" bodyfile="src/core/gridmodel.h" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a4dcb5b9296d5f4186a45c2dc2eb18d40" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GridModel::mYOffset</definition>
+        <argsstring></argsstring>
+        <name>mYOffset</name>
+        <qualifiedname>GridModel::mYOffset</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="310" column="12" bodyfile="src/core/gridmodel.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1ae2be6bb229e2a5008fc6faf7f57fcd41" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GridModel::mPrepareLines</definition>
+        <argsstring></argsstring>
+        <name>mPrepareLines</name>
+        <qualifiedname>GridModel::mPrepareLines</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="312" column="10" bodyfile="src/core/gridmodel.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a4db14a1d9e4dd7e9e0f5d68bb4662266" prot="private" static="no" mutable="no">
+        <type>QList&lt; QList&lt; QPointF &gt; &gt;</type>
+        <definition>QList&lt;QList&lt;QPointF&gt; &gt; GridModel::mMajorLines</definition>
+        <argsstring></argsstring>
+        <name>mMajorLines</name>
+        <qualifiedname>GridModel::mMajorLines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="313" column="11" bodyfile="src/core/gridmodel.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a52efa7d4d1be49f5e443a89b1e48de7d" prot="private" static="no" mutable="no">
+        <type>QList&lt; QList&lt; QPointF &gt; &gt;</type>
+        <definition>QList&lt;QList&lt;QPointF&gt; &gt; GridModel::mMinorLines</definition>
+        <argsstring></argsstring>
+        <name>mMinorLines</name>
+        <qualifiedname>GridModel::mMinorLines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="314" column="11" bodyfile="src/core/gridmodel.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a9c33a062f2f8329c6b5278d26ba1b42e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GridModel::mPrepareMarkers</definition>
+        <argsstring></argsstring>
+        <name>mPrepareMarkers</name>
+        <qualifiedname>GridModel::mPrepareMarkers</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="315" column="10" bodyfile="src/core/gridmodel.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a8b6a0efdbf5d4bf3fed886cd984e7906" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPointF &gt;</type>
+        <definition>QList&lt;QPointF&gt; GridModel::mMarkers</definition>
+        <argsstring></argsstring>
+        <name>mMarkers</name>
+        <qualifiedname>GridModel::mMarkers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="316" column="11" bodyfile="src/core/gridmodel.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a6f6858e93a78024bab6b52ba87be279b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GridModel::mPrepareAnnotations</definition>
+        <argsstring></argsstring>
+        <name>mPrepareAnnotations</name>
+        <qualifiedname>GridModel::mPrepareAnnotations</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="317" column="10" bodyfile="src/core/gridmodel.h" bodystart="317" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a2c06d1ef2a42897d5c39873fe9c734ea" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classGridAnnotation" kindref="compound">GridAnnotation</ref> &gt;</type>
+        <definition>QList&lt;GridAnnotation&gt; GridModel::mAnnotations</definition>
+        <argsstring></argsstring>
+        <name>mAnnotations</name>
+        <qualifiedname>GridModel::mAnnotations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="318" column="11" bodyfile="src/core/gridmodel.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1afc537c50977b93cef9e60c9d16ffab04" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GridModel::mAutoColor</definition>
+        <argsstring></argsstring>
+        <name>mAutoColor</name>
+        <qualifiedname>GridModel::mAutoColor</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="320" column="10" bodyfile="src/core/gridmodel.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1ab6495be0abc71e6a4b825e0954b0dd26" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor GridModel::mMajorLineColor</definition>
+        <argsstring></argsstring>
+        <name>mMajorLineColor</name>
+        <qualifiedname>GridModel::mMajorLineColor</qualifiedname>
+        <initializer>= QColor( 0, 0, 0, 100 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="321" column="12" bodyfile="src/core/gridmodel.h" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1ad18ed0bbf402ded3314a9163126d5563" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor GridModel::mMinorLineColor</definition>
+        <argsstring></argsstring>
+        <name>mMinorLineColor</name>
+        <qualifiedname>GridModel::mMinorLineColor</qualifiedname>
+        <initializer>= QColor( 0, 0, 0, 20 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="322" column="12" bodyfile="src/core/gridmodel.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a911f7042cfc436d7e08fdf1e71eb5141" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor GridModel::mMarkerColor</definition>
+        <argsstring></argsstring>
+        <name>mMarkerColor</name>
+        <qualifiedname>GridModel::mMarkerColor</qualifiedname>
+        <initializer>= QColor( 0, 0, 0, 100 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="323" column="12" bodyfile="src/core/gridmodel.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1aa25cb7c2522041e34846daa984117109" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor GridModel::mAnnotationColor</definition>
+        <argsstring></argsstring>
+        <name>mAnnotationColor</name>
+        <qualifiedname>GridModel::mAnnotationColor</qualifiedname>
+        <initializer>= QColor( 0, 0, 0 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="325" column="12" bodyfile="src/core/gridmodel.h" bodystart="325" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1ab3a7fda87115bad649053c27d669db8d" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor GridModel::mAnnotationOutlineColor</definition>
+        <argsstring></argsstring>
+        <name>mAnnotationOutlineColor</name>
+        <qualifiedname>GridModel::mAnnotationOutlineColor</qualifiedname>
+        <initializer>= QColor( 255, 255, 255, 100 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="326" column="12" bodyfile="src/core/gridmodel.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a99d8a31ff71f88ffa7e26d6f8baade95" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GridModel::mAnnotationHasOutline</definition>
+        <argsstring></argsstring>
+        <name>mAnnotationHasOutline</name>
+        <qualifiedname>GridModel::mAnnotationHasOutline</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="327" column="10" bodyfile="src/core/gridmodel.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a98457c252e6bf9c7c177af7302d65246" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GridModel::mAnnotationPrecision</definition>
+        <argsstring></argsstring>
+        <name>mAnnotationPrecision</name>
+        <qualifiedname>GridModel::mAnnotationPrecision</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="328" column="9" bodyfile="src/core/gridmodel.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridModel_1a12924ba5aadfcaddf5c02b55db471e15" prot="private" static="no" mutable="no">
+        <type>QLocale</type>
+        <definition>QLocale GridModel::mLocale</definition>
+        <argsstring></argsstring>
+        <name>mLocale</name>
+        <qualifiedname>GridModel::mLocale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="330" column="13" bodyfile="src/core/gridmodel.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGridModel_1af973e16519a036060c93964d46ed4696" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GridModel::GridModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>GridModel</name>
+        <qualifiedname>GridModel::GridModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="94" column="14" bodyfile="src/core/gridmodel.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a01c524ac92e027a88cce86f351bf7a6b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GridModel::enabled</definition>
+        <argsstring>() const</argsstring>
+        <name>enabled</name>
+        <qualifiedname>GridModel::enabled</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE when grid elements will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="97" column="10" bodyfile="src/core/gridmodel.h" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1aa39411094a0168f3c30ca5f8739ba1d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <qualifiedname>GridModel::setEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether grid elements will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="100" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="24" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a29eb4fcafd38792ac6d3cb47e5bd192a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GridModel::indeterminate</definition>
+        <argsstring>() const</argsstring>
+        <name>indeterminate</name>
+        <qualifiedname>GridModel::indeterminate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when grid will adopt an indeterminate behavior and ignore the interval and offset values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="106" column="10" bodyfile="src/core/gridmodel.h" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1ac287900580947db987ff2ab5cfcfd49d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setIndeterminate</definition>
+        <argsstring>(bool indeterminate)</argsstring>
+        <name>setIndeterminate</name>
+        <qualifiedname>GridModel::setIndeterminate</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>indeterminate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the grid will adopt an indeterminate behavior and ignore the interval and offset values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="112" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="42" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1ae6055bf2b504039a22255df6c6a41993" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * GridModel::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>GridModel::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Returns the map settings object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="115" column="25" bodyfile="src/core/gridmodel.h" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1ae09a985d3c1c35731eb3611d17a86ad3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>GridModel::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+<para>Sets the map settings object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="118" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="56" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1acd59d4b869cebe9c5dd1477cdd3929b9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GridModel::xInterval</definition>
+        <argsstring>() const</argsstring>
+        <name>xInterval</name>
+        <qualifiedname>GridModel::xInterval</qualifiedname>
+        <briefdescription>
+<para>Returns the grid X interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="121" column="12" bodyfile="src/core/gridmodel.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1ae26401c6b7e3b7677ebf6f75a51f871c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setXInterval</definition>
+        <argsstring>(double interval)</argsstring>
+        <name>setXInterval</name>
+        <qualifiedname>GridModel::setXInterval</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>interval</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid X interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="124" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="80" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1ae8797a48604a1ca868cb774fe3bbabcd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GridModel::yInterval</definition>
+        <argsstring>() const</argsstring>
+        <name>yInterval</name>
+        <qualifiedname>GridModel::yInterval</qualifiedname>
+        <briefdescription>
+<para>Returns the grid Y interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="127" column="12" bodyfile="src/core/gridmodel.h" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a2b951290422b71c4af2cc1dbb845e3ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setYInterval</definition>
+        <argsstring>(double interval)</argsstring>
+        <name>setYInterval</name>
+        <qualifiedname>GridModel::setYInterval</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>interval</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid Y interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="130" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="91" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1ad32067b1b7b92a5625790d38589dc87a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GridModel::xOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>xOffset</name>
+        <qualifiedname>GridModel::xOffset</qualifiedname>
+        <briefdescription>
+<para>Returns the grid X interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="133" column="12" bodyfile="src/core/gridmodel.h" bodystart="133" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a78c120b9ca4fa4376e5054487abd87d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setXOffset</definition>
+        <argsstring>(double offset)</argsstring>
+        <name>setXOffset</name>
+        <qualifiedname>GridModel::setXOffset</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid X interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="136" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="102" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a7a6938bcc1c9ee19e6ea985ddd276400" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GridModel::yOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>yOffset</name>
+        <qualifiedname>GridModel::yOffset</qualifiedname>
+        <briefdescription>
+<para>Returns the grid Y interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="139" column="12" bodyfile="src/core/gridmodel.h" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1ad37a8d8883ec514fc2c8a2745efcc28f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setYOffset</definition>
+        <argsstring>(double offset)</argsstring>
+        <name>setYOffset</name>
+        <qualifiedname>GridModel::setYOffset</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid Y interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="142" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="113" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a50818b9d97487bb48e69f3189d573ec6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GridModel::prepareLines</definition>
+        <argsstring>() const</argsstring>
+        <name>prepareLines</name>
+        <qualifiedname>GridModel::prepareLines</qualifiedname>
+        <briefdescription>
+<para>Returns whether grid lines will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="145" column="10" bodyfile="src/core/gridmodel.h" bodystart="145" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1afccab59ff81e0266b6afbdd4102c14d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setPrepareLines</definition>
+        <argsstring>(bool prepare)</argsstring>
+        <name>setPrepareLines</name>
+        <qualifiedname>GridModel::setPrepareLines</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>prepare</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether grid lines will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="148" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="124" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a87b7869751494f2b381b22194a01966e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; QList&lt; QPointF &gt; &gt;</type>
+        <definition>QList&lt; QList&lt; QPointF &gt; &gt; GridModel::majorLines</definition>
+        <argsstring>() const</argsstring>
+        <name>majorLines</name>
+        <qualifiedname>GridModel::majorLines</qualifiedname>
+        <briefdescription>
+<para>Returns the grid major lines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="151" column="11" bodyfile="src/core/gridmodel.h" bodystart="151" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1ae04d42d73c469c7d482a20814297b858" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; QList&lt; QPointF &gt; &gt;</type>
+        <definition>QList&lt; QList&lt; QPointF &gt; &gt; GridModel::minorLines</definition>
+        <argsstring>() const</argsstring>
+        <name>minorLines</name>
+        <qualifiedname>GridModel::minorLines</qualifiedname>
+        <briefdescription>
+<para>Returns the grid minor lines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="154" column="11" bodyfile="src/core/gridmodel.h" bodystart="154" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a6e30c1cf3bb2d0806dbc1b824018bd90" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GridModel::prepareMarkers</definition>
+        <argsstring>() const</argsstring>
+        <name>prepareMarkers</name>
+        <qualifiedname>GridModel::prepareMarkers</qualifiedname>
+        <briefdescription>
+<para>Returns whether grid markers will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="157" column="10" bodyfile="src/core/gridmodel.h" bodystart="157" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a2b6ff144cee5c5f0927366e9510cc9bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setPrepareMarkers</definition>
+        <argsstring>(bool prepare)</argsstring>
+        <name>setPrepareMarkers</name>
+        <qualifiedname>GridModel::setPrepareMarkers</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>prepare</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether grid markers will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="160" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="151" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a1527fd58821d51ed8acd0d4fef609908" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; QPointF &gt;</type>
+        <definition>QList&lt; QPointF &gt; GridModel::markers</definition>
+        <argsstring>() const</argsstring>
+        <name>markers</name>
+        <qualifiedname>GridModel::markers</qualifiedname>
+        <briefdescription>
+<para>Returns the grid markers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="163" column="11" bodyfile="src/core/gridmodel.h" bodystart="163" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a8867214f567141ba53c1d79ed5af04eb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GridModel::prepareAnnotations</definition>
+        <argsstring>() const</argsstring>
+        <name>prepareAnnotations</name>
+        <qualifiedname>GridModel::prepareAnnotations</qualifiedname>
+        <briefdescription>
+<para>Returns whether grid annotations will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="166" column="10" bodyfile="src/core/gridmodel.h" bodystart="166" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1ac05f252b97a5ca0728a4644d2b6c9ade" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setPrepareAnnotations</definition>
+        <argsstring>(bool prepare)</argsstring>
+        <name>setPrepareAnnotations</name>
+        <qualifiedname>GridModel::setPrepareAnnotations</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>prepare</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether grid annotations will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="169" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="173" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a726d870284b2cacaedbb4e7b4470122a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; <ref refid="classGridAnnotation" kindref="compound">GridAnnotation</ref> &gt;</type>
+        <definition>QList&lt; GridAnnotation &gt; GridModel::annotations</definition>
+        <argsstring>() const</argsstring>
+        <name>annotations</name>
+        <qualifiedname>GridModel::annotations</qualifiedname>
+        <briefdescription>
+<para>Returns the grid annotations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="172" column="11" bodyfile="src/core/gridmodel.h" bodystart="172" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a160fdf7fdd9935f607a6026f7f81ff83" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GridModel::autoColor</definition>
+        <argsstring>() const</argsstring>
+        <name>autoColor</name>
+        <qualifiedname>GridModel::autoColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether grid line and marker colors will be automatically assigned to colors derived from the map canvas background color. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="178" column="10" bodyfile="src/core/gridmodel.h" bodystart="178" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a33dcef213b6e0ca25e4b9071b23370ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setAutoColor</definition>
+        <argsstring>(bool autoColor)</argsstring>
+        <name>setAutoColor</name>
+        <qualifiedname>GridModel::setAutoColor</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>autoColor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set whether grid line and marker colors will be automatically assigned to colors derived from the map canvas background color. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="184" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="195" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a278f88204edc62fdddb4a575e0a83d28" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor GridModel::majorLineColor</definition>
+        <argsstring>() const</argsstring>
+        <name>majorLineColor</name>
+        <qualifiedname>GridModel::majorLineColor</qualifiedname>
+        <briefdescription>
+<para>Returns the grid major line color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="187" column="12" bodyfile="src/core/gridmodel.h" bodystart="187" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a3271b6fda4b643ff3a50a6410f844aa9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setMajorLineColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setMajorLineColor</name>
+        <qualifiedname>GridModel::setMajorLineColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid major line color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="190" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="211" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1acfae5fd1ba4a16c58b5fb0d8e542d01f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor GridModel::minorLineColor</definition>
+        <argsstring>() const</argsstring>
+        <name>minorLineColor</name>
+        <qualifiedname>GridModel::minorLineColor</qualifiedname>
+        <briefdescription>
+<para>Returns the grid minor line color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="193" column="12" bodyfile="src/core/gridmodel.h" bodystart="193" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1abf2ade2d8010056afb2f7eb5fb9a6700" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setMinorLineColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setMinorLineColor</name>
+        <qualifiedname>GridModel::setMinorLineColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid minor line color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="196" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="222" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a0e7beb2e7a9a2aeb31f35b10ce24940a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor GridModel::markerColor</definition>
+        <argsstring>() const</argsstring>
+        <name>markerColor</name>
+        <qualifiedname>GridModel::markerColor</qualifiedname>
+        <briefdescription>
+<para>Returns the grid marker color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="199" column="12" bodyfile="src/core/gridmodel.h" bodystart="199" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1af29566fda6726efe3440bf3459c91434" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setMarkerColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setMarkerColor</name>
+        <qualifiedname>GridModel::setMarkerColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid marker color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="202" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="233" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1afbd046e00b03377b44e71f73104390aa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor GridModel::annotationColor</definition>
+        <argsstring>() const</argsstring>
+        <name>annotationColor</name>
+        <qualifiedname>GridModel::annotationColor</qualifiedname>
+        <briefdescription>
+<para>Returns the grid annotation text color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="205" column="12" bodyfile="src/core/gridmodel.h" bodystart="205" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a5819e7b02a82c1aebca85196de9004a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setAnnotationColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setAnnotationColor</name>
+        <qualifiedname>GridModel::setAnnotationColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid annotation text color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="208" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="244" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a1e98f9ef7121dddc14a0711017f42f7e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor GridModel::annotationOutlineColor</definition>
+        <argsstring>() const</argsstring>
+        <name>annotationOutlineColor</name>
+        <qualifiedname>GridModel::annotationOutlineColor</qualifiedname>
+        <briefdescription>
+<para>Returns the grid annotation text outline color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="211" column="12" bodyfile="src/core/gridmodel.h" bodystart="211" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a14720ce18742442ffb18741c7fdb98d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setAnnotationOutlineColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setAnnotationOutlineColor</name>
+        <qualifiedname>GridModel::setAnnotationOutlineColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid annotation text outline color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="214" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="255" bodyend="264"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a79c4667e77aa6f8c26aa6c9573c313e3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GridModel::annotationHasOutline</definition>
+        <argsstring>() const</argsstring>
+        <name>annotationHasOutline</name>
+        <qualifiedname>GridModel::annotationHasOutline</qualifiedname>
+        <briefdescription>
+<para>Returns whether annotation text have an outline color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="217" column="10" bodyfile="src/core/gridmodel.h" bodystart="217" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a27416075cc3f8c6a44aaa133d88fced7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setAnnotationHasOutline</definition>
+        <argsstring>(bool hasOutline)</argsstring>
+        <name>setAnnotationHasOutline</name>
+        <qualifiedname>GridModel::setAnnotationHasOutline</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>hasOutline</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether annotation text have an outline color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="220" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="266" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a72245100ee817c0b46dda605e19759f6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int GridModel::annotationPrecision</definition>
+        <argsstring>() const</argsstring>
+        <name>annotationPrecision</name>
+        <qualifiedname>GridModel::annotationPrecision</qualifiedname>
+        <briefdescription>
+<para>Returns the annotation text decimal precision. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="223" column="9" bodyfile="src/core/gridmodel.h" bodystart="223" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a3fc70c24d77efcb8ef2b5a41873f2e1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::setAnnotationPrecision</definition>
+        <argsstring>(int precision)</argsstring>
+        <name>setAnnotationPrecision</name>
+        <qualifiedname>GridModel::setAnnotationPrecision</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>precision</declname>
+        </param>
+        <briefdescription>
+<para>Sets the annotation text decimal precision. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="226" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="277" bodyend="286"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classGridModel_1a4de97a660512919b4d5887aeb39a0eb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::enabledChanged</definition>
+        <argsstring>()</argsstring>
+        <name>enabledChanged</name>
+        <qualifiedname>GridModel::enabledChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid enabled setting has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="230" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a6671db9c65eaf122c148b79355ed0607" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::indeterminateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>indeterminateChanged</name>
+        <qualifiedname>GridModel::indeterminateChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid indeterminate setting has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="233" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a05252f013e614f41572e805acb84bf96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>GridModel::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the map settings object has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="236" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a96833ded13a81164ecdd10efeccc7f16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::xIntervalChanged</definition>
+        <argsstring>()</argsstring>
+        <name>xIntervalChanged</name>
+        <qualifiedname>GridModel::xIntervalChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid X interval has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="239" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a06f2a30aa553f5e8634a043dcdd9db57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::yIntervalChanged</definition>
+        <argsstring>()</argsstring>
+        <name>yIntervalChanged</name>
+        <qualifiedname>GridModel::yIntervalChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid Y interval has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="242" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a44aa2a9ceb91b91cf22eafc403421596" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::xOffsetChanged</definition>
+        <argsstring>()</argsstring>
+        <name>xOffsetChanged</name>
+        <qualifiedname>GridModel::xOffsetChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid X offset has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="245" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a8096f2f3e651fee55d66d77d089f7549" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::yOffsetChanged</definition>
+        <argsstring>()</argsstring>
+        <name>yOffsetChanged</name>
+        <qualifiedname>GridModel::yOffsetChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid Y offset has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="248" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1ac50fc0e30bf4e7b487f3cb0e11cf0857" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::prepareLinesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>prepareLinesChanged</name>
+        <qualifiedname>GridModel::prepareLinesChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when grid lines preparation setting has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="251" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a7331cfda5757bfcad01f47609a9ea7c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::prepareMarkersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>prepareMarkersChanged</name>
+        <qualifiedname>GridModel::prepareMarkersChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when grid markers preparation setting has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="254" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a563ad6e1afe9a1739e351eed146dd7e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::prepareAnnotationsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>prepareAnnotationsChanged</name>
+        <qualifiedname>GridModel::prepareAnnotationsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when grid annotations preparation setting has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="257" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a7b2245d19122efdb8d497de83d5d63f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::majorLinesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>majorLinesChanged</name>
+        <qualifiedname>GridModel::majorLinesChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid major lines have changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="260" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a3bd75a44e54cc97341f41c24f8bfcec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::minorLinesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>minorLinesChanged</name>
+        <qualifiedname>GridModel::minorLinesChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid minor lines have changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="263" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1ad4fca425e44226ab7bdb03a2847a62db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::markersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>markersChanged</name>
+        <qualifiedname>GridModel::markersChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid markers have changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="266" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a7ed2d70c3d12b919d9cc590aa0ac817a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::annotationsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>annotationsChanged</name>
+        <qualifiedname>GridModel::annotationsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid annotations have changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="269" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1afee228cd34ee66a27296cd35bd021a78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::autoColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>autoColorChanged</name>
+        <qualifiedname>GridModel::autoColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid line and marker colors are automatically assigned. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="272" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1ac6f3f43422b1300088a4c9d13c840824" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::majorLineColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>majorLineColorChanged</name>
+        <qualifiedname>GridModel::majorLineColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid major line color has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="275" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1aa07b9f92998e3d780e16ea09b76a2c39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::minorLineColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>minorLineColorChanged</name>
+        <qualifiedname>GridModel::minorLineColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid minor line color has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="278" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1aadf39260018015850bd1c9c4cb16c38c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::markerColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>markerColorChanged</name>
+        <qualifiedname>GridModel::markerColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid marker color has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="281" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a3091a973d09d65fdc6cb0e2dbc686e68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::annotationColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>annotationColorChanged</name>
+        <qualifiedname>GridModel::annotationColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid annotation text color has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="284" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a2deb8a6f69655c0ee3e3579343ac21f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::annotationOutlineColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>annotationOutlineColorChanged</name>
+        <qualifiedname>GridModel::annotationOutlineColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid annotation text outline color has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="287" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1a9cd3ad104be2c89d902aaf3c6f8fe184" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::annotationHasOutlineChanged</definition>
+        <argsstring>()</argsstring>
+        <name>annotationHasOutlineChanged</name>
+        <qualifiedname>GridModel::annotationHasOutlineChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid annotation text outline visibility has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="290" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classGridModel_1aa879dc5b255cc9c0dafa82da2b7f92b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::annotationPrecisionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>annotationPrecisionChanged</name>
+        <qualifiedname>GridModel::annotationPrecisionChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid annotation text decimal precision has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="293" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classGridModel_1a74786dfa64ec91c63523f85f949df6d8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>GridModel::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="296" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="288" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1ab1a09d5e0f1b0261b9bd591bd7a59249" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <qualifiedname>GridModel::update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="297" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="312" bodyend="510"/>
+      </memberdef>
+      <memberdef kind="function" id="classGridModel_1a895e5d8d5a8c561cecc3a7f694062d27" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GridModel::updateColors</definition>
+        <argsstring>()</argsstring>
+        <name>updateColors</name>
+        <qualifiedname>GridModel::updateColors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="298" column="10" bodyfile="src/core/gridmodel.cpp" bodystart="512" bodyend="525"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This model manages lists of lines, markers, and annotations representing a grid. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GridModel</label>
+        <link refid="classGridModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GridModel</label>
+        <link refid="classGridModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/gridmodel.h" line="59" column="1" bodyfile="src/core/gridmodel.h" bodystart="60" bodyend="331"/>
+    <listofallmembers>
+      <member refid="classGridModel_1a23d3c2fd5214c033e224889edc4e00f0" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationColor</name></member>
+      <member refid="classGridModel_1afbd046e00b03377b44e71f73104390aa" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationColor</name></member>
+      <member refid="classGridModel_1a3091a973d09d65fdc6cb0e2dbc686e68" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationColorChanged</name></member>
+      <member refid="classGridModel_1a34d7b4454c5aa6629db72c62f82dad2f" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationHasOutline</name></member>
+      <member refid="classGridModel_1a79c4667e77aa6f8c26aa6c9573c313e3" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationHasOutline</name></member>
+      <member refid="classGridModel_1a9cd3ad104be2c89d902aaf3c6f8fe184" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationHasOutlineChanged</name></member>
+      <member refid="classGridModel_1af4a2da107a7de69b53ade66ed6a5cef8" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationOutlineColor</name></member>
+      <member refid="classGridModel_1a1e98f9ef7121dddc14a0711017f42f7e" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationOutlineColor</name></member>
+      <member refid="classGridModel_1a2deb8a6f69655c0ee3e3579343ac21f0" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationOutlineColorChanged</name></member>
+      <member refid="classGridModel_1a770565912008f29964c14ee8103834cf" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationPrecision</name></member>
+      <member refid="classGridModel_1a72245100ee817c0b46dda605e19759f6" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationPrecision</name></member>
+      <member refid="classGridModel_1aa879dc5b255cc9c0dafa82da2b7f92b2" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationPrecisionChanged</name></member>
+      <member refid="classGridModel_1a5b673a5e0cb6cdffd321454d96d5a16f" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotations</name></member>
+      <member refid="classGridModel_1a726d870284b2cacaedbb4e7b4470122a" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotations</name></member>
+      <member refid="classGridModel_1a7ed2d70c3d12b919d9cc590aa0ac817a" prot="public" virt="non-virtual"><scope>GridModel</scope><name>annotationsChanged</name></member>
+      <member refid="classGridModel_1ab9d65f003c650364403b6744221cfc9e" prot="public" virt="non-virtual"><scope>GridModel</scope><name>autoColor</name></member>
+      <member refid="classGridModel_1a160fdf7fdd9935f607a6026f7f81ff83" prot="public" virt="non-virtual"><scope>GridModel</scope><name>autoColor</name></member>
+      <member refid="classGridModel_1afee228cd34ee66a27296cd35bd021a78" prot="public" virt="non-virtual"><scope>GridModel</scope><name>autoColorChanged</name></member>
+      <member refid="classGridModel_1a74786dfa64ec91c63523f85f949df6d8" prot="private" virt="non-virtual"><scope>GridModel</scope><name>clear</name></member>
+      <member refid="classGridModel_1ac1899d93317dcd193ec9a0e8e4164b9e" prot="public" virt="non-virtual"><scope>GridModel</scope><name>enabled</name></member>
+      <member refid="classGridModel_1a01c524ac92e027a88cce86f351bf7a6b" prot="public" virt="non-virtual"><scope>GridModel</scope><name>enabled</name></member>
+      <member refid="classGridModel_1a4de97a660512919b4d5887aeb39a0eb5" prot="public" virt="non-virtual"><scope>GridModel</scope><name>enabledChanged</name></member>
+      <member refid="classGridModel_1af973e16519a036060c93964d46ed4696" prot="public" virt="non-virtual"><scope>GridModel</scope><name>GridModel</name></member>
+      <member refid="classGridModel_1ae25c8689a468c200d7f2bfe6da186893" prot="public" virt="non-virtual"><scope>GridModel</scope><name>indeterminate</name></member>
+      <member refid="classGridModel_1a29eb4fcafd38792ac6d3cb47e5bd192a" prot="public" virt="non-virtual"><scope>GridModel</scope><name>indeterminate</name></member>
+      <member refid="classGridModel_1a6671db9c65eaf122c148b79355ed0607" prot="public" virt="non-virtual"><scope>GridModel</scope><name>indeterminateChanged</name></member>
+      <member refid="classGridModel_1abfbd32f903e42fd6e5b81185f3f6f71d" prot="public" virt="non-virtual"><scope>GridModel</scope><name>majorLineColor</name></member>
+      <member refid="classGridModel_1a278f88204edc62fdddb4a575e0a83d28" prot="public" virt="non-virtual"><scope>GridModel</scope><name>majorLineColor</name></member>
+      <member refid="classGridModel_1ac6f3f43422b1300088a4c9d13c840824" prot="public" virt="non-virtual"><scope>GridModel</scope><name>majorLineColorChanged</name></member>
+      <member refid="classGridModel_1ae8b0447cdb65025b355230f65f88cd5f" prot="public" virt="non-virtual"><scope>GridModel</scope><name>majorLines</name></member>
+      <member refid="classGridModel_1a87b7869751494f2b381b22194a01966e" prot="public" virt="non-virtual"><scope>GridModel</scope><name>majorLines</name></member>
+      <member refid="classGridModel_1a7b2245d19122efdb8d497de83d5d63f3" prot="public" virt="non-virtual"><scope>GridModel</scope><name>majorLinesChanged</name></member>
+      <member refid="classGridModel_1aa25cb7c2522041e34846daa984117109" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mAnnotationColor</name></member>
+      <member refid="classGridModel_1a99d8a31ff71f88ffa7e26d6f8baade95" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mAnnotationHasOutline</name></member>
+      <member refid="classGridModel_1ab3a7fda87115bad649053c27d669db8d" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mAnnotationOutlineColor</name></member>
+      <member refid="classGridModel_1a98457c252e6bf9c7c177af7302d65246" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mAnnotationPrecision</name></member>
+      <member refid="classGridModel_1a2c06d1ef2a42897d5c39873fe9c734ea" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mAnnotations</name></member>
+      <member refid="classGridModel_1ae19589f84c3b41cc473bc656698199e0" prot="public" virt="non-virtual"><scope>GridModel</scope><name>mapSettings</name></member>
+      <member refid="classGridModel_1ae6055bf2b504039a22255df6c6a41993" prot="public" virt="non-virtual"><scope>GridModel</scope><name>mapSettings</name></member>
+      <member refid="classGridModel_1a05252f013e614f41572e805acb84bf96" prot="public" virt="non-virtual"><scope>GridModel</scope><name>mapSettingsChanged</name></member>
+      <member refid="classGridModel_1a6441c308510367122284e9b66efbab94" prot="public" virt="non-virtual"><scope>GridModel</scope><name>markerColor</name></member>
+      <member refid="classGridModel_1a0e7beb2e7a9a2aeb31f35b10ce24940a" prot="public" virt="non-virtual"><scope>GridModel</scope><name>markerColor</name></member>
+      <member refid="classGridModel_1aadf39260018015850bd1c9c4cb16c38c" prot="public" virt="non-virtual"><scope>GridModel</scope><name>markerColorChanged</name></member>
+      <member refid="classGridModel_1a29279a9c75c5ca76760402c8899fe4d8" prot="public" virt="non-virtual"><scope>GridModel</scope><name>markers</name></member>
+      <member refid="classGridModel_1a1527fd58821d51ed8acd0d4fef609908" prot="public" virt="non-virtual"><scope>GridModel</scope><name>markers</name></member>
+      <member refid="classGridModel_1ad4fca425e44226ab7bdb03a2847a62db" prot="public" virt="non-virtual"><scope>GridModel</scope><name>markersChanged</name></member>
+      <member refid="classGridModel_1afc537c50977b93cef9e60c9d16ffab04" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mAutoColor</name></member>
+      <member refid="classGridModel_1a772295a38ad3f9c63a60d771a083908e" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mEnabled</name></member>
+      <member refid="classGridModel_1a8ae874be0f9778374e24534f01cd7aef" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mIndeterminate</name></member>
+      <member refid="classGridModel_1a1985a0e124ea2c1d230622eebfcef2cd" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mIndeterminateInterval</name></member>
+      <member refid="classGridModel_1aeb28da4a5e437ed89e233879d1bd2476" prot="public" virt="non-virtual"><scope>GridModel</scope><name>minorLineColor</name></member>
+      <member refid="classGridModel_1acfae5fd1ba4a16c58b5fb0d8e542d01f" prot="public" virt="non-virtual"><scope>GridModel</scope><name>minorLineColor</name></member>
+      <member refid="classGridModel_1aa07b9f92998e3d780e16ea09b76a2c39" prot="public" virt="non-virtual"><scope>GridModel</scope><name>minorLineColorChanged</name></member>
+      <member refid="classGridModel_1ae3969a6855d33235a792f7da3b2c3e61" prot="public" virt="non-virtual"><scope>GridModel</scope><name>minorLines</name></member>
+      <member refid="classGridModel_1ae04d42d73c469c7d482a20814297b858" prot="public" virt="non-virtual"><scope>GridModel</scope><name>minorLines</name></member>
+      <member refid="classGridModel_1a3bd75a44e54cc97341f41c24f8bfcec2" prot="public" virt="non-virtual"><scope>GridModel</scope><name>minorLinesChanged</name></member>
+      <member refid="classGridModel_1a12924ba5aadfcaddf5c02b55db471e15" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mLocale</name></member>
+      <member refid="classGridModel_1ab6495be0abc71e6a4b825e0954b0dd26" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mMajorLineColor</name></member>
+      <member refid="classGridModel_1a4db14a1d9e4dd7e9e0f5d68bb4662266" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mMajorLines</name></member>
+      <member refid="classGridModel_1aba60a6fa33a19c00f0a81af840176566" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mMapSettings</name></member>
+      <member refid="classGridModel_1a911f7042cfc436d7e08fdf1e71eb5141" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mMarkerColor</name></member>
+      <member refid="classGridModel_1a8b6a0efdbf5d4bf3fed886cd984e7906" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mMarkers</name></member>
+      <member refid="classGridModel_1ad18ed0bbf402ded3314a9163126d5563" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mMinorLineColor</name></member>
+      <member refid="classGridModel_1a52efa7d4d1be49f5e443a89b1e48de7d" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mMinorLines</name></member>
+      <member refid="classGridModel_1a6f6858e93a78024bab6b52ba87be279b" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mPrepareAnnotations</name></member>
+      <member refid="classGridModel_1ae2be6bb229e2a5008fc6faf7f57fcd41" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mPrepareLines</name></member>
+      <member refid="classGridModel_1a9c33a062f2f8329c6b5278d26ba1b42e" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mPrepareMarkers</name></member>
+      <member refid="classGridModel_1ab4783187d8181ca2f165ed39a8b8205c" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mXInterval</name></member>
+      <member refid="classGridModel_1a30baa4cad0447598eb0417feb8f051a4" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mXOffset</name></member>
+      <member refid="classGridModel_1a934b0149a01c0f61607d0047fe11f8f6" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mYInterval</name></member>
+      <member refid="classGridModel_1a4dcb5b9296d5f4186a45c2dc2eb18d40" prot="private" virt="non-virtual"><scope>GridModel</scope><name>mYOffset</name></member>
+      <member refid="classGridModel_1a26f9fd0ec7d5f41367a67eb0411c639b" prot="public" virt="non-virtual"><scope>GridModel</scope><name>prepareAnnotations</name></member>
+      <member refid="classGridModel_1a8867214f567141ba53c1d79ed5af04eb" prot="public" virt="non-virtual"><scope>GridModel</scope><name>prepareAnnotations</name></member>
+      <member refid="classGridModel_1a563ad6e1afe9a1739e351eed146dd7e5" prot="public" virt="non-virtual"><scope>GridModel</scope><name>prepareAnnotationsChanged</name></member>
+      <member refid="classGridModel_1a4bd07c804cbb4da3bb6b0033e6ad7b0e" prot="public" virt="non-virtual"><scope>GridModel</scope><name>prepareLines</name></member>
+      <member refid="classGridModel_1a50818b9d97487bb48e69f3189d573ec6" prot="public" virt="non-virtual"><scope>GridModel</scope><name>prepareLines</name></member>
+      <member refid="classGridModel_1ac50fc0e30bf4e7b487f3cb0e11cf0857" prot="public" virt="non-virtual"><scope>GridModel</scope><name>prepareLinesChanged</name></member>
+      <member refid="classGridModel_1a47d8285a2ac5e0d1a63e90638ffea312" prot="public" virt="non-virtual"><scope>GridModel</scope><name>prepareMarkers</name></member>
+      <member refid="classGridModel_1a6e30c1cf3bb2d0806dbc1b824018bd90" prot="public" virt="non-virtual"><scope>GridModel</scope><name>prepareMarkers</name></member>
+      <member refid="classGridModel_1a7331cfda5757bfcad01f47609a9ea7c0" prot="public" virt="non-virtual"><scope>GridModel</scope><name>prepareMarkersChanged</name></member>
+      <member refid="classGridModel_1a5819e7b02a82c1aebca85196de9004a4" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setAnnotationColor</name></member>
+      <member refid="classGridModel_1a27416075cc3f8c6a44aaa133d88fced7" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setAnnotationHasOutline</name></member>
+      <member refid="classGridModel_1a14720ce18742442ffb18741c7fdb98d7" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setAnnotationOutlineColor</name></member>
+      <member refid="classGridModel_1a3fc70c24d77efcb8ef2b5a41873f2e1b" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setAnnotationPrecision</name></member>
+      <member refid="classGridModel_1a33dcef213b6e0ca25e4b9071b23370ac" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setAutoColor</name></member>
+      <member refid="classGridModel_1aa39411094a0168f3c30ca5f8739ba1d7" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setEnabled</name></member>
+      <member refid="classGridModel_1ac287900580947db987ff2ab5cfcfd49d" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setIndeterminate</name></member>
+      <member refid="classGridModel_1a3271b6fda4b643ff3a50a6410f844aa9" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setMajorLineColor</name></member>
+      <member refid="classGridModel_1ae09a985d3c1c35731eb3611d17a86ad3" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setMapSettings</name></member>
+      <member refid="classGridModel_1af29566fda6726efe3440bf3459c91434" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setMarkerColor</name></member>
+      <member refid="classGridModel_1abf2ade2d8010056afb2f7eb5fb9a6700" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setMinorLineColor</name></member>
+      <member refid="classGridModel_1ac05f252b97a5ca0728a4644d2b6c9ade" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setPrepareAnnotations</name></member>
+      <member refid="classGridModel_1afccab59ff81e0266b6afbdd4102c14d8" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setPrepareLines</name></member>
+      <member refid="classGridModel_1a2b6ff144cee5c5f0927366e9510cc9bd" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setPrepareMarkers</name></member>
+      <member refid="classGridModel_1ae26401c6b7e3b7677ebf6f75a51f871c" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setXInterval</name></member>
+      <member refid="classGridModel_1a78c120b9ca4fa4376e5054487abd87d9" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setXOffset</name></member>
+      <member refid="classGridModel_1a2b951290422b71c4af2cc1dbb845e3ab" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setYInterval</name></member>
+      <member refid="classGridModel_1ad37a8d8883ec514fc2c8a2745efcc28f" prot="public" virt="non-virtual"><scope>GridModel</scope><name>setYOffset</name></member>
+      <member refid="classGridModel_1ab1a09d5e0f1b0261b9bd591bd7a59249" prot="private" virt="non-virtual"><scope>GridModel</scope><name>update</name></member>
+      <member refid="classGridModel_1a895e5d8d5a8c561cecc3a7f694062d27" prot="private" virt="non-virtual"><scope>GridModel</scope><name>updateColors</name></member>
+      <member refid="classGridModel_1a947b9201d837eb41ac9936b4efa4288a" prot="public" virt="non-virtual"><scope>GridModel</scope><name>xInterval</name></member>
+      <member refid="classGridModel_1acd59d4b869cebe9c5dd1477cdd3929b9" prot="public" virt="non-virtual"><scope>GridModel</scope><name>xInterval</name></member>
+      <member refid="classGridModel_1a96833ded13a81164ecdd10efeccc7f16" prot="public" virt="non-virtual"><scope>GridModel</scope><name>xIntervalChanged</name></member>
+      <member refid="classGridModel_1a0b09af4b0749184b9600b567f84887bc" prot="public" virt="non-virtual"><scope>GridModel</scope><name>xOffset</name></member>
+      <member refid="classGridModel_1ad32067b1b7b92a5625790d38589dc87a" prot="public" virt="non-virtual"><scope>GridModel</scope><name>xOffset</name></member>
+      <member refid="classGridModel_1a44aa2a9ceb91b91cf22eafc403421596" prot="public" virt="non-virtual"><scope>GridModel</scope><name>xOffsetChanged</name></member>
+      <member refid="classGridModel_1abefdeddfe54a3db8755cc72178e86160" prot="public" virt="non-virtual"><scope>GridModel</scope><name>yInterval</name></member>
+      <member refid="classGridModel_1ae8797a48604a1ca868cb774fe3bbabcd" prot="public" virt="non-virtual"><scope>GridModel</scope><name>yInterval</name></member>
+      <member refid="classGridModel_1a06f2a30aa553f5e8634a043dcdd9db57" prot="public" virt="non-virtual"><scope>GridModel</scope><name>yIntervalChanged</name></member>
+      <member refid="classGridModel_1a02d1501dd23edfed5548859abd8889fd" prot="public" virt="non-virtual"><scope>GridModel</scope><name>yOffset</name></member>
+      <member refid="classGridModel_1a7a6938bcc1c9ee19e6ea985ddd276400" prot="public" virt="non-virtual"><scope>GridModel</scope><name>yOffset</name></member>
+      <member refid="classGridModel_1a8096f2f3e651fee55d66d77d089f7549" prot="public" virt="non-virtual"><scope>GridModel</scope><name>yOffsetChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1049 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class GeometryUtils - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-geometryutils" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class GeometryUtils
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-geometryoperationresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum GeometryOperationResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-geometryutils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function GeometryUtils
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Static Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-addringfromrubberband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function addRingFromRubberband
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-boundingbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function boundingBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-centroid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function centroid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-coordinatetopoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function coordinateToPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-creategeometryfromwkt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function createGeometryFromWkt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-createrectanglefrompoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function createRectangleFromPoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-distancebetweenpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function distanceBetweenPoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-emptypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function emptyPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-erasefromrubberband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function eraseFromRubberband
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-linefromrubberband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function lineFromRubberband
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function point
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-polygonfromrubberband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function polygonFromRubberband
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-reprojectpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function reprojectPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-reprojectpointtowgs84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function reprojectPointToWgs84
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-reprojectrectangle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function reprojectRectangle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-reshapefromrubberband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function reshapeFromRubberband
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-splitfeaturefromrubberband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function splitFeatureFromRubberband
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-variablewidthbufferbymfromrubberband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function variableWidthBufferByMFromRubberband
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-geometryutils">Class GeometryUtils</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>GeometryUtils</strong></a></p>
+<p>Inherits the following classes: QObject</p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum int</td>
+<td style="text-align: left;"><a href="#enum-geometryoperationresult"><strong>GeometryOperationResult</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-geometryutils"><strong>GeometryUtils</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-functions">Public Static Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE <a href="./#enum-geometryoperationresult"><strong>GeometryOperationResult</strong></a></td>
+<td style="text-align: left;"><a href="#function-addringfromrubberband"><strong>addRingFromRubberband</strong></a> (QgsVectorLayer * layer, QgsFeatureId fid, <a href="../classRubberbandModel/"><strong>RubberbandModel</strong></a> * rubberBandModel) <br><em>Adds a ring to a polygon with given</em> <em>fid</em> <em>using the ring in the rubberband model.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsRectangle</td>
+<td style="text-align: left;"><a href="#function-boundingbox"><strong>boundingBox</strong></a> (const QgsGeometry &amp; geometry) <br><em>Returns the bounding box of a given</em> <em>geometry</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsPoint</td>
+<td style="text-align: left;"><a href="#function-centroid"><strong>centroid</strong></a> (const QgsGeometry &amp; geometry) <br><em>Creates a centroid point from a given</em> <em>geometry</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsPoint</td>
+<td style="text-align: left;"><a href="#function-coordinatetopoint"><strong>coordinateToPoint</strong></a> (const QGeoCoordinate &amp; coor) <br><em>Converts QGeoCoordinate to QgsPoint.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsGeometry</td>
+<td style="text-align: left;"><a href="#function-creategeometryfromwkt"><strong>createGeometryFromWkt</strong></a> (const QString &amp; wkt) <br><em>Creates a geometry from a WKT string.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsRectangle</td>
+<td style="text-align: left;"><a href="#function-createrectanglefrompoints"><strong>createRectangleFromPoints</strong></a> (const QgsPoint &amp; p1, const QgsPoint &amp; p2) <br><em>Returns a rectangle from two points.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE double</td>
+<td style="text-align: left;"><a href="#function-distancebetweenpoints"><strong>distanceBetweenPoints</strong></a> (const QgsPoint &amp; start, const QgsPoint &amp; end) <br><em>Returns the distance between a pair of</em> <em>start</em> <em>and__end</em> <em>points.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsPoint</td>
+<td style="text-align: left;"><a href="#function-emptypoint"><strong>emptyPoint</strong></a> () <br><em>Returns an empty (i.e. null) point.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE <a href="./#enum-geometryoperationresult"><strong>GeometryOperationResult</strong></a></td>
+<td style="text-align: left;"><a href="#function-erasefromrubberband"><strong>eraseFromRubberband</strong></a> (QgsVectorLayer * layer, QgsFeatureId fid, <a href="../classRubberbandModel/"><strong>RubberbandModel</strong></a> * rubberBandModel) <br><a href="../classReshape/"><em><strong>Reshape</strong></em></a> <em>a polygon with given__fid</em> <em>using the ring in the rubberband model.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsGeometry</td>
+<td style="text-align: left;"><a href="#function-linefromrubberband"><strong>lineFromRubberband</strong></a> (<a href="../classRubberbandModel/"><strong>RubberbandModel</strong></a> * rubberBandModel, const QgsCoordinateReferenceSystem &amp; crs, Qgis::WkbType wkbType=Qgis::WkbType::Unknown) <br><em>Returns a QgsGeometry with a line by using the point sequence in the rubberband model.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsPoint</td>
+<td style="text-align: left;"><a href="#function-point"><strong>point</strong></a> (double x, double y, double z=std::numeric_limits&lt; double &gt;::quiet_NaN(), double m=std::numeric_limits&lt; double &gt;::quiet_NaN()) <br><em>Creates a point from</em> <em>x</em> <em>and__y</em> <em>with optional__z</em> <em>and__values</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsGeometry</td>
+<td style="text-align: left;"><a href="#function-polygonfromrubberband"><strong>polygonFromRubberband</strong></a> (<a href="../classRubberbandModel/"><strong>RubberbandModel</strong></a> * rubberBandModel, const QgsCoordinateReferenceSystem &amp; crs, Qgis::WkbType wkbType=Qgis::WkbType::Unknown) <br><em>Returns a QgsGeometry with a polygon by using the point sequence in the rubberband model.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsPoint</td>
+<td style="text-align: left;"><a href="#function-reprojectpoint"><strong>reprojectPoint</strong></a> (const QgsPoint &amp; point, const QgsCoordinateReferenceSystem &amp; sourceCrs, const QgsCoordinateReferenceSystem &amp; destinationCrs) <br><em>Returns a reprojected</em> <em>point</em> <em>from the stated__sourceCrs</em> <em>to a__destinationCrs</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsPoint</td>
+<td style="text-align: left;"><a href="#function-reprojectpointtowgs84"><strong>reprojectPointToWgs84</strong></a> (const QgsPoint &amp; point, const QgsCoordinateReferenceSystem &amp; crs) <br><em>Returns a reprojected</em> <em>point</em> <em>from the stated__crs</em> <em>to WGS84.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsRectangle</td>
+<td style="text-align: left;"><a href="#function-reprojectrectangle"><strong>reprojectRectangle</strong></a> (const QgsRectangle &amp; rectangle, const QgsCoordinateReferenceSystem &amp; sourceCrs, const QgsCoordinateReferenceSystem &amp; destinationCrs) <br><em>Returns a reprojected</em> <em>rectangle</em> <em>from the stated__sourceCrs</em> <em>to a__destinationCrs</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE <a href="./#enum-geometryoperationresult"><strong>GeometryOperationResult</strong></a></td>
+<td style="text-align: left;"><a href="#function-reshapefromrubberband"><strong>reshapeFromRubberband</strong></a> (QgsVectorLayer * layer, QgsFeatureId fid, <a href="../classRubberbandModel/"><strong>RubberbandModel</strong></a> * rubberBandModel) <br><a href="../classReshape/"><em><strong>Reshape</strong></em></a> <em>a polygon with given__fid</em> <em>using the ring in the rubberband model.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE <a href="./#enum-geometryoperationresult"><strong>GeometryOperationResult</strong></a></td>
+<td style="text-align: left;"><a href="#function-splitfeaturefromrubberband"><strong>splitFeatureFromRubberband</strong></a> (QgsVectorLayer * layer, QgsFeatureId fid, <a href="../classRubberbandModel/"><strong>RubberbandModel</strong></a> * rubberBandModel) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsGeometry</td>
+<td style="text-align: left;"><a href="#function-variablewidthbufferbymfromrubberband"><strong>variableWidthBufferByMFromRubberband</strong></a> (<a href="../classRubberbandModel/"><strong>RubberbandModel</strong></a> * rubberBandModel, const QgsCoordinateReferenceSystem &amp; crs) <br><em>Creates a variable width buffer polygon using M values from a rubberband model.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-geometryoperationresult">enum GeometryOperationResult</h3>
+<pre><code class="language-C++">enum GeometryUtils::GeometryOperationResult {
+    Success = 0,
+    NothingHappened = 1000,
+    InvalidBaseGeometry,
+    InvalidInputGeometryType,
+    SelectionIsEmpty,
+    SelectionIsGreaterThanOne,
+    GeometryEngineError,
+    LayerNotEditable,
+    AddPartSelectedGeometryNotFound,
+    AddPartNotMultiGeometry,
+    AddRingNotClosed,
+    AddRingNotValid,
+    AddRingCrossesExistingRings,
+    AddRingNotInExistingFeature,
+    SplitCannotSplitPoint
+};
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-geometryutils">function GeometryUtils</h3>
+<pre><code class="language-C++">explicit GeometryUtils::GeometryUtils (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+<h2 id="public-static-functions-documentation">Public Static Functions Documentation</h2>
+<h3 id="function-addringfromrubberband">function addRingFromRubberband</h3>
+<p><em>Adds a ring to a polygon with given</em> <em>fid</em> <em>using the ring in the rubberband model.</em></p>
+<pre><code class="language-C++">static Q_INVOKABLE GeometryOperationResult GeometryUtils::addRingFromRubberband (
+    QgsVectorLayer * layer,
+    QgsFeatureId fid,
+    RubberbandModel * rubberBandModel
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-boundingbox">function boundingBox</h3>
+<p><em>Returns the bounding box of a given</em> <em>geometry</em> <em>.</em></p>
+<pre><code class="language-C++">static inline Q_INVOKABLE QgsRectangle GeometryUtils::boundingBox (
+    const QgsGeometry &amp; geometry
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-centroid">function centroid</h3>
+<p><em>Creates a centroid point from a given</em> <em>geometry</em> <em>.</em></p>
+<pre><code class="language-C++">static Q_INVOKABLE QgsPoint GeometryUtils::centroid (
+    const QgsGeometry &amp; geometry
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-coordinatetopoint">function coordinateToPoint</h3>
+<p><em>Converts QGeoCoordinate to QgsPoint.</em> </p>
+<pre><code class="language-C++">static Q_INVOKABLE QgsPoint GeometryUtils::coordinateToPoint (
+    const QGeoCoordinate &amp; coor
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-creategeometryfromwkt">function createGeometryFromWkt</h3>
+<p><em>Creates a geometry from a WKT string.</em> </p>
+<pre><code class="language-C++">static Q_INVOKABLE QgsGeometry GeometryUtils::createGeometryFromWkt (
+    const QString &amp; wkt
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-createrectanglefrompoints">function createRectangleFromPoints</h3>
+<p><em>Returns a rectangle from two points.</em> </p>
+<pre><code class="language-C++">static Q_INVOKABLE QgsRectangle GeometryUtils::createRectangleFromPoints (
+    const QgsPoint &amp; p1,
+    const QgsPoint &amp; p2
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-distancebetweenpoints">function distanceBetweenPoints</h3>
+<p><em>Returns the distance between a pair of</em> <em>start</em> <em>and__end</em> <em>points.</em></p>
+<pre><code class="language-C++">static Q_INVOKABLE double GeometryUtils::distanceBetweenPoints (
+    const QgsPoint &amp; start,
+    const QgsPoint &amp; end
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-emptypoint">function emptyPoint</h3>
+<p><em>Returns an empty (i.e. null) point.</em> </p>
+<pre><code class="language-C++">static inline Q_INVOKABLE QgsPoint GeometryUtils::emptyPoint () 
+</code></pre>
+<hr>
+
+<h3 id="function-erasefromrubberband">function eraseFromRubberband</h3>
+<p><a href="../classReshape/"><em><strong>Reshape</strong></em></a> <em>a polygon with given__fid</em> <em>using the ring in the rubberband model.</em></p>
+<pre><code class="language-C++">static Q_INVOKABLE GeometryOperationResult GeometryUtils::eraseFromRubberband (
+    QgsVectorLayer * layer,
+    QgsFeatureId fid,
+    RubberbandModel * rubberBandModel
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-linefromrubberband">function lineFromRubberband</h3>
+<p><em>Returns a QgsGeometry with a line by using the point sequence in the rubberband model.</em> </p>
+<pre><code class="language-C++">static Q_INVOKABLE QgsGeometry GeometryUtils::lineFromRubberband (
+    RubberbandModel * rubberBandModel,
+    const QgsCoordinateReferenceSystem &amp; crs,
+    Qgis::WkbType wkbType=Qgis::WkbType::Unknown
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-point">function point</h3>
+<p><em>Creates a point from</em> <em>x</em> <em>and__y</em> <em>with optional__z</em> <em>and__values</em> <em>.</em></p>
+<pre><code class="language-C++">static inline Q_INVOKABLE QgsPoint GeometryUtils::point (
+    double x,
+    double y,
+    double z=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    double m=std::numeric_limits&lt; double &gt;::quiet_NaN()
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-polygonfromrubberband">function polygonFromRubberband</h3>
+<p><em>Returns a QgsGeometry with a polygon by using the point sequence in the rubberband model.</em> </p>
+<pre><code class="language-C++">static Q_INVOKABLE QgsGeometry GeometryUtils::polygonFromRubberband (
+    RubberbandModel * rubberBandModel,
+    const QgsCoordinateReferenceSystem &amp; crs,
+    Qgis::WkbType wkbType=Qgis::WkbType::Unknown
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-reprojectpoint">function reprojectPoint</h3>
+<p><em>Returns a reprojected</em> <em>point</em> <em>from the stated__sourceCrs</em> <em>to a__destinationCrs</em> <em>.</em></p>
+<pre><code class="language-C++">static Q_INVOKABLE QgsPoint GeometryUtils::reprojectPoint (
+    const QgsPoint &amp; point,
+    const QgsCoordinateReferenceSystem &amp; sourceCrs,
+    const QgsCoordinateReferenceSystem &amp; destinationCrs
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-reprojectpointtowgs84">function reprojectPointToWgs84</h3>
+<p><em>Returns a reprojected</em> <em>point</em> <em>from the stated__crs</em> <em>to WGS84.</em></p>
+<pre><code class="language-C++">static Q_INVOKABLE QgsPoint GeometryUtils::reprojectPointToWgs84 (
+    const QgsPoint &amp; point,
+    const QgsCoordinateReferenceSystem &amp; crs
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-reprojectrectangle">function reprojectRectangle</h3>
+<p><em>Returns a reprojected</em> <em>rectangle</em> <em>from the stated__sourceCrs</em> <em>to a__destinationCrs</em> <em>.</em></p>
+<pre><code class="language-C++">static Q_INVOKABLE QgsRectangle GeometryUtils::reprojectRectangle (
+    const QgsRectangle &amp; rectangle,
+    const QgsCoordinateReferenceSystem &amp; sourceCrs,
+    const QgsCoordinateReferenceSystem &amp; destinationCrs
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-reshapefromrubberband">function reshapeFromRubberband</h3>
+<p><a href="../classReshape/"><em><strong>Reshape</strong></em></a> <em>a polygon with given__fid</em> <em>using the ring in the rubberband model.</em></p>
+<pre><code class="language-C++">static Q_INVOKABLE GeometryOperationResult GeometryUtils::reshapeFromRubberband (
+    QgsVectorLayer * layer,
+    QgsFeatureId fid,
+    RubberbandModel * rubberBandModel
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-splitfeaturefromrubberband">function splitFeatureFromRubberband</h3>
+<pre><code class="language-C++">static Q_INVOKABLE GeometryOperationResult GeometryUtils::splitFeatureFromRubberband (
+    QgsVectorLayer * layer,
+    QgsFeatureId fid,
+    RubberbandModel * rubberBandModel
+) 
+</code></pre>
+<p>Performs a split using the line in the rubberband model. </p>
+<hr>
+
+<h3 id="function-variablewidthbufferbymfromrubberband">function variableWidthBufferByMFromRubberband</h3>
+<p><em>Creates a variable width buffer polygon using M values from a rubberband model.</em> </p>
+<pre><code class="language-C++">static Q_INVOKABLE QgsGeometry GeometryUtils::variableWidthBufferByMFromRubberband (
+    RubberbandModel * rubberBandModel,
+    const QgsCoordinateReferenceSystem &amp; crs
+) 
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/utils/geometryutils.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

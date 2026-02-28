@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structAttributeFormModelBase_1_1CodeRequirements" kind="struct" language="C++" prot="private">
+    <compoundname>AttributeFormModelBase::CodeRequirements</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structAttributeFormModelBase_1_1CodeRequirements_1a89eef3d60b107383e9d72011d5fb7cd5" prot="public" static="no" mutable="no">
+        <type>QSet&lt; QString &gt;</type>
+        <definition>QSet&lt;QString&gt; AttributeFormModelBase::CodeRequirements::referencedColumns</definition>
+        <argsstring></argsstring>
+        <name>referencedColumns</name>
+        <qualifiedname>AttributeFormModelBase::CodeRequirements::referencedColumns</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="102" column="14" bodyfile="src/core/attributeformmodelbase.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structAttributeFormModelBase_1_1CodeRequirements_1aef627d6a710890a2161267e9727c8c79" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AttributeFormModelBase::CodeRequirements::formScope</definition>
+        <argsstring></argsstring>
+        <name>formScope</name>
+        <qualifiedname>AttributeFormModelBase::CodeRequirements::formScope</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/attributeformmodelbase.h" line="103" column="14" bodyfile="src/core/attributeformmodelbase.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/attributeformmodelbase.h" line="100" column="5" bodyfile="src/core/attributeformmodelbase.h" bodystart="101" bodyend="104"/>
+    <listofallmembers>
+      <member refid="structAttributeFormModelBase_1_1CodeRequirements_1aef627d6a710890a2161267e9727c8c79" prot="public" virt="non-virtual"><scope>AttributeFormModelBase::CodeRequirements</scope><name>formScope</name></member>
+      <member refid="structAttributeFormModelBase_1_1CodeRequirements_1a89eef3d60b107383e9d72011d5fb7cd5" prot="public" virt="non-virtual"><scope>AttributeFormModelBase::CodeRequirements</scope><name>referencedColumns</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

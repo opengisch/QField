@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCheckBox" kind="class" language="C++" prot="public">
+    <compoundname>CheckBox</compoundname>
+    <basecompoundref refid="classEditorWidgetBase" prot="public" virt="non-virtual">EditorWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCheckBox_1ae7c034523b5d7b318a5efc015be65a8a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CheckBox::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>CheckBox::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/CheckBox.qml" line="7" column="5" bodyfile="src/qml/editorwidgets/CheckBox.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCheckBox_1a528bfb5dff6376efef60751c0fd138f6" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label CheckBox::checkValue</definition>
+        <argsstring></argsstring>
+        <name>checkValue</name>
+        <qualifiedname>CheckBox::checkValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/CheckBox.qml" line="17" column="7" bodyfile="src/qml/editorwidgets/CheckBox.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCheckBox_1aa11f9cd09019fc06485be49ed7c38252" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch CheckBox::checkBox</definition>
+        <argsstring></argsstring>
+        <name>checkBox</name>
+        <qualifiedname>CheckBox::checkBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/CheckBox.qml" line="18" column="10" bodyfile="src/qml/editorwidgets/CheckBox.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCheckBox_1a7e50c070ffcb4a7e8caa14699f909145" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea CheckBox::checkArea</definition>
+        <argsstring></argsstring>
+        <name>checkArea</name>
+        <qualifiedname>CheckBox::checkArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/CheckBox.qml" line="19" column="11" bodyfile="src/qml/editorwidgets/CheckBox.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCheckBox_1adda1ebe7c3c9cfebf5663e06ba23428d" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics CheckBox::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>CheckBox::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/CheckBox.qml" line="20" column="13" bodyfile="src/qml/editorwidgets/CheckBox.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classCheckBox_1a9d2f944be95c6af3b5777e9aaf64df81" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool CheckBox::isBool</definition>
+        <argsstring></argsstring>
+        <name>isBool</name>
+        <qualifiedname>CheckBox::isBool</qualifiedname>
+        <read>dummyGetter_isBool_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/CheckBox.qml" line="11" column="1" bodyfile="src/qml/editorwidgets/CheckBox.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCheckBox_1af3323193be35617e61b71f91f627ab36" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string CheckBox::checkedLabel</definition>
+        <argsstring></argsstring>
+        <name>checkedLabel</name>
+        <qualifiedname>CheckBox::checkedLabel</qualifiedname>
+        <read>dummyGetter_checkedLabel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/CheckBox.qml" line="13" column="1" bodyfile="src/qml/editorwidgets/CheckBox.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCheckBox_1a32c0238664fb7372781ad27fb254ddb1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string CheckBox::uncheckedLabel</definition>
+        <argsstring></argsstring>
+        <name>uncheckedLabel</name>
+        <qualifiedname>CheckBox::uncheckedLabel</qualifiedname>
+        <read>dummyGetter_uncheckedLabel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/CheckBox.qml" line="15" column="1" bodyfile="src/qml/editorwidgets/CheckBox.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CheckBox</label>
+        <link refid="classCheckBox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CheckBox</label>
+        <link refid="classCheckBox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/CheckBox.qml" line="6" column="1" bodyfile="src/qml/editorwidgets/CheckBox.qml" bodystart="6" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classCheckBox_1a7e50c070ffcb4a7e8caa14699f909145" prot="private" virt="non-virtual"><scope>CheckBox</scope><name>checkArea</name></member>
+      <member refid="classCheckBox_1aa11f9cd09019fc06485be49ed7c38252" prot="private" virt="non-virtual"><scope>CheckBox</scope><name>checkBox</name></member>
+      <member refid="classCheckBox_1af3323193be35617e61b71f91f627ab36" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>checkedLabel</name></member>
+      <member refid="classCheckBox_1a528bfb5dff6376efef60751c0fd138f6" prot="private" virt="non-virtual"><scope>CheckBox</scope><name>checkValue</name></member>
+      <member refid="classCheckBox_1adda1ebe7c3c9cfebf5663e06ba23428d" prot="private" virt="non-virtual"><scope>CheckBox</scope><name>fontMetrics</name></member>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>hasMenu</name></member>
+      <member refid="classCheckBox_1ae7c034523b5d7b318a5efc015be65a8a" prot="private" virt="non-virtual"><scope>CheckBox</scope><name>height</name></member>
+      <member refid="classCheckBox_1a9d2f944be95c6af3b5777e9aaf64df81" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>isBool</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>isNull</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>menu</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>requestBarcode</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>requestJumpToPoint</name></member>
+      <member refid="classCheckBox_1a32c0238664fb7372781ad27fb254ddb1" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>uncheckedLabel</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>CheckBox</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1377 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class DrawingCanvas - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-drawingcanvas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class DrawingCanvas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-currentstroke-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property currentStroke [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-framecolor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property frameColor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isdirty-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isDirty [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isempty-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isEmpty [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-offset-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property offset [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-zoomfactor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property zoomFactor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-currentstrokechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal currentStrokeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-framecolorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal frameColorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isdirtychanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isDirtyChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isemptychanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isEmptyChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-offsetchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal offsetChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-zoomfactorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal zoomFactorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-drawingcanvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function DrawingCanvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-createblankcanvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function createBlankCanvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-createcanvasfromimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function createCanvasFromImage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-currentstroke-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function currentStroke [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-fitcanvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function fitCanvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-framecolor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function frameColor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isdirty-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isDirty [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isempty-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isEmpty [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-offset-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function offset [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-paint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function paint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-pan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function pan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-save" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function save
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setframecolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setFrameColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setisdirty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIsDirty
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setisempty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIsEmpty
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setoffset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOffset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setzoomfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setZoomFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-strokebegin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function strokeBegin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-strokeend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function strokeEnd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-strokemove" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function strokeMove
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-undo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function undo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-zoom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function zoom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-zoomfactor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function zoomFactor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-drawingcanvas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~DrawingCanvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-drawingcanvas">Class DrawingCanvas</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>DrawingCanvas</strong></a></p>
+<p>Inherits the following classes: QQuickPaintedItem</p>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property <a href="../structDrawingStroke/"><strong>DrawingStroke</strong></a></td>
+<td style="text-align: left;"><a href="./#property-currentstroke-12"><strong>currentStroke</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QColor</td>
+<td style="text-align: left;"><a href="./#property-framecolor-12"><strong>frameColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isdirty-12"><strong>isDirty</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isempty-12"><strong>isEmpty</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QPointF</td>
+<td style="text-align: left;"><a href="./#property-offset-12"><strong>offset</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-zoomfactor-12"><strong>zoomFactor</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-currentstrokechanged"><strong>currentStrokeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-framecolorchanged"><strong>frameColorChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isdirtychanged"><strong>isDirtyChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isemptychanged"><strong>isEmptyChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-offsetchanged"><strong>offsetChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-zoomfactorchanged"><strong>zoomFactorChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-drawingcanvas"><strong>DrawingCanvas</strong></a> (QQuickItem * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-clear"><strong>clear</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-createblankcanvas"><strong>createBlankCanvas</strong></a> (int width, int height, QColor backgroundColor=QColor(255, 255, 255)) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-createcanvasfromimage"><strong>createCanvasFromImage</strong></a> (const QString &amp; path) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../structDrawingStroke/"><strong>DrawingStroke</strong></a></td>
+<td style="text-align: left;"><a href="#function-currentstroke-22"><strong>currentStroke</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-fitcanvas"><strong>fitCanvas</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QColor</td>
+<td style="text-align: left;"><a href="#function-framecolor-22"><strong>frameColor</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isdirty-22"><strong>isDirty</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isempty-22"><strong>isEmpty</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QPointF</td>
+<td style="text-align: left;"><a href="#function-offset-22"><strong>offset</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-paint"><strong>paint</strong></a> (QPainter * painter) override<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-pan"><strong>pan</strong></a> (const QPointF &amp; oldPosition, const QPointF &amp; newPosition) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QString</td>
+<td style="text-align: left;"><a href="#function-save"><strong>save</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setframecolor"><strong>setFrameColor</strong></a> (const QColor &amp; color) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setisdirty"><strong>setIsDirty</strong></a> (bool dirty) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setisempty"><strong>setIsEmpty</strong></a> (bool empty) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setoffset"><strong>setOffset</strong></a> (const QPointF &amp; offset) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setzoomfactor"><strong>setZoomFactor</strong></a> (double factor) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-strokebegin"><strong>strokeBegin</strong></a> (const QPointF &amp; point, const QColor color=QColor(0, 0, 0)) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-strokeend"><strong>strokeEnd</strong></a> (const QPointF &amp; point) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-strokemove"><strong>strokeMove</strong></a> (const QPointF &amp; point) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-undo"><strong>undo</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-zoom"><strong>zoom</strong></a> (double scale) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-zoomfactor-22"><strong>zoomFactor</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-drawingcanvas"><strong>~DrawingCanvas</strong></a> () = default<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-currentstroke-12">property currentStroke [1/2]</h3>
+<pre><code class="language-C++">DrawingStroke DrawingCanvas::currentStroke;
+</code></pre>
+<hr>
+
+<h3 id="property-framecolor-12">property frameColor [1/2]</h3>
+<pre><code class="language-C++">QColor DrawingCanvas::frameColor;
+</code></pre>
+<p>This property holds the color of the canvas frame. </p>
+<hr>
+
+<h3 id="property-isdirty-12">property isDirty [1/2]</h3>
+<pre><code class="language-C++">bool DrawingCanvas::isDirty;
+</code></pre>
+<p>This property is set to TRUE when a created canvas has been modified. </p>
+<hr>
+
+<h3 id="property-isempty-12">property isEmpty [1/2]</h3>
+<pre><code class="language-C++">bool DrawingCanvas::isEmpty;
+</code></pre>
+<p>This property is set to TRUE when no canvas has been created or a previously created canvas has been cleared. </p>
+<hr>
+
+<h3 id="property-offset-12">property offset [1/2]</h3>
+<pre><code class="language-C++">QPointF DrawingCanvas::offset;
+</code></pre>
+<p>This property holds the offset from the center of the canvas as a result of panning operations. </p>
+<hr>
+
+<h3 id="property-zoomfactor-12">property zoomFactor [1/2]</h3>
+<pre><code class="language-C++">double DrawingCanvas::zoomFactor;
+</code></pre>
+<p>This property holds the current zoom factor of the canvas. A value of 1.0 means the canvas is at native resolutio (i.e. one screen pixel represents one canvas pixel). </p>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-currentstrokechanged">signal currentStrokeChanged</h3>
+<pre><code class="language-C++">void DrawingCanvas::currentStrokeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-framecolorchanged">signal frameColorChanged</h3>
+<pre><code class="language-C++">void DrawingCanvas::frameColorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-isdirtychanged">signal isDirtyChanged</h3>
+<pre><code class="language-C++">void DrawingCanvas::isDirtyChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-isemptychanged">signal isEmptyChanged</h3>
+<pre><code class="language-C++">void DrawingCanvas::isEmptyChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-offsetchanged">signal offsetChanged</h3>
+<pre><code class="language-C++">void DrawingCanvas::offsetChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-zoomfactorchanged">signal zoomFactorChanged</h3>
+<pre><code class="language-C++">void DrawingCanvas::zoomFactorChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-drawingcanvas">function DrawingCanvas</h3>
+<pre><code class="language-C++">DrawingCanvas::DrawingCanvas (
+    QQuickItem * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-clear">function clear</h3>
+<pre><code class="language-C++">Q_INVOKABLE void DrawingCanvas::clear () 
+</code></pre>
+<p>Clears the drawing canvas. </p>
+<p><strong>See also:</strong> <a href="./#property-isempty-12"><strong>isEmpty()</strong></a> </p>
+<hr>
+
+<h3 id="function-createblankcanvas">function createBlankCanvas</h3>
+<pre><code class="language-C++">Q_INVOKABLE void DrawingCanvas::createBlankCanvas (
+    int width,
+    int height,
+    QColor backgroundColor=QColor(255, 255, 255)
+) 
+</code></pre>
+<p>Creates a blank drawing canvas. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>width</code> the width of the canvas. </li>
+<li><code>height</code> the height of the canvas. </li>
+<li><code>backgroundColor</code> the background color of the canvas. </li>
+</ul>
+<hr>
+
+<h3 id="function-createcanvasfromimage">function createCanvasFromImage</h3>
+<pre><code class="language-C++">Q_INVOKABLE void DrawingCanvas::createCanvasFromImage (
+    const QString &amp; path
+) 
+</code></pre>
+<p>Creates a drawing canvas from a given image which will be the background on which the drawing will be overlayed. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>path</code> the image path. </li>
+</ul>
+<hr>
+
+<h3 id="function-currentstroke-22">function currentStroke [2/2]</h3>
+<pre><code class="language-C++">DrawingStroke DrawingCanvas::currentStroke () const
+</code></pre>
+<hr>
+
+<h3 id="function-fitcanvas">function fitCanvas</h3>
+<pre><code class="language-C++">Q_INVOKABLE void DrawingCanvas::fitCanvas () 
+</code></pre>
+<p>Fits the drawing canvas to match available width and height. </p>
+<hr>
+
+<h3 id="function-framecolor-22">function frameColor [2/2]</h3>
+<pre><code class="language-C++">QColor DrawingCanvas::frameColor () const
+</code></pre>
+<p>This property holds the color of the canvas frame.   </p>
+<hr>
+
+<h3 id="function-isdirty-22">function isDirty [2/2]</h3>
+<pre><code class="language-C++">bool DrawingCanvas::isDirty () const
+</code></pre>
+<p>This property is set to TRUE when a created canvas has been modified.   </p>
+<hr>
+
+<h3 id="function-isempty-22">function isEmpty [2/2]</h3>
+<pre><code class="language-C++">bool DrawingCanvas::isEmpty () const
+</code></pre>
+<p>This property is set to TRUE when no canvas has been created or a previously created canvas has been cleared.   </p>
+<hr>
+
+<h3 id="function-offset-22">function offset [2/2]</h3>
+<pre><code class="language-C++">QPointF DrawingCanvas::offset () const
+</code></pre>
+<p>This property holds the offset from the center of the canvas as a result of panning operations.   </p>
+<hr>
+
+<h3 id="function-paint">function paint</h3>
+<pre><code class="language-C++">void DrawingCanvas::paint (
+    QPainter * painter
+) override
+</code></pre>
+<hr>
+
+<h3 id="function-pan">function pan</h3>
+<pre><code class="language-C++">Q_INVOKABLE void DrawingCanvas::pan (
+    const QPointF &amp; oldPosition,
+    const QPointF &amp; newPosition
+) 
+</code></pre>
+<p>Pans the drawing canvas by the distance between two points. </p>
+<hr>
+
+<h3 id="function-save">function save</h3>
+<pre><code class="language-C++">Q_INVOKABLE QString DrawingCanvas::save () const
+</code></pre>
+<p>Saves the drawing canvas to a temporary location. </p>
+<p><strong>Returns:</strong></p>
+<p>the temporary file path of the saved image. </p>
+<hr>
+
+<h3 id="function-setframecolor">function setFrameColor</h3>
+<pre><code class="language-C++">void DrawingCanvas::setFrameColor (
+    const QColor &amp; color
+) 
+</code></pre>
+<p>This property holds the color of the canvas frame.   </p>
+<hr>
+
+<h3 id="function-setisdirty">function setIsDirty</h3>
+<pre><code class="language-C++">void DrawingCanvas::setIsDirty (
+    bool dirty
+) 
+</code></pre>
+<p>This property is set to TRUE when a created canvas has been modified.   </p>
+<hr>
+
+<h3 id="function-setisempty">function setIsEmpty</h3>
+<pre><code class="language-C++">void DrawingCanvas::setIsEmpty (
+    bool empty
+) 
+</code></pre>
+<p>This property is set to TRUE when no canvas has been created or a previously created canvas has been cleared.   </p>
+<hr>
+
+<h3 id="function-setoffset">function setOffset</h3>
+<pre><code class="language-C++">void DrawingCanvas::setOffset (
+    const QPointF &amp; offset
+) 
+</code></pre>
+<p>This property holds the offset from the center of the canvas as a result of panning operations.   </p>
+<hr>
+
+<h3 id="function-setzoomfactor">function setZoomFactor</h3>
+<pre><code class="language-C++">void DrawingCanvas::setZoomFactor (
+    double factor
+) 
+</code></pre>
+<p>This property holds the current zoom factor of the canvas. A value of 1.0 means the canvas is at native resolutio (i.e. one screen pixel represents one canvas pixel).   </p>
+<hr>
+
+<h3 id="function-strokebegin">function strokeBegin</h3>
+<pre><code class="language-C++">Q_INVOKABLE void DrawingCanvas::strokeBegin (
+    const QPointF &amp; point,
+    const QColor color=QColor(0, 0, 0)
+) 
+</code></pre>
+<p>Begins a stroke operation. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>point</code> the first point of the stroke </li>
+<li><code>color</code> the color of the stroke </li>
+</ul>
+<hr>
+
+<h3 id="function-strokeend">function strokeEnd</h3>
+<pre><code class="language-C++">Q_INVOKABLE void DrawingCanvas::strokeEnd (
+    const QPointF &amp; point
+) 
+</code></pre>
+<p>Ends the current stroke with a final <em>point</em> added to the stroke path. </p>
+<p><strong>Note:</strong></p>
+<p>The function strokeBegin must have been called prior to this function. </p>
+<hr>
+
+<h3 id="function-strokemove">function strokeMove</h3>
+<pre><code class="language-C++">Q_INVOKABLE void DrawingCanvas::strokeMove (
+    const QPointF &amp; point
+) 
+</code></pre>
+<p>Adds a new <em>point</em> to the current stroke path. </p>
+<p><strong>Note:</strong></p>
+<p>The function strokeBegin must have been called prior to this function. </p>
+<hr>
+
+<h3 id="function-undo">function undo</h3>
+<pre><code class="language-C++">Q_INVOKABLE void DrawingCanvas::undo () 
+</code></pre>
+<p>Undos the last drawing operation. </p>
+<p><strong>See also:</strong> <a href="./#property-isdirty-12"><strong>isDirty()</strong></a> </p>
+<hr>
+
+<h3 id="function-zoom">function zoom</h3>
+<pre><code class="language-C++">Q_INVOKABLE void DrawingCanvas::zoom (
+    double scale
+) 
+</code></pre>
+<p>Zooms the drawing canvas by the provided <em>scale</em> value. </p>
+<hr>
+
+<h3 id="function-zoomfactor-22">function zoomFactor [2/2]</h3>
+<pre><code class="language-C++">double DrawingCanvas::zoomFactor () const
+</code></pre>
+<p>This property holds the current zoom factor of the canvas. A value of 1.0 means the canvas is at native resolutio (i.e. one screen pixel represents one canvas pixel).   </p>
+<hr>
+
+<h3 id="function-drawingcanvas_1">function ~DrawingCanvas</h3>
+<pre><code class="language-C++">DrawingCanvas::~DrawingCanvas () = default
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/drawingcanvas.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

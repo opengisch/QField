@@ -1,0 +1,1043 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File qgsquickmapsettings.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-qgsquickmapsettingscpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File qgsquickmapsettings.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-qgsquickmapsettingscpp">File qgsquickmapsettings.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_19c3d7c8ba6dc95926fecc96295d1560/"><strong>qgsquick</strong></a> <strong>&gt;</strong> <a href="../qgsquickmapsettings_8cpp/"><strong>qgsquickmapsettings.cpp</strong></a></p>
+<p><a href="../qgsquickmapsettings_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+  qgsquickmapsettings.cpp
+  --------------------------------------
+  Date                 : 27.12.2014
+  Copyright            : (C) 2014 by Matthias Kuhn
+  Email                : matthias (at) opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+
+#include &quot;qgsquickmapsettings.h&quot;
+
+#include &lt;qgis.h&gt;
+#include &lt;qgsmaplayer.h&gt;
+#include &lt;qgsmaplayerstylemanager.h&gt;
+#include &lt;qgsmessagelog.h&gt;
+#include &lt;qgsproject.h&gt;
+#include &lt;qgsprojectelevationproperties.h&gt;
+#include &lt;qgsprojectviewsettings.h&gt;
+
+QgsQuickMapSettings::QgsQuickMapSettings( QObject *parent )
+  : QObject( parent )
+{
+  // Connect signals for derived values
+  connect( this, &amp;QgsQuickMapSettings::destinationCrsChanged, this, &amp;QgsQuickMapSettings::mapUnitsPerPointChanged );
+  connect( this, &amp;QgsQuickMapSettings::extentChanged, this, &amp;QgsQuickMapSettings::mapUnitsPerPointChanged );
+  connect( this, &amp;QgsQuickMapSettings::outputSizeChanged, this, &amp;QgsQuickMapSettings::mapUnitsPerPointChanged );
+  connect( this, &amp;QgsQuickMapSettings::extentChanged, this, &amp;QgsQuickMapSettings::visibleExtentChanged );
+  connect( this, &amp;QgsQuickMapSettings::rotationChanged, this, &amp;QgsQuickMapSettings::visibleExtentChanged );
+  connect( this, &amp;QgsQuickMapSettings::outputSizeChanged, this, &amp;QgsQuickMapSettings::visibleExtentChanged );
+}
+
+void QgsQuickMapSettings::setProject( QgsProject *project )
+{
+  if ( project == mProject )
+    return;
+
+  // If we have already something connected, disconnect it!
+  if ( mProject )
+  {
+    mProject-&gt;disconnect( this );
+  }
+
+  mProject = project;
+
+  // Connect all signals
+  if ( mProject )
+  {
+    connect( mProject, &amp;QgsProject::readProject, this, &amp;QgsQuickMapSettings::onReadProject );
+    connect( mProject, &amp;QgsProject::crsChanged, this, &amp;QgsQuickMapSettings::onCrsChanged );
+
+    setDestinationCrs( mProject-&gt;crs() );
+    mMapSettings.setTransformContext( mProject-&gt;transformContext() );
+    mMapSettings.setPathResolver( mProject-&gt;pathResolver() );
+  }
+  else
+  {
+    mMapSettings.setTransformContext( QgsCoordinateTransformContext() );
+  }
+
+  emit projectChanged();
+}
+
+QgsProject *QgsQuickMapSettings::project() const
+{
+  return mProject;
+}
+
+QgsCoordinateTransformContext QgsQuickMapSettings::transformContext() const
+{
+  return mMapSettings.transformContext();
+}
+
+QgsRectangle QgsQuickMapSettings::extent() const
+{
+  return mMapSettings.extent();
+}
+
+void QgsQuickMapSettings::setExtent( const QgsRectangle &amp;extent, bool handleMargins )
+{
+  if ( applyExtent( mMapSettings, extent, handleMargins ) )
+  {
+    emit extentChanged();
+  }
+}
+
+double QgsQuickMapSettings::computeScaleForExtent( const QgsRectangle &amp;extent, bool handleMargins )
+{
+  QgsMapSettings settings( mMapSettings );
+  applyExtent( settings, extent, handleMargins );
+  return settings.scale();
+}
+
+bool QgsQuickMapSettings::applyExtent( QgsMapSettings &amp;mapSettings, const QgsRectangle &amp;extent, bool handleMargins )
+{
+  if ( handleMargins &amp;&amp; ( !qgsDoubleNear( mRightMargin, 0.0 ) || !qgsDoubleNear( mBottomMargin, 0.0 ) ) )
+  {
+    const double rightMargin = mRightMargin * devicePixelRatio();
+    const double bottomMargin = mBottomMargin * devicePixelRatio();
+    const double outputSizeRatio = static_cast&lt;double&gt;( outputSize().width() ) / outputSize().height();
+    const double extentRatio = extent.width() / extent.height();
+
+    // Create an extent that matches the output size translated by current margin values
+    QgsRectangle outputSizeExtent;
+    if ( extentRatio &gt; outputSizeRatio )
+    {
+      const double widthAdjustement = ( extent.width() / outputSize().width() ) * rightMargin;
+      const double height = extent.width() / outputSizeRatio;
+      const double heightAdjustment = ( height / outputSize().height() ) * bottomMargin;
+      const double heightMiddle = extent.yMinimum() + ( extent.height() / 2 );
+
+      outputSizeExtent.setXMinimum( extent.xMinimum() + widthAdjustement );
+      outputSizeExtent.setXMaximum( extent.xMaximum() + widthAdjustement );
+      outputSizeExtent.setYMinimum( heightMiddle - ( height / 2 ) - heightAdjustment );
+      outputSizeExtent.setYMaximum( heightMiddle + ( height / 2 ) - heightAdjustment );
+    }
+    else
+    {
+      const double heightAdjustment = ( extent.height() / outputSize().height() ) * bottomMargin;
+      const double width = extent.height() * outputSizeRatio;
+      const double widthAdjustement = ( width / outputSize().width() ) * rightMargin;
+      const double widthMiddle = extent.xMinimum() + ( extent.width() / 2 );
+
+      outputSizeExtent.setXMinimum( widthMiddle - ( width / 2 ) + widthAdjustement );
+      outputSizeExtent.setXMaximum( widthMiddle + ( width / 2 ) + widthAdjustement );
+      outputSizeExtent.setYMinimum( extent.yMinimum() - heightAdjustment );
+      outputSizeExtent.setYMaximum( extent.yMaximum() - heightAdjustment );
+    }
+
+    // Combine the extent with the translated output size extent
+    QgsRectangle modifiedExtent = extent;
+    modifiedExtent.combineExtentWith( outputSizeExtent );
+    if ( modifiedExtent.isNull() )
+      return false;
+
+    // Set the extent to get an updated map units per pixel value
+    const QgsRectangle originalExtent = mapSettings.extent();
+    mapSettings.setExtent( modifiedExtent );
+    modifiedExtent = mapSettings.extent();
+
+    const QgsVector delta = QgsPointXY( extent.center() ) - mapSettings.extent().center();
+
+    // Calculate base margin adjustments (split in half for centering)
+    const double baseXAdjustment = -rightMargin * mapSettings.mapUnitsPerPixel() / 2;
+    const double baseYAdjustment = bottomMargin * mapSettings.mapUnitsPerPixel() / 2;
+
+    // Adjust margins based on rotation
+    const double rotationRadians = mapSettings.rotation() * M_PI / 180.0;
+    const double xAdjustment = baseXAdjustment * cos( rotationRadians ) - baseYAdjustment * sin( rotationRadians );
+    const double yAdjustment = baseXAdjustment * sin( rotationRadians ) + baseYAdjustment * cos( rotationRadians );
+
+    modifiedExtent.setXMinimum( modifiedExtent.xMinimum() + delta.x() - xAdjustment );
+    modifiedExtent.setXMaximum( modifiedExtent.xMaximum() + delta.x() - xAdjustment );
+    modifiedExtent.setYMinimum( modifiedExtent.yMinimum() + delta.y() - yAdjustment );
+    modifiedExtent.setYMaximum( modifiedExtent.yMaximum() + delta.y() - yAdjustment );
+
+    if ( originalExtent == modifiedExtent || modifiedExtent.isNull() )
+      return false;
+
+    mapSettings.setExtent( modifiedExtent );
+  }
+  else
+  {
+    if ( mapSettings.extent() == extent || extent.isNull() )
+      return false;
+
+    mapSettings.setExtent( extent );
+  }
+
+  return true;
+}
+
+QgsPoint QgsQuickMapSettings::getCenter( bool handleMargins ) const
+{
+  if ( handleMargins &amp;&amp; ( !qgsDoubleNear( mRightMargin, 0.0 ) || !qgsDoubleNear( mBottomMargin, 0.0 ) ) )
+  {
+    // Get current extent
+    QgsRectangle e = mMapSettings.extent();
+
+    // Calculate base margin adjustments (split in half for centering)
+    const double baseXAdjustment = -mRightMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+    const double baseYAdjustment = mBottomMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+
+    // Adjust margins based on rotation
+    const double rotationRadians = mMapSettings.rotation() * M_PI / 180.0;
+    const double xAdjustment = baseXAdjustment * cos( rotationRadians ) - baseYAdjustment * sin( rotationRadians );
+    const double yAdjustment = baseXAdjustment * sin( rotationRadians ) + baseYAdjustment * cos( rotationRadians );
+
+    // Calculate the adjusted center
+    QgsPointXY adjustedCenter = e.center();
+    adjustedCenter.setX( adjustedCenter.x() + xAdjustment );
+    adjustedCenter.setY( adjustedCenter.y() + yAdjustment );
+
+    return QgsPoint( adjustedCenter );
+  }
+
+  return QgsPoint( extent().center() );
+}
+
+void QgsQuickMapSettings::setCenter( const QgsPoint &amp;center, bool handleMargins )
+{
+  if ( center.isEmpty() )
+    return;
+
+  const QgsVector delta = QgsPointXY( center ) - mMapSettings.extent().center();
+  QgsRectangle e = mMapSettings.extent();
+  if ( handleMargins &amp;&amp; ( !qgsDoubleNear( mRightMargin, 0.0 ) || !qgsDoubleNear( mBottomMargin, 0.0 ) ) )
+  {
+    // Calculate base margin adjustments (split in half for centering)
+    const double baseXAdjustment = -mRightMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+    const double baseYAdjustment = mBottomMargin * devicePixelRatio() * mMapSettings.mapUnitsPerPixel() / 2;
+
+    // Adjust margins based on rotation
+    const double rotationRadians = mMapSettings.rotation() * M_PI / 180.0;
+    const double xAdjustment = baseXAdjustment * cos( rotationRadians ) - baseYAdjustment * sin( rotationRadians );
+    const double yAdjustment = baseXAdjustment * sin( rotationRadians ) + baseYAdjustment * cos( rotationRadians );
+
+    e.setXMinimum( e.xMinimum() + delta.x() - xAdjustment );
+    e.setXMaximum( e.xMaximum() + delta.x() - xAdjustment );
+    e.setYMinimum( e.yMinimum() + delta.y() - yAdjustment );
+    e.setYMaximum( e.yMaximum() + delta.y() - yAdjustment );
+  }
+  else
+  {
+    e.setXMinimum( e.xMinimum() + delta.x() );
+    e.setXMaximum( e.xMaximum() + delta.x() );
+    e.setYMinimum( e.yMinimum() + delta.y() );
+    e.setYMaximum( e.yMaximum() + delta.y() );
+  }
+
+  setExtent( e );
+}
+
+void QgsQuickMapSettings::setCenter( const QPointF &amp;center, bool handleMargins )
+{
+  return setCenter( QgsPoint( center ), handleMargins );
+}
+
+void QgsQuickMapSettings::setCenterToLayer( QgsMapLayer *layer, bool shouldZoom )
+{
+  Q_ASSERT( layer );
+
+  const QgsRectangle extent = mapSettings().layerToMapCoordinates( layer, layer-&gt;extent() );
+
+  if ( !extent.isEmpty() )
+  {
+    if ( shouldZoom )
+      setExtent( extent );
+    else
+      setCenter( QgsPoint( extent.center() ) );
+  }
+}
+
+void QgsQuickMapSettings::setExtentFromPoints( const QVariantList &amp;points, const double &amp;minimumScale, bool handleMargins )
+{
+  if ( points.isEmpty() )
+    return;
+
+  if ( points.size() == 1 )
+  {
+    QgsPoint p = points.at( 0 ).value&lt;QgsPoint&gt;();
+    if ( !p.isEmpty() )
+      setCenter( p, handleMargins );
+    return;
+  }
+
+  QgsRectangle extent;
+  for ( auto &amp;point : points )
+  {
+    QgsPoint p = point.value&lt;QgsPoint&gt;();
+    if ( p.isEmpty() )
+      continue;
+    extent.combineExtentWith( p.x(), p.y() );
+  }
+
+  QSize size = outputSize();
+  size /= devicePixelRatio();
+  double unitPerPoint = 0.0;
+  double buffer = 0.0;
+  if ( extent.width() &gt; extent.height() )
+  {
+    unitPerPoint = extent.width() / size.width();
+  }
+  else
+  {
+    unitPerPoint = extent.height() / size.height();
+  }
+  buffer = 80 * unitPerPoint;
+
+  if ( minimumScale &gt; 0.0 )
+  {
+    QgsScaleCalculator calc;
+    calc.setMapUnits( mMapSettings.destinationCrs().mapUnits() );
+    calc.setDpi( outputDpi() );
+    double scale = calc.calculate( extent, outputSize().width() );
+    if ( scale &lt; minimumScale )
+    {
+      extent.scale( minimumScale / scale );
+    }
+  }
+
+  setExtent( extent.buffered( buffer ), handleMargins );
+}
+
+double QgsQuickMapSettings::mapUnitsPerPoint() const
+{
+  return mMapSettings.mapUnitsPerPixel() * devicePixelRatio();
+}
+
+QgsRectangle QgsQuickMapSettings::visibleExtent() const
+{
+  return mMapSettings.visibleExtent();
+}
+
+double QgsQuickMapSettings::scale() const
+{
+  return mMapSettings.scale();
+}
+
+QPointF QgsQuickMapSettings::coordinateToScreen( const QgsPoint &amp;point ) const
+{
+  QgsPointXY pt( point.x(), point.y() );
+  QgsPointXY pp = mMapSettings.mapToPixel().transform( pt );
+  pp.setX( pp.x() / devicePixelRatio() );
+  pp.setY( pp.y() / devicePixelRatio() );
+  return pp.toQPointF();
+}
+
+QgsPoint QgsQuickMapSettings::screenToCoordinate( const QPointF &amp;point ) const
+{
+  const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( point.x() * devicePixelRatio(), point.y() * devicePixelRatio() );
+  return QgsPoint( pp );
+}
+
+QgsMapSettings QgsQuickMapSettings::mapSettings() const
+{
+  return mMapSettings;
+}
+
+QSize QgsQuickMapSettings::outputSize() const
+{
+  return mMapSettings.outputSize();
+}
+
+void QgsQuickMapSettings::setOutputSize( QSize outputSize )
+{
+  outputSize.setWidth( std::ceil( outputSize.width() * devicePixelRatio() ) );
+  outputSize.setHeight( std::ceil( outputSize.height() * devicePixelRatio() ) );
+  if ( mMapSettings.outputSize() == outputSize )
+    return;
+
+  mMapSettings.setOutputSize( outputSize );
+  emit outputSizeChanged();
+}
+
+double QgsQuickMapSettings::outputDpi() const
+{
+  return mMapSettings.outputDpi();
+}
+
+void QgsQuickMapSettings::setOutputDpi( double outputDpi )
+{
+  outputDpi *= devicePixelRatio();
+  if ( qgsDoubleNear( mMapSettings.outputDpi(), outputDpi ) )
+    return;
+
+  mMapSettings.setOutputDpi( outputDpi );
+  emit outputDpiChanged();
+}
+
+QgsCoordinateReferenceSystem QgsQuickMapSettings::destinationCrs() const
+{
+  return mMapSettings.destinationCrs();
+}
+
+void QgsQuickMapSettings::setDestinationCrs( const QgsCoordinateReferenceSystem &amp;destinationCrs )
+{
+  if ( mMapSettings.destinationCrs() == destinationCrs )
+    return;
+
+  mMapSettings.setDestinationCrs( destinationCrs );
+  emit destinationCrsChanged();
+}
+
+QList&lt;QgsMapLayer *&gt; QgsQuickMapSettings::layers() const
+{
+  return mMapSettings.layers();
+}
+
+void QgsQuickMapSettings::setLayers( const QList&lt;QgsMapLayer *&gt; &amp;layers )
+{
+  mMapSettings.setLayers( layers );
+  emit layersChanged();
+}
+
+#if 0
+void MapSettings::setMapTheme( QgsProject *project, const QString &amp;mapThemeName )
+{
+  QStringList layerIds;
+
+  QgsMapThemeCollection::MapThemeRecord mapTheme = project-&gt;mapThemeCollection()-&gt;mapThemeState( mapThemeName );
+
+  const QList&lt;QgsMapThemeCollection::MapThemeLayerRecord&gt; layerRecords { mapTheme.layerRecords() };
+
+  for ( const QgsMapThemeCollection::MapThemeLayerRecord &amp;record : layerRecords )
+  {
+    record.layer()-&gt;styleManager()-&gt;setCurrentStyle( mapTheme.perLayerCurrentStyle().value( layerId ) );
+
+    layerIds &lt;&lt; layerId;
+  }
+
+  mMapSettings.setLayers( layerIds );
+  emit layersChanged();
+}
+#endif
+
+void QgsQuickMapSettings::onCrsChanged()
+{
+  setDestinationCrs( mProject-&gt;crs() );
+}
+
+void QgsQuickMapSettings::onReadProject( const QDomDocument &amp;doc )
+{
+  if ( mProject )
+  {
+    int red = mProject-&gt;readNumEntry( QStringLiteral( &quot;Gui&quot; ), QStringLiteral( &quot;/CanvasColorRedPart&quot; ), 255 );
+    int green = mProject-&gt;readNumEntry( QStringLiteral( &quot;Gui&quot; ), QStringLiteral( &quot;/CanvasColorGreenPart&quot; ), 255 );
+    int blue = mProject-&gt;readNumEntry( QStringLiteral( &quot;Gui&quot; ), QStringLiteral( &quot;/CanvasColorBluePart&quot; ), 255 );
+    mMapSettings.setBackgroundColor( QColor( red, green, blue ) );
+
+    const bool isTemporal = mProject-&gt;readNumEntry( QStringLiteral( &quot;TemporalControllerWidget&quot; ), QStringLiteral( &quot;/NavigationMode&quot; ), 0 ) != 0;
+    const QString startString = QgsProject::instance()-&gt;readEntry( QStringLiteral( &quot;TemporalControllerWidget&quot; ), QStringLiteral( &quot;/StartDateTime&quot; ) );
+    const QString endString = QgsProject::instance()-&gt;readEntry( QStringLiteral( &quot;TemporalControllerWidget&quot; ), QStringLiteral( &quot;/EndDateTime&quot; ) );
+    mMapSettings.setTemporalRange( QgsDateTimeRange( QDateTime::fromString( startString, Qt::ISODateWithMs ),
+                                                     QDateTime::fromString( endString, Qt::ISODateWithMs ) ) );
+    mMapSettings.setIsTemporal( isTemporal );
+  }
+
+  QDomNodeList nodes = doc.elementsByTagName( &quot;mapcanvas&quot; );
+  bool foundTheMapCanvas = false;
+  for ( int i = 0; i &lt; nodes.size(); i++ )
+  {
+    QDomNode node = nodes.item( i );
+    QDomElement element = node.toElement();
+
+    if ( element.hasAttribute( QStringLiteral( &quot;name&quot; ) ) &amp;&amp; element.attribute( QStringLiteral( &quot;name&quot; ) ) == QStringLiteral( &quot;theMapCanvas&quot; ) )
+    {
+      foundTheMapCanvas = true;
+      mMapSettings.readXml( node );
+    }
+  }
+  if ( !foundTheMapCanvas )
+  {
+    mMapSettings.setDestinationCrs( mProject-&gt;crs() );
+    mMapSettings.setExtent( mProject-&gt;viewSettings()-&gt;fullExtent() );
+  }
+
+  mMapSettings.setTransformContext( mProject-&gt;transformContext() );
+  mMapSettings.setPathResolver( mProject-&gt;pathResolver() );
+  mMapSettings.setElevationShadingRenderer( mProject-&gt;elevationShadingRenderer() );
+
+  emit extentChanged();
+  emit rotationChanged();
+  emit destinationCrsChanged();
+  emit outputSizeChanged();
+  emit outputDpiChanged();
+  emit layersChanged();
+  emit backgroundColorChanged();
+  emit temporalStateChanged();
+  emit zRangeChanged();
+}
+
+double QgsQuickMapSettings::rotation() const
+{
+  return mMapSettings.rotation();
+}
+
+void QgsQuickMapSettings::setRotation( double rotation )
+{
+  if ( mMapSettings.rotation() == rotation )
+    return;
+
+  mMapSettings.setRotation( rotation );
+  emit rotationChanged();
+}
+
+QColor QgsQuickMapSettings::backgroundColor() const
+{
+  return mMapSettings.backgroundColor();
+}
+
+void QgsQuickMapSettings::setBackgroundColor( const QColor &amp;color )
+{
+  if ( mMapSettings.backgroundColor() == color )
+    return;
+
+  mMapSettings.setBackgroundColor( color );
+  emit backgroundColorChanged();
+}
+
+qreal QgsQuickMapSettings::devicePixelRatio() const
+{
+  return mDevicePixelRatio;
+}
+
+void QgsQuickMapSettings::setDevicePixelRatio( const qreal &amp;devicePixelRatio )
+{
+  mDevicePixelRatio = devicePixelRatio;
+}
+
+bool QgsQuickMapSettings::isTemporal() const
+{
+  return mMapSettings.isTemporal();
+}
+
+void QgsQuickMapSettings::setIsTemporal( bool temporal )
+{
+  mMapSettings.setIsTemporal( temporal );
+  emit temporalStateChanged();
+}
+
+QDateTime QgsQuickMapSettings::temporalBegin() const
+{
+  return mMapSettings.temporalRange().begin();
+}
+
+void QgsQuickMapSettings::setTemporalBegin( const QDateTime &amp;begin )
+{
+  if ( mMapSettings.temporalRange().begin() == begin )
+    return;
+
+  const QgsDateTimeRange range = mMapSettings.temporalRange();
+  mMapSettings.setTemporalRange( QgsDateTimeRange( begin, range.end() ) );
+  emit temporalStateChanged();
+}
+
+QDateTime QgsQuickMapSettings::temporalEnd() const
+{
+  return mMapSettings.temporalRange().end();
+}
+
+void QgsQuickMapSettings::setTemporalEnd( const QDateTime &amp;end )
+{
+  if ( mMapSettings.temporalRange().end() == end )
+    return;
+
+  const QgsDateTimeRange range = mMapSettings.temporalRange();
+  mMapSettings.setTemporalRange( QgsDateTimeRange( range.begin(), end ) );
+  emit temporalStateChanged();
+}
+
+double QgsQuickMapSettings::zRangeLower() const
+{
+  return mMapSettings.zRange().lower();
+}
+
+void QgsQuickMapSettings::setZRangeLower( double lower )
+{
+  if ( mMapSettings.zRange().lower() == lower )
+    return;
+
+  const QgsDoubleRange zRange( lower, mMapSettings.zRange().upper() );
+  mMapSettings.setZRange( zRange );
+  emit zRangeChanged();
+}
+
+double QgsQuickMapSettings::zRangeUpper() const
+{
+  return mMapSettings.zRange().upper();
+}
+
+void QgsQuickMapSettings::setZRangeUpper( double upper )
+{
+  if ( mMapSettings.zRange().upper() == upper )
+    return;
+
+  const QgsDoubleRange zRange( mMapSettings.zRange().lower(), upper );
+  mMapSettings.setZRange( zRange );
+  emit zRangeChanged();
+}
+
+double QgsQuickMapSettings::bottomMargin() const
+{
+  return mBottomMargin;
+}
+
+void QgsQuickMapSettings::setBottomMargin( double bottomMargin )
+{
+  if ( mBottomMargin == bottomMargin )
+    return;
+
+  mBottomMargin = bottomMargin;
+  emit bottomMarginChanged();
+}
+
+double QgsQuickMapSettings::rightMargin() const
+{
+  return mRightMargin;
+}
+
+void QgsQuickMapSettings::setRightMargin( double rightMargin )
+{
+  if ( mRightMargin == rightMargin )
+    return;
+
+  mRightMargin = rightMargin;
+  emit rightMarginChanged();
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

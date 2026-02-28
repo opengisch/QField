@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfExpandableGroupBox" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfExpandableGroupBox</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfExpandableGroupBox_1ac1c64c46088077f78513ac4955fac169" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfExpandableGroupBox::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="12" column="5" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfExpandableGroupBox_1a335eeeb6797beb1f148c6218f4d14ef2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfExpandableGroupBox::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::radius</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="13" column="5" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfExpandableGroupBox_1a9c58a9a6a6f5028ae45a55551591db8c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfExpandableGroupBox::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="14" column="5" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfExpandableGroupBox_1ab5208eeaf1acc4ffcc07d9f8a218782f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfExpandableGroupBox::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="15" column="5" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfExpandableGroupBox_1a0335c51d69cabdef2e2160a7c2fbe6c3" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item Theme::QfExpandableGroupBox::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="33" column="6" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfExpandableGroupBox_1ab85050c28f0c6281012427bee0fedc54" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea Theme::QfExpandableGroupBox::headerMouseArea</definition>
+        <argsstring></argsstring>
+        <name>headerMouseArea</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::headerMouseArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="34" column="11" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfExpandableGroupBox_1aa6d72e0c8ba64c7ed18a8df7920dabbe" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Theme::QfExpandableGroupBox::headerIcon</definition>
+        <argsstring></argsstring>
+        <name>headerIcon</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::headerIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="35" column="14" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfExpandableGroupBox_1a06db8482f7a55e45c6c4e9523313db1a" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label Theme::QfExpandableGroupBox::headerText</definition>
+        <argsstring></argsstring>
+        <name>headerText</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::headerText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="36" column="7" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfExpandableGroupBox_1adc8ecf48cc3e03c1725874b2fdc95bcf" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch Theme::QfExpandableGroupBox::enabledSwitch</definition>
+        <argsstring></argsstring>
+        <name>enabledSwitch</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::enabledSwitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="37" column="10" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfExpandableGroupBox_1a83379eea6aa1285d99d284fab6cd1e32" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle Theme::QfExpandableGroupBox::splitter</definition>
+        <argsstring></argsstring>
+        <name>splitter</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::splitter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="38" column="11" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfExpandableGroupBox_1aab13d100a805af41806e38f97357877e" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item Theme::QfExpandableGroupBox::body</definition>
+        <argsstring></argsstring>
+        <name>body</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::body</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="39" column="6" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfExpandableGroupBox_1a6d251163a5caf9503cd7942320c5e335" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfExpandableGroupBox::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::title</qualifiedname>
+        <read>dummyGetter_title_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="18" column="1" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfExpandableGroupBox_1a2d6e7e802dafa0fd33313474174c22e8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfExpandableGroupBox::checked</definition>
+        <argsstring></argsstring>
+        <name>checked</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::checked</qualifiedname>
+        <read>dummyGetter_checked_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="20" column="1" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfExpandableGroupBox_1ad125ce4d799bde36dbe3a4cbb2eaeb7d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfExpandableGroupBox::interactive</definition>
+        <argsstring></argsstring>
+        <name>interactive</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::interactive</qualifiedname>
+        <read>dummyGetter_interactive_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="22" column="1" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfExpandableGroupBox_1abf2d662cfd00099a558ed31e8bbba7a0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfExpandableGroupBox::icon</definition>
+        <argsstring></argsstring>
+        <name>icon</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::icon</qualifiedname>
+        <read>dummyGetter_icon_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="24" column="1" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfExpandableGroupBox_1afcb734a62091edffbf7bead22c8af8ee" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfExpandableGroupBox::iconColor</definition>
+        <argsstring></argsstring>
+        <name>iconColor</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::iconColor</qualifiedname>
+        <read>dummyGetter_iconColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="26" column="1" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfExpandableGroupBox_1a941227ea5ccc5a06ef7665aa58b20dd7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfExpandableGroupBox::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::content</qualifiedname>
+        <read>dummyGetter_content_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This is the default property </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="29" column="1" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTheme_1_1QfExpandableGroupBox_1a9062c916060081f31db26abcf8d8b77c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfExpandableGroupBox::clicked</definition>
+        <argsstring>()</argsstring>
+        <name>clicked</name>
+        <qualifiedname>Theme::QfExpandableGroupBox::clicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="31" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfExpandableGroupBox</label>
+        <link refid="classTheme_1_1QfExpandableGroupBox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfExpandableGroupBox</label>
+        <link refid="classTheme_1_1QfExpandableGroupBox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfExpandableGroupBox.qml" line="11" column="1" bodyfile="src/qml/imports/Theme/QfExpandableGroupBox.qml" bodystart="11" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1aab13d100a805af41806e38f97357877e" prot="private" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>body</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1a2d6e7e802dafa0fd33313474174c22e8" prot="public" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>checked</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1a9062c916060081f31db26abcf8d8b77c" prot="public" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>clicked</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1ab5208eeaf1acc4ffcc07d9f8a218782f" prot="private" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>clip</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1a9c58a9a6a6f5028ae45a55551591db8c" prot="private" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>color</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1a941227ea5ccc5a06ef7665aa58b20dd7" prot="public" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>content</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1adc8ecf48cc3e03c1725874b2fdc95bcf" prot="private" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>enabledSwitch</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1a0335c51d69cabdef2e2160a7c2fbe6c3" prot="private" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>header</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1aa6d72e0c8ba64c7ed18a8df7920dabbe" prot="private" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>headerIcon</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1ab85050c28f0c6281012427bee0fedc54" prot="private" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>headerMouseArea</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1a06db8482f7a55e45c6c4e9523313db1a" prot="private" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>headerText</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1abf2d662cfd00099a558ed31e8bbba7a0" prot="public" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>icon</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1afcb734a62091edffbf7bead22c8af8ee" prot="public" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>iconColor</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1ac1c64c46088077f78513ac4955fac169" prot="private" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>implicitHeight</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1ad125ce4d799bde36dbe3a4cbb2eaeb7d" prot="public" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>interactive</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1a335eeeb6797beb1f148c6218f4d14ef2" prot="private" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>radius</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1a83379eea6aa1285d99d284fab6cd1e32" prot="private" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>splitter</name></member>
+      <member refid="classTheme_1_1QfExpandableGroupBox_1a6d251163a5caf9503cd7942320c5e335" prot="public" virt="non-virtual"><scope>Theme::QfExpandableGroupBox</scope><name>title</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

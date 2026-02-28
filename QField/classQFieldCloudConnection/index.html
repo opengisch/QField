@@ -1,0 +1,2184 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class QFieldCloudConnection - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-qfieldcloudconnection" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class QFieldCloudConnection
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Attributes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-connectionstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum ConnectionState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-connectionstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum ConnectionStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-attributes-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Attributes Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Static Attributes Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-serrors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable sErrors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-availableproviders-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property availableProviders [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-avatarurl-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property avatarUrl [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-defaulturl-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property defaultUrl [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-hasproviderconfiguration-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property hasProviderConfiguration [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-hastoken-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property hasToken [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isfetchingavailableproviders-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isFetchingAvailableProviders [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isreachable-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isReachable [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-password-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property password [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-provider-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property provider [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-state-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property state [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-status-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property status [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-url-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property url [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-urls-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property urls [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-userinformation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property userInformation [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-username-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property username [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-availableproviderschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal availableProvidersChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-avatarurlchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal avatarUrlChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isfetchingavailableproviderschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isFetchingAvailableProvidersChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isreachablechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isReachableChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-loginfailed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal loginFailed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-passwordchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal passwordChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-pendingattachmentsadded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal pendingAttachmentsAdded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-pendingattachmentsuploadfinished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal pendingAttachmentsUploadFinished
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-pendingattachmentsuploadstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal pendingAttachmentsUploadStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-providerchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal providerChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-providerconfigurationchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal providerConfigurationChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-queuedprojectpushrequested" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal queuedProjectPushRequested
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-statechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal stateChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-statuschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal statusChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-tokenchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal tokenChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-urlchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal urlChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-urlschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal urlsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-userinformationchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal userInformationChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-usernamechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal usernameChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-qfieldcloudconnection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function QFieldCloudConnection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-availableproviders-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function availableProviders [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-avatarurl-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function avatarUrl [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-get-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function get [1/3]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-get-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function get [2/3]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-get-33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function get [3/3]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getauthenticationproviders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getAuthenticationProviders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-hasproviderconfiguration-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function hasProviderConfiguration [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-hastoken-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function hasToken [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isfetchingavailableproviders-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isFetchingAvailableProviders [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isreachable-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isReachable [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-logout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function logout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-password-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function password [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-post-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function post [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-post-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function post [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-provider-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function provider [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-queueprojectpush" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function queueProjectPush
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setauthenticationdetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAuthenticationDetails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setpassword" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPassword
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setprovider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setProvider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-seturl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setUrl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setusername" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setUsername
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-state-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function state [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-status-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function status [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function token
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-uploadpendingattachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function uploadPendingAttachments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-url-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function url [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-urls-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function urls [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-userinformation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function userInformation [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-username-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function username [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Static Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-defaulturl-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function defaultUrl [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-errorstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function errorString
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-qfieldcloudconnection">Class QFieldCloudConnection</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>QFieldCloudConnection</strong></a></p>
+<p>Inherits the following classes: QObject</p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">class</td>
+<td style="text-align: left;"><a href="../classQFieldCloudConnection_1_1CloudError/"><strong>CloudError</strong></a> <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-connectionstate"><strong>ConnectionState</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-connectionstatus"><strong>ConnectionStatus</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-attributes">Public Static Attributes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">QMap&lt; QString, QString &gt;</td>
+<td style="text-align: left;"><a href="#variable-serrors"><strong>sErrors</strong></a>   = <code>/* multi line expression */</code><br><em>Contains a map of error codes and translated messages.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property QList&lt; <a href="../classAuthenticationProvider/"><strong>AuthenticationProvider</strong></a> &gt;</td>
+<td style="text-align: left;"><a href="./#property-availableproviders-12"><strong>availableProviders</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-avatarurl-12"><strong>avatarUrl</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-defaulturl-12"><strong>defaultUrl</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-hasproviderconfiguration-12"><strong>hasProviderConfiguration</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-hastoken-12"><strong>hasToken</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isfetchingavailableproviders-12"><strong>isFetchingAvailableProviders</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isreachable-12"><strong>isReachable</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-password-12"><strong>password</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-provider-12"><strong>provider</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property ConnectionState</td>
+<td style="text-align: left;"><a href="./#property-state-12"><strong>state</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property ConnectionStatus</td>
+<td style="text-align: left;"><a href="./#property-status-12"><strong>status</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-url-12"><strong>url</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QStringList</td>
+<td style="text-align: left;"><a href="./#property-urls-12"><strong>urls</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../structCloudUserInformation/"><strong>CloudUserInformation</strong></a></td>
+<td style="text-align: left;"><a href="./#property-userinformation-12"><strong>userInformation</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-username-12"><strong>username</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-availableproviderschanged"><strong>availableProvidersChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-avatarurlchanged"><strong>avatarUrlChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-error"><strong>error</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isfetchingavailableproviderschanged"><strong>isFetchingAvailableProvidersChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isreachablechanged"><strong>isReachableChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-loginfailed"><strong>loginFailed</strong></a> (const QString &amp; reason) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-passwordchanged"><strong>passwordChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-pendingattachmentsadded"><strong>pendingAttachmentsAdded</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-pendingattachmentsuploadfinished"><strong>pendingAttachmentsUploadFinished</strong></a> (const QString &amp; error=QString()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-pendingattachmentsuploadstatus"><strong>pendingAttachmentsUploadStatus</strong></a> (const QString &amp; fileName, double fileProgress, qsizetype uploadPending) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-providerchanged"><strong>providerChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-providerconfigurationchanged"><strong>providerConfigurationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-queuedprojectpushrequested"><strong>queuedProjectPushRequested</strong></a> (const QString &amp; projectId) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-statechanged"><strong>stateChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-statuschanged"><strong>statusChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-tokenchanged"><strong>tokenChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-urlchanged"><strong>urlChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-urlschanged"><strong>urlsChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-userinformationchanged"><strong>userInformationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-usernamechanged"><strong>usernameChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qfieldcloudconnection"><strong>QFieldCloudConnection</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; <a href="../classAuthenticationProvider/"><strong>AuthenticationProvider</strong></a> &gt;</td>
+<td style="text-align: left;"><a href="#function-availableproviders-22"><strong>availableProviders</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-avatarurl-22"><strong>avatarUrl</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classNetworkReply/"><strong>NetworkReply</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-get-13"><strong>get</strong></a> (const QString &amp; endpoint, const QVariantMap &amp; params=QVariantMap()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classNetworkReply/"><strong>NetworkReply</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-get-23"><strong>get</strong></a> (QNetworkRequest &amp; request, const QString &amp; endpoint, const QVariantMap &amp; params=QVariantMap()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classNetworkReply/"><strong>NetworkReply</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-get-33"><strong>get</strong></a> (QNetworkRequest &amp; request, const QUrl &amp; url, const QVariantMap &amp; params=QVariantMap()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-getauthenticationproviders"><strong>getAuthenticationProviders</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-hasproviderconfiguration-22"><strong>hasProviderConfiguration</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-hastoken-22"><strong>hasToken</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isfetchingavailableproviders-22"><strong>isFetchingAvailableProviders</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isreachable-22"><strong>isReachable</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-login"><strong>login</strong></a> (const QString &amp; password=QString()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-logout"><strong>logout</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-password-22"><strong>password</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classNetworkReply/"><strong>NetworkReply</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-post-12"><strong>post</strong></a> (const QString &amp; endpoint, const QVariantMap &amp; params=QVariantMap(), const QStringList &amp; fileNames=QStringList()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classNetworkReply/"><strong>NetworkReply</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-post-22"><strong>post</strong></a> (QNetworkRequest &amp; request, const QString &amp; endpoint, const QVariantMap &amp; params=QVariantMap(), const QStringList &amp; fileNames=QStringList()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-provider-22"><strong>provider</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-queueprojectpush"><strong>queueProjectPush</strong></a> (const QString &amp; projectId) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setauthenticationdetails"><strong>setAuthenticationDetails</strong></a> (QNetworkRequest &amp; request) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setpassword"><strong>setPassword</strong></a> (const QString &amp; password) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setprovider"><strong>setProvider</strong></a> (const QString &amp; provider) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-seturl"><strong>setUrl</strong></a> (const QString &amp; url) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setusername"><strong>setUsername</strong></a> (const QString &amp; username) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">ConnectionState</td>
+<td style="text-align: left;"><a href="#function-state-22"><strong>state</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">ConnectionStatus</td>
+<td style="text-align: left;"><a href="#function-status-22"><strong>status</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-token"><strong>token</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">qsizetype</td>
+<td style="text-align: left;"><a href="#function-uploadpendingattachments"><strong>uploadPendingAttachments</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-url-22"><strong>url</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QStringList</td>
+<td style="text-align: left;"><a href="#function-urls-22"><strong>urls</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../structCloudUserInformation/"><strong>CloudUserInformation</strong></a></td>
+<td style="text-align: left;"><a href="#function-userinformation-22"><strong>userInformation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-username-22"><strong>username</strong></a> () const<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-functions">Public Static Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-defaulturl-22"><strong>defaultUrl</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-errorstring"><strong>errorString</strong></a> (QNetworkReply * reply) <br><em>Returns an error string to be shown to the user if</em> <em>reply</em> <em>has an error.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-connectionstate">enum ConnectionState</h3>
+<pre><code class="language-C++">enum QFieldCloudConnection::ConnectionState {
+    Idle,
+    Busy
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-connectionstatus">enum ConnectionStatus</h3>
+<pre><code class="language-C++">enum QFieldCloudConnection::ConnectionStatus {
+    Disconnected,
+    Connecting,
+    LoggedIn
+};
+</code></pre>
+<hr>
+<h2 id="public-static-attributes-documentation">Public Static Attributes Documentation</h2>
+<h3 id="variable-serrors">variable sErrors</h3>
+<p><em>Contains a map of error codes and translated messages.</em> </p>
+<pre><code class="language-C++">QMap&lt; QString, QString &gt; QFieldCloudConnection::sErrors;
+</code></pre>
+<hr>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-availableproviders-12">property availableProviders [1/2]</h3>
+<pre><code class="language-C++">QList&lt;AuthenticationProvider&gt; QFieldCloudConnection::availableProviders;
+</code></pre>
+<hr>
+
+<h3 id="property-avatarurl-12">property avatarUrl [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::avatarUrl;
+</code></pre>
+<hr>
+
+<h3 id="property-defaulturl-12">property defaultUrl [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::defaultUrl;
+</code></pre>
+<hr>
+
+<h3 id="property-hasproviderconfiguration-12">property hasProviderConfiguration [1/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudConnection::hasProviderConfiguration;
+</code></pre>
+<hr>
+
+<h3 id="property-hastoken-12">property hasToken [1/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudConnection::hasToken;
+</code></pre>
+<hr>
+
+<h3 id="property-isfetchingavailableproviders-12">property isFetchingAvailableProviders [1/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudConnection::isFetchingAvailableProviders;
+</code></pre>
+<hr>
+
+<h3 id="property-isreachable-12">property isReachable [1/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudConnection::isReachable;
+</code></pre>
+<hr>
+
+<h3 id="property-password-12">property password [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::password;
+</code></pre>
+<hr>
+
+<h3 id="property-provider-12">property provider [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::provider;
+</code></pre>
+<hr>
+
+<h3 id="property-state-12">property state [1/2]</h3>
+<pre><code class="language-C++">ConnectionState QFieldCloudConnection::state;
+</code></pre>
+<hr>
+
+<h3 id="property-status-12">property status [1/2]</h3>
+<pre><code class="language-C++">ConnectionStatus QFieldCloudConnection::status;
+</code></pre>
+<hr>
+
+<h3 id="property-url-12">property url [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::url;
+</code></pre>
+<hr>
+
+<h3 id="property-urls-12">property urls [1/2]</h3>
+<pre><code class="language-C++">QStringList QFieldCloudConnection::urls;
+</code></pre>
+<hr>
+
+<h3 id="property-userinformation-12">property userInformation [1/2]</h3>
+<pre><code class="language-C++">CloudUserInformation QFieldCloudConnection::userInformation;
+</code></pre>
+<hr>
+
+<h3 id="property-username-12">property username [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::username;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-availableproviderschanged">signal availableProvidersChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::availableProvidersChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-avatarurlchanged">signal avatarUrlChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::avatarUrlChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-error">signal error</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::error;
+</code></pre>
+<hr>
+
+<h3 id="signal-isfetchingavailableproviderschanged">signal isFetchingAvailableProvidersChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::isFetchingAvailableProvidersChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-isreachablechanged">signal isReachableChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::isReachableChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-loginfailed">signal loginFailed</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::loginFailed;
+</code></pre>
+<hr>
+
+<h3 id="signal-passwordchanged">signal passwordChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::passwordChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-pendingattachmentsadded">signal pendingAttachmentsAdded</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::pendingAttachmentsAdded;
+</code></pre>
+<hr>
+
+<h3 id="signal-pendingattachmentsuploadfinished">signal pendingAttachmentsUploadFinished</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::pendingAttachmentsUploadFinished;
+</code></pre>
+<hr>
+
+<h3 id="signal-pendingattachmentsuploadstatus">signal pendingAttachmentsUploadStatus</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::pendingAttachmentsUploadStatus;
+</code></pre>
+<hr>
+
+<h3 id="signal-providerchanged">signal providerChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::providerChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-providerconfigurationchanged">signal providerConfigurationChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::providerConfigurationChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-queuedprojectpushrequested">signal queuedProjectPushRequested</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::queuedProjectPushRequested;
+</code></pre>
+<hr>
+
+<h3 id="signal-statechanged">signal stateChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::stateChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-statuschanged">signal statusChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::statusChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-tokenchanged">signal tokenChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::tokenChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-urlchanged">signal urlChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::urlChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-urlschanged">signal urlsChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::urlsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-userinformationchanged">signal userInformationChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::userInformationChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-usernamechanged">signal usernameChanged</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::usernameChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-qfieldcloudconnection">function QFieldCloudConnection</h3>
+<pre><code class="language-C++">QFieldCloudConnection::QFieldCloudConnection () 
+</code></pre>
+<hr>
+
+<h3 id="function-availableproviders-22">function availableProviders [2/2]</h3>
+<pre><code class="language-C++">QList&lt; AuthenticationProvider &gt; QFieldCloudConnection::availableProviders () const
+</code></pre>
+<hr>
+
+<h3 id="function-avatarurl-22">function avatarUrl [2/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::avatarUrl () const
+</code></pre>
+<hr>
+
+<h3 id="function-get-13">function get [1/3]</h3>
+<pre><code class="language-C++">NetworkReply * QFieldCloudConnection::get (
+    const QString &amp; endpoint,
+    const QVariantMap &amp; params=QVariantMap()
+) 
+</code></pre>
+<p>Sends a get request to the given <em>endpoint</em>. Query can be passed via <em>params</em>, empty by default.</p>
+<p>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </p>
+<hr>
+
+<h3 id="function-get-23">function get [2/3]</h3>
+<pre><code class="language-C++">NetworkReply * QFieldCloudConnection::get (
+    QNetworkRequest &amp; request,
+    const QString &amp; endpoint,
+    const QVariantMap &amp; params=QVariantMap()
+) 
+</code></pre>
+<p>Sends a get <em>request</em> to a given <em>endpoint</em>. Additional query can be passed via <em>params</em>, empty by default.</p>
+<p>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </p>
+<hr>
+
+<h3 id="function-get-33">function get [3/3]</h3>
+<pre><code class="language-C++">NetworkReply * QFieldCloudConnection::get (
+    QNetworkRequest &amp; request,
+    const QUrl &amp; url,
+    const QVariantMap &amp; params=QVariantMap()
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-getauthenticationproviders">function getAuthenticationProviders</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldCloudConnection::getAuthenticationProviders () 
+</code></pre>
+<hr>
+
+<h3 id="function-hasproviderconfiguration-22">function hasProviderConfiguration [2/2]</h3>
+<pre><code class="language-C++">inline bool QFieldCloudConnection::hasProviderConfiguration () 
+</code></pre>
+<hr>
+
+<h3 id="function-hastoken-22">function hasToken [2/2]</h3>
+<pre><code class="language-C++">inline bool QFieldCloudConnection::hasToken () 
+</code></pre>
+<hr>
+
+<h3 id="function-isfetchingavailableproviders-22">function isFetchingAvailableProviders [2/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudConnection::isFetchingAvailableProviders () const
+</code></pre>
+<hr>
+
+<h3 id="function-isreachable-22">function isReachable [2/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudConnection::isReachable () const
+</code></pre>
+<p>Returns whether the network is currently reachable.</p>
+<p>If reachability information is not available, this returns true to keep the existing behavior unchanged. </p>
+<hr>
+
+<h3 id="function-login">function login</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldCloudConnection::login (
+    const QString &amp; password=QString()
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-logout">function logout</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldCloudConnection::logout () 
+</code></pre>
+<hr>
+
+<h3 id="function-password-22">function password [2/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::password () const
+</code></pre>
+<hr>
+
+<h3 id="function-post-12">function post [1/2]</h3>
+<pre><code class="language-C++">NetworkReply * QFieldCloudConnection::post (
+    const QString &amp; endpoint,
+    const QVariantMap &amp; params=QVariantMap(),
+    const QStringList &amp; fileNames=QStringList()
+) 
+</code></pre>
+<p>Sends a post request with the given <em>parameters</em> to the given <em>endpoint</em>.</p>
+<p>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </p>
+<hr>
+
+<h3 id="function-post-22">function post [2/2]</h3>
+<pre><code class="language-C++">NetworkReply * QFieldCloudConnection::post (
+    QNetworkRequest &amp; request,
+    const QString &amp; endpoint,
+    const QVariantMap &amp; params=QVariantMap(),
+    const QStringList &amp; fileNames=QStringList()
+) 
+</code></pre>
+<p>Sends a post <em>request</em> with the given <em>parameters</em> to the given <em>endpoint</em>.</p>
+<p>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </p>
+<hr>
+
+<h3 id="function-provider-22">function provider [2/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::provider () const
+</code></pre>
+<hr>
+
+<h3 id="function-queueprojectpush">function queueProjectPush</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::queueProjectPush (
+    const QString &amp; projectId
+) 
+</code></pre>
+<p>Queues a project push request when the network is not reachable.</p>
+<p>The push will be automatically triggered once the connection is back online and the user is logged in. </p>
+<hr>
+
+<h3 id="function-setauthenticationdetails">function setAuthenticationDetails</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::setAuthenticationDetails (
+    QNetworkRequest &amp; request
+) 
+</code></pre>
+<p>Sets authentication details on a <em>request</em>. </p>
+<hr>
+
+<h3 id="function-setpassword">function setPassword</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::setPassword (
+    const QString &amp; password
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setprovider">function setProvider</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::setProvider (
+    const QString &amp; provider
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-seturl">function setUrl</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::setUrl (
+    const QString &amp; url
+) 
+</code></pre>
+<p>Sets the current server connection URL and saves it into QSettings. </p>
+<hr>
+
+<h3 id="function-setusername">function setUsername</h3>
+<pre><code class="language-C++">void QFieldCloudConnection::setUsername (
+    const QString &amp; username
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-state-22">function state [2/2]</h3>
+<pre><code class="language-C++">ConnectionState QFieldCloudConnection::state () const
+</code></pre>
+<hr>
+
+<h3 id="function-status-22">function status [2/2]</h3>
+<pre><code class="language-C++">ConnectionStatus QFieldCloudConnection::status () const
+</code></pre>
+<hr>
+
+<h3 id="function-token">function token</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::token () const
+</code></pre>
+<hr>
+
+<h3 id="function-uploadpendingattachments">function uploadPendingAttachments</h3>
+<pre><code class="language-C++">qsizetype QFieldCloudConnection::uploadPendingAttachments () 
+</code></pre>
+<p>Uploads any pending attachments linked to the logged in user account. </p>
+<p><strong>Returns:</strong></p>
+<p>the number of attachments to be uploaded. </p>
+<hr>
+
+<h3 id="function-url-22">function url [2/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::url () const
+</code></pre>
+<p>Returns the currently set server connection URL. </p>
+<hr>
+
+<h3 id="function-urls-22">function urls [2/2]</h3>
+<pre><code class="language-C++">QStringList QFieldCloudConnection::urls () const
+</code></pre>
+<p>Returns the connections URLs successfully logged in in the past. </p>
+<hr>
+
+<h3 id="function-userinformation-22">function userInformation [2/2]</h3>
+<pre><code class="language-C++">CloudUserInformation QFieldCloudConnection::userInformation () const
+</code></pre>
+<hr>
+
+<h3 id="function-username-22">function username [2/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudConnection::username () const
+</code></pre>
+<hr>
+<h2 id="public-static-functions-documentation">Public Static Functions Documentation</h2>
+<h3 id="function-defaulturl-22">function defaultUrl [2/2]</h3>
+<pre><code class="language-C++">static QString QFieldCloudConnection::defaultUrl () 
+</code></pre>
+<p>Default server connection URL, pointing to the production server. </p>
+<hr>
+
+<h3 id="function-errorstring">function errorString</h3>
+<p><em>Returns an error string to be shown to the user if</em> <em>reply</em> <em>has an error.</em></p>
+<pre><code class="language-C++">static QString QFieldCloudConnection::errorString (
+    QNetworkReply * reply
+) 
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/qfieldcloud/qfieldcloudconnection.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

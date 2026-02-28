@@ -1,0 +1,1031 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File qfieldcloudproject.h - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-qfieldcloudprojecth" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File qfieldcloudproject.h
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-qfieldcloudprojecth">File qfieldcloudproject.h</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_d27ac98b23548f5810403c734ce9817b/"><strong>qfieldcloud</strong></a> <strong>&gt;</strong> <a href="../qfieldcloudproject_8h/"><strong>qfieldcloudproject.h</strong></a></p>
+<p><a href="../qfieldcloudproject_8h/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+    qfieldcloudproject.h
+    ---------------------
+    begin                : April 2025
+    copyright            : (C) 2025 by Mathieu Pellerin
+    email                : mathieu at opengis dot ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#ifndef QFIELDCLOUDPROJECT_H
+#define QFIELDCLOUDPROJECT_H
+
+#include &quot;deltafilewrapper.h&quot;
+#include &quot;networkmanager.h&quot;
+#include &quot;networkreply.h&quot;
+
+#include &lt;QObject&gt;
+#include &lt;QPointer&gt;
+#include &lt;QVariantMap&gt;
+
+class DeltaListModel;
+class QgsGpkgFlusher;
+class QFieldCloudConnection;
+
+class QFieldCloudProject : public QObject
+{
+    Q_OBJECT
+
+    Q_PROPERTY( QString id READ id NOTIFY idChanged )
+    Q_PROPERTY( QString name READ name NOTIFY nameChanged )
+    Q_PROPERTY( QString owner READ owner NOTIFY ownerChanged )
+    Q_PROPERTY( QString description READ description NOTIFY descriptionChanged )
+    Q_PROPERTY( QString localPath READ localPath NOTIFY localPathChanged )
+    Q_PROPERTY( QString thumbnailPath READ thumbnailPath NOTIFY thumbnailPathChanged )
+
+    Q_PROPERTY( QString userRole READ userRole NOTIFY userRoleChanged )
+    Q_PROPERTY( QString userRoleOrigin READ userRoleOrigin NOTIFY userRoleOriginChanged )
+
+    Q_PROPERTY( QDateTime createdAt READ createdAt NOTIFY createdAtChanged )
+    Q_PROPERTY( QDateTime updatedAt READ updatedAt NOTIFY updatedAtChanged )
+
+    Q_PROPERTY( ProjectStatus status READ status NOTIFY statusChanged )
+    Q_PROPERTY( PackagingStatus packagingStatus READ packagingStatus NOTIFY packagingStatusChanged )
+    Q_PROPERTY( QStringList packagedLayerErrors READ packagedLayerErrors NOTIFY packagedLayerErrorsChanged )
+
+    Q_PROPERTY( qint64 downloadBytesTotal READ downloadBytesTotal NOTIFY downloadBytesTotalChanged )
+    Q_PROPERTY( qint64 downloadBytesReceived READ downloadBytesReceived NOTIFY downloadBytesReceivedChanged )
+    Q_PROPERTY( double downloadProgress READ downloadProgress NOTIFY downloadProgressChanged )
+
+    Q_PROPERTY( double pushDeltaProgress READ pushDeltaProgress NOTIFY pushDeltaProgressChanged )
+    Q_PROPERTY( DeltaFileStatus deltaFilePushStatus READ deltaFilePushStatus NOTIFY deltaFilePushStatusChanged )
+    Q_PROPERTY( int deltasCount READ deltasCount NOTIFY deltasCountChanged )
+    Q_PROPERTY( DeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper NOTIFY deltaFileWrapperChanged )
+    Q_PROPERTY( DeltaListModel *deltaListModel READ deltaListModel NOTIFY deltaListModelChanged )
+
+    Q_PROPERTY( qint64 uploadBytesTotal READ uploadBytesTotal NOTIFY uploadBytesTotalChanged )
+    Q_PROPERTY( qint64 uploadBytesSent READ uploadBytesSent NOTIFY uploadBytesSentChanged )
+    Q_PROPERTY( double uploadProgress READ uploadProgress NOTIFY uploadProgressChanged )
+
+    Q_PROPERTY( bool forceAutoPush READ forceAutoPush WRITE setForceAutoPush NOTIFY forceAutoPushChanged )
+    Q_PROPERTY( bool autoPushEnabled READ autoPushEnabled WRITE setAutoPushEnabled NOTIFY autoPushEnabledChanged )
+    Q_PROPERTY( int autoPushIntervalMins READ autoPushIntervalMins WRITE setAutoPushIntervalMins NOTIFY autoPushIntervalMinsChanged )
+
+    Q_PROPERTY( bool attachmentsOnDemandEnabled READ attachmentsOnDemandEnabled WRITE setAttachmentsOnDemandEnabled NOTIFY attachmentsOnDemandEnabledChanged )
+
+    Q_PROPERTY( QString lastLocalPushDeltas READ lastLocalPushDeltas NOTIFY lastLocalPushDeltasChanged )
+    Q_PROPERTY( QString lastLocalExportedAt READ lastLocalExportedAt NOTIFY lastLocalExportedAtChanged )
+
+    Q_PROPERTY( bool isPublic READ isPublic NOTIFY isPublicChanged )
+    Q_PROPERTY( bool isFeatured READ isFeatured NOTIFY isFeaturedChanged )
+    Q_PROPERTY( bool isOutdated READ isOutdated NOTIFY isOutdatedChanged )
+    Q_PROPERTY( bool isProjectOutdated READ isProjectOutdated NOTIFY isProjectOutdatedChanged )
+
+  public:
+    struct FileTransfer
+    {
+        FileTransfer(
+          const QString &amp;fileName,
+          const qint64 bytesTotal,
+          const QString &amp;projectId,
+          const QString &amp;etag )
+          : fileName( fileName ), bytesTotal( bytesTotal ), projectId( projectId ), etag( etag ) {};
+
+        FileTransfer() = default;
+
+        QString fileName;
+        qint64 bytesTotal = 0;
+        QString projectId;
+
+        QString etag;
+        QString partialFilePath;
+        QString tmpFile;
+        qint64 bytesTransferred = 0;
+        bool isFinished = false;
+        QPointer&lt;NetworkReply&gt; networkReply;
+        QNetworkReply::NetworkError error = QNetworkReply::NoError;
+        int redirectsCount = 0;
+        QUrl lastRedirectUrl;
+        bool resumableDownload = true;
+        int retryCount = 0;
+    };
+
+    enum class ProjectStatus
+    {
+      Idle,
+      Downloading,
+      Pushing,
+      Uploading,
+      Failing
+    };
+
+    Q_ENUM( ProjectStatus )
+
+
+    enum ProjectErrorStatus
+    {
+      NoErrorStatus,
+      DownloadErrorStatus,
+      PushErrorStatus,
+    };
+
+    Q_ENUM( ProjectErrorStatus )
+
+
+    enum ProjectCheckout
+    {
+      RemoteCheckout = 2 &lt;&lt; 0,
+      LocalCheckout = 2 &lt;&lt; 1,
+      LocalAndRemoteCheckout = RemoteCheckout | LocalCheckout
+    };
+
+    Q_ENUM( ProjectCheckout )
+    Q_DECLARE_FLAGS( ProjectCheckouts, ProjectCheckout )
+    Q_FLAG( ProjectCheckouts )
+
+
+    enum ProjectModification
+    {
+      NoModification = 0,
+      LocalModification = 2 &lt;&lt; 0,
+      RemoteModification = 2 &lt;&lt; 1,
+      LocalAndRemoteModification = RemoteModification | LocalModification
+    };
+
+    Q_ENUM( ProjectModification )
+    Q_DECLARE_FLAGS( ProjectModifications, ProjectModification )
+    Q_FLAG( ProjectModifications )
+
+
+    enum DeltaFileStatus
+    {
+      DeltaErrorStatus,
+      DeltaLocalStatus,
+      DeltaPendingStatus,
+      DeltaBusyStatus,
+      DeltaConflictStatus,
+      DeltaNotAppliedStatus,
+      DeltaAppliedStatus,
+    };
+
+    Q_ENUM( DeltaFileStatus )
+
+
+    enum PackagingStatus
+    {
+      PackagingUnstartedStatus,
+      PackagingErrorStatus,
+      PackagingBusyStatus,
+      PackagingFinishedStatus,
+      PackagingAbortStatus,
+    };
+
+    Q_ENUM( PackagingStatus )
+
+
+    enum JobStatus
+    {
+      JobPendingStatus,
+      JobQueuedStatus,
+      JobStartedStatus,
+      JobFinishedStatus,
+      JobStoppedStatus,
+      JobFailedStatus,
+    };
+
+    Q_ENUM( JobStatus )
+
+
+    enum class JobType
+    {
+      Package,
+    };
+
+    Q_ENUM( JobType )
+
+
+    enum class ProjectRefreshReason
+    {
+      Package,
+      DeltaPushed
+    };
+
+    Q_ENUM( ProjectRefreshReason )
+
+    QFieldCloudProject( const QString &amp;id = QString(), QFieldCloudConnection *connection = nullptr, QgsGpkgFlusher *gpkgFlusher = nullptr );
+    ~QFieldCloudProject() = default;
+
+    QString id() const { return mId; }
+
+    QString sharedDatasetsProjectId() const { return mSharedDatasetsProjectId; }
+    void setSharedDatasetsProjectId( const QString &amp;id );
+
+    bool isSharedDatasetsProject() const { return mIsSharedDatasetsProject; }
+    void setIsSharedDatasetsProject( bool isSharedDatasetsProject );
+
+    bool isPublic() const { return mIsPublic; }
+    void setIsPublic( bool isPublic );
+
+    bool isFeatured() const { return mIsFeatured; }
+    void setIsFeatured( bool isFeatured );
+
+    QString owner() const { return mOwner; }
+    void setOwner( const QString &amp;owner );
+
+    QString name() const { return mName; }
+    void setName( const QString &amp;name );
+
+    QString description() const { return mDescription; }
+    void setDescription( const QString &amp;description );
+
+    QString userRole() const { return mUserRole; }
+    void setUserRole( const QString &amp;userRole );
+
+    QString userRoleOrigin() const { return mUserRoleOrigin; }
+    void setUserRoleOrigin( const QString &amp;userRoleOrigin );
+
+    ProjectErrorStatus errorStatus() const { return mErrorStatus; }
+    void setErrorStatus( ProjectErrorStatus errorStatus );
+
+    ProjectCheckouts checkout() const { return mCheckout; }
+    void setCheckout( ProjectCheckouts checkout );
+
+    ProjectStatus status() const { return mStatus; }
+    void setStatus( ProjectStatus status );
+
+    QDateTime createdAt() const { return mCreatedAt; }
+    void setCreatedAt( const QDateTime &amp;createdAt );
+
+    QDateTime updatedAt() const { return mUpdatedAt; }
+    void setUpdatedAt( const QDateTime &amp;updatedAt );
+
+    QDateTime dataLastUpdatedAt() const { return mDataLastUpdatedAt; }
+    void setDataLastUpdatedAt( const QDateTime &amp;dataLastUpdatedAt );
+
+    QDateTime restrictedDataLastUpdatedAt() const { return mRestrictedDataLastUpdatedAt; }
+    void setRestrictedDataLastUpdatedAt( const QDateTime &amp;restrictedDataLastUpdatedAt );
+
+    bool canRepackage() const { return mCanRepackage; }
+    void setCanRepackage( bool canRepackage );
+
+    bool needsRepackaging() const { return mNeedsRepackaging; }
+    void setNeedsRepackaging( bool needsRepackaging );
+
+    bool isOutdated() const { return mIsOutdated; }
+    void setIsOutdated( bool isOutdated );
+
+    bool isProjectOutdated() const { return mIsProjectOutdated; }
+    void setIsProjectOutdated( bool isProjectOutdated );
+
+    ProjectModifications modification() const { return mModification; }
+    void setModification( ProjectModification modification );
+
+    QString localPath() const { return mLocalPath; }
+    void setLocalPath( const QString &amp;localPath );
+
+    QString deltaFileId() const { return mDeltaFileId; }
+    void setDeltaFileId( const QString &amp;deltaFileId );
+
+    DeltaFileStatus deltaFilePushStatus() const { return mDeltaFilePushStatus; }
+    void setDeltaFilePushStatus( DeltaFileStatus deltaFilePushStatus );
+
+    QString deltaFilePushStatusString() const { return mDeltaFilePushStatusString; }
+    void setDeltaFilePushStatusString( const QString &amp;deltaFilePushStatusString );
+
+    double pushDeltaProgress() const { return mPushDeltaProgress; }
+
+    QStringList deltaLayersToDownload() const { return mDeltaLayersToDownload; }
+    void setDeltaLayersToDownload( const QStringList &amp;deltaLayersToDownload );
+
+    bool isPackagingActive() const { return mIsPackagingActive; }
+    void setIsPackagingActive( bool isPackagingActive );
+
+    bool isPackagingFailed() const { return mIsPackagingFailed; }
+    void setIsPackagingFailed( bool isPackagingFailed );
+
+    PackagingStatus packagingStatus() const { return mPackagingStatus; }
+    void setPackagingStatus( PackagingStatus packagingStatus );
+
+    QString packagingStatusString() const { return mPackagingStatusString; }
+    void setPackagingStatusString( const QString &amp;packagingStatusString );
+
+    QStringList packagedLayerErrors() const { return mPackagedLayerErrors; }
+    void setPackagedLayerErrors( const QStringList &amp;packagedLayerErrors );
+
+    bool forceAutoPush() const { return mForceAutoPush; }
+    void setForceAutoPush( bool force );
+
+    bool autoPushEnabled() const { return mAutoPushEnabled; }
+    void setAutoPushEnabled( bool enabled );
+
+    int autoPushIntervalMins() const { return mAutoPushIntervalMins; }
+    void setAutoPushIntervalMins( int minutes );
+
+    bool attachmentsOnDemandEnabled() const { return mAttachmentsOnDemandEnabled; }
+    void setAttachmentsOnDemandEnabled( bool enabled );
+
+    QString lastLocalPushDeltas() const { return mLastLocalPushDeltas; }
+    void setLastLocalPushDeltas( const QString &amp;lastLocalPushDeltas );
+
+    QString lastLocalExportedAt() const { return mLastLocalExportedAt; }
+    void setLastLocalExportedAt( const QString &amp;lastLocalExportedAt );
+
+    QString lastLocalExportId() const { return mLastLocalExportId; }
+    void setLastLocalExportId( const QString &amp;lastLocalExportId );
+
+    QDateTime lastLocalDataLastUpdatedAt() const { return mLastLocalDataLastUpdatedAt; }
+    void setLastLocalDataLastUpdatedAt( const QDateTime &amp;lastLocalDataLastUpdatedAt );
+
+    QDateTime lastLocalRestrictedDataLastUpdatedAt() const { return mLastLocalRestrictedDataLastUpdatedAt; }
+    void setLastLocalRestrictedDataLastUpdatedAt( const QDateTime &amp;lastLocalRestrictedDataLastUpdatedAt );
+
+    QDateTime lastRefreshedAt() const { return mLastRefreshedAt; }
+    void setLastRefreshedAt( const QDateTime &amp;lastRefreshedAt );
+
+    qint64 downloadBytesTotal() const { return mDownloadBytesTotal; }
+    qint64 downloadBytesReceived() const { return mDownloadBytesReceived; }
+    double downloadProgress() const { return mDownloadProgress; }
+
+    qint64 uploadBytesTotal() const { return mUploadBytesTotal; }
+    qint64 uploadBytesSent() const { return mUploadBytesSent; }
+    double uploadProgress() const { return mUploadProgress; }
+
+    int deltasCount() const { return mDeltaFileWrapper ? mDeltaFileWrapper-&gt;count() : 0; }
+    DeltaFileWrapper *deltaFileWrapper() const { return mDeltaFileWrapper.get(); }
+    DeltaListModel *deltaListModel() const { return mDeltaListModel.get(); }
+
+    QString thumbnailPath() const { return mThumbnailPath; }
+    void setThumbnailPath( const QString &amp;thumbnailPath );
+
+    Q_INVOKABLE void downloadThumbnail();
+    Q_INVOKABLE void downloadAttachment( const QString &amp;fileName );
+
+    Q_INVOKABLE void uploadLocalPath( QString localPath, bool deleteAfterSuccessfulUpload = false );
+
+    Q_INVOKABLE void packageAndDownload();
+    void cancelDownload();
+
+    Q_INVOKABLE void push( bool shouldDownloadUpdates );
+    void cancelPush();
+
+    void refreshDeltaList();
+    void refreshModification();
+
+    void removeLocally();
+
+    static QFieldCloudProject::JobStatus getJobStatusFromString( const QString &amp;status );
+    static QString getJobTypeAsString( QFieldCloudProject::JobType jobType );
+
+    static QFieldCloudProject *fromDetails( const QVariantHash &amp;details, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher = nullptr );
+    static QFieldCloudProject *fromLocalSettings( const QString &amp;id, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher = nullptr );
+    static void restoreLocalSettings( QFieldCloudProject *project, const QDir &amp;localPath );
+
+  signals:
+    void idChanged();
+
+    void sharedDatasetsProjectIdChanged();
+    void isSharedDatasetsProjectChanged();
+
+    void isPublicChanged();
+    void isFeaturedChanged();
+    void ownerChanged();
+    void nameChanged();
+    void descriptionChanged();
+    void userRoleChanged();
+    void userRoleOriginChanged();
+
+    void errorStatusChanged();
+    void checkoutChanged();
+    void statusChanged();
+
+    void createdAtChanged();
+    void updatedAtChanged();
+    void dataLastUpdatedAtChanged();
+    void restrictedDataLastUpdatedAtChanged();
+
+    void canRepackageChanged();
+    void needsRepackagingChanged();
+    void isOutdatedChanged();
+    void isProjectOutdatedChanged();
+
+    void modificationChanged();
+    void localPathChanged();
+
+    void deltaFileIdChanged();
+    void deltaFilePushStatusChanged();
+    void deltaFilePushStatusStringChanged();
+    void deltaLayersToDownloadChanged();
+
+    void pushDeltaProgressChanged();
+
+    void isPackagingActiveChanged();
+    void isPackagingFailedChanged();
+    void packagingStatusChanged();
+    void packagingStatusStringChanged();
+    void packagedLayerErrorsChanged();
+
+    void forceAutoPushChanged();
+    void autoPushEnabledChanged();
+    void autoPushIntervalMinsChanged();
+
+    void attachmentsOnDemandEnabledChanged();
+
+    void lastLocalExportedAtChanged();
+    void lastLocalExportIdChanged();
+    void lastDataLastUpdatedAtChanged();
+
+    void lastLocalDataLastUpdatedAtChanged();
+    void lastLocalRestrictedDataLastUpdatedAtChanged();
+    void lastRefreshedAtChanged();
+    void lastLocalPushDeltasChanged();
+
+    void downloadBytesTotalChanged();
+    void downloadBytesReceivedChanged();
+    void downloadProgressChanged();
+
+    void uploadBytesTotalChanged();
+    void uploadBytesSentChanged();
+    void uploadProgressChanged();
+
+    void deltasCountChanged();
+    void deltaFileWrapperChanged();
+    void deltaListModelChanged();
+
+    void thumbnailPathChanged();
+
+    void downloadAttachmentFinished( const QString &amp;fileName, const QString &amp;error = QString() );
+    void downloadFinished( const QString &amp;error = QString() );
+    void downloaded( const QString &amp;name, const QString &amp;error = QString() );
+
+    void pushFinished( bool isDownloading, const QString &amp;error = QString() );
+
+    void uploadFinished( const QString &amp;error = QString() );
+
+    void networkDeltaPushed();
+    void networkDeltaStatusChecked();
+
+    void dataRefreshed( ProjectRefreshReason reason, const QString &amp;error = QString() );
+    void jobFinished( JobType type, const QString &amp;error = QString() );
+
+  private:
+    void download();
+    void prepareDownloadTransfer( const QString &amp;projectId, const QString &amp;fileName, qint64 fileSize, const QString &amp;cloudEtag );
+    void downloadFiles();
+    void updateActiveFilesToDownload();
+    void downloadFilesCompleted();
+
+    void uploadFiles();
+
+    void startJob( JobType type );
+    void getJobStatus( JobType type );
+    void getDeltaStatus();
+
+    void refreshData( ProjectRefreshReason reason );
+
+    void setupDeltaFileWrapper();
+
+    NetworkReply *downloadFile( const QString &amp;projectId, const QString &amp;fileName, bool fromLatestPackage = true, bool autoRedirect = false );
+    void downloadFileConnections( const QString &amp;fileKey );
+    void downloadAttachmentConnections( const QString &amp;fileKey );
+
+    bool moveDownloadedFilesToPermanentStorage();
+    void logFailedDownload( const QString &amp;fileKey, const QString &amp;errorMessage, const QString &amp;errorMessageDetail );
+
+    struct Job
+    {
+        Job(
+          const QString &amp;id,
+          const QString &amp;projectId,
+          const QFieldCloudProject::JobType type )
+          : id( id ), projectId( projectId ), type( type ) {};
+
+        Job() = default;
+
+        QString id;
+        QString projectId;
+        QFieldCloudProject::JobType type = QFieldCloudProject::JobType::Package;
+        QFieldCloudProject::JobStatus status = QFieldCloudProject::JobPendingStatus;
+    };
+
+    QString mId;
+    QString mSharedDatasetsProjectId;
+    bool mIsSharedDatasetsProject;
+
+    bool mIsPublic = false;
+    bool mIsFeatured = false;
+
+    QString mOwner;
+    QString mName;
+    QString mDescription;
+    QString mUserRole;
+    QString mUserRoleOrigin;
+
+    ProjectErrorStatus mErrorStatus = ProjectErrorStatus::NoErrorStatus;
+    ProjectCheckouts mCheckout = ProjectCheckout::LocalCheckout;
+    ProjectStatus mStatus = ProjectStatus::Idle;
+    QDateTime mCreatedAt;
+    QDateTime mUpdatedAt;
+    QDateTime mDataLastUpdatedAt;
+    QDateTime mRestrictedDataLastUpdatedAt;
+    bool mCanRepackage = false;
+    bool mNeedsRepackaging = false;
+    bool mIsOutdated = false;
+    bool mIsProjectOutdated = false;
+    ProjectModifications mModification = ProjectModification::NoModification;
+    QString mLocalPath;
+
+    QString mDeltaFileId;
+    DeltaFileStatus mDeltaFilePushStatus = DeltaLocalStatus;
+    QString mDeltaFilePushStatusString;
+    QStringList mDeltaLayersToDownload;
+
+    bool mIsPackagingActive = false;
+    bool mIsPackagingFailed = false;
+    PackagingStatus mPackagingStatus = PackagingUnstartedStatus;
+    QString mPackagingStatusString;
+    QStringList mPackagedLayerErrors;
+
+    QStringList mActiveFilesToDownload;
+    QMap&lt;QString, FileTransfer&gt; mDownloadFileTransfers;
+    int mDownloadFilesFinished = 0;
+    int mDownloadFilesFailed = 0;
+    qint64 mDownloadBytesTotal = 0;
+    qint64 mDownloadBytesReceived = 0;
+    double mDownloadProgress = 0.0;  // range from 0.0 to 1.0
+    double mPushDeltaProgress = 0.0; // range from 0.0 to 1.0
+
+    QString mUploadLocalPath;
+    bool mUploadDeleteAfterSuccessfulUpload = false;
+
+    QMap&lt;QString, QFieldCloudProject::FileTransfer&gt; mUploadFileTransfers;
+    int mUploadFilesFailed = 0;
+    qint64 mUploadBytesTotal = 0;
+    qint64 mUploadBytesSent = 0;
+    double mUploadProgress = 0.0;
+
+    std::unique_ptr&lt;DeltaFileWrapper&gt; mDeltaFileWrapper;
+    std::unique_ptr&lt;DeltaListModel&gt; mDeltaListModel;
+
+    QString mThumbnailPath;
+
+    QString mLastExportedAt;
+    QString mLastExportId;
+    QString mLastLocalExportedAt;
+    QString mLastLocalExportId;
+    QString mLastLocalPushDeltas;
+
+    QDateTime mLastLocalDataLastUpdatedAt;
+    QDateTime mLastLocalRestrictedDataLastUpdatedAt;
+    QDateTime mLastRefreshedAt;
+
+    bool mForceAutoPush = false;
+    bool mAutoPushEnabled = false;
+    int mAutoPushIntervalMins = 30;
+
+    bool mAttachmentsOnDemandEnabled = false;
+    QMap&lt;QString, FileTransfer&gt; mAttachmentsFileTransfers;
+
+    QMap&lt;JobType, Job&gt; mJobs;
+
+    QFieldCloudConnection *mCloudConnection = nullptr;
+    QString mUsername;
+
+    QgsGpkgFlusher *mGpkgFlusher = nullptr;
+
+    static const int sDelayBeforeStatusRetry = 1000;
+};
+
+Q_DECLARE_METATYPE( QFieldCloudProject::ProjectStatus )
+Q_DECLARE_METATYPE( QFieldCloudProject::ProjectCheckout )
+Q_DECLARE_METATYPE( QFieldCloudProject::ProjectCheckouts )
+Q_DECLARE_OPERATORS_FOR_FLAGS( QFieldCloudProject::ProjectCheckouts )
+Q_DECLARE_METATYPE( QFieldCloudProject::ProjectModification )
+Q_DECLARE_METATYPE( QFieldCloudProject::ProjectModifications )
+Q_DECLARE_OPERATORS_FOR_FLAGS( QFieldCloudProject::ProjectModifications )
+
+#endif // QFIELDCLOUDPROJECT_H
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

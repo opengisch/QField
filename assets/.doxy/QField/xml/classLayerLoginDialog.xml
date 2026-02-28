@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLayerLoginDialog" kind="class" language="C++" prot="public">
+    <compoundname>LayerLoginDialog</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Page</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classLayerLoginDialog_1ad012e5934992781b100bc870a5aaa88b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string LayerLoginDialog::credentialTitle</definition>
+        <argsstring></argsstring>
+        <name>credentialTitle</name>
+        <qualifiedname>LayerLoginDialog::credentialTitle</qualifiedname>
+        <read>dummyGetter_credentialTitle_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="16" column="1" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLayerLoginDialog_1af6a490fc9728c3d460ed57bdcd8a2d8e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var LayerLoginDialog::inCancelation</definition>
+        <argsstring></argsstring>
+        <name>inCancelation</name>
+        <qualifiedname>LayerLoginDialog::inCancelation</qualifiedname>
+        <read>dummyGetter_inCancelation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="18" column="1" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLayerLoginDialog_1ac51a2503cadcf70ef8c913d48238ddd0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerLoginDialog::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>LayerLoginDialog::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="20" column="5" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerLoginDialog_1acefe5a5233d6d7349335c9b71bf4108a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerLoginDialog::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>LayerLoginDialog::header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="21" column="5" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerLoginDialog_1a9e33b629240e9045c7466c3442887bc2" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable LayerLoginDialog::flickable</definition>
+        <argsstring></argsstring>
+        <name>flickable</name>
+        <qualifiedname>LayerLoginDialog::flickable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="22" column="11" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerLoginDialog_1a1246168655b57e461f4325399768ed2f" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout LayerLoginDialog::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <qualifiedname>LayerLoginDialog::content</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="23" column="14" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerLoginDialog_1a6e86b112f6bad6fede34071a9a8debd1" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField LayerLoginDialog::usernameField</definition>
+        <argsstring></argsstring>
+        <name>usernameField</name>
+        <qualifiedname>LayerLoginDialog::usernameField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="24" column="11" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerLoginDialog_1a7a04fd659c2a76688d6319a5ec102d7f" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField LayerLoginDialog::passwordField</definition>
+        <argsstring></argsstring>
+        <name>passwordField</name>
+        <qualifiedname>LayerLoginDialog::passwordField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="25" column="11" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerLoginDialog_1a758ef19bf80d422ef506b05b418eaf62" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton LayerLoginDialog::showPasswordButton</definition>
+        <argsstring></argsstring>
+        <name>showPasswordButton</name>
+        <qualifiedname>LayerLoginDialog::showPasswordButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="26" column="14" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerLoginDialog_1a7eb1942c454496208895782f09a77222" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton LayerLoginDialog::submit</definition>
+        <argsstring></argsstring>
+        <name>submit</name>
+        <qualifiedname>LayerLoginDialog::submit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="27" column="10" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerLoginDialog_1a00b1ec87d3842cd71137eb68f1b23cad" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerLoginDialog::onVisibleChanged</definition>
+        <argsstring></argsstring>
+        <name>onVisibleChanged</name>
+        <qualifiedname>LayerLoginDialog::onVisibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="28" column="5" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classLayerLoginDialog_1af194e17597093ce2b8de044cced8bdab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerLoginDialog::enter</definition>
+        <argsstring>(string usr, string pw)</argsstring>
+        <name>enter</name>
+        <qualifiedname>LayerLoginDialog::enter</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>usr</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pw</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="12" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classLayerLoginDialog_1a88a89ef8d3d84e93127cc41ff993df85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerLoginDialog::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>LayerLoginDialog::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerLoginDialog.qml" line="14" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LayerLoginDialog</label>
+        <link refid="classLayerLoginDialog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Page</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LayerLoginDialog</label>
+        <link refid="classLayerLoginDialog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Page</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/LayerLoginDialog.qml" line="9" column="1" bodyfile="src/qml/LayerLoginDialog.qml" bodystart="9" bodyend="29"/>
+    <listofallmembers>
+      <member refid="classLayerLoginDialog_1a88a89ef8d3d84e93127cc41ff993df85" prot="public" virt="non-virtual"><scope>LayerLoginDialog</scope><name>cancel</name></member>
+      <member refid="classLayerLoginDialog_1a1246168655b57e461f4325399768ed2f" prot="private" virt="non-virtual"><scope>LayerLoginDialog</scope><name>content</name></member>
+      <member refid="classLayerLoginDialog_1ad012e5934992781b100bc870a5aaa88b" prot="public" virt="non-virtual"><scope>LayerLoginDialog</scope><name>credentialTitle</name></member>
+      <member refid="classLayerLoginDialog_1af194e17597093ce2b8de044cced8bdab" prot="public" virt="non-virtual"><scope>LayerLoginDialog</scope><name>enter</name></member>
+      <member refid="classLayerLoginDialog_1a9e33b629240e9045c7466c3442887bc2" prot="private" virt="non-virtual"><scope>LayerLoginDialog</scope><name>flickable</name></member>
+      <member refid="classLayerLoginDialog_1acefe5a5233d6d7349335c9b71bf4108a" prot="private" virt="non-virtual"><scope>LayerLoginDialog</scope><name>header</name></member>
+      <member refid="classLayerLoginDialog_1af6a490fc9728c3d460ed57bdcd8a2d8e" prot="public" virt="non-virtual"><scope>LayerLoginDialog</scope><name>inCancelation</name></member>
+      <member refid="classLayerLoginDialog_1a00b1ec87d3842cd71137eb68f1b23cad" prot="private" virt="non-virtual"><scope>LayerLoginDialog</scope><name>onVisibleChanged</name></member>
+      <member refid="classLayerLoginDialog_1ac51a2503cadcf70ef8c913d48238ddd0" prot="private" virt="non-virtual"><scope>LayerLoginDialog</scope><name>padding</name></member>
+      <member refid="classLayerLoginDialog_1a7a04fd659c2a76688d6319a5ec102d7f" prot="private" virt="non-virtual"><scope>LayerLoginDialog</scope><name>passwordField</name></member>
+      <member refid="classLayerLoginDialog_1a758ef19bf80d422ef506b05b418eaf62" prot="private" virt="non-virtual"><scope>LayerLoginDialog</scope><name>showPasswordButton</name></member>
+      <member refid="classLayerLoginDialog_1a7eb1942c454496208895782f09a77222" prot="private" virt="non-virtual"><scope>LayerLoginDialog</scope><name>submit</name></member>
+      <member refid="classLayerLoginDialog_1a6e86b112f6bad6fede34071a9a8debd1" prot="private" virt="non-virtual"><scope>LayerLoginDialog</scope><name>usernameField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

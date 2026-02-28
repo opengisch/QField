@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classInformationDrawer" kind="class" language="C++" prot="public">
+    <compoundname>InformationDrawer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classInformationDrawer_1a720cf798ee3f9dea290abfffc3517b47" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors InformationDrawer::bottom</definition>
+        <argsstring></argsstring>
+        <name>bottom</name>
+        <qualifiedname>InformationDrawer::bottom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="9" column="12" bodyfile="src/qml/InformationDrawer.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1a93fbc79e9718c3d519be89ed6f837bbc" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors InformationDrawer::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <qualifiedname>InformationDrawer::left</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="10" column="12" bodyfile="src/qml/InformationDrawer.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1abb0a94bce4d2021ddd72debc193a4703" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors InformationDrawer::leftMargin</definition>
+        <argsstring></argsstring>
+        <name>leftMargin</name>
+        <qualifiedname>InformationDrawer::leftMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="11" column="12" bodyfile="src/qml/InformationDrawer.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1ab3269518cd01e1784a0c5873a16aeb8e" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors InformationDrawer::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <qualifiedname>InformationDrawer::right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="12" column="12" bodyfile="src/qml/InformationDrawer.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1a5e5eb294e09235296facb1f76ba917bf" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors InformationDrawer::rightMargin</definition>
+        <argsstring></argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>InformationDrawer::rightMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="13" column="12" bodyfile="src/qml/InformationDrawer.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1a49f1f13ced32142484e371b3ecc916c2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var InformationDrawer::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>InformationDrawer::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="14" column="5" bodyfile="src/qml/InformationDrawer.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1a766af315d1929e2126b8c7978296f888" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column InformationDrawer::mainContent</definition>
+        <argsstring></argsstring>
+        <name>mainContent</name>
+        <qualifiedname>InformationDrawer::mainContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="37" column="8" bodyfile="src/qml/InformationDrawer.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1a162a2411c010a8cffab874b539a5948e" prot="private" static="no" mutable="no">
+        <type><ref refid="classCogoOperationSettings" kindref="compound">CogoOperationSettings</ref></type>
+        <definition>CogoOperationSettings InformationDrawer::cogoOperationSettings</definition>
+        <argsstring></argsstring>
+        <name>cogoOperationSettings</name>
+        <qualifiedname>InformationDrawer::cogoOperationSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="38" column="23" bodyfile="src/qml/InformationDrawer.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1ac3bb3bb46dd87705f3193feb30a8b5b7" prot="private" static="no" mutable="no">
+        <type><ref refid="classNavigationInformationView" kindref="compound">NavigationInformationView</ref></type>
+        <definition>NavigationInformationView InformationDrawer::navigationInformationView</definition>
+        <argsstring></argsstring>
+        <name>navigationInformationView</name>
+        <qualifiedname>InformationDrawer::navigationInformationView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="39" column="27" bodyfile="src/qml/InformationDrawer.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1a1fc10917cd010c7466442e85e872a951" prot="private" static="no" mutable="no">
+        <type><ref refid="classPositioningInformationView" kindref="compound">PositioningInformationView</ref></type>
+        <definition>PositioningInformationView InformationDrawer::positioningInformationView</definition>
+        <argsstring></argsstring>
+        <name>positioningInformationView</name>
+        <qualifiedname>InformationDrawer::positioningInformationView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="40" column="28" bodyfile="src/qml/InformationDrawer.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1a16a34d3786ba2b8b377c2372b22f1642" prot="private" static="no" mutable="no">
+        <type><ref refid="classPositioningPreciseView" kindref="compound">PositioningPreciseView</ref></type>
+        <definition>PositioningPreciseView InformationDrawer::positioningPreciseView</definition>
+        <argsstring></argsstring>
+        <name>positioningPreciseView</name>
+        <qualifiedname>InformationDrawer::positioningPreciseView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="41" column="24" bodyfile="src/qml/InformationDrawer.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1a2460af20cb8d23a52b8fbeaa699fef2e" prot="private" static="no" mutable="no">
+        <type><ref refid="classSensorInformationView" kindref="compound">SensorInformationView</ref></type>
+        <definition>SensorInformationView InformationDrawer::sensorInformationView</definition>
+        <argsstring></argsstring>
+        <name>sensorInformationView</name>
+        <qualifiedname>InformationDrawer::sensorInformationView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="42" column="23" bodyfile="src/qml/InformationDrawer.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInformationDrawer_1a91986c8fd75ba6b2f5de6a3217f21af9" prot="private" static="no" mutable="no">
+        <type><ref refid="classElevationProfile" kindref="compound">ElevationProfile</ref></type>
+        <definition>ElevationProfile InformationDrawer::elevationProfile</definition>
+        <argsstring></argsstring>
+        <name>elevationProfile</name>
+        <qualifiedname>InformationDrawer::elevationProfile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="43" column="18" bodyfile="src/qml/InformationDrawer.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classInformationDrawer_1aaa726a79292b9d237b14931b82c44163" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias InformationDrawer::cogoOperationSettings</definition>
+        <argsstring></argsstring>
+        <name>cogoOperationSettings</name>
+        <qualifiedname>InformationDrawer::cogoOperationSettings</qualifiedname>
+        <read>dummyGetter_cogoOperationSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="17" column="1" bodyfile="src/qml/InformationDrawer.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classInformationDrawer_1a213eded7daabeb679537a6fcd0984ca8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool InformationDrawer::sensorInformationViewEnabled</definition>
+        <argsstring></argsstring>
+        <name>sensorInformationViewEnabled</name>
+        <qualifiedname>InformationDrawer::sensorInformationViewEnabled</qualifiedname>
+        <read>dummyGetter_sensorInformationViewEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="19" column="1" bodyfile="src/qml/InformationDrawer.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classInformationDrawer_1af6d3497bbe041d6273942875e033fa60" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool InformationDrawer::navigationInformationViewEnabled</definition>
+        <argsstring></argsstring>
+        <name>navigationInformationViewEnabled</name>
+        <qualifiedname>InformationDrawer::navigationInformationViewEnabled</qualifiedname>
+        <read>dummyGetter_navigationInformationViewEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="21" column="1" bodyfile="src/qml/InformationDrawer.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classInformationDrawer_1a497d08d2fd237f133f5b3bd4860c3581" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classNavigation" kindref="compound">Navigation</ref></type>
+        <definition>Navigation InformationDrawer::navigation</definition>
+        <argsstring></argsstring>
+        <name>navigation</name>
+        <qualifiedname>InformationDrawer::navigation</qualifiedname>
+        <read>dummyGetter_navigation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="23" column="1" bodyfile="src/qml/InformationDrawer.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classInformationDrawer_1a6cc030425d7511e7c1b42f2b7f416095" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool InformationDrawer::positioningInformationViewEnabled</definition>
+        <argsstring></argsstring>
+        <name>positioningInformationViewEnabled</name>
+        <qualifiedname>InformationDrawer::positioningInformationViewEnabled</qualifiedname>
+        <read>dummyGetter_positioningInformationViewEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="25" column="1" bodyfile="src/qml/InformationDrawer.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classInformationDrawer_1a0cefbab91081c1e421cb4358e314fd97" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias InformationDrawer::positioningPreciseView</definition>
+        <argsstring></argsstring>
+        <name>positioningPreciseView</name>
+        <qualifiedname>InformationDrawer::positioningPreciseView</qualifiedname>
+        <read>dummyGetter_positioningPreciseView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="27" column="1" bodyfile="src/qml/InformationDrawer.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classInformationDrawer_1afa70f15e323d5eb578d16b23c330fe8a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classPositioningSettings" kindref="compound">PositioningSettings</ref></type>
+        <definition>PositioningSettings InformationDrawer::positioningSettings</definition>
+        <argsstring></argsstring>
+        <name>positioningSettings</name>
+        <qualifiedname>InformationDrawer::positioningSettings</qualifiedname>
+        <read>dummyGetter_positioningSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="29" column="1" bodyfile="src/qml/InformationDrawer.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classInformationDrawer_1a2bf8ec38bd84f0f6218164ec1065371c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classPositioning" kindref="compound">Positioning</ref></type>
+        <definition>Positioning InformationDrawer::positionSource</definition>
+        <argsstring></argsstring>
+        <name>positionSource</name>
+        <qualifiedname>InformationDrawer::positionSource</qualifiedname>
+        <read>dummyGetter_positionSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="31" column="1" bodyfile="src/qml/InformationDrawer.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classInformationDrawer_1af962b99840331b9802b436f340635154" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool InformationDrawer::positioningPreciseEnabled</definition>
+        <argsstring></argsstring>
+        <name>positioningPreciseEnabled</name>
+        <qualifiedname>InformationDrawer::positioningPreciseEnabled</qualifiedname>
+        <read>dummyGetter_positioningPreciseEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="33" column="1" bodyfile="src/qml/InformationDrawer.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classInformationDrawer_1a06299a5d13dddf03b6025f62e804b168" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias InformationDrawer::elevationProfile</definition>
+        <argsstring></argsstring>
+        <name>elevationProfile</name>
+        <qualifiedname>InformationDrawer::elevationProfile</qualifiedname>
+        <read>dummyGetter_elevationProfile_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/InformationDrawer.qml" line="35" column="1" bodyfile="src/qml/InformationDrawer.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>InformationDrawer</label>
+        <link refid="classInformationDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>InformationDrawer</label>
+        <link refid="classInformationDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/InformationDrawer.qml" line="8" column="1" bodyfile="src/qml/InformationDrawer.qml" bodystart="8" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classInformationDrawer_1a720cf798ee3f9dea290abfffc3517b47" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>bottom</name></member>
+      <member refid="classInformationDrawer_1aaa726a79292b9d237b14931b82c44163" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>cogoOperationSettings</name></member>
+      <member refid="classInformationDrawer_1a162a2411c010a8cffab874b539a5948e" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>cogoOperationSettings</name></member>
+      <member refid="classInformationDrawer_1a06299a5d13dddf03b6025f62e804b168" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>elevationProfile</name></member>
+      <member refid="classInformationDrawer_1a91986c8fd75ba6b2f5de6a3217f21af9" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>elevationProfile</name></member>
+      <member refid="classInformationDrawer_1a49f1f13ced32142484e371b3ecc916c2" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>height</name></member>
+      <member refid="classInformationDrawer_1a93fbc79e9718c3d519be89ed6f837bbc" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>left</name></member>
+      <member refid="classInformationDrawer_1abb0a94bce4d2021ddd72debc193a4703" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>leftMargin</name></member>
+      <member refid="classInformationDrawer_1a766af315d1929e2126b8c7978296f888" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>mainContent</name></member>
+      <member refid="classInformationDrawer_1a497d08d2fd237f133f5b3bd4860c3581" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>navigation</name></member>
+      <member refid="classInformationDrawer_1ac3bb3bb46dd87705f3193feb30a8b5b7" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>navigationInformationView</name></member>
+      <member refid="classInformationDrawer_1af6d3497bbe041d6273942875e033fa60" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>navigationInformationViewEnabled</name></member>
+      <member refid="classInformationDrawer_1a1fc10917cd010c7466442e85e872a951" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>positioningInformationView</name></member>
+      <member refid="classInformationDrawer_1a6cc030425d7511e7c1b42f2b7f416095" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>positioningInformationViewEnabled</name></member>
+      <member refid="classInformationDrawer_1af962b99840331b9802b436f340635154" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>positioningPreciseEnabled</name></member>
+      <member refid="classInformationDrawer_1a0cefbab91081c1e421cb4358e314fd97" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>positioningPreciseView</name></member>
+      <member refid="classInformationDrawer_1a16a34d3786ba2b8b377c2372b22f1642" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>positioningPreciseView</name></member>
+      <member refid="classInformationDrawer_1afa70f15e323d5eb578d16b23c330fe8a" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>positioningSettings</name></member>
+      <member refid="classInformationDrawer_1a2bf8ec38bd84f0f6218164ec1065371c" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>positionSource</name></member>
+      <member refid="classInformationDrawer_1ab3269518cd01e1784a0c5873a16aeb8e" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>right</name></member>
+      <member refid="classInformationDrawer_1a5e5eb294e09235296facb1f76ba917bf" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>rightMargin</name></member>
+      <member refid="classInformationDrawer_1a2460af20cb8d23a52b8fbeaa699fef2e" prot="private" virt="non-virtual"><scope>InformationDrawer</scope><name>sensorInformationView</name></member>
+      <member refid="classInformationDrawer_1a213eded7daabeb679537a6fcd0984ca8" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>sensorInformationViewEnabled</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

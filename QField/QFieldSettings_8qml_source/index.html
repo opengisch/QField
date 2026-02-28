@@ -1,0 +1,2146 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File QFieldSettings.qml - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-qfieldsettingsqml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File QFieldSettings.qml
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-qfieldsettingsqml">File QFieldSettings.qml</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_1d81f7f4362e4398c0a695c4e466fcb0/"><strong>qml</strong></a> <strong>&gt;</strong> <a href="../QFieldSettings_8qml/"><strong>QFieldSettings.qml</strong></a></p>
+<p><a href="../QFieldSettings_8qml/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtCore
+import org.qfield
+import Theme
+
+Page {
+  signal finished
+
+  property alias currentPanel: bar.currentIndex
+
+  property alias showScaleBar: registry.showScaleBar
+  property alias showZoomControls: registry.showZoomControls
+  property alias fullScreenIdentifyView: registry.fullScreenIdentifyView
+  property alias locatorKeepScale: registry.locatorKeepScale
+  property alias autoOpenFormSingleIdentify: registry.autoOpenFormSingleIdentify
+  property alias autoZoomToIdentifiedFeature: registry.autoZoomToIdentifiedFeature
+  property alias numericalDigitizingInformation: registry.numericalDigitizingInformation
+  property alias showBookmarks: registry.showBookmarks
+  property alias nativeCamera2: registry.nativeCamera2
+  property alias digitizingVolumeKeys: registry.digitizingVolumeKeys
+  property alias autoSave: registry.autoSave
+  property alias fingerTapDigitizing: registry.fingerTapDigitizing
+  property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
+  property alias enableInfoCollection: registry.enableInfoCollection
+  property alias enableMapRotation: registry.enableMapRotation
+  property alias quality: registry.quality
+  property alias previewJobsEnabled: registry.previewJobsEnabled
+  property alias snapToCommonAngleIsEnabled: registry.snapToCommonAngleIsEnabled
+  property alias snapToCommonAngleIsRelative: registry.snapToCommonAngleIsRelative
+  property alias snapToCommonAngleDegrees: registry.snapToCommonAngleDegrees
+  property alias snapToCommonAngleTolerance: registry.snapToCommonAngleTolerance
+
+  leftPadding: mainWindow.sceneLeftMargin
+  rightPadding: mainWindow.sceneRightMargin
+
+  visible: false
+  focus: visible
+
+  Component.onCompleted: {
+    if (settings.valueBool('nativeCameraLaunched', false)) {
+      // a crash occured while the native camera was launched, disable it
+      nativeCamera2 = false;
+    }
+  }
+
+  function reset() {
+    variableEditor.reset();
+  }
+
+  Settings {
+    id: registry
+    property bool showScaleBar: true
+    property bool showZoomControls: false
+    property bool fullScreenIdentifyView: false
+    property bool locatorKeepScale: false
+    property bool autoOpenFormSingleIdentify: false
+    property bool autoZoomToIdentifiedFeature: false
+    property bool numericalDigitizingInformation: false
+    property bool showBookmarks: true
+    property bool nativeCamera2: false
+    property bool digitizingVolumeKeys: platformUtilities.capabilities &amp; PlatformUtilities.VolumeKeys
+    property bool autoSave: false
+    property bool fingerTapDigitizing: false
+    property bool mouseAsTouchScreen: false
+    property bool enableInfoCollection: true
+    property bool enableMapRotation: true
+    property double quality: 1.0
+    property bool previewJobsEnabled: true
+
+    property bool snapToCommonAngleIsEnabled: false
+    property bool snapToCommonAngleIsRelative: true
+    property double snapToCommonAngleDegrees: 45.0// = settings.valueInt(&quot;/QField/Digitizing/SnapToCommonAngleDegrees&quot;, 45);
+    property int snapToCommonAngleTolerance: 1// = settings.valueInt(&quot;/QField/Digitizing/SnappingTolerance&quot;, 1);
+
+    onEnableInfoCollectionChanged: {
+      if (enableInfoCollection) {
+        iface.initiateSentry();
+      } else {
+        iface.closeSentry();
+      }
+    }
+
+    onDigitizingVolumeKeysChanged: {
+      platformUtilities.setHandleVolumeKeys(digitizingVolumeKeys &amp;&amp; stateMachine.state != 'browse');
+    }
+
+    onFingerTapDigitizingChanged: {
+      coordinateLocator.sourceLocation = undefined;
+    }
+  }
+
+  ListModel {
+    id: canvasSettingsModel
+    ListElement {
+      title: qsTr(&quot;Show scale bar&quot;)
+      description: ''
+      settingAlias: &quot;showScaleBar&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Show zoom controls&quot;)
+      description: ''
+      settingAlias: &quot;showZoomControls&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Show bookmarks&quot;)
+      description: qsTr(&quot;When switched on, user's saved and currently opened project bookmarks will be displayed on the map.&quot;)
+      settingAlias: &quot;showBookmarks&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Enable map rotation&quot;)
+      description: qsTr(&quot;When switched on, the map can be rotated by the user.&quot;)
+      settingAlias: &quot;enableMapRotation&quot;
+      isVisible: true
+    }
+  }
+
+  ListModel {
+    id: digitizingEditingSettingsModel
+    ListElement {
+      title: qsTr(&quot;Show digitizing information&quot;)
+      description: qsTr(&quot;When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.&quot;)
+      settingAlias: &quot;numericalDigitizingInformation&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Use volume keys to digitize&quot;)
+      description: qsTr(&quot;If enabled, pressing the device's volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.&quot;)
+      settingAlias: &quot;digitizingVolumeKeys&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Allow finger tap on canvas to add vertices&quot;)
+      description: qsTr(&quot;When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.&quot;)
+      settingAlias: &quot;fingerTapDigitizing&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Consider mouse as a touchscreen device&quot;)
+      description: qsTr(&quot;When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.&quot;)
+      settingAlias: &quot;mouseAsTouchScreen&quot;
+      isVisible: true
+    }
+    Component.onCompleted: {
+      for (var i = 0; i &lt; count; i++) {
+        if (get(i).settingAlias === 'digitizingVolumeKeys') {
+          setProperty(i, 'isVisible', platformUtilities.capabilities &amp; PlatformUtilities.VolumeKeys ? true : false);
+        } else {
+          setProperty(i, 'isVisible', true);
+        }
+      }
+    }
+  }
+
+  ListModel {
+    id: interfaceSettingsModel
+    ListElement {
+      title: qsTr(&quot;Maximize feature form&quot;)
+      description: ''
+      settingAlias: &quot;fullScreenIdentifyView&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Open feature form for single feature identification&quot;)
+      description: qsTr(&quot;When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.&quot;)
+      settingAlias: &quot;autoOpenFormSingleIdentify&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Fixed scale navigation&quot;)
+      description: qsTr(&quot;When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.&quot;)
+      settingAlias: &quot;locatorKeepScale&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Auto-zoom to identified feature(s)&quot;)
+      description: qsTr(&quot;When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.&quot;)
+      settingAlias: &quot;autoZoomToIdentifiedFeature&quot;
+      isVisible: true
+    }
+  }
+
+  ListModel {
+    id: advancedSettingsModel
+    ListElement {
+      title: qsTr(&quot;Render preview content around visible map canvas&quot;)
+      description: qsTr(&quot;If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.&quot;)
+      settingAlias: &quot;previewJobsEnabled&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Enable auto-save mode&quot;)
+      description: qsTr(&quot;If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.&quot;)
+      settingAlias: &quot;autoSave&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Use native camera&quot;)
+      description: qsTr(&quot;If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.&quot;)
+      settingAlias: &quot;nativeCamera2&quot;
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr(&quot;Send anonymized metrics&quot;)
+      description: qsTr(&quot;If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.&quot;)
+      settingAlias: &quot;enableInfoCollection&quot;
+      isVisible: true
+    }
+    Component.onCompleted: {
+      for (var i = 0; i &lt; count; i++) {
+        if (get(i).settingAlias === 'nativeCamera2') {
+          setProperty(i, 'isVisible', platformUtilities.capabilities &amp; PlatformUtilities.NativeCamera ? true : false);
+        } else if (get(i).settingAlias === 'enableInfoCollection') {
+          setProperty(i, 'isVisible', platformUtilities.capabilities &amp; PlatformUtilities.SentryFramework ? true : false);
+        } else {
+          setProperty(i, 'isVisible', true);
+        }
+      }
+    }
+  }
+
+  Rectangle {
+    color: Theme.mainBackgroundColor
+    anchors.fill: parent
+  }
+
+  ColumnLayout {
+    id: barColumn
+    anchors {
+      top: parent.top
+      left: parent.left
+      right: parent.right
+      bottom: parent.bottom
+    }
+
+    QfTabBar {
+      id: bar
+      model: [qsTr(&quot;General&quot;), qsTr(&quot;Positioning&quot;), qsTr(&quot;Variables&quot;)]
+      Layout.fillWidth: true
+      Layout.preferredHeight: defaultHeight
+    }
+
+    Component {
+      id: listItem
+
+      Rectangle {
+        width: parent ? parent.width - 16 : undefined
+        height: isVisible ? line.height : 0
+        color: &quot;transparent&quot;
+        clip: true
+
+        Row {
+          id: line
+          width: parent.width
+
+          Column {
+            width: parent.width - toggle.width
+
+            Label {
+              width: parent.width
+              padding: 8
+              leftPadding: 20
+              text: title
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              wrapMode: Text.WordWrap
+              MouseArea {
+                anchors.fill: parent
+                onClicked: toggle.toggle()
+              }
+            }
+
+            Label {
+              width: parent.width
+              visible: description !== ''
+              padding: description !== '' ? 8 : 0
+              topPadding: 0
+              leftPadding: 20
+              text: description
+              font: Theme.tipFont
+              color: Theme.secondaryTextColor
+              wrapMode: Text.WordWrap
+            }
+          }
+
+          QfSwitch {
+            id: toggle
+            width: implicitContentWidth
+            checked: registry[settingAlias]
+            Layout.alignment: Qt.AlignTop | Qt.AlignRight
+            onCheckedChanged: registry[settingAlias] = checked
+          }
+        }
+      }
+    }
+
+    SwipeView {
+      id: swipeView
+      currentIndex: bar.currentIndex
+      Layout.fillHeight: true
+      Layout.fillWidth: true
+      onCurrentIndexChanged: bar.currentIndex = swipeView.currentIndex
+      clip: true
+
+      Item {
+        ScrollView {
+          topPadding: 5
+          leftPadding: 0
+          rightPadding: 0
+          ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+          ScrollBar.vertical: QfScrollBar {}
+          contentWidth: generalSettingsGrid.width
+          contentHeight: generalSettingsGrid.height
+          anchors.fill: parent
+          clip: true
+
+          ColumnLayout {
+            id: generalSettingsGrid
+            width: swipeView.width
+
+            GridLayout {
+              Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
+
+              columns: 2
+              columnSpacing: 0
+              rowSpacing: 5
+
+              Label {
+                text: qsTr('Map Canvas')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                Layout.columnSpan: 2
+              }
+            }
+
+            ListView {
+              Layout.fillWidth: true
+              Layout.preferredHeight: childrenRect.height
+              interactive: false
+
+              model: canvasSettingsModel
+
+              delegate: listItem
+            }
+
+            GridLayout {
+              Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
+              Layout.bottomMargin: 0
+
+              columns: 2
+              columnSpacing: 0
+              rowSpacing: 5
+
+              Label {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                text: qsTr(&quot;Map canvas rendering quality:&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              QfComboBox {
+                id: renderingQualityComboBox
+                enabled: true
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                model: ListModel {
+                  ListElement {
+                    name: qsTr('Best quality')
+                    value: 1.0
+                  }
+                  ListElement {
+                    name: qsTr('Lower quality')
+                    value: 0.75
+                  }
+                  ListElement {
+                    name: qsTr('Lowest quality')
+                    value: 0.5
+                  }
+                }
+                textRole: &quot;name&quot;
+                valueRole: &quot;value&quot;
+
+                property bool initialized: false
+
+                onCurrentValueChanged: {
+                  if (initialized) {
+                    quality = currentValue;
+                  }
+                }
+
+                Component.onCompleted: {
+                  currentIndex = indexOfValue(quality);
+                  initialized = true;
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;A lower quality trades rendering precision in favor of lower memory usage and rendering time.&quot;)
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+                textFormat: Qt.RichText
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+
+                onLinkActivated: link =&gt; {
+                  Qt.openUrlExternally(link);
+                }
+              }
+
+              Label {
+                text: qsTr('Digitizing &amp; Editing')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 10
+                Layout.columnSpan: 2
+              }
+            }
+
+            ListView {
+              Layout.fillWidth: true
+              Layout.preferredHeight: childrenRect.height
+              interactive: false
+
+              model: digitizingEditingSettingsModel
+
+              delegate: listItem
+            }
+
+            GridLayout {
+              Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
+              Layout.bottomMargin: 0
+
+              columns: 2
+              columnSpacing: 0
+              rowSpacing: 0
+
+              Label {
+                text: qsTr('User Interface')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                Layout.columnSpan: 2
+              }
+
+              Label {
+                text: qsTr(&quot;Customize search bar&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: showSearchBarSettings.clicked()
+                }
+              }
+
+              QfToolButton {
+                id: showSearchBarSettings
+                Layout.preferredWidth: 48
+                Layout.preferredHeight: 48
+                Layout.alignment: Qt.AlignVCenter
+                clip: true
+
+                iconSource: Theme.getThemeVectorIcon(&quot;ic_ellipsis_black_24dp&quot;)
+                iconColor: Theme.mainColor
+                bgcolor: &quot;transparent&quot;
+
+                onClicked: {
+                  locatorSettings.open();
+                  locatorSettings.focus = true;
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;Manage plugins&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: showPluginManagerSettings.clicked()
+                }
+              }
+
+              QfToolButton {
+                id: showPluginManagerSettings
+                Layout.preferredWidth: 48
+                Layout.preferredHeight: 48
+                Layout.alignment: Qt.AlignVCenter
+                clip: true
+
+                iconSource: Theme.getThemeVectorIcon(&quot;ic_ellipsis_black_24dp&quot;)
+                iconColor: Theme.mainColor
+                bgcolor: &quot;transparent&quot;
+
+                onClicked: {
+                  pluginManagerSettings.open();
+                }
+              }
+            }
+
+            ListView {
+              Layout.fillWidth: true
+              Layout.preferredHeight: childrenRect.height
+              interactive: false
+
+              model: interfaceSettingsModel
+
+              delegate: listItem
+            }
+
+            GridLayout {
+              Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
+              Layout.bottomMargin: 5
+              Layout.topMargin: 5
+
+              columns: 1
+              columnSpacing: 0
+              rowSpacing: 5
+
+              visible: platformUtilities.capabilities &amp; PlatformUtilities.AdjustBrightness
+
+              Label {
+                Layout.fillWidth: true
+
+                text: qsTr('Dim screen when idling')
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+              }
+
+              QfSlider {
+                id: slider
+                Layout.fillWidth: true
+                value: settings ? settings.value('dimTimeoutSeconds', 60) : 60
+                from: 0
+                to: 180
+                stepSize: 10
+                suffixText: &quot; s&quot;
+                implicitHeight: 40
+
+                onMoved: function () {
+                  iface.setScreenDimmerTimeout(value);
+                  settings.setValue('dimTimeoutSeconds', value);
+                }
+              }
+
+              Label {
+                Layout.fillWidth: true
+                text: qsTr('Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.')
+
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+              }
+            }
+
+            GridLayout {
+              Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
+              Layout.bottomMargin: 10
+              Layout.topMargin: 5
+
+              columns: 1
+              columnSpacing: 0
+              rowSpacing: 10
+
+              Label {
+                Layout.fillWidth: true
+                text: qsTr(&quot;Appearance:&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              QfComboBox {
+                id: appearanceComboBox
+                enabled: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                model: ListModel {
+                  ListElement {
+                    name: qsTr('Follow system appearance')
+                    value: 'system'
+                  }
+                  ListElement {
+                    name: qsTr('Light theme')
+                    value: 'light'
+                  }
+                  ListElement {
+                    name: qsTr('Dark theme')
+                    value: 'dark'
+                  }
+                }
+                textRole: &quot;name&quot;
+                valueRole: &quot;value&quot;
+
+                property bool initialized: false
+
+                onCurrentValueChanged: {
+                  if (initialized) {
+                    settings.setValue(&quot;appearance&quot;, currentValue);
+                    Theme.applyAppearance();
+                  }
+                }
+
+                Component.onCompleted: {
+                  var appearance = settings.value(&quot;appearance&quot;, 'system');
+                  currentIndex = indexOfValue(appearance);
+                  initialized = true;
+                }
+              }
+
+              Label {
+                Layout.fillWidth: true
+                text: qsTr(&quot;Font size:&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              QfComboBox {
+                id: fontScaleComboBox
+                enabled: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                model: ListModel {
+                  ListElement {
+                    name: qsTr('Tiny')
+                    value: 0.75
+                  }
+                  ListElement {
+                    name: qsTr('Normal')
+                    value: 1.0
+                  }
+                  ListElement {
+                    name: qsTr('Large')
+                    value: 1.5
+                  }
+                  ListElement {
+                    name: qsTr('Extra-large')
+                    value: 2.0
+                  }
+                }
+                textRole: &quot;name&quot;
+                valueRole: &quot;value&quot;
+
+                property bool initialized: false
+
+                onCurrentValueChanged: {
+                  if (initialized) {
+                    settings.setValue(&quot;fontScale&quot;, currentValue);
+                    Theme.applyFontScale();
+                  }
+                }
+
+                Component.onCompleted: {
+                  var fontScale = settings.value(&quot;fontScale&quot;, 1.0);
+                  currentIndex = indexOfValue(fontScale);
+                  initialized = true;
+                }
+              }
+
+              Label {
+                Layout.fillWidth: true
+                text: qsTr(&quot;Language:&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              QfComboBox {
+                id: languageComboBox
+                enabled: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneBottomMargin
+
+                property variant languageCodes: undefined
+                property string currentLanguageCode: undefined
+
+                onActivated: {
+                  if (currentLanguageCode != undefined) {
+                    var newLanguageCode = languageCodes[currentIndex];
+                    if (newLanguageCode !== currentLanguageCode) {
+                      iface.changeLanguage(newLanguageCode);
+                      currentLanguageCode = newLanguageCode;
+                    }
+                  }
+                }
+
+                Component.onCompleted: {
+                  var customLanguageCode = settings.value('customLanguage', '');
+                  var languages = iface.availableLanguages();
+                  languageCodes = [&quot;&quot;].concat(Object.keys(languages));
+                  var systemLanguage = qsTr(&quot;system&quot;);
+                  var systemLanguageSuffix = systemLanguage !== 'system' ? ' (system)' : '';
+                  var items = [systemLanguage + systemLanguageSuffix];
+                  languageComboBox.model = items.concat(Object.values(languages));
+                  languageComboBox.currentIndex = languageCodes.indexOf(customLanguageCode);
+                  currentLanguageCode = customLanguageCode || '';
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;Found a missing or incomplete language? %1Join the translator community.%2&quot;).arg('&lt;a href=&quot;https://explore.transifex.com/opengisch/qfield-for-qgis/&quot;&gt;').arg('&lt;/a&gt;')
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+                textFormat: Qt.RichText
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+
+                onLinkActivated: link =&gt; {
+                  Qt.openUrlExternally(link);
+                }
+              }
+            }
+
+            GridLayout {
+              Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
+
+              columns: 2
+              columnSpacing: 0
+              rowSpacing: 5
+
+              Label {
+                text: qsTr('Advanced')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                Layout.columnSpan: 2
+              }
+            }
+
+            ListView {
+              Layout.fillWidth: true
+              Layout.preferredHeight: childrenRect.height
+              interactive: false
+
+              model: advancedSettingsModel
+
+              delegate: listItem
+            }
+
+            Item {
+              // spacer item
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              Layout.minimumHeight: mainWindow.sceneBottomMargin + 20
+            }
+          }
+        }
+      }
+
+      Item {
+        ScrollView {
+          topPadding: 5
+          leftPadding: 20
+          rightPadding: 20
+          ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+          ScrollBar.vertical: QfScrollBar {}
+          contentWidth: positioningGrid.width
+          contentHeight: positioningGrid.height
+          anchors.fill: parent
+          clip: true
+
+          ColumnLayout {
+            id: positioningGrid
+            width: parent.parent.width
+            spacing: 10
+
+            GridLayout {
+              Layout.fillWidth: true
+
+              columns: 2
+              columnSpacing: 0
+              rowSpacing: 5
+
+              Label {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                text: qsTr(&quot;Positioning device in use:&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              RowLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+
+                QfComboBox {
+                  id: positioningDeviceComboBox
+                  Layout.fillWidth: true
+                  Layout.alignment: Qt.AlignVCenter
+                  font: Theme.defaultFont
+
+                  popup.font: Theme.defaultFont
+                  popup.topMargin: mainWindow.sceneTopMargin
+                  popup.bottomMargin: mainWindow.sceneTopMargin
+
+                  textRole: 'DeviceName'
+                  valueRole: 'DeviceType'
+                  model: PositioningDeviceModel {
+                    id: positioningDeviceModel
+                  }
+
+                  delegate: ItemDelegate {
+                    width: positioningDeviceComboBox.width
+                    height: 36
+                    icon.source: {
+                      switch (DeviceType) {
+                      case PositioningDeviceModel.InternalDevice:
+                        return Theme.getThemeVectorIcon('ic_internal_receiver_black_24dp');
+                      case PositioningDeviceModel.FileDevice:
+                        return Theme.getThemeVectorIcon(&quot;ic_file_black_24dp&quot;);
+                      case PositioningDeviceModel.BluetoothDevice:
+                        return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
+                      case PositioningDeviceModel.TcpDevice:
+                        return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
+                      case PositioningDeviceModel.UdpDevice:
+                        return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
+                      case PositioningDeviceModel.SerialPortDevice:
+                        return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+                      case PositioningDeviceModel.EgenioussDevice:
+                        return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
+                      }
+                      return '';
+                    }
+                    icon.width: 24
+                    icon.height: 24
+                    text: DeviceName
+                    font: Theme.defaultFont
+                    highlighted: positioningDeviceComboBox.highlightedIndex === index
+                  }
+
+                  contentItem: MenuItem {
+                    width: positioningDeviceComboBox.width
+                    height: 36
+
+                    icon.source: {
+                      switch (positioningDeviceComboBox.currentValue) {
+                      case PositioningDeviceModel.InternalDevice:
+                        return Theme.getThemeVectorIcon('ic_internal_receiver_black_24dp');
+                      case PositioningDeviceModel.FileDevice:
+                        return Theme.getThemeVectorIcon(&quot;ic_file_black_24dp&quot;);
+                      case PositioningDeviceModel.BluetoothDevice:
+                        return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
+                      case PositioningDeviceModel.TcpDevice:
+                        return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
+                      case PositioningDeviceModel.UdpDevice:
+                        return Theme.getThemeVectorIcon('ic_udp_receiver_black_24dp');
+                      case PositioningDeviceModel.SerialPortDevice:
+                        return Theme.getThemeVectorIcon('ic_serial_port_receiver_black_24dp');
+                      case PositioningDeviceModel.EgenioussDevice:
+                        return Theme.getThemeVectorIcon('ic_egeniouss_receiver_black_24dp');
+                      }
+                      return '';
+                    }
+                    icon.width: 24
+                    icon.height: 24
+
+                    text: positioningDeviceComboBox.currentText
+                    font: Theme.defaultFont
+
+                    onClicked: positioningDeviceComboBox.popup.open()
+                  }
+
+                  Connections {
+                    target: positionSource
+
+                    function onDeviceIdChanged() {
+                      verticalGridShiftComboBox.reload();
+                    }
+                  }
+
+                  property bool loaded: false
+
+                  onCurrentIndexChanged: {
+                    if (loaded &amp;&amp; currentIndex !== -1) {
+                      const modelIndex = positioningDeviceModel.index(currentIndex, 0);
+                      positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
+                      positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                    }
+                  }
+
+                  Component.onCompleted: {
+                    currentIndex = positioningDeviceModel.findIndexFromDeviceId(positioningSettings.positioningDevice);
+                    loaded = true;
+                  }
+                }
+              }
+
+              RowLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+
+                QfButton {
+                  leftPadding: 10
+                  rightPadding: 10
+                  text: qsTr('Add')
+
+                  onClicked: {
+                    positioningDeviceSettings.originalName = '';
+                    positioningDeviceSettings.name = '';
+                    positioningDeviceSettings.open();
+                  }
+                }
+
+                Item {
+                  Layout.fillWidth: true
+                  Layout.alignment: Qt.AlignVCenter
+                }
+
+                QfButton {
+                  leftPadding: 10
+                  rightPadding: 10
+                  text: qsTr('Edit')
+                  enabled: positioningDeviceComboBox.currentIndex &gt; 0
+
+                  onClicked: {
+                    var modelIndex = positioningDeviceModel.index(positioningDeviceComboBox.currentIndex, 0);
+                    var name = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                    positioningDeviceSettings.originalName = name;
+                    positioningDeviceSettings.name = name;
+                    positioningDeviceSettings.setType(positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceType));
+                    positioningDeviceSettings.setSettings(positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceSettings));
+                    positioningDeviceSettings.open();
+                  }
+                }
+
+                QfButton {
+                  leftPadding: 10
+                  rightPadding: 10
+                  text: qsTr('Remove')
+                  enabled: positioningDeviceComboBox.currentIndex &gt; 0
+
+                  onClicked: {
+                    var modelIndex = positioningDeviceModel.index(positioningDeviceComboBox.currentIndex, 0);
+                    positioningDeviceComboBox.currentIndex = 0;
+                    positioningDeviceModel.removeDevice(positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName));
+                  }
+                }
+              }
+
+              QfButton {
+                id: connectButton
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 5
+                text: {
+                  switch (positionSource.deviceSocketState) {
+                  case QAbstractSocket.ConnectedState:
+                  case QAbstractSocket.BoundState:
+                    return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName);
+                  case QAbstractSocket.UnconnectedState:
+                    return qsTr('Connect to %1').arg(positioningSettings.positioningDeviceName);
+                  default:
+                    return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName);
+                  }
+                }
+                enabled: positionSource.deviceSocketState === QAbstractSocket.UnconnectedState
+                visible: positionSource.deviceId !== ''
+
+                onClicked: {
+                  // make sure positioning is active when connecting to the bluetooth device
+                  if (!positioningSettings.positioningActivated) {
+                    positioningSettings.positioningActivated = true;
+                  } else {
+                    positionSource.triggerConnectDevice();
+                  }
+                }
+              }
+            }
+
+            GridLayout {
+              Layout.fillWidth: true
+
+              columns: 2
+              columnSpacing: 0
+              rowSpacing: 5
+
+              Label {
+                text: qsTr(&quot;Show position information&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: showPositionInformation.toggle()
+                }
+              }
+
+              QfSwitch {
+                id: showPositionInformation
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                checked: positioningSettings.showPositionInformation
+                onCheckedChanged: {
+                  positioningSettings.showPositionInformation = checked;
+                }
+              }
+
+              Label {
+                id: positionFollowModeLabel
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                text: qsTr(&quot;Behavior when locked to position:&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              QfComboBox {
+                id: positionFollowModeComboBox
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+                model: [qsTr(&quot;Follow position only&quot;), qsTr(&quot;Follow position and compass orientation&quot;), qsTr(&quot;Follow position and movement direction&quot;)]
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                property bool loaded: false
+
+                Component.onCompleted: {
+                  positionFollowModeComboBox.currentIndex = positioningSettings.positionFollowMode;
+                  loaded = true;
+                }
+
+                onCurrentIndexChanged: {
+                  if (loaded) {
+                    positioningSettings.positionFollowMode = currentIndex;
+                  }
+                }
+              }
+
+              Label {
+                id: positionFollowModeTipLabel
+                Layout.fillWidth: true
+                text: qsTr(&quot;When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.&quot;)
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              Label {
+                id: measureLabel
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                text: qsTr(&quot;Measure (M) value attached to vertices:&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              QfComboBox {
+                id: measureComboBox
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                property bool loaded: false
+                Component.onCompleted: {
+                  // This list matches the Tracker::MeasureType enum, with SecondsSinceStart removed
+                  var measurements = [qsTr(&quot;Timestamp (milliseconds since epoch)&quot;), qsTr(&quot;Ground speed&quot;), qsTr(&quot;Bearing&quot;), qsTr(&quot;Horizontal accuracy&quot;), qsTr(&quot;Vertical accuracy&quot;), qsTr(&quot;PDOP&quot;), qsTr(&quot;HDOP&quot;), qsTr(&quot;VDOP&quot;)];
+                  measureComboBox.model = measurements;
+                  measureComboBox.currentIndex = positioningSettings.digitizingMeasureType - 1;
+                  loaded = true;
+                }
+
+                onCurrentIndexChanged: {
+                  if (loaded) {
+                    positioningSettings.digitizingMeasureType = currentIndex + 1;
+                  }
+                }
+              }
+
+              Label {
+                id: measureTipLabel
+                Layout.fillWidth: true
+                text: qsTr(&quot;When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.&quot;)
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              Item {
+                // spacer item
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+              }
+
+              Label {
+                text: qsTr(&quot;Activate accuracy indicator&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: accuracyIndicator.toggle()
+                }
+              }
+
+              QfSwitch {
+                id: accuracyIndicator
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                checked: positioningSettings.accuracyIndicator
+                onCheckedChanged: {
+                  positioningSettings.accuracyIndicator = checked;
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;Bad accuracy threshold [m]&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                enabled: accuracyIndicator.checked
+                visible: accuracyIndicator.checked
+                Layout.leftMargin: 8
+              }
+
+              QfTextField {
+                id: accuracyBadInput
+                width: antennaHeightActivated.width
+                font: Theme.defaultFont
+                enabled: accuracyIndicator.checked
+                visible: accuracyIndicator.checked
+                horizontalAlignment: TextInput.AlignHCenter
+                Layout.preferredWidth: width
+                inputMethodHints: Qt.ImhFormattedNumbersOnly
+                validator: DoubleValidator {
+                  locale: 'C'
+                }
+
+                Component.onCompleted: {
+                  text = isNaN(positioningSettings.accuracyBad) ? '' : positioningSettings.accuracyBad;
+                }
+
+                onTextChanged: {
+                  if (text.length === 0 || isNaN(text)) {
+                    positioningSettings.accuracyBad = NaN;
+                  } else {
+                    positioningSettings.accuracyBad = parseFloat(text);
+                  }
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;Excellent accuracy threshold [m]&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                enabled: accuracyIndicator.checked
+                visible: accuracyIndicator.checked
+                Layout.leftMargin: 8
+              }
+
+              QfTextField {
+                id: accuracyExcellentInput
+                width: antennaHeightActivated.width
+                font: Theme.defaultFont
+                enabled: accuracyIndicator.checked
+                visible: accuracyIndicator.checked
+                horizontalAlignment: TextInput.AlignHCenter
+                Layout.preferredWidth: width
+                inputMethodHints: Qt.ImhFormattedNumbersOnly
+                validator: DoubleValidator {
+                  locale: 'C'
+                }
+
+                Component.onCompleted: {
+                  text = isNaN(positioningSettings.accuracyExcellent) ? '' : positioningSettings.accuracyExcellent;
+                }
+
+                onTextChanged: {
+                  if (text.length === 0 || isNaN(text)) {
+                    positioningSettings.accuracyExcellent = NaN;
+                  } else {
+                    positioningSettings.accuracyExcellent = parseFloat(text);
+                  }
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;Enforce accuracy requirement&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                enabled: accuracyIndicator.checked
+                visible: accuracyIndicator.checked
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.leftMargin: 8
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: accuracyIndicator.toggle()
+                }
+              }
+
+              QfSwitch {
+                id: accuracyRequirement
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                enabled: accuracyIndicator.checked
+                visible: accuracyIndicator.checked
+                checked: positioningSettings.accuracyRequirement
+                onCheckedChanged: {
+                  positioningSettings.accuracyRequirement = checked;
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.&quot;).arg(&quot;style='%1'&quot;.arg(Theme.toInlineStyles({
+                  &quot;color&quot;: Theme.accuracyBad
+                }))).arg(&quot;style='%1'&quot;.arg(Theme.toInlineStyles({
+                  &quot;color&quot;: Theme.accuracyTolerated
+                }))).arg(&quot;style='%1'&quot;.arg(Theme.toInlineStyles({
+                  &quot;color&quot;: Theme.accuracyExcellent
+                })))
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+                textFormat: Qt.RichText
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+              }
+
+              Item {
+                // empty cell in grid layout
+                width: 1
+              }
+
+              Label {
+                text: qsTr(&quot;Enable averaged positioning requirement&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: averagedPositioning.toggle()
+                }
+              }
+
+              QfSwitch {
+                id: averagedPositioning
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                checked: positioningSettings.averagedPositioning
+                onCheckedChanged: {
+                  positioningSettings.averagedPositioning = checked;
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;Minimum number of positions collected&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                enabled: averagedPositioning.checked
+                visible: averagedPositioning.checked
+                Layout.leftMargin: 8
+              }
+
+              QfTextField {
+                id: averagedPositioningMinimumCount
+                width: averagedPositioning.width
+                font: Theme.defaultFont
+                enabled: averagedPositioning.checked
+                visible: averagedPositioning.checked
+                horizontalAlignment: TextInput.AlignHCenter
+                Layout.preferredWidth: width
+                inputMethodHints: Qt.ImhFormattedNumbersOnly
+                validator: IntValidator {
+                  locale: 'C'
+                }
+
+                Component.onCompleted: {
+                  text = isNaN(positioningSettings.averagedPositioningMinimumCount) ? '' : positioningSettings.averagedPositioningMinimumCount;
+                }
+
+                onTextChanged: {
+                  if (text.length === 0 || isNaN(text)) {
+                    positioningSettings.averagedPositioningMinimumCount = NaN;
+                  } else {
+                    positioningSettings.averagedPositioningMinimumCount = parseInt(text);
+                  }
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;Automatically end collection when minimum number is met&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                enabled: averagedPositioning.checked
+                visible: averagedPositioning.checked
+                Layout.leftMargin: 8
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: averagedPositioningAutomaticEnd.toggle()
+                }
+              }
+
+              QfSwitch {
+                id: averagedPositioningAutomaticEnd
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                enabled: averagedPositioning.checked
+                visible: averagedPositioning.checked
+                checked: positioningSettings.averagedPositioningAutomaticStop
+                onCheckedChanged: {
+                  positioningSettings.averagedPositioningAutomaticStop = checked;
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.&quot;)
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+                textFormat: Qt.RichText
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+              }
+
+              Item {
+                // empty cell in grid layout
+                width: 1
+              }
+
+              Label {
+                text: qsTr(&quot;Antenna height compensation&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: antennaHeightActivated.toggle()
+                }
+              }
+
+              QfSwitch {
+                id: antennaHeightActivated
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                checked: positioningSettings.antennaHeightActivated
+                onCheckedChanged: {
+                  positioningSettings.antennaHeightActivated = checked;
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;Antenna height [m]&quot;)
+                enabled: antennaHeightActivated.checked
+                visible: antennaHeightActivated.checked
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                textFormat: Text.RichText
+                Layout.leftMargin: 8
+              }
+
+              QfTextField {
+                id: antennaHeightInput
+                enabled: antennaHeightActivated.checked
+                visible: antennaHeightActivated.checked
+                width: antennaHeightActivated.width
+                font: Theme.defaultFont
+                horizontalAlignment: TextInput.AlignHCenter
+                Layout.preferredWidth: width
+                inputMethodHints: Qt.ImhFormattedNumbersOnly
+                validator: DoubleValidator {
+                  locale: 'C'
+                }
+
+                Component.onCompleted: {
+                  text = isNaN(positioningSettings.antennaHeight) ? '' : positioningSettings.antennaHeight;
+                }
+
+                onTextChanged: {
+                  if (text.length === 0 || isNaN(text)) {
+                    positioningSettings.antennaHeight = NaN;
+                  } else {
+                    positioningSettings.antennaHeight = parseFloat(text);
+                  }
+                }
+              }
+
+              Label {
+                text: qsTr(&quot;This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.&quot;)
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+              }
+
+              Item {
+                // empty cell in grid layout
+                width: 1
+              }
+
+              Label {
+                text: qsTr(&quot;Skip altitude correction&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: skipAltitudeCorrectionSwitch.toggle()
+                }
+              }
+
+              QfSwitch {
+                id: skipAltitudeCorrectionSwitch
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                checked: positioningSettings.skipAltitudeCorrection
+                onCheckedChanged: {
+                  positioningSettings.skipAltitudeCorrection = checked;
+                }
+              }
+
+              Label {
+                topPadding: 0
+                text: qsTr(&quot;Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.&quot;)
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+              }
+
+              Item {
+                // empty cell in grid layout
+                width: 1
+              }
+
+              Label {
+                text: qsTr(&quot;Vertical grid shift in use:&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+              }
+
+              QfComboBox {
+                id: verticalGridShiftComboBox
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                font: Theme.defaultFont
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                textRole: &quot;text&quot;
+                valueRole: &quot;value&quot;
+
+                model: ListModel {
+                  id: verticalGridShiftModel
+                }
+
+                onCurrentValueChanged: {
+                  if (reloading || currentValue == undefined) {
+                    return;
+                  }
+                  positioningSettings.elevationCorrectionMode = currentValue;
+                  if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile) {
+                    positioningSettings.verticalGrid = currentText;
+                  } else {
+                    positioningSettings.verticalGrid = &quot;&quot;;
+                  }
+                }
+
+                Component.onCompleted: reload()
+
+                property bool reloading: false
+                function reload() {
+                  reloading = true;
+                  verticalGridShiftComboBox.model.clear();
+                  verticalGridShiftComboBox.model.append({
+                    &quot;text&quot;: qsTr(&quot;None&quot;),
+                    &quot;value&quot;: Positioning.ElevationCorrectionMode.None
+                  });
+                  if ((positionSource.deviceCapabilities &amp; AbstractGnssReceiver.OrthometricAltitude) != 0) {
+                    verticalGridShiftComboBox.model.append({
+                      &quot;text&quot;: qsTr(&quot;Orthometric from device&quot;),
+                      &quot;value&quot;: Positioning.ElevationCorrectionMode.OrthometricFromDevice
+                    });
+                  }
+
+                  // Add geoid files to combobox
+                  var geoidFiles = platformUtilities.availableGrids();
+                  for (var i = 0; i &lt; geoidFiles.length; i++)
+                    verticalGridShiftComboBox.model.append({
+                      &quot;text&quot;: geoidFiles[i],
+                      &quot;value&quot;: Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile
+                    });
+                  if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.None) {
+                    verticalGridShiftComboBox.currentIndex = indexOfValue(positioningSettings.elevationCorrectionMode);
+                    positioningSettings.verticalGrid = &quot;&quot;;
+                  } else if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromDevice) {
+                    if ((positionSource.deviceCapabilities &amp; AbstractGnssReceiver.OrthometricAltitude) != 0)
+                      verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(positioningSettings.elevationCorrectionMode);
+                    else
+                      // Orthometric not available -&gt; fallback to None
+                      verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(Positioning.ElevationCorrectionMode.None);
+                    positioningSettings.verticalGrid = &quot;&quot;;
+                  } else if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile) {
+                    var currentVerticalGridFileIndex = verticalGridShiftComboBox.find(positioningSettings.verticalGrid);
+                    if (currentVerticalGridFileIndex &lt; 1)
+                      // Vertical index file not found -&gt; fallback to None
+                      verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(Positioning.ElevationCorrectionMode.None);
+                    else
+                      verticalGridShiftComboBox.currentIndex = currentVerticalGridFileIndex;
+                  } else {
+                    console.log(&quot;Warning unknown elevationCorrectionMode: '%1'&quot;.arg(positioningSettings.elevationCorrectionMode));
+
+                    // Unknown mode -&gt; fallback to None
+                    verticalGridShiftComboBox.currentIndex = verticalGridShiftComboBox.indexOfValue(Positioning.ElevationCorrectionMode.None);
+                  }
+                  reloading = false;
+                }
+              }
+
+              Label {
+                topPadding: 0
+                rightPadding: antennaHeightActivated.width
+                text: qsTr(&quot;Vertical grid shift is used to increase the altitude accuracy.&quot;)
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+              }
+
+              Label {
+                text: qsTr(&quot;Log NMEA sentences from device to file&quot;)
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                visible: positionSource.deviceCapabilities &amp; AbstractGnssReceiver.Logging
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: positionLogging.toggle()
+                }
+              }
+
+              QfSwitch {
+                id: positionLogging
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                visible: positionSource.deviceCapabilities &amp; AbstractGnssReceiver.Logging
+                checked: positioningSettings.logging
+                onCheckedChanged: {
+                  positioningSettings.logging = checked;
+                }
+              }
+            }
+
+            Item {
+              // spacer item
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              Layout.minimumHeight: mainWindow.sceneBottomMargin + 20
+            }
+          }
+        }
+      }
+
+      Item {
+        VariableEditor {
+          id: variableEditor
+          anchors.fill: parent
+          anchors.margins: 4
+          anchors.bottomMargin: 4 + mainWindow.sceneBottomMargin
+        }
+      }
+    }
+  }
+
+  PositioningDeviceSettings {
+    id: positioningDeviceSettings
+
+    property string originalName: ''
+
+    onApply: {
+      if (originalName != '') {
+        positioningDeviceModel.removeDevice(originalName);
+      }
+      var name = positioningDeviceSettings.name;
+      var type = positioningDeviceSettings.type;
+      var settings = positioningDeviceSettings.getSettings();
+      if (name === '') {
+        name = positioningDeviceSettings.generateName();
+      }
+      var index = positioningDeviceModel.addDevice(type, name, settings);
+      positioningDeviceComboBox.currentIndex = index;
+    }
+  }
+
+  header: QfPageHeader {
+    title: qsTr(&quot;%1 Settings&quot;).arg(appName)
+
+    showBackButton: true
+    showApplyButton: false
+    showCancelButton: false
+
+    topMargin: mainWindow.sceneTopMargin
+
+    onFinished: {
+      parent.finished();
+      variableEditor.apply();
+    }
+  }
+
+  Keys.onReleased: event =&gt; {
+    if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+      event.accepted = true;
+      variableEditor.apply();
+      finished();
+    }
+  }
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

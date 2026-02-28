@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classenum" kind="class" language="C++" prot="public">
+    <compoundname>enum</compoundname>
+    <basecompoundref refid="classCogoParameterWidgetBase" prot="public" virt="non-virtual">CogoParameterWidgetBase</basecompoundref>
+    <basecompoundref refid="classProcessingParameterWidgetBase" prot="public" virt="non-virtual">ProcessingParameterWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classenum_1acc976d26dbd0484da75382fe8de96870" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var enum::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>enum::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/enum.qml" line="8" column="5" bodyfile="src/qml/cogoparameterwidgets/enum.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classenum_1af91a35a7e706e5fe6f4e196949b7a73f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var enum::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>enum::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/enum.qml" line="9" column="5" bodyfile="src/qml/cogoparameterwidgets/enum.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classenum_1aa2ddde978aa393b99d1a1ccc97ee8603" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToggleButtonGroup" kindref="compound">QfToggleButtonGroup</ref></type>
+        <definition>QfToggleButtonGroup enum::enumToggleButtonGroup</definition>
+        <argsstring></argsstring>
+        <name>enumToggleButtonGroup</name>
+        <qualifiedname>enum::enumToggleButtonGroup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/enum.qml" line="10" column="21" bodyfile="src/qml/cogoparameterwidgets/enum.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classenum_1aae2de79276e67efc16e9d20349d95378" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox enum::enumComboBox</definition>
+        <argsstring></argsstring>
+        <name>enumComboBox</name>
+        <qualifiedname>enum::enumComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/enum.qml" line="11" column="12" bodyfile="src/qml/cogoparameterwidgets/enum.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classenum_1a76d16552f012bc0ed41d93a8a21021a3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox enum::unitTypesComboBox</definition>
+        <argsstring></argsstring>
+        <name>unitTypesComboBox</name>
+        <qualifiedname>enum::unitTypesComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/enum.qml" line="8" column="12" bodyfile="src/qml/processingparameterwidgets/enum.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classenum_1a32f104374d1b71374c0931a4af52f496" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void enum::processValue</definition>
+        <argsstring>()</argsstring>
+        <name>processValue</name>
+        <qualifiedname>enum::processValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/enum.qml" line="14" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>enum</label>
+        <link refid="classenum"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>enum</label>
+        <link refid="classenum"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/cogoparameterwidgets/enum.qml" line="7" column="1" bodyfile="src/qml/cogoparameterwidgets/enum.qml" bodystart="7" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classenum_1aae2de79276e67efc16e9d20349d95378" prot="private" virt="non-virtual"><scope>enum</scope><name>enumComboBox</name></member>
+      <member refid="classenum_1aa2ddde978aa393b99d1a1ccc97ee8603" prot="private" virt="non-virtual"><scope>enum</scope><name>enumToggleButtonGroup</name></member>
+      <member refid="classenum_1af91a35a7e706e5fe6f4e196949b7a73f" prot="private" virt="non-virtual"><scope>enum</scope><name>height</name></member>
+      <member refid="classenum_1a32f104374d1b71374c0931a4af52f496" prot="public" virt="non-virtual"><scope>enum</scope><name>processValue</name></member>
+      <member refid="classCogoParameterWidgetBase_1a52b53003934d715a6bbbf2f77b658371" prot="public" virt="non-virtual"><scope>enum</scope><name>requestPosition</name></member>
+      <member refid="classenum_1a76d16552f012bc0ed41d93a8a21021a3" prot="private" virt="non-virtual"><scope>enum</scope><name>unitTypesComboBox</name></member>
+      <member refid="classCogoParameterWidgetBase_1ab7393dc8cfb637327c684bef80703422" prot="public" virt="non-virtual" ambiguityscope="CogoParameterWidgetBase::"><scope>enum</scope><name>valueChangeRequested</name></member>
+      <member refid="classProcessingParameterWidgetBase_1ad9696e0221e7fc60b474690077fc900a" prot="public" virt="non-virtual" ambiguityscope="ProcessingParameterWidgetBase::"><scope>enum</scope><name>valueChangeRequested</name></member>
+      <member refid="classenum_1acc976d26dbd0484da75382fe8de96870" prot="private" virt="non-virtual"><scope>enum</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_a0fecca670957e90f44ebd037fd955ed" kind="dir">
+    <compoundname>src/core/positioning</compoundname>
+    <innerfile refid="abstractgnssreceiver_8cpp">abstractgnssreceiver.cpp</innerfile>
+    <innerfile refid="abstractgnssreceiver_8h">abstractgnssreceiver.h</innerfile>
+    <innerfile refid="bluetoothdevicemodel_8cpp">bluetoothdevicemodel.cpp</innerfile>
+    <innerfile refid="bluetoothdevicemodel_8h">bluetoothdevicemodel.h</innerfile>
+    <innerfile refid="bluetoothreceiver_8cpp">bluetoothreceiver.cpp</innerfile>
+    <innerfile refid="bluetoothreceiver_8h">bluetoothreceiver.h</innerfile>
+    <innerfile refid="egenioussreceiver_8cpp">egenioussreceiver.cpp</innerfile>
+    <innerfile refid="egenioussreceiver_8h">egenioussreceiver.h</innerfile>
+    <innerfile refid="filereceiver_8cpp">filereceiver.cpp</innerfile>
+    <innerfile refid="filereceiver_8h">filereceiver.h</innerfile>
+    <innerfile refid="geofencer_8cpp">geofencer.cpp</innerfile>
+    <innerfile refid="geofencer_8h">geofencer.h</innerfile>
+    <innerfile refid="gnsspositioninformation_8cpp">gnsspositioninformation.cpp</innerfile>
+    <innerfile refid="gnsspositioninformation_8h">gnsspositioninformation.h</innerfile>
+    <innerfile refid="internalgnssreceiver_8cpp">internalgnssreceiver.cpp</innerfile>
+    <innerfile refid="internalgnssreceiver_8h">internalgnssreceiver.h</innerfile>
+    <innerfile refid="nmeagnssreceiver_8cpp">nmeagnssreceiver.cpp</innerfile>
+    <innerfile refid="nmeagnssreceiver_8h">nmeagnssreceiver.h</innerfile>
+    <innerfile refid="positioning_8cpp">positioning.cpp</innerfile>
+    <innerfile refid="positioning_8h">positioning.h</innerfile>
+    <innerfile refid="positioningdevicemodel_8cpp">positioningdevicemodel.cpp</innerfile>
+    <innerfile refid="positioningdevicemodel_8h">positioningdevicemodel.h</innerfile>
+    <innerfile refid="positioninginformationmodel_8cpp">positioninginformationmodel.cpp</innerfile>
+    <innerfile refid="positioninginformationmodel_8h">positioninginformationmodel.h</innerfile>
+    <innerfile refid="positioningsource_8cpp">positioningsource.cpp</innerfile>
+    <innerfile refid="positioningsource_8h">positioningsource.h</innerfile>
+    <innerfile refid="serialportmodel_8cpp">serialportmodel.cpp</innerfile>
+    <innerfile refid="serialportmodel_8h">serialportmodel.h</innerfile>
+    <innerfile refid="serialportreceiver_8cpp">serialportreceiver.cpp</innerfile>
+    <innerfile refid="serialportreceiver_8h">serialportreceiver.h</innerfile>
+    <innerfile refid="tcpreceiver_8cpp">tcpreceiver.cpp</innerfile>
+    <innerfile refid="tcpreceiver_8h">tcpreceiver.h</innerfile>
+    <innerfile refid="udpreceiver_8cpp">udpreceiver.cpp</innerfile>
+    <innerfile refid="udpreceiver_8h">udpreceiver.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/positioning/"/>
+  </compounddef>
+</doxygen>

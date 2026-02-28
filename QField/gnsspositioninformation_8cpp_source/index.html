@@ -1,0 +1,654 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File gnsspositioninformation.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-gnsspositioninformationcpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File gnsspositioninformation.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-gnsspositioninformationcpp">File gnsspositioninformation.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_a0fecca670957e90f44ebd037fd955ed/"><strong>positioning</strong></a> <strong>&gt;</strong> <a href="../gnsspositioninformation_8cpp/"><strong>gnsspositioninformation.cpp</strong></a></p>
+<p><a href="../gnsspositioninformation_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+  gnsspositioninformation.cpp - GnssPositionInformation
+ ---------------------
+ begin                : 1.12.2020
+ copyright            : (C) 2020 by David Signer
+ email                : david (at) opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &quot;gnsspositioninformation.h&quot;
+
+#include &lt;QCoreApplication&gt;
+#include &lt;QFileInfo&gt;
+#include &lt;QIODevice&gt;
+#include &lt;QStringList&gt;
+#include &lt;QTime&gt;
+
+
+GnssPositionInformation::GnssPositionInformation( double latitude, double longitude, double elevation, double speed, double direction,
+                                                  const QList&lt;QgsSatelliteInfo&gt; &amp;satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
+                                                  QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList&lt;int&gt; &amp;satPrn,
+                                                  bool satInfoComplete, double verticalSpeed, double magneticVariation, int averagedCount, const QString &amp;sourceName,
+                                                  bool imuCorrection, double imuRoll, double imuPitch, double imuHeading, double imuSteering, double orientation )
+  : mLatitude( latitude )
+  , mLongitude( longitude )
+  , mElevation( elevation )
+  , mSpeed( speed )
+  , mDirection( direction )
+  , mSatellitesInView( satellitesInView )
+  , mPdop( pdop )
+  , mHdop( hdop )
+  , mVdop( vdop )
+  , mHacc( hacc )
+  , mVacc( vacc )
+  , mHvacc( sqrt( ( pow( hacc, 2 ) + pow( hacc, 2 ) + pow( vacc, 2 ) ) / 3 ) )
+  , mUtcDateTime( utcDateTime )
+  , mFixMode( fixMode )
+  , mFixType( fixType )
+  , mQuality( quality )
+  , mSatellitesUsed( satellitesUsed )
+  , mStatus( status )
+  , mSatPrn( satPrn )
+  , mSatInfoComplete( satInfoComplete )
+  , mVerticalSpeed( verticalSpeed )
+  , mMagneticVariation( magneticVariation )
+  , mAveragedCount( averagedCount )
+  , mSourceName( sourceName )
+  , mImuCorrection( imuCorrection )
+  , mImuRoll( imuRoll )
+  , mImuPitch( imuPitch )
+  , mImuHeading( imuHeading )
+  , mImuSteering( imuSteering )
+  , mOrientation( orientation )
+{
+}
+
+bool GnssPositionInformation::operator==( const GnssPositionInformation &amp;other ) const
+{
+  // clang-format off
+  return mLatitude == other.mLatitude &amp;&amp;
+         mLongitude == other.mLongitude &amp;&amp;
+         mElevation == other.mElevation &amp;&amp;
+         mSpeed == other.mSpeed &amp;&amp;
+         mDirection == other.mDirection &amp;&amp;
+         mPdop == other.mPdop &amp;&amp;
+         mHdop == other.mHdop &amp;&amp;
+         mVdop == other.mVdop &amp;&amp;
+         mHacc == other.mHacc &amp;&amp;
+         mVacc == other.mVacc &amp;&amp;
+         mUtcDateTime == other.mUtcDateTime &amp;&amp;
+         mFixMode == other.mFixMode &amp;&amp;
+         mQuality == other.mQuality &amp;&amp;
+         mStatus == other.mStatus &amp;&amp;
+         mSatPrn == other.mSatPrn &amp;&amp;
+         mSatInfoComplete == other.mSatInfoComplete &amp;&amp;
+         mVerticalSpeed == other.mVerticalSpeed &amp;&amp;
+         mMagneticVariation == other.mMagneticVariation &amp;&amp;
+         mSourceName == other.mSourceName &amp;&amp;
+         mImuCorrection== other.mImuCorrection &amp;&amp;
+         mImuRoll == other.mImuRoll &amp;&amp;
+         mImuPitch == other.mImuPitch &amp;&amp;
+         mImuHeading == other.mImuHeading &amp;&amp;
+         mImuSteering == other.mImuSteering &amp;&amp;
+         mOrientation == other.mOrientation;
+  // clang-format on
+}
+
+bool GnssPositionInformation::isValid() const
+{
+  bool valid = false;
+  if ( mStatus == 'V' || mFixType == NMEA_FIX_BAD || mQuality == 0 ) // some sources say that 'V' indicates position fix, but is below acceptable quality
+  {
+    valid = false;
+  }
+  else if ( mFixType == NMEA_FIX_2D )
+  {
+    valid = true;
+  }
+  else if ( mStatus == 'A' || mFixType == NMEA_FIX_3D || mQuality &gt; 0 ) // good
+  {
+    valid = true;
+  }
+
+  return valid;
+}
+
+GnssPositionInformation::FixStatus GnssPositionInformation::fixStatus() const
+{
+  FixStatus fixStatus = NoData;
+
+  // no fix if any of the three report bad; default values are invalid values and won't be changed if the corresponding NMEA msg is not received
+  if ( mStatus == 'V' || mFixType == NMEA_FIX_BAD || mQuality == 0 ) // some sources say that 'V' indicates position fix, but is below acceptable quality
+  {
+    fixStatus = NoFix;
+  }
+  else if ( mFixType == NMEA_FIX_2D ) // 2D indication (from GGA)
+  {
+    fixStatus = Fix2D;
+  }
+  else if ( mStatus == 'A' || mFixType == NMEA_FIX_3D || mQuality &gt; 0 ) // good
+  {
+    fixStatus = Fix3D;
+  }
+  return fixStatus;
+}
+
+QString GnssPositionInformation::qualityDescription() const
+{
+  QString quality;
+  switch ( mQuality )
+  {
+    case 8:
+      quality = QCoreApplication::translate( &quot;QgsGpsInformation&quot;, &quot;Simulation mode&quot; );
+      break;
+    case 7:
+      quality = QCoreApplication::translate( &quot;QgsGpsInformation&quot;, &quot;Manual input mode&quot; );
+      break;
+    case 6:
+      quality = QCoreApplication::translate( &quot;QgsGpsInformation&quot;, &quot;Estimated&quot; );
+      break;
+    case 5:
+      quality = QCoreApplication::translate( &quot;QgsGpsInformation&quot;, &quot;Float RTK&quot; );
+      break;
+    case 4:
+      quality = QCoreApplication::translate( &quot;QgsGpsInformation&quot;, &quot;Fixed RTK&quot; );
+      break;
+    case 3:
+      quality = QCoreApplication::translate( &quot;QgsGpsInformation&quot;, &quot;PPS&quot; );
+      break;
+    case 2:
+      quality = QCoreApplication::translate( &quot;QgsGpsInformation&quot;, &quot;DGPS&quot; );
+      break;
+    case 1:
+      quality = QCoreApplication::translate( &quot;QgsGpsInformation&quot;, &quot;Autonomous&quot; );
+      break;
+    case 0:
+      quality = QCoreApplication::translate( &quot;QgsGpsInformation&quot;, &quot;Invalid&quot; );
+      break;
+    default:
+      quality = QCoreApplication::translate( &quot;QgsGpsInformation&quot;, &quot;Unknown (%1)&quot; ).arg( QString::number( mQuality ) );
+  }
+
+  if ( mImuCorrection )
+    quality.append( QCoreApplication::translate( &quot;QgsGpsInformation&quot;, &quot; + IMU&quot; ) );
+
+  return quality;
+}
+
+QString GnssPositionInformation::fixStatusDescription() const
+{
+  return QString( QMetaEnum::fromType&lt;FixStatus&gt;().valueToKey( fixStatus() ) );
+}
+
+QDataStream &amp;operator&lt;&lt;( QDataStream &amp;stream, const GnssPositionDetails &amp;positionDetails )
+{
+  return stream &lt;&lt; positionDetails.mNames &lt;&lt; positionDetails.mValues;
+}
+
+//cppcheck-suppress constParameter
+QDataStream &amp;operator&gt;&gt;( QDataStream &amp;stream, GnssPositionDetails &amp;positionDetails )
+{
+  return stream &gt;&gt; positionDetails.mNames &gt;&gt; positionDetails.mValues;
+}
+
+QDataStream &amp;operator&lt;&lt;( QDataStream &amp;stream, const GnssPositionInformation &amp;position )
+{
+  return stream &lt;&lt; position.mLatitude &lt;&lt; position.mLongitude &lt;&lt; position.mElevation &lt;&lt; position.mSpeed &lt;&lt; position.mDirection
+                &lt;&lt; position.mSatellitesInView &lt;&lt; position.mHdop &lt;&lt; position.mVdop &lt;&lt; position.mPdop
+                &lt;&lt; position.mHacc &lt;&lt; position.mVacc &lt;&lt; position.mHvacc &lt;&lt; position.mUtcDateTime
+                &lt;&lt; position.mFixMode &lt;&lt; position.mFixType &lt;&lt; position.mQuality
+                &lt;&lt; position.mSatellitesUsed &lt;&lt; position.mStatus &lt;&lt; position.mSatPrn &lt;&lt; position.mSatInfoComplete
+                &lt;&lt; position.mVerticalSpeed &lt;&lt; position.mMagneticVariation &lt;&lt; position.mSourceName
+                &lt;&lt; position.mAveragedCount &lt;&lt; position.mImuCorrection &lt;&lt; position.mImuRoll &lt;&lt; position.mImuPitch &lt;&lt; position.mImuHeading &lt;&lt; position.mImuSteering
+                &lt;&lt; position.mOrientation;
+}
+
+//cppcheck-suppress constParameter
+QDataStream &amp;operator&gt;&gt;( QDataStream &amp;stream, GnssPositionInformation &amp;position )
+{
+  return stream &gt;&gt; position.mLatitude &gt;&gt; position.mLongitude &gt;&gt; position.mElevation &gt;&gt; position.mSpeed &gt;&gt; position.mDirection
+         &gt;&gt; position.mSatellitesInView &gt;&gt; position.mHdop &gt;&gt; position.mVdop &gt;&gt; position.mPdop
+         &gt;&gt; position.mHacc &gt;&gt; position.mVacc &gt;&gt; position.mHvacc &gt;&gt; position.mUtcDateTime
+         &gt;&gt; position.mFixMode &gt;&gt; position.mFixType &gt;&gt; position.mQuality
+         &gt;&gt; position.mSatellitesUsed &gt;&gt; position.mStatus &gt;&gt; position.mSatPrn &gt;&gt; position.mSatInfoComplete
+         &gt;&gt; position.mVerticalSpeed &gt;&gt; position.mMagneticVariation &gt;&gt; position.mSourceName
+         &gt;&gt; position.mAveragedCount &gt;&gt; position.mImuCorrection &gt;&gt; position.mImuRoll &gt;&gt; position.mImuPitch &gt;&gt; position.mImuHeading &gt;&gt; position.mImuSteering
+         &gt;&gt; position.mOrientation;
+}
+
+QDataStream &amp;operator&lt;&lt;( QDataStream &amp;stream, const QgsSatelliteInfo &amp;satelliteInfo )
+{
+  return stream &lt;&lt; satelliteInfo.azimuth &lt;&lt; satelliteInfo.elevation &lt;&lt; satelliteInfo.id &lt;&lt; satelliteInfo.inUse &lt;&lt; satelliteInfo.satType &lt;&lt; satelliteInfo.signal;
+}
+
+//cppcheck-suppress constParameter
+QDataStream &amp;operator&gt;&gt;( QDataStream &amp;stream, QgsSatelliteInfo &amp;satelliteInfo )
+{
+  return stream &gt;&gt; satelliteInfo.azimuth &gt;&gt; satelliteInfo.elevation &gt;&gt; satelliteInfo.id &gt;&gt; satelliteInfo.inUse &gt;&gt; satelliteInfo.satType &gt;&gt; satelliteInfo.signal;
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

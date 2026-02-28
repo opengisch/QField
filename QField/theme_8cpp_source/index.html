@@ -1,0 +1,981 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File theme.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-themecpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File theme.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-themecpp">File theme.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../theme_8cpp/"><strong>theme.cpp</strong></a></p>
+<p><a href="../theme_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+  theme.cpp - Theme
+
+---------------------
+begin                : 22.2.2026
+copyright            : (C) 2026 by Kaustuv Pokharel
+email                : kaustuv@opengis.ch
+***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 2 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
+#include &quot;platformutilities.h&quot;
+#include &quot;theme.h&quot;
+
+#include &lt;QApplication&gt;
+#include &lt;QFile&gt;
+#include &lt;QFont&gt;
+#include &lt;QJsonDocument&gt;
+#include &lt;QJsonObject&gt;
+#include &lt;QMetaObject&gt;
+#include &lt;QMetaProperty&gt;
+#include &lt;QPalette&gt;
+#include &lt;QSettings&gt;
+
+Theme::Theme( QObject *parent )
+  : QObject( parent )
+{
+  loadFromJson();
+
+  applyAppearance();
+  applyFontScale();
+}
+
+void Theme::loadFromJson()
+{
+  QFile file( QStringLiteral( &quot;:/theme/theme.json&quot; ) );
+  if ( !file.open( QIODevice::ReadOnly ) )
+  {
+    qWarning( &quot;Theme: could not open :/theme/theme.json&quot; );
+    return;
+  }
+
+  const QJsonDocument doc = QJsonDocument::fromJson( file.readAll() );
+  if ( doc.isNull() || !doc.isObject() )
+  {
+    qWarning( &quot;Theme: theme.json is not valid JSON&quot; );
+    return;
+  }
+
+  const QJsonObject root = doc.object();
+  mDarkThemeColors = root.value( QStringLiteral( &quot;darkThemeColors&quot; ) ).toObject().toVariantMap();
+  mLightThemeColors = root.value( QStringLiteral( &quot;lightThemeColors&quot; ) ).toObject().toVariantMap();
+
+  // Fixed colors have no WRITE accessor so they cannot go through applyColors()
+  // Assign directly via a lambda, only applied if the color string is valid
+  const QVariantMap fixed = root.value( QStringLiteral( &quot;fixedColors&quot; ) ).toObject().toVariantMap();
+  const auto set = [&amp;fixed]( QColor &amp;member, const char *key ) {
+    const QColor color( fixed.value( QLatin1String( key ) ).toString() );
+    if ( color.isValid() )
+    {
+      member = color;
+    }
+  };
+
+  set( mMainColorSemiOpaque, &quot;mainColorSemiOpaque&quot; );
+  set( mDarkRed, &quot;darkRed&quot; );
+  set( mDarkGray, &quot;darkGray&quot; );
+  set( mDarkGraySemiOpaque, &quot;darkGraySemiOpaque&quot; );
+  set( mGray, &quot;gray&quot; );
+  set( mLightGray, &quot;lightGray&quot; );
+  set( mLightestGray, &quot;lightestGray&quot; );
+  set( mLightestGraySemiOpaque, &quot;lightestGraySemiOpaque&quot; );
+  set( mLight, &quot;light&quot; );
+  set( mGoodColor, &quot;goodColor&quot; );
+  set( mWarningColor, &quot;warningColor&quot; );
+  set( mCloudColor, &quot;cloudColor&quot; );
+  set( mPositionColor, &quot;positionColor&quot; );
+  set( mPositionColorSemiOpaque, &quot;positionColorSemiOpaque&quot; );
+  set( mPositionBackgroundColor, &quot;positionBackgroundColor&quot; );
+  set( mDarkPositionColor, &quot;darkPositionColor&quot; );
+  set( mDarkPositionColorSemiOpaque, &quot;darkPositionColorSemiOpaque&quot; );
+  set( mAccuracyBad, &quot;accuracyBad&quot; );
+  set( mAccuracyTolerated, &quot;accuracyTolerated&quot; );
+  set( mAccuracyExcellent, &quot;accuracyExcellent&quot; );
+  set( mNavigationColor, &quot;navigationColor&quot; );
+  set( mNavigationColorSemiOpaque, &quot;navigationColorSemiOpaque&quot; );
+  set( mNavigationBackgroundColor, &quot;navigationBackgroundColor&quot; );
+  set( mSensorBackgroundColor, &quot;sensorBackgroundColor&quot; );
+  set( mBookmarkDefault, &quot;bookmarkDefault&quot; );
+  set( mBookmarkOrange, &quot;bookmarkOrange&quot; );
+  set( mBookmarkRed, &quot;bookmarkRed&quot; );
+  set( mBookmarkBlue, &quot;bookmarkBlue&quot; );
+  set( mVertexColor, &quot;vertexColor&quot; );
+  set( mVertexColorSemiOpaque, &quot;vertexColorSemiOpaque&quot; );
+  set( mVertexSelectedColor, &quot;vertexSelectedColor&quot; );
+  set( mVertexSelectedColorSemiOpaque, &quot;vertexSelectedColorSemiOpaque&quot; );
+  set( mVertexNewColor, &quot;vertexNewColor&quot; );
+  set( mVertexNewColorSemiOpaque, &quot;vertexNewColorSemiOpaque&quot; );
+  set( mProcessingPreview, &quot;processingPreview&quot; );
+
+  emit themeDataLoaded();
+}
+
+void Theme::applyAppearance( const QVariantMap &amp;extraColors, BaseAppearance baseAppearance )
+{
+  BaseAppearance appearance = baseAppearance;
+
+  if ( appearance == UseSettingsAppearance )
+  {
+    const QString settingsAppearance = QSettings().value( QStringLiteral( &quot;appearance&quot; ), QStringLiteral( &quot;system&quot; ) ).toString();
+    if ( settingsAppearance == QStringLiteral( &quot;dark&quot; ) )
+    {
+      appearance = DarkAppearance;
+    }
+    else if ( settingsAppearance == QStringLiteral( &quot;light&quot; ) )
+    {
+      appearance = LightAppearance;
+    }
+    else
+    {
+      appearance = SystemAppearance;
+    }
+  }
+
+  bool darkTheme = false;
+  if ( appearance == SystemAppearance )
+  {
+    darkTheme = PlatformUtilities::instance()-&gt;isSystemDarkTheme();
+  }
+  else
+  {
+    darkTheme = ( appearance == DarkAppearance );
+  }
+
+  if ( mDarkTheme != darkTheme )
+  {
+    mDarkTheme = darkTheme;
+    emit darkThemeChanged();
+  }
+
+  applyColors( mDarkTheme ? mDarkThemeColors : mLightThemeColors );
+
+  if ( !extraColors.isEmpty() )
+  {
+    applyColors( extraColors );
+  }
+
+  QPalette palette = qApp-&gt;palette();
+  palette.setColor( QPalette::Link, mMainColor );
+  palette.setColor( QPalette::LinkVisited, mMainColor );
+  qApp-&gt;setPalette( palette );
+}
+
+void Theme::applyColors( const QVariantMap &amp;colors )
+{
+  const QMetaObject *meta = &amp;Theme::staticMetaObject;
+  for ( auto it = colors.cbegin(); it != colors.cend(); ++it )
+  {
+    const int idx = meta-&gt;indexOfProperty( qPrintable( it.key() ) );
+    if ( idx &lt; 0 )
+    {
+      continue;
+    }
+
+    const QMetaProperty prop = meta-&gt;property( idx );
+    if ( !prop.isWritable() )
+    {
+      continue;
+    }
+
+    const QColor color = it.value().canConvert&lt;QColor&gt;() ? it.value().value&lt;QColor&gt;() : QColor( it.value().toString() );
+    if ( !color.isValid() )
+    {
+      continue;
+    }
+
+    prop.write( this, color );
+  }
+}
+
+void Theme::applyFontScale()
+{
+  const qreal scale = QSettings().value( QStringLiteral( &quot;fontScale&quot; ), 1.0 ).toReal();
+  setFontScale( scale );
+}
+
+void Theme::setSystemFontPointSize( qreal size )
+{
+  if ( size == 0.0 || qFuzzyCompare( mSystemFontPointSize, size ) )
+  {
+    return;
+  }
+
+  mSystemFontPointSize = size;
+  emit fontScaleChanged();
+}
+
+void Theme::setScreenPpi( qreal ppi )
+{
+  if ( ppi == 0.0 || qFuzzyCompare( mScreenPpi, ppi ) )
+  {
+    return;
+  }
+
+  mScreenPpi = ppi;
+  emit screenPpiChanged();
+}
+
+void Theme::setMainColor( const QColor &amp;color )
+{
+  if ( mMainColor == color )
+  {
+    return;
+  }
+
+  mMainColor = color;
+  emit mainColorChanged();
+
+  // mainColorSemiOpaque always tracks mainColor with reduced opacity
+  QColor semiOpaque = color;
+  semiOpaque.setAlpha( 0xbb );
+  mMainColorSemiOpaque = semiOpaque;
+  emit themeDataLoaded();
+}
+
+void Theme::setMainOverlayColor( const QColor &amp;color )
+{
+  if ( mMainOverlayColor == color )
+  {
+    return;
+  }
+
+  mMainOverlayColor = color;
+  emit mainOverlayColorChanged();
+}
+
+void Theme::setMainBackgroundColor( const QColor &amp;color )
+{
+  if ( mMainBackgroundColor == color )
+  {
+    return;
+  }
+
+  mMainBackgroundColor = color;
+  emit mainBackgroundColorChanged();
+}
+
+void Theme::setMainBackgroundColorSemiOpaque( const QColor &amp;color )
+{
+  if ( mMainBackgroundColorSemiOpaque == color )
+  {
+    return;
+  }
+
+  mMainBackgroundColorSemiOpaque = color;
+  emit mainBackgroundColorSemiOpaqueChanged();
+}
+
+void Theme::setMainTextColor( const QColor &amp;color )
+{
+  if ( mMainTextColor == color )
+  {
+    return;
+  }
+
+  mMainTextColor = color;
+  emit mainTextColorChanged();
+}
+
+void Theme::setMainTextDisabledColor( const QColor &amp;color )
+{
+  if ( mMainTextDisabledColor == color )
+  {
+    return;
+  }
+
+  mMainTextDisabledColor = color;
+  emit mainTextDisabledColorChanged();
+}
+
+void Theme::setSecondaryTextColor( const QColor &amp;color )
+{
+  if ( mSecondaryTextColor == color )
+  {
+    return;
+  }
+
+  mSecondaryTextColor = color;
+  emit secondaryTextColorChanged();
+}
+
+void Theme::setControlBackgroundColor( const QColor &amp;color )
+{
+  if ( mControlBackgroundColor == color )
+  {
+    return;
+  }
+
+  mControlBackgroundColor = color;
+  emit controlBackgroundColorChanged();
+}
+
+void Theme::setControlBackgroundAlternateColor( const QColor &amp;color )
+{
+  if ( mControlBackgroundAlternateColor == color )
+  {
+    return;
+  }
+
+  mControlBackgroundAlternateColor = color;
+  emit controlBackgroundAlternateColorChanged();
+}
+
+void Theme::setControlBackgroundDisabledColor( const QColor &amp;color )
+{
+  if ( mControlBackgroundDisabledColor == color )
+  {
+    return;
+  }
+
+  mControlBackgroundDisabledColor = color;
+  emit controlBackgroundDisabledColorChanged();
+}
+
+void Theme::setControlBorderColor( const QColor &amp;color )
+{
+  if ( mControlBorderColor == color )
+  {
+    return;
+  }
+
+  mControlBorderColor = color;
+  emit controlBorderColorChanged();
+}
+
+void Theme::setButtonColor( const QColor &amp;color )
+{
+  if ( mButtonColor == color )
+  {
+    return;
+  }
+
+  mButtonColor = color;
+  emit buttonColorChanged();
+}
+
+void Theme::setButtonBackgroundColor( const QColor &amp;color )
+{
+  if ( mButtonBackgroundColor == color )
+  {
+    return;
+  }
+
+  mButtonBackgroundColor = color;
+  emit buttonBackgroundColorChanged();
+}
+
+void Theme::setToolButtonColor( const QColor &amp;color )
+{
+  if ( mToolButtonColor == color )
+  {
+    return;
+  }
+
+  mToolButtonColor = color;
+  emit toolButtonColorChanged();
+}
+
+void Theme::setToolButtonBackgroundColor( const QColor &amp;color )
+{
+  if ( mToolButtonBackgroundColor == color )
+  {
+    return;
+  }
+
+  mToolButtonBackgroundColor = color;
+  emit toolButtonBackgroundColorChanged();
+}
+
+void Theme::setToolButtonBackgroundSemiOpaqueColor( const QColor &amp;color )
+{
+  if ( mToolButtonBackgroundSemiOpaqueColor == color )
+  {
+    return;
+  }
+
+  mToolButtonBackgroundSemiOpaqueColor = color;
+  emit toolButtonBackgroundSemiOpaqueColorChanged();
+}
+
+void Theme::setScrollBarBackgroundColor( const QColor &amp;color )
+{
+  if ( mScrollBarBackgroundColor == color )
+  {
+    return;
+  }
+
+  mScrollBarBackgroundColor = color;
+  emit scrollBarBackgroundColorChanged();
+}
+
+void Theme::setGroupBoxBackgroundColor( const QColor &amp;color )
+{
+  if ( mGroupBoxBackgroundColor == color )
+  {
+    return;
+  }
+
+  mGroupBoxBackgroundColor = color;
+  emit groupBoxBackgroundColorChanged();
+}
+
+void Theme::setGroupBoxSurfaceColor( const QColor &amp;color )
+{
+  if ( mGroupBoxSurfaceColor == color )
+  {
+    return;
+  }
+
+  mGroupBoxSurfaceColor = color;
+  emit groupBoxSurfaceColorChanged();
+}
+
+void Theme::setGoodColor( const QColor &amp;color )
+{
+  if ( mGoodColor == color )
+  {
+    return;
+  }
+
+  mGoodColor = color;
+  emit goodColorChanged();
+}
+
+void Theme::setWarningColor( const QColor &amp;color )
+{
+  if ( mWarningColor == color )
+  {
+    return;
+  }
+
+  mWarningColor = color;
+  emit warningColorChanged();
+}
+
+void Theme::setErrorColor( const QColor &amp;color )
+{
+  if ( mErrorColor == color )
+  {
+    return;
+  }
+
+  mErrorColor = color;
+  emit errorColorChanged();
+}
+
+void Theme::setDarkTheme( bool dark )
+{
+  if ( mDarkTheme == dark )
+  {
+    return;
+  }
+
+  mDarkTheme = dark;
+  emit darkThemeChanged();
+}
+
+void Theme::setFontScale( qreal scale )
+{
+  if ( !qFuzzyCompare( mFontScale, scale ) )
+  {
+    return;
+  }
+
+  mFontScale = scale;
+  emit fontScaleChanged();
+}
+
+QFont Theme::makeFont( qreal scaleFactor, bool bold ) const
+{
+  QFont font;
+  font.setPointSizeF( mSystemFontPointSize * mFontScale * scaleFactor );
+  font.setBold( bold );
+  font.setWeight( bold ? QFont::Bold : QFont::Normal );
+  return font;
+}
+
+QString Theme::getThemeIcon( const QString &amp;name ) const
+{
+  QString density;
+  if ( mScreenPpi &gt;= 360 )
+  {
+    density = QStringLiteral( &quot;xxxhdpi&quot; );
+  }
+  else if ( mScreenPpi &gt;= 270 )
+  {
+    density = QStringLiteral( &quot;xxhdpi&quot; );
+  }
+  else if ( mScreenPpi &gt;= 180 )
+  {
+    density = QStringLiteral( &quot;xhdpi&quot; );
+  }
+  else if ( mScreenPpi &gt;= 135 )
+  {
+    density = QStringLiteral( &quot;hdpi&quot; );
+  }
+  else
+  {
+    density = QStringLiteral( &quot;mdpi&quot; );
+  }
+
+  return QStringLiteral( &quot;qrc:/themes/qfield/%1/%2.png&quot; ).arg( density, name );
+}
+
+QString Theme::getThemeVectorIcon( const QString &amp;name ) const
+{
+  return QStringLiteral( &quot;qrc:/themes/qfield/nodpi/%1.svg&quot; ).arg( name );
+}
+
+QString Theme::colorToHtml( const QColor &amp;color ) const
+{
+  return QStringLiteral( &quot;rgba(%1,%2,%3,%4)&quot; )
+    .arg( static_cast&lt;int&gt;( color.redF() * 255 ) )
+    .arg( static_cast&lt;int&gt;( color.greenF() * 255 ) )
+    .arg( static_cast&lt;int&gt;( color.blueF() * 255 ) )
+    .arg( static_cast&lt;int&gt;( color.alphaF() * 255 ) );
+}
+
+QString Theme::toInlineStyles( const QVariantMap &amp;styleProperties ) const
+{
+  QString styles;
+  for ( auto it = styleProperties.cbegin(); it != styleProperties.cend(); ++it )
+  {
+    styles += it.key() + QStringLiteral( &quot;: &quot; );
+    if ( it.value().canConvert&lt;QColor&gt;() )
+    {
+      styles += colorToHtml( it.value().value&lt;QColor&gt;() );
+    }
+    else
+    {
+      styles += it.value().toString();
+    }
+    styles += QStringLiteral( &quot;;&quot; );
+  }
+
+  return styles;
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

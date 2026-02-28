@@ -1,0 +1,3340 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class GnssPositionInformation - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-gnsspositioninformation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class GnssPositionInformation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-accuracyquality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum AccuracyQuality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-fixstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum FixStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-accuracyquality-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property accuracyQuality [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-averagedcount-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property averagedCount [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-direction-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property direction [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-directionvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property directionValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-elevation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property elevation [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-elevationvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property elevationValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-fixmode-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property fixMode [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-fixstatus-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property fixStatus [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-fixstatusdescription-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property fixStatusDescription [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-fixtype-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property fixType [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-hacc-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property hacc [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-haccvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property haccValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-hdop-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property hdop [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-hvacc-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property hvacc [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-hvaccvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property hvaccValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-imucorrection-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property imuCorrection [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-imuheading-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property imuHeading [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-imuheadingvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property imuHeadingValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-imupitch-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property imuPitch [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-imupitchvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property imuPitchValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-imuroll-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property imuRoll [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-imurollvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property imuRollValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-imusteering-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property imuSteering [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-imusteeringvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property imuSteeringValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-latitude-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property latitude [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-latitudevalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property latitudeValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-longitude-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property longitude [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-longitudevalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property longitudeValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-magneticvariation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property magneticVariation [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-orientation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property orientation [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-orientationvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property orientationValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-pdop-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property pdop [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-quality-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property quality [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-qualitydescription-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property qualityDescription [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-satinfocomplete-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property satInfoComplete [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-satprn-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property satPrn [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-satellitesinview-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property satellitesInView [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-satellitesused-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property satellitesUsed [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-sourcename-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property sourceName [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-speed-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property speed [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-speedvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property speedValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-status-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property status [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-utcdatetime-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property utcDateTime [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vacc-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vacc [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vaccvalid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vaccValid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vdop-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vdop [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-verticalspeed-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property verticalSpeed [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-gnsspositioninformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function GnssPositionInformation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-accuracyquality-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function accuracyQuality [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-averagedcount-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function averagedCount [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-direction-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function direction [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-directionvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function directionValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-elevation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function elevation [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-elevationvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function elevationValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-fixmode-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function fixMode [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-fixstatus-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function fixStatus [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-fixstatusdescription-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function fixStatusDescription [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-fixtype-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function fixType [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-hacc-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function hacc [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-haccvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function haccValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-hdop-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function hdop [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-hvacc-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function hvacc [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-hvaccvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function hvaccValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-imucorrection-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function imuCorrection [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-imuheading-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function imuHeading [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-imuheadingvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function imuHeadingValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-imupitch-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function imuPitch [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-imupitchvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function imuPitchValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-imuroll-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function imuRoll [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-imurollvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function imuRollValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-imusteering-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function imuSteering [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-imusteeringvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function imuSteeringValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-latitude-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function latitude [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-latitudevalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function latitudeValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-longitude-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function longitude [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-longitudevalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function longitudeValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-magneticvariation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function magneticVariation [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function operator!=
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-operator_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function operator==
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-orientation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function orientation [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-orientationvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function orientationValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-pdop-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function pdop [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-quality-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function quality [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-qualitydescription-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function qualityDescription [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-satinfocomplete-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function satInfoComplete [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-satprn-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function satPrn [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-satellitesinview-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function satellitesInView [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-satellitesused-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function satellitesUsed [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setaccuracyquality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAccuracyQuality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setaveragedcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAveragedCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdirection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDirection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setelevation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setElevation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setfixmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setFixMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setfixtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setFixType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-sethvacc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setHVacc
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-sethacc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setHacc
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-sethdop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setHdop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setimucorrection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setImuCorrection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setimuheading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setImuHeading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setimupitch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setImuPitch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setimuroll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setImuRoll
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setimusteering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setImuSteering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlatitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLatitude
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlongitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLongitude
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmagneticvaritation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setMagneticVaritation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setorientation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOrientation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setpdop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPdop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setquality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setQuality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setsatinfocomplete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setSatInfoComplete
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setsatprn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setSatPrn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setsatellitesinview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setSatellitesInView
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setsatellitesused" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setSatellitesUsed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setsourcename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setSourceName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setspeed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setSpeed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setutcdatetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setUtcDateTime
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setvacc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setVacc
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setvdop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setVdop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setverticalspeed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setVerticalSpeed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-sourcename-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function sourceName [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-speed-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function speed [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-speedvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function speedValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-status-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function status [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-utcdatetime-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function utcDateTime [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vacc-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vacc [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vaccvalid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vaccValid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vdop-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vdop [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-verticalspeed-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function verticalSpeed [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-gnsspositioninformation">Class GnssPositionInformation</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>GnssPositionInformation</strong></a></p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-accuracyquality"><strong>AccuracyQuality</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-fixstatus"><strong>FixStatus</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property AccuracyQuality</td>
+<td style="text-align: left;"><a href="./#property-accuracyquality-12"><strong>accuracyQuality</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-averagedcount-12"><strong>averagedCount</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-direction-12"><strong>direction</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-directionvalid-12"><strong>directionValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-elevation-12"><strong>elevation</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-elevationvalid-12"><strong>elevationValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QChar</td>
+<td style="text-align: left;"><a href="./#property-fixmode-12"><strong>fixMode</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="./#enum-fixstatus"><strong>FixStatus</strong></a></td>
+<td style="text-align: left;"><a href="./#property-fixstatus-12"><strong>fixStatus</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-fixstatusdescription-12"><strong>fixStatusDescription</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-fixtype-12"><strong>fixType</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-hacc-12"><strong>hacc</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-haccvalid-12"><strong>haccValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-hdop-12"><strong>hdop</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-hvacc-12"><strong>hvacc</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-hvaccvalid-12"><strong>hvaccValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-imucorrection-12"><strong>imuCorrection</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-imuheading-12"><strong>imuHeading</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-imuheadingvalid-12"><strong>imuHeadingValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-imupitch-12"><strong>imuPitch</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-imupitchvalid-12"><strong>imuPitchValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-imuroll-12"><strong>imuRoll</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-imurollvalid-12"><strong>imuRollValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-imusteering-12"><strong>imuSteering</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-imusteeringvalid-12"><strong>imuSteeringValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isvalid-12"><strong>isValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-latitude-12"><strong>latitude</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-latitudevalid-12"><strong>latitudeValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-longitude-12"><strong>longitude</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-longitudevalid-12"><strong>longitudeValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-magneticvariation-12"><strong>magneticVariation</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-orientation-12"><strong>orientation</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-orientationvalid-12"><strong>orientationValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-pdop-12"><strong>pdop</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-quality-12"><strong>quality</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-qualitydescription-12"><strong>qualityDescription</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-satinfocomplete-12"><strong>satInfoComplete</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QList&lt; int &gt;</td>
+<td style="text-align: left;"><a href="./#property-satprn-12"><strong>satPrn</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QList&lt; QgsSatelliteInfo &gt;</td>
+<td style="text-align: left;"><a href="./#property-satellitesinview-12"><strong>satellitesInView</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-satellitesused-12"><strong>satellitesUsed</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-sourcename-12"><strong>sourceName</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-speed-12"><strong>speed</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-speedvalid-12"><strong>speedValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QChar</td>
+<td style="text-align: left;"><a href="./#property-status-12"><strong>status</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QDateTime</td>
+<td style="text-align: left;"><a href="./#property-utcdatetime-12"><strong>utcDateTime</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-vacc-12"><strong>vacc</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-vaccvalid-12"><strong>vaccValid</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-vdop-12"><strong>vdop</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-verticalspeed-12"><strong>verticalSpeed</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-gnsspositioninformation"><strong>GnssPositionInformation</strong></a> (double latitude=std::numeric_limits&lt; double &gt;::quiet_NaN(), double longitude=std::numeric_limits&lt; double &gt;::quiet_NaN(), double elevation=std::numeric_limits&lt; double &gt;::quiet_NaN(), double speed=std::numeric_limits&lt; double &gt;::quiet_NaN(), double direction=std::numeric_limits&lt; double &gt;::quiet_NaN(), const QList&lt; QgsSatelliteInfo &gt; &amp; satellitesInView=QList&lt; QgsSatelliteInfo &gt;(), double pdop=0, double hdop=0, double vdop=0, double hacc=std::numeric_limits&lt; double &gt;::quiet_NaN(), double vacc=std::numeric_limits&lt; double &gt;::quiet_NaN(), QDateTime utcDateTime=QDateTime(), QChar fixMode=QChar(), int fixType=0, int quality=-1, int satellitesUsed=0, QChar status=QChar(), const QList&lt; int &gt; &amp; satPrn=QList&lt; int &gt;(), bool satInfoComplete=false, double verticalSpeed=std::numeric_limits&lt; double &gt;::quiet_NaN(), double magneticVariation=std::numeric_limits&lt; double &gt;::quiet_NaN(), int averagedCount=0, const QString &amp; sourceName=QString(), bool imuCorrection=false, double imuRoll=std::numeric_limits&lt; double &gt;::quiet_NaN(), double imuPitch=std::numeric_limits&lt; double &gt;::quiet_NaN(), double imuHeading=std::numeric_limits&lt; double &gt;::quiet_NaN(), double imuSteering=std::numeric_limits&lt; double &gt;::quiet_NaN(), double orientation=std::numeric_limits&lt; double &gt;::quiet_NaN()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">AccuracyQuality</td>
+<td style="text-align: left;"><a href="#function-accuracyquality-22"><strong>accuracyQuality</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-averagedcount-22"><strong>averagedCount</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-direction-22"><strong>direction</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-directionvalid-22"><strong>directionValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-elevation-22"><strong>elevation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-elevationvalid-22"><strong>elevationValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QChar</td>
+<td style="text-align: left;"><a href="#function-fixmode-22"><strong>fixMode</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="./#enum-fixstatus"><strong>FixStatus</strong></a></td>
+<td style="text-align: left;"><a href="#function-fixstatus-22"><strong>fixStatus</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-fixstatusdescription-22"><strong>fixStatusDescription</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-fixtype-22"><strong>fixType</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-hacc-22"><strong>hacc</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-haccvalid-22"><strong>haccValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-hdop-22"><strong>hdop</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-hvacc-22"><strong>hvacc</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-hvaccvalid-22"><strong>hvaccValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-imucorrection-22"><strong>imuCorrection</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-imuheading-22"><strong>imuHeading</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-imuheadingvalid-22"><strong>imuHeadingValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-imupitch-22"><strong>imuPitch</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-imupitchvalid-22"><strong>imuPitchValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-imuroll-22"><strong>imuRoll</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-imurollvalid-22"><strong>imuRollValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-imusteering-22"><strong>imuSteering</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-imusteeringvalid-22"><strong>imuSteeringValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isvalid-22"><strong>isValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-latitude-22"><strong>latitude</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-latitudevalid-22"><strong>latitudeValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-longitude-22"><strong>longitude</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-longitudevalid-22"><strong>longitudeValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-magneticvariation-22"><strong>magneticVariation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-operator"><strong>operator!=</strong></a> (const <a href="./"><strong>GnssPositionInformation</strong></a> &amp; other) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-operator_1"><strong>operator==</strong></a> (const <a href="./"><strong>GnssPositionInformation</strong></a> &amp; other) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-orientation-22"><strong>orientation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-orientationvalid-22"><strong>orientationValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-pdop-22"><strong>pdop</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-quality-22"><strong>quality</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-qualitydescription-22"><strong>qualityDescription</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-satinfocomplete-22"><strong>satInfoComplete</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; int &gt;</td>
+<td style="text-align: left;"><a href="#function-satprn-22"><strong>satPrn</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; QgsSatelliteInfo &gt;</td>
+<td style="text-align: left;"><a href="#function-satellitesinview-22"><strong>satellitesInView</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-satellitesused-22"><strong>satellitesUsed</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setaccuracyquality"><strong>setAccuracyQuality</strong></a> (AccuracyQuality quality) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setaveragedcount"><strong>setAveragedCount</strong></a> (int averagedCount) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdirection"><strong>setDirection</strong></a> (double direction) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setelevation"><strong>setElevation</strong></a> (double elevation) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setfixmode"><strong>setFixMode</strong></a> (QChar fixMode) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setfixtype"><strong>setFixType</strong></a> (int fixType) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-sethvacc"><strong>setHVacc</strong></a> (double hvacc) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-sethacc"><strong>setHacc</strong></a> (double hacc) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-sethdop"><strong>setHdop</strong></a> (double hdop) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setimucorrection"><strong>setImuCorrection</strong></a> (bool imuCorrection) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setimuheading"><strong>setImuHeading</strong></a> (double heading) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setimupitch"><strong>setImuPitch</strong></a> (double pitch) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setimuroll"><strong>setImuRoll</strong></a> (double roll) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setimusteering"><strong>setImuSteering</strong></a> (double steering) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlatitude"><strong>setLatitude</strong></a> (double latitude) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlongitude"><strong>setLongitude</strong></a> (double longitude) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setmagneticvaritation"><strong>setMagneticVaritation</strong></a> (double magneticVariation) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setorientation"><strong>setOrientation</strong></a> (double orientation) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setpdop"><strong>setPdop</strong></a> (double pdop) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setquality"><strong>setQuality</strong></a> (int quality) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setsatinfocomplete"><strong>setSatInfoComplete</strong></a> (bool satInfoComplete) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setsatprn"><strong>setSatPrn</strong></a> (const QList&lt; int &gt; &amp; satPrn) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setsatellitesinview"><strong>setSatellitesInView</strong></a> (const QList&lt; QgsSatelliteInfo &gt; &amp; satellitesInView) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setsatellitesused"><strong>setSatellitesUsed</strong></a> (int satellitesUsed) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setsourcename"><strong>setSourceName</strong></a> (const QString &amp; sourceName) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setspeed"><strong>setSpeed</strong></a> (double speed) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setstatus"><strong>setStatus</strong></a> (QChar status) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setutcdatetime"><strong>setUtcDateTime</strong></a> (const QDateTime &amp; utcDateTime) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setvacc"><strong>setVacc</strong></a> (double vacc) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setvdop"><strong>setVdop</strong></a> (double vdop) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setverticalspeed"><strong>setVerticalSpeed</strong></a> (double verticalSpeed) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-sourcename-22"><strong>sourceName</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-speed-22"><strong>speed</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-speedvalid-22"><strong>speedValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QChar</td>
+<td style="text-align: left;"><a href="#function-status-22"><strong>status</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QDateTime</td>
+<td style="text-align: left;"><a href="#function-utcdatetime-22"><strong>utcDateTime</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-vacc-22"><strong>vacc</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-vaccvalid-22"><strong>vaccValid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-vdop-22"><strong>vdop</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-verticalspeed-22"><strong>verticalSpeed</strong></a> () const<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-accuracyquality">enum AccuracyQuality</h3>
+<pre><code class="language-C++">enum GnssPositionInformation::AccuracyQuality {
+    AccuracyUndetermined,
+    AccuracyBad,
+    AccuracyOk,
+    AccuracyExcellent
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-fixstatus">enum FixStatus</h3>
+<pre><code class="language-C++">enum GnssPositionInformation::FixStatus {
+    NoData,
+    NoFix,
+    Fix2D,
+    Fix3D
+};
+</code></pre>
+<p>GPS fix status </p>
+<hr>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-accuracyquality-12">property accuracyQuality [1/2]</h3>
+<pre><code class="language-C++">AccuracyQuality GnssPositionInformation::accuracyQuality;
+</code></pre>
+<hr>
+
+<h3 id="property-averagedcount-12">property averagedCount [1/2]</h3>
+<pre><code class="language-C++">int GnssPositionInformation::averagedCount;
+</code></pre>
+<hr>
+
+<h3 id="property-direction-12">property direction [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::direction;
+</code></pre>
+<hr>
+
+<h3 id="property-directionvalid-12">property directionValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::directionValid;
+</code></pre>
+<hr>
+
+<h3 id="property-elevation-12">property elevation [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::elevation;
+</code></pre>
+<hr>
+
+<h3 id="property-elevationvalid-12">property elevationValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::elevationValid;
+</code></pre>
+<hr>
+
+<h3 id="property-fixmode-12">property fixMode [1/2]</h3>
+<pre><code class="language-C++">QChar GnssPositionInformation::fixMode;
+</code></pre>
+<hr>
+
+<h3 id="property-fixstatus-12">property fixStatus [1/2]</h3>
+<pre><code class="language-C++">FixStatus GnssPositionInformation::fixStatus;
+</code></pre>
+<hr>
+
+<h3 id="property-fixstatusdescription-12">property fixStatusDescription [1/2]</h3>
+<pre><code class="language-C++">QString GnssPositionInformation::fixStatusDescription;
+</code></pre>
+<hr>
+
+<h3 id="property-fixtype-12">property fixType [1/2]</h3>
+<pre><code class="language-C++">int GnssPositionInformation::fixType;
+</code></pre>
+<hr>
+
+<h3 id="property-hacc-12">property hacc [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::hacc;
+</code></pre>
+<hr>
+
+<h3 id="property-haccvalid-12">property haccValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::haccValid;
+</code></pre>
+<hr>
+
+<h3 id="property-hdop-12">property hdop [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::hdop;
+</code></pre>
+<hr>
+
+<h3 id="property-hvacc-12">property hvacc [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::hvacc;
+</code></pre>
+<hr>
+
+<h3 id="property-hvaccvalid-12">property hvaccValid [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::hvaccValid;
+</code></pre>
+<hr>
+
+<h3 id="property-imucorrection-12">property imuCorrection [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::imuCorrection;
+</code></pre>
+<hr>
+
+<h3 id="property-imuheading-12">property imuHeading [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::imuHeading;
+</code></pre>
+<hr>
+
+<h3 id="property-imuheadingvalid-12">property imuHeadingValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::imuHeadingValid;
+</code></pre>
+<hr>
+
+<h3 id="property-imupitch-12">property imuPitch [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::imuPitch;
+</code></pre>
+<hr>
+
+<h3 id="property-imupitchvalid-12">property imuPitchValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::imuPitchValid;
+</code></pre>
+<hr>
+
+<h3 id="property-imuroll-12">property imuRoll [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::imuRoll;
+</code></pre>
+<hr>
+
+<h3 id="property-imurollvalid-12">property imuRollValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::imuRollValid;
+</code></pre>
+<hr>
+
+<h3 id="property-imusteering-12">property imuSteering [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::imuSteering;
+</code></pre>
+<hr>
+
+<h3 id="property-imusteeringvalid-12">property imuSteeringValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::imuSteeringValid;
+</code></pre>
+<hr>
+
+<h3 id="property-isvalid-12">property isValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::isValid;
+</code></pre>
+<hr>
+
+<h3 id="property-latitude-12">property latitude [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::latitude;
+</code></pre>
+<hr>
+
+<h3 id="property-latitudevalid-12">property latitudeValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::latitudeValid;
+</code></pre>
+<hr>
+
+<h3 id="property-longitude-12">property longitude [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::longitude;
+</code></pre>
+<hr>
+
+<h3 id="property-longitudevalid-12">property longitudeValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::longitudeValid;
+</code></pre>
+<hr>
+
+<h3 id="property-magneticvariation-12">property magneticVariation [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::magneticVariation;
+</code></pre>
+<hr>
+
+<h3 id="property-orientation-12">property orientation [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::orientation;
+</code></pre>
+<hr>
+
+<h3 id="property-orientationvalid-12">property orientationValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::orientationValid;
+</code></pre>
+<hr>
+
+<h3 id="property-pdop-12">property pdop [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::pdop;
+</code></pre>
+<hr>
+
+<h3 id="property-quality-12">property quality [1/2]</h3>
+<pre><code class="language-C++">int GnssPositionInformation::quality;
+</code></pre>
+<hr>
+
+<h3 id="property-qualitydescription-12">property qualityDescription [1/2]</h3>
+<pre><code class="language-C++">QString GnssPositionInformation::qualityDescription;
+</code></pre>
+<hr>
+
+<h3 id="property-satinfocomplete-12">property satInfoComplete [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::satInfoComplete;
+</code></pre>
+<hr>
+
+<h3 id="property-satprn-12">property satPrn [1/2]</h3>
+<pre><code class="language-C++">QList&lt;int&gt; GnssPositionInformation::satPrn;
+</code></pre>
+<hr>
+
+<h3 id="property-satellitesinview-12">property satellitesInView [1/2]</h3>
+<pre><code class="language-C++">QList&lt;QgsSatelliteInfo&gt; GnssPositionInformation::satellitesInView;
+</code></pre>
+<hr>
+
+<h3 id="property-satellitesused-12">property satellitesUsed [1/2]</h3>
+<pre><code class="language-C++">int GnssPositionInformation::satellitesUsed;
+</code></pre>
+<hr>
+
+<h3 id="property-sourcename-12">property sourceName [1/2]</h3>
+<pre><code class="language-C++">QString GnssPositionInformation::sourceName;
+</code></pre>
+<hr>
+
+<h3 id="property-speed-12">property speed [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::speed;
+</code></pre>
+<hr>
+
+<h3 id="property-speedvalid-12">property speedValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::speedValid;
+</code></pre>
+<hr>
+
+<h3 id="property-status-12">property status [1/2]</h3>
+<pre><code class="language-C++">QChar GnssPositionInformation::status;
+</code></pre>
+<hr>
+
+<h3 id="property-utcdatetime-12">property utcDateTime [1/2]</h3>
+<pre><code class="language-C++">QDateTime GnssPositionInformation::utcDateTime;
+</code></pre>
+<hr>
+
+<h3 id="property-vacc-12">property vacc [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::vacc;
+</code></pre>
+<hr>
+
+<h3 id="property-vaccvalid-12">property vaccValid [1/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::vaccValid;
+</code></pre>
+<hr>
+
+<h3 id="property-vdop-12">property vdop [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::vdop;
+</code></pre>
+<hr>
+
+<h3 id="property-verticalspeed-12">property verticalSpeed [1/2]</h3>
+<pre><code class="language-C++">double GnssPositionInformation::verticalSpeed;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-gnsspositioninformation">function GnssPositionInformation</h3>
+<pre><code class="language-C++">GnssPositionInformation::GnssPositionInformation (
+    double latitude=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    double longitude=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    double elevation=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    double speed=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    double direction=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    const QList&lt; QgsSatelliteInfo &gt; &amp; satellitesInView=QList&lt; QgsSatelliteInfo &gt;(),
+    double pdop=0,
+    double hdop=0,
+    double vdop=0,
+    double hacc=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    double vacc=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    QDateTime utcDateTime=QDateTime(),
+    QChar fixMode=QChar(),
+    int fixType=0,
+    int quality=-1,
+    int satellitesUsed=0,
+    QChar status=QChar(),
+    const QList&lt; int &gt; &amp; satPrn=QList&lt; int &gt;(),
+    bool satInfoComplete=false,
+    double verticalSpeed=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    double magneticVariation=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    int averagedCount=0,
+    const QString &amp; sourceName=QString(),
+    bool imuCorrection=false,
+    double imuRoll=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    double imuPitch=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    double imuHeading=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    double imuSteering=std::numeric_limits&lt; double &gt;::quiet_NaN(),
+    double orientation=std::numeric_limits&lt; double &gt;::quiet_NaN()
+) 
+</code></pre>
+<p>GNSSPositionInformation constructor. </p>
+<hr>
+
+<h3 id="function-accuracyquality-22">function accuracyQuality [2/2]</h3>
+<pre><code class="language-C++">inline AccuracyQuality GnssPositionInformation::accuracyQuality () const
+</code></pre>
+<hr>
+
+<h3 id="function-averagedcount-22">function averagedCount [2/2]</h3>
+<pre><code class="language-C++">inline int GnssPositionInformation::averagedCount () const
+</code></pre>
+<hr>
+
+<h3 id="function-direction-22">function direction [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::direction () const
+</code></pre>
+<hr>
+
+<h3 id="function-directionvalid-22">function directionValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::directionValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-elevation-22">function elevation [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::elevation () const
+</code></pre>
+<hr>
+
+<h3 id="function-elevationvalid-22">function elevationValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::elevationValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-fixmode-22">function fixMode [2/2]</h3>
+<pre><code class="language-C++">inline QChar GnssPositionInformation::fixMode () const
+</code></pre>
+<hr>
+
+<h3 id="function-fixstatus-22">function fixStatus [2/2]</h3>
+<pre><code class="language-C++">FixStatus GnssPositionInformation::fixStatus () const
+</code></pre>
+<p>Returns the fix status </p>
+<hr>
+
+<h3 id="function-fixstatusdescription-22">function fixStatusDescription [2/2]</h3>
+<pre><code class="language-C++">QString GnssPositionInformation::fixStatusDescription () const
+</code></pre>
+<p>Returns the fix status as string </p>
+<hr>
+
+<h3 id="function-fixtype-22">function fixType [2/2]</h3>
+<pre><code class="language-C++">inline int GnssPositionInformation::fixType () const
+</code></pre>
+<hr>
+
+<h3 id="function-hacc-22">function hacc [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::hacc () const
+</code></pre>
+<hr>
+
+<h3 id="function-haccvalid-22">function haccValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::haccValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-hdop-22">function hdop [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::hdop () const
+</code></pre>
+<hr>
+
+<h3 id="function-hvacc-22">function hvacc [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::hvacc () const
+</code></pre>
+<hr>
+
+<h3 id="function-hvaccvalid-22">function hvaccValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::hvaccValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-imucorrection-22">function imuCorrection [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::imuCorrection () const
+</code></pre>
+<hr>
+
+<h3 id="function-imuheading-22">function imuHeading [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::imuHeading () const
+</code></pre>
+<hr>
+
+<h3 id="function-imuheadingvalid-22">function imuHeadingValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::imuHeadingValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-imupitch-22">function imuPitch [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::imuPitch () const
+</code></pre>
+<hr>
+
+<h3 id="function-imupitchvalid-22">function imuPitchValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::imuPitchValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-imuroll-22">function imuRoll [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::imuRoll () const
+</code></pre>
+<hr>
+
+<h3 id="function-imurollvalid-22">function imuRollValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::imuRollValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-imusteering-22">function imuSteering [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::imuSteering () const
+</code></pre>
+<hr>
+
+<h3 id="function-imusteeringvalid-22">function imuSteeringValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::imuSteeringValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-isvalid-22">function isValid [2/2]</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::isValid () const
+</code></pre>
+<p>Returns whether the connection information is valid </p>
+<hr>
+
+<h3 id="function-latitude-22">function latitude [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::latitude () const
+</code></pre>
+<hr>
+
+<h3 id="function-latitudevalid-22">function latitudeValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::latitudeValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-longitude-22">function longitude [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::longitude () const
+</code></pre>
+<hr>
+
+<h3 id="function-longitudevalid-22">function longitudeValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::longitudeValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-magneticvariation-22">function magneticVariation [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::magneticVariation () const
+</code></pre>
+<hr>
+
+<h3 id="function-operator">function operator!=</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::operator!= (
+    const GnssPositionInformation &amp; other
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-operator_1">function operator==</h3>
+<pre><code class="language-C++">bool GnssPositionInformation::operator== (
+    const GnssPositionInformation &amp; other
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-orientation-22">function orientation [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::orientation () const
+</code></pre>
+<hr>
+
+<h3 id="function-orientationvalid-22">function orientationValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::orientationValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-pdop-22">function pdop [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::pdop () const
+</code></pre>
+<hr>
+
+<h3 id="function-quality-22">function quality [2/2]</h3>
+<pre><code class="language-C++">inline int GnssPositionInformation::quality () const
+</code></pre>
+<hr>
+
+<h3 id="function-qualitydescription-22">function qualityDescription [2/2]</h3>
+<pre><code class="language-C++">QString GnssPositionInformation::qualityDescription () const
+</code></pre>
+<p>Returns a descriptive string for the signal quality </p>
+<hr>
+
+<h3 id="function-satinfocomplete-22">function satInfoComplete [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::satInfoComplete () const
+</code></pre>
+<hr>
+
+<h3 id="function-satprn-22">function satPrn [2/2]</h3>
+<pre><code class="language-C++">inline QList&lt; int &gt; GnssPositionInformation::satPrn () const
+</code></pre>
+<hr>
+
+<h3 id="function-satellitesinview-22">function satellitesInView [2/2]</h3>
+<pre><code class="language-C++">inline QList&lt; QgsSatelliteInfo &gt; GnssPositionInformation::satellitesInView () const
+</code></pre>
+<hr>
+
+<h3 id="function-satellitesused-22">function satellitesUsed [2/2]</h3>
+<pre><code class="language-C++">inline int GnssPositionInformation::satellitesUsed () const
+</code></pre>
+<hr>
+
+<h3 id="function-setaccuracyquality">function setAccuracyQuality</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setAccuracyQuality (
+    AccuracyQuality quality
+) 
+</code></pre>
+<p>Accuracy quality classification. Indicates if the position accuracy is bad, ok, or excellent, based on user-provided thresholds. </p>
+<hr>
+
+<h3 id="function-setaveragedcount">function setAveragedCount</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setAveragedCount (
+    int averagedCount
+) 
+</code></pre>
+<p>Returns the number of collected position from which the averaged positioning details were computed </p>
+<p><strong>Note:</strong></p>
+<p>A value of zero means the position information isn't averaged </p>
+<hr>
+
+<h3 id="function-setdirection">function setDirection</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setDirection (
+    double direction
+) 
+</code></pre>
+<p>The bearing measured in degrees clockwise from true north to the direction of travel. </p>
+<hr>
+
+<h3 id="function-setelevation">function setElevation</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setElevation (
+    double elevation
+) 
+</code></pre>
+<p>Altitude (in meters) above or below the mean sea level. </p>
+<hr>
+
+<h3 id="function-setfixmode">function setFixMode</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setFixMode (
+    QChar fixMode
+) 
+</code></pre>
+<p>Fix mode (where M = Manual, forced to operate in 2D or 3D or A = Automatic, 3D/2D) </p>
+<hr>
+
+<h3 id="function-setfixtype">function setFixType</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setFixType (
+    int fixType
+) 
+</code></pre>
+<p>Contains the fix type, where 1 = no fix, 2 = 2d fix, 3 = 3d fix </p>
+<hr>
+
+<h3 id="function-sethvacc">function setHVacc</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setHVacc (
+    double hvacc
+) 
+</code></pre>
+<p>3D accuracy in meters 3DRMS </p>
+<hr>
+
+<h3 id="function-sethacc">function setHacc</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setHacc (
+    double hacc
+) 
+</code></pre>
+<p>Horizontal accuracy in meters. RMS </p>
+<hr>
+
+<h3 id="function-sethdop">function setHdop</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setHdop (
+    double hdop
+) 
+</code></pre>
+<p>Horizontal dilution of precision. </p>
+<hr>
+
+<h3 id="function-setimucorrection">function setImuCorrection</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setImuCorrection (
+    bool imuCorrection
+) 
+</code></pre>
+<p>Returns TRUE when IMU correction is active </p>
+<hr>
+
+<h3 id="function-setimuheading">function setImuHeading</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setImuHeading (
+    double heading
+) 
+</code></pre>
+<p>IMU heading </p>
+<hr>
+
+<h3 id="function-setimupitch">function setImuPitch</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setImuPitch (
+    double pitch
+) 
+</code></pre>
+<p>IMU pitch </p>
+<hr>
+
+<h3 id="function-setimuroll">function setImuRoll</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setImuRoll (
+    double roll
+) 
+</code></pre>
+<p>IMU roll </p>
+<hr>
+
+<h3 id="function-setimusteering">function setImuSteering</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setImuSteering (
+    double steering
+) 
+</code></pre>
+<p>IMU steering </p>
+<hr>
+
+<h3 id="function-setlatitude">function setLatitude</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setLatitude (
+    double latitude
+) 
+</code></pre>
+<p>Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and a negative value indicates the Southern Hemisphere. </p>
+<hr>
+
+<h3 id="function-setlongitude">function setLongitude</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setLongitude (
+    double longitude
+) 
+</code></pre>
+<p>Longitude in decimal degrees, using the WGS84 datum. A positive value indicates the Eastern Hemisphere, and a negative value indicates the Western Hemisphere. </p>
+<hr>
+
+<h3 id="function-setmagneticvaritation">function setMagneticVaritation</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setMagneticVaritation (
+    double magneticVariation
+) 
+</code></pre>
+<p>magnetic variation in degrees </p>
+<hr>
+
+<h3 id="function-setorientation">function setOrientation</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setOrientation (
+    double orientation
+) 
+</code></pre>
+<p>Orientation (in degrees) </p>
+<hr>
+
+<h3 id="function-setpdop">function setPdop</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setPdop (
+    double pdop
+) 
+</code></pre>
+<p>Dilution of precision. </p>
+<hr>
+
+<h3 id="function-setquality">function setQuality</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setQuality (
+    int quality
+) 
+</code></pre>
+<p>GPS quality indicator (0 = Invalid; 1 = Fix; 2 = Differential, 3 = Sensitive) </p>
+<hr>
+
+<h3 id="function-setsatinfocomplete">function setSatInfoComplete</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setSatInfoComplete (
+    bool satInfoComplete
+) 
+</code></pre>
+<p>TRUE if satellite information is complete. </p>
+<hr>
+
+<h3 id="function-setsatprn">function setSatPrn</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setSatPrn (
+    const QList&lt; int &gt; &amp; satPrn
+) 
+</code></pre>
+<p>IDs of satellites used in the position fix. </p>
+<hr>
+
+<h3 id="function-setsatellitesinview">function setSatellitesInView</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setSatellitesInView (
+    const QList&lt; QgsSatelliteInfo &gt; &amp; satellitesInView
+) 
+</code></pre>
+<p>Contains a list of information relating to the current satellites in view. </p>
+<hr>
+
+<h3 id="function-setsatellitesused">function setSatellitesUsed</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setSatellitesUsed (
+    int satellitesUsed
+) 
+</code></pre>
+<p>Count of satellites used in obtaining the fix. </p>
+<hr>
+
+<h3 id="function-setsourcename">function setSourceName</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setSourceName (
+    const QString &amp; sourceName
+) 
+</code></pre>
+<p>source name (used by QtPositioning) </p>
+<hr>
+
+<h3 id="function-setspeed">function setSpeed</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setSpeed (
+    double speed
+) 
+</code></pre>
+<p>Ground speed, in km/h. </p>
+<hr>
+
+<h3 id="function-setstatus">function setStatus</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setStatus (
+    QChar status
+) 
+</code></pre>
+<p>Status (A = active or V = void) </p>
+<hr>
+
+<h3 id="function-setutcdatetime">function setUtcDateTime</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setUtcDateTime (
+    const QDateTime &amp; utcDateTime
+) 
+</code></pre>
+<p>The date and time at which this position was reported, in UTC time. </p>
+<hr>
+
+<h3 id="function-setvacc">function setVacc</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setVacc (
+    double vacc
+) 
+</code></pre>
+<p>Vertical accuracy in meters VRMS </p>
+<hr>
+
+<h3 id="function-setvdop">function setVdop</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setVdop (
+    double vdop
+) 
+</code></pre>
+<p>Vertical dilution of precision. </p>
+<hr>
+
+<h3 id="function-setverticalspeed">function setVerticalSpeed</h3>
+<pre><code class="language-C++">inline void GnssPositionInformation::setVerticalSpeed (
+    double verticalSpeed
+) 
+</code></pre>
+<p>Vertical speed, in km/h. </p>
+<hr>
+
+<h3 id="function-sourcename-22">function sourceName [2/2]</h3>
+<pre><code class="language-C++">inline QString GnssPositionInformation::sourceName () const
+</code></pre>
+<hr>
+
+<h3 id="function-speed-22">function speed [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::speed () const
+</code></pre>
+<hr>
+
+<h3 id="function-speedvalid-22">function speedValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::speedValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-status-22">function status [2/2]</h3>
+<pre><code class="language-C++">inline QChar GnssPositionInformation::status () const
+</code></pre>
+<hr>
+
+<h3 id="function-utcdatetime-22">function utcDateTime [2/2]</h3>
+<pre><code class="language-C++">inline QDateTime GnssPositionInformation::utcDateTime () const
+</code></pre>
+<hr>
+
+<h3 id="function-vacc-22">function vacc [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::vacc () const
+</code></pre>
+<hr>
+
+<h3 id="function-vaccvalid-22">function vaccValid [2/2]</h3>
+<pre><code class="language-C++">inline bool GnssPositionInformation::vaccValid () const
+</code></pre>
+<hr>
+
+<h3 id="function-vdop-22">function vdop [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::vdop () const
+</code></pre>
+<hr>
+
+<h3 id="function-verticalspeed-22">function verticalSpeed [2/2]</h3>
+<pre><code class="language-C++">inline double GnssPositionInformation::verticalSpeed () const
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/positioning/gnsspositioninformation.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

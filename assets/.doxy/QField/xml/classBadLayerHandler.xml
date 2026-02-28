@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBadLayerHandler" kind="class" language="C++" prot="public">
+    <compoundname>BadLayerHandler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QStandardItemModel</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">QgsProjectBadLayerHandler</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classBadLayerHandler_1abd56262c8e6e44f8df90ac72d8de690d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>BadLayerHandler::Roles</qualifiedname>
+        <enumvalue id="classBadLayerHandler_1abd56262c8e6e44f8df90ac72d8de690da84ff001389d03453bf639b664baec439" prot="public">
+          <name>DataSourceRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBadLayerHandler_1abd56262c8e6e44f8df90ac72d8de690dae44dae8c0445c37a4bed351fa384ddbc" prot="public">
+          <name>LayerNameRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/badlayerhandler.h" line="33" column="5" bodyfile="src/core/badlayerhandler.h" bodystart="34" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classBadLayerHandler_1a8b945b8dc9c2676fcca6913208aea409" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * BadLayerHandler::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>BadLayerHandler::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/badlayerhandler.h" line="30" column="5" bodyfile="src/core/badlayerhandler.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBadLayerHandler_1ac201414bf41a3726a95426d13cffbe2d" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* BadLayerHandler::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>BadLayerHandler::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/badlayerhandler.h" line="55" column="16" bodyfile="src/core/badlayerhandler.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBadLayerHandler_1aa8e065d90f29e19e5bca7f23ced5789e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BadLayerHandler::BadLayerHandler</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>BadLayerHandler</name>
+        <qualifiedname>BadLayerHandler::BadLayerHandler</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/badlayerhandler.h" line="39" column="14" bodyfile="src/core/badlayerhandler.cpp" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classBadLayerHandler_1a4e43652fb2836e0626e4015e9befec7d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; BadLayerHandler::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>BadLayerHandler::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/badlayerhandler.h" line="41" column="11" bodyfile="src/core/badlayerhandler.cpp" bodystart="25" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classBadLayerHandler_1ac2f57dfd2376de5202c7caddb671ab6d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * BadLayerHandler::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>BadLayerHandler::project</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/badlayerhandler.h" line="43" column="16" bodyfile="src/core/badlayerhandler.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classBadLayerHandler_1a06885ff54271d9c952a6a9454346867b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BadLayerHandler::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>BadLayerHandler::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/badlayerhandler.h" line="44" column="10" bodyfile="src/core/badlayerhandler.cpp" bodystart="40" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classBadLayerHandler_1a806175e5c7a8d918d28b29697c6d7735" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BadLayerHandler::handleBadLayers</definition>
+        <argsstring>(const QList&lt; QDomNode &gt; &amp;layers) override</argsstring>
+        <name>handleBadLayers</name>
+        <qualifiedname>BadLayerHandler::handleBadLayers</qualifiedname>
+        <param>
+          <type>const QList&lt; QDomNode &gt; &amp;</type>
+          <declname>layers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/badlayerhandler.h" line="46" column="10" bodyfile="src/core/badlayerhandler.cpp" bodystart="51" bodyend="64"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classBadLayerHandler_1aa934fc6b253fc2e8fdefdcb102b5fdf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BadLayerHandler::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>BadLayerHandler::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/badlayerhandler.h" line="49" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classBadLayerHandler_1a5d5a507a6179c4ae7ce3fa0da8092afe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BadLayerHandler::badLayersFound</definition>
+        <argsstring>()</argsstring>
+        <name>badLayersFound</name>
+        <qualifiedname>BadLayerHandler::badLayersFound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/badlayerhandler.h" line="50" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBadLayerHandler_1aeb5aa712edc66a2e4e52d439fe1f8c4e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString BadLayerHandler::layerName</definition>
+        <argsstring>(const QDomNode &amp;layerNode) const</argsstring>
+        <name>layerName</name>
+        <qualifiedname>BadLayerHandler::layerName</qualifiedname>
+        <param>
+          <type>const QDomNode &amp;</type>
+          <declname>layerNode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/badlayerhandler.h" line="53" column="13" bodyfile="src/core/badlayerhandler.cpp" bodystart="66" bodyend="69"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BadLayerHandler</label>
+        <link refid="classBadLayerHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="3">
+        <label>QgsProjectBadLayerHandler</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BadLayerHandler</label>
+        <link refid="classBadLayerHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="3">
+        <label>QgsProjectBadLayerHandler</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/badlayerhandler.h" line="26" column="1" bodyfile="src/core/badlayerhandler.h" bodystart="27" bodyend="56"/>
+    <listofallmembers>
+      <member refid="classBadLayerHandler_1aa8e065d90f29e19e5bca7f23ced5789e" prot="public" virt="non-virtual"><scope>BadLayerHandler</scope><name>BadLayerHandler</name></member>
+      <member refid="classBadLayerHandler_1a5d5a507a6179c4ae7ce3fa0da8092afe" prot="public" virt="non-virtual"><scope>BadLayerHandler</scope><name>badLayersFound</name></member>
+      <member refid="classBadLayerHandler_1abd56262c8e6e44f8df90ac72d8de690da84ff001389d03453bf639b664baec439" prot="public" virt="non-virtual"><scope>BadLayerHandler</scope><name>DataSourceRole</name></member>
+      <member refid="classBadLayerHandler_1a806175e5c7a8d918d28b29697c6d7735" prot="public" virt="non-virtual"><scope>BadLayerHandler</scope><name>handleBadLayers</name></member>
+      <member refid="classBadLayerHandler_1aeb5aa712edc66a2e4e52d439fe1f8c4e" prot="private" virt="non-virtual"><scope>BadLayerHandler</scope><name>layerName</name></member>
+      <member refid="classBadLayerHandler_1abd56262c8e6e44f8df90ac72d8de690dae44dae8c0445c37a4bed351fa384ddbc" prot="public" virt="non-virtual"><scope>BadLayerHandler</scope><name>LayerNameRole</name></member>
+      <member refid="classBadLayerHandler_1ac201414bf41a3726a95426d13cffbe2d" prot="private" virt="non-virtual"><scope>BadLayerHandler</scope><name>mProject</name></member>
+      <member refid="classBadLayerHandler_1a8b945b8dc9c2676fcca6913208aea409" prot="public" virt="non-virtual"><scope>BadLayerHandler</scope><name>project</name></member>
+      <member refid="classBadLayerHandler_1ac2f57dfd2376de5202c7caddb671ab6d" prot="public" virt="non-virtual"><scope>BadLayerHandler</scope><name>project</name></member>
+      <member refid="classBadLayerHandler_1aa934fc6b253fc2e8fdefdcb102b5fdf0" prot="public" virt="non-virtual"><scope>BadLayerHandler</scope><name>projectChanged</name></member>
+      <member refid="classBadLayerHandler_1a4e43652fb2836e0626e4015e9befec7d" prot="public" virt="non-virtual"><scope>BadLayerHandler</scope><name>roleNames</name></member>
+      <member refid="classBadLayerHandler_1abd56262c8e6e44f8df90ac72d8de690d" prot="public" virt="non-virtual"><scope>BadLayerHandler</scope><name>Roles</name></member>
+      <member refid="classBadLayerHandler_1a06885ff54271d9c952a6a9454346867b" prot="public" virt="non-virtual"><scope>BadLayerHandler</scope><name>setProject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

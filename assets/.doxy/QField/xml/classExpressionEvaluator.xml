@@ -1,0 +1,784 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classExpressionEvaluator" kind="class" language="C++" prot="public">
+    <compoundname>ExpressionEvaluator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="expressionevaluator_8h" local="no">expressionevaluator.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classExpressionEvaluator_1aa72d23dfbd15d0b43d796773d637ca42" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Mode</name>
+        <qualifiedname>ExpressionEvaluator::Mode</qualifiedname>
+        <enumvalue id="classExpressionEvaluator_1aa72d23dfbd15d0b43d796773d637ca42aa3b15dc25bf0af50d86e00f89ff72ae7" prot="public">
+          <name>ExpressionMode</name>
+          <briefdescription>
+<para>Handle expression text as expression strings. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classExpressionEvaluator_1aa72d23dfbd15d0b43d796773d637ca42aa6a449991b795e71ee1ee6fcde8fb106" prot="public">
+          <name>ExpressionTemplateMode</name>
+          <briefdescription>
+<para>Handle expression text as expression templates. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Expression evaluator modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="53" column="5" bodyfile="src/core/expressionevaluator.h" bodystart="54" bodyend="57"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classExpressionEvaluator_1ac9afc30041a2467bb080e453dba82b17" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classExpressionEvaluator_1aa72d23dfbd15d0b43d796773d637ca42" kindref="member">Mode</ref></type>
+        <definition>Mode ExpressionEvaluator::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <qualifiedname>ExpressionEvaluator::mode</qualifiedname>
+        <read>mode</read>
+        <write>setMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="40" column="5" bodyfile="src/core/expressionevaluator.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExpressionEvaluator_1ab41382fd2820a347fdc483683dbc64f6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString ExpressionEvaluator::expressionText</definition>
+        <argsstring></argsstring>
+        <name>expressionText</name>
+        <qualifiedname>ExpressionEvaluator::expressionText</qualifiedname>
+        <read>expressionText</read>
+        <write>setExpressionText</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="42" column="5" bodyfile="src/core/expressionevaluator.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExpressionEvaluator_1ae920870ba1e9429f318a89a44639b862" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature ExpressionEvaluator::feature</definition>
+        <argsstring></argsstring>
+        <name>feature</name>
+        <qualifiedname>ExpressionEvaluator::feature</qualifiedname>
+        <read>feature</read>
+        <write>setFeature</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="44" column="5" bodyfile="src/core/expressionevaluator.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExpressionEvaluator_1a148b88a35c11acc0e175f6ef7263456d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer * ExpressionEvaluator::layer</definition>
+        <argsstring></argsstring>
+        <name>layer</name>
+        <qualifiedname>ExpressionEvaluator::layer</qualifiedname>
+        <read>layer</read>
+        <write>setLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="45" column="5" bodyfile="src/core/expressionevaluator.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExpressionEvaluator_1a0bd00c05c7de9a99647f5fcc6a08eac9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * ExpressionEvaluator::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>ExpressionEvaluator::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="46" column="5" bodyfile="src/core/expressionevaluator.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExpressionEvaluator_1a50bd80870f4e6315952f07cdc4a40dcd" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * ExpressionEvaluator::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>ExpressionEvaluator::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="47" column="5" bodyfile="src/core/expressionevaluator.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExpressionEvaluator_1aa0be4e5854c94d84c702107e25668fc0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> *</type>
+        <definition>AppExpressionContextScopesGenerator * ExpressionEvaluator::appExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>ExpressionEvaluator::appExpressionContextScopesGenerator</qualifiedname>
+        <read>appExpressionContextScopesGenerator</read>
+        <write>setAppExpressionContextScopesGenerator</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="48" column="5" bodyfile="src/core/expressionevaluator.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classExpressionEvaluator_1a61d55a9f3bb1cbab8b81feaac5629421" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap ExpressionEvaluator::variables</definition>
+        <argsstring></argsstring>
+        <name>variables</name>
+        <qualifiedname>ExpressionEvaluator::variables</qualifiedname>
+        <read>variables</read>
+        <write>setVariables</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="49" column="5" bodyfile="src/core/expressionevaluator.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classExpressionEvaluator_1adaed3b9910f8f1597a64fb4a2efe7ae6" prot="private" static="no" mutable="no">
+        <type><ref refid="classExpressionEvaluator_1aa72d23dfbd15d0b43d796773d637ca42" kindref="member">Mode</ref></type>
+        <definition>Mode ExpressionEvaluator::mMode</definition>
+        <argsstring></argsstring>
+        <name>mMode</name>
+        <qualifiedname>ExpressionEvaluator::mMode</qualifiedname>
+        <initializer>= <ref refid="classExpressionEvaluator_1aa72d23dfbd15d0b43d796773d637ca42aa3b15dc25bf0af50d86e00f89ff72ae7" kindref="member">ExpressionMode</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="124" column="10" bodyfile="src/core/expressionevaluator.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExpressionEvaluator_1a0ca9fd43e5a830b2a2e474db7320ca11" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ExpressionEvaluator::mExpressionText</definition>
+        <argsstring></argsstring>
+        <name>mExpressionText</name>
+        <qualifiedname>ExpressionEvaluator::mExpressionText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="126" column="13" bodyfile="src/core/expressionevaluator.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExpressionEvaluator_1a2219f2020d59455e1a81a6992e69550c" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature ExpressionEvaluator::mFeature</definition>
+        <argsstring></argsstring>
+        <name>mFeature</name>
+        <qualifiedname>ExpressionEvaluator::mFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="128" column="16" bodyfile="src/core/expressionevaluator.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExpressionEvaluator_1a45c7726d4c1dd2596146d43fdfbfd4ba" prot="private" static="no" mutable="no">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer* ExpressionEvaluator::mLayer</definition>
+        <argsstring></argsstring>
+        <name>mLayer</name>
+        <qualifiedname>ExpressionEvaluator::mLayer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="129" column="17" bodyfile="src/core/expressionevaluator.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExpressionEvaluator_1a6dbe92398fdb242e43a950c04aa0a236" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* ExpressionEvaluator::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>ExpressionEvaluator::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="130" column="16" bodyfile="src/core/expressionevaluator.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExpressionEvaluator_1ab2ba8a5694eeacc46a2e476c07feb7cf" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* ExpressionEvaluator::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>ExpressionEvaluator::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="131" column="25" bodyfile="src/core/expressionevaluator.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExpressionEvaluator_1a62f4a982388647780201048c6928b73e" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> &gt;</type>
+        <definition>QPointer&lt;AppExpressionContextScopesGenerator&gt; ExpressionEvaluator::mAppExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>mAppExpressionContextScopesGenerator</name>
+        <qualifiedname>ExpressionEvaluator::mAppExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="132" column="14" bodyfile="src/core/expressionevaluator.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExpressionEvaluator_1a9361e70e0c357af1937c4d662e9812ea" prot="private" static="no" mutable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap ExpressionEvaluator::mVariables</definition>
+        <argsstring></argsstring>
+        <name>mVariables</name>
+        <qualifiedname>ExpressionEvaluator::mVariables</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="133" column="17" bodyfile="src/core/expressionevaluator.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classExpressionEvaluator_1aabc0ab1fe8158e326985a946b09cc0ff" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ExpressionEvaluator::ExpressionEvaluator</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ExpressionEvaluator</name>
+        <qualifiedname>ExpressionEvaluator::ExpressionEvaluator</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="60" column="14" bodyfile="src/core/expressionevaluator.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1aba59881d395419b295035b4e88f3f70c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classExpressionEvaluator_1aa72d23dfbd15d0b43d796773d637ca42" kindref="member">Mode</ref></type>
+        <definition>Mode ExpressionEvaluator::mode</definition>
+        <argsstring>() const</argsstring>
+        <name>mode</name>
+        <qualifiedname>ExpressionEvaluator::mode</qualifiedname>
+        <briefdescription>
+<para>Returns the expression evaluator mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="63" column="10" bodyfile="src/core/expressionevaluator.h" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1ac242f811ad07a82b6c93fc97648b3a4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::setMode</definition>
+        <argsstring>(Mode mode)</argsstring>
+        <name>setMode</name>
+        <qualifiedname>ExpressionEvaluator::setMode</qualifiedname>
+        <param>
+          <type><ref refid="classExpressionEvaluator_1aa72d23dfbd15d0b43d796773d637ca42" kindref="member">Mode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Sets the expression evaluator <emphasis>mode</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="66" column="10" bodyfile="src/core/expressionevaluator.cpp" bodystart="27" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1ad1f252168f2f93ba75e0dfcf9b5cd2c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ExpressionEvaluator::expressionText</definition>
+        <argsstring>()</argsstring>
+        <name>expressionText</name>
+        <qualifiedname>ExpressionEvaluator::expressionText</qualifiedname>
+        <briefdescription>
+<para>Returns the expression text used when evaluating. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="69" column="13" bodyfile="src/core/expressionevaluator.h" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1a4817ba796f220fc43b9aa12d65ab9749" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::setExpressionText</definition>
+        <argsstring>(const QString &amp;expressionText)</argsstring>
+        <name>setExpressionText</name>
+        <qualifiedname>ExpressionEvaluator::setExpressionText</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>expressionText</declname>
+        </param>
+        <briefdescription>
+<para>Sets the expression text used when evaluating. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="72" column="10" bodyfile="src/core/expressionevaluator.cpp" bodystart="36" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1a6db4765908d90c324e78f933cc96167d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature ExpressionEvaluator::feature</definition>
+        <argsstring>() const</argsstring>
+        <name>feature</name>
+        <qualifiedname>ExpressionEvaluator::feature</qualifiedname>
+        <briefdescription>
+<para>Returns the feature attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="75" column="16" bodyfile="src/core/expressionevaluator.h" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1aff07bcb9ba1e3ac01f05f589be3c9cd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::setFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>setFeature</name>
+        <qualifiedname>ExpressionEvaluator::setFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+<para>Sets the feature attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="78" column="10" bodyfile="src/core/expressionevaluator.cpp" bodystart="45" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1a139deeaee57cc68aff2f110010434729" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer * ExpressionEvaluator::layer</definition>
+        <argsstring>() const</argsstring>
+        <name>layer</name>
+        <qualifiedname>ExpressionEvaluator::layer</qualifiedname>
+        <briefdescription>
+<para>Returns the map layer attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="81" column="17" bodyfile="src/core/expressionevaluator.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1abc47af578eab62945709047601530b2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::setLayer</definition>
+        <argsstring>(QgsMapLayer *layer)</argsstring>
+        <name>setLayer</name>
+        <qualifiedname>ExpressionEvaluator::setLayer</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Sets the map layer attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="84" column="10" bodyfile="src/core/expressionevaluator.cpp" bodystart="54" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1a1cda81277af0960f808e3cf2b6edf4e3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * ExpressionEvaluator::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>ExpressionEvaluator::project</qualifiedname>
+        <briefdescription>
+<para>Returns the project attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="87" column="16" bodyfile="src/core/expressionevaluator.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1aee8847df7465ad836ad69f84fa0d7f5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>ExpressionEvaluator::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Sets the project attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="90" column="10" bodyfile="src/core/expressionevaluator.cpp" bodystart="63" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1a2f6b4291099d3f98ec60dc405e49946c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * ExpressionEvaluator::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>ExpressionEvaluator::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Returns the map settings attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="93" column="25" bodyfile="src/core/expressionevaluator.h" bodystart="93" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1a576fe380f88c99a8d0c60beecd8cf754" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>ExpressionEvaluator::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+<para>Sets the map settings attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="96" column="10" bodyfile="src/core/expressionevaluator.cpp" bodystart="72" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1a0084f7054de0253669ab44a09e722ed0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> *</type>
+        <definition>AppExpressionContextScopesGenerator * ExpressionEvaluator::appExpressionContextScopesGenerator</definition>
+        <argsstring>() const</argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>ExpressionEvaluator::appExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+<para>Returns the application expression context scopes generator object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="99" column="41" bodyfile="src/core/expressionevaluator.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1a9184afd7832775e2f728b343ca4b2e10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::setAppExpressionContextScopesGenerator</definition>
+        <argsstring>(AppExpressionContextScopesGenerator *generator)</argsstring>
+        <name>setAppExpressionContextScopesGenerator</name>
+        <qualifiedname>ExpressionEvaluator::setAppExpressionContextScopesGenerator</qualifiedname>
+        <param>
+          <type><ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> *</type>
+          <declname>generator</declname>
+        </param>
+        <briefdescription>
+<para>Sets the application expression context scopes <emphasis>generator</emphasis> object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="102" column="10" bodyfile="src/core/expressionevaluator.cpp" bodystart="86" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1ad6f71b41698205bd2337af2038e74213" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVariantMap</type>
+        <definition>QVariantMap ExpressionEvaluator::variables</definition>
+        <argsstring>() const</argsstring>
+        <name>variables</name>
+        <qualifiedname>ExpressionEvaluator::variables</qualifiedname>
+        <briefdescription>
+<para>Returns the map of variables injected into the expression context when evaluating. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="105" column="17" bodyfile="src/core/expressionevaluator.h" bodystart="105" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1a5d54122bd4ea6c65c0299eec359a8f64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::setVariables</definition>
+        <argsstring>(const QVariantMap &amp;variables)</argsstring>
+        <name>setVariables</name>
+        <qualifiedname>ExpressionEvaluator::setVariables</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>variables</declname>
+        </param>
+        <briefdescription>
+<para>Sets the map of variables injected into the expression context when evaluating. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="108" column="10" bodyfile="src/core/expressionevaluator.cpp" bodystart="95" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionEvaluator_1a78235f2ab5ac61f4986f519de789dfa8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>QVariant ExpressionEvaluator::evaluate</definition>
+        <argsstring>()</argsstring>
+        <name>evaluate</name>
+        <qualifiedname>ExpressionEvaluator::evaluate</qualifiedname>
+        <briefdescription>
+<para>Returns the evaluated expression text value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="111" column="26" bodyfile="src/core/expressionevaluator.cpp" bodystart="104" bodyend="159"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classExpressionEvaluator_1aa64292e1ad0a92ae3a02ea7386df6a08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::modeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modeChanged</name>
+        <qualifiedname>ExpressionEvaluator::modeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="114" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classExpressionEvaluator_1ab00ec39b89750dffedda3b585296ab95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::expressionTextChanged</definition>
+        <argsstring>()</argsstring>
+        <name>expressionTextChanged</name>
+        <qualifiedname>ExpressionEvaluator::expressionTextChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="115" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classExpressionEvaluator_1a262f7b319686bf3dabde7394fa787169" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::featureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureChanged</name>
+        <qualifiedname>ExpressionEvaluator::featureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="116" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classExpressionEvaluator_1abd29b6bfb030a481ec8b21ae6ce5238e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::layerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>layerChanged</name>
+        <qualifiedname>ExpressionEvaluator::layerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="117" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classExpressionEvaluator_1ad4009ec8ebd27e568647a87dc926f3a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>ExpressionEvaluator::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="118" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classExpressionEvaluator_1a4b4fea86ae394a3f01b810c4e30f7b93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>ExpressionEvaluator::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="119" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classExpressionEvaluator_1ab20ac98f732eb86d4cd0e8b0008d9910" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::appExpressionContextScopesGeneratorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>appExpressionContextScopesGeneratorChanged</name>
+        <qualifiedname>ExpressionEvaluator::appExpressionContextScopesGeneratorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="120" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classExpressionEvaluator_1a67ce51aec15dd11c2684e725630b0356" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionEvaluator::variablesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>variablesChanged</name>
+        <qualifiedname>ExpressionEvaluator::variablesChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/expressionevaluator.h" line="121" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classExpressionEvaluator" kindref="compound">ExpressionEvaluator</ref> class enables evaluation of expression strings and expression templates. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ExpressionEvaluator</label>
+        <link refid="classExpressionEvaluator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ExpressionEvaluator</label>
+        <link refid="classExpressionEvaluator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/expressionevaluator.h" line="36" column="1" bodyfile="src/core/expressionevaluator.h" bodystart="37" bodyend="134"/>
+    <listofallmembers>
+      <member refid="classExpressionEvaluator_1aa0be4e5854c94d84c702107e25668fc0" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classExpressionEvaluator_1a0084f7054de0253669ab44a09e722ed0" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classExpressionEvaluator_1ab20ac98f732eb86d4cd0e8b0008d9910" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>appExpressionContextScopesGeneratorChanged</name></member>
+      <member refid="classExpressionEvaluator_1a78235f2ab5ac61f4986f519de789dfa8" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>evaluate</name></member>
+      <member refid="classExpressionEvaluator_1aabc0ab1fe8158e326985a946b09cc0ff" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>ExpressionEvaluator</name></member>
+      <member refid="classExpressionEvaluator_1aa72d23dfbd15d0b43d796773d637ca42aa3b15dc25bf0af50d86e00f89ff72ae7" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>ExpressionMode</name></member>
+      <member refid="classExpressionEvaluator_1aa72d23dfbd15d0b43d796773d637ca42aa6a449991b795e71ee1ee6fcde8fb106" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>ExpressionTemplateMode</name></member>
+      <member refid="classExpressionEvaluator_1ab41382fd2820a347fdc483683dbc64f6" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>expressionText</name></member>
+      <member refid="classExpressionEvaluator_1ad1f252168f2f93ba75e0dfcf9b5cd2c6" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>expressionText</name></member>
+      <member refid="classExpressionEvaluator_1ab00ec39b89750dffedda3b585296ab95" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>expressionTextChanged</name></member>
+      <member refid="classExpressionEvaluator_1ae920870ba1e9429f318a89a44639b862" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>feature</name></member>
+      <member refid="classExpressionEvaluator_1a6db4765908d90c324e78f933cc96167d" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>feature</name></member>
+      <member refid="classExpressionEvaluator_1a262f7b319686bf3dabde7394fa787169" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>featureChanged</name></member>
+      <member refid="classExpressionEvaluator_1a148b88a35c11acc0e175f6ef7263456d" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>layer</name></member>
+      <member refid="classExpressionEvaluator_1a139deeaee57cc68aff2f110010434729" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>layer</name></member>
+      <member refid="classExpressionEvaluator_1abd29b6bfb030a481ec8b21ae6ce5238e" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>layerChanged</name></member>
+      <member refid="classExpressionEvaluator_1a62f4a982388647780201048c6928b73e" prot="private" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mAppExpressionContextScopesGenerator</name></member>
+      <member refid="classExpressionEvaluator_1a50bd80870f4e6315952f07cdc4a40dcd" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mapSettings</name></member>
+      <member refid="classExpressionEvaluator_1a2f6b4291099d3f98ec60dc405e49946c" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mapSettings</name></member>
+      <member refid="classExpressionEvaluator_1a4b4fea86ae394a3f01b810c4e30f7b93" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mapSettingsChanged</name></member>
+      <member refid="classExpressionEvaluator_1a0ca9fd43e5a830b2a2e474db7320ca11" prot="private" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mExpressionText</name></member>
+      <member refid="classExpressionEvaluator_1a2219f2020d59455e1a81a6992e69550c" prot="private" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mFeature</name></member>
+      <member refid="classExpressionEvaluator_1a45c7726d4c1dd2596146d43fdfbfd4ba" prot="private" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mLayer</name></member>
+      <member refid="classExpressionEvaluator_1ab2ba8a5694eeacc46a2e476c07feb7cf" prot="private" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mMapSettings</name></member>
+      <member refid="classExpressionEvaluator_1adaed3b9910f8f1597a64fb4a2efe7ae6" prot="private" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mMode</name></member>
+      <member refid="classExpressionEvaluator_1ac9afc30041a2467bb080e453dba82b17" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mode</name></member>
+      <member refid="classExpressionEvaluator_1aba59881d395419b295035b4e88f3f70c" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mode</name></member>
+      <member refid="classExpressionEvaluator_1aa72d23dfbd15d0b43d796773d637ca42" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>Mode</name></member>
+      <member refid="classExpressionEvaluator_1aa64292e1ad0a92ae3a02ea7386df6a08" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>modeChanged</name></member>
+      <member refid="classExpressionEvaluator_1a6dbe92398fdb242e43a950c04aa0a236" prot="private" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mProject</name></member>
+      <member refid="classExpressionEvaluator_1a9361e70e0c357af1937c4d662e9812ea" prot="private" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>mVariables</name></member>
+      <member refid="classExpressionEvaluator_1a0bd00c05c7de9a99647f5fcc6a08eac9" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>project</name></member>
+      <member refid="classExpressionEvaluator_1a1cda81277af0960f808e3cf2b6edf4e3" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>project</name></member>
+      <member refid="classExpressionEvaluator_1ad4009ec8ebd27e568647a87dc926f3a6" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>projectChanged</name></member>
+      <member refid="classExpressionEvaluator_1a9184afd7832775e2f728b343ca4b2e10" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>setAppExpressionContextScopesGenerator</name></member>
+      <member refid="classExpressionEvaluator_1a4817ba796f220fc43b9aa12d65ab9749" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>setExpressionText</name></member>
+      <member refid="classExpressionEvaluator_1aff07bcb9ba1e3ac01f05f589be3c9cd6" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>setFeature</name></member>
+      <member refid="classExpressionEvaluator_1abc47af578eab62945709047601530b2a" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>setLayer</name></member>
+      <member refid="classExpressionEvaluator_1a576fe380f88c99a8d0c60beecd8cf754" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>setMapSettings</name></member>
+      <member refid="classExpressionEvaluator_1ac242f811ad07a82b6c93fc97648b3a4d" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>setMode</name></member>
+      <member refid="classExpressionEvaluator_1aee8847df7465ad836ad69f84fa0d7f5b" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>setProject</name></member>
+      <member refid="classExpressionEvaluator_1a5d54122bd4ea6c65c0299eec359a8f64" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>setVariables</name></member>
+      <member refid="classExpressionEvaluator_1a61d55a9f3bb1cbab8b81feaac5629421" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>variables</name></member>
+      <member refid="classExpressionEvaluator_1ad6f71b41698205bd2337af2038e74213" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>variables</name></member>
+      <member refid="classExpressionEvaluator_1a67ce51aec15dd11c2684e725630b0356" prot="public" virt="non-virtual"><scope>ExpressionEvaluator</scope><name>variablesChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

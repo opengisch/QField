@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classReshape" kind="class" language="C++" prot="public">
+    <compoundname>Reshape</compoundname>
+    <basecompoundref refid="classGeometryEditorBase" prot="public" virt="non-virtual">GeometryEditorBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classReshape_1a8f59796da26b45657ee20ca5ef69978c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Reshape::screenHovering</definition>
+        <argsstring></argsstring>
+        <name>screenHovering</name>
+        <qualifiedname>Reshape::screenHovering</qualifiedname>
+        <read>dummyGetter_screenHovering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Reshape.qml" line="8" column="1" bodyfile="src/qml/geometryeditors/Reshape.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classReshape_1a6a8628611f3d7946465c5dfc26c21e20" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Reshape::blocking</definition>
+        <argsstring></argsstring>
+        <name>blocking</name>
+        <qualifiedname>Reshape::blocking</qualifiedname>
+        <read>dummyGetter_blocking_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Reshape.qml" line="11" column="1" bodyfile="src/qml/geometryeditors/Reshape.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classReshape_1a0b42e03303f174b6865785d01be1c5b1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Reshape::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>Reshape::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Reshape.qml" line="13" column="5" bodyfile="src/qml/geometryeditors/Reshape.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReshape_1ac918e7973ae3b71c82823b0da51ec9d8" prot="private" static="no" mutable="no">
+        <type><ref refid="classDigitizingToolbar" kindref="compound">DigitizingToolbar</ref></type>
+        <definition>DigitizingToolbar Reshape::drawPolygonToolbar</definition>
+        <argsstring></argsstring>
+        <name>drawPolygonToolbar</name>
+        <qualifiedname>Reshape::drawPolygonToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Reshape.qml" line="20" column="19" bodyfile="src/qml/geometryeditors/Reshape.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classReshape_1ab9f73efdeae386b3df6f74515ef28bea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Reshape::canvasClicked</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasClicked</name>
+        <qualifiedname>Reshape::canvasClicked</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Reshape.qml" line="16" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classReshape_1a6f2c9520d4d42e59cd7c098b6a253151" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Reshape::canvasLongPressed</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasLongPressed</name>
+        <qualifiedname>Reshape::canvasLongPressed</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Reshape.qml" line="18" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classReshape_1ad04e4a1120b8d464ace73df47bd095a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Reshape::init</definition>
+        <argsstring>(featureModel, mapSettings, editorRubberbandModel, editorRenderer)</argsstring>
+        <name>init</name>
+        <qualifiedname>Reshape::init</qualifiedname>
+        <param>
+          <type>featureModel</type>
+        </param>
+        <param>
+          <type>mapSettings</type>
+        </param>
+        <param>
+          <type>editorRubberbandModel</type>
+        </param>
+        <param>
+          <type>editorRenderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Reshape.qml" line="23" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classReshape_1a24980ddae85da6c8bcf2914486fecf00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Reshape::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>Reshape::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Reshape.qml" line="25" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>GeometryEditorBase</label>
+        <link refid="classGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Reshape</label>
+        <link refid="classReshape"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+      <node id="3">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>GeometryEditorBase</label>
+        <link refid="classGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Reshape</label>
+        <link refid="classReshape"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+      <node id="3">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/geometryeditors/Reshape.qml" line="5" column="1" bodyfile="src/qml/geometryeditors/Reshape.qml" bodystart="5" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classReshape_1a6a8628611f3d7946465c5dfc26c21e20" prot="public" virt="non-virtual"><scope>Reshape</scope><name>blocking</name></member>
+      <member refid="classReshape_1a24980ddae85da6c8bcf2914486fecf00" prot="public" virt="non-virtual"><scope>Reshape</scope><name>cancel</name></member>
+      <member refid="classReshape_1ab9f73efdeae386b3df6f74515ef28bea" prot="public" virt="non-virtual"><scope>Reshape</scope><name>canvasClicked</name></member>
+      <member refid="classReshape_1a6f2c9520d4d42e59cd7c098b6a253151" prot="public" virt="non-virtual"><scope>Reshape</scope><name>canvasLongPressed</name></member>
+      <member refid="classReshape_1ac918e7973ae3b71c82823b0da51ec9d8" prot="private" virt="non-virtual"><scope>Reshape</scope><name>drawPolygonToolbar</name></member>
+      <member refid="classGeometryEditorBase_1a812216b79434d6d6574cd15f4882812d" prot="public" virt="non-virtual"><scope>Reshape</scope><name>editorRenderer</name></member>
+      <member refid="classGeometryEditorBase_1a6643fdabf1ea07e1838aa9763af7abbf" prot="public" virt="non-virtual"><scope>Reshape</scope><name>featureModel</name></member>
+      <member refid="classGeometryEditorBase_1a45fa84fa67ccbe332d28bf989ad6602c" prot="public" virt="non-virtual"><scope>Reshape</scope><name>finished</name></member>
+      <member refid="classReshape_1ad04e4a1120b8d464ace73df47bd095a5" prot="public" virt="non-virtual"><scope>Reshape</scope><name>init</name></member>
+      <member refid="classGeometryEditorBase_1a2caaddaad7be03263eda29824c88c722" prot="public" virt="non-virtual"><scope>Reshape</scope><name>mapSettings</name></member>
+      <member refid="classGeometryEditorBase_1a7f750f40a04cdd685b84c95719e3fb83" prot="public" virt="non-virtual"><scope>Reshape</scope><name>requestJumpToPoint</name></member>
+      <member refid="classReshape_1a8f59796da26b45657ee20ca5ef69978c" prot="public" virt="non-virtual"><scope>Reshape</scope><name>screenHovering</name></member>
+      <member refid="classReshape_1a0b42e03303f174b6865785d01be1c5b1" prot="private" virt="non-virtual"><scope>Reshape</scope><name>spacing</name></member>
+      <member refid="classTheme_1_1QfVisibilityFadingRow_1a5757c98a1693481e83314781b5d3433e" prot="public" virt="non-virtual"><scope>Reshape</scope><name>stateVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,564 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classOrderedRelationModel" kind="class" language="C++" prot="public">
+    <compoundname>OrderedRelationModel</compoundname>
+    <basecompoundref refid="classReferencingFeatureListModelBase" prot="public" virt="non-virtual">ReferencingFeatureListModelBase</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classOrderedRelationModel_1a13a9149ead49775a59b97e0dc19f4cfa" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>OrderedRelationModel::Roles</qualifiedname>
+        <enumvalue id="classOrderedRelationModel_1a13a9149ead49775a59b97e0dc19f4cfaaeff7dc015614cf994e89b2672bc61eae" prot="public">
+          <name>ImagePathRole</name>
+          <initializer>= Qt::UserRole + 100</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classOrderedRelationModel_1a13a9149ead49775a59b97e0dc19f4cfaabfac10c45cf875fba8cd9d007ca39f15" prot="public">
+          <name>DescriptionRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classOrderedRelationModel_1a13a9149ead49775a59b97e0dc19f4cfaae0efa839d5df560036c0b249b6c8a411" prot="public">
+          <name>FeatureIdRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classOrderedRelationModel_1a13a9149ead49775a59b97e0dc19f4cfaa7bf4a04fc4d96f009760d18aa10fa5b2" prot="public">
+          <name>OrderingValueRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="43" column="5" bodyfile="src/core/orderedrelationmodel.h" bodystart="44" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classOrderedRelationModel_1a59c8b7dd1c6be1a47669824fa5d57002" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString OrderedRelationModel::orderingField</definition>
+        <argsstring></argsstring>
+        <name>orderingField</name>
+        <qualifiedname>OrderedRelationModel::orderingField</qualifiedname>
+        <read>orderingField</read>
+        <write>setOrderingField</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="36" column="5" bodyfile="src/core/orderedrelationmodel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOrderedRelationModel_1a5cb9ef77690b0c8e26ac1ce4708b504c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString OrderedRelationModel::imagePath</definition>
+        <argsstring></argsstring>
+        <name>imagePath</name>
+        <qualifiedname>OrderedRelationModel::imagePath</qualifiedname>
+        <read>imagePath</read>
+        <write>setImagePath</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="37" column="5" bodyfile="src/core/orderedrelationmodel.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOrderedRelationModel_1a6ab3bb8dbac876e0ce8898885d25b9b0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString OrderedRelationModel::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>OrderedRelationModel::description</qualifiedname>
+        <read>description</read>
+        <write>setDescription</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="38" column="5" bodyfile="src/core/orderedrelationmodel.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classOrderedRelationModel_1a469d7356e32319d2796a7b088d1f95fa" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString OrderedRelationModel::mOrderingField</definition>
+        <argsstring></argsstring>
+        <name>mOrderingField</name>
+        <qualifiedname>OrderedRelationModel::mOrderingField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="73" column="13" bodyfile="src/core/orderedrelationmodel.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOrderedRelationModel_1a460d17074418068b75a2cb6085c6559b" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString OrderedRelationModel::mImagePath</definition>
+        <argsstring></argsstring>
+        <name>mImagePath</name>
+        <qualifiedname>OrderedRelationModel::mImagePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="74" column="13" bodyfile="src/core/orderedrelationmodel.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOrderedRelationModel_1a8fcac03a2e5ee16337d0751f3211c944" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString OrderedRelationModel::mDescription</definition>
+        <argsstring></argsstring>
+        <name>mDescription</name>
+        <qualifiedname>OrderedRelationModel::mDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="75" column="13" bodyfile="src/core/orderedrelationmodel.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classOrderedRelationModel_1a869f713a2522593a16c3b4acc47a3ebc" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OrderedRelationModel::OrderedRelationModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>OrderedRelationModel</name>
+        <qualifiedname>OrderedRelationModel::OrderedRelationModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="41" column="14" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="27" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classOrderedRelationModel_1a653e4bd4e69c81194521f453d1e375b4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString OrderedRelationModel::orderingField</definition>
+        <argsstring>() const</argsstring>
+        <name>orderingField</name>
+        <qualifiedname>OrderedRelationModel::orderingField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="51" column="13" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classOrderedRelationModel_1a4bf459b3de20cf27258e93dff8afcb84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OrderedRelationModel::setOrderingField</definition>
+        <argsstring>(const QString &amp;orderingField)</argsstring>
+        <name>setOrderingField</name>
+        <qualifiedname>OrderedRelationModel::setOrderingField</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>orderingField</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="52" column="10" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="38" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classOrderedRelationModel_1a96c12fd8f5d516dee58d5663665e8291" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString OrderedRelationModel::imagePath</definition>
+        <argsstring>() const</argsstring>
+        <name>imagePath</name>
+        <qualifiedname>OrderedRelationModel::imagePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="53" column="13" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classOrderedRelationModel_1a1822a1dda0a177a2c10b452f8866ff7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OrderedRelationModel::setImagePath</definition>
+        <argsstring>(const QString &amp;imagePath)</argsstring>
+        <name>setImagePath</name>
+        <qualifiedname>OrderedRelationModel::setImagePath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>imagePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="54" column="10" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="53" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classOrderedRelationModel_1a958a52e26b5c8aec7790a18b645a1d69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString OrderedRelationModel::description</definition>
+        <argsstring>() const</argsstring>
+        <name>description</name>
+        <qualifiedname>OrderedRelationModel::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="55" column="13" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classOrderedRelationModel_1a1de0c2695003968bf3e18e3fed02c644" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OrderedRelationModel::setDescription</definition>
+        <argsstring>(const QString &amp;description)</argsstring>
+        <name>setDescription</name>
+        <qualifiedname>OrderedRelationModel::setDescription</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="56" column="10" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="68" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classOrderedRelationModel_1aaacde2d2f0f66a73da5c2aff77df28d7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant OrderedRelationModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>OrderedRelationModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="57" column="14" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="90" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classOrderedRelationModel_1a3536e1270677751e7352534bf10e5b0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool OrderedRelationModel::moveItems</definition>
+        <argsstring>(const int fromIdx, const int toIdx)</argsstring>
+        <name>moveItems</name>
+        <qualifiedname>OrderedRelationModel::moveItems</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>fromIdx</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>toIdx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="58" column="22" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="129" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classOrderedRelationModel_1afb6bf9ab4a431aa3400044a3f003125c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; OrderedRelationModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>OrderedRelationModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="59" column="11" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="78" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classOrderedRelationModel_1a477cb1d734b52e56a5f94c02825afdef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void OrderedRelationModel::triggerViewCurrentFeatureChange</definition>
+        <argsstring>(int index)</argsstring>
+        <name>triggerViewCurrentFeatureChange</name>
+        <qualifiedname>OrderedRelationModel::triggerViewCurrentFeatureChange</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="60" column="22" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="121" bodyend="127"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classOrderedRelationModel_1a950c27661b8f31217be2f71cc9388f7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OrderedRelationModel::orderingFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>orderingFieldChanged</name>
+        <qualifiedname>OrderedRelationModel::orderingFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="63" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classOrderedRelationModel_1ae64f73b973fe75cc9b2d74bb65f902aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OrderedRelationModel::imagePathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>imagePathChanged</name>
+        <qualifiedname>OrderedRelationModel::imagePathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="64" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classOrderedRelationModel_1a8a619c5d56c68d5b2be1181f820a60af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OrderedRelationModel::descriptionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>descriptionChanged</name>
+        <qualifiedname>OrderedRelationModel::descriptionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="65" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classOrderedRelationModel_1aa5187570bf64d54713d5d6fb1d2e2acb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OrderedRelationModel::currentFeatureChanged</definition>
+        <argsstring>(QgsFeature feature)</argsstring>
+        <name>currentFeatureChanged</name>
+        <qualifiedname>OrderedRelationModel::currentFeatureChanged</qualifiedname>
+        <param>
+          <type>QgsFeature</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="66" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classOrderedRelationModel_1aeb530dea94b214994820fe02b33a3166" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OrderedRelationModel::failedReorder</definition>
+        <argsstring>()</argsstring>
+        <name>failedReorder</name>
+        <qualifiedname>OrderedRelationModel::failedReorder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="67" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classOrderedRelationModel_1a0bbbf618769aa3162f94d6a3e77f0c46" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool OrderedRelationModel::beforeDeleteFeature</definition>
+        <argsstring>(QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId) override</argsstring>
+        <name>beforeDeleteFeature</name>
+        <qualifiedname>OrderedRelationModel::beforeDeleteFeature</qualifiedname>
+        <reimplements refid="classReferencingFeatureListModelBase_1a91243cc1f57797b8ac1343a65b0247c9">beforeDeleteFeature</reimplements>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>referencingLayer</declname>
+        </param>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>referencingFeatureId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="70" column="10" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="188" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classOrderedRelationModel_1ad12fd1bd3a8b7d2b84db4f9ffa23d7ff" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OrderedRelationModel::sortEntries</definition>
+        <argsstring>()</argsstring>
+        <name>sortEntries</name>
+        <qualifiedname>OrderedRelationModel::sortEntries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/orderedrelationmodel.h" line="71" column="10" bodyfile="src/core/orderedrelationmodel.cpp" bodystart="233" bodyend="238"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>OrderedRelationModel</label>
+        <link refid="classOrderedRelationModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="2">
+        <label>ReferencingFeatureListModelBase</label>
+        <link refid="classReferencingFeatureListModelBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>OrderedRelationModel</label>
+        <link refid="classOrderedRelationModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="2">
+        <label>ReferencingFeatureListModelBase</label>
+        <link refid="classReferencingFeatureListModelBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/orderedrelationmodel.h" line="32" column="1" bodyfile="src/core/orderedrelationmodel.h" bodystart="33" bodyend="76"/>
+    <listofallmembers>
+      <member refid="classReferencingFeatureListModelBase_1af464702eeddcd31b6e03d404d9d74ae9" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>attributeFormModelChanged</name></member>
+      <member refid="classOrderedRelationModel_1a0bbbf618769aa3162f94d6a3e77f0c46" prot="private" virt="virtual"><scope>OrderedRelationModel</scope><name>beforeDeleteFeature</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a0bb3dfc30eef920040ed79584c9a101a" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>beforeModelUpdated</name></member>
+      <member refid="classReferencingFeatureListModelBase_1ac848a1bffd8644caa0a0d9d7124c0ee1" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>columnCount</name></member>
+      <member refid="classOrderedRelationModel_1aa5187570bf64d54713d5d6fb1d2e2acb" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>currentFeatureChanged</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a71da1bc0f43418cebb06eea732ce912d" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>currentNmRelationId</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a911963c4ebe285b5f43abb8c8d92ab0e" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>currentNmRelationId</name></member>
+      <member refid="classReferencingFeatureListModelBase_1aede23a0c4065a22b4b912efea5328f6f" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>currentRelationId</name></member>
+      <member refid="classReferencingFeatureListModelBase_1ae171d0ee0bc48cfaaee321c59d1c900e" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>currentRelationId</name></member>
+      <member refid="classOrderedRelationModel_1aaacde2d2f0f66a73da5c2aff77df28d7" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>data</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a4045d3e4083dbf84a32e3144116bf0cc" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>deleteFeature</name></member>
+      <member refid="classOrderedRelationModel_1a6ab3bb8dbac876e0ce8898885d25b9b0" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>description</name></member>
+      <member refid="classOrderedRelationModel_1a958a52e26b5c8aec7790a18b645a1d69" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>description</name></member>
+      <member refid="classOrderedRelationModel_1a8a619c5d56c68d5b2be1181f820a60af" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>descriptionChanged</name></member>
+      <member refid="classOrderedRelationModel_1a13a9149ead49775a59b97e0dc19f4cfaabfac10c45cf875fba8cd9d007ca39f15" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>DescriptionRole</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a4ceb9130fa1a474a49491be6f6d74ad4a9e48d1588c115a5a7f1c4e3e9b4def60" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>DisplayString</name></member>
+      <member refid="classOrderedRelationModel_1aeb530dea94b214994820fe02b33a3166" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>failedReorder</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a3fde26508c20343fb3642074b109143f" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>feature</name></member>
+      <member refid="classReferencingFeatureListModelBase_1aebf83c2a401babf8a134d805ab1b2e7d" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>feature</name></member>
+      <member refid="classReferencingFeatureListModelBase_1ad4484d3758cc2d0150ffcb5165d43406" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>featureChanged</name></member>
+      <member refid="classOrderedRelationModel_1a13a9149ead49775a59b97e0dc19f4cfaae0efa839d5df560036c0b249b6c8a411" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>FeatureIdRole</name></member>
+      <member refid="classReferencingFeatureListModelBase_1af20f153c7cb70c431b152da16f6e1415" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>getFeatureIdRow</name></member>
+      <member refid="classOrderedRelationModel_1a5cb9ef77690b0c8e26ac1ce4708b504c" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>imagePath</name></member>
+      <member refid="classOrderedRelationModel_1a96c12fd8f5d516dee58d5663665e8291" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>imagePath</name></member>
+      <member refid="classOrderedRelationModel_1ae64f73b973fe75cc9b2d74bb65f902aa" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>imagePathChanged</name></member>
+      <member refid="classOrderedRelationModel_1a13a9149ead49775a59b97e0dc19f4cfaaeff7dc015614cf994e89b2672bc61eae" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>ImagePathRole</name></member>
+      <member refid="classReferencingFeatureListModelBase_1ae0fa4b2a12debc271a443102cb401b98" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>index</name></member>
+      <member refid="classReferencingFeatureListModelBase_1ab98433efaa55b4813be7b805bac5d6fa" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>isLoading</name></member>
+      <member refid="classReferencingFeatureListModelBase_1ab729e2ff4922fe5e4257ba44c19e07ce" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>isLoading</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a9a927e84e162fb13c34cf18f9088b1c7" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>isLoadingChanged</name></member>
+      <member refid="classOrderedRelationModel_1a8fcac03a2e5ee16337d0751f3211c944" prot="private" virt="non-virtual"><scope>OrderedRelationModel</scope><name>mDescription</name></member>
+      <member refid="classOrderedRelationModel_1a460d17074418068b75a2cb6085c6559b" prot="private" virt="non-virtual"><scope>OrderedRelationModel</scope><name>mImagePath</name></member>
+      <member refid="classReferencingFeatureListModelBase_1ab34dfedc340681ee50879aa6426a143d" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>modelUpdated</name></member>
+      <member refid="classOrderedRelationModel_1a469d7356e32319d2796a7b088d1f95fa" prot="private" virt="non-virtual"><scope>OrderedRelationModel</scope><name>mOrderingField</name></member>
+      <member refid="classOrderedRelationModel_1a3536e1270677751e7352534bf10e5b0c" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>moveItems</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a4ceb9130fa1a474a49491be6f6d74ad4a8e111d16808fdd3d581be555203e2cc9" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>NmDisplayString</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a4ceb9130fa1a474a49491be6f6d74ad4a9f1c91a0c8182513fd12a8d158398789" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>NmReferencedFeature</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a6fa2fe4a0fa36b887c6ff68ac1462000" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>nmRelation</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a9dfd5b0fc1dc02f8ae052d21676a810d" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>nmRelation</name></member>
+      <member refid="classReferencingFeatureListModelBase_1ae108dff0fb307ffc5649bc83e53c019f" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>nmRelationChanged</name></member>
+      <member refid="classOrderedRelationModel_1a869f713a2522593a16c3b4acc47a3ebc" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>OrderedRelationModel</name></member>
+      <member refid="classOrderedRelationModel_1a59c8b7dd1c6be1a47669824fa5d57002" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>orderingField</name></member>
+      <member refid="classOrderedRelationModel_1a653e4bd4e69c81194521f453d1e375b4" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>orderingField</name></member>
+      <member refid="classOrderedRelationModel_1a950c27661b8f31217be2f71cc9388f7a" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>orderingFieldChanged</name></member>
+      <member refid="classOrderedRelationModel_1a13a9149ead49775a59b97e0dc19f4cfaa7bf4a04fc4d96f009760d18aa10fa5b2" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>OrderingValueRole</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a5817358b1bee5a073610961f3e0256c2" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>parent</name></member>
+      <member refid="classReferencingFeatureListModelBase_1ac04a97c1d7c8553b158154dc1427b766" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>parentPrimariesAvailable</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a49c914aa8785564bf00b2583588f1cbf" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>parentPrimariesAvailable</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a476e03036eb7296b4a778dbf95c79364" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>parentPrimariesAvailableChanged</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a4ceb9130fa1a474a49491be6f6d74ad4" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>ReferencedFeatureListRoles</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a4ceb9130fa1a474a49491be6f6d74ad4a00b0c6036cac6f8df8756616c2e60fff" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>ReferencingFeature</name></member>
+      <member refid="classReferencingFeatureListModelBase_1ab38f607eb17068b57da65c7bcfacda32" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>ReferencingFeatureListModelBase</name></member>
+      <member refid="classReferencingFeatureListModelBase_1abd682fd77ad4d0538c310d1cf30a868f" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>relation</name></member>
+      <member refid="classReferencingFeatureListModelBase_1ab49b6b4596d686b52aaa80776443a78b" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>relation</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a6890cbf0adfd8b369fe5339609212fc5" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>relationChanged</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a4b71fca64092ff3bf6bd1c1ba7ebb833" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>reload</name></member>
+      <member refid="classOrderedRelationModel_1afb6bf9ab4a431aa3400044a3f003125c" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>roleNames</name></member>
+      <member refid="classOrderedRelationModel_1a13a9149ead49775a59b97e0dc19f4cfa" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>Roles</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a9a327271e0fa171e5dbebe04d2ff8058" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>rowCount</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a85ccaf79358f55faa79233a484662a98" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>setCurrentNmRelationId</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a102993ca7f3eaca121398817ce089928" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>setCurrentRelationId</name></member>
+      <member refid="classOrderedRelationModel_1a1de0c2695003968bf3e18e3fed02c644" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>setDescription</name></member>
+      <member refid="classReferencingFeatureListModelBase_1aaeeb9cdccdcf7d10a7b9b341af725812" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>setFeature</name></member>
+      <member refid="classOrderedRelationModel_1a1822a1dda0a177a2c10b452f8866ff7c" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>setImagePath</name></member>
+      <member refid="classReferencingFeatureListModelBase_1af50275cfe3fe1353a49211251e01e388" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>setNmRelation</name></member>
+      <member refid="classOrderedRelationModel_1a4bf459b3de20cf27258e93dff8afcb84" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>setOrderingField</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a7f621faacad043e0b23999c8d4819f92" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>setParentPrimariesAvailable</name></member>
+      <member refid="classReferencingFeatureListModelBase_1a97b3d6209a201d80b6bae50368b56e32" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>setRelation</name></member>
+      <member refid="classOrderedRelationModel_1ad12fd1bd3a8b7d2b84db4f9ffa23d7ff" prot="private" virt="non-virtual"><scope>OrderedRelationModel</scope><name>sortEntries</name></member>
+      <member refid="classOrderedRelationModel_1a477cb1d734b52e56a5f94c02825afdef" prot="public" virt="non-virtual"><scope>OrderedRelationModel</scope><name>triggerViewCurrentFeatureChange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

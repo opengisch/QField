@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_845aa3fe93488bbf89a398aeca40ac68" kind="dir">
+    <compoundname>src/qml/processingparameterwidgets</compoundname>
+    <innerfile refid="area_8qml">area.qml</innerfile>
+    <innerfile refid="boolean_8qml">boolean.qml</innerfile>
+    <innerfile refid="processingparameterwidgets_2distance_8qml">distance.qml</innerfile>
+    <innerfile refid="processingparameterwidgets_2enum_8qml">enum.qml</innerfile>
+    <innerfile refid="number_8qml">number.qml</innerfile>
+    <innerfile refid="ProcessingParameterWidgetBase_8qml">ProcessingParameterWidgetBase.qml</innerfile>
+    <innerfile refid="source_8qml">source.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/qml/processingparameterwidgets/"/>
+  </compounddef>
+</doxygen>

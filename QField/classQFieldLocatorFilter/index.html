@@ -1,0 +1,1383 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class QFieldLocatorFilter - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-qfieldlocatorfilter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class QFieldLocatorFilter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-delay-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property delay [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-description-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property description [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-displayname-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property displayName [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-locatorbridge-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property locatorBridge [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-name-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property name [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-parameters-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property parameters [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-prefix-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property prefix [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-source-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property source [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-delaychanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal delayChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-descriptionchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal descriptionChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-displaynamechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal displayNameChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-locatorbridgechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal locatorBridgeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-namechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal nameChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-parameterschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal parametersChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-prefixchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal prefixChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-sourcechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal sourceChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-qfieldlocatorfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function QFieldLocatorFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function clone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-delay-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function delay [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-description-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function description [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-displayname-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function displayName [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-fetchresults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function fetchResults
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-locatorbridge-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function locatorBridge [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-name-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function name [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-parameters-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function parameters [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-prefix-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function prefix [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function priority
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdelay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDelay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdisplayname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDisplayName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlocatorbridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLocatorBridge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setParameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setprefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPrefix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setsource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setSource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-source-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function source [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-triggerresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function triggerResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-triggerresultfromaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function triggerResultFromAction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-qfieldlocatorfilter">Class QFieldLocatorFilter</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>QFieldLocatorFilter</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;qfieldlocatorfilter.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QgsLocatorFilter</p>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-delay-12"><strong>delay</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-description-12"><strong>description</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-displayname-12"><strong>displayName</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classLocatorModelSuperBridge/"><strong>LocatorModelSuperBridge</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-locatorbridge-12"><strong>locatorBridge</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-name-12"><strong>name</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QVariantMap</td>
+<td style="text-align: left;"><a href="./#property-parameters-12"><strong>parameters</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-prefix-12"><strong>prefix</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QUrl</td>
+<td style="text-align: left;"><a href="./#property-source-12"><strong>source</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-delaychanged"><strong>delayChanged</strong></a>  <br><em>Emitted when the fetch result delay has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-descriptionchanged"><strong>descriptionChanged</strong></a>  <br><em>Emitted when the description has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-displaynamechanged"><strong>displayNameChanged</strong></a>  <br><em>Emitted when the display name has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-locatorbridgechanged"><strong>locatorBridgeChanged</strong></a>  <br><em>Emitted when the locator bridge has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-namechanged"><strong>nameChanged</strong></a>  <br><em>Emitted when the name has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-parameterschanged"><strong>parametersChanged</strong></a>  <br><em>Emitted when the parameters object has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-prefixchanged"><strong>prefixChanged</strong></a>  <br><em>Emitted when the prefix has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-sourcechanged"><strong>sourceChanged</strong></a>  <br><em>Emitted when the source has changed.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qfieldlocatorfilter"><strong>QFieldLocatorFilter</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="./"><strong>QFieldLocatorFilter</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-clone"><strong>clone</strong></a> () override const<br><em>Clone the locator filter.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-delay-22"><strong>delay</strong></a> () const<br><em>Returns the delay before which the fetching of results is triggered.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-description-22"><strong>description</strong></a> () override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-displayname-22"><strong>displayName</strong></a> () override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-fetchresults"><strong>fetchResults</strong></a> (const QString &amp; string, const QgsLocatorContext &amp; context, QgsFeedback * feedback) override<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classLocatorModelSuperBridge/"><strong>LocatorModelSuperBridge</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-locatorbridge-22"><strong>locatorBridge</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-name-22"><strong>name</strong></a> () override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVariantMap</td>
+<td style="text-align: left;"><a href="#function-parameters-22"><strong>parameters</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-prefix-22"><strong>prefix</strong></a> () override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Priority</td>
+<td style="text-align: left;"><a href="#function-priority"><strong>priority</strong></a> () override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdelay"><strong>setDelay</strong></a> (int delay) <br><em>Sets the delay before which the fetching of results is triggered.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdescription"><strong>setDescription</strong></a> (const QString &amp; description) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdisplayname"><strong>setDisplayName</strong></a> (const QString &amp; displayName) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlocatorbridge"><strong>setLocatorBridge</strong></a> (<a href="../classLocatorModelSuperBridge/"><strong>LocatorModelSuperBridge</strong></a> * locatorBridge) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setname"><strong>setName</strong></a> (const QString &amp; name) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setparameters"><strong>setParameters</strong></a> (const QVariantMap &amp; parameters) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setprefix"><strong>setPrefix</strong></a> (const QString &amp; prefix) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setsource"><strong>setSource</strong></a> (const QUrl &amp; source) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QUrl</td>
+<td style="text-align: left;"><a href="#function-source-22"><strong>source</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-triggerresult"><strong>triggerResult</strong></a> (const QgsLocatorResult &amp; result) override<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-triggerresultfromaction"><strong>triggerResultFromAction</strong></a> (const QgsLocatorResult &amp; result, const int actionId) override<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p><a href="./"><strong>QFieldLocatorFilter</strong></a> is a locator filter item for QField plugins to integrate with locator searches. </p>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-delay-12">property delay [1/2]</h3>
+<pre><code class="language-C++">int QFieldLocatorFilter::delay;
+</code></pre>
+<hr>
+
+<h3 id="property-description-12">property description [1/2]</h3>
+<pre><code class="language-C++">QString QFieldLocatorFilter::description;
+</code></pre>
+<hr>
+
+<h3 id="property-displayname-12">property displayName [1/2]</h3>
+<pre><code class="language-C++">QString QFieldLocatorFilter::displayName;
+</code></pre>
+<hr>
+
+<h3 id="property-locatorbridge-12">property locatorBridge [1/2]</h3>
+<pre><code class="language-C++">LocatorModelSuperBridge * QFieldLocatorFilter::locatorBridge;
+</code></pre>
+<hr>
+
+<h3 id="property-name-12">property name [1/2]</h3>
+<pre><code class="language-C++">QString QFieldLocatorFilter::name;
+</code></pre>
+<hr>
+
+<h3 id="property-parameters-12">property parameters [1/2]</h3>
+<pre><code class="language-C++">QVariantMap QFieldLocatorFilter::parameters;
+</code></pre>
+<hr>
+
+<h3 id="property-prefix-12">property prefix [1/2]</h3>
+<pre><code class="language-C++">QString QFieldLocatorFilter::prefix;
+</code></pre>
+<hr>
+
+<h3 id="property-source-12">property source [1/2]</h3>
+<pre><code class="language-C++">QUrl QFieldLocatorFilter::source;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-delaychanged">signal delayChanged</h3>
+<p><em>Emitted when the fetch result delay has changed.</em> </p>
+<pre><code class="language-C++">void QFieldLocatorFilter::delayChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-descriptionchanged">signal descriptionChanged</h3>
+<p><em>Emitted when the description has changed.</em> </p>
+<pre><code class="language-C++">void QFieldLocatorFilter::descriptionChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-displaynamechanged">signal displayNameChanged</h3>
+<p><em>Emitted when the display name has changed.</em> </p>
+<pre><code class="language-C++">void QFieldLocatorFilter::displayNameChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-locatorbridgechanged">signal locatorBridgeChanged</h3>
+<p><em>Emitted when the locator bridge has changed.</em> </p>
+<pre><code class="language-C++">void QFieldLocatorFilter::locatorBridgeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-namechanged">signal nameChanged</h3>
+<p><em>Emitted when the name has changed.</em> </p>
+<pre><code class="language-C++">void QFieldLocatorFilter::nameChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-parameterschanged">signal parametersChanged</h3>
+<p><em>Emitted when the parameters object has changed.</em> </p>
+<pre><code class="language-C++">void QFieldLocatorFilter::parametersChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-prefixchanged">signal prefixChanged</h3>
+<p><em>Emitted when the prefix has changed.</em> </p>
+<pre><code class="language-C++">void QFieldLocatorFilter::prefixChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-sourcechanged">signal sourceChanged</h3>
+<p><em>Emitted when the source has changed.</em> </p>
+<pre><code class="language-C++">void QFieldLocatorFilter::sourceChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-qfieldlocatorfilter">function QFieldLocatorFilter</h3>
+<pre><code class="language-C++">explicit QFieldLocatorFilter::QFieldLocatorFilter (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-clone">function clone</h3>
+<p><em>Clone the locator filter.</em> </p>
+<pre><code class="language-C++">QFieldLocatorFilter * QFieldLocatorFilter::clone () override const
+</code></pre>
+<hr>
+
+<h3 id="function-delay-22">function delay [2/2]</h3>
+<p><em>Returns the delay before which the fetching of results is triggered.</em> </p>
+<pre><code class="language-C++">inline int QFieldLocatorFilter::delay () const
+</code></pre>
+<hr>
+
+<h3 id="function-description-22">function description [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldLocatorFilter::description () override const
+</code></pre>
+<hr>
+
+<h3 id="function-displayname-22">function displayName [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldLocatorFilter::displayName () override const
+</code></pre>
+<hr>
+
+<h3 id="function-fetchresults">function fetchResults</h3>
+<pre><code class="language-C++">void QFieldLocatorFilter::fetchResults (
+    const QString &amp; string,
+    const QgsLocatorContext &amp; context,
+    QgsFeedback * feedback
+) override
+</code></pre>
+<hr>
+
+<h3 id="function-locatorbridge-22">function locatorBridge [2/2]</h3>
+<pre><code class="language-C++">inline LocatorModelSuperBridge * QFieldLocatorFilter::locatorBridge () const
+</code></pre>
+<p>Returns the locator bridge object. </p>
+<hr>
+
+<h3 id="function-name-22">function name [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldLocatorFilter::name () override const
+</code></pre>
+<hr>
+
+<h3 id="function-parameters-22">function parameters [2/2]</h3>
+<pre><code class="language-C++">inline QVariantMap QFieldLocatorFilter::parameters () const
+</code></pre>
+<p>Returns additional locator filter parameters which will possed onto the source QML that will process the locator filter results. </p>
+<hr>
+
+<h3 id="function-prefix-22">function prefix [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldLocatorFilter::prefix () override const
+</code></pre>
+<hr>
+
+<h3 id="function-priority">function priority</h3>
+<pre><code class="language-C++">inline Priority QFieldLocatorFilter::priority () override const
+</code></pre>
+<hr>
+
+<h3 id="function-setdelay">function setDelay</h3>
+<p><em>Sets the delay before which the fetching of results is triggered.</em> </p>
+<pre><code class="language-C++">void QFieldLocatorFilter::setDelay (
+    int delay
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdescription">function setDescription</h3>
+<pre><code class="language-C++">void QFieldLocatorFilter::setDescription (
+    const QString &amp; description
+) 
+</code></pre>
+<p>Sets a description for the filter. </p>
+<hr>
+
+<h3 id="function-setdisplayname">function setDisplayName</h3>
+<pre><code class="language-C++">void QFieldLocatorFilter::setDisplayName (
+    const QString &amp; displayName
+) 
+</code></pre>
+<p>Sets a translated, user-friendly name for the filter. </p>
+<hr>
+
+<h3 id="function-setlocatorbridge">function setLocatorBridge</h3>
+<pre><code class="language-C++">void QFieldLocatorFilter::setLocatorBridge (
+    LocatorModelSuperBridge * locatorBridge
+) 
+</code></pre>
+<p>Sets the locator bridge object. </p>
+<hr>
+
+<h3 id="function-setname">function setName</h3>
+<pre><code class="language-C++">void QFieldLocatorFilter::setName (
+    const QString &amp; name
+) 
+</code></pre>
+<p>Sets the unique name of the filter. This should be an untranslated string identifying the filter. </p>
+<hr>
+
+<h3 id="function-setparameters">function setParameters</h3>
+<pre><code class="language-C++">void QFieldLocatorFilter::setParameters (
+    const QVariantMap &amp; parameters
+) 
+</code></pre>
+<p>Sets additional locator filter parameters which will possed onto the source QML that will process the locator filter results. </p>
+<hr>
+
+<h3 id="function-setprefix">function setPrefix</h3>
+<pre><code class="language-C++">void QFieldLocatorFilter::setPrefix (
+    const QString &amp; prefix
+) 
+</code></pre>
+<p>Sets the search prefix character(s) for this filter. Prefix a search with these characters will restrict the locator search to only include results from this filter. </p>
+<p><strong>Note:</strong></p>
+<p>The prefix must be &gt;= 3 characters otherwise it will be ignored. </p>
+<hr>
+
+<h3 id="function-setsource">function setSource</h3>
+<pre><code class="language-C++">void QFieldLocatorFilter::setSource (
+    const QUrl &amp; source
+) 
+</code></pre>
+<p>Setsthe source QML file which will process the locator filter results. </p>
+<hr>
+
+<h3 id="function-source-22">function source [2/2]</h3>
+<pre><code class="language-C++">inline QUrl QFieldLocatorFilter::source () const
+</code></pre>
+<p>Returns the source QML file which will process the locator filter results. </p>
+<hr>
+
+<h3 id="function-triggerresult">function triggerResult</h3>
+<pre><code class="language-C++">void QFieldLocatorFilter::triggerResult (
+    const QgsLocatorResult &amp; result
+) override
+</code></pre>
+<hr>
+
+<h3 id="function-triggerresultfromaction">function triggerResultFromAction</h3>
+<pre><code class="language-C++">void QFieldLocatorFilter::triggerResultFromAction (
+    const QgsLocatorResult &amp; result,
+    const int actionId
+) override
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/locator/qfieldlocatorfilter.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

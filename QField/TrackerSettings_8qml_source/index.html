@@ -1,0 +1,1051 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File TrackerSettings.qml - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-trackersettingsqml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File TrackerSettings.qml
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-trackersettingsqml">File TrackerSettings.qml</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_1d81f7f4362e4398c0a695c4e466fcb0/"><strong>qml</strong></a> <strong>&gt;</strong> <a href="../TrackerSettings_8qml/"><strong>TrackerSettings.qml</strong></a></p>
+<p><a href="../TrackerSettings_8qml/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.qgis
+import org.qfield
+import Theme
+
+QfPopup {
+  id: trackerSettings
+
+  parent: mainWindow.contentItem
+  width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
+  height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+  x: Theme.popupScreenEdgeHorizontalMargin
+  y: (mainWindow.height - height) / 2
+  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+  focus: visible
+
+  property alias availableLayersCount: layersComboBox.count
+
+  property var tracker: undefined
+  property var layer: undefined
+  onLayerChanged: {
+    trackerSettings.tracker = undefined;
+    if (layer !== undefined) {
+      let idx = projectInfo.restoreTracker(layer);
+      if (idx.valid) {
+        trackerSettings.tracker = trackings.itemAt(idx.row).tracker;
+      } else {
+        trackerSettings.tracker = trackingModel.trackerForLayer(layer);
+      }
+      if (trackerSettings.tracker !== undefined &amp;&amp; trackerSettings.tracker !== null) {
+        timeInterval.checked = trackerSettings.tracker.timeInterval &gt; 0;
+        timeIntervalValue.text = trackerSettings.tracker.timeInterval &gt; 0 ? trackerSettings.tracker.timeInterval : positioningSettings.trackerTimeInterval;
+        minimumDistance.checked = trackerSettings.tracker.minimumDistance &gt; 0;
+        minimumDistanceValue.text = trackerSettings.tracker.minimumDistance &gt; 0 ? trackerSettings.tracker.minimumDistance : positioningSettings.trackerMinimumDistance;
+        erroneousDistanceSafeguard.checked = trackerSettings.tracker.maximumDistance &gt; 0;
+        erroneousDistanceValue.text = trackerSettings.tracker.maximumDistance &gt; 0 ? trackerSettings.tracker.maximumDistance : positioningSettings.trackerErroneousDistance;
+        sensorCapture.checked = trackerSettings.tracker.sensorCapture;
+        allConstraints.checked = trackerSettings.tracker.conjunction &amp;&amp; (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) &gt; 1;
+        measureComboBox.currentIndex = trackerSettings.tracker.measureType;
+      } else {
+        idx = trackingModel.createTracker(layer);
+        trackerSettings.tracker = trackings.itemAt(idx.row).tracker;
+        trackerSettings.tracker.visible = true;
+        trackerSettings.tracker.minimumDistance = positioningSettings.trackerMinimumDistanceConstraint ? positioningSettings.trackerMinimumDistance : 0;
+        trackerSettings.tracker.timeInterval = positioningSettings.trackerTimeIntervalConstraint ? positioningSettings.trackerTimeInterval : 0;
+        trackerSettings.tracker.maximumDistance = positioningSettings.trackerErroneousDistanceSafeguard ? positioningSettings.trackerErroneousDistance : 0;
+        trackerSettings.tracker.sensorCapture = positioningSettings.trackerSensorCaptureConstraint;
+        trackerSettings.tracker.conjunction = positioningSettings.trackerMeetAllConstraints;
+        trackerSettings.tracker.measureType = positioningSettings.trackerMeasureType;
+      }
+      featureModel.currentLayer = trackerSettings.tracker.vectorLayer;
+      resumeTrackingButton.visible = trackerSettings.tracker.feature.id &gt;= 0;
+    }
+  }
+
+  function applySettingsToTracker() {
+    trackerSettings.tracker.timeInterval = timeIntervalValue.text.length === 0 || !timeInterval.checked ? 0.0 : timeIntervalValue.text;
+    trackerSettings.tracker.minimumDistance = minimumDistanceValue.text.length === 0 || !minimumDistance.checked ? 0.0 : minimumDistanceValue.text;
+    trackerSettings.tracker.maximumDistance = erroneousDistanceValue.text.length === 0 || !erroneousDistanceSafeguard.checked ? 0.0 : erroneousDistanceValue.text;
+    trackerSettings.tracker.sensorCapture = sensorCapture.checked;
+    trackerSettings.tracker.conjunction = (timeInterval.checked + minimumDistance.checked + sensorCapture.checked) &gt; 1 &amp;&amp; allConstraints.checked;
+    trackerSettings.tracker.measureType = measureComboBox.currentIndex;
+  }
+
+  function prepareSettings(requestedLayer = undefined) {
+    let defaultLayer = requestedLayer;
+    if (defaultLayer === undefined) {
+      defaultLayer = trackingModel.bestAvailableLayer(qgisProject);
+    }
+    layersModel.trackingModel = trackingModel;
+    layersModel.enabled = true;
+    const defaultLayerIndex = layersModel.findLayer(defaultLayer);
+    if (defaultLayerIndex &gt;= 0) {
+      trackerSettings.layer = defaultLayer;
+      layersComboBox.currentIndex = defaultLayerIndex;
+    } else {
+      layersComboBox.currentIndex = 0;
+    }
+  }
+
+  onAboutToHide: {
+    if (trackerSettings.tracker !== undefined) {
+      trackingModel.stopTracker(trackerSettings.tracker.vectorLayer);
+      trackerSettings.tracker = undefined;
+    }
+    trackerSettings.layer = undefined;
+  }
+
+  Page {
+    focus: true
+    anchors.fill: parent
+    padding: 5
+
+    header: QfPageHeader {
+      title: qsTr(&quot;Tracking&quot;)
+
+      showApplyButton: false
+      showCancelButton: false
+      showBackButton: true
+
+      onBack: {
+        close();
+      }
+    }
+
+    ScrollView {
+      anchors.fill: parent
+      anchors.bottomMargin: 10
+      topPadding: 5
+      bottomPadding: 5
+      leftPadding: 5
+      rightPadding: 5 // Considering scroll bar
+      ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+      ScrollBar.vertical: QfScrollBar {}
+      contentWidth: trackerSettingsGrid.width
+      contentHeight: trackerSettingsGrid.height + bottomRow.height
+      clip: true
+
+      GridLayout {
+        id: trackerSettingsGrid
+        width: parent.parent.width
+        Layout.fillWidth: true
+
+        columns: 2
+        columnSpacing: 0
+        rowSpacing: 5
+
+        Label {
+          text: qsTr('Layer')
+          font: Theme.strongFont
+          color: Theme.mainTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          Layout.columnSpan: 2
+        }
+
+        QfComboBox {
+          id: layersComboBox
+
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          Layout.columnSpan: 2
+
+          model: MapLayerModel {
+            id: layersModel
+            enabled: false
+            project: qgisProject
+            requiresTrackingAvailability: true
+          }
+
+          textRole: 'Name'
+          valueRole: 'LayerPointer'
+
+          delegate: ItemDelegate {
+            width: layersComboBox.width
+            height: 36
+            icon.width: 24
+            icon.height: 24
+            icon.source: {
+              switch (GeometryType) {
+              case Qgis.GeometryType.Point:
+                return Theme.getThemeVectorIcon('ic_geometry_point_24dp');
+              case Qgis.GeometryType.Line:
+                return Theme.getThemeVectorIcon('ic_geometry_line_24dp');
+              case Qgis.GeometryType.Polygon:
+                return Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
+              default:
+                return '';
+              }
+            }
+            text: Name
+            font: Theme.defaultFont
+            highlighted: layersComboBox.highlightedIndex === index
+          }
+
+          contentItem: MenuItem {
+            width: layersComboBox.width
+            height: 36
+
+            icon.width: 24
+            icon.height: 24
+            icon.source: {
+              if (layersComboBox.currentIndex &gt;= 0) {
+                switch (layersComboBox.model.get(layersComboBox.currentIndex).GeometryType) {
+                case Qgis.GeometryType.Point:
+                  return Theme.getThemeVectorIcon('ic_geometry_point_24dp');
+                case Qgis.GeometryType.Line:
+                  return Theme.getThemeVectorIcon('ic_geometry_line_24dp');
+                case Qgis.GeometryType.Polygon:
+                  return Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
+                default:
+                  return '';
+                }
+              }
+              return '';
+            }
+            text: layersComboBox.currentText
+            font: Theme.defaultFont
+
+            onClicked: layersComboBox.popup.open()
+          }
+
+          onCurrentValueChanged: {
+            if (trackerSettings.layer !== currentValue) {
+              if (trackerSettings.tracker !== undefined) {
+                trackingModel.stopTracker(trackerSettings.tracker.vectorLayer);
+              }
+              trackerSettings.layer = currentValue;
+            }
+          }
+        }
+
+        Label {
+          text: qsTr('Requirement Settings')
+          font: Theme.strongFont
+          color: Theme.mainTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          Layout.columnSpan: 2
+        }
+
+        Label {
+          text: qsTr(&quot;Time requirement&quot;)
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: timeInterval.toggle()
+          }
+        }
+
+        QfSwitch {
+          id: timeInterval
+          Layout.preferredWidth: implicitContentWidth
+          Layout.alignment: Qt.AlignTop
+          checked: false
+          onCheckedChanged: {
+            positioningSettings.trackerTimeIntervalConstraint = checked;
+          }
+        }
+
+        Label {
+          text: qsTr(&quot;Minimum time [sec]&quot;)
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          enabled: timeInterval.checked
+          visible: timeInterval.checked
+          Layout.leftMargin: 8
+          Layout.fillWidth: true
+        }
+
+        QfTextField {
+          id: timeIntervalValue
+          width: timeInterval.width
+          font: Theme.defaultFont
+          enabled: timeInterval.checked
+          visible: timeInterval.checked
+          horizontalAlignment: TextInput.AlignHCenter
+          Layout.preferredWidth: width
+          inputMethodHints: Qt.ImhFormattedNumbersOnly
+          validator: DoubleValidator {
+            locale: 'C'
+          }
+
+          onTextChanged: {
+            positioningSettings.trackerTimeInterval = parseFloat(text);
+          }
+        }
+
+        Label {
+          text: qsTr(&quot;When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.&quot;)
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+        }
+
+        Item {
+          Layout.preferredWidth: allConstraints.width
+        }
+
+        Label {
+          text: qsTr(&quot;Distance requirement&quot;)
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: minimumDistance.toggle()
+          }
+        }
+
+        QfSwitch {
+          id: minimumDistance
+          Layout.preferredWidth: implicitContentWidth
+          Layout.alignment: Qt.AlignTop
+          checked: false
+          onCheckedChanged: {
+            positioningSettings.trackerMinimumDistanceConstraint = checked;
+          }
+        }
+
+        DistanceArea {
+          id: infoDistanceArea
+          project: qgisProject
+          crs: qgisProject ? qgisProject.crs : CoordinateReferenceSystemUtils.invalidCrs()
+        }
+
+        Label {
+          text: qsTr(&quot;Minimum distance [%1]&quot;).arg(UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits))
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          enabled: minimumDistance.checked
+          visible: minimumDistance.checked
+          Layout.leftMargin: 8
+          Layout.fillWidth: true
+        }
+
+        QfTextField {
+          id: minimumDistanceValue
+          width: minimumDistance.width
+          font: Theme.defaultFont
+          enabled: minimumDistance.checked
+          visible: minimumDistance.checked
+          horizontalAlignment: TextInput.AlignHCenter
+          Layout.preferredWidth: width
+          inputMethodHints: Qt.ImhFormattedNumbersOnly
+          validator: DoubleValidator {
+            locale: 'C'
+          }
+
+          onTextChanged: {
+            positioningSettings.trackerMinimumDistance = parseFloat(text);
+          }
+        }
+
+        Label {
+          text: qsTr(&quot;When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.&quot;)
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+        }
+
+        Item {
+          Layout.preferredWidth: allConstraints.width
+        }
+
+        Label {
+          text: qsTr(&quot;Sensor data requirement&quot;)
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: sensorCapture.toggle()
+          }
+        }
+
+        QfSwitch {
+          id: sensorCapture
+          Layout.preferredWidth: implicitContentWidth
+          Layout.alignment: Qt.AlignTop
+          checked: false
+          onCheckedChanged: {
+            positioningSettings.trackerSensorCaptureConstraint = checked;
+          }
+        }
+
+        Label {
+          text: qsTr(&quot;When enabled, vertex additions will occur when sensors have captured new data.&quot;)
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+        }
+
+        Item {
+          Layout.preferredWidth: allConstraints.width
+        }
+
+        Label {
+          text: qsTr(&quot;Wait for all active requirements&quot;)
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: allConstraints.toggle()
+          }
+        }
+
+        QfSwitch {
+          id: allConstraints
+          Layout.preferredWidth: implicitContentWidth
+          Layout.alignment: Qt.AlignTop
+          checked: false
+          onCheckedChanged: {
+            positioningSettings.trackerMeetAllConstraints = checked;
+          }
+        }
+
+        Label {
+          text: qsTr(&quot;When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.&quot;)
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+          textFormat: Qt.RichText
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+        }
+
+        Item {
+          Layout.preferredWidth: allConstraints.width
+          Layout.columnSpan: 2
+        }
+
+        Label {
+          text: qsTr('General Settings')
+          font: Theme.strongFont
+          color: Theme.mainTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
+          Layout.topMargin: 4
+        }
+
+        Label {
+          text: qsTr(&quot;Erroneous distance safeguard&quot;)
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: erroneousDistanceSafeguard.toggle()
+          }
+        }
+
+        QfSwitch {
+          id: erroneousDistanceSafeguard
+          Layout.preferredWidth: implicitContentWidth
+          Layout.alignment: Qt.AlignTop
+          checked: false
+          onCheckedChanged: {
+            positioningSettings.trackerErroneousDistanceSafeguard = checked;
+          }
+        }
+
+        Label {
+          text: qsTr(&quot;Maximum tolerated distance [%1]&quot;).arg(UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits))
+          font: Theme.defaultFont
+          wrapMode: Text.WordWrap
+          enabled: erroneousDistanceSafeguard.checked
+          visible: erroneousDistanceSafeguard.checked
+          Layout.leftMargin: 8
+          Layout.fillWidth: true
+        }
+
+        QfTextField {
+          id: erroneousDistanceValue
+          width: erroneousDistanceSafeguard.width
+          font: Theme.defaultFont
+          enabled: erroneousDistanceSafeguard.checked
+          visible: erroneousDistanceSafeguard.checked
+          horizontalAlignment: TextInput.AlignHCenter
+          Layout.preferredWidth: width
+          inputMethodHints: Qt.ImhFormattedNumbersOnly
+          validator: DoubleValidator {
+            locale: 'C'
+          }
+
+          onTextChanged: {
+            positioningSettings.trackerErroneousDistance = parseFloat(text);
+          }
+        }
+
+        Label {
+          text: qsTr(&quot;When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.&quot;)
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
+        }
+
+        Label {
+          id: measureLabel
+          text: qsTr(&quot;Measure (M) value attached to vertices:&quot;)
+          font: Theme.defaultFont
+
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
+          Layout.topMargin: 4
+        }
+
+        QfComboBox {
+          id: measureComboBox
+          enabled: LayerUtils.hasMValue(featureModel.currentLayer)
+          Layout.fillWidth: true
+          Layout.columnSpan: 2
+          Layout.alignment: Qt.AlignVCenter
+          font: Theme.defaultFont
+
+          popup.font: Theme.defaultFont
+          popup.topMargin: mainWindow.sceneTopMargin
+          popup.bottomMargin: mainWindow.sceneTopMargin
+
+          property bool loaded: false
+          Component.onCompleted: {
+            // This list matches the Tracker::MeasureType enum
+            var measurements = [qsTr(&quot;Elapsed time (seconds since start of tracking)&quot;), qsTr(&quot;Timestamp (milliseconds since epoch)&quot;), qsTr(&quot;Ground speed&quot;), qsTr(&quot;Bearing&quot;), qsTr(&quot;Horizontal accuracy&quot;), qsTr(&quot;Vertical accuracy&quot;), qsTr(&quot;PDOP&quot;), qsTr(&quot;HDOP&quot;), qsTr(&quot;VDOP&quot;)];
+            model = measurements;
+            loaded = true;
+          }
+
+          onCurrentIndexChanged: {
+            if (loaded) {
+              positioningSettings.trackerMeasureType = currentIndex;
+            }
+          }
+        }
+
+        Label {
+          id: measureTipLabel
+          visible: !LayerUtils.hasMValue(featureModel.currentLayer)
+          Layout.fillWidth: true
+          text: qsTr(&quot;To active the measurement functionality, make sure the vector layer's geometry type used for the tracking session has an M dimension.&quot;)
+          font: Theme.tipFont
+          color: Theme.secondaryTextColor
+
+          wrapMode: Text.WordWrap
+        }
+      }
+    }
+  }
+
+  Rectangle {
+    id: bottomRow
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.leftMargin: -5
+    anchors.rightMargin: -5
+    anchors.bottomMargin: -5
+
+    height: startTrackingButton.height + (resumeTrackingButton.visible ? resumeTrackingButton.height : 0) + 20
+    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
+
+    Column {
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.bottom: parent.bottom
+      anchors.leftMargin: 10
+      anchors.rightMargin: 10
+      anchors.bottomMargin: 10
+      spacing: 5
+
+      QfButton {
+        id: startTrackingButton
+        width: parent.width
+        text: qsTr(&quot;Start tracking&quot;)
+        icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
+
+        onClicked: {
+          applySettingsToTracker();
+          featureModel.resetAttributes();
+          featureModel.applyGeometry();
+          trackerSettings.tracker.feature = featureModel.feature;
+          trackingModel.requestTrackingSetup(trackerSettings.layer);
+          trackerSettings.layer = undefined;
+          trackerSettings.tracker = undefined;
+          trackerSettings.close();
+        }
+      }
+
+      QfButton {
+        id: resumeTrackingButton
+        width: parent.width
+        text: qsTr(&quot;Resume tracking&quot;)
+        icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
+        icon.color: Theme.mainColor
+        bgcolor: &quot;transparent&quot;
+        color: Theme.mainColor
+        visible: false
+
+        onClicked: {
+          applySettingsToTracker();
+          displayToast(qsTr('Track on layer %1 resumed').arg(trackerSettings.tracker.vectorLayer.name));
+          trackingModel.startTracker(trackerSettings.tracker.vectorLayer, positionSource.positionInformation, positionSource.projectedPosition);
+          projectInfo.saveTracker(trackerSettings.tracker.vectorLayer);
+          trackerSettings.layer = undefined;
+          trackerSettings.tracker = undefined;
+          trackerSettings.close();
+        }
+      }
+    }
+  }
+
+  FeatureModel {
+    id: featureModel
+    project: qgisProject
+
+    geometry: Geometry {}
+
+    appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
+      positionInformation: appScopesGenerator.positionInformation
+      positionLocked: true
+      cloudUserInformation: appScopesGenerator.cloudUserInformation
+    }
+  }
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

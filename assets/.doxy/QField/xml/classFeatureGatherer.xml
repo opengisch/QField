@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureGatherer" kind="class" language="C++" prot="public">
+    <compoundname>FeatureGatherer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QThread</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFeatureGatherer_1a8f19ca51ffb98d3cb51526346b04ae60" prot="private" static="no" mutable="no">
+        <type>QList&lt; ReferencingFeatureListModelBase::Entry &gt;</type>
+        <definition>QList&lt;ReferencingFeatureListModelBase::Entry&gt; FeatureGatherer::mEntries</definition>
+        <argsstring></argsstring>
+        <name>mEntries</name>
+        <qualifiedname>FeatureGatherer::mEntries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="467" column="11" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="467" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureGatherer_1a82ad832e76cfd7614e5c3e38fc5be53f" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsVectorLayerFeatureSource &gt;</type>
+        <definition>std::unique_ptr&lt;QgsVectorLayerFeatureSource&gt; FeatureGatherer::mReferencingSource</definition>
+        <argsstring></argsstring>
+        <name>mReferencingSource</name>
+        <qualifiedname>FeatureGatherer::mReferencingSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="469" column="21" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="469" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureGatherer_1ac61ac7828b63bc6cf44f5617ba87284a" prot="private" static="no" mutable="no">
+        <type>QgsFeatureRequest</type>
+        <definition>QgsFeatureRequest FeatureGatherer::mRequest</definition>
+        <argsstring></argsstring>
+        <name>mRequest</name>
+        <qualifiedname>FeatureGatherer::mRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="470" column="23" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="470" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureGatherer_1a90b6eea3c12d1ddaa7908ab9d7043391" prot="private" static="no" mutable="no">
+        <type>QgsExpressionContext</type>
+        <definition>QgsExpressionContext FeatureGatherer::mContext</definition>
+        <argsstring></argsstring>
+        <name>mContext</name>
+        <qualifiedname>FeatureGatherer::mContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="471" column="26" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="471" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureGatherer_1a300b5caa7b150446af8f1422766b1888" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureGatherer::mDisplayExpression</definition>
+        <argsstring></argsstring>
+        <name>mDisplayExpression</name>
+        <qualifiedname>FeatureGatherer::mDisplayExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="472" column="13" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="472" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureGatherer_1a29e8e0b7c614c7454719b17fb68dab8b" prot="private" static="no" mutable="no">
+        <type>QgsFields</type>
+        <definition>QgsFields FeatureGatherer::mNmReferencingFields</definition>
+        <argsstring></argsstring>
+        <name>mNmReferencingFields</name>
+        <qualifiedname>FeatureGatherer::mNmReferencingFields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="474" column="15" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="474" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureGatherer_1a44e857680286642f342374c944f8d6bc" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsVectorLayerFeatureSource &gt;</type>
+        <definition>std::unique_ptr&lt;QgsVectorLayerFeatureSource&gt; FeatureGatherer::mNmReferencedSource</definition>
+        <argsstring></argsstring>
+        <name>mNmReferencedSource</name>
+        <qualifiedname>FeatureGatherer::mNmReferencedSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="475" column="21" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="475" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureGatherer_1afba58e5a6644f6fe9c41b94249304f19" prot="private" static="no" mutable="no">
+        <type>QList&lt; QgsRelation::FieldPair &gt;</type>
+        <definition>QList&lt;QgsRelation::FieldPair&gt; FeatureGatherer::mNmFieldPairs</definition>
+        <argsstring></argsstring>
+        <name>mNmFieldPairs</name>
+        <qualifiedname>FeatureGatherer::mNmFieldPairs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="476" column="11" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="476" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureGatherer_1aa33778fa7ae8f31a69d56c94b97a85e3" prot="private" static="no" mutable="no">
+        <type>QgsExpressionContext</type>
+        <definition>QgsExpressionContext FeatureGatherer::mNmContext</definition>
+        <argsstring></argsstring>
+        <name>mNmContext</name>
+        <qualifiedname>FeatureGatherer::mNmContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="477" column="26" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="477" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureGatherer_1a8a0411fc3c3baaf8a31ed63a5d38404e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureGatherer::mNmDisplayExpression</definition>
+        <argsstring></argsstring>
+        <name>mNmDisplayExpression</name>
+        <qualifiedname>FeatureGatherer::mNmDisplayExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="478" column="13" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="478" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureGatherer_1a0e92e7af553ac300ef1686911dfb9d84" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureGatherer::mWasCanceled</definition>
+        <argsstring></argsstring>
+        <name>mWasCanceled</name>
+        <qualifiedname>FeatureGatherer::mWasCanceled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="480" column="10" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="480" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFeatureGatherer_1a8191a75f9b13e28ad701e520ba3bdfac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FeatureGatherer::FeatureGatherer</definition>
+        <argsstring>(QgsFeature feature, QgsRelation &amp;relation, const QgsRelation &amp;nmRelation=QgsRelation())</argsstring>
+        <name>FeatureGatherer</name>
+        <qualifiedname>FeatureGatherer::FeatureGatherer</qualifiedname>
+        <param>
+          <type>QgsFeature</type>
+          <declname>feature</declname>
+        </param>
+        <param>
+          <type>QgsRelation &amp;</type>
+          <declname>relation</declname>
+        </param>
+        <param>
+          <type>const QgsRelation &amp;</type>
+          <declname>nmRelation</declname>
+          <defval>QgsRelation()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="351" column="5" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="351" bodyend="384"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureGatherer_1accd28aa2d94007b6ad848148c8af2ff7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureGatherer::run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <qualifiedname>FeatureGatherer::run</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="386" column="10" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="386" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureGatherer_1aa71a7a6b6c77eb357c0c85a02a73f4fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureGatherer::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <qualifiedname>FeatureGatherer::stop</qualifiedname>
+        <briefdescription>
+<para>Informs the gatherer to immediately stop collecting values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="422" column="10" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="422" bodyend="425"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureGatherer_1a20d1f9896ecda6c1ade243a1c00cdf43" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureGatherer::wasCanceled</definition>
+        <argsstring>() const</argsstring>
+        <name>wasCanceled</name>
+        <qualifiedname>FeatureGatherer::wasCanceled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if collection was canceled before completion </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="428" column="10" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="428" bodyend="428"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureGatherer_1af7c08b1f60572d2c647ab75c6f9373bc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; ReferencingFeatureListModelBase::Entry &gt;</type>
+        <definition>QList&lt; ReferencingFeatureListModelBase::Entry &gt; FeatureGatherer::entries</definition>
+        <argsstring>() const</argsstring>
+        <name>entries</name>
+        <qualifiedname>FeatureGatherer::entries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the list of entries </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="431" column="11" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="431" bodyend="431"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classFeatureGatherer_1afa115838ba64beca0a6be595ab2ba711" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureGatherer::collectedValues</definition>
+        <argsstring>()</argsstring>
+        <name>collectedValues</name>
+        <qualifiedname>FeatureGatherer::collectedValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when values have been collected <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>list of unique matching string values </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="439" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classFeatureGatherer_1ac8d6c403aa3d85a09b13c85f8e985954" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsFeatureRequest</type>
+        <definition>QgsFeatureRequest FeatureGatherer::getNmReferencedFeatureRequest</definition>
+        <argsstring>(const QgsAttributes &amp;attributes)</argsstring>
+        <name>getNmReferencedFeatureRequest</name>
+        <qualifiedname>FeatureGatherer::getNmReferencedFeatureRequest</qualifiedname>
+        <param>
+          <type>const QgsAttributes &amp;</type>
+          <declname>attributes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/referencingfeaturelistmodel.h" line="442" column="23" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="442" bodyend="465"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureGatherer</label>
+        <link refid="classFeatureGatherer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QThread</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureGatherer</label>
+        <link refid="classFeatureGatherer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QThread</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/referencingfeaturelistmodel.h" line="346" column="1" bodyfile="src/core/referencingfeaturelistmodel.h" bodystart="347" bodyend="481"/>
+    <listofallmembers>
+      <member refid="classFeatureGatherer_1afa115838ba64beca0a6be595ab2ba711" prot="public" virt="non-virtual"><scope>FeatureGatherer</scope><name>collectedValues</name></member>
+      <member refid="classFeatureGatherer_1af7c08b1f60572d2c647ab75c6f9373bc" prot="public" virt="non-virtual"><scope>FeatureGatherer</scope><name>entries</name></member>
+      <member refid="classFeatureGatherer_1a8191a75f9b13e28ad701e520ba3bdfac" prot="public" virt="non-virtual"><scope>FeatureGatherer</scope><name>FeatureGatherer</name></member>
+      <member refid="classFeatureGatherer_1ac8d6c403aa3d85a09b13c85f8e985954" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>getNmReferencedFeatureRequest</name></member>
+      <member refid="classFeatureGatherer_1a90b6eea3c12d1ddaa7908ab9d7043391" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>mContext</name></member>
+      <member refid="classFeatureGatherer_1a300b5caa7b150446af8f1422766b1888" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>mDisplayExpression</name></member>
+      <member refid="classFeatureGatherer_1a8f19ca51ffb98d3cb51526346b04ae60" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>mEntries</name></member>
+      <member refid="classFeatureGatherer_1aa33778fa7ae8f31a69d56c94b97a85e3" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>mNmContext</name></member>
+      <member refid="classFeatureGatherer_1a8a0411fc3c3baaf8a31ed63a5d38404e" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>mNmDisplayExpression</name></member>
+      <member refid="classFeatureGatherer_1afba58e5a6644f6fe9c41b94249304f19" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>mNmFieldPairs</name></member>
+      <member refid="classFeatureGatherer_1a44e857680286642f342374c944f8d6bc" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>mNmReferencedSource</name></member>
+      <member refid="classFeatureGatherer_1a29e8e0b7c614c7454719b17fb68dab8b" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>mNmReferencingFields</name></member>
+      <member refid="classFeatureGatherer_1a82ad832e76cfd7614e5c3e38fc5be53f" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>mReferencingSource</name></member>
+      <member refid="classFeatureGatherer_1ac61ac7828b63bc6cf44f5617ba87284a" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>mRequest</name></member>
+      <member refid="classFeatureGatherer_1a0e92e7af553ac300ef1686911dfb9d84" prot="private" virt="non-virtual"><scope>FeatureGatherer</scope><name>mWasCanceled</name></member>
+      <member refid="classFeatureGatherer_1accd28aa2d94007b6ad848148c8af2ff7" prot="public" virt="non-virtual"><scope>FeatureGatherer</scope><name>run</name></member>
+      <member refid="classFeatureGatherer_1aa71a7a6b6c77eb357c0c85a02a73f4fc" prot="public" virt="non-virtual"><scope>FeatureGatherer</scope><name>stop</name></member>
+      <member refid="classFeatureGatherer_1a20d1f9896ecda6c1ade243a1c00cdf43" prot="public" virt="non-virtual"><scope>FeatureGatherer</scope><name>wasCanceled</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

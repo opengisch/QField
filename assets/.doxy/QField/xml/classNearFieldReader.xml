@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNearFieldReader" kind="class" language="C++" prot="public">
+    <compoundname>NearFieldReader</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="nearfieldreader_8h" local="no">nearfieldreader.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classNearFieldReader_1a26233f19551f40fdbba4ddefdf614f33" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool NearFieldReader::active</definition>
+        <argsstring></argsstring>
+        <name>active</name>
+        <qualifiedname>NearFieldReader::active</qualifiedname>
+        <read>active</read>
+        <write>setActive</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="36" column="5" bodyfile="src/core/nearfieldreader.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNearFieldReader_1ace47aca813235223d81cb306afce36e7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool NearFieldReader::targetInRange</definition>
+        <argsstring></argsstring>
+        <name>targetInRange</name>
+        <qualifiedname>NearFieldReader::targetInRange</qualifiedname>
+        <read>targetInRange</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="37" column="5" bodyfile="src/core/nearfieldreader.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNearFieldReader_1a2f19250fd80933932b63f1cc34fe62ba" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString NearFieldReader::readString</definition>
+        <argsstring></argsstring>
+        <name>readString</name>
+        <qualifiedname>NearFieldReader::readString</qualifiedname>
+        <read>readString</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="38" column="5" bodyfile="src/core/nearfieldreader.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNearFieldReader_1ae00f6182be226316b8acafb8240d94dc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NearFieldReader::mActive</definition>
+        <argsstring></argsstring>
+        <name>mActive</name>
+        <qualifiedname>NearFieldReader::mActive</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="88" column="10" bodyfile="src/core/nearfieldreader.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNearFieldReader_1a06d37ed7910ccccd7e47368d952f229b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NearFieldReader::mTargetInRange</definition>
+        <argsstring></argsstring>
+        <name>mTargetInRange</name>
+        <qualifiedname>NearFieldReader::mTargetInRange</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="89" column="10" bodyfile="src/core/nearfieldreader.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNearFieldReader_1a9a006a9d70adc5572b8e292d65e7020d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NearFieldReader::mReadString</definition>
+        <argsstring></argsstring>
+        <name>mReadString</name>
+        <qualifiedname>NearFieldReader::mReadString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="90" column="13" bodyfile="src/core/nearfieldreader.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNearFieldReader_1a9be14f6cf55c9abdc931ce687cbbab67" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NearFieldReader::NearFieldReader</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>NearFieldReader</name>
+        <qualifiedname>NearFieldReader::NearFieldReader</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="41" column="14" bodyfile="src/core/nearfieldreader.cpp" bodystart="28" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classNearFieldReader_1a6e245d25715759c20869e1f360126045" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NearFieldReader::~NearFieldReader</definition>
+        <argsstring>()</argsstring>
+        <name>~NearFieldReader</name>
+        <qualifiedname>NearFieldReader::~NearFieldReader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="42" column="5" bodyfile="src/core/nearfieldreader.cpp" bodystart="38" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classNearFieldReader_1a6b9b75c6bfdc332482361f934c033f49" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NearFieldReader::active</definition>
+        <argsstring>() const</argsstring>
+        <name>active</name>
+        <qualifiedname>NearFieldReader::active</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the device is actively scanning and reading text strings from near-field targets. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="47" column="10" bodyfile="src/core/nearfieldreader.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classNearFieldReader_1af13dc014cca2798973a2b41e7613270c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NearFieldReader::setActive</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>setActive</name>
+        <qualifiedname>NearFieldReader::setActive</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the device is actively scanning and reading text strings from near-field targets. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="52" column="10" bodyfile="src/core/nearfieldreader.cpp" bodystart="55" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classNearFieldReader_1ae2c5e5ada1ef0d64b8f4fe3ffcb31db4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NearFieldReader::readString</definition>
+        <argsstring>() const</argsstring>
+        <name>readString</name>
+        <qualifiedname>NearFieldReader::readString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the last read near-field string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="57" column="13" bodyfile="src/core/nearfieldreader.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classNearFieldReader_1aba213da8c5240d9c51a6fa61db2771b4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NearFieldReader::targetInRange</definition>
+        <argsstring>() const</argsstring>
+        <name>targetInRange</name>
+        <qualifiedname>NearFieldReader::targetInRange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether a near-field target is currently within range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="62" column="10" bodyfile="src/core/nearfieldreader.cpp" bodystart="75" bodyend="78"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classNearFieldReader_1adc777e3da6d024e2de84df9eb2af179d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NearFieldReader::isSupported</definition>
+        <argsstring>()</argsstring>
+        <name>isSupported</name>
+        <qualifiedname>NearFieldReader::isSupported</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the current device can read near-field targets. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="67" column="17" bodyfile="src/core/nearfieldreader.cpp" bodystart="80" bodyend="88"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classNearFieldReader_1a3c045661761d570552b2ca6278cb75a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NearFieldReader::activeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>activeChanged</name>
+        <qualifiedname>NearFieldReader::activeChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the active state has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="71" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNearFieldReader_1aa3d8664fd389761ae91d7534c3cd209c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NearFieldReader::readStringChanged</definition>
+        <argsstring>()</argsstring>
+        <name>readStringChanged</name>
+        <qualifiedname>NearFieldReader::readStringChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the last text string read from a near-field target has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="73" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNearFieldReader_1aec156e662d9ae942a1ff4aa640959387" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NearFieldReader::targetInRangeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>targetInRangeChanged</name>
+        <qualifiedname>NearFieldReader::targetInRangeChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when a near-field target is within range of the device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="75" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNearFieldReader_1a69e78e0824af5607b56125056be65909" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NearFieldReader::targetDetected</definition>
+        <argsstring>(const QString &amp;targetId)</argsstring>
+        <name>targetDetected</name>
+        <qualifiedname>NearFieldReader::targetDetected</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>targetId</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a near-field target has been detected. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/nearfieldreader.h" line="77" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classNearFieldReader" kindref="compound">NearFieldReader</ref> class allows for the scanning of near-field targets. When text strings are present on targets, the strings will be automatically read and a signal emitted with the string values. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NearFieldReader</label>
+        <link refid="classNearFieldReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NearFieldReader</label>
+        <link refid="classNearFieldReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/nearfieldreader.h" line="32" column="1" bodyfile="src/core/nearfieldreader.h" bodystart="33" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classNearFieldReader_1a26233f19551f40fdbba4ddefdf614f33" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>active</name></member>
+      <member refid="classNearFieldReader_1a6b9b75c6bfdc332482361f934c033f49" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>active</name></member>
+      <member refid="classNearFieldReader_1a3c045661761d570552b2ca6278cb75a5" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>activeChanged</name></member>
+      <member refid="classNearFieldReader_1adc777e3da6d024e2de84df9eb2af179d" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>isSupported</name></member>
+      <member refid="classNearFieldReader_1ae00f6182be226316b8acafb8240d94dc" prot="private" virt="non-virtual"><scope>NearFieldReader</scope><name>mActive</name></member>
+      <member refid="classNearFieldReader_1a9a006a9d70adc5572b8e292d65e7020d" prot="private" virt="non-virtual"><scope>NearFieldReader</scope><name>mReadString</name></member>
+      <member refid="classNearFieldReader_1a06d37ed7910ccccd7e47368d952f229b" prot="private" virt="non-virtual"><scope>NearFieldReader</scope><name>mTargetInRange</name></member>
+      <member refid="classNearFieldReader_1a9be14f6cf55c9abdc931ce687cbbab67" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>NearFieldReader</name></member>
+      <member refid="classNearFieldReader_1a2f19250fd80933932b63f1cc34fe62ba" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>readString</name></member>
+      <member refid="classNearFieldReader_1ae2c5e5ada1ef0d64b8f4fe3ffcb31db4" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>readString</name></member>
+      <member refid="classNearFieldReader_1aa3d8664fd389761ae91d7534c3cd209c" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>readStringChanged</name></member>
+      <member refid="classNearFieldReader_1af13dc014cca2798973a2b41e7613270c" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>setActive</name></member>
+      <member refid="classNearFieldReader_1a69e78e0824af5607b56125056be65909" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>targetDetected</name></member>
+      <member refid="classNearFieldReader_1ace47aca813235223d81cb306afce36e7" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>targetInRange</name></member>
+      <member refid="classNearFieldReader_1aba213da8c5240d9c51a6fa61db2771b4" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>targetInRange</name></member>
+      <member refid="classNearFieldReader_1aec156e662d9ae942a1ff4aa640959387" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>targetInRangeChanged</name></member>
+      <member refid="classNearFieldReader_1a6e245d25715759c20869e1f360126045" prot="public" virt="non-virtual"><scope>NearFieldReader</scope><name>~NearFieldReader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

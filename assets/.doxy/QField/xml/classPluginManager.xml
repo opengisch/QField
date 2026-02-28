@@ -1,0 +1,714 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPluginManager" kind="class" language="C++" prot="public">
+    <compoundname>PluginManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPluginManager_1afa1caa39b2ec451ec72cab59faff96c7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classPluginModel" kindref="compound">PluginModel</ref> *</type>
+        <definition>PluginModel * PluginManager::pluginModel</definition>
+        <argsstring></argsstring>
+        <name>pluginModel</name>
+        <qualifiedname>PluginManager::pluginModel</qualifiedname>
+        <read>pluginModel</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="83" column="5" bodyfile="src/core/pluginmanager.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPluginManager_1a8c629b2ced3858571c286b850133cffb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classPluginInformation" kindref="compound">PluginInformation</ref> &gt;</type>
+        <definition>QList&lt;PluginInformation&gt; PluginManager::availableAppPlugins</definition>
+        <argsstring></argsstring>
+        <name>availableAppPlugins</name>
+        <qualifiedname>PluginManager::availableAppPlugins</qualifiedname>
+        <read>availableAppPlugins</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="84" column="5" bodyfile="src/core/pluginmanager.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPluginManager_1a5fad8ceaf7b17da32b236326039d6365" prot="private" static="no" mutable="no">
+        <type>QQmlEngine *</type>
+        <definition>QQmlEngine* PluginManager::mEngine</definition>
+        <argsstring></argsstring>
+        <name>mEngine</name>
+        <qualifiedname>PluginManager::mEngine</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="205" column="16" bodyfile="src/core/pluginmanager.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginManager_1a68b2c77807dce038f1b0057d196faf2c" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QPointer&lt; QObject &gt; &gt;</type>
+        <definition>QMap&lt;QString, QPointer&lt;QObject&gt; &gt; PluginManager::mLoadedPlugins</definition>
+        <argsstring></argsstring>
+        <name>mLoadedPlugins</name>
+        <qualifiedname>PluginManager::mLoadedPlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="206" column="10" bodyfile="src/core/pluginmanager.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginManager_1adc15767d13d5a288cd1ea6125ee7ad49" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString PluginManager::mPermissionRequestPluginPath</definition>
+        <argsstring></argsstring>
+        <name>mPermissionRequestPluginPath</name>
+        <qualifiedname>PluginManager::mPermissionRequestPluginPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="208" column="13" bodyfile="src/core/pluginmanager.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginManager_1a3ff6cc6879b0a89be47bd9281a5ae374" prot="private" static="no" mutable="no">
+        <type><ref refid="classPluginModel" kindref="compound">PluginModel</ref> *</type>
+        <definition>PluginModel* PluginManager::mPluginModel</definition>
+        <argsstring></argsstring>
+        <name>mPluginModel</name>
+        <qualifiedname>PluginManager::mPluginModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="210" column="17" bodyfile="src/core/pluginmanager.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPluginManager_1aee606c5091945da712f1ab1246e48a19" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PluginManager::PluginManager</definition>
+        <argsstring>(QQmlEngine *engine)</argsstring>
+        <name>PluginManager</name>
+        <qualifiedname>PluginManager::PluginManager</qualifiedname>
+        <param>
+          <type>QQmlEngine *</type>
+          <declname>engine</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a <ref refid="classPluginManager" kindref="compound">PluginManager</ref> with the given <emphasis>engine</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="90" column="14" bodyfile="src/core/pluginmanager.cpp" bodystart="31" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1ad7fa396a788fb53a327a28e5b655e909" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="classPluginInformation" kindref="compound">PluginInformation</ref> &gt;</type>
+        <definition>QList&lt; PluginInformation &gt; PluginManager::availableAppPlugins</definition>
+        <argsstring>() const</argsstring>
+        <name>availableAppPlugins</name>
+        <qualifiedname>PluginManager::availableAppPlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of available app plugins installed locally. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="95" column="11" bodyfile="src/core/pluginmanager.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1acfaa51a9c3edcb547b35494f622c40b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::loadPlugin</definition>
+        <argsstring>(const QString &amp;pluginPath, const QString &amp;pluginName, bool skipPermissionCheck=false, bool isProjectPlugin=false)</argsstring>
+        <name>loadPlugin</name>
+        <qualifiedname>PluginManager::loadPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pluginPath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pluginName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>skipPermissionCheck</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isProjectPlugin</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads a plugin from <emphasis>pluginPath</emphasis> and registers it under <emphasis>pluginName</emphasis>. Optionally skips permission checks and marks it as a project plugin. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="101" column="10" bodyfile="src/core/pluginmanager.cpp" bodystart="50" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1adcb9ec7edd0cc11fa9ba58db9c8b7e2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::unloadPlugin</definition>
+        <argsstring>(const QString &amp;pluginPath)</argsstring>
+        <name>unloadPlugin</name>
+        <qualifiedname>PluginManager::unloadPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pluginPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unloads the plugin loaded from <emphasis>pluginPath</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="106" column="10" bodyfile="src/core/pluginmanager.cpp" bodystart="104" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1a9afe2a55da67931d4f6ef0f0e3bbdea3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::unloadPlugins</definition>
+        <argsstring>()</argsstring>
+        <name>unloadPlugins</name>
+        <qualifiedname>PluginManager::unloadPlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unloads all currently loaded plugins. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="111" column="10" bodyfile="src/core/pluginmanager.cpp" bodystart="131" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1adbaee9a67b89c75d8a0876890bacd2f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PluginManager::grantRequestedPluginPermission</definition>
+        <argsstring>(bool permanent=false)</argsstring>
+        <name>grantRequestedPluginPermission</name>
+        <qualifiedname>PluginManager::grantRequestedPluginPermission</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>permanent</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Grants permission to the last plugin that requested it. If <emphasis>permanent</emphasis> is true, saves this choice. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="117" column="22" bodyfile="src/core/pluginmanager.cpp" bodystart="154" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1aba33c37b30a2b543461ee5b352d523d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PluginManager::denyRequestedPluginPermission</definition>
+        <argsstring>(bool permanent=false)</argsstring>
+        <name>denyRequestedPluginPermission</name>
+        <qualifiedname>PluginManager::denyRequestedPluginPermission</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>permanent</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Denies permission to the last plugin that requested it. If <emphasis>permanent</emphasis> is true, saves this choice. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="123" column="22" bodyfile="src/core/pluginmanager.cpp" bodystart="180" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1a99f1e0cea98bf9c8334d2a3743a2fa62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PluginManager::clearPluginPermissions</definition>
+        <argsstring>()</argsstring>
+        <name>clearPluginPermissions</name>
+        <qualifiedname>PluginManager::clearPluginPermissions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears all saved plugin permissions except those explicitly enabled by the user. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="128" column="22" bodyfile="src/core/pluginmanager.cpp" bodystart="201" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1a6376eed1b77975e494702eb92f8c72e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PluginManager::enableAppPlugin</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>enableAppPlugin</name>
+        <qualifiedname>PluginManager::enableAppPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enables the application plugin identified by <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="133" column="22" bodyfile="src/core/pluginmanager.cpp" bodystart="247" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1a02bd7639a62bb0cecd42d96110f82d58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PluginManager::disableAppPlugin</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>disableAppPlugin</name>
+        <qualifiedname>PluginManager::disableAppPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Disables the application plugin identified by <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="138" column="22" bodyfile="src/core/pluginmanager.cpp" bodystart="275" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1aae3936abf1b671b2931596657a9d7927" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PluginManager::configureAppPlugin</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>configureAppPlugin</name>
+        <qualifiedname>PluginManager::configureAppPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Opens the configuration interface for the plugin identified by <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="143" column="22" bodyfile="src/core/pluginmanager.cpp" bodystart="296" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1ac45f1e0f877e293c6e3b979ec85cd266" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool PluginManager::isAppPluginEnabled</definition>
+        <argsstring>(const QString &amp;uuid) const</argsstring>
+        <name>isAppPluginEnabled</name>
+        <qualifiedname>PluginManager::isAppPluginEnabled</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns true if the application plugin with <emphasis>uuid</emphasis> is currently enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="148" column="22" bodyfile="src/core/pluginmanager.cpp" bodystart="301" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1a65ed4ccb02a755c9a594439ee3ab3503" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool PluginManager::isAppPluginConfigurable</definition>
+        <argsstring>(const QString &amp;uuid) const</argsstring>
+        <name>isAppPluginConfigurable</name>
+        <qualifiedname>PluginManager::isAppPluginConfigurable</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns true if the application plugin with <emphasis>uuid</emphasis> is configurable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="153" column="22" bodyfile="src/core/pluginmanager.cpp" bodystart="306" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1a518acb2d373af73345f37361acb78de5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::restoreAppPlugins</definition>
+        <argsstring>()</argsstring>
+        <name>restoreAppPlugins</name>
+        <qualifiedname>PluginManager::restoreAppPlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Restores and loads previously enabled application plugins. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="158" column="10" bodyfile="src/core/pluginmanager.cpp" bodystart="216" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1ac9a0e10f5ad1563334bc6bb10bfc3ed6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PluginManager::installFromUrl</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>installFromUrl</name>
+        <qualifiedname>PluginManager::installFromUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Installs a plugin from the given <emphasis>url</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="163" column="22" bodyfile="src/core/pluginmanager.cpp" bodystart="330" bodyend="464"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1a8c6388ac8a651d4c4071f03a78f4b6a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PluginManager::installFromRepository</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>installFromRepository</name>
+        <qualifiedname>PluginManager::installFromRepository</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Installs a plugin from the given repository <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="168" column="22" bodyfile="src/core/pluginmanager.cpp" bodystart="318" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1ac1d5fe5d278216403265192dba17ba96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PluginManager::uninstall</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>uninstall</name>
+        <qualifiedname>PluginManager::uninstall</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Uninstalls the application plugin identified by <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="173" column="22" bodyfile="src/core/pluginmanager.cpp" bodystart="466" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginManager_1adf5477ea1ae1489561fafd2d84e19d08" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classPluginModel" kindref="compound">PluginModel</ref> *</type>
+        <definition>PluginModel * PluginManager::pluginModel</definition>
+        <argsstring>() const</argsstring>
+        <name>pluginModel</name>
+        <qualifiedname>PluginManager::pluginModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the plugin model used by this manager. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="184" column="17" bodyfile="src/core/pluginmanager.cpp" bodystart="523" bodyend="526"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classPluginManager_1a3a364cd86cdc390d7db25701cde295df" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PluginManager::findProjectPlugin</definition>
+        <argsstring>(const QString &amp;projectPath)</argsstring>
+        <name>findProjectPlugin</name>
+        <qualifiedname>PluginManager::findProjectPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finds and returns the plugin path corresponding to a project at <emphasis>projectPath</emphasis>. Returns an empty string if none is found. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="179" column="20" bodyfile="src/core/pluginmanager.cpp" bodystart="479" bodyend="497"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classPluginManager_1adb3bd79e9e6a28855f83de36055cf576" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::pluginPermissionRequested</definition>
+        <argsstring>(const QString &amp;pluginName, bool isProjectPlugin)</argsstring>
+        <name>pluginPermissionRequested</name>
+        <qualifiedname>PluginManager::pluginPermissionRequested</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pluginName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isProjectPlugin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="188" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPluginManager_1a25df5a68c2ad728b3dbfcdeadf212f57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::appPluginEnabled</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>appPluginEnabled</name>
+        <qualifiedname>PluginManager::appPluginEnabled</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="190" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPluginManager_1a28b75211aed924d5a7a00dcd99d44428" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::appPluginDisabled</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>appPluginDisabled</name>
+        <qualifiedname>PluginManager::appPluginDisabled</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="191" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPluginManager_1acbf66f4aa760587dc79b0cd31d481392" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::installTriggered</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>installTriggered</name>
+        <qualifiedname>PluginManager::installTriggered</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="193" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPluginManager_1acb16a144bc21cb31cdd60eb2b472397d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::installProgress</definition>
+        <argsstring>(double progress)</argsstring>
+        <name>installProgress</name>
+        <qualifiedname>PluginManager::installProgress</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>progress</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="194" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPluginManager_1a0825fc0927efa00d79018183cf7de47d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::installEnded</definition>
+        <argsstring>(const QString &amp;uuid=QString(), const QString &amp;error=QString())</argsstring>
+        <name>installEnded</name>
+        <qualifiedname>PluginManager::installEnded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>error</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="195" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPluginManager_1a48885fb0d3655658ee2cd5e33cdf809a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::availableAppPluginsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>availableAppPluginsChanged</name>
+        <qualifiedname>PluginManager::availableAppPluginsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="197" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPluginManager_1a4e47c289648a9fac9a596d8b2fdd2ad7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::pluginModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>pluginModelChanged</name>
+        <qualifiedname>PluginManager::pluginModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="198" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classPluginManager_1a7cad98d04d595323fb615abc8da38e4f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::handleWarnings</definition>
+        <argsstring>(const QList&lt; QQmlError &gt; &amp;warnings)</argsstring>
+        <name>handleWarnings</name>
+        <qualifiedname>PluginManager::handleWarnings</qualifiedname>
+        <param>
+          <type>const QList&lt; QQmlError &gt; &amp;</type>
+          <declname>warnings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="201" column="10" bodyfile="src/core/pluginmanager.cpp" bodystart="140" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="slot" id="classPluginManager_1ad9836d16ba3ac525046a7cdfe694bfc9" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginManager::callPluginMethod</definition>
+        <argsstring>(const QString &amp;uuid, const QString &amp;methodName) const</argsstring>
+        <name>callPluginMethod</name>
+        <qualifiedname>PluginManager::callPluginMethod</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>methodName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="202" column="10" bodyfile="src/core/pluginmanager.cpp" bodystart="499" bodyend="521"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PluginManager</label>
+        <link refid="classPluginManager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PluginManager</label>
+        <link refid="classPluginManager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/pluginmanager.h" line="79" column="1" bodyfile="src/core/pluginmanager.h" bodystart="80" bodyend="211"/>
+    <listofallmembers>
+      <member refid="classPluginManager_1a28b75211aed924d5a7a00dcd99d44428" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>appPluginDisabled</name></member>
+      <member refid="classPluginManager_1a25df5a68c2ad728b3dbfcdeadf212f57" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>appPluginEnabled</name></member>
+      <member refid="classPluginManager_1a8c629b2ced3858571c286b850133cffb" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>availableAppPlugins</name></member>
+      <member refid="classPluginManager_1ad7fa396a788fb53a327a28e5b655e909" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>availableAppPlugins</name></member>
+      <member refid="classPluginManager_1a48885fb0d3655658ee2cd5e33cdf809a" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>availableAppPluginsChanged</name></member>
+      <member refid="classPluginManager_1ad9836d16ba3ac525046a7cdfe694bfc9" prot="private" virt="non-virtual"><scope>PluginManager</scope><name>callPluginMethod</name></member>
+      <member refid="classPluginManager_1a99f1e0cea98bf9c8334d2a3743a2fa62" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>clearPluginPermissions</name></member>
+      <member refid="classPluginManager_1aae3936abf1b671b2931596657a9d7927" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>configureAppPlugin</name></member>
+      <member refid="classPluginManager_1aba33c37b30a2b543461ee5b352d523d8" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>denyRequestedPluginPermission</name></member>
+      <member refid="classPluginManager_1a02bd7639a62bb0cecd42d96110f82d58" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>disableAppPlugin</name></member>
+      <member refid="classPluginManager_1a6376eed1b77975e494702eb92f8c72e5" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>enableAppPlugin</name></member>
+      <member refid="classPluginManager_1a3a364cd86cdc390d7db25701cde295df" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>findProjectPlugin</name></member>
+      <member refid="classPluginManager_1adbaee9a67b89c75d8a0876890bacd2f6" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>grantRequestedPluginPermission</name></member>
+      <member refid="classPluginManager_1a7cad98d04d595323fb615abc8da38e4f" prot="private" virt="non-virtual"><scope>PluginManager</scope><name>handleWarnings</name></member>
+      <member refid="classPluginManager_1a0825fc0927efa00d79018183cf7de47d" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>installEnded</name></member>
+      <member refid="classPluginManager_1a8c6388ac8a651d4c4071f03a78f4b6a5" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>installFromRepository</name></member>
+      <member refid="classPluginManager_1ac9a0e10f5ad1563334bc6bb10bfc3ed6" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>installFromUrl</name></member>
+      <member refid="classPluginManager_1acb16a144bc21cb31cdd60eb2b472397d" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>installProgress</name></member>
+      <member refid="classPluginManager_1acbf66f4aa760587dc79b0cd31d481392" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>installTriggered</name></member>
+      <member refid="classPluginManager_1a65ed4ccb02a755c9a594439ee3ab3503" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>isAppPluginConfigurable</name></member>
+      <member refid="classPluginManager_1ac45f1e0f877e293c6e3b979ec85cd266" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>isAppPluginEnabled</name></member>
+      <member refid="classPluginManager_1acfaa51a9c3edcb547b35494f622c40b9" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>loadPlugin</name></member>
+      <member refid="classPluginManager_1a5fad8ceaf7b17da32b236326039d6365" prot="private" virt="non-virtual"><scope>PluginManager</scope><name>mEngine</name></member>
+      <member refid="classPluginManager_1a68b2c77807dce038f1b0057d196faf2c" prot="private" virt="non-virtual"><scope>PluginManager</scope><name>mLoadedPlugins</name></member>
+      <member refid="classPluginManager_1adc15767d13d5a288cd1ea6125ee7ad49" prot="private" virt="non-virtual"><scope>PluginManager</scope><name>mPermissionRequestPluginPath</name></member>
+      <member refid="classPluginManager_1a3ff6cc6879b0a89be47bd9281a5ae374" prot="private" virt="non-virtual"><scope>PluginManager</scope><name>mPluginModel</name></member>
+      <member refid="classPluginManager_1aee606c5091945da712f1ab1246e48a19" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>PluginManager</name></member>
+      <member refid="classPluginManager_1afa1caa39b2ec451ec72cab59faff96c7" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>pluginModel</name></member>
+      <member refid="classPluginManager_1adf5477ea1ae1489561fafd2d84e19d08" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>pluginModel</name></member>
+      <member refid="classPluginManager_1a4e47c289648a9fac9a596d8b2fdd2ad7" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>pluginModelChanged</name></member>
+      <member refid="classPluginManager_1adb3bd79e9e6a28855f83de36055cf576" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>pluginPermissionRequested</name></member>
+      <member refid="classPluginManager_1a518acb2d373af73345f37361acb78de5" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>restoreAppPlugins</name></member>
+      <member refid="classPluginManager_1ac1d5fe5d278216403265192dba17ba96" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>uninstall</name></member>
+      <member refid="classPluginManager_1adcb9ec7edd0cc11fa9ba58db9c8b7e2d" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>unloadPlugin</name></member>
+      <member refid="classPluginManager_1a9afe2a55da67931d4f6ef0f0e3bbdea3" prot="public" virt="non-virtual"><scope>PluginManager</scope><name>unloadPlugins</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

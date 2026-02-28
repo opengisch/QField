@@ -1,0 +1,2963 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGnssPositionInformation" kind="class" language="C++" prot="public">
+    <compoundname>GnssPositionInformation</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642" prot="public" static="no" strong="no">
+        <type></type>
+        <name>FixStatus</name>
+        <qualifiedname>GnssPositionInformation::FixStatus</qualifiedname>
+        <enumvalue id="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642aca6b02a2ad19e6a13fb632bd49ae8f70" prot="public">
+          <name>NoData</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642a737bb875b9caa23c8cea584f4fe5aff6" prot="public">
+          <name>NoFix</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642ac5c25442588193001dedc489811e8754" prot="public">
+          <name>Fix2D</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642aa59a08fe16030569eecfdb6c54f97138" prot="public">
+          <name>Fix3D</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>GPS fix status </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="103" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="104" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="enum" id="classGnssPositionInformation_1a94c51753d72df4390cdbc604b01840d3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>AccuracyQuality</name>
+        <qualifiedname>GnssPositionInformation::AccuracyQuality</qualifiedname>
+        <enumvalue id="classGnssPositionInformation_1a94c51753d72df4390cdbc604b01840d3a725bac88cd34761cbff33b9fa8bf80d5" prot="public">
+          <name>AccuracyUndetermined</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGnssPositionInformation_1a94c51753d72df4390cdbc604b01840d3af5e763102973896fd5c3cac247bad971" prot="public">
+          <name>AccuracyBad</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGnssPositionInformation_1a94c51753d72df4390cdbc604b01840d3aec2b50834e832bf6061463e6a938fd84" prot="public">
+          <name>AccuracyOk</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGnssPositionInformation_1a94c51753d72df4390cdbc604b01840d3ae45ab39119a67ae515ef57e9c516f3de" prot="public">
+          <name>AccuracyExcellent</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="113" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="114" bodyend="119"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classGnssPositionInformation_1a75ec95ceb16c953ce40667e974f4e662" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::isValid</definition>
+        <argsstring></argsstring>
+        <name>isValid</name>
+        <qualifiedname>GnssPositionInformation::isValid</qualifiedname>
+        <read>isValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="49" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1ade10dd95a98bf3fab538ec7558c6ca3e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642" kindref="member">FixStatus</ref></type>
+        <definition>FixStatus GnssPositionInformation::fixStatus</definition>
+        <argsstring></argsstring>
+        <name>fixStatus</name>
+        <qualifiedname>GnssPositionInformation::fixStatus</qualifiedname>
+        <read>fixStatus</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="50" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a3a04099264500f5ffd0a09c5b61aa21c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString GnssPositionInformation::qualityDescription</definition>
+        <argsstring></argsstring>
+        <name>qualityDescription</name>
+        <qualifiedname>GnssPositionInformation::qualityDescription</qualifiedname>
+        <read>qualityDescription</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="51" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a1217c5e9e1fe762201849308fc3ee4d0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString GnssPositionInformation::fixStatusDescription</definition>
+        <argsstring></argsstring>
+        <name>fixStatusDescription</name>
+        <qualifiedname>GnssPositionInformation::fixStatusDescription</qualifiedname>
+        <read>fixStatusDescription</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="52" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a43bc79538abd52bc3de0b9b85da38d52" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::latitude</definition>
+        <argsstring></argsstring>
+        <name>latitude</name>
+        <qualifiedname>GnssPositionInformation::latitude</qualifiedname>
+        <read>latitude</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="54" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1ac78897a72bfbf919f300433ef11e9bcf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::latitudeValid</definition>
+        <argsstring></argsstring>
+        <name>latitudeValid</name>
+        <qualifiedname>GnssPositionInformation::latitudeValid</qualifiedname>
+        <read>latitudeValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="55" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a1fdac1fb44e52f3b725775812f4e46e8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::longitude</definition>
+        <argsstring></argsstring>
+        <name>longitude</name>
+        <qualifiedname>GnssPositionInformation::longitude</qualifiedname>
+        <read>longitude</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="56" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1adf0ccbe85f497fdea40e8eafa9e58875" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::longitudeValid</definition>
+        <argsstring></argsstring>
+        <name>longitudeValid</name>
+        <qualifiedname>GnssPositionInformation::longitudeValid</qualifiedname>
+        <read>longitudeValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="57" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a718e98b33dd6c3d3700c0c26f170cdb6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::elevation</definition>
+        <argsstring></argsstring>
+        <name>elevation</name>
+        <qualifiedname>GnssPositionInformation::elevation</qualifiedname>
+        <read>elevation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="58" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1ae3a2071a06ac37f0fa9877b335c6cb6c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::elevationValid</definition>
+        <argsstring></argsstring>
+        <name>elevationValid</name>
+        <qualifiedname>GnssPositionInformation::elevationValid</qualifiedname>
+        <read>elevationValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="59" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a2bd14a7f8ba95ba45be3d0179256688e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <qualifiedname>GnssPositionInformation::speed</qualifiedname>
+        <read>speed</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="60" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a356fc3ca2b4988294f4a9e6f9ec3e3ba" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::speedValid</definition>
+        <argsstring></argsstring>
+        <name>speedValid</name>
+        <qualifiedname>GnssPositionInformation::speedValid</qualifiedname>
+        <read>speedValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="61" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1ad3af200b026ae67c2255fd0e2487b240" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <qualifiedname>GnssPositionInformation::direction</qualifiedname>
+        <read>direction</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="62" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a85c8fbfa37f2f2dac804e5fcb7c389e9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::directionValid</definition>
+        <argsstring></argsstring>
+        <name>directionValid</name>
+        <qualifiedname>GnssPositionInformation::directionValid</qualifiedname>
+        <read>directionValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="63" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a10b243e3f4e8f2a4622fb62287d6458b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; QgsSatelliteInfo &gt;</type>
+        <definition>QList&lt;QgsSatelliteInfo&gt; GnssPositionInformation::satellitesInView</definition>
+        <argsstring></argsstring>
+        <name>satellitesInView</name>
+        <qualifiedname>GnssPositionInformation::satellitesInView</qualifiedname>
+        <read>satellitesInView</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="64" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a5d6cccc9cccd67961a8749520a710d61" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::pdop</definition>
+        <argsstring></argsstring>
+        <name>pdop</name>
+        <qualifiedname>GnssPositionInformation::pdop</qualifiedname>
+        <read>pdop</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="65" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a85369969d6d906765cac86fec8569b9d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::hdop</definition>
+        <argsstring></argsstring>
+        <name>hdop</name>
+        <qualifiedname>GnssPositionInformation::hdop</qualifiedname>
+        <read>hdop</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="66" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1ab378c2cbbfa57e80fc1e5d991ff9c1e7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::vdop</definition>
+        <argsstring></argsstring>
+        <name>vdop</name>
+        <qualifiedname>GnssPositionInformation::vdop</qualifiedname>
+        <read>vdop</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="67" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a0c315afb5f38df543dcbe2f470731004" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::hacc</definition>
+        <argsstring></argsstring>
+        <name>hacc</name>
+        <qualifiedname>GnssPositionInformation::hacc</qualifiedname>
+        <read>hacc</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="68" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a13aaee5ce562d7d5948c51155094f4cb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::haccValid</definition>
+        <argsstring></argsstring>
+        <name>haccValid</name>
+        <qualifiedname>GnssPositionInformation::haccValid</qualifiedname>
+        <read>haccValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="69" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1aa7b5dafe2b6e6ad216dddfcd09d0b7f2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::vacc</definition>
+        <argsstring></argsstring>
+        <name>vacc</name>
+        <qualifiedname>GnssPositionInformation::vacc</qualifiedname>
+        <read>vacc</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="70" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a17ca599d3053129a33140e65fb8a3ab5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::vaccValid</definition>
+        <argsstring></argsstring>
+        <name>vaccValid</name>
+        <qualifiedname>GnssPositionInformation::vaccValid</qualifiedname>
+        <read>vaccValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="71" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1ac172ae7c720e8e674d798fcc2c720524" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::hvacc</definition>
+        <argsstring></argsstring>
+        <name>hvacc</name>
+        <qualifiedname>GnssPositionInformation::hvacc</qualifiedname>
+        <read>hvacc</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="72" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a5f6a7e5f8f3a16b6bda61b97a333b2c5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>AccuracyQuality</type>
+        <definition>AccuracyQuality GnssPositionInformation::accuracyQuality</definition>
+        <argsstring></argsstring>
+        <name>accuracyQuality</name>
+        <qualifiedname>GnssPositionInformation::accuracyQuality</qualifiedname>
+        <read>accuracyQuality</read>
+        <write>setAccuracyQuality</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="73" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1aa9193580c7e8a0a9746735e9c9a2620d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::hvaccValid</definition>
+        <argsstring></argsstring>
+        <name>hvaccValid</name>
+        <qualifiedname>GnssPositionInformation::hvaccValid</qualifiedname>
+        <read>hvaccValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="74" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a28d8022110c87de97a303d4d04d2d407" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime GnssPositionInformation::utcDateTime</definition>
+        <argsstring></argsstring>
+        <name>utcDateTime</name>
+        <qualifiedname>GnssPositionInformation::utcDateTime</qualifiedname>
+        <read>utcDateTime</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="75" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a8424abb5ffccdb01c6e796ece6207a01" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QChar</type>
+        <definition>QChar GnssPositionInformation::fixMode</definition>
+        <argsstring></argsstring>
+        <name>fixMode</name>
+        <qualifiedname>GnssPositionInformation::fixMode</qualifiedname>
+        <read>fixMode</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="76" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a828d2174317cf25cf344ee93a744b840" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int GnssPositionInformation::fixType</definition>
+        <argsstring></argsstring>
+        <name>fixType</name>
+        <qualifiedname>GnssPositionInformation::fixType</qualifiedname>
+        <read>fixType</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="77" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a47322c82eb25d32f1b7c63417b3435a2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int GnssPositionInformation::quality</definition>
+        <argsstring></argsstring>
+        <name>quality</name>
+        <qualifiedname>GnssPositionInformation::quality</qualifiedname>
+        <read>quality</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="78" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a98229ad5ed25f27708d773f9ed05bc41" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int GnssPositionInformation::satellitesUsed</definition>
+        <argsstring></argsstring>
+        <name>satellitesUsed</name>
+        <qualifiedname>GnssPositionInformation::satellitesUsed</qualifiedname>
+        <read>satellitesUsed</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="79" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1ac98d2ecf6be73325d096a6f56bcf83fc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QChar</type>
+        <definition>QChar GnssPositionInformation::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>GnssPositionInformation::status</qualifiedname>
+        <read>status</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="80" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a431ffbafbf875c77cbfc366f9885d636" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; int &gt;</type>
+        <definition>QList&lt;int&gt; GnssPositionInformation::satPrn</definition>
+        <argsstring></argsstring>
+        <name>satPrn</name>
+        <qualifiedname>GnssPositionInformation::satPrn</qualifiedname>
+        <read>satPrn</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="81" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1aa75f313fdec1cbcbd70eb8b2c3e1973c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::satInfoComplete</definition>
+        <argsstring></argsstring>
+        <name>satInfoComplete</name>
+        <qualifiedname>GnssPositionInformation::satInfoComplete</qualifiedname>
+        <read>satInfoComplete</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="82" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a260c00ad33f1f80d1fbdb5ede41dbc45" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::verticalSpeed</definition>
+        <argsstring></argsstring>
+        <name>verticalSpeed</name>
+        <qualifiedname>GnssPositionInformation::verticalSpeed</qualifiedname>
+        <read>verticalSpeed</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="83" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a21d345d4b9f8ae5be09d0c8b3ac84134" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::magneticVariation</definition>
+        <argsstring></argsstring>
+        <name>magneticVariation</name>
+        <qualifiedname>GnssPositionInformation::magneticVariation</qualifiedname>
+        <read>magneticVariation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="84" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a74bdef6bb98b0ddf3ad688aff44597fd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int GnssPositionInformation::averagedCount</definition>
+        <argsstring></argsstring>
+        <name>averagedCount</name>
+        <qualifiedname>GnssPositionInformation::averagedCount</qualifiedname>
+        <read>averagedCount</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="85" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1ab2f5a7eb85114f2f465f43a6a1da1f30" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString GnssPositionInformation::sourceName</definition>
+        <argsstring></argsstring>
+        <name>sourceName</name>
+        <qualifiedname>GnssPositionInformation::sourceName</qualifiedname>
+        <read>sourceName</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="86" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a70aa3f4eadef40a70f56fb84066d7249" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::imuCorrection</definition>
+        <argsstring></argsstring>
+        <name>imuCorrection</name>
+        <qualifiedname>GnssPositionInformation::imuCorrection</qualifiedname>
+        <read>imuCorrection</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="87" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a29046b25c6d8d889d41cc06b9c8cfdca" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::imuRoll</definition>
+        <argsstring></argsstring>
+        <name>imuRoll</name>
+        <qualifiedname>GnssPositionInformation::imuRoll</qualifiedname>
+        <read>imuRoll</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="88" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1af952f0228ad25377c07a5b2f75a7c0f8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::imuRollValid</definition>
+        <argsstring></argsstring>
+        <name>imuRollValid</name>
+        <qualifiedname>GnssPositionInformation::imuRollValid</qualifiedname>
+        <read>imuRollValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="89" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1aee55c96db81206aab38b074b5c5df3c9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::imuPitch</definition>
+        <argsstring></argsstring>
+        <name>imuPitch</name>
+        <qualifiedname>GnssPositionInformation::imuPitch</qualifiedname>
+        <read>imuPitch</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="90" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a6e0f60f1449dacf29b53f235795108f7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::imuPitchValid</definition>
+        <argsstring></argsstring>
+        <name>imuPitchValid</name>
+        <qualifiedname>GnssPositionInformation::imuPitchValid</qualifiedname>
+        <read>imuPitchValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="91" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a7f6af3bed57b693390db03badd652a6e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::imuHeading</definition>
+        <argsstring></argsstring>
+        <name>imuHeading</name>
+        <qualifiedname>GnssPositionInformation::imuHeading</qualifiedname>
+        <read>imuHeading</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="92" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1abb2f909763ef5697f7fc6051b9f682f2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::imuHeadingValid</definition>
+        <argsstring></argsstring>
+        <name>imuHeadingValid</name>
+        <qualifiedname>GnssPositionInformation::imuHeadingValid</qualifiedname>
+        <read>imuHeadingValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="93" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a79417c6b20f9f680d445f67d8e0468cf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::imuSteering</definition>
+        <argsstring></argsstring>
+        <name>imuSteering</name>
+        <qualifiedname>GnssPositionInformation::imuSteering</qualifiedname>
+        <read>imuSteering</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="94" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a4216f5097a3acda1bbe511f5d79f6878" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::imuSteeringValid</definition>
+        <argsstring></argsstring>
+        <name>imuSteeringValid</name>
+        <qualifiedname>GnssPositionInformation::imuSteeringValid</qualifiedname>
+        <read>imuSteeringValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="95" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a8ef17a36b7c6c1aa56c6d0258e8ca181" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::orientation</definition>
+        <argsstring></argsstring>
+        <name>orientation</name>
+        <qualifiedname>GnssPositionInformation::orientation</qualifiedname>
+        <read>orientation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="96" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGnssPositionInformation_1a52e46d6d99da57dfa4402ed72e60658e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::orientationValid</definition>
+        <argsstring></argsstring>
+        <name>orientationValid</name>
+        <qualifiedname>GnssPositionInformation::orientationValid</qualifiedname>
+        <read>orientationValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="97" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGnssPositionInformation_1a52b1c2d88614fb37c47933abc59d4d1f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mLatitude</definition>
+        <argsstring></argsstring>
+        <name>mLatitude</name>
+        <qualifiedname>GnssPositionInformation::mLatitude</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="368" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="368" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a30ff9a308d66ef24822d82c6ac54fedc" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mLongitude</definition>
+        <argsstring></argsstring>
+        <name>mLongitude</name>
+        <qualifiedname>GnssPositionInformation::mLongitude</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="369" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="369" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a2476879f991a12d8a2b418e35e32a47f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mElevation</definition>
+        <argsstring></argsstring>
+        <name>mElevation</name>
+        <qualifiedname>GnssPositionInformation::mElevation</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="370" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="370" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a903deca96318672c3020c51673c9c790" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mSpeed</definition>
+        <argsstring></argsstring>
+        <name>mSpeed</name>
+        <qualifiedname>GnssPositionInformation::mSpeed</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="371" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="371" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a42b1e18e2acc826a76455d99bcc84a65" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mDirection</definition>
+        <argsstring></argsstring>
+        <name>mDirection</name>
+        <qualifiedname>GnssPositionInformation::mDirection</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="372" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="372" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a464af379eca141f75ae7f4f28cd94ca9" prot="private" static="no" mutable="no">
+        <type>QList&lt; QgsSatelliteInfo &gt;</type>
+        <definition>QList&lt;QgsSatelliteInfo&gt; GnssPositionInformation::mSatellitesInView</definition>
+        <argsstring></argsstring>
+        <name>mSatellitesInView</name>
+        <qualifiedname>GnssPositionInformation::mSatellitesInView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="373" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="373" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1ad3c06cdecf66d482b03604bd9fe5a58a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mPdop</definition>
+        <argsstring></argsstring>
+        <name>mPdop</name>
+        <qualifiedname>GnssPositionInformation::mPdop</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="374" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="374" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a266cdcf294b9593f3536d0bdef9ef23c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mHdop</definition>
+        <argsstring></argsstring>
+        <name>mHdop</name>
+        <qualifiedname>GnssPositionInformation::mHdop</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="375" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="375" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1aed75deb95df007af2e031e4996fe606f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mVdop</definition>
+        <argsstring></argsstring>
+        <name>mVdop</name>
+        <qualifiedname>GnssPositionInformation::mVdop</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="376" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="376" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a13ec7f317dc9ae25d515584ca100c6d1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mHacc</definition>
+        <argsstring></argsstring>
+        <name>mHacc</name>
+        <qualifiedname>GnssPositionInformation::mHacc</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="377" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="377" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1ae275b75bdc21378b2dbe9756ffaa826d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mVacc</definition>
+        <argsstring></argsstring>
+        <name>mVacc</name>
+        <qualifiedname>GnssPositionInformation::mVacc</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="378" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="378" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1ad6d6a05fccf6fd5bb122676517848ac4" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mHvacc</definition>
+        <argsstring></argsstring>
+        <name>mHvacc</name>
+        <qualifiedname>GnssPositionInformation::mHvacc</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="379" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="379" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1aaa8033fd5df5b023be4cfb4bd60fa7d6" prot="private" static="no" mutable="no">
+        <type>AccuracyQuality</type>
+        <definition>AccuracyQuality GnssPositionInformation::mAccuracyQuality</definition>
+        <argsstring></argsstring>
+        <name>mAccuracyQuality</name>
+        <qualifiedname>GnssPositionInformation::mAccuracyQuality</qualifiedname>
+        <initializer>= AccuracyUndetermined</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="380" column="21" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="380" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1ab7e49b19971bead8f51c23c1d7c1ba82" prot="private" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime GnssPositionInformation::mUtcDateTime</definition>
+        <argsstring></argsstring>
+        <name>mUtcDateTime</name>
+        <qualifiedname>GnssPositionInformation::mUtcDateTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="381" column="15" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="381" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a85f59bf88c736989481ed882bba54a28" prot="private" static="no" mutable="no">
+        <type>QChar</type>
+        <definition>QChar GnssPositionInformation::mFixMode</definition>
+        <argsstring></argsstring>
+        <name>mFixMode</name>
+        <qualifiedname>GnssPositionInformation::mFixMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="382" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="382" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1ade9be7485904b34a0d3db8157f049288" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GnssPositionInformation::mFixType</definition>
+        <argsstring></argsstring>
+        <name>mFixType</name>
+        <qualifiedname>GnssPositionInformation::mFixType</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="383" column="9" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="383" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a57b3831fa208779f973eccb40a93ce3e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GnssPositionInformation::mQuality</definition>
+        <argsstring></argsstring>
+        <name>mQuality</name>
+        <qualifiedname>GnssPositionInformation::mQuality</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="384" column="9" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="384" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a246f22cfc936e458aacb31966d0a2665" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GnssPositionInformation::mSatellitesUsed</definition>
+        <argsstring></argsstring>
+        <name>mSatellitesUsed</name>
+        <qualifiedname>GnssPositionInformation::mSatellitesUsed</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="385" column="9" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="385" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1afa06f16ac52c38ca11fa92c1c838b434" prot="private" static="no" mutable="no">
+        <type>QChar</type>
+        <definition>QChar GnssPositionInformation::mStatus</definition>
+        <argsstring></argsstring>
+        <name>mStatus</name>
+        <qualifiedname>GnssPositionInformation::mStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="386" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="386" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1aa72616a82ae929f21bbc8962103bda7b" prot="private" static="no" mutable="no">
+        <type>QList&lt; int &gt;</type>
+        <definition>QList&lt;int&gt; GnssPositionInformation::mSatPrn</definition>
+        <argsstring></argsstring>
+        <name>mSatPrn</name>
+        <qualifiedname>GnssPositionInformation::mSatPrn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="387" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="387" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a472cc1b1db484cad6b1a4f83171a99f0" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::mSatInfoComplete</definition>
+        <argsstring></argsstring>
+        <name>mSatInfoComplete</name>
+        <qualifiedname>GnssPositionInformation::mSatInfoComplete</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="388" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a08792dcffeadfb93fdee9d8b3c1f83b6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mVerticalSpeed</definition>
+        <argsstring></argsstring>
+        <name>mVerticalSpeed</name>
+        <qualifiedname>GnssPositionInformation::mVerticalSpeed</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="389" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a0ec55cdde41687dd2981ad85079cae92" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mMagneticVariation</definition>
+        <argsstring></argsstring>
+        <name>mMagneticVariation</name>
+        <qualifiedname>GnssPositionInformation::mMagneticVariation</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="390" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1afa026b9888e1f6b9189b60528976235a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GnssPositionInformation::mAveragedCount</definition>
+        <argsstring></argsstring>
+        <name>mAveragedCount</name>
+        <qualifiedname>GnssPositionInformation::mAveragedCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="391" column="9" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="391" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1acfb6f65c3481d374e7b5f4faa5496ed3" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString GnssPositionInformation::mSourceName</definition>
+        <argsstring></argsstring>
+        <name>mSourceName</name>
+        <qualifiedname>GnssPositionInformation::mSourceName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="392" column="13" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="392" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1ae717b1eda851d651c3b80f18e3044ee5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::mImuCorrection</definition>
+        <argsstring></argsstring>
+        <name>mImuCorrection</name>
+        <qualifiedname>GnssPositionInformation::mImuCorrection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="393" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="393" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a28595e935da410d352984c25634caa1d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mImuRoll</definition>
+        <argsstring></argsstring>
+        <name>mImuRoll</name>
+        <qualifiedname>GnssPositionInformation::mImuRoll</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="394" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="394" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a87b954ff8485953ba8051966b3b1a990" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mImuPitch</definition>
+        <argsstring></argsstring>
+        <name>mImuPitch</name>
+        <qualifiedname>GnssPositionInformation::mImuPitch</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="395" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="395" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a28af49e6d2b12bb72a14e90da5b0cc93" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mImuHeading</definition>
+        <argsstring></argsstring>
+        <name>mImuHeading</name>
+        <qualifiedname>GnssPositionInformation::mImuHeading</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="396" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="396" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1a201a7fae811392252ca9ccb04eb1dad2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mImuSteering</definition>
+        <argsstring></argsstring>
+        <name>mImuSteering</name>
+        <qualifiedname>GnssPositionInformation::mImuSteering</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="397" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="397" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionInformation_1aff0b685610a7b20901ce6cb14ff0e243" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GnssPositionInformation::mOrientation</definition>
+        <argsstring></argsstring>
+        <name>mOrientation</name>
+        <qualifiedname>GnssPositionInformation::mOrientation</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="398" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="398" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGnssPositionInformation_1aa3c7c5cc1adabff38bd63457c8af8ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GnssPositionInformation::GnssPositionInformation</definition>
+        <argsstring>(double latitude=std::numeric_limits&lt; double &gt;::quiet_NaN(), double longitude=std::numeric_limits&lt; double &gt;::quiet_NaN(), double elevation=std::numeric_limits&lt; double &gt;::quiet_NaN(), double speed=std::numeric_limits&lt; double &gt;::quiet_NaN(), double direction=std::numeric_limits&lt; double &gt;::quiet_NaN(), const QList&lt; QgsSatelliteInfo &gt; &amp;satellitesInView=QList&lt; QgsSatelliteInfo &gt;(), double pdop=0, double hdop=0, double vdop=0, double hacc=std::numeric_limits&lt; double &gt;::quiet_NaN(), double vacc=std::numeric_limits&lt; double &gt;::quiet_NaN(), QDateTime utcDateTime=QDateTime(), QChar fixMode=QChar(), int fixType=0, int quality=-1, int satellitesUsed=0, QChar status=QChar(), const QList&lt; int &gt; &amp;satPrn=QList&lt; int &gt;(), bool satInfoComplete=false, double verticalSpeed=std::numeric_limits&lt; double &gt;::quiet_NaN(), double magneticVariation=std::numeric_limits&lt; double &gt;::quiet_NaN(), int averagedCount=0, const QString &amp;sourceName=QString(), bool imuCorrection=false, double imuRoll=std::numeric_limits&lt; double &gt;::quiet_NaN(), double imuPitch=std::numeric_limits&lt; double &gt;::quiet_NaN(), double imuHeading=std::numeric_limits&lt; double &gt;::quiet_NaN(), double imuSteering=std::numeric_limits&lt; double &gt;::quiet_NaN(), double orientation=std::numeric_limits&lt; double &gt;::quiet_NaN())</argsstring>
+        <name>GnssPositionInformation</name>
+        <qualifiedname>GnssPositionInformation::GnssPositionInformation</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>latitude</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>longitude</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>elevation</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>speed</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>direction</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>const QList&lt; QgsSatelliteInfo &gt; &amp;</type>
+          <declname>satellitesInView</declname>
+          <defval>QList&lt; QgsSatelliteInfo &gt;()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>pdop</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>hdop</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vdop</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>hacc</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vacc</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>QDateTime</type>
+          <declname>utcDateTime</declname>
+          <defval>QDateTime()</defval>
+        </param>
+        <param>
+          <type>QChar</type>
+          <declname>fixMode</declname>
+          <defval>QChar()</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>fixType</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>quality</declname>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>satellitesUsed</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>QChar</type>
+          <declname>status</declname>
+          <defval>QChar()</defval>
+        </param>
+        <param>
+          <type>const QList&lt; int &gt; &amp;</type>
+          <declname>satPrn</declname>
+          <defval>QList&lt; int &gt;()</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>satInfoComplete</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>verticalSpeed</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>magneticVariation</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>averagedCount</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourceName</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>imuCorrection</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>imuRoll</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>imuPitch</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>imuHeading</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>imuSteering</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>orientation</declname>
+          <defval>std::numeric_limits&lt; double &gt;::quiet_NaN()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>GNSSPositionInformation constructor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="128" column="5" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="25" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a766d364ac36dc5c48a08818039b73982" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::operator==</definition>
+        <argsstring>(const GnssPositionInformation &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>GnssPositionInformation::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="138" column="10" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="63" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a6451cf9a75e5ead88ce94cd58cf1e27e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::operator!=</definition>
+        <argsstring>(const GnssPositionInformation &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>GnssPositionInformation::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="139" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1abfd966f3b280a43a275594f610ac3f21" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>GnssPositionInformation::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the connection information is valid </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="144" column="10" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="94" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a42d8aa42ba617b46566106bb9ac66623" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642" kindref="member">FixStatus</ref></type>
+        <definition>GnssPositionInformation::FixStatus GnssPositionInformation::fixStatus</definition>
+        <argsstring>() const</argsstring>
+        <name>fixStatus</name>
+        <qualifiedname>GnssPositionInformation::fixStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the fix status </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="149" column="15" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="113" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a5194af633401ef97103524281be7fa84" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString GnssPositionInformation::qualityDescription</definition>
+        <argsstring>() const</argsstring>
+        <name>qualityDescription</name>
+        <qualifiedname>GnssPositionInformation::qualityDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a descriptive string for the signal quality </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="154" column="13" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="133" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a3b1efe01a7601638bccb7ec2545c1f3b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString GnssPositionInformation::fixStatusDescription</definition>
+        <argsstring>() const</argsstring>
+        <name>fixStatusDescription</name>
+        <qualifiedname>GnssPositionInformation::fixStatusDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the fix status as string </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="159" column="13" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="175" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1adef36ecbc462dd465de863176d45ffdc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setLatitude</definition>
+        <argsstring>(double latitude)</argsstring>
+        <name>setLatitude</name>
+        <qualifiedname>GnssPositionInformation::setLatitude</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>latitude</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Latitude in decimal degrees, using the WGS84 datum. A positive value indicates the Northern Hemisphere, and a negative value indicates the Southern Hemisphere. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="165" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="165" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a97aaf81bed8db2329b22151d0b0a1bfe" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::latitude</definition>
+        <argsstring>() const</argsstring>
+        <name>latitude</name>
+        <qualifiedname>GnssPositionInformation::latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="166" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="166" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1aab718b4b5609577aa127563bc4a2e2a9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::latitudeValid</definition>
+        <argsstring>() const</argsstring>
+        <name>latitudeValid</name>
+        <qualifiedname>GnssPositionInformation::latitudeValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="167" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="167" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a6467a0587d805eea76ed9be59e6263f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setLongitude</definition>
+        <argsstring>(double longitude)</argsstring>
+        <name>setLongitude</name>
+        <qualifiedname>GnssPositionInformation::setLongitude</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>longitude</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Longitude in decimal degrees, using the WGS84 datum. A positive value indicates the Eastern Hemisphere, and a negative value indicates the Western Hemisphere. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="173" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="173" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a6395586f17181f3c740128b57a42362f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::longitude</definition>
+        <argsstring>() const</argsstring>
+        <name>longitude</name>
+        <qualifiedname>GnssPositionInformation::longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="174" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="174" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a32d6761af7cded7ec9e513787c628cca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::longitudeValid</definition>
+        <argsstring>() const</argsstring>
+        <name>longitudeValid</name>
+        <qualifiedname>GnssPositionInformation::longitudeValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="175" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="175" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1af99f9cb1b6f543784a3f0d6ca66566ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setElevation</definition>
+        <argsstring>(double elevation)</argsstring>
+        <name>setElevation</name>
+        <qualifiedname>GnssPositionInformation::setElevation</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>elevation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Altitude (in meters) above or below the mean sea level. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="180" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="180" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ad472af9a6a03cb5590746a3059a5d569" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::elevation</definition>
+        <argsstring>() const</argsstring>
+        <name>elevation</name>
+        <qualifiedname>GnssPositionInformation::elevation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="181" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="181" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1af7643f908323be194c5643e37e5f09a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::elevationValid</definition>
+        <argsstring>() const</argsstring>
+        <name>elevationValid</name>
+        <qualifiedname>GnssPositionInformation::elevationValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="182" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="182" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a7a190e69d7c4db14cdf761eaf1d11f2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setSpeed</definition>
+        <argsstring>(double speed)</argsstring>
+        <name>setSpeed</name>
+        <qualifiedname>GnssPositionInformation::setSpeed</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>speed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ground speed, in km/h. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="187" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="187" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ac7756a59f63de8e13dccdea83c2c8e6f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::speed</definition>
+        <argsstring>() const</argsstring>
+        <name>speed</name>
+        <qualifiedname>GnssPositionInformation::speed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="188" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="188" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a17073e4fb0f81c631b3cf5928c31de98" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::speedValid</definition>
+        <argsstring>() const</argsstring>
+        <name>speedValid</name>
+        <qualifiedname>GnssPositionInformation::speedValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="189" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="189" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a804b45025e7bae32cc69d329b549d582" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setDirection</definition>
+        <argsstring>(double direction)</argsstring>
+        <name>setDirection</name>
+        <qualifiedname>GnssPositionInformation::setDirection</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bearing measured in degrees clockwise from true north to the direction of travel. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="194" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="194" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ae23ce575d4ca9b2949f52fd700c35343" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::direction</definition>
+        <argsstring>() const</argsstring>
+        <name>direction</name>
+        <qualifiedname>GnssPositionInformation::direction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="195" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="195" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a1dd3959c2049286eefc07ac1769d5a24" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::directionValid</definition>
+        <argsstring>() const</argsstring>
+        <name>directionValid</name>
+        <qualifiedname>GnssPositionInformation::directionValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="196" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="196" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ad2ffb9f5886d5c1da6f98cdd3b9eb90b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setSatellitesInView</definition>
+        <argsstring>(const QList&lt; QgsSatelliteInfo &gt; &amp;satellitesInView)</argsstring>
+        <name>setSatellitesInView</name>
+        <qualifiedname>GnssPositionInformation::setSatellitesInView</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsSatelliteInfo &gt; &amp;</type>
+          <declname>satellitesInView</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains a list of information relating to the current satellites in view. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="201" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="201" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a5da89bb0d12599c2b0b174c590030edb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; QgsSatelliteInfo &gt;</type>
+        <definition>QList&lt; QgsSatelliteInfo &gt; GnssPositionInformation::satellitesInView</definition>
+        <argsstring>() const</argsstring>
+        <name>satellitesInView</name>
+        <qualifiedname>GnssPositionInformation::satellitesInView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="202" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="202" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a766fab16b0885955a5cbc539c8030065" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setPdop</definition>
+        <argsstring>(double pdop)</argsstring>
+        <name>setPdop</name>
+        <qualifiedname>GnssPositionInformation::setPdop</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>pdop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dilution of precision. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="207" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="207" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a173a5aa19807519c6e144d7560008330" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::pdop</definition>
+        <argsstring>() const</argsstring>
+        <name>pdop</name>
+        <qualifiedname>GnssPositionInformation::pdop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="208" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="208" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1abfe608c234b041d535a59649570dc7c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setHdop</definition>
+        <argsstring>(double hdop)</argsstring>
+        <name>setHdop</name>
+        <qualifiedname>GnssPositionInformation::setHdop</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>hdop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Horizontal dilution of precision. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="213" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="213" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1af91432206b3b73dbd122d3d48769192e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::hdop</definition>
+        <argsstring>() const</argsstring>
+        <name>hdop</name>
+        <qualifiedname>GnssPositionInformation::hdop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="214" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="214" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1aa0f192a86bc75d600cf2828c8be4cba0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setVdop</definition>
+        <argsstring>(double vdop)</argsstring>
+        <name>setVdop</name>
+        <qualifiedname>GnssPositionInformation::setVdop</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>vdop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Vertical dilution of precision. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="219" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="219" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a5fba6f090a2ee2e48879ea2e34e2573d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::vdop</definition>
+        <argsstring>() const</argsstring>
+        <name>vdop</name>
+        <qualifiedname>GnssPositionInformation::vdop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="220" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="220" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a4482c013e586804f35d5d9438dd17463" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setHacc</definition>
+        <argsstring>(double hacc)</argsstring>
+        <name>setHacc</name>
+        <qualifiedname>GnssPositionInformation::setHacc</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>hacc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Horizontal accuracy in meters. RMS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="226" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="226" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a52f9a7b683f000613f709b61993bb8de" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::hacc</definition>
+        <argsstring>() const</argsstring>
+        <name>hacc</name>
+        <qualifiedname>GnssPositionInformation::hacc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="227" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="227" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a9c5010582974ead21a32bbef5dc44e7b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::haccValid</definition>
+        <argsstring>() const</argsstring>
+        <name>haccValid</name>
+        <qualifiedname>GnssPositionInformation::haccValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="228" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="228" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ae80d45a65a1acb67189c96e780a2a593" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setVacc</definition>
+        <argsstring>(double vacc)</argsstring>
+        <name>setVacc</name>
+        <qualifiedname>GnssPositionInformation::setVacc</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>vacc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Vertical accuracy in meters VRMS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="234" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="234" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a8b8ba69dc3c7e0b3c8908df3ad0638e5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::vacc</definition>
+        <argsstring>() const</argsstring>
+        <name>vacc</name>
+        <qualifiedname>GnssPositionInformation::vacc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="235" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="235" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a26e1d89158b62ba9960c442a70dbd42d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::vaccValid</definition>
+        <argsstring>() const</argsstring>
+        <name>vaccValid</name>
+        <qualifiedname>GnssPositionInformation::vaccValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="236" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="236" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a4ee5548374014d7d68c75bb0f4e50133" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setHVacc</definition>
+        <argsstring>(double hvacc)</argsstring>
+        <name>setHVacc</name>
+        <qualifiedname>GnssPositionInformation::setHVacc</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>hvacc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>3D accuracy in meters 3DRMS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="242" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="242" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a1249662002ec77051d9c0c60c27fffca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::hvacc</definition>
+        <argsstring>() const</argsstring>
+        <name>hvacc</name>
+        <qualifiedname>GnssPositionInformation::hvacc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="243" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="243" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ab9034f1be8769efc729373a562dc4559" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::hvaccValid</definition>
+        <argsstring>() const</argsstring>
+        <name>hvaccValid</name>
+        <qualifiedname>GnssPositionInformation::hvaccValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="244" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="244" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a3b0572f80392b6d2aba25c63045e9efd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setAccuracyQuality</definition>
+        <argsstring>(AccuracyQuality quality)</argsstring>
+        <name>setAccuracyQuality</name>
+        <qualifiedname>GnssPositionInformation::setAccuracyQuality</qualifiedname>
+        <param>
+          <type>AccuracyQuality</type>
+          <declname>quality</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Accuracy quality classification. Indicates if the position accuracy is bad, ok, or excellent, based on user-provided thresholds. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="250" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="250" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1adf3a40f7cf3110f4c6ae81eaf8212e14" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>AccuracyQuality</type>
+        <definition>AccuracyQuality GnssPositionInformation::accuracyQuality</definition>
+        <argsstring>() const</argsstring>
+        <name>accuracyQuality</name>
+        <qualifiedname>GnssPositionInformation::accuracyQuality</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="251" column="21" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="251" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a3470406ff137ea76098215244d77d3bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setUtcDateTime</definition>
+        <argsstring>(const QDateTime &amp;utcDateTime)</argsstring>
+        <name>setUtcDateTime</name>
+        <qualifiedname>GnssPositionInformation::setUtcDateTime</qualifiedname>
+        <param>
+          <type>const QDateTime &amp;</type>
+          <declname>utcDateTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The date and time at which this position was reported, in UTC time. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="256" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="256" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1af9e9fbc5c4ad4c5c762ac668cc64cf04" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDateTime</type>
+        <definition>QDateTime GnssPositionInformation::utcDateTime</definition>
+        <argsstring>() const</argsstring>
+        <name>utcDateTime</name>
+        <qualifiedname>GnssPositionInformation::utcDateTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="257" column="15" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="257" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ac3ffbed96a3cd65b59b23cb58c624ae1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setFixMode</definition>
+        <argsstring>(QChar fixMode)</argsstring>
+        <name>setFixMode</name>
+        <qualifiedname>GnssPositionInformation::setFixMode</qualifiedname>
+        <param>
+          <type>QChar</type>
+          <declname>fixMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fix mode (where M = Manual, forced to operate in 2D or 3D or A = Automatic, 3D/2D) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="262" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="262" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ac537dcca01e06dbdd3413118df9cbf4d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QChar</type>
+        <definition>QChar GnssPositionInformation::fixMode</definition>
+        <argsstring>() const</argsstring>
+        <name>fixMode</name>
+        <qualifiedname>GnssPositionInformation::fixMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="263" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="263" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a579f7921a08e27bfa8e2f3bac272b616" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setFixType</definition>
+        <argsstring>(int fixType)</argsstring>
+        <name>setFixType</name>
+        <qualifiedname>GnssPositionInformation::setFixType</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fixType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the fix type, where 1 = no fix, 2 = 2d fix, 3 = 3d fix </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="268" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="268" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a62eb6a1b6e1b8d52151496767bc0636d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int GnssPositionInformation::fixType</definition>
+        <argsstring>() const</argsstring>
+        <name>fixType</name>
+        <qualifiedname>GnssPositionInformation::fixType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="269" column="9" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="269" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1af47d7d2097cffc589832658172052066" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setQuality</definition>
+        <argsstring>(int quality)</argsstring>
+        <name>setQuality</name>
+        <qualifiedname>GnssPositionInformation::setQuality</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>quality</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>GPS quality indicator (0 = Invalid; 1 = Fix; 2 = Differential, 3 = Sensitive) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="274" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="274" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a96f5d5582f2d20fdfca46f6aff0f4f97" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int GnssPositionInformation::quality</definition>
+        <argsstring>() const</argsstring>
+        <name>quality</name>
+        <qualifiedname>GnssPositionInformation::quality</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="275" column="9" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="275" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a03533f15c52f7f740de64a6c1337b10b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setSatellitesUsed</definition>
+        <argsstring>(int satellitesUsed)</argsstring>
+        <name>setSatellitesUsed</name>
+        <qualifiedname>GnssPositionInformation::setSatellitesUsed</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>satellitesUsed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Count of satellites used in obtaining the fix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="280" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="280" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a732b5781a184d9968784bcb8cfad9b80" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int GnssPositionInformation::satellitesUsed</definition>
+        <argsstring>() const</argsstring>
+        <name>satellitesUsed</name>
+        <qualifiedname>GnssPositionInformation::satellitesUsed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="281" column="9" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="281" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1aa84b53b26dc85884694f5f97a1f785c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setStatus</definition>
+        <argsstring>(QChar status)</argsstring>
+        <name>setStatus</name>
+        <qualifiedname>GnssPositionInformation::setStatus</qualifiedname>
+        <param>
+          <type>QChar</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Status (A = active or V = void) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="286" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="286" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a940065b44a67812a528a72deb316a2b0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QChar</type>
+        <definition>QChar GnssPositionInformation::status</definition>
+        <argsstring>() const</argsstring>
+        <name>status</name>
+        <qualifiedname>GnssPositionInformation::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="287" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="287" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ae9b4d812e796f125bf8b1f8d49ca6d77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setSatPrn</definition>
+        <argsstring>(const QList&lt; int &gt; &amp;satPrn)</argsstring>
+        <name>setSatPrn</name>
+        <qualifiedname>GnssPositionInformation::setSatPrn</qualifiedname>
+        <param>
+          <type>const QList&lt; int &gt; &amp;</type>
+          <declname>satPrn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>IDs of satellites used in the position fix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="292" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="292" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a7634d5bd689b0c3b644b08e4b32f5fa1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; int &gt;</type>
+        <definition>QList&lt; int &gt; GnssPositionInformation::satPrn</definition>
+        <argsstring>() const</argsstring>
+        <name>satPrn</name>
+        <qualifiedname>GnssPositionInformation::satPrn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="293" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="293" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a685b5d2fc8b231fc165b5e6c98df27e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setSatInfoComplete</definition>
+        <argsstring>(bool satInfoComplete)</argsstring>
+        <name>setSatInfoComplete</name>
+        <qualifiedname>GnssPositionInformation::setSatInfoComplete</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>satInfoComplete</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>TRUE if satellite information is complete. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="298" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="298" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a69a5af7a384624f7e0b2f1c0192aefaa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::satInfoComplete</definition>
+        <argsstring>() const</argsstring>
+        <name>satInfoComplete</name>
+        <qualifiedname>GnssPositionInformation::satInfoComplete</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="299" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="299" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a1bdb08196136d099f445204bc499249c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setVerticalSpeed</definition>
+        <argsstring>(double verticalSpeed)</argsstring>
+        <name>setVerticalSpeed</name>
+        <qualifiedname>GnssPositionInformation::setVerticalSpeed</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>verticalSpeed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Vertical speed, in km/h. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="304" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="304" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a240db8ed6b4c61bfdb69760eb3797c94" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::verticalSpeed</definition>
+        <argsstring>() const</argsstring>
+        <name>verticalSpeed</name>
+        <qualifiedname>GnssPositionInformation::verticalSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="305" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="305" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a65b74d591403058a7cc931c0dc3e7355" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setMagneticVaritation</definition>
+        <argsstring>(double magneticVariation)</argsstring>
+        <name>setMagneticVaritation</name>
+        <qualifiedname>GnssPositionInformation::setMagneticVaritation</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>magneticVariation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>magnetic variation in degrees </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="310" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="310" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a5a2a4aa38f9019243f2959e8e99a2a03" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::magneticVariation</definition>
+        <argsstring>() const</argsstring>
+        <name>magneticVariation</name>
+        <qualifiedname>GnssPositionInformation::magneticVariation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="311" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="311" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a956cd2e2dd7705fd4db38731c82f6860" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setSourceName</definition>
+        <argsstring>(const QString &amp;sourceName)</argsstring>
+        <name>setSourceName</name>
+        <qualifiedname>GnssPositionInformation::setSourceName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourceName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>source name (used by QtPositioning) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="316" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="316" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ace5dfd8655d8696df96faf03621168f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString GnssPositionInformation::sourceName</definition>
+        <argsstring>() const</argsstring>
+        <name>sourceName</name>
+        <qualifiedname>GnssPositionInformation::sourceName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="317" column="13" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="317" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a786a5fa0e03e41d76a2e22ad29d9e820" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setAveragedCount</definition>
+        <argsstring>(int averagedCount)</argsstring>
+        <name>setAveragedCount</name>
+        <qualifiedname>GnssPositionInformation::setAveragedCount</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>averagedCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of collected position from which the averaged positioning details were computed <simplesect kind="note"><para>A value of zero means the position information isn&apos;t averaged </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="323" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="323" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1aa4a213130ad6689d7d63518d55ab0e26" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int GnssPositionInformation::averagedCount</definition>
+        <argsstring>() const</argsstring>
+        <name>averagedCount</name>
+        <qualifiedname>GnssPositionInformation::averagedCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="324" column="9" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="324" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ad31a21614051325270cc55248e9dfd6f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setImuCorrection</definition>
+        <argsstring>(bool imuCorrection)</argsstring>
+        <name>setImuCorrection</name>
+        <qualifiedname>GnssPositionInformation::setImuCorrection</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>imuCorrection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when IMU correction is active </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="329" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="329" bodyend="329"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1aa6da863035a591d1065a92c29e0e4b63" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::imuCorrection</definition>
+        <argsstring>() const</argsstring>
+        <name>imuCorrection</name>
+        <qualifiedname>GnssPositionInformation::imuCorrection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="330" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="330" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a9833cae1eaf0db45b43cba5ab0491ac4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setImuRoll</definition>
+        <argsstring>(double roll)</argsstring>
+        <name>setImuRoll</name>
+        <qualifiedname>GnssPositionInformation::setImuRoll</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>roll</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>IMU roll </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="335" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="335" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a5d4cffffc1278e382a407eb601329ef8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::imuRoll</definition>
+        <argsstring>() const</argsstring>
+        <name>imuRoll</name>
+        <qualifiedname>GnssPositionInformation::imuRoll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="336" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="336" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a00cc411398696c74e4d8fe3e81f2c49e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::imuRollValid</definition>
+        <argsstring>() const</argsstring>
+        <name>imuRollValid</name>
+        <qualifiedname>GnssPositionInformation::imuRollValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="337" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="337" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a7586918401eb3269cad540cd6819c34d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setImuPitch</definition>
+        <argsstring>(double pitch)</argsstring>
+        <name>setImuPitch</name>
+        <qualifiedname>GnssPositionInformation::setImuPitch</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>pitch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>IMU pitch </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="342" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="342" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a7ee579ccd3c74639764a5e1aea75a30e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::imuPitch</definition>
+        <argsstring>() const</argsstring>
+        <name>imuPitch</name>
+        <qualifiedname>GnssPositionInformation::imuPitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="343" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="343" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a92f840d70f2d4db2a62d3e9f8402de60" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::imuPitchValid</definition>
+        <argsstring>() const</argsstring>
+        <name>imuPitchValid</name>
+        <qualifiedname>GnssPositionInformation::imuPitchValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="344" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="344" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a53fc0fcce92799aeb07437db68cc3851" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setImuHeading</definition>
+        <argsstring>(double heading)</argsstring>
+        <name>setImuHeading</name>
+        <qualifiedname>GnssPositionInformation::setImuHeading</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>heading</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>IMU heading </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="349" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="349" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a185f2b4fcf0cf332b8b999c781f7fa1e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::imuHeading</definition>
+        <argsstring>() const</argsstring>
+        <name>imuHeading</name>
+        <qualifiedname>GnssPositionInformation::imuHeading</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="350" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="350" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1ade4144d469ead8cfeecbf9256d132411" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::imuHeadingValid</definition>
+        <argsstring>() const</argsstring>
+        <name>imuHeadingValid</name>
+        <qualifiedname>GnssPositionInformation::imuHeadingValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="351" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="351" bodyend="351"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1aaaa41b1b07c392d3ec43fad01e42cc25" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setImuSteering</definition>
+        <argsstring>(double steering)</argsstring>
+        <name>setImuSteering</name>
+        <qualifiedname>GnssPositionInformation::setImuSteering</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>steering</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>IMU steering </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="356" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="356" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a07a56df5dc2bb2bebdcf327f91735f96" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::imuSteering</definition>
+        <argsstring>() const</argsstring>
+        <name>imuSteering</name>
+        <qualifiedname>GnssPositionInformation::imuSteering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="357" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="357" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a0e9fa2b9a4b289c25ba42dc911418bf5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::imuSteeringValid</definition>
+        <argsstring>() const</argsstring>
+        <name>imuSteeringValid</name>
+        <qualifiedname>GnssPositionInformation::imuSteeringValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="358" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="358" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1afacfeed350f9906b0b0b009869c31133" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionInformation::setOrientation</definition>
+        <argsstring>(double orientation)</argsstring>
+        <name>setOrientation</name>
+        <qualifiedname>GnssPositionInformation::setOrientation</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>orientation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Orientation (in degrees) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="363" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="363" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1a1f1de6f770f633e905e8eef30e73252c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GnssPositionInformation::orientation</definition>
+        <argsstring>() const</argsstring>
+        <name>orientation</name>
+        <qualifiedname>GnssPositionInformation::orientation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="364" column="12" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="364" bodyend="364"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionInformation_1af034f5cc03d12cd8a172dfcf052d3c5f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GnssPositionInformation::orientationValid</definition>
+        <argsstring>() const</argsstring>
+        <name>orientationValid</name>
+        <qualifiedname>GnssPositionInformation::orientationValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="365" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="365" bodyend="365"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classGnssPositionInformation_1a73115d3dc93fa7425bb31de795727592" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;stream, const GnssPositionInformation &amp;position)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>GnssPositionInformation::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="400" column="12" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="191" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="friend" id="classGnssPositionInformation_1abcff4222db860c76e1f4d12062175f6e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;stream, GnssPositionInformation &amp;position)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>GnssPositionInformation::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="401" column="24" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="204" bodyend="214"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/positioning/gnsspositioninformation.h" line="45" column="1" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="46" bodyend="402"/>
+    <listofallmembers>
+      <member refid="classGnssPositionInformation_1a94c51753d72df4390cdbc604b01840d3af5e763102973896fd5c3cac247bad971" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>AccuracyBad</name></member>
+      <member refid="classGnssPositionInformation_1a94c51753d72df4390cdbc604b01840d3ae45ab39119a67ae515ef57e9c516f3de" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>AccuracyExcellent</name></member>
+      <member refid="classGnssPositionInformation_1a94c51753d72df4390cdbc604b01840d3aec2b50834e832bf6061463e6a938fd84" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>AccuracyOk</name></member>
+      <member refid="classGnssPositionInformation_1a94c51753d72df4390cdbc604b01840d3" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>AccuracyQuality</name></member>
+      <member refid="classGnssPositionInformation_1a5f6a7e5f8f3a16b6bda61b97a333b2c5" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>accuracyQuality</name></member>
+      <member refid="classGnssPositionInformation_1adf3a40f7cf3110f4c6ae81eaf8212e14" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>accuracyQuality</name></member>
+      <member refid="classGnssPositionInformation_1a94c51753d72df4390cdbc604b01840d3a725bac88cd34761cbff33b9fa8bf80d5" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>AccuracyUndetermined</name></member>
+      <member refid="classGnssPositionInformation_1a74bdef6bb98b0ddf3ad688aff44597fd" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>averagedCount</name></member>
+      <member refid="classGnssPositionInformation_1aa4a213130ad6689d7d63518d55ab0e26" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>averagedCount</name></member>
+      <member refid="classGnssPositionInformation_1ad3af200b026ae67c2255fd0e2487b240" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>direction</name></member>
+      <member refid="classGnssPositionInformation_1ae23ce575d4ca9b2949f52fd700c35343" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>direction</name></member>
+      <member refid="classGnssPositionInformation_1a85c8fbfa37f2f2dac804e5fcb7c389e9" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>directionValid</name></member>
+      <member refid="classGnssPositionInformation_1a1dd3959c2049286eefc07ac1769d5a24" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>directionValid</name></member>
+      <member refid="classGnssPositionInformation_1a718e98b33dd6c3d3700c0c26f170cdb6" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>elevation</name></member>
+      <member refid="classGnssPositionInformation_1ad472af9a6a03cb5590746a3059a5d569" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>elevation</name></member>
+      <member refid="classGnssPositionInformation_1ae3a2071a06ac37f0fa9877b335c6cb6c" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>elevationValid</name></member>
+      <member refid="classGnssPositionInformation_1af7643f908323be194c5643e37e5f09a6" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>elevationValid</name></member>
+      <member refid="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642ac5c25442588193001dedc489811e8754" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>Fix2D</name></member>
+      <member refid="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642aa59a08fe16030569eecfdb6c54f97138" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>Fix3D</name></member>
+      <member refid="classGnssPositionInformation_1a8424abb5ffccdb01c6e796ece6207a01" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>fixMode</name></member>
+      <member refid="classGnssPositionInformation_1ac537dcca01e06dbdd3413118df9cbf4d" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>fixMode</name></member>
+      <member refid="classGnssPositionInformation_1ade10dd95a98bf3fab538ec7558c6ca3e" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>fixStatus</name></member>
+      <member refid="classGnssPositionInformation_1a42d8aa42ba617b46566106bb9ac66623" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>fixStatus</name></member>
+      <member refid="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>FixStatus</name></member>
+      <member refid="classGnssPositionInformation_1a1217c5e9e1fe762201849308fc3ee4d0" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>fixStatusDescription</name></member>
+      <member refid="classGnssPositionInformation_1a3b1efe01a7601638bccb7ec2545c1f3b" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>fixStatusDescription</name></member>
+      <member refid="classGnssPositionInformation_1a828d2174317cf25cf344ee93a744b840" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>fixType</name></member>
+      <member refid="classGnssPositionInformation_1a62eb6a1b6e1b8d52151496767bc0636d" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>fixType</name></member>
+      <member refid="classGnssPositionInformation_1aa3c7c5cc1adabff38bd63457c8af8ec9" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>GnssPositionInformation</name></member>
+      <member refid="classGnssPositionInformation_1a0c315afb5f38df543dcbe2f470731004" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>hacc</name></member>
+      <member refid="classGnssPositionInformation_1a52f9a7b683f000613f709b61993bb8de" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>hacc</name></member>
+      <member refid="classGnssPositionInformation_1a13aaee5ce562d7d5948c51155094f4cb" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>haccValid</name></member>
+      <member refid="classGnssPositionInformation_1a9c5010582974ead21a32bbef5dc44e7b" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>haccValid</name></member>
+      <member refid="classGnssPositionInformation_1a85369969d6d906765cac86fec8569b9d" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>hdop</name></member>
+      <member refid="classGnssPositionInformation_1af91432206b3b73dbd122d3d48769192e" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>hdop</name></member>
+      <member refid="classGnssPositionInformation_1ac172ae7c720e8e674d798fcc2c720524" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>hvacc</name></member>
+      <member refid="classGnssPositionInformation_1a1249662002ec77051d9c0c60c27fffca" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>hvacc</name></member>
+      <member refid="classGnssPositionInformation_1aa9193580c7e8a0a9746735e9c9a2620d" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>hvaccValid</name></member>
+      <member refid="classGnssPositionInformation_1ab9034f1be8769efc729373a562dc4559" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>hvaccValid</name></member>
+      <member refid="classGnssPositionInformation_1a70aa3f4eadef40a70f56fb84066d7249" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuCorrection</name></member>
+      <member refid="classGnssPositionInformation_1aa6da863035a591d1065a92c29e0e4b63" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuCorrection</name></member>
+      <member refid="classGnssPositionInformation_1a7f6af3bed57b693390db03badd652a6e" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuHeading</name></member>
+      <member refid="classGnssPositionInformation_1a185f2b4fcf0cf332b8b999c781f7fa1e" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuHeading</name></member>
+      <member refid="classGnssPositionInformation_1abb2f909763ef5697f7fc6051b9f682f2" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuHeadingValid</name></member>
+      <member refid="classGnssPositionInformation_1ade4144d469ead8cfeecbf9256d132411" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuHeadingValid</name></member>
+      <member refid="classGnssPositionInformation_1aee55c96db81206aab38b074b5c5df3c9" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuPitch</name></member>
+      <member refid="classGnssPositionInformation_1a7ee579ccd3c74639764a5e1aea75a30e" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuPitch</name></member>
+      <member refid="classGnssPositionInformation_1a6e0f60f1449dacf29b53f235795108f7" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuPitchValid</name></member>
+      <member refid="classGnssPositionInformation_1a92f840d70f2d4db2a62d3e9f8402de60" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuPitchValid</name></member>
+      <member refid="classGnssPositionInformation_1a29046b25c6d8d889d41cc06b9c8cfdca" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuRoll</name></member>
+      <member refid="classGnssPositionInformation_1a5d4cffffc1278e382a407eb601329ef8" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuRoll</name></member>
+      <member refid="classGnssPositionInformation_1af952f0228ad25377c07a5b2f75a7c0f8" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuRollValid</name></member>
+      <member refid="classGnssPositionInformation_1a00cc411398696c74e4d8fe3e81f2c49e" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuRollValid</name></member>
+      <member refid="classGnssPositionInformation_1a79417c6b20f9f680d445f67d8e0468cf" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuSteering</name></member>
+      <member refid="classGnssPositionInformation_1a07a56df5dc2bb2bebdcf327f91735f96" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuSteering</name></member>
+      <member refid="classGnssPositionInformation_1a4216f5097a3acda1bbe511f5d79f6878" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuSteeringValid</name></member>
+      <member refid="classGnssPositionInformation_1a0e9fa2b9a4b289c25ba42dc911418bf5" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>imuSteeringValid</name></member>
+      <member refid="classGnssPositionInformation_1a75ec95ceb16c953ce40667e974f4e662" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>isValid</name></member>
+      <member refid="classGnssPositionInformation_1abfd966f3b280a43a275594f610ac3f21" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>isValid</name></member>
+      <member refid="classGnssPositionInformation_1a43bc79538abd52bc3de0b9b85da38d52" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>latitude</name></member>
+      <member refid="classGnssPositionInformation_1a97aaf81bed8db2329b22151d0b0a1bfe" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>latitude</name></member>
+      <member refid="classGnssPositionInformation_1ac78897a72bfbf919f300433ef11e9bcf" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>latitudeValid</name></member>
+      <member refid="classGnssPositionInformation_1aab718b4b5609577aa127563bc4a2e2a9" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>latitudeValid</name></member>
+      <member refid="classGnssPositionInformation_1a1fdac1fb44e52f3b725775812f4e46e8" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>longitude</name></member>
+      <member refid="classGnssPositionInformation_1a6395586f17181f3c740128b57a42362f" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>longitude</name></member>
+      <member refid="classGnssPositionInformation_1adf0ccbe85f497fdea40e8eafa9e58875" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>longitudeValid</name></member>
+      <member refid="classGnssPositionInformation_1a32d6761af7cded7ec9e513787c628cca" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>longitudeValid</name></member>
+      <member refid="classGnssPositionInformation_1aaa8033fd5df5b023be4cfb4bd60fa7d6" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mAccuracyQuality</name></member>
+      <member refid="classGnssPositionInformation_1a21d345d4b9f8ae5be09d0c8b3ac84134" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>magneticVariation</name></member>
+      <member refid="classGnssPositionInformation_1a5a2a4aa38f9019243f2959e8e99a2a03" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>magneticVariation</name></member>
+      <member refid="classGnssPositionInformation_1afa026b9888e1f6b9189b60528976235a" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mAveragedCount</name></member>
+      <member refid="classGnssPositionInformation_1a42b1e18e2acc826a76455d99bcc84a65" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mDirection</name></member>
+      <member refid="classGnssPositionInformation_1a2476879f991a12d8a2b418e35e32a47f" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mElevation</name></member>
+      <member refid="classGnssPositionInformation_1a85f59bf88c736989481ed882bba54a28" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mFixMode</name></member>
+      <member refid="classGnssPositionInformation_1ade9be7485904b34a0d3db8157f049288" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mFixType</name></member>
+      <member refid="classGnssPositionInformation_1a13ec7f317dc9ae25d515584ca100c6d1" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mHacc</name></member>
+      <member refid="classGnssPositionInformation_1a266cdcf294b9593f3536d0bdef9ef23c" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mHdop</name></member>
+      <member refid="classGnssPositionInformation_1ad6d6a05fccf6fd5bb122676517848ac4" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mHvacc</name></member>
+      <member refid="classGnssPositionInformation_1ae717b1eda851d651c3b80f18e3044ee5" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mImuCorrection</name></member>
+      <member refid="classGnssPositionInformation_1a28af49e6d2b12bb72a14e90da5b0cc93" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mImuHeading</name></member>
+      <member refid="classGnssPositionInformation_1a87b954ff8485953ba8051966b3b1a990" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mImuPitch</name></member>
+      <member refid="classGnssPositionInformation_1a28595e935da410d352984c25634caa1d" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mImuRoll</name></member>
+      <member refid="classGnssPositionInformation_1a201a7fae811392252ca9ccb04eb1dad2" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mImuSteering</name></member>
+      <member refid="classGnssPositionInformation_1a52b1c2d88614fb37c47933abc59d4d1f" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mLatitude</name></member>
+      <member refid="classGnssPositionInformation_1a30ff9a308d66ef24822d82c6ac54fedc" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mLongitude</name></member>
+      <member refid="classGnssPositionInformation_1a0ec55cdde41687dd2981ad85079cae92" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mMagneticVariation</name></member>
+      <member refid="classGnssPositionInformation_1aff0b685610a7b20901ce6cb14ff0e243" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mOrientation</name></member>
+      <member refid="classGnssPositionInformation_1ad3c06cdecf66d482b03604bd9fe5a58a" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mPdop</name></member>
+      <member refid="classGnssPositionInformation_1a57b3831fa208779f973eccb40a93ce3e" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mQuality</name></member>
+      <member refid="classGnssPositionInformation_1a464af379eca141f75ae7f4f28cd94ca9" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mSatellitesInView</name></member>
+      <member refid="classGnssPositionInformation_1a246f22cfc936e458aacb31966d0a2665" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mSatellitesUsed</name></member>
+      <member refid="classGnssPositionInformation_1a472cc1b1db484cad6b1a4f83171a99f0" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mSatInfoComplete</name></member>
+      <member refid="classGnssPositionInformation_1aa72616a82ae929f21bbc8962103bda7b" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mSatPrn</name></member>
+      <member refid="classGnssPositionInformation_1acfb6f65c3481d374e7b5f4faa5496ed3" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mSourceName</name></member>
+      <member refid="classGnssPositionInformation_1a903deca96318672c3020c51673c9c790" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mSpeed</name></member>
+      <member refid="classGnssPositionInformation_1afa06f16ac52c38ca11fa92c1c838b434" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mStatus</name></member>
+      <member refid="classGnssPositionInformation_1ab7e49b19971bead8f51c23c1d7c1ba82" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mUtcDateTime</name></member>
+      <member refid="classGnssPositionInformation_1ae275b75bdc21378b2dbe9756ffaa826d" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mVacc</name></member>
+      <member refid="classGnssPositionInformation_1aed75deb95df007af2e031e4996fe606f" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mVdop</name></member>
+      <member refid="classGnssPositionInformation_1a08792dcffeadfb93fdee9d8b3c1f83b6" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>mVerticalSpeed</name></member>
+      <member refid="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642aca6b02a2ad19e6a13fb632bd49ae8f70" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>NoData</name></member>
+      <member refid="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642a737bb875b9caa23c8cea584f4fe5aff6" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>NoFix</name></member>
+      <member refid="classGnssPositionInformation_1a6451cf9a75e5ead88ce94cd58cf1e27e" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>operator!=</name></member>
+      <member refid="classGnssPositionInformation_1a73115d3dc93fa7425bb31de795727592" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classGnssPositionInformation_1a766d364ac36dc5c48a08818039b73982" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>operator==</name></member>
+      <member refid="classGnssPositionInformation_1abcff4222db860c76e1f4d12062175f6e" prot="private" virt="non-virtual"><scope>GnssPositionInformation</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classGnssPositionInformation_1a8ef17a36b7c6c1aa56c6d0258e8ca181" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>orientation</name></member>
+      <member refid="classGnssPositionInformation_1a1f1de6f770f633e905e8eef30e73252c" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>orientation</name></member>
+      <member refid="classGnssPositionInformation_1a52e46d6d99da57dfa4402ed72e60658e" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>orientationValid</name></member>
+      <member refid="classGnssPositionInformation_1af034f5cc03d12cd8a172dfcf052d3c5f" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>orientationValid</name></member>
+      <member refid="classGnssPositionInformation_1a5d6cccc9cccd67961a8749520a710d61" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>pdop</name></member>
+      <member refid="classGnssPositionInformation_1a173a5aa19807519c6e144d7560008330" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>pdop</name></member>
+      <member refid="classGnssPositionInformation_1a47322c82eb25d32f1b7c63417b3435a2" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>quality</name></member>
+      <member refid="classGnssPositionInformation_1a96f5d5582f2d20fdfca46f6aff0f4f97" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>quality</name></member>
+      <member refid="classGnssPositionInformation_1a3a04099264500f5ffd0a09c5b61aa21c" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>qualityDescription</name></member>
+      <member refid="classGnssPositionInformation_1a5194af633401ef97103524281be7fa84" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>qualityDescription</name></member>
+      <member refid="classGnssPositionInformation_1a10b243e3f4e8f2a4622fb62287d6458b" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>satellitesInView</name></member>
+      <member refid="classGnssPositionInformation_1a5da89bb0d12599c2b0b174c590030edb" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>satellitesInView</name></member>
+      <member refid="classGnssPositionInformation_1a98229ad5ed25f27708d773f9ed05bc41" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>satellitesUsed</name></member>
+      <member refid="classGnssPositionInformation_1a732b5781a184d9968784bcb8cfad9b80" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>satellitesUsed</name></member>
+      <member refid="classGnssPositionInformation_1aa75f313fdec1cbcbd70eb8b2c3e1973c" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>satInfoComplete</name></member>
+      <member refid="classGnssPositionInformation_1a69a5af7a384624f7e0b2f1c0192aefaa" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>satInfoComplete</name></member>
+      <member refid="classGnssPositionInformation_1a431ffbafbf875c77cbfc366f9885d636" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>satPrn</name></member>
+      <member refid="classGnssPositionInformation_1a7634d5bd689b0c3b644b08e4b32f5fa1" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>satPrn</name></member>
+      <member refid="classGnssPositionInformation_1a3b0572f80392b6d2aba25c63045e9efd" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setAccuracyQuality</name></member>
+      <member refid="classGnssPositionInformation_1a786a5fa0e03e41d76a2e22ad29d9e820" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setAveragedCount</name></member>
+      <member refid="classGnssPositionInformation_1a804b45025e7bae32cc69d329b549d582" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setDirection</name></member>
+      <member refid="classGnssPositionInformation_1af99f9cb1b6f543784a3f0d6ca66566ee" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setElevation</name></member>
+      <member refid="classGnssPositionInformation_1ac3ffbed96a3cd65b59b23cb58c624ae1" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setFixMode</name></member>
+      <member refid="classGnssPositionInformation_1a579f7921a08e27bfa8e2f3bac272b616" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setFixType</name></member>
+      <member refid="classGnssPositionInformation_1a4482c013e586804f35d5d9438dd17463" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setHacc</name></member>
+      <member refid="classGnssPositionInformation_1abfe608c234b041d535a59649570dc7c3" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setHdop</name></member>
+      <member refid="classGnssPositionInformation_1a4ee5548374014d7d68c75bb0f4e50133" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setHVacc</name></member>
+      <member refid="classGnssPositionInformation_1ad31a21614051325270cc55248e9dfd6f" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setImuCorrection</name></member>
+      <member refid="classGnssPositionInformation_1a53fc0fcce92799aeb07437db68cc3851" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setImuHeading</name></member>
+      <member refid="classGnssPositionInformation_1a7586918401eb3269cad540cd6819c34d" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setImuPitch</name></member>
+      <member refid="classGnssPositionInformation_1a9833cae1eaf0db45b43cba5ab0491ac4" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setImuRoll</name></member>
+      <member refid="classGnssPositionInformation_1aaaa41b1b07c392d3ec43fad01e42cc25" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setImuSteering</name></member>
+      <member refid="classGnssPositionInformation_1adef36ecbc462dd465de863176d45ffdc" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setLatitude</name></member>
+      <member refid="classGnssPositionInformation_1a6467a0587d805eea76ed9be59e6263f0" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setLongitude</name></member>
+      <member refid="classGnssPositionInformation_1a65b74d591403058a7cc931c0dc3e7355" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setMagneticVaritation</name></member>
+      <member refid="classGnssPositionInformation_1afacfeed350f9906b0b0b009869c31133" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setOrientation</name></member>
+      <member refid="classGnssPositionInformation_1a766fab16b0885955a5cbc539c8030065" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setPdop</name></member>
+      <member refid="classGnssPositionInformation_1af47d7d2097cffc589832658172052066" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setQuality</name></member>
+      <member refid="classGnssPositionInformation_1ad2ffb9f5886d5c1da6f98cdd3b9eb90b" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setSatellitesInView</name></member>
+      <member refid="classGnssPositionInformation_1a03533f15c52f7f740de64a6c1337b10b" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setSatellitesUsed</name></member>
+      <member refid="classGnssPositionInformation_1a685b5d2fc8b231fc165b5e6c98df27e6" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setSatInfoComplete</name></member>
+      <member refid="classGnssPositionInformation_1ae9b4d812e796f125bf8b1f8d49ca6d77" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setSatPrn</name></member>
+      <member refid="classGnssPositionInformation_1a956cd2e2dd7705fd4db38731c82f6860" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setSourceName</name></member>
+      <member refid="classGnssPositionInformation_1a7a190e69d7c4db14cdf761eaf1d11f2d" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setSpeed</name></member>
+      <member refid="classGnssPositionInformation_1aa84b53b26dc85884694f5f97a1f785c1" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setStatus</name></member>
+      <member refid="classGnssPositionInformation_1a3470406ff137ea76098215244d77d3bc" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setUtcDateTime</name></member>
+      <member refid="classGnssPositionInformation_1ae80d45a65a1acb67189c96e780a2a593" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setVacc</name></member>
+      <member refid="classGnssPositionInformation_1aa0f192a86bc75d600cf2828c8be4cba0" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setVdop</name></member>
+      <member refid="classGnssPositionInformation_1a1bdb08196136d099f445204bc499249c" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>setVerticalSpeed</name></member>
+      <member refid="classGnssPositionInformation_1ab2f5a7eb85114f2f465f43a6a1da1f30" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>sourceName</name></member>
+      <member refid="classGnssPositionInformation_1ace5dfd8655d8696df96faf03621168f0" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>sourceName</name></member>
+      <member refid="classGnssPositionInformation_1a2bd14a7f8ba95ba45be3d0179256688e" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>speed</name></member>
+      <member refid="classGnssPositionInformation_1ac7756a59f63de8e13dccdea83c2c8e6f" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>speed</name></member>
+      <member refid="classGnssPositionInformation_1a356fc3ca2b4988294f4a9e6f9ec3e3ba" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>speedValid</name></member>
+      <member refid="classGnssPositionInformation_1a17073e4fb0f81c631b3cf5928c31de98" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>speedValid</name></member>
+      <member refid="classGnssPositionInformation_1ac98d2ecf6be73325d096a6f56bcf83fc" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>status</name></member>
+      <member refid="classGnssPositionInformation_1a940065b44a67812a528a72deb316a2b0" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>status</name></member>
+      <member refid="classGnssPositionInformation_1a28d8022110c87de97a303d4d04d2d407" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>utcDateTime</name></member>
+      <member refid="classGnssPositionInformation_1af9e9fbc5c4ad4c5c762ac668cc64cf04" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>utcDateTime</name></member>
+      <member refid="classGnssPositionInformation_1aa7b5dafe2b6e6ad216dddfcd09d0b7f2" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>vacc</name></member>
+      <member refid="classGnssPositionInformation_1a8b8ba69dc3c7e0b3c8908df3ad0638e5" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>vacc</name></member>
+      <member refid="classGnssPositionInformation_1a17ca599d3053129a33140e65fb8a3ab5" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>vaccValid</name></member>
+      <member refid="classGnssPositionInformation_1a26e1d89158b62ba9960c442a70dbd42d" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>vaccValid</name></member>
+      <member refid="classGnssPositionInformation_1ab378c2cbbfa57e80fc1e5d991ff9c1e7" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>vdop</name></member>
+      <member refid="classGnssPositionInformation_1a5fba6f090a2ee2e48879ea2e34e2573d" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>vdop</name></member>
+      <member refid="classGnssPositionInformation_1a260c00ad33f1f80d1fbdb5ede41dbc45" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>verticalSpeed</name></member>
+      <member refid="classGnssPositionInformation_1a240db8ed6b4c61bfdb69760eb3797c94" prot="public" virt="non-virtual"><scope>GnssPositionInformation</scope><name>verticalSpeed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfDialog" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfDialog</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Dialog</basecompoundref>
+    <derivedcompoundref refid="classQFieldCloudPackageLayersFeedback" prot="public" virt="non-virtual">QFieldCloudPackageLayersFeedback</derivedcompoundref>
+    <derivedcompoundref refid="classTheme_1_1QfCalendarPanel" prot="public" virt="non-virtual">Theme::QfCalendarPanel</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfDialog_1ae9cf57f2d493342df9aeec4c281787d7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfDialog::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>Theme::QfDialog::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDialog.qml" line="11" column="5" bodyfile="src/qml/imports/Theme/QfDialog.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfDialog_1a6c1e88f3b8307f7764b2a7c1008fcc1e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfDialog::modal</definition>
+        <argsstring></argsstring>
+        <name>modal</name>
+        <qualifiedname>Theme::QfDialog::modal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDialog.qml" line="12" column="5" bodyfile="src/qml/imports/Theme/QfDialog.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfDialog_1a55138038cddcd8f3048959767c1b5175" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfDialog::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>Theme::QfDialog::font</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDialog.qml" line="13" column="5" bodyfile="src/qml/imports/Theme/QfDialog.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfDialog_1a75c63e3b2c69ff9e6ea3d7bc45fea337" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfDialog::standardButtons</definition>
+        <argsstring></argsstring>
+        <name>standardButtons</name>
+        <qualifiedname>Theme::QfDialog::standardButtons</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDialog.qml" line="14" column="5" bodyfile="src/qml/imports/Theme/QfDialog.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfDialog_1a7f0aca5d1b431c93457656299d422965" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfDialog::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>Theme::QfDialog::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDialog.qml" line="15" column="5" bodyfile="src/qml/imports/Theme/QfDialog.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfDialog_1a3f544463bfe50bd5b5c905b2eb4b5c17" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfDialog::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>Theme::QfDialog::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDialog.qml" line="16" column="5" bodyfile="src/qml/imports/Theme/QfDialog.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfDialog_1a5fa87eba6062f74e3002455867bbb5be" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfDialog::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>Theme::QfDialog::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfDialog.qml" line="17" column="5" bodyfile="src/qml/imports/Theme/QfDialog.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Dialog</label>
+      </node>
+      <node id="3">
+        <label>QFieldCloudPackageLayersFeedback</label>
+        <link refid="classQFieldCloudPackageLayersFeedback"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Theme::QfCalendarPanel</label>
+        <link refid="classTheme_1_1QfCalendarPanel"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Theme::QfDialog</label>
+        <link refid="classTheme_1_1QfDialog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Dialog</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfDialog</label>
+        <link refid="classTheme_1_1QfDialog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfDialog.qml" line="10" column="1" bodyfile="src/qml/imports/Theme/QfDialog.qml" bodystart="10" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfDialog_1a55138038cddcd8f3048959767c1b5175" prot="private" virt="non-virtual"><scope>Theme::QfDialog</scope><name>font</name></member>
+      <member refid="classTheme_1_1QfDialog_1a6c1e88f3b8307f7764b2a7c1008fcc1e" prot="private" virt="non-virtual"><scope>Theme::QfDialog</scope><name>modal</name></member>
+      <member refid="classTheme_1_1QfDialog_1a5fa87eba6062f74e3002455867bbb5be" prot="private" virt="non-virtual"><scope>Theme::QfDialog</scope><name>onClosed</name></member>
+      <member refid="classTheme_1_1QfDialog_1a75c63e3b2c69ff9e6ea3d7bc45fea337" prot="private" virt="non-virtual"><scope>Theme::QfDialog</scope><name>standardButtons</name></member>
+      <member refid="classTheme_1_1QfDialog_1ae9cf57f2d493342df9aeec4c281787d7" prot="private" virt="non-virtual"><scope>Theme::QfDialog</scope><name>visible</name></member>
+      <member refid="classTheme_1_1QfDialog_1a7f0aca5d1b431c93457656299d422965" prot="private" virt="non-virtual"><scope>Theme::QfDialog</scope><name>x</name></member>
+      <member refid="classTheme_1_1QfDialog_1a3f544463bfe50bd5b5c905b2eb4b5c17" prot="private" virt="non-virtual"><scope>Theme::QfDialog</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

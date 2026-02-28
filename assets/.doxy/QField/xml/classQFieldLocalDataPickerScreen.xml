@@ -1,0 +1,1159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldLocalDataPickerScreen" kind="class" language="C++" prot="public">
+    <compoundname>QFieldLocalDataPickerScreen</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Page</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldLocalDataPickerScreen_1aa1a1a675c04fa3dc0629e49828999ef2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldLocalDataPickerScreen::openedOnce</definition>
+        <argsstring></argsstring>
+        <name>openedOnce</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::openedOnce</qualifiedname>
+        <read>dummyGetter_openedOnce_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="14" column="1" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldLocalDataPickerScreen_1a1df31bb6524fe99378c5040ac0df7f5d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldLocalDataPickerScreen::projectFolderView</definition>
+        <argsstring></argsstring>
+        <name>projectFolderView</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::projectFolderView</qualifiedname>
+        <read>dummyGetter_projectFolderView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="16" column="1" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldLocalDataPickerScreen_1abddd235c8a38cabd00fe070e2112274a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldLocalDataPickerScreen::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="18" column="1" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a3659e313179feb0e6b292e9f53ea3284" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldLocalDataPickerScreen::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="22" column="5" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1ab0014e62f2e704acc9e9539c7c6607c0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldLocalDataPickerScreen::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="23" column="5" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1ac9a7dce1263481de05117c6e7a5d1210" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldLocalDataPickerScreen::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="24" column="5" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a94b4e457a6baefd2cac615ba2f86500d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldLocalDataPickerScreen::onVisibleChanged</definition>
+        <argsstring></argsstring>
+        <name>onVisibleChanged</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::onVisibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="25" column="5" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a29dc2b027f0910323b3cca0bdc9d830c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldLocalDataPickerScreen::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="26" column="5" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a8c6d194d40c7d4455ff3efb89917d31b" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QFieldLocalDataPickerScreen::files</definition>
+        <argsstring></argsstring>
+        <name>files</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::files</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="27" column="14" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a91654970e2f6ef2d779712025088901c" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QFieldLocalDataPickerScreen::table</definition>
+        <argsstring></argsstring>
+        <name>table</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="28" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a0cdb80e59224d815671c1b17fe7e3070" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QFieldLocalDataPickerScreen::nativeLocalDataPickerButton</definition>
+        <argsstring></argsstring>
+        <name>nativeLocalDataPickerButton</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::nativeLocalDataPickerButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="29" column="14" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a133f362235f88456c5a14f742f693b54" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QFieldLocalDataPickerScreen::actionButton</definition>
+        <argsstring></argsstring>
+        <name>actionButton</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::actionButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="30" column="14" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1adaf7d9d4ad1895e45bca9e7fcaafc629" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QFieldLocalDataPickerScreen::itemMenu</definition>
+        <argsstring></argsstring>
+        <name>itemMenu</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::itemMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="31" column="8" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a389fd0fd4af6b734550220ac6293fee2" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::viewFile</definition>
+        <argsstring></argsstring>
+        <name>viewFile</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::viewFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="32" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1ade7397e3126409392f95ca052c26242c" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::sendDatasetTo</definition>
+        <argsstring></argsstring>
+        <name>sendDatasetTo</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::sendDatasetTo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="34" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1aba3d8a7f6750408d940b7c32802a6e28" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::pushDatasetToCloud</definition>
+        <argsstring></argsstring>
+        <name>pushDatasetToCloud</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::pushDatasetToCloud</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="35" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a99900f1aa867d6cce15e0cb502ea7906" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::exportDatasetTo</definition>
+        <argsstring></argsstring>
+        <name>exportDatasetTo</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::exportDatasetTo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="36" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a0336cecf7f1d8b6ceb3644c801a4d0bc" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::toggleFavoriteState</definition>
+        <argsstring></argsstring>
+        <name>toggleFavoriteState</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::toggleFavoriteState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="38" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a82229bcf97c1378864cf8536e2fc6291" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::exportFolderTo</definition>
+        <argsstring></argsstring>
+        <name>exportFolderTo</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::exportFolderTo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="39" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1aab39c39f4dd1cc0309612afc684112e7" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::sendCompressedFolderTo</definition>
+        <argsstring></argsstring>
+        <name>sendCompressedFolderTo</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::sendCompressedFolderTo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="40" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1ace7cd16a85fc100be58996015150113a" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::uploadFolderToWebdav</definition>
+        <argsstring></argsstring>
+        <name>uploadFolderToWebdav</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::uploadFolderToWebdav</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="41" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a703d62eb8ec37544a03bbe5cf6b11017" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::downloadFolderFromWebdav</definition>
+        <argsstring></argsstring>
+        <name>downloadFolderFromWebdav</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::downloadFolderFromWebdav</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="42" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a2865cb5028041222edf30d992a0b422c" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::deleteFile</definition>
+        <argsstring></argsstring>
+        <name>deleteFile</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::deleteFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="43" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a45880bc78e3a95360da56d738c616dd8" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::removeDataset</definition>
+        <argsstring></argsstring>
+        <name>removeDataset</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::removeDataset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="44" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a5253ce65ec1048296bb90180ab004a6c" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::removeProjectFolder</definition>
+        <argsstring></argsstring>
+        <name>removeProjectFolder</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::removeProjectFolder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="45" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a5a3e2cbc6d1874c39e7ebc06debfb59c" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QFieldLocalDataPickerScreen::importMenu</definition>
+        <argsstring></argsstring>
+        <name>importMenu</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="46" column="8" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1ac860f260a4a12d53e8524b38541aa4c0" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::importProjectFromFolder</definition>
+        <argsstring></argsstring>
+        <name>importProjectFromFolder</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importProjectFromFolder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="47" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a8043adf38a45896c1869767c96d52452" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::importProjectFromZIP</definition>
+        <argsstring></argsstring>
+        <name>importProjectFromZIP</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importProjectFromZIP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="48" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a705526bdc5a9baa8293dad8aa5de6493" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::importDataset</definition>
+        <argsstring></argsstring>
+        <name>importDataset</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importDataset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="49" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1ab79c920d4d935afe83ab112ef0a395db" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::importUrl</definition>
+        <argsstring></argsstring>
+        <name>importUrl</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="50" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1aa227382fb23bca99190bda5ab24ae6cb" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::importWebdav</definition>
+        <argsstring></argsstring>
+        <name>importWebdav</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdav</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="51" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a29422d324a5c62a85ec7946a344a0f4c" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::storageHelp</definition>
+        <argsstring></argsstring>
+        <name>storageHelp</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::storageHelp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="52" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a0d06a9e8b8143f842ff212486866386c" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QFieldLocalDataPickerScreen::projectMenu</definition>
+        <argsstring></argsstring>
+        <name>projectMenu</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::projectMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="53" column="8" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a8ebf83b5352fc409b337e1275886e76e" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::updateProjectFromArchive</definition>
+        <argsstring></argsstring>
+        <name>updateProjectFromArchive</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::updateProjectFromArchive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="54" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a9177adca224d0a2edee49f583f66463c" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::uploadProjectToWebdav</definition>
+        <argsstring></argsstring>
+        <name>uploadProjectToWebdav</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::uploadProjectToWebdav</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="55" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1aec562fb56938d632f75eda1e71d12ead" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::downloadProjectToWebdav</definition>
+        <argsstring></argsstring>
+        <name>downloadProjectToWebdav</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::downloadProjectToWebdav</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="56" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1ae201a338947f84b1ed132c37b13471dc" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QFieldLocalDataPickerScreen::selectionMenu</definition>
+        <argsstring></argsstring>
+        <name>selectionMenu</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::selectionMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="57" column="8" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1af06228cafd95d789216269b6fe144e26" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::uploadToWebdav</definition>
+        <argsstring></argsstring>
+        <name>uploadToWebdav</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::uploadToWebdav</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="58" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a287df34b2a6194178bb247a5c39ca7be" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::pushToQfieldCloud</definition>
+        <argsstring></argsstring>
+        <name>pushToQfieldCloud</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::pushToQfieldCloud</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="59" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a9f6c53db143c39cd6f66293234638c2d" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QFieldLocalDataPickerScreen::deleteSelectedFiles</definition>
+        <argsstring></argsstring>
+        <name>deleteSelectedFiles</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::deleteSelectedFiles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="60" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1ac1fb58ca3c87cac9e953f008cf1f5fa1" prot="private" static="no" mutable="no">
+        <type>Connections</type>
+        <definition>Connections QFieldLocalDataPickerScreen::pushFilesToQFieldCloudConnection</definition>
+        <argsstring></argsstring>
+        <name>pushFilesToQFieldCloudConnection</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::pushFilesToQFieldCloudConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="61" column="13" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a321f65505cf4976aec308ea5645c9797" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QFieldLocalDataPickerScreen::confirmRemoveDialog</definition>
+        <argsstring></argsstring>
+        <name>confirmRemoveDialog</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::confirmRemoveDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="62" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1afaef8b5e08602cf4b048be53298a018e" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QFieldLocalDataPickerScreen::importUrlDialog</definition>
+        <argsstring></argsstring>
+        <name>importUrlDialog</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importUrlDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="63" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a5c7a89ccd733994664d7167ac17a9575" prot="private" static="no" mutable="no">
+        <type>TextMetrics</type>
+        <definition>TextMetrics QFieldLocalDataPickerScreen::importUrlLabelMetrics</definition>
+        <argsstring></argsstring>
+        <name>importUrlLabelMetrics</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importUrlLabelMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="64" column="13" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1af1c278315d85c002ef60cf410561432a" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QFieldLocalDataPickerScreen::importUrlLabel</definition>
+        <argsstring></argsstring>
+        <name>importUrlLabel</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importUrlLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="65" column="7" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a5e37e8c74b2b554e542546cbf62d4ee3" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QFieldLocalDataPickerScreen::importUrlInput</definition>
+        <argsstring></argsstring>
+        <name>importUrlInput</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importUrlInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="66" column="11" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a23070021ecebec628914d5e0630cf395" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QFieldLocalDataPickerScreen::webdavConnectionLoader</definition>
+        <argsstring></argsstring>
+        <name>webdavConnectionLoader</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::webdavConnectionLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="67" column="8" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1ab03d6f5ee08168adaa7e102db5425f51" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QFieldLocalDataPickerScreen::downloadUploadWebdavDialog</definition>
+        <argsstring></argsstring>
+        <name>downloadUploadWebdavDialog</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::downloadUploadWebdavDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="68" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a7d3210a13376a536327b20c5946dceb0" prot="private" static="no" mutable="no">
+        <type>TextMetrics</type>
+        <definition>TextMetrics QFieldLocalDataPickerScreen::downloadUploadWebdavIntroMetrics</definition>
+        <argsstring></argsstring>
+        <name>downloadUploadWebdavIntroMetrics</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::downloadUploadWebdavIntroMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="69" column="13" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1aff5e83831b270807fc98f0e486f4afc8" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QFieldLocalDataPickerScreen::downloadUploadWebdavIntroLabel</definition>
+        <argsstring></argsstring>
+        <name>downloadUploadWebdavIntroLabel</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::downloadUploadWebdavIntroLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="70" column="7" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a789223e4d27287a1270167f3d56983d2" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QFieldLocalDataPickerScreen::downloadUploadWebdavPasswordInput</definition>
+        <argsstring></argsstring>
+        <name>downloadUploadWebdavPasswordInput</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::downloadUploadWebdavPasswordInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="71" column="11" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a120862b1cee9f54ed93fc781f0e35067" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QFieldLocalDataPickerScreen::downloadUploadWebdavShowPasswordInput</definition>
+        <argsstring></argsstring>
+        <name>downloadUploadWebdavShowPasswordInput</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::downloadUploadWebdavShowPasswordInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="72" column="14" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a32f313f6a579a10c69b90f59f167269c" prot="private" static="no" mutable="no">
+        <type><ref refid="classCheckBox" kindref="compound">CheckBox</ref></type>
+        <definition>CheckBox QFieldLocalDataPickerScreen::downloadUploadWebdavPasswordCheck</definition>
+        <argsstring></argsstring>
+        <name>downloadUploadWebdavPasswordCheck</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::downloadUploadWebdavPasswordCheck</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="73" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a84501d3244de8ffc4625f9bbc56028f3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QFieldLocalDataPickerScreen::importWebdavDialog</definition>
+        <argsstring></argsstring>
+        <name>importWebdavDialog</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="74" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a5355627efcd2e61b513707e94698d7bb" prot="private" static="no" mutable="no">
+        <type>TextMetrics</type>
+        <definition>TextMetrics QFieldLocalDataPickerScreen::importWebdavUrlLabelMetrics</definition>
+        <argsstring></argsstring>
+        <name>importWebdavUrlLabelMetrics</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavUrlLabelMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="75" column="13" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a5fa22308df286bfd36e894cbb4f3ee2d" prot="private" static="no" mutable="no">
+        <type>SwipeView</type>
+        <definition>SwipeView QFieldLocalDataPickerScreen::swipeDialog</definition>
+        <argsstring></argsstring>
+        <name>swipeDialog</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::swipeDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="76" column="11" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1af9f58fcc76a62b228db14cab54950201" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout QFieldLocalDataPickerScreen::firstPage</definition>
+        <argsstring></argsstring>
+        <name>firstPage</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::firstPage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="77" column="12" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a23f10cd045bf84dd0f44f5d972be7763" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QFieldLocalDataPickerScreen::importWebdavUrlLabel</definition>
+        <argsstring></argsstring>
+        <name>importWebdavUrlLabel</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavUrlLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="78" column="7" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1afc85c0d2d365202abe848540eb32e359" prot="private" static="no" mutable="no">
+        <type>ComboBox</type>
+        <definition>ComboBox QFieldLocalDataPickerScreen::importWebdavUrlInput</definition>
+        <argsstring></argsstring>
+        <name>importWebdavUrlInput</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavUrlInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="79" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1ad123354cfeaf72366c62ea9e7e5680aa" prot="private" static="no" mutable="no">
+        <type>ComboBox</type>
+        <definition>ComboBox QFieldLocalDataPickerScreen::importWebdavUserInput</definition>
+        <argsstring></argsstring>
+        <name>importWebdavUserInput</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavUserInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="80" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a180a0c87cdefea79b50321cc2ed66e54" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QFieldLocalDataPickerScreen::importWebdavPasswordInput</definition>
+        <argsstring></argsstring>
+        <name>importWebdavPasswordInput</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavPasswordInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="81" column="11" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a1fae9aaf76cbeb718abd1be0a68b14f8" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QFieldLocalDataPickerScreen::importWebdavShowPasswordInput</definition>
+        <argsstring></argsstring>
+        <name>importWebdavShowPasswordInput</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavShowPasswordInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="82" column="14" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a6f2782f6706f569347c7bdd5d9207bc0" prot="private" static="no" mutable="no">
+        <type><ref refid="classCheckBox" kindref="compound">CheckBox</ref></type>
+        <definition>CheckBox QFieldLocalDataPickerScreen::importWebdavStorePasswordCheck</definition>
+        <argsstring></argsstring>
+        <name>importWebdavStorePasswordCheck</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavStorePasswordCheck</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="83" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a0e3b1b95a2900e7dcd3827ef33240ac3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QFieldLocalDataPickerScreen::importWebdavFetchFoldersButton</definition>
+        <argsstring></argsstring>
+        <name>importWebdavFetchFoldersButton</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavFetchFoldersButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="84" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a4baaf37086f5675fc27640c6e3385107" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator QFieldLocalDataPickerScreen::importWebdavFetchFoldersIndicator</definition>
+        <argsstring></argsstring>
+        <name>importWebdavFetchFoldersIndicator</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavFetchFoldersIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="85" column="15" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a9cc698fd4c04b9ec798ee39a58223a66" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QFieldLocalDataPickerScreen::importWebdavRefetchFoldersButton</definition>
+        <argsstring></argsstring>
+        <name>importWebdavRefetchFoldersButton</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavRefetchFoldersButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="86" column="14" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a9038d84e439483efcf46d5016e752d8d" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator QFieldLocalDataPickerScreen::importWebdavRefreshFoldersIndicator</definition>
+        <argsstring></argsstring>
+        <name>importWebdavRefreshFoldersIndicator</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavRefreshFoldersIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="87" column="15" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1ab6c3e81db1f37c1f48a7f8c34e95c3df" prot="private" static="no" mutable="no">
+        <type>MaterialTextContainer</type>
+        <definition>MaterialTextContainer QFieldLocalDataPickerScreen::importWebdavPathContainer</definition>
+        <argsstring></argsstring>
+        <name>importWebdavPathContainer</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavPathContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="88" column="23" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1acdbf8c88303fdc2b22a45e45e94a7882" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QFieldLocalDataPickerScreen::importWebdavPathInput</definition>
+        <argsstring></argsstring>
+        <name>importWebdavPathInput</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavPathInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="89" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a502031a29c3c9435141a9c01ceca0d1e" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QFieldLocalDataPickerScreen::importWebdavImportedFolderName</definition>
+        <argsstring></argsstring>
+        <name>importWebdavImportedFolderName</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::importWebdavImportedFolderName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="90" column="11" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a21c2df5cedda7f902f021b2ae976ce02" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QFieldLocalDataPickerScreen::webdavForgetConfirmationDialog</definition>
+        <argsstring></argsstring>
+        <name>webdavForgetConfirmationDialog</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::webdavForgetConfirmationDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="91" column="10" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a4ae7d6489b6593bda09648991f2fbdd8" prot="private" static="no" mutable="no">
+        <type>TextMetrics</type>
+        <definition>TextMetrics QFieldLocalDataPickerScreen::webdavForgetConfirmationMetrics</definition>
+        <argsstring></argsstring>
+        <name>webdavForgetConfirmationMetrics</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::webdavForgetConfirmationMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="92" column="13" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocalDataPickerScreen_1a1ee52300f9542496c841df806a03d4e4" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QFieldLocalDataPickerScreen::webdavForgetConfirmationLabel</definition>
+        <argsstring></argsstring>
+        <name>webdavForgetConfirmationLabel</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::webdavForgetConfirmationLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="93" column="7" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="93" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQFieldLocalDataPickerScreen_1a8c26b602672efe0175cd850f675af579" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocalDataPickerScreen::finished</definition>
+        <argsstring>(var loading)</argsstring>
+        <name>finished</name>
+        <qualifiedname>QFieldLocalDataPickerScreen::finished</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>loading</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="20" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>QFieldLocalDataPickerScreen</label>
+        <link refid="classQFieldLocalDataPickerScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>QFieldLocalDataPickerScreen</label>
+        <link refid="classQFieldLocalDataPickerScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/QFieldLocalDataPickerScreen.qml" line="11" column="1" bodyfile="src/qml/QFieldLocalDataPickerScreen.qml" bodystart="11" bodyend="94"/>
+    <listofallmembers>
+      <member refid="classQFieldLocalDataPickerScreen_1a133f362235f88456c5a14f742f693b54" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>actionButton</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a321f65505cf4976aec308ea5645c9797" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>confirmRemoveDialog</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a2865cb5028041222edf30d992a0b422c" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>deleteFile</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a9f6c53db143c39cd6f66293234638c2d" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>deleteSelectedFiles</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a703d62eb8ec37544a03bbe5cf6b11017" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>downloadFolderFromWebdav</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1aec562fb56938d632f75eda1e71d12ead" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>downloadProjectToWebdav</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1ab03d6f5ee08168adaa7e102db5425f51" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>downloadUploadWebdavDialog</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1aff5e83831b270807fc98f0e486f4afc8" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>downloadUploadWebdavIntroLabel</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a7d3210a13376a536327b20c5946dceb0" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>downloadUploadWebdavIntroMetrics</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a32f313f6a579a10c69b90f59f167269c" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>downloadUploadWebdavPasswordCheck</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a789223e4d27287a1270167f3d56983d2" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>downloadUploadWebdavPasswordInput</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a120862b1cee9f54ed93fc781f0e35067" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>downloadUploadWebdavShowPasswordInput</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a99900f1aa867d6cce15e0cb502ea7906" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>exportDatasetTo</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a82229bcf97c1378864cf8536e2fc6291" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>exportFolderTo</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a8c6d194d40c7d4455ff3efb89917d31b" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>files</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a8c26b602672efe0175cd850f675af579" prot="public" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>finished</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1af9f58fcc76a62b228db14cab54950201" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>firstPage</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a3659e313179feb0e6b292e9f53ea3284" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>focus</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a29dc2b027f0910323b3cca0bdc9d830c" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>header</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a705526bdc5a9baa8293dad8aa5de6493" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importDataset</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a5a3e2cbc6d1874c39e7ebc06debfb59c" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importMenu</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1ac860f260a4a12d53e8524b38541aa4c0" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importProjectFromFolder</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a8043adf38a45896c1869767c96d52452" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importProjectFromZIP</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1ab79c920d4d935afe83ab112ef0a395db" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importUrl</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1afaef8b5e08602cf4b048be53298a018e" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importUrlDialog</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a5e37e8c74b2b554e542546cbf62d4ee3" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importUrlInput</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1af1c278315d85c002ef60cf410561432a" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importUrlLabel</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a5c7a89ccd733994664d7167ac17a9575" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importUrlLabelMetrics</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1aa227382fb23bca99190bda5ab24ae6cb" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdav</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a84501d3244de8ffc4625f9bbc56028f3" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavDialog</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a0e3b1b95a2900e7dcd3827ef33240ac3" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavFetchFoldersButton</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a4baaf37086f5675fc27640c6e3385107" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavFetchFoldersIndicator</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a502031a29c3c9435141a9c01ceca0d1e" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavImportedFolderName</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a180a0c87cdefea79b50321cc2ed66e54" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavPasswordInput</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1ab6c3e81db1f37c1f48a7f8c34e95c3df" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavPathContainer</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1acdbf8c88303fdc2b22a45e45e94a7882" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavPathInput</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a9cc698fd4c04b9ec798ee39a58223a66" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavRefetchFoldersButton</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a9038d84e439483efcf46d5016e752d8d" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavRefreshFoldersIndicator</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a1fae9aaf76cbeb718abd1be0a68b14f8" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavShowPasswordInput</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a6f2782f6706f569347c7bdd5d9207bc0" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavStorePasswordCheck</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1afc85c0d2d365202abe848540eb32e359" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavUrlInput</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a23f10cd045bf84dd0f44f5d972be7763" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavUrlLabel</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a5355627efcd2e61b513707e94698d7bb" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavUrlLabelMetrics</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1ad123354cfeaf72366c62ea9e7e5680aa" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>importWebdavUserInput</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1adaf7d9d4ad1895e45bca9e7fcaafc629" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>itemMenu</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1ab0014e62f2e704acc9e9539c7c6607c0" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>leftPadding</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1abddd235c8a38cabd00fe070e2112274a" prot="public" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>model</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a0cdb80e59224d815671c1b17fe7e3070" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>nativeLocalDataPickerButton</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a94b4e457a6baefd2cac615ba2f86500d" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>onVisibleChanged</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1aa1a1a675c04fa3dc0629e49828999ef2" prot="public" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>openedOnce</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a1df31bb6524fe99378c5040ac0df7f5d" prot="public" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>projectFolderView</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a0d06a9e8b8143f842ff212486866386c" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>projectMenu</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1aba3d8a7f6750408d940b7c32802a6e28" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>pushDatasetToCloud</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1ac1fb58ca3c87cac9e953f008cf1f5fa1" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>pushFilesToQFieldCloudConnection</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a287df34b2a6194178bb247a5c39ca7be" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>pushToQfieldCloud</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a45880bc78e3a95360da56d738c616dd8" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>removeDataset</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a5253ce65ec1048296bb90180ab004a6c" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>removeProjectFolder</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1ac9a7dce1263481de05117c6e7a5d1210" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>rightPadding</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1ae201a338947f84b1ed132c37b13471dc" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>selectionMenu</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1aab39c39f4dd1cc0309612afc684112e7" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>sendCompressedFolderTo</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1ade7397e3126409392f95ca052c26242c" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>sendDatasetTo</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a29422d324a5c62a85ec7946a344a0f4c" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>storageHelp</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a5fa22308df286bfd36e894cbb4f3ee2d" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>swipeDialog</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a91654970e2f6ef2d779712025088901c" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>table</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a0336cecf7f1d8b6ceb3644c801a4d0bc" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>toggleFavoriteState</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a8ebf83b5352fc409b337e1275886e76e" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>updateProjectFromArchive</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1ace7cd16a85fc100be58996015150113a" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>uploadFolderToWebdav</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a9177adca224d0a2edee49f583f66463c" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>uploadProjectToWebdav</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1af06228cafd95d789216269b6fe144e26" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>uploadToWebdav</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a389fd0fd4af6b734550220ac6293fee2" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>viewFile</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a23070021ecebec628914d5e0630cf395" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>webdavConnectionLoader</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a21c2df5cedda7f902f021b2ae976ce02" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>webdavForgetConfirmationDialog</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a1ee52300f9542496c841df806a03d4e4" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>webdavForgetConfirmationLabel</name></member>
+      <member refid="classQFieldLocalDataPickerScreen_1a4ae7d6489b6593bda09648991f2fbdd8" prot="private" virt="non-virtual"><scope>QFieldLocalDataPickerScreen</scope><name>webdavForgetConfirmationMetrics</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

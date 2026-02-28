@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structCloudUserInformation" kind="struct" language="C++" prot="public">
+    <compoundname>CloudUserInformation</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="structCloudUserInformation_1a1aef17ae2f2aa79ecd33927456788a01" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CloudUserInformation::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>CloudUserInformation::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="36" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structCloudUserInformation_1ab0e2cc5dcaff79f6d827f5b1de119123" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CloudUserInformation::email</definition>
+        <argsstring></argsstring>
+        <name>email</name>
+        <qualifiedname>CloudUserInformation::email</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="37" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structCloudUserInformation_1ab50be2d2d0cef1798a20e83f89ece468" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CloudUserInformation::CloudUserInformation</definition>
+        <argsstring>()=default</argsstring>
+        <name>CloudUserInformation</name>
+        <qualifiedname>CloudUserInformation::CloudUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="40" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudUserInformation_1a106ac800e57d519935c87a2b4e178af2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CloudUserInformation::CloudUserInformation</definition>
+        <argsstring>(const QString &amp;username, const QString &amp;email)</argsstring>
+        <name>CloudUserInformation</name>
+        <qualifiedname>CloudUserInformation::CloudUserInformation</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>email</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="42" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudUserInformation_1ae99259bf652140a4cba72867eda3aa87" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CloudUserInformation::CloudUserInformation</definition>
+        <argsstring>(const QJsonObject cloudUserInformation)</argsstring>
+        <name>CloudUserInformation</name>
+        <qualifiedname>CloudUserInformation::CloudUserInformation</qualifiedname>
+        <param>
+          <type>const QJsonObject</type>
+          <declname>cloudUserInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="47" column="14" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="47" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudUserInformation_1a183aca2272ecc80dbf6c930e89446c90" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CloudUserInformation::operator==</definition>
+        <argsstring>(const CloudUserInformation &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>CloudUserInformation::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="52" column="10" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudUserInformation_1a196a2784f8f1ddc796c527447c9ceaaa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QJsonObject</type>
+        <definition>QJsonObject CloudUserInformation::toJson</definition>
+        <argsstring>() const</argsstring>
+        <name>toJson</name>
+        <qualifiedname>CloudUserInformation::toJson</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="57" column="17" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="57" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudUserInformation_1ac9dfc16265a7c742dee76d18aca7fe20" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CloudUserInformation::isEmpty</definition>
+        <argsstring>() const</argsstring>
+        <name>isEmpty</name>
+        <qualifiedname>CloudUserInformation::isEmpty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="67" column="10" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="67" bodyend="70"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/utils/qfieldcloudutils.h" line="32" column="1" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="33" bodyend="74"/>
+    <listofallmembers>
+      <member refid="structCloudUserInformation_1ab50be2d2d0cef1798a20e83f89ece468" prot="public" virt="non-virtual"><scope>CloudUserInformation</scope><name>CloudUserInformation</name></member>
+      <member refid="structCloudUserInformation_1a106ac800e57d519935c87a2b4e178af2" prot="public" virt="non-virtual"><scope>CloudUserInformation</scope><name>CloudUserInformation</name></member>
+      <member refid="structCloudUserInformation_1ae99259bf652140a4cba72867eda3aa87" prot="public" virt="non-virtual"><scope>CloudUserInformation</scope><name>CloudUserInformation</name></member>
+      <member refid="structCloudUserInformation_1ab0e2cc5dcaff79f6d827f5b1de119123" prot="public" virt="non-virtual"><scope>CloudUserInformation</scope><name>email</name></member>
+      <member refid="structCloudUserInformation_1ac9dfc16265a7c742dee76d18aca7fe20" prot="public" virt="non-virtual"><scope>CloudUserInformation</scope><name>isEmpty</name></member>
+      <member refid="structCloudUserInformation_1a183aca2272ecc80dbf6c930e89446c90" prot="public" virt="non-virtual"><scope>CloudUserInformation</scope><name>operator==</name></member>
+      <member refid="structCloudUserInformation_1a196a2784f8f1ddc796c527447c9ceaaa" prot="public" virt="non-virtual"><scope>CloudUserInformation</scope><name>toJson</name></member>
+      <member refid="structCloudUserInformation_1a1aef17ae2f2aa79ecd33927456788a01" prot="public" virt="non-virtual"><scope>CloudUserInformation</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1544 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class AppInterface - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-appinterface" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class AppInterface
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-executeaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal executeAction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-importended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal importEnded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-importprogress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal importProgress
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-importtriggered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal importTriggered
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-loadprojectended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal loadProjectEnded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-loadprojecttriggered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal loadProjectTriggered
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-openpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal openPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-setmapextent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal setMapExtent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-volumekeydown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal volumeKeyDown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-volumekeyup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal volumeKeyUp
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-appinterface-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function AppInterface [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-appinterface-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function AppInterface [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-additemtocanvasactionstoolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function addItemToCanvasActionsToolbar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-additemtodashboardactionstoolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function addItemToDashboardActionsToolbar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-additemtomainmenuactionstoolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function addItemToMainMenuActionsToolbar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-additemtopluginstoolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function addItemToPluginsToolbar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-availablelanguages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function availableLanguages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-changelanguage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function changeLanguage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-clearproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function clearProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-closesentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function closeSentry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-createhttprequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function createHttpRequest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-finditembyobjectname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function findItemByObjectName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-hasprojectonlaunch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function hasProjectOnLaunch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-importurl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function importUrl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-initiatesentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function initiateSentry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isauthenticationconfigurationavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isAuthenticationConfigurationAvailable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isfileextensionsupported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isFileExtensionSupported
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-loadfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function loadFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-logmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function logMessage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-logruntimeprofiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function logRuntimeProfiler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-mainwindow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function mainWindow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-mapcanvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function mapCanvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-positioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function positioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-print" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function print
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-printatlasfeatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function printAtlasFeatures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-readprojectboolentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function readProjectBoolEntry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-readprojectdoubleentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function readProjectDoubleEntry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-readprojectentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function readProjectEntry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-readprojectnumentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function readProjectNumEntry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-reloadproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function reloadProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-removerecentproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function removeRecentProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-sendlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function sendLog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setscreendimmertimeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setScreenDimmerTimeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-appinterface">Class AppInterface</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>AppInterface</strong></a></p>
+<p><em>App interface made available in QML as</em> <code>iface</code> <em>.</em></p>
+<ul>
+<li><code>#include &lt;appinterface.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QObject</p>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-executeaction"><strong>executeAction</strong></a> (const QString &amp; action) <br><em>Requests QField to execute a given</em> <em>action</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-importended"><strong>importEnded</strong></a> (const QString &amp; path=QString()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-importprogress"><strong>importProgress</strong></a> (double progress) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-importtriggered"><strong>importTriggered</strong></a> (const QString &amp; name) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-loadprojectended"><strong>loadProjectEnded</strong></a> (const QString &amp; path, const QString &amp; name) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-loadprojecttriggered"><strong>loadProjectTriggered</strong></a> (const QString &amp; path, const QString &amp; name) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-openpath"><strong>openPath</strong></a> (const QString &amp; path) <br><em>Requests QField to open its local data picker screen to show the</em> <em>path</em> <em>content.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-setmapextent"><strong>setMapExtent</strong></a> (const QgsRectangle &amp; extent) <br><em>Requests QField to set its map to the provided</em> <em>extent</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-volumekeydown"><strong>volumeKeyDown</strong></a> (int volumeKeyCode) <br><em>Emitted when a volume key is pressed while QField is set to handle those keys.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-volumekeyup"><strong>volumeKeyUp</strong></a> (int volumeKeyCode) <br><em>Emitted when a volume key is pressed while QField is set to handle those keys.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-appinterface-12"><strong>AppInterface</strong></a> (<a href="../classQgisMobileapp/"><strong>QgisMobileapp</strong></a> * app) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-appinterface-22"><strong>AppInterface</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-additemtocanvasactionstoolbar"><strong>addItemToCanvasActionsToolbar</strong></a> (QQuickItem * item) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-additemtodashboardactionstoolbar"><strong>addItemToDashboardActionsToolbar</strong></a> (QQuickItem * item) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-additemtomainmenuactionstoolbar"><strong>addItemToMainMenuActionsToolbar</strong></a> (QQuickItem * item) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-additemtopluginstoolbar"><strong>addItemToPluginsToolbar</strong></a> (QQuickItem * item) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QVariantMap</td>
+<td style="text-align: left;"><a href="#function-availablelanguages"><strong>availableLanguages</strong></a> () const<br><em>Returns a list of available UI translation languages.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-changelanguage"><strong>changeLanguage</strong></a> (const QString &amp; languageCode) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-clearproject"><strong>clearProject</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-closesentry"><strong>closeSentry</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QObject *</td>
+<td style="text-align: left;"><a href="#function-createhttprequest"><strong>createHttpRequest</strong></a> () const<br><em>One-shot xmlhttp request. Defaults to autoDelete = true.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QObject *</td>
+<td style="text-align: left;"><a href="#function-finditembyobjectname"><strong>findItemByObjectName</strong></a> (const QString &amp; name) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-hasprojectonlaunch"><strong>hasProjectOnLaunch</strong></a> () const<br><em>Returns TRUE is a project was passed on when launching QField.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-importurl"><strong>importUrl</strong></a> (const QString &amp; url, bool loadOnImport=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-initiatesentry"><strong>initiateSentry</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-isauthenticationconfigurationavailable"><strong>isAuthenticationConfigurationAvailable</strong></a> (const QString &amp; id) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-isfileextensionsupported"><strong>isFileExtensionSupported</strong></a> (const QString &amp; filename) const<br><em>Returns TRUE if a given</em> <em>filename</em> <em>can be opened as a project or standalone dataset.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-loadfile"><strong>loadFile</strong></a> (const QString &amp; path, const QString &amp; name=QString()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-logmessage"><strong>logMessage</strong></a> (const QString &amp; message) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-logruntimeprofiler"><strong>logRuntimeProfiler</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QObject *</td>
+<td style="text-align: left;"><a href="#function-mainwindow"><strong>mainWindow</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QObject *</td>
+<td style="text-align: left;"><a href="#function-mapcanvas"><strong>mapCanvas</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QObject *</td>
+<td style="text-align: left;"><a href="#function-positioning"><strong>positioning</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-print"><strong>print</strong></a> (const QString &amp; layoutName) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-printatlasfeatures"><strong>printAtlasFeatures</strong></a> (const QString &amp; layoutName, const QList&lt; long long &gt; &amp; featureIds) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-readprojectboolentry"><strong>readProjectBoolEntry</strong></a> (const QString &amp; scope, const QString &amp; key, bool def=false) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE double</td>
+<td style="text-align: left;"><a href="#function-readprojectdoubleentry"><strong>readProjectDoubleEntry</strong></a> (const QString &amp; scope, const QString &amp; key, double def=0.0) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QString</td>
+<td style="text-align: left;"><a href="#function-readprojectentry"><strong>readProjectEntry</strong></a> (const QString &amp; scope, const QString &amp; key, const QString &amp; def=QString()) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE int</td>
+<td style="text-align: left;"><a href="#function-readprojectnumentry"><strong>readProjectNumEntry</strong></a> (const QString &amp; scope, const QString &amp; key, int def=0) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-reloadproject"><strong>reloadProject</strong></a> () <br><em>Reloads the currently opened project.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-removerecentproject"><strong>removeRecentProject</strong></a> (const QString &amp; path) <br><em>Removes a given project</em> <em>path</em> <em>from the recent projects list.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-sendlog"><strong>sendLog</strong></a> (const QString &amp; message, const QString &amp; cloudUser) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-setscreendimmertimeout"><strong>setScreenDimmerTimeout</strong></a> (int timeoutSeconds) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-executeaction">signal executeAction</h3>
+<p><em>Requests QField to execute a given</em> <em>action</em> <em>.</em></p>
+<pre><code class="language-C++">void AppInterface::executeAction;
+</code></pre>
+<hr>
+
+<h3 id="signal-importended">signal importEnded</h3>
+<pre><code class="language-C++">void AppInterface::importEnded;
+</code></pre>
+<p>Emitted when an import has ended. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>path</code> the path within which the imported dataset or project has been copied into </li>
+</ul>
+<p><strong>Note:</strong></p>
+<p>if the import was not successful, the path value will be an empty string </p>
+<hr>
+
+<h3 id="signal-importprogress">signal importProgress</h3>
+<pre><code class="language-C++">void AppInterface::importProgress;
+</code></pre>
+<p>Emitted when an ongoing import reports its <em>progress</em>. </p>
+<p><strong>Note:</strong></p>
+<p>when an import is started, its progress will be indefinite by default </p>
+<hr>
+
+<h3 id="signal-importtriggered">signal importTriggered</h3>
+<pre><code class="language-C++">void AppInterface::importTriggered;
+</code></pre>
+<p>Emitted when a dataset or project import has been triggered. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>name</code> a indentifier-friendly string (e.g. a file being imported) </li>
+</ul>
+<hr>
+
+<h3 id="signal-loadprojectended">signal loadProjectEnded</h3>
+<pre><code class="language-C++">void AppInterface::loadProjectEnded;
+</code></pre>
+<p>Emitted when a project loading has ended. </p>
+<hr>
+
+<h3 id="signal-loadprojecttriggered">signal loadProjectTriggered</h3>
+<pre><code class="language-C++">void AppInterface::loadProjectTriggered;
+</code></pre>
+<p>Emitted when a project has begin loading. </p>
+<hr>
+
+<h3 id="signal-openpath">signal openPath</h3>
+<p><em>Requests QField to open its local data picker screen to show the</em> <em>path</em> <em>content.</em></p>
+<pre><code class="language-C++">void AppInterface::openPath;
+</code></pre>
+<hr>
+
+<h3 id="signal-setmapextent">signal setMapExtent</h3>
+<p><em>Requests QField to set its map to the provided</em> <em>extent</em> <em>.</em></p>
+<pre><code class="language-C++">void AppInterface::setMapExtent;
+</code></pre>
+<hr>
+
+<h3 id="signal-volumekeydown">signal volumeKeyDown</h3>
+<p><em>Emitted when a volume key is pressed while QField is set to handle those keys.</em> </p>
+<pre><code class="language-C++">void AppInterface::volumeKeyDown;
+</code></pre>
+<hr>
+
+<h3 id="signal-volumekeyup">signal volumeKeyUp</h3>
+<p><em>Emitted when a volume key is pressed while QField is set to handle those keys.</em> </p>
+<pre><code class="language-C++">void AppInterface::volumeKeyUp;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-appinterface-12">function AppInterface [1/2]</h3>
+<pre><code class="language-C++">explicit AppInterface::AppInterface (
+    QgisMobileapp * app
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-appinterface-22">function AppInterface [2/2]</h3>
+<pre><code class="language-C++">inline AppInterface::AppInterface () 
+</code></pre>
+<hr>
+
+<h3 id="function-additemtocanvasactionstoolbar">function addItemToCanvasActionsToolbar</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::addItemToCanvasActionsToolbar (
+    QQuickItem * item
+) const
+</code></pre>
+<p>Adds an <em>item</em> in the map canvas menu's action toolbar container </p>
+<hr>
+
+<h3 id="function-additemtodashboardactionstoolbar">function addItemToDashboardActionsToolbar</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::addItemToDashboardActionsToolbar (
+    QQuickItem * item
+) const
+</code></pre>
+<p>Adds an <em>item</em> in the dashboard's action toolbar container </p>
+<hr>
+
+<h3 id="function-additemtomainmenuactionstoolbar">function addItemToMainMenuActionsToolbar</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::addItemToMainMenuActionsToolbar (
+    QQuickItem * item
+) const
+</code></pre>
+<p>Adds an <em>item</em> in the dashboard's action toolbar container </p>
+<p><strong>Note:</strong></p>
+<p>This function is deprecated and will be removed in the future, use the addItemToDashboardActionsToolbar function instead </p>
+<hr>
+
+<h3 id="function-additemtopluginstoolbar">function addItemToPluginsToolbar</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::addItemToPluginsToolbar (
+    QQuickItem * item
+) const
+</code></pre>
+<p>Adds an <em>item</em> in the plugins toolbar container </p>
+<hr>
+
+<h3 id="function-availablelanguages">function availableLanguages</h3>
+<p><em>Returns a list of available UI translation languages.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE QVariantMap AppInterface::availableLanguages () const
+</code></pre>
+<hr>
+
+<h3 id="function-changelanguage">function changeLanguage</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::changeLanguage (
+    const QString &amp; languageCode
+) 
+</code></pre>
+<p>Changes the application language to the specified <em>languageCode</em>. This will reload translators and refresh all QML translations without restarting the app. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>languageCode</code> The language code (e.g., "en", "de") </li>
+</ul>
+<p><strong>See also:</strong> <a href="./#function-availablelanguages"><strong>availableLanguages</strong></a> </p>
+<hr>
+
+<h3 id="function-clearproject">function clearProject</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::clearProject () const
+</code></pre>
+<p>Clears the currently opened project </p>
+<hr>
+
+<h3 id="function-closesentry">function closeSentry</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::closeSentry () const
+</code></pre>
+<p>Closes active sentry connection. </p>
+<hr>
+
+<h3 id="function-createhttprequest">function createHttpRequest</h3>
+<p><em>One-shot xmlhttp request. Defaults to autoDelete = true.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE QObject * AppInterface::createHttpRequest () const
+</code></pre>
+<hr>
+
+<h3 id="function-finditembyobjectname">function findItemByObjectName</h3>
+<pre><code class="language-C++">Q_INVOKABLE QObject * AppInterface::findItemByObjectName (
+    const QString &amp; name
+) const
+</code></pre>
+<p>Returns the item matching the provided object <em>name</em> </p>
+<hr>
+
+<h3 id="function-hasprojectonlaunch">function hasProjectOnLaunch</h3>
+<p><em>Returns TRUE is a project was passed on when launching QField.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE bool AppInterface::hasProjectOnLaunch () const
+</code></pre>
+<hr>
+
+<h3 id="function-importurl">function importUrl</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::importUrl (
+    const QString &amp; url,
+    bool loadOnImport=false
+) 
+</code></pre>
+<p>Imports a compressed project from a given URL and place the content into the Imported Projects folder. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>url</code> the URL where the compressed project ZIP file is </li>
+<li><code>loadOnImport</code> set to TRUE to load the project on successful import </li>
+</ul>
+<hr>
+
+<h3 id="function-initiatesentry">function initiateSentry</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::initiateSentry () const
+</code></pre>
+<p>Initalizes sentry connection. </p>
+<hr>
+
+<h3 id="function-isauthenticationconfigurationavailable">function isAuthenticationConfigurationAvailable</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool AppInterface::isAuthenticationConfigurationAvailable (
+    const QString &amp; id
+) const
+</code></pre>
+<p>Returns TRUE if the authentication configuration <em>id</em> is available. </p>
+<hr>
+
+<h3 id="function-isfileextensionsupported">function isFileExtensionSupported</h3>
+<p><em>Returns TRUE if a given</em> <em>filename</em> <em>can be opened as a project or standalone dataset.</em></p>
+<pre><code class="language-C++">Q_INVOKABLE bool AppInterface::isFileExtensionSupported (
+    const QString &amp; filename
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-loadfile">function loadFile</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool AppInterface::loadFile (
+    const QString &amp; path,
+    const QString &amp; name=QString()
+) 
+</code></pre>
+<p>Loads a project file or standalone dataset.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>path</code> the project file (.qgs or .qgz) or standalone dataset path </li>
+<li><code>name</code> a project name (if left empty, the project file will be used instead) </li>
+</ul>
+<hr>
+
+<h3 id="function-logmessage">function logMessage</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::logMessage (
+    const QString &amp; message
+) 
+</code></pre>
+<p>Adds a log <em>message</em> that will be visible to the user through the message log panel, as well as added into the device's system logs which will be captured by the sentry's reporting framework when enabled. </p>
+<hr>
+
+<h3 id="function-logruntimeprofiler">function logRuntimeProfiler</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::logRuntimeProfiler () 
+</code></pre>
+<p>Outputs the current runtime profiler model content into the message log panel, as well as added into the device's system logs which will be captured by the sentry's reporting framework when enabled. </p>
+<hr>
+
+<h3 id="function-mainwindow">function mainWindow</h3>
+<pre><code class="language-C++">Q_INVOKABLE QObject * AppInterface::mainWindow () const
+</code></pre>
+<p>Returns the main window. </p>
+<hr>
+
+<h3 id="function-mapcanvas">function mapCanvas</h3>
+<pre><code class="language-C++">Q_INVOKABLE QObject * AppInterface::mapCanvas () const
+</code></pre>
+<p>Returns the main map canvas item. </p>
+<p><strong>See also:</strong> <a href="../classMapCanvas/"><strong>MapCanvas</strong></a> </p>
+<hr>
+
+<h3 id="function-positioning">function positioning</h3>
+<pre><code class="language-C++">Q_INVOKABLE QObject * AppInterface::positioning () const
+</code></pre>
+<p>Returns the positioning item. </p>
+<p><strong>See also:</strong> <a href="../classPositioning/"><strong>Positioning</strong></a> </p>
+<hr>
+
+<h3 id="function-print">function print</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool AppInterface::print (
+    const QString &amp; layoutName
+) 
+</code></pre>
+<p>Prints a project layout to PDF. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>layoutName</code> the layout name </li>
+</ul>
+<hr>
+
+<h3 id="function-printatlasfeatures">function printAtlasFeatures</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool AppInterface::printAtlasFeatures (
+    const QString &amp; layoutName,
+    const QList&lt; long long &gt; &amp; featureIds
+) 
+</code></pre>
+<p>Prints an atlas-driven project layout to PDF. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>layoutName</code> the layout name </li>
+<li><code>featureIds</code> the list of atlas feature IDs </li>
+</ul>
+<hr>
+
+<h3 id="function-readprojectboolentry">function readProjectBoolEntry</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool AppInterface::readProjectBoolEntry (
+    const QString &amp; scope,
+    const QString &amp; key,
+    bool def=false
+) const
+</code></pre>
+<p>Reads a double from the specified scope and key. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>scope</code> entry scope (group) name </li>
+<li><code>key</code> entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values </li>
+<li><code>def</code> default value to return if the specified key does not exist within the scope </li>
+</ul>
+<hr>
+
+<h3 id="function-readprojectdoubleentry">function readProjectDoubleEntry</h3>
+<pre><code class="language-C++">Q_INVOKABLE double AppInterface::readProjectDoubleEntry (
+    const QString &amp; scope,
+    const QString &amp; key,
+    double def=0.0
+) const
+</code></pre>
+<p>Reads a double from the specified scope and key. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>scope</code> entry scope (group) name </li>
+<li><code>key</code> entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values </li>
+<li><code>def</code> default value to return if the specified key does not exist within the scope </li>
+</ul>
+<hr>
+
+<h3 id="function-readprojectentry">function readProjectEntry</h3>
+<pre><code class="language-C++">Q_INVOKABLE QString AppInterface::readProjectEntry (
+    const QString &amp; scope,
+    const QString &amp; key,
+    const QString &amp; def=QString()
+) const
+</code></pre>
+<p>Reads a string from the specified scope and key. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>scope</code> entry scope (group) name </li>
+<li><code>key</code> entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values </li>
+<li><code>def</code> default value to return if the specified key does not exist within the scope </li>
+</ul>
+<hr>
+
+<h3 id="function-readprojectnumentry">function readProjectNumEntry</h3>
+<pre><code class="language-C++">Q_INVOKABLE int AppInterface::readProjectNumEntry (
+    const QString &amp; scope,
+    const QString &amp; key,
+    int def=0
+) const
+</code></pre>
+<p>Reads an integer from the specified scope and key. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>scope</code> entry scope (group) name </li>
+<li><code>key</code> entry key name. Keys are '/'-delimited entries, implying a hierarchy of keys and corresponding values </li>
+<li><code>def</code> default value to return if the specified key does not exist within the scope </li>
+</ul>
+<hr>
+
+<h3 id="function-reloadproject">function reloadProject</h3>
+<p><em>Reloads the currently opened project.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::reloadProject () 
+</code></pre>
+<hr>
+
+<h3 id="function-removerecentproject">function removeRecentProject</h3>
+<p><em>Removes a given project</em> <em>path</em> <em>from the recent projects list.</em></p>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::removeRecentProject (
+    const QString &amp; path
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-sendlog">function sendLog</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::sendLog (
+    const QString &amp; message,
+    const QString &amp; cloudUser
+) 
+</code></pre>
+<p>Sends a logs reporting through to sentry when enabled. </p>
+<hr>
+
+<h3 id="function-setscreendimmertimeout">function setScreenDimmerTimeout</h3>
+<pre><code class="language-C++">Q_INVOKABLE void AppInterface::setScreenDimmerTimeout (
+    int timeoutSeconds
+) 
+</code></pre>
+<p>Sets the screen drimmer timeout. Dimming can be disabled by setting the timeout to zero. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>timeoutSeconds</code> timeout in seconds </li>
+</ul>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/appinterface.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProjectsImageProvider" kind="class" language="C++" prot="public">
+    <compoundname>ProjectsImageProvider</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickImageProvider</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classProjectsImageProvider_1a65fc44961058044f8d24bc4093d2d7e0" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ProjectsImageProvider::ProjectsImageProvider</definition>
+        <argsstring>()</argsstring>
+        <name>ProjectsImageProvider</name>
+        <qualifiedname>ProjectsImageProvider::ProjectsImageProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/projectsimageprovider.h" line="27" column="14" bodyfile="src/core/projectsimageprovider.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classProjectsImageProvider_1a55637102c80b66c8809f50d562f81b0a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QQmlImageProviderBase::ImageType</type>
+        <definition>QQmlImageProviderBase::ImageType ProjectsImageProvider::imageType</definition>
+        <argsstring>() const override</argsstring>
+        <name>imageType</name>
+        <qualifiedname>ProjectsImageProvider::imageType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/projectsimageprovider.h" line="29" column="38" bodyfile="src/core/projectsimageprovider.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classProjectsImageProvider_1ac1edf636831122185dc257f629f772ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QImage</type>
+        <definition>QImage ProjectsImageProvider::requestImage</definition>
+        <argsstring>(const QString &amp;id, QSize *size, const QSize &amp;requestedSize) override</argsstring>
+        <name>requestImage</name>
+        <qualifiedname>ProjectsImageProvider::requestImage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>QSize *</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>const QSize &amp;</type>
+          <declname>requestedSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/projectsimageprovider.h" line="30" column="12" bodyfile="src/core/projectsimageprovider.cpp" bodystart="26" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ProjectsImageProvider</label>
+        <link refid="classProjectsImageProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickImageProvider</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProjectsImageProvider</label>
+        <link refid="classProjectsImageProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickImageProvider</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/projectsimageprovider.h" line="24" column="1" bodyfile="src/core/projectsimageprovider.h" bodystart="25" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classProjectsImageProvider_1a55637102c80b66c8809f50d562f81b0a" prot="public" virt="non-virtual"><scope>ProjectsImageProvider</scope><name>imageType</name></member>
+      <member refid="classProjectsImageProvider_1a65fc44961058044f8d24bc4093d2d7e0" prot="public" virt="non-virtual"><scope>ProjectsImageProvider</scope><name>ProjectsImageProvider</name></member>
+      <member refid="classProjectsImageProvider_1ac1edf636831122185dc257f629f772ed" prot="public" virt="non-virtual"><scope>ProjectsImageProvider</scope><name>requestImage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

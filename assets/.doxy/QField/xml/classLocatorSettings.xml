@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLocatorSettings" kind="class" language="C++" prot="public">
+    <compoundname>LocatorSettings</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPopup" prot="public" virt="non-virtual">Theme::QfPopup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classLocatorSettings_1a17b004d22a235e7d76762a905e501fbd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias LocatorSettings::locatorFiltersModel</definition>
+        <argsstring></argsstring>
+        <name>locatorFiltersModel</name>
+        <qualifiedname>LocatorSettings::locatorFiltersModel</qualifiedname>
+        <read>dummyGetter_locatorFiltersModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorSettings.qml" line="13" column="1" bodyfile="src/qml/LocatorSettings.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLocatorSettings_1a91bfb6b4a2c473ce5042326e98ea9170" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LocatorSettings::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>LocatorSettings::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorSettings.qml" line="15" column="5" bodyfile="src/qml/LocatorSettings.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocatorSettings_1ad3851041317d0770ec58b94a67ad0e2b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LocatorSettings::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>LocatorSettings::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorSettings.qml" line="16" column="5" bodyfile="src/qml/LocatorSettings.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocatorSettings_1a95ba3840b99d34c5eb64ea2ff1be8d22" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LocatorSettings::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>LocatorSettings::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorSettings.qml" line="17" column="5" bodyfile="src/qml/LocatorSettings.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocatorSettings_1a86bccad16d27701e01375cda81004c99" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LocatorSettings::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>LocatorSettings::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorSettings.qml" line="18" column="5" bodyfile="src/qml/LocatorSettings.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocatorSettings_1a1d9dfa26483885f6bb56f15528eca1a8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LocatorSettings::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>LocatorSettings::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorSettings.qml" line="19" column="5" bodyfile="src/qml/LocatorSettings.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocatorSettings_1acb3aad9f18d921365417c4473343dd54" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LocatorSettings::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>LocatorSettings::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorSettings.qml" line="20" column="5" bodyfile="src/qml/LocatorSettings.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocatorSettings_1abf60f89ad7baea8c557aaab74eaf4801" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page LocatorSettings::page</definition>
+        <argsstring></argsstring>
+        <name>page</name>
+        <qualifiedname>LocatorSettings::page</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorSettings.qml" line="21" column="6" bodyfile="src/qml/LocatorSettings.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocatorSettings_1a90703d0ba0922b33ac42060f86727645" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView LocatorSettings::locatorfiltersList</definition>
+        <argsstring></argsstring>
+        <name>locatorfiltersList</name>
+        <qualifiedname>LocatorSettings::locatorfiltersList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorSettings.qml" line="22" column="10" bodyfile="src/qml/LocatorSettings.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LocatorSettings</label>
+        <link refid="classLocatorSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LocatorSettings</label>
+        <link refid="classLocatorSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/LocatorSettings.qml" line="10" column="1" bodyfile="src/qml/LocatorSettings.qml" bodystart="10" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classLocatorSettings_1a86bccad16d27701e01375cda81004c99" prot="private" virt="non-virtual"><scope>LocatorSettings</scope><name>closePolicy</name></member>
+      <member refid="classLocatorSettings_1acb3aad9f18d921365417c4473343dd54" prot="private" virt="non-virtual"><scope>LocatorSettings</scope><name>focus</name></member>
+      <member refid="classLocatorSettings_1a90703d0ba0922b33ac42060f86727645" prot="private" virt="non-virtual"><scope>LocatorSettings</scope><name>locatorfiltersList</name></member>
+      <member refid="classLocatorSettings_1a17b004d22a235e7d76762a905e501fbd" prot="public" virt="non-virtual"><scope>LocatorSettings</scope><name>locatorFiltersModel</name></member>
+      <member refid="classLocatorSettings_1abf60f89ad7baea8c557aaab74eaf4801" prot="private" virt="non-virtual"><scope>LocatorSettings</scope><name>page</name></member>
+      <member refid="classLocatorSettings_1a1d9dfa26483885f6bb56f15528eca1a8" prot="private" virt="non-virtual"><scope>LocatorSettings</scope><name>parent</name></member>
+      <member refid="classLocatorSettings_1a91bfb6b4a2c473ce5042326e98ea9170" prot="private" virt="non-virtual"><scope>LocatorSettings</scope><name>width</name></member>
+      <member refid="classLocatorSettings_1ad3851041317d0770ec58b94a67ad0e2b" prot="private" virt="non-virtual"><scope>LocatorSettings</scope><name>x</name></member>
+      <member refid="classLocatorSettings_1a95ba3840b99d34c5eb64ea2ff1be8d22" prot="private" virt="non-virtual"><scope>LocatorSettings</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

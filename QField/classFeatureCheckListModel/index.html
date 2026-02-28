@@ -1,0 +1,2124 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class FeatureCheckListModel - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-featurechecklistmodel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class FeatureCheckListModel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protected-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-addnull-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property addNull [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-allowmulti-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property allowMulti [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-appexpressioncontextscopesgenerator-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property appExpressionContextScopesGenerator [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-attributefield-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property attributeField [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-attributevalue-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property attributeValue [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-currentformfeature-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property currentFormFeature [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-currentlayer-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property currentLayer [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-displaygroupname-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property displayGroupName [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-displayvaluefield-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property displayValueField [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-filterexpression-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property filterExpression [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-groupfield-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property groupField [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-keyfield-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property keyField [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-orderbyvalue-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property orderByValue [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-searchterm-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property searchTerm [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-sortcheckedfirst-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property sortCheckedFirst [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-addnullchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal addNullChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-allowmultichanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal allowMultiChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-appexpressioncontextscopesgeneratorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal appExpressionContextScopesGeneratorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-attributefieldchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal attributeFieldChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-attributevaluechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal attributeValueChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-currentformfeaturechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal currentFormFeatureChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-currentlayerchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal currentLayerChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-displaygroupnamechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal displayGroupNameChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-displayvaluefieldchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal displayValueFieldChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-filterexpressionchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal filterExpressionChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-groupfieldchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal groupFieldChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-keyfieldchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal keyFieldChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-listupdated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal listUpdated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-orderbyvaluechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal orderByValueChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-searchtermchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal searchTermChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-sortcheckedfirstchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal sortCheckedFirstChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-featurechecklistmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function FeatureCheckListModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-addnull-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function addNull [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-allowmulti-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function allowMulti [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-appexpressioncontextscopesgenerator-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function appExpressionContextScopesGenerator [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-attributefield-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function attributeField [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-attributevalue-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function attributeValue [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-currentformfeature-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function currentFormFeature [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-currentlayer-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function currentLayer [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-datafromrowindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function dataFromRowIndex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-displaygroupname-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function displayGroupName [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-displayvaluefield-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function displayValueField [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-filterexpression-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function filterExpression [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-finddisplayvaluematches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function findDisplayValueMatches
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-findkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function findKey
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getfeaturebyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getFeatureById
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getfeaturefromkeyvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getFeatureFromKeyValue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-groupfield-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function groupField [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-keyfield-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function keyField [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-orderbyvalue-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function orderByValue [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-searchterm-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function searchTerm [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setaddnull" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAddNull
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setallowmulti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAllowMulti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setappexpressioncontextscopesgenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAppExpressionContextScopesGenerator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setattributefield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAttributeField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setattributevalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAttributeValue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcurrentformfeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCurrentFormFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcurrentlayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCurrentLayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdisplaygroupname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDisplayGroupName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdisplayvaluefield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDisplayValueField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setfilterexpression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setFilterExpression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setgroupfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setGroupField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setkeyfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setKeyField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setorderbyvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOrderByValue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setsearchterm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setSearchTerm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setsortcheckedfirst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setSortCheckedFirst
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-sortcheckedfirst-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function sortCheckedFirst [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-togglecheckall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function toggleCheckAll
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protected-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protected Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-filteracceptsrow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function filterAcceptsRow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lessthan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function lessThan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-featurechecklistmodel">Class FeatureCheckListModel</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>FeatureCheckListModel</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;featurechecklistmodel.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QSortFilterProxyModel</p>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-addnull-12"><strong>addNull</strong></a>  <br><em>Set to TRUE if null values are allowed in the list.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-allowmulti-12"><strong>allowMulti</strong></a>  <br><em>The attribute field to have information about type (JSON/HSTORE) etc.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classAppExpressionContextScopesGenerator/"><strong>AppExpressionContextScopesGenerator</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-appexpressioncontextscopesgenerator-12"><strong>appExpressionContextScopesGenerator</strong></a>  <br><em>The application expression context scope generator used when filtering by expression.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsField</td>
+<td style="text-align: left;"><a href="./#property-attributefield-12"><strong>attributeField</strong></a>  <br><em>The attribute field to have information about type (JSON/HSTORE) etc.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QVariant</td>
+<td style="text-align: left;"><a href="./#property-attributevalue-12"><strong>attributeValue</strong></a>  <br><em>The attribute value to generate checklist.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsFeature</td>
+<td style="text-align: left;"><a href="./#property-currentformfeature-12"><strong>currentFormFeature</strong></a>  <br><em>The current form feature, used to evaluate expressions such as</em>  <em>current_value('attr1</em> <em>)`.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsVectorLayer *</td>
+<td style="text-align: left;"><a href="./#property-currentlayer-12"><strong>currentLayer</strong></a>  <br><em>The vector layer to list.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-displaygroupname-12"><strong>displayGroupName</strong></a>  <br><em>Set to TRUE if the group name will be displayed in the list.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-displayvaluefield-12"><strong>displayValueField</strong></a>  <br><em>The display value field.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-filterexpression-12"><strong>filterExpression</strong></a>  <br><em>Expression to filter features with. Empty string if no filter is applied.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-groupfield-12"><strong>groupField</strong></a>  <br><em>The grouping key field.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-keyfield-12"><strong>keyField</strong></a>  <br><em>The primary key field.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-orderbyvalue-12"><strong>orderByValue</strong></a>  <br><em>Set to TRUE if features should be ordered by value.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-searchterm-12"><strong>searchTerm</strong></a>  <br><em>The current search term used to filter items.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-sortcheckedfirst-12"><strong>sortCheckedFirst</strong></a>  <br><em>The sorting method.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-addnullchanged"><strong>addNullChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-allowmultichanged"><strong>allowMultiChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-appexpressioncontextscopesgeneratorchanged"><strong>appExpressionContextScopesGeneratorChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-attributefieldchanged"><strong>attributeFieldChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-attributevaluechanged"><strong>attributeValueChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-currentformfeaturechanged"><strong>currentFormFeatureChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-currentlayerchanged"><strong>currentLayerChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-displaygroupnamechanged"><strong>displayGroupNameChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-displayvaluefieldchanged"><strong>displayValueFieldChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-filterexpressionchanged"><strong>filterExpressionChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-groupfieldchanged"><strong>groupFieldChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-keyfieldchanged"><strong>keyFieldChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-listupdated"><strong>listUpdated</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-orderbyvaluechanged"><strong>orderByValueChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-searchtermchanged"><strong>searchTermChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-sortcheckedfirstchanged"><strong>sortCheckedFirstChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-featurechecklistmodel"><strong>FeatureCheckListModel</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-addnull-22"><strong>addNull</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-allowmulti-22"><strong>allowMulti</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classAppExpressionContextScopesGenerator/"><strong>AppExpressionContextScopesGenerator</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-appexpressioncontextscopesgenerator-22"><strong>appExpressionContextScopesGenerator</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsField</td>
+<td style="text-align: left;"><a href="#function-attributefield-22"><strong>attributeField</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVariant</td>
+<td style="text-align: left;"><a href="#function-attributevalue-22"><strong>attributeValue</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsFeature</td>
+<td style="text-align: left;"><a href="#function-currentformfeature-22"><strong>currentFormFeature</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsVectorLayer *</td>
+<td style="text-align: left;"><a href="#function-currentlayer-22"><strong>currentLayer</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QVariant</td>
+<td style="text-align: left;"><a href="#function-datafromrowindex"><strong>dataFromRowIndex</strong></a> (int row, int role) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-displaygroupname-22"><strong>displayGroupName</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-displayvaluefield-22"><strong>displayValueField</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-filterexpression-22"><strong>filterExpression</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QList&lt; int &gt;</td>
+<td style="text-align: left;"><a href="#function-finddisplayvaluematches"><strong>findDisplayValueMatches</strong></a> (const QString &amp; filter) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE int</td>
+<td style="text-align: left;"><a href="#function-findkey"><strong>findKey</strong></a> (const QVariant &amp; key) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsFeature</td>
+<td style="text-align: left;"><a href="#function-getfeaturebyid"><strong>getFeatureById</strong></a> (QgsFeatureId id) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsFeature</td>
+<td style="text-align: left;"><a href="#function-getfeaturefromkeyvalue"><strong>getFeatureFromKeyValue</strong></a> (const QVariant &amp; value) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-groupfield-22"><strong>groupField</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-keyfield-22"><strong>keyField</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-orderbyvalue-22"><strong>orderByValue</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-searchterm-22"><strong>searchTerm</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setaddnull"><strong>setAddNull</strong></a> (bool addNull) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setallowmulti"><strong>setAllowMulti</strong></a> (bool allowMulti) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setappexpressioncontextscopesgenerator"><strong>setAppExpressionContextScopesGenerator</strong></a> (<a href="../classAppExpressionContextScopesGenerator/"><strong>AppExpressionContextScopesGenerator</strong></a> * generator) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setattributefield"><strong>setAttributeField</strong></a> (const QgsField &amp; field) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setattributevalue"><strong>setAttributeValue</strong></a> (const QVariant &amp; attributeValue) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcurrentformfeature"><strong>setCurrentFormFeature</strong></a> (const QgsFeature &amp; feature) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcurrentlayer"><strong>setCurrentLayer</strong></a> (QgsVectorLayer * currentLayer) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdisplaygroupname"><strong>setDisplayGroupName</strong></a> (bool displayGroupName) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdisplayvaluefield"><strong>setDisplayValueField</strong></a> (const QString &amp; displayValueField) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setfilterexpression"><strong>setFilterExpression</strong></a> (const QString &amp; filterExpression) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setgroupfield"><strong>setGroupField</strong></a> (const QString &amp; groupField) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setkeyfield"><strong>setKeyField</strong></a> (const QString &amp; keyField) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setorderbyvalue"><strong>setOrderByValue</strong></a> (bool orderByValue) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setsearchterm"><strong>setSearchTerm</strong></a> (const QString &amp; searchTerm) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setsortcheckedfirst"><strong>setSortCheckedFirst</strong></a> (bool enabled) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-sortcheckedfirst-22"><strong>sortCheckedFirst</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-togglecheckall"><strong>toggleCheckAll</strong></a> (bool toggleChecked=true) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="protected-functions">Protected Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-filteracceptsrow"><strong>filterAcceptsRow</strong></a> (int sourceRow, const QModelIndex &amp; sourceParent) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-lessthan"><strong>lessThan</strong></a> (const QModelIndex &amp; left, const QModelIndex &amp; right) override const<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>A proxy model for filtering and sorting feature checklist items.</p>
+<p>This model enhances a source model (typically a <a href="./"><strong>FeatureCheckListModel</strong></a>) by allowing:
+* Text-based filtering using a search term.
+* Optional sorting that prioritizes checked items.
+* Fuzzy and prefix-based matching for search refinement.</p>
+<p>Used in UI contexts where users interact with large lists of features and need to quickly find and sort items by name or selection state. </p>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-addnull-12">property addNull [1/2]</h3>
+<p><em>Set to TRUE if null values are allowed in the list.</em> </p>
+<pre><code class="language-C++">bool FeatureCheckListModel::addNull;
+</code></pre>
+<hr>
+
+<h3 id="property-allowmulti-12">property allowMulti [1/2]</h3>
+<p><em>The attribute field to have information about type (JSON/HSTORE) etc.</em> </p>
+<pre><code class="language-C++">bool FeatureCheckListModel::allowMulti;
+</code></pre>
+<hr>
+
+<h3 id="property-appexpressioncontextscopesgenerator-12">property appExpressionContextScopesGenerator [1/2]</h3>
+<p><em>The application expression context scope generator used when filtering by expression.</em> </p>
+<pre><code class="language-C++">AppExpressionContextScopesGenerator * FeatureCheckListModel::appExpressionContextScopesGenerator;
+</code></pre>
+<hr>
+
+<h3 id="property-attributefield-12">property attributeField [1/2]</h3>
+<p><em>The attribute field to have information about type (JSON/HSTORE) etc.</em> </p>
+<pre><code class="language-C++">QgsField FeatureCheckListModel::attributeField;
+</code></pre>
+<hr>
+
+<h3 id="property-attributevalue-12">property attributeValue [1/2]</h3>
+<p><em>The attribute value to generate checklist.</em> </p>
+<pre><code class="language-C++">QVariant FeatureCheckListModel::attributeValue;
+</code></pre>
+<hr>
+
+<h3 id="property-currentformfeature-12">property currentFormFeature [1/2]</h3>
+<p><em>The current form feature, used to evaluate expressions such as</em>  <em>current_value('attr1</em> <em>)`.</em></p>
+<pre><code class="language-C++">QgsFeature FeatureCheckListModel::currentFormFeature;
+</code></pre>
+<hr>
+
+<h3 id="property-currentlayer-12">property currentLayer [1/2]</h3>
+<p><em>The vector layer to list.</em> </p>
+<pre><code class="language-C++">QgsVectorLayer * FeatureCheckListModel::currentLayer;
+</code></pre>
+<hr>
+
+<h3 id="property-displaygroupname-12">property displayGroupName [1/2]</h3>
+<p><em>Set to TRUE if the group name will be displayed in the list.</em> </p>
+<pre><code class="language-C++">bool FeatureCheckListModel::displayGroupName;
+</code></pre>
+<hr>
+
+<h3 id="property-displayvaluefield-12">property displayValueField [1/2]</h3>
+<p><em>The display value field.</em> </p>
+<pre><code class="language-C++">QString FeatureCheckListModel::displayValueField;
+</code></pre>
+<hr>
+
+<h3 id="property-filterexpression-12">property filterExpression [1/2]</h3>
+<p><em>Expression to filter features with. Empty string if no filter is applied.</em> </p>
+<pre><code class="language-C++">QString FeatureCheckListModel::filterExpression;
+</code></pre>
+<hr>
+
+<h3 id="property-groupfield-12">property groupField [1/2]</h3>
+<p><em>The grouping key field.</em> </p>
+<pre><code class="language-C++">QString FeatureCheckListModel::groupField;
+</code></pre>
+<hr>
+
+<h3 id="property-keyfield-12">property keyField [1/2]</h3>
+<p><em>The primary key field.</em> </p>
+<pre><code class="language-C++">QString FeatureCheckListModel::keyField;
+</code></pre>
+<hr>
+
+<h3 id="property-orderbyvalue-12">property orderByValue [1/2]</h3>
+<p><em>Set to TRUE if features should be ordered by value.</em> </p>
+<pre><code class="language-C++">bool FeatureCheckListModel::orderByValue;
+</code></pre>
+<hr>
+
+<h3 id="property-searchterm-12">property searchTerm [1/2]</h3>
+<p><em>The current search term used to filter items.</em> </p>
+<pre><code class="language-C++">QString FeatureCheckListModel::searchTerm;
+</code></pre>
+<hr>
+
+<h3 id="property-sortcheckedfirst-12">property sortCheckedFirst [1/2]</h3>
+<p><em>The sorting method.</em> </p>
+<pre><code class="language-C++">bool FeatureCheckListModel::sortCheckedFirst;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-addnullchanged">signal addNullChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::addNullChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-allowmultichanged">signal allowMultiChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::allowMultiChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-appexpressioncontextscopesgeneratorchanged">signal appExpressionContextScopesGeneratorChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::appExpressionContextScopesGeneratorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-attributefieldchanged">signal attributeFieldChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::attributeFieldChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-attributevaluechanged">signal attributeValueChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::attributeValueChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-currentformfeaturechanged">signal currentFormFeatureChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::currentFormFeatureChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-currentlayerchanged">signal currentLayerChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::currentLayerChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-displaygroupnamechanged">signal displayGroupNameChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::displayGroupNameChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-displayvaluefieldchanged">signal displayValueFieldChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::displayValueFieldChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-filterexpressionchanged">signal filterExpressionChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::filterExpressionChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-groupfieldchanged">signal groupFieldChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::groupFieldChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-keyfieldchanged">signal keyFieldChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::keyFieldChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-listupdated">signal listUpdated</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::listUpdated;
+</code></pre>
+<hr>
+
+<h3 id="signal-orderbyvaluechanged">signal orderByValueChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::orderByValueChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-searchtermchanged">signal searchTermChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::searchTermChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-sortcheckedfirstchanged">signal sortCheckedFirstChanged</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::sortCheckedFirstChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-featurechecklistmodel">function FeatureCheckListModel</h3>
+<pre><code class="language-C++">explicit FeatureCheckListModel::FeatureCheckListModel (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-addnull-22">function addNull [2/2]</h3>
+<pre><code class="language-C++">bool FeatureCheckListModel::addNull () const
+</code></pre>
+<p>Add a NULL value as the first entry. </p>
+<hr>
+
+<h3 id="function-allowmulti-22">function allowMulti [2/2]</h3>
+<pre><code class="language-C++">bool FeatureCheckListModel::allowMulti () const
+</code></pre>
+<p>Whether multiple selected items are allowed </p>
+<hr>
+
+<h3 id="function-appexpressioncontextscopesgenerator-22">function appExpressionContextScopesGenerator [2/2]</h3>
+<pre><code class="language-C++">AppExpressionContextScopesGenerator * FeatureCheckListModel::appExpressionContextScopesGenerator () const
+</code></pre>
+<p>Returns the application expression context scope generator used when filtering by expression </p>
+<hr>
+
+<h3 id="function-attributefield-22">function attributeField [2/2]</h3>
+<pre><code class="language-C++">QgsField FeatureCheckListModel::attributeField () const
+</code></pre>
+<p>the current attribute field </p>
+<hr>
+
+<h3 id="function-attributevalue-22">function attributeValue [2/2]</h3>
+<pre><code class="language-C++">QVariant FeatureCheckListModel::attributeValue () const
+</code></pre>
+<p>the attribute value. A QVariantList or an hstore formatted string, depending on the field type. </p>
+<hr>
+
+<h3 id="function-currentformfeature-22">function currentFormFeature [2/2]</h3>
+<pre><code class="language-C++">QgsFeature FeatureCheckListModel::currentFormFeature () const
+</code></pre>
+<p>The current form feature, used to evaluate expressions such as current_value('attr1)` </p>
+<hr>
+
+<h3 id="function-currentlayer-22">function currentLayer [2/2]</h3>
+<pre><code class="language-C++">QgsVectorLayer * FeatureCheckListModel::currentLayer () const
+</code></pre>
+<hr>
+
+<h3 id="function-datafromrowindex">function dataFromRowIndex</h3>
+<pre><code class="language-C++">inline Q_INVOKABLE QVariant FeatureCheckListModel::dataFromRowIndex (
+    int row,
+    int role
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-displaygroupname-22">function displayGroupName [2/2]</h3>
+<pre><code class="language-C++">bool FeatureCheckListModel::displayGroupName () const
+</code></pre>
+<hr>
+
+<h3 id="function-displayvaluefield-22">function displayValueField [2/2]</h3>
+<pre><code class="language-C++">QString FeatureCheckListModel::displayValueField () const
+</code></pre>
+<hr>
+
+<h3 id="function-filterexpression-22">function filterExpression [2/2]</h3>
+<pre><code class="language-C++">QString FeatureCheckListModel::filterExpression () const
+</code></pre>
+<p>Expression to filter features with. Empty string if no filter is applied. </p>
+<hr>
+
+<h3 id="function-finddisplayvaluematches">function findDisplayValueMatches</h3>
+<pre><code class="language-C++">Q_INVOKABLE QList&lt; int &gt; FeatureCheckListModel::findDisplayValueMatches (
+    const QString &amp; filter
+) const
+</code></pre>
+<p>Get rows for a given filter string used to match display values. </p>
+<hr>
+
+<h3 id="function-findkey">function findKey</h3>
+<pre><code class="language-C++">Q_INVOKABLE int FeatureCheckListModel::findKey (
+    const QVariant &amp; key
+) const
+</code></pre>
+<p>Get the row for a given key value. </p>
+<hr>
+
+<h3 id="function-getfeaturebyid">function getFeatureById</h3>
+<pre><code class="language-C++">Q_INVOKABLE QgsFeature FeatureCheckListModel::getFeatureById (
+    QgsFeatureId id
+) const
+</code></pre>
+<p>Returns the first feature matching the feature <em>id</em>. </p>
+<hr>
+
+<h3 id="function-getfeaturefromkeyvalue">function getFeatureFromKeyValue</h3>
+<pre><code class="language-C++">Q_INVOKABLE QgsFeature FeatureCheckListModel::getFeatureFromKeyValue (
+    const QVariant &amp; value
+) const
+</code></pre>
+<p>Returns the first feature matching the key <em>value</em>. </p>
+<hr>
+
+<h3 id="function-groupfield-22">function groupField [2/2]</h3>
+<pre><code class="language-C++">QString FeatureCheckListModel::groupField () const
+</code></pre>
+<hr>
+
+<h3 id="function-keyfield-22">function keyField [2/2]</h3>
+<pre><code class="language-C++">QString FeatureCheckListModel::keyField () const
+</code></pre>
+<hr>
+
+<h3 id="function-orderbyvalue-22">function orderByValue [2/2]</h3>
+<pre><code class="language-C++">bool FeatureCheckListModel::orderByValue () const
+</code></pre>
+<p>Orders all the values alphabethically by their displayString. </p>
+<hr>
+
+<h3 id="function-searchterm-22">function searchTerm [2/2]</h3>
+<pre><code class="language-C++">QString FeatureCheckListModel::searchTerm () const
+</code></pre>
+<p>Returns the current search term used to filter items. </p>
+<hr>
+
+<h3 id="function-setaddnull">function setAddNull</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setAddNull (
+    bool addNull
+) 
+</code></pre>
+<p>Add a NULL value as the first entry. </p>
+<hr>
+
+<h3 id="function-setallowmulti">function setAllowMulti</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setAllowMulti (
+    bool allowMulti
+) 
+</code></pre>
+<p>Sets whether multiple selected items are allowed </p>
+<hr>
+
+<h3 id="function-setappexpressioncontextscopesgenerator">function setAppExpressionContextScopesGenerator</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setAppExpressionContextScopesGenerator (
+    AppExpressionContextScopesGenerator * generator
+) 
+</code></pre>
+<p>Sets the application expression context scope generator used when filtering by expression </p>
+<hr>
+
+<h3 id="function-setattributefield">function setAttributeField</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setAttributeField (
+    const QgsField &amp; field
+) 
+</code></pre>
+<p>the current attribute field </p>
+<hr>
+
+<h3 id="function-setattributevalue">function setAttributeValue</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setAttributeValue (
+    const QVariant &amp; attributeValue
+) 
+</code></pre>
+<p>the attribute value. A QVariantList or an hstore formatted string, depending on the field type. </p>
+<hr>
+
+<h3 id="function-setcurrentformfeature">function setCurrentFormFeature</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setCurrentFormFeature (
+    const QgsFeature &amp; feature
+) 
+</code></pre>
+<p>Sets the current form feature, used to evaluate expressions such as current_value('attr1)` </p>
+<hr>
+
+<h3 id="function-setcurrentlayer">function setCurrentLayer</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setCurrentLayer (
+    QgsVectorLayer * currentLayer
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdisplaygroupname">function setDisplayGroupName</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setDisplayGroupName (
+    bool displayGroupName
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdisplayvaluefield">function setDisplayValueField</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setDisplayValueField (
+    const QString &amp; displayValueField
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setfilterexpression">function setFilterExpression</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setFilterExpression (
+    const QString &amp; filterExpression
+) 
+</code></pre>
+<p>Sets an expression to filter features with. Empty string if no filter is applied. </p>
+<hr>
+
+<h3 id="function-setgroupfield">function setGroupField</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setGroupField (
+    const QString &amp; groupField
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setkeyfield">function setKeyField</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setKeyField (
+    const QString &amp; keyField
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setorderbyvalue">function setOrderByValue</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setOrderByValue (
+    bool orderByValue
+) 
+</code></pre>
+<p>Orders all the values alphabethically by their displayString. </p>
+<hr>
+
+<h3 id="function-setsearchterm">function setSearchTerm</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setSearchTerm (
+    const QString &amp; searchTerm
+) 
+</code></pre>
+<p>Sets the search term for filtering and updates the filter. </p>
+<hr>
+
+<h3 id="function-setsortcheckedfirst">function setSortCheckedFirst</h3>
+<pre><code class="language-C++">void FeatureCheckListModel::setSortCheckedFirst (
+    bool enabled
+) 
+</code></pre>
+<p>Enables or disables sorting checked items first. </p>
+<hr>
+
+<h3 id="function-sortcheckedfirst-22">function sortCheckedFirst [2/2]</h3>
+<pre><code class="language-C++">bool FeatureCheckListModel::sortCheckedFirst () const
+</code></pre>
+<p>Returns whether checked items are sorted to the top. </p>
+<hr>
+
+<h3 id="function-togglecheckall">function toggleCheckAll</h3>
+<pre><code class="language-C++">Q_INVOKABLE void FeatureCheckListModel::toggleCheckAll (
+    bool toggleChecked=true
+) 
+</code></pre>
+<p>Sets all element to either checked or unchecked state, depending on <em>toggleChecked</em> </p>
+<hr>
+<h2 id="protected-functions-documentation">Protected Functions Documentation</h2>
+<h3 id="function-filteracceptsrow">function filterAcceptsRow</h3>
+<pre><code class="language-C++">bool FeatureCheckListModel::filterAcceptsRow (
+    int sourceRow,
+    const QModelIndex &amp; sourceParent
+) override const
+</code></pre>
+<p>Determines whether a row should be accepted based on the current filter settings. Checks if the data in the row matches the current search term. </p>
+<hr>
+
+<h3 id="function-lessthan">function lessThan</h3>
+<pre><code class="language-C++">bool FeatureCheckListModel::lessThan (
+    const QModelIndex &amp; left,
+    const QModelIndex &amp; right
+) override const
+</code></pre>
+<p>Compares two items for sorting in the feature check list.</p>
+<p>Sorting priority:
+* Null placeholder (if <a href="./#property-addnull-12"><strong>addNull()</strong></a> is enabled).
+* Grouping by <a href="./#property-groupfield-12"><strong>groupField()</strong></a> (empty groups first, then alphabetically).
+* Checked-first (if mSortCheckedFirst is enabled and no search term).
+* Search relevance (startsWith + fuzzy score if search term is active).
+* Value-based alphabetical ordering (if <a href="./#property-orderbyvalue-12"><strong>orderByValue()</strong></a> is enabled).
+* Key-based fallback (empty keys first, then alphabetically by key).</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>left</code> The model index of the left item. </li>
+<li><code>right</code> The model index of the right item. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>True if the left item should appear before the right item. </p>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/featurechecklistmodel.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

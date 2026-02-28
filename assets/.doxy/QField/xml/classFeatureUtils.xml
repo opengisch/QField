@@ -1,0 +1,399 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureUtils" kind="class" language="C++" prot="public">
+    <compoundname>FeatureUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02" prot="public" static="no" strong="no">
+        <type></type>
+        <name>FieldType</name>
+        <qualifiedname>FeatureUtils::FieldType</qualifiedname>
+        <enumvalue id="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02a5d4a33882ff595276dbcd2e834ef08d6" prot="public">
+          <name>Bool</name>
+          <initializer>= QMetaType::Type::Bool</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02a19b900cdf53de7b5f9afc2db15fa098a" prot="public">
+          <name>Int</name>
+          <initializer>= QMetaType::Type::Int</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02a5f315a538e41c700c5de17730a33d141" prot="public">
+          <name>String</name>
+          <initializer>= QMetaType::Type::QString</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02a0c8e7b06d5b19281aaa68b8f13aee4a7" prot="public">
+          <name>Double</name>
+          <initializer>= QMetaType::Type::Double</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02ac01d5e51c7d8dc10ff595a1f605d155b" prot="public">
+          <name>Date</name>
+          <initializer>= QMetaType::Type::QDate</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02ad0391e69ee996c8227fd84509ff919a3" prot="public">
+          <name>DateTime</name>
+          <initializer>= QMetaType::Type::QDateTime</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02a9a16f979414beb84eeb5ad9746d98842" prot="public">
+          <name>Time</name>
+          <initializer>= QMetaType::Type::QTime</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/featureutils.h" line="37" column="5" bodyfile="src/core/utils/featureutils.h" bodystart="38" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFeatureUtils_1a888fe240fc4407bb506d916176133f28" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FeatureUtils::FeatureUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>FeatureUtils</name>
+        <qualifiedname>FeatureUtils::FeatureUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/featureutils.h" line="49" column="14" bodyfile="src/core/utils/featureutils.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classFeatureUtils_1ab39e280b511482b2e2b57e05ceed082f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsFeature</type>
+        <definition>QgsFeature FeatureUtils::createBlankFeature</definition>
+        <argsstring>(const QgsFields &amp;fields=QgsFields(), const QgsGeometry &amp;geometry=QgsGeometry())</argsstring>
+        <name>createBlankFeature</name>
+        <qualifiedname>FeatureUtils::createBlankFeature</qualifiedname>
+        <param>
+          <type>const QgsFields &amp;</type>
+          <declname>fields</declname>
+          <defval>QgsFields()</defval>
+        </param>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+          <defval>QgsGeometry()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a new feature with its <emphasis>fields</emphasis> completely blank. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/featureutils.h" line="54" column="35" bodyfile="src/core/utils/featureutils.cpp" bodystart="33" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureUtils_1a258c8fc78efec74730b2a0e5d5abbf04" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsFeature</type>
+        <definition>QgsFeature FeatureUtils::createFeature</definition>
+        <argsstring>(QgsVectorLayer *layer, const QgsGeometry &amp;geometry=QgsGeometry(), const GnssPositionInformation &amp;positionInformation=GnssPositionInformation(), const CloudUserInformation &amp;cloudUserInformation=CloudUserInformation())</argsstring>
+        <name>createFeature</name>
+        <qualifiedname>FeatureUtils::createFeature</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+          <defval>QgsGeometry()</defval>
+        </param>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+          <defval><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>()</defval>
+        </param>
+        <param>
+          <type>const <ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref> &amp;</type>
+          <declname>cloudUserInformation</declname>
+          <defval><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a new feature with its fields set to default values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/featureutils.h" line="59" column="35" bodyfile="src/core/utils/featureutils.cpp" bodystart="40" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureUtils_1a4276632074eafd34481f4f46d676a91b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString FeatureUtils::displayName</definition>
+        <argsstring>(QgsVectorLayer *layer, const QgsFeature &amp;feature)</argsstring>
+        <name>displayName</name>
+        <qualifiedname>FeatureUtils::displayName</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the display name of a given feature. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector layer containing the feature </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature to be named </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/featureutils.h" line="66" column="32" bodyfile="src/core/utils/featureutils.cpp" bodystart="60" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureUtils_1a7b3fd928784c1b9e69b1925e187768c0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsRectangle</type>
+        <definition>QgsRectangle FeatureUtils::extent</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &amp;feature)</argsstring>
+        <name>extent</name>
+        <qualifiedname>FeatureUtils::extent</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the map extent encompassig a given feature. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mapSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the map settings used to determine the CRS </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector layer containing the feature </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature from which the geometry will be used </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a QgsRectangle extent </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/featureutils.h" line="75" column="37" bodyfile="src/core/utils/featureutils.cpp" bodystart="78" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureUtils_1a65110deec9a90eec8e8db5c2ebbe78d0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QList&lt; QgsFeature &gt;</type>
+        <definition>QList&lt; QgsFeature &gt; FeatureUtils::featuresFromJsonString</definition>
+        <argsstring>(const QString &amp;string)</argsstring>
+        <name>featuresFromJsonString</name>
+        <qualifiedname>FeatureUtils::featuresFromJsonString</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of features while attempting to parse a GeoJSON <emphasis>string</emphasis>. If the string could not be parsed, an enmpty list will be returned. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/featureutils.h" line="81" column="30" bodyfile="src/core/utils/featureutils.cpp" bodystart="112" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureUtils_1a6c75fb86452d71e8bde36ced067e258a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsField</type>
+        <definition>QgsField FeatureUtils::createField</definition>
+        <argsstring>(const QString &amp;name, FieldType type, const QString &amp;typeName=QString(), int length=0, int precision=0, const QString &amp;comment=QString())</argsstring>
+        <name>createField</name>
+        <qualifiedname>FeatureUtils::createField</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>FieldType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>typeName</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>precision</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>comment</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a new a field gadget. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/featureutils.h" line="86" column="33" bodyfile="src/core/utils/featureutils.cpp" bodystart="118" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureUtils_1ac0a57bcfeb0b657d17b93a036f1859b4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsFields</type>
+        <definition>QgsFields FeatureUtils::createFields</definition>
+        <argsstring>(const QList&lt; QgsField &gt; &amp;fields)</argsstring>
+        <name>createFields</name>
+        <qualifiedname>FeatureUtils::createFields</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsField &gt; &amp;</type>
+          <declname>fields</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a new a fields gadget. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/featureutils.h" line="91" column="34" bodyfile="src/core/utils/featureutils.cpp" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureUtils_1a888d710e8bc3381f939a3c112cccfd93" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FeatureUtils::attributeIsNull</definition>
+        <argsstring>(const QVariant &amp;value)</argsstring>
+        <name>attributeIsNull</name>
+        <qualifiedname>FeatureUtils::attributeIsNull</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if an attribute value is null. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/featureutils.h" line="96" column="29" bodyfile="src/core/utils/featureutils.cpp" bodystart="128" bodyend="131"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureUtils</label>
+        <link refid="classFeatureUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureUtils</label>
+        <link refid="classFeatureUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/featureutils.h" line="33" column="1" bodyfile="src/core/utils/featureutils.h" bodystart="34" bodyend="97"/>
+    <listofallmembers>
+      <member refid="classFeatureUtils_1a888d710e8bc3381f939a3c112cccfd93" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>attributeIsNull</name></member>
+      <member refid="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02a5d4a33882ff595276dbcd2e834ef08d6" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>Bool</name></member>
+      <member refid="classFeatureUtils_1ab39e280b511482b2e2b57e05ceed082f" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>createBlankFeature</name></member>
+      <member refid="classFeatureUtils_1a258c8fc78efec74730b2a0e5d5abbf04" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>createFeature</name></member>
+      <member refid="classFeatureUtils_1a6c75fb86452d71e8bde36ced067e258a" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>createField</name></member>
+      <member refid="classFeatureUtils_1ac0a57bcfeb0b657d17b93a036f1859b4" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>createFields</name></member>
+      <member refid="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02ac01d5e51c7d8dc10ff595a1f605d155b" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>Date</name></member>
+      <member refid="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02ad0391e69ee996c8227fd84509ff919a3" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>DateTime</name></member>
+      <member refid="classFeatureUtils_1a4276632074eafd34481f4f46d676a91b" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>displayName</name></member>
+      <member refid="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02a0c8e7b06d5b19281aaa68b8f13aee4a7" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>Double</name></member>
+      <member refid="classFeatureUtils_1a7b3fd928784c1b9e69b1925e187768c0" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>extent</name></member>
+      <member refid="classFeatureUtils_1a65110deec9a90eec8e8db5c2ebbe78d0" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>featuresFromJsonString</name></member>
+      <member refid="classFeatureUtils_1a888fe240fc4407bb506d916176133f28" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>FeatureUtils</name></member>
+      <member refid="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>FieldType</name></member>
+      <member refid="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02a19b900cdf53de7b5f9afc2db15fa098a" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>Int</name></member>
+      <member refid="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02a5f315a538e41c700c5de17730a33d141" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>String</name></member>
+      <member refid="classFeatureUtils_1a55368aa02ba564231d55591505f9ba02a9a16f979414beb84eeb5ad9746d98842" prot="public" virt="non-virtual"><scope>FeatureUtils</scope><name>Time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

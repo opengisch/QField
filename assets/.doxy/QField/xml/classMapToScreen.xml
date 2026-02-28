@@ -1,0 +1,486 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMapToScreen" kind="class" language="C++" prot="public">
+    <compoundname>MapToScreen</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="maptoscreen_8h" local="no">maptoscreen.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classMapToScreen_1a133bcd179885ffac3359519b6b434771" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * MapToScreen::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>MapToScreen::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="36" column="5" bodyfile="src/core/maptoscreen.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapToScreen_1a251267af2e69a14ec7f11efd1416c1d2" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint MapToScreen::mapPoint</definition>
+        <argsstring></argsstring>
+        <name>mapPoint</name>
+        <qualifiedname>MapToScreen::mapPoint</qualifiedname>
+        <read>mapPoint</read>
+        <write>setMapPoint</write>
+        <briefdescription>
+<para>the point in map coordinates </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="38" column="5" bodyfile="src/core/maptoscreen.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapToScreen_1a519167ce4efe05aa8f327215560f4740" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double MapToScreen::mapDistance</definition>
+        <argsstring></argsstring>
+        <name>mapDistance</name>
+        <qualifiedname>MapToScreen::mapDistance</qualifiedname>
+        <read>mapDistance</read>
+        <write>setMapDistance</write>
+        <briefdescription>
+<para>the distance in map unit </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="40" column="5" bodyfile="src/core/maptoscreen.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapToScreen_1a1661403690411f599e97bafdaa3ab8a7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QPointF</type>
+        <definition>QPointF MapToScreen::screenPoint</definition>
+        <argsstring></argsstring>
+        <name>screenPoint</name>
+        <qualifiedname>MapToScreen::screenPoint</qualifiedname>
+        <read>screenPoint</read>
+        <briefdescription>
+<para>the point in screen coordinates (read-only) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="42" column="5" bodyfile="src/core/maptoscreen.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapToScreen_1aad949e25feeefd8ba1ee7e0156ae80ea" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double MapToScreen::screenDistance</definition>
+        <argsstring></argsstring>
+        <name>screenDistance</name>
+        <qualifiedname>MapToScreen::screenDistance</qualifiedname>
+        <read>screenDistance</read>
+        <briefdescription>
+<para>the distance in screen coordinates (read-only) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="44" column="5" bodyfile="src/core/maptoscreen.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMapToScreen_1a13256d3a0ec6a85d101637e2a8da8ece" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* MapToScreen::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>MapToScreen::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="87" column="25" bodyfile="src/core/maptoscreen.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapToScreen_1a6d1de36a2bb94a418ce270b0d167cc00" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint MapToScreen::mMapPoint</definition>
+        <argsstring></argsstring>
+        <name>mMapPoint</name>
+        <qualifiedname>MapToScreen::mMapPoint</qualifiedname>
+        <initializer>= QgsPoint()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="88" column="14" bodyfile="src/core/maptoscreen.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapToScreen_1a2cba8937bb52ec341abe7d0b61196e94" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MapToScreen::mMapDistance</definition>
+        <argsstring></argsstring>
+        <name>mMapDistance</name>
+        <qualifiedname>MapToScreen::mMapDistance</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="89" column="12" bodyfile="src/core/maptoscreen.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapToScreen_1acfe6b2f0abc90f932c476ac25d51abab" prot="private" static="no" mutable="no">
+        <type>QPointF</type>
+        <definition>QPointF MapToScreen::mScreenPoint</definition>
+        <argsstring></argsstring>
+        <name>mScreenPoint</name>
+        <qualifiedname>MapToScreen::mScreenPoint</qualifiedname>
+        <initializer>= QPointF()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="90" column="13" bodyfile="src/core/maptoscreen.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapToScreen_1acbed816c886fa41e3a35a7fdf6fc1948" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MapToScreen::mScreenDistance</definition>
+        <argsstring></argsstring>
+        <name>mScreenDistance</name>
+        <qualifiedname>MapToScreen::mScreenDistance</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="91" column="12" bodyfile="src/core/maptoscreen.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMapToScreen_1a1ee4d660ccd919b1a56b4e6925e7d88b" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MapToScreen::MapToScreen</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>MapToScreen</name>
+        <qualifiedname>MapToScreen::MapToScreen</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="47" column="14" bodyfile="src/core/maptoscreen.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToScreen_1a125ec4349bcb9b1c0444c15631a400f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToScreen::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>MapToScreen::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="50" column="10" bodyfile="src/core/maptoscreen.cpp" bodystart="24" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToScreen_1ac38cdf101c6b2ea7d963f0c5e71b2d11" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * MapToScreen::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>MapToScreen::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="52" column="25" bodyfile="src/core/maptoscreen.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToScreen_1af3e7d1e9a96ebc6b407b4b31211a07fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToScreen::setMapPoint</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>setMapPoint</name>
+        <qualifiedname>MapToScreen::setMapPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+<para>the point in map coordinates   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="55" column="10" bodyfile="src/core/maptoscreen.cpp" bodystart="53" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToScreen_1a516e35faae7be31a7f699dc4ef2ee301" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint MapToScreen::mapPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>mapPoint</name>
+        <qualifiedname>MapToScreen::mapPoint</qualifiedname>
+        <briefdescription>
+<para>the point in map coordinates   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="57" column="14" bodyfile="src/core/maptoscreen.cpp" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToScreen_1aa90b55e509d0ea8862b3bdc639ff1ef6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToScreen::setMapDistance</definition>
+        <argsstring>(const double distance)</argsstring>
+        <name>setMapDistance</name>
+        <qualifiedname>MapToScreen::setMapDistance</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>distance</declname>
+        </param>
+        <briefdescription>
+<para>the distance in map unit   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="60" column="10" bodyfile="src/core/maptoscreen.cpp" bodystart="86" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToScreen_1adea7c8211f03fbc34a24eb72ac790c69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double MapToScreen::mapDistance</definition>
+        <argsstring>() const</argsstring>
+        <name>mapDistance</name>
+        <qualifiedname>MapToScreen::mapDistance</qualifiedname>
+        <briefdescription>
+<para>the distance in map unit   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="62" column="12" bodyfile="src/core/maptoscreen.cpp" bodystart="96" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToScreen_1aa2776d1b2f7e66e93541915ebbc137f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QPointF</type>
+        <definition>QPointF MapToScreen::screenPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>screenPoint</name>
+        <qualifiedname>MapToScreen::screenPoint</qualifiedname>
+        <briefdescription>
+<para>the point in screen coordinates (read-only)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="65" column="13" bodyfile="src/core/maptoscreen.cpp" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToScreen_1a81ec3f1a8c99075d608e3cf3601e6d84" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double MapToScreen::screenDistance</definition>
+        <argsstring>() const</argsstring>
+        <name>screenDistance</name>
+        <qualifiedname>MapToScreen::screenDistance</qualifiedname>
+        <briefdescription>
+<para>the distance in screen coordinates (read-only)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="68" column="12" bodyfile="src/core/maptoscreen.cpp" bodystart="101" bodyend="104"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classMapToScreen_1a9373e026d91e0a34f3546d5b717846bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToScreen::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>MapToScreen::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="72" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapToScreen_1aa6ba5c075e9d38cdc6eb724a1278764f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToScreen::mapPointChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapPointChanged</name>
+        <qualifiedname>MapToScreen::mapPointChanged</qualifiedname>
+        <briefdescription>
+<para>the point in map coordinates   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="74" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapToScreen_1a5840bfa1e9a169241051fdd7f9dada27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToScreen::mapDistanceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapDistanceChanged</name>
+        <qualifiedname>MapToScreen::mapDistanceChanged</qualifiedname>
+        <briefdescription>
+<para>the distance in map unit   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="76" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapToScreen_1a179c090ce4d6fc16f2958a982aff4d25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToScreen::screenPointChanged</definition>
+        <argsstring>()</argsstring>
+        <name>screenPointChanged</name>
+        <qualifiedname>MapToScreen::screenPointChanged</qualifiedname>
+        <briefdescription>
+<para>the point in screen coordinates (read-only)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="78" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapToScreen_1ae3e26917bd34f2c9a90982557ae2f2e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToScreen::screenDistanceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>screenDistanceChanged</name>
+        <qualifiedname>MapToScreen::screenDistanceChanged</qualifiedname>
+        <briefdescription>
+<para>the distance in screen coordinates (read-only)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="80" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classMapToScreen_1ac0697e4fd578fb4045ce91b1366e0976" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToScreen::transformPoint</definition>
+        <argsstring>()</argsstring>
+        <name>transformPoint</name>
+        <qualifiedname>MapToScreen::transformPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="83" column="10" bodyfile="src/core/maptoscreen.cpp" bodystart="73" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="slot" id="classMapToScreen_1abae6b7d8ac4569a9c58cf451c685d7eb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToScreen::transformDistance</definition>
+        <argsstring>()</argsstring>
+        <name>transformDistance</name>
+        <qualifiedname>MapToScreen::transformDistance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/maptoscreen.h" line="84" column="10" bodyfile="src/core/maptoscreen.cpp" bodystart="106" bodyend="117"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classMapToScreen" kindref="compound">MapToScreen</ref> class transform a map point to screen coordinates. The map point CRS is the one from the map settings. Screen point will be automatically updated on map extent changes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MapToScreen</label>
+        <link refid="classMapToScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MapToScreen</label>
+        <link refid="classMapToScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/maptoscreen.h" line="31" column="1" bodyfile="src/core/maptoscreen.h" bodystart="32" bodyend="92"/>
+    <listofallmembers>
+      <member refid="classMapToScreen_1a519167ce4efe05aa8f327215560f4740" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>mapDistance</name></member>
+      <member refid="classMapToScreen_1adea7c8211f03fbc34a24eb72ac790c69" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>mapDistance</name></member>
+      <member refid="classMapToScreen_1a5840bfa1e9a169241051fdd7f9dada27" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>mapDistanceChanged</name></member>
+      <member refid="classMapToScreen_1a251267af2e69a14ec7f11efd1416c1d2" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>mapPoint</name></member>
+      <member refid="classMapToScreen_1a516e35faae7be31a7f699dc4ef2ee301" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>mapPoint</name></member>
+      <member refid="classMapToScreen_1aa6ba5c075e9d38cdc6eb724a1278764f" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>mapPointChanged</name></member>
+      <member refid="classMapToScreen_1a133bcd179885ffac3359519b6b434771" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>mapSettings</name></member>
+      <member refid="classMapToScreen_1ac38cdf101c6b2ea7d963f0c5e71b2d11" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>mapSettings</name></member>
+      <member refid="classMapToScreen_1a9373e026d91e0a34f3546d5b717846bb" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>mapSettingsChanged</name></member>
+      <member refid="classMapToScreen_1a1ee4d660ccd919b1a56b4e6925e7d88b" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>MapToScreen</name></member>
+      <member refid="classMapToScreen_1a2cba8937bb52ec341abe7d0b61196e94" prot="private" virt="non-virtual"><scope>MapToScreen</scope><name>mMapDistance</name></member>
+      <member refid="classMapToScreen_1a6d1de36a2bb94a418ce270b0d167cc00" prot="private" virt="non-virtual"><scope>MapToScreen</scope><name>mMapPoint</name></member>
+      <member refid="classMapToScreen_1a13256d3a0ec6a85d101637e2a8da8ece" prot="private" virt="non-virtual"><scope>MapToScreen</scope><name>mMapSettings</name></member>
+      <member refid="classMapToScreen_1acbed816c886fa41e3a35a7fdf6fc1948" prot="private" virt="non-virtual"><scope>MapToScreen</scope><name>mScreenDistance</name></member>
+      <member refid="classMapToScreen_1acfe6b2f0abc90f932c476ac25d51abab" prot="private" virt="non-virtual"><scope>MapToScreen</scope><name>mScreenPoint</name></member>
+      <member refid="classMapToScreen_1aad949e25feeefd8ba1ee7e0156ae80ea" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>screenDistance</name></member>
+      <member refid="classMapToScreen_1a81ec3f1a8c99075d608e3cf3601e6d84" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>screenDistance</name></member>
+      <member refid="classMapToScreen_1ae3e26917bd34f2c9a90982557ae2f2e1" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>screenDistanceChanged</name></member>
+      <member refid="classMapToScreen_1a1661403690411f599e97bafdaa3ab8a7" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>screenPoint</name></member>
+      <member refid="classMapToScreen_1aa2776d1b2f7e66e93541915ebbc137f7" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>screenPoint</name></member>
+      <member refid="classMapToScreen_1a179c090ce4d6fc16f2958a982aff4d25" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>screenPointChanged</name></member>
+      <member refid="classMapToScreen_1aa90b55e509d0ea8862b3bdc639ff1ef6" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>setMapDistance</name></member>
+      <member refid="classMapToScreen_1af3e7d1e9a96ebc6b407b4b31211a07fe" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>setMapPoint</name></member>
+      <member refid="classMapToScreen_1a125ec4349bcb9b1c0444c15631a400f9" prot="public" virt="non-virtual"><scope>MapToScreen</scope><name>setMapSettings</name></member>
+      <member refid="classMapToScreen_1abae6b7d8ac4569a9c58cf451c685d7eb" prot="private" virt="non-virtual"><scope>MapToScreen</scope><name>transformDistance</name></member>
+      <member refid="classMapToScreen_1ac0697e4fd578fb4045ce91b1366e0976" prot="private" virt="non-virtual"><scope>MapToScreen</scope><name>transformPoint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

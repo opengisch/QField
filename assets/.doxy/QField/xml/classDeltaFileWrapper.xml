@@ -1,0 +1,1761 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classDeltaFileWrapper" kind="class" language="C++" prot="public">
+    <compoundname>DeltaFileWrapper</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="deltafilewrapper_8h" local="no">deltafilewrapper.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ErrorType</name>
+        <qualifiedname>DeltaFileWrapper::ErrorType</qualifiedname>
+        <enumvalue id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292a70a47cae4eb221930f2663fd244369ea" prot="public">
+          <name>NoError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292ac3266c11dce5f0a171c0b4108877e85a" prot="public">
+          <name>LockError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292a1df32b23719533eee8cc0b1de94f59e6" prot="public">
+          <name>NotCloudProjectError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292a5206bd7472156351d2d9a99633ac9580" prot="public">
+          <name>IOError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292a474fc626635e75fccb586f04fe43e184" prot="public">
+          <name>JsonParseError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292a75f093c516a2e2f298af990106578ad4" prot="public">
+          <name>JsonFormatIdError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292abe72cf3c2dade4bdd1d3a1a10b91bf93" prot="public">
+          <name>JsonFormatProjectIdError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292a680d4b924d32cb81af34e9a1719e91a6" prot="public">
+          <name>JsonFormatVersionError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292a44c517d072ffd302054b31988a55adc8" prot="public">
+          <name>JsonFormatDeltasError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292a30a7cb51100c2b0127ef5a9a216a49cb" prot="public">
+          <name>JsonFormatDeltaItemError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292a958b673a50dff5a6a71428e0f6680ed4" prot="public">
+          <name>JsonIncompatibleVersionError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Error types </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="48" column="5" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="49" bodyend="61"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classDeltaFileWrapper_1a8193ceb1a130a513c307aee75a3351df" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DeltaFileWrapper::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>DeltaFileWrapper::count</qualifiedname>
+        <read>count</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="38" column="5" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDeltaFileWrapper_1aea2224974329dd3d43d369994c1ad629" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::isPushing</definition>
+        <argsstring></argsstring>
+        <name>isPushing</name>
+        <qualifiedname>DeltaFileWrapper::isPushing</qualifiedname>
+        <read>isPushing</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="39" column="5" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDeltaFileWrapper_1a19750459acb03e0bf095706169f44faf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::hasError</definition>
+        <argsstring></argsstring>
+        <name>hasError</name>
+        <qualifiedname>DeltaFileWrapper::hasError</qualifiedname>
+        <read>hasError</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="40" column="5" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDeltaFileWrapper_1ad7e45f1573e3e9019bd51305c83a53b0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292" kindref="member">ErrorType</ref></type>
+        <definition>ErrorType DeltaFileWrapper::errorType</definition>
+        <argsstring></argsstring>
+        <name>errorType</name>
+        <qualifiedname>DeltaFileWrapper::errorType</qualifiedname>
+        <read>errorType</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="41" column="5" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDeltaFileWrapper_1ac9d4cb826b948d6065d9c46982bdd286" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::errorString</definition>
+        <argsstring></argsstring>
+        <name>errorString</name>
+        <qualifiedname>DeltaFileWrapper::errorString</qualifiedname>
+        <read>errorString</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="42" column="5" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDeltaFileWrapper_1a468bea261f3938ae88cd95edb0385490" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QMap&lt; QString, QString &gt; &gt;</type>
+        <definition>QMap&lt;QString, QMap&lt;QString, QString&gt; &gt; DeltaFileWrapper::mLocalPkToDeltaUuid</definition>
+        <argsstring></argsstring>
+        <name>mLocalPkToDeltaUuid</name>
+        <qualifiedname>DeltaFileWrapper::mLocalPkToDeltaUuid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A mapping between the local primary key and the uuid of the delta. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="452" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="452" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaFileWrapper_1afdcf2aa5db55ea86bced270901fe6cbc" prot="private" static="no" mutable="no">
+        <type>QJsonArray</type>
+        <definition>QJsonArray DeltaFileWrapper::mDeltas</definition>
+        <argsstring></argsstring>
+        <name>mDeltas</name>
+        <qualifiedname>DeltaFileWrapper::mDeltas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of JSON deltas. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="457" column="16" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="457" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaFileWrapper_1aaf7c05a85a9b6b2df1c3198c8f688ece" prot="private" static="no" mutable="no">
+        <type>QList&lt; QJsonObject &gt;</type>
+        <definition>QList&lt;QJsonObject&gt; DeltaFileWrapper::mPendingDeltas</definition>
+        <argsstring></argsstring>
+        <name>mPendingDeltas</name>
+        <qualifiedname>DeltaFileWrapper::mPendingDeltas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of pending JSON deltas. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="462" column="11" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="462" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaFileWrapper_1a17c759ee3626d5f8abcf696d644ed804" prot="private" static="no" mutable="no">
+        <type>QJsonObject</type>
+        <definition>QJsonObject DeltaFileWrapper::mJsonRoot</definition>
+        <argsstring></argsstring>
+        <name>mJsonRoot</name>
+        <qualifiedname>DeltaFileWrapper::mJsonRoot</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The root deltas JSON object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="467" column="17" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="467" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaFileWrapper_1a6f0988978a8bc045474bb63ae05fbde2" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::mFileName</definition>
+        <argsstring></argsstring>
+        <name>mFileName</name>
+        <qualifiedname>DeltaFileWrapper::mFileName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The delta file name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="473" column="13" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="473" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaFileWrapper_1a580588cc16d1209b06c82e094c88f577" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::mCloudProjectId</definition>
+        <argsstring></argsstring>
+        <name>mCloudProjectId</name>
+        <qualifiedname>DeltaFileWrapper::mCloudProjectId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The delta file project id. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="479" column="13" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="479" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaFileWrapper_1a266860ac893c2f8dac15b8221f0d547c" prot="private" static="no" mutable="no">
+        <type><ref refid="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292" kindref="member">ErrorType</ref></type>
+        <definition>ErrorType DeltaFileWrapper::mErrorType</definition>
+        <argsstring></argsstring>
+        <name>mErrorType</name>
+        <qualifiedname>DeltaFileWrapper::mErrorType</qualifiedname>
+        <initializer>= ErrorType::NoError</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Type of error that the constructor has encountered. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="485" column="15" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="485" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaFileWrapper_1a67566d187d72f1b255ea8975ae030388" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::mErrorDetails</definition>
+        <argsstring></argsstring>
+        <name>mErrorDetails</name>
+        <qualifiedname>DeltaFileWrapper::mErrorDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Additional details describing the error. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="491" column="13" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="491" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaFileWrapper_1a5b63e7cb97111bd6b762b15b89f78281" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::mIsDirty</definition>
+        <argsstring></argsstring>
+        <name>mIsDirty</name>
+        <qualifiedname>DeltaFileWrapper::mIsDirty</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Holds whether the deltas in the memory differ from the deltas in the file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="497" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="497" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaFileWrapper_1a2c67ef8f121d05ce6059b8d5c8b29432" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::mIsPushing</definition>
+        <argsstring></argsstring>
+        <name>mIsPushing</name>
+        <qualifiedname>DeltaFileWrapper::mIsPushing</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Holds whether the pushing state has been activated. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="503" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="503" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaFileWrapper_1aaf2abaf30f7aa7852113ce23a30298cb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::mIsDeltaFileBeingApplied</definition>
+        <argsstring></argsstring>
+        <name>mIsDeltaFileBeingApplied</name>
+        <qualifiedname>DeltaFileWrapper::mIsDeltaFileBeingApplied</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether the delta file is currently being applied. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="509" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="509" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDeltaFileWrapper_1abb8e406f2774476b703392e093983002" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DeltaFileWrapper::DeltaFileWrapper</definition>
+        <argsstring>(const QString &amp;projectId, const QString &amp;fileName)</argsstring>
+        <name>DeltaFileWrapper</name>
+        <qualifiedname>DeltaFileWrapper::DeltaFileWrapper</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Construct a new Feature Deltas object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current project </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>complete file name with path where the object should be stored </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="71" column="5" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="44" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a7d17f7f415be8f5cf5916b42818c1a42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DeltaFileWrapper::~DeltaFileWrapper</definition>
+        <argsstring>()</argsstring>
+        <name>~DeltaFileWrapper</name>
+        <qualifiedname>DeltaFileWrapper::~DeltaFileWrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy the Delta File Wrapper object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="76" column="5" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="166" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a2544d91d9f6948c3baf229762ccfbdda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void DeltaFileWrapper::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>DeltaFileWrapper::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the deltas from memory as there are no deltas at all. Does not affect the permanent storage until <computeroutput><ref refid="classDeltaFileWrapper_1a084563df3cff886823dbadbcc3a1fa9b" kindref="member">toFile()</ref></computeroutput> is called. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="119" column="22" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="190" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a4eaca1a363a027a359698adc41c5df53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void DeltaFileWrapper::resetId</definition>
+        <argsstring>()</argsstring>
+        <name>resetId</name>
+        <qualifiedname>DeltaFileWrapper::resetId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assigns a new unique delta file id. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="125" column="22" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="203" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a0d061a91e6e32dda9fa2c3092ef18abf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::id</definition>
+        <argsstring>() const</argsstring>
+        <name>id</name>
+        <qualifiedname>DeltaFileWrapper::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns deltas file id.</para>
+<para><simplesect kind="return"><para>QString id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="133" column="13" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="172" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a7dc719774a321c463500275d404ca1f2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::fileName</definition>
+        <argsstring>() const</argsstring>
+        <name>fileName</name>
+        <qualifiedname>DeltaFileWrapper::fileName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns deltas file name.</para>
+<para><simplesect kind="return"><para>QString file name </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="141" column="13" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="178" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a73109409881c74e6f44a2ade28e4a7da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::projectId</definition>
+        <argsstring>() const</argsstring>
+        <name>projectId</name>
+        <qualifiedname>DeltaFileWrapper::projectId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns deltas file project id.</para>
+<para><simplesect kind="return"><para>QString project id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="149" column="13" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="184" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1ad2427eed9a680014678f7dc2f2350e60" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::hasError</definition>
+        <argsstring>() const</argsstring>
+        <name>hasError</name>
+        <qualifiedname>DeltaFileWrapper::hasError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the class has encountered I/O error regarding the delta file. If true is returned, the behaviour of the class instance is no more defined.</para>
+<para><simplesect kind="return"><para>bool whether an error has been encountered </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="157" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="209" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a8f20b7832e6b15edd69e94abc688e449" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::isDirty</definition>
+        <argsstring>() const</argsstring>
+        <name>isDirty</name>
+        <qualifiedname>DeltaFileWrapper::isDirty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the instance contents differs from the data saved on the disk.</para>
+<para><simplesect kind="return"><para>bool whether there is a difference with the data saved on the disk </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="165" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="215" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a8d3d98c9376a956f78a05d5e24a46a05" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int DeltaFileWrapper::count</definition>
+        <argsstring>() const</argsstring>
+        <name>count</name>
+        <qualifiedname>DeltaFileWrapper::count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of delta elements</para>
+<para><simplesect kind="return"><para>int number of delta elements </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="173" column="21" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="221" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a8b3af7d64dcb71898cce3609a01d1ccf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QJsonArray</type>
+        <definition>QJsonArray DeltaFileWrapper::deltas</definition>
+        <argsstring>() const</argsstring>
+        <name>deltas</name>
+        <qualifiedname>DeltaFileWrapper::deltas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the deltas as a JSON array of delta elements</para>
+<para><simplesect kind="return"><para>QJsonArray deltas JSON array </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="181" column="16" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="227" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a5f458b5423192e738e0edfba03d44aa5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292" kindref="member">ErrorType</ref></type>
+        <definition>DeltaFileWrapper::ErrorType DeltaFileWrapper::errorType</definition>
+        <argsstring>() const</argsstring>
+        <name>errorType</name>
+        <qualifiedname>DeltaFileWrapper::errorType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Error type why the class has an error.</para>
+<para><simplesect kind="return"><para>ErrorType error type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="189" column="15" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="241" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a4fbae4e1ebf229a730d9a7115be38272" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::errorString</definition>
+        <argsstring>() const</argsstring>
+        <name>errorString</name>
+        <qualifiedname>DeltaFileWrapper::errorString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Human readable error description why the class has an error.</para>
+<para><simplesect kind="return"><para>QString human readable error reason </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="196" column="13" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="247" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1ab901fe096b25f36d5dc0d73b9bc04ec4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArray</type>
+        <definition>QByteArray DeltaFileWrapper::toJson</definition>
+        <argsstring>(QJsonDocument::JsonFormat jsonFormat=QJsonDocument::Indented) const</argsstring>
+        <name>toJson</name>
+        <qualifiedname>DeltaFileWrapper::toJson</qualifiedname>
+        <param>
+          <type>QJsonDocument::JsonFormat</type>
+          <declname>jsonFormat</declname>
+          <defval>QJsonDocument::Indented</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns deltas as JSON QByteArray, ready for I/O operations.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>jsonFormat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>formatting of the output JSON. Default: QJsonDocument::Indented </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>QByteArray JSON representation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="205" column="16" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="268" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a7a2d88b295cddadaed6077e3f5457e9c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::toString</definition>
+        <argsstring>() const</argsstring>
+        <name>toString</name>
+        <qualifiedname>DeltaFileWrapper::toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns deltas as JSON string.</para>
+<para><simplesect kind="return"><para>QString JSON representation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="213" column="13" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="281" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a084563df3cff886823dbadbcc3a1fa9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool DeltaFileWrapper::toFile</definition>
+        <argsstring>()</argsstring>
+        <name>toFile</name>
+        <qualifiedname>DeltaFileWrapper::toFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes deltas file to the permanent storage.</para>
+<para><simplesect kind="return"><para>bool whether write has been successful </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="221" column="22" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="287" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1acbcb75a786db27951fab9d8cd7d96b43" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString DeltaFileWrapper::toFileForPush</definition>
+        <argsstring>(const QString &amp;outFileName=QString()) const</argsstring>
+        <name>toFileForPush</name>
+        <qualifiedname>DeltaFileWrapper::toFileForPush</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>outFileName</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes deltas file to the permanent storage with replaced layerIds, ready for upload.</para>
+<para><simplesect kind="return"><para>QString an empty string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="229" column="25" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="315" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a12981717c42760e6132c4b759a9107f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool DeltaFileWrapper::isCreatedFeature</definition>
+        <argsstring>(QgsVectorLayer *vl, QgsFeature feature)</argsstring>
+        <name>isCreatedFeature</name>
+        <qualifiedname>DeltaFileWrapper::isCreatedFeature</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>vl</declname>
+        </param>
+        <param>
+          <type>QgsFeature</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if a feature from a given vector layer is recorded as being created in the deltas file.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector layer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="239" column="22" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1445" bodyend="1474"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a93c8d6728fc8948ddfcb3141cfeb4923" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::append</definition>
+        <argsstring>(const DeltaFileWrapper *deltaFileWrapper)</argsstring>
+        <name>append</name>
+        <qualifiedname>DeltaFileWrapper::append</qualifiedname>
+        <param>
+          <type>const <ref refid="classDeltaFileWrapper" kindref="compound">DeltaFileWrapper</ref> *</type>
+          <declname>deltaFileWrapper</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Appends the provided deltas JSON array at the end of the current file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="245" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="347" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1af1d89cfe0a5784a63ab04ed67cffac12" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QMap&lt; QString, QString &gt;</type>
+        <definition>QMap&lt; QString, QString &gt; DeltaFileWrapper::attachmentFileNames</definition>
+        <argsstring>() const</argsstring>
+        <name>attachmentFileNames</name>
+        <qualifiedname>DeltaFileWrapper::attachmentFileNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a set of file names to be uploaded</para>
+<para><simplesect kind="return"><para>QMap&lt;QString, QString&gt; unique file names </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="253" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="427" bodyend="498"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a1b6951a8fa0110f312ac0a714f15b6b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::addCreate</definition>
+        <argsstring>(const QgsProject *project, const QString &amp;localLayerId, const QString &amp;sourceLayerId, const QString &amp;localPkAttrName, const QString &amp;sourcePkAttrName, const QgsFeature &amp;newFeature)</argsstring>
+        <name>addCreate</name>
+        <qualifiedname>DeltaFileWrapper::addCreate</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localLayerId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourceLayerId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localPkAttrName</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourcePkAttrName</declname>
+        </param>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>newFeature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds create delta.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>localLayerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer ID where the old feature belongs to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sourceLayerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer ID where the old feature belongs to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>localPkAttrName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>attribute name of the primary key </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sourcePkAttrName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>attribute name of the primary key </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newFeature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature that has been created </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="265" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="743" bodyend="803"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1aff2155fad90512420c40ee45168ecfc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::addDelete</definition>
+        <argsstring>(const QgsProject *project, const QString &amp;localLayerId, const QString &amp;sourceLayerId, const QString &amp;localPkAttrName, const QString &amp;sourcePkAttrName, const QgsFeature &amp;oldFeature)</argsstring>
+        <name>addDelete</name>
+        <qualifiedname>DeltaFileWrapper::addDelete</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localLayerId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourceLayerId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localPkAttrName</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourcePkAttrName</declname>
+        </param>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>oldFeature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds delete delta.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>localLayerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer ID where the old feature belongs to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sourceLayerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer ID where the old feature belongs to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>localPkAttrName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>attribute name of the primary key </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sourcePkAttrName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>attribute name of the primary key </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>oldFeature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature that has been deleted </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="277" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="683" bodyend="740"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a4460ff1298d2deb7ca9c6f64c1412ebe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::addPatch</definition>
+        <argsstring>(const QgsProject *project, const QString &amp;localLayerId, const QString &amp;sourceLayerId, const QString &amp;localPkAttrName, const QString &amp;sourcePkAttrName, const QgsFeature &amp;oldFeature, const QgsFeature &amp;newFeature, bool storeSnapshot=true)</argsstring>
+        <name>addPatch</name>
+        <qualifiedname>DeltaFileWrapper::addPatch</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localLayerId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourceLayerId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localPkAttrName</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourcePkAttrName</declname>
+        </param>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>oldFeature</declname>
+        </param>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>newFeature</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>storeSnapshot</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds patch delta.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>localLayerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer ID where the old feature belongs to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sourceLayerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer ID where the old feature belongs to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>localPkAttrName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>attribute name of the primary key </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sourcePkAttrName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>attribute name of the primary key </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>oldFeature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the old version of the feature that has been modified </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newFeature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new version of the feature that has been modified </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>storeSnapshot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>store a complete snapshot of the feature </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="291" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="500" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1ac5fe434998e4e3c97949f217e83e0803" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList DeltaFileWrapper::deltaLayerIds</definition>
+        <argsstring>() const</argsstring>
+        <name>deltaLayerIds</name>
+        <qualifiedname>DeltaFileWrapper::deltaLayerIds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of layers that have applied deltas on them. <simplesect kind="return"><para>list of layers ids </para>
+</simplesect>
+<xrefsect id="todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>TEST </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="299" column="17" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1218" bodyend="1232"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a3f9a50deb884993e8faf5fadb7eb6f73" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::isDeltaBeingApplied</definition>
+        <argsstring>() const</argsstring>
+        <name>isDeltaBeingApplied</name>
+        <qualifiedname>DeltaFileWrapper::isDeltaBeingApplied</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether or not the current delta file is being applied.</para>
+<para><xrefsect id="todo_1_todo000002"><xreftitle>Todo</xreftitle><xrefdescription><para>TEST </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="307" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1235" bodyend="1238"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1afa36b2090c741d95e0a699cc1fb13977" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool DeltaFileWrapper::apply</definition>
+        <argsstring>(const QgsProject *project)</argsstring>
+        <name>apply</name>
+        <qualifiedname>DeltaFileWrapper::apply</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attempts to apply a delta file. The list of deltas is not being reset after successfull application and should be handled by the caller.</para>
+<para><simplesect kind="note"><para>it is not guaranteed that the project layers have not changed in case of failure </para>
+</simplesect>
+<simplesect kind="return"><para>whether the attempt was successful </para>
+</simplesect>
+<xrefsect id="todo_1_todo000003"><xreftitle>Todo</xreftitle><xrefdescription><para>TEST </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="318" column="22" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1241" bodyend="1244"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1ad694f97c32b5567c6e58ce6802b0fa72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool DeltaFileWrapper::applyReversed</definition>
+        <argsstring>(const QgsProject *project)</argsstring>
+        <name>applyReversed</name>
+        <qualifiedname>DeltaFileWrapper::applyReversed</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attempts to apply a delta file in reverse order (resulting in local changes being discarded). The list of deltas is not being reset after successfull application and should be handled by the caller.</para>
+<para><simplesect kind="note"><para>it is not guaranteed that the project layers have not changed in case of failure </para>
+</simplesect>
+<simplesect kind="return"><para>whether the attempt was successful. </para>
+</simplesect>
+<xrefsect id="todo_1_todo000004"><xreftitle>Todo</xreftitle><xrefdescription><para>TEST </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="329" column="22" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1247" bodyend="1250"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a4c33cfdab117655312fc742ce22aec89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::isPushing</definition>
+        <argsstring>() const</argsstring>
+        <name>isPushing</name>
+        <qualifiedname>DeltaFileWrapper::isPushing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the pushing state is active. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="334" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="334" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a456bbd80eaf5e0a07ba8eb474a1cc60f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::setIsPushing</definition>
+        <argsstring>(bool isPushing)</argsstring>
+        <name>setIsPushing</name>
+        <qualifiedname>DeltaFileWrapper::setIsPushing</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>isPushing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the pushing state.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>isPushing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE to reflect an ongoing pushing state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="342" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1182" bodyend="1198"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a5dbcb2090f7893cb320f24609dc298c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int DeltaFileWrapper::getDeltaIndexByUuid</definition>
+        <argsstring>(const QString &amp;uuid) const</argsstring>
+        <name>getDeltaIndexByUuid</name>
+        <qualifiedname>DeltaFileWrapper::getDeltaIndexByUuid</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Retuns the index position of a delta with given <emphasis>uuid</emphasis> in the deltas list or -1 if missing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uuid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the uuid we are looking for </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="350" column="9" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1537" bodyend="1556"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classDeltaFileWrapper_1a98ca24482ca99c8e5e6af8dbd99371ea" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList DeltaFileWrapper::attachmentFieldNames</definition>
+        <argsstring>(const QgsProject *project, const QString &amp;layerId)</argsstring>
+        <name>attachmentFieldNames</name>
+        <qualifiedname>DeltaFileWrapper::attachmentFieldNames</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of field names that have edit form as attachments</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>current project instance </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>layerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>QStringList list of field names </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="86" column="24" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="366" bodyend="392"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1aa915b85432ed3fb80c81b6fdf173c2e6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::crsByLayerId</definition>
+        <argsstring>(const QgsProject *project, const QString &amp;layerId)</argsstring>
+        <name>crsByLayerId</name>
+        <qualifiedname>DeltaFileWrapper::crsByLayerId</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the CRS as WKT for given <emphasis>layerId</emphasis> in the <emphasis>project</emphasis> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="91" column="20" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="394" bodyend="413"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a2d45852936230cd7361047aa8519c491" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::nameByLayerId</definition>
+        <argsstring>(const QgsProject *project, const QString &amp;layerId)</argsstring>
+        <name>nameByLayerId</name>
+        <qualifiedname>DeltaFileWrapper::nameByLayerId</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the name for given <emphasis>layerId</emphasis> in the <emphasis>project</emphasis> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="96" column="20" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="416" bodyend="424"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1af4ce9a1251956e94b0b6762c134cf2f5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QPair&lt; int, QString &gt;</type>
+        <definition>QPair&lt; int, QString &gt; DeltaFileWrapper::getLocalPkAttribute</definition>
+        <argsstring>(const QgsVectorLayer *vl)</argsstring>
+        <name>getLocalPkAttribute</name>
+        <qualifiedname>DeltaFileWrapper::getLocalPkAttribute</qualifiedname>
+        <param>
+          <type>const QgsVectorLayer *</type>
+          <declname>vl</declname>
+        </param>
+        <briefdescription>
+<para>Get a pair of the index and the name of the primary key column of given <emphasis>vl</emphasis> layer. We assume there is no multi-column primary key. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="101" column="18" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1477" bodyend="1494"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a56b1a3c9715d2c07db3ff84ea458193f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QPair&lt; int, QString &gt;</type>
+        <definition>QPair&lt; int, QString &gt; DeltaFileWrapper::getSourcePkAttribute</definition>
+        <argsstring>(const QgsVectorLayer *vl)</argsstring>
+        <name>getSourcePkAttribute</name>
+        <qualifiedname>DeltaFileWrapper::getSourcePkAttribute</qualifiedname>
+        <param>
+          <type>const QgsVectorLayer *</type>
+          <declname>vl</declname>
+        </param>
+        <briefdescription>
+<para>Get a pair of the index and the name of the primary key column of given <emphasis>vl</emphasis> layer, as they are in the original source. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="107" column="18" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1497" bodyend="1527"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1af10bd5d2c77efe285b134653cf6f54c0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DeltaFileWrapper::getSourceLayerId</definition>
+        <argsstring>(const QgsVectorLayer *vl)</argsstring>
+        <name>getSourceLayerId</name>
+        <qualifiedname>DeltaFileWrapper::getSourceLayerId</qualifiedname>
+        <param>
+          <type>const QgsVectorLayer *</type>
+          <declname>vl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the layer id as it is in the original source. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="113" column="20" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1529" bodyend="1534"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classDeltaFileWrapper_1aedfb8d785783e7fded0b830263ea2bd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::countChanged</definition>
+        <argsstring>()</argsstring>
+        <name>countChanged</name>
+        <qualifiedname>DeltaFileWrapper::countChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the <computeroutput>deltas</computeroutput> list has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="357" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDeltaFileWrapper_1a5ea231deedb3b224c1487eef8d37e230" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::isPushingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isPushingChanged</name>
+        <qualifiedname>DeltaFileWrapper::isPushingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emmitted when the pushing state has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="363" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDeltaFileWrapper_1a1d181639453a35c0827cf43bfafd7bea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::savedToFile</definition>
+        <argsstring>()</argsstring>
+        <name>savedToFile</name>
+        <qualifiedname>DeltaFileWrapper::savedToFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emmitted when the deltas have been written to a file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="368" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDeltaFileWrapper_1a4e314aa6fb40031108ad2785cab250a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::errorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>errorChanged</name>
+        <qualifiedname>DeltaFileWrapper::errorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emmitted when the latest error has changed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="373" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classDeltaFileWrapper_1af7cceab1e09d9f38d6525120ee055ae8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::setError</definition>
+        <argsstring>(const ErrorType &amp;type, const QString &amp;details=QString())</argsstring>
+        <name>setError</name>
+        <qualifiedname>DeltaFileWrapper::setError</qualifiedname>
+        <param>
+          <type>const <ref refid="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292" kindref="member">ErrorType</ref> &amp;</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>details</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the error type and details string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="379" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="233" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1afcb19769f86c9ed68ac2cefe65cae2e6" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QJsonValue</type>
+        <definition>QJsonValue DeltaFileWrapper::geometryToJsonValue</definition>
+        <argsstring>(const QgsGeometry &amp;geom) const</argsstring>
+        <name>geometryToJsonValue</name>
+        <qualifiedname>DeltaFileWrapper::geometryToJsonValue</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geom</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts geometry to QJsonValue string in WKT format. Returns null if the geometry is null, or WKT string of the geometry </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="386" column="16" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1200" bodyend="1215"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a139e1674f513b8ddb4de34816e3968c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::applyInternal</definition>
+        <argsstring>(const QgsProject *project, bool shouldApplyInReverse)</argsstring>
+        <name>applyInternal</name>
+        <qualifiedname>DeltaFileWrapper::applyInternal</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shouldApplyInReverse</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Applies the current delta file on the current project. A wrapper method arround <emphasis>_applyDeltasOnLayers</emphasis>. If <emphasis>shouldApplyInReverse</emphasis> is passed, the deltas are applied in reverse order (e.g. discarding the changes). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="392" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1253" bodyend="1319"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a03b3a39b84842c2b3c31a29c23f17a65" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::applyDeltasOnLayers</definition>
+        <argsstring>(QHash&lt; QString, QgsVectorLayer * &gt; &amp;vectorLayers, bool shouldApplyInReverse)</argsstring>
+        <name>applyDeltasOnLayers</name>
+        <qualifiedname>DeltaFileWrapper::applyDeltasOnLayers</qualifiedname>
+        <param>
+          <type>QHash&lt; QString, QgsVectorLayer * &gt; &amp;</type>
+          <declname>vectorLayers</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shouldApplyInReverse</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Applies the current delta file on a list of given layers <emphasis>vectorLayers</emphasis>. If <emphasis>shouldApplyInReverse</emphasis> is passed, the deltas are applied in reverse order (e.g. discarding the changes). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="399" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1322" bodyend="1438"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1aef64b75926177b86a8e2e5e2f361f816" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::tuple&lt; QJsonObject, QJsonObject &gt;</type>
+        <definition>std::tuple&lt; QJsonObject, QJsonObject &gt; DeltaFileWrapper::addAttachments</definition>
+        <argsstring>(const QgsProject *project, const QString &amp;localLayerId, const QJsonObject &amp;newAttrs, const QJsonObject &amp;oldAttrs=QJsonObject())</argsstring>
+        <name>addAttachments</name>
+        <qualifiedname>DeltaFileWrapper::addAttachments</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localLayerId</declname>
+        </param>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>newAttrs</declname>
+        </param>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>oldAttrs</declname>
+          <defval>QJsonObject()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add file checksums from relevant changed attributes. <simplesect kind="return"><para>A std::tuple&lt;QJsonObject, QJsonObject&gt; where the first object reflects new file checksums and the second reflects old file checkums. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="405" column="16" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="646" bodyend="681"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a45cfd8c6b62d85b2923eef30186957f5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QJsonValue</type>
+        <definition>QJsonValue DeltaFileWrapper::attributeToJsonValue</definition>
+        <argsstring>(const QVariant &amp;value)</argsstring>
+        <name>attributeToJsonValue</name>
+        <qualifiedname>DeltaFileWrapper::attributeToJsonValue</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts QVariant value to QJsonValue </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="410" column="16" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1440" bodyend="1443"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1af6f63efb9cc437a0ae71be1008d719e2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::appendDelta</definition>
+        <argsstring>(const QJsonObject &amp;delta)</argsstring>
+        <name>appendDelta</name>
+        <qualifiedname>DeltaFileWrapper::appendDelta</qualifiedname>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Append generated <emphasis>delta</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="416" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="805" bodyend="815"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1acb7072541325af16dbca08eea1884757" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::mergeDelta</definition>
+        <argsstring>(const QJsonObject &amp;delta)</argsstring>
+        <name>mergeDelta</name>
+        <qualifiedname>DeltaFileWrapper::mergeDelta</qualifiedname>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Merge the generated <emphasis>delta</emphasis> into stored deltas. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="422" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1160" bodyend="1180"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1adbc0a77a6b9e1594376fe1c21fc876dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::mergeCreateDelta</definition>
+        <argsstring>(const QJsonObject &amp;delta)</argsstring>
+        <name>mergeCreateDelta</name>
+        <qualifiedname>DeltaFileWrapper::mergeCreateDelta</qualifiedname>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Merge the generated create <emphasis>delta</emphasis> into stored deltas. Should only be called from <computeroutput>mergeDelta</computeroutput> method. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="428" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="817" bodyend="868"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a2ac33933a2160dfe9709fc23d8078232" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::mergeDeleteDelta</definition>
+        <argsstring>(const QJsonObject &amp;delta)</argsstring>
+        <name>mergeDeleteDelta</name>
+        <qualifiedname>DeltaFileWrapper::mergeDeleteDelta</qualifiedname>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Merge the generated delete <emphasis>delta</emphasis> into stored deltas. Should only be called from <computeroutput>mergeDelta</computeroutput> method. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="434" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="870" bodyend="915"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a8ad50dd3552a663c583d97e6fa157d5a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaFileWrapper::mergePatchDelta</definition>
+        <argsstring>(const QJsonObject &amp;delta)</argsstring>
+        <name>mergePatchDelta</name>
+        <qualifiedname>DeltaFileWrapper::mergePatchDelta</qualifiedname>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Merge the generated patch <emphasis>delta</emphasis> into stored deltas. Should only be called from <computeroutput>mergeDelta</computeroutput> method. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="440" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="917" bodyend="1158"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaFileWrapper_1a5410ed3bc5ebce629aa2923c4d90a926" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeltaFileWrapper::deltaContainsActualChange</definition>
+        <argsstring>(const QJsonObject &amp;delta) const</argsstring>
+        <name>deltaContainsActualChange</name>
+        <qualifiedname>DeltaFileWrapper::deltaContainsActualChange</qualifiedname>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the delta really has a change between the <computeroutput>old</computeroutput> and <computeroutput>new</computeroutput> attributes and geometry.</para>
+<para>It may not have any change in case undo/redo and delta merging is applied. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltafilewrapper.h" line="447" column="10" bodyfile="src/core/qfieldcloud/deltafilewrapper.cpp" bodystart="1558" bodyend="1585"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A class that wraps the operations with a delta file. All read and write operations to a delta file should go through this class. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DeltaFileWrapper</label>
+        <link refid="classDeltaFileWrapper"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DeltaFileWrapper</label>
+        <link refid="classDeltaFileWrapper"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/deltafilewrapper.h" line="34" column="1" bodyfile="src/core/qfieldcloud/deltafilewrapper.h" bodystart="35" bodyend="510"/>
+    <listofallmembers>
+      <member refid="classDeltaFileWrapper_1aef64b75926177b86a8e2e5e2f361f816" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>addAttachments</name></member>
+      <member refid="classDeltaFileWrapper_1a1b6951a8fa0110f312ac0a714f15b6b1" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>addCreate</name></member>
+      <member refid="classDeltaFileWrapper_1aff2155fad90512420c40ee45168ecfc3" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>addDelete</name></member>
+      <member refid="classDeltaFileWrapper_1a4460ff1298d2deb7ca9c6f64c1412ebe" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>addPatch</name></member>
+      <member refid="classDeltaFileWrapper_1a93c8d6728fc8948ddfcb3141cfeb4923" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>append</name></member>
+      <member refid="classDeltaFileWrapper_1af6f63efb9cc437a0ae71be1008d719e2" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>appendDelta</name></member>
+      <member refid="classDeltaFileWrapper_1afa36b2090c741d95e0a699cc1fb13977" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>apply</name></member>
+      <member refid="classDeltaFileWrapper_1a03b3a39b84842c2b3c31a29c23f17a65" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>applyDeltasOnLayers</name></member>
+      <member refid="classDeltaFileWrapper_1a139e1674f513b8ddb4de34816e3968c6" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>applyInternal</name></member>
+      <member refid="classDeltaFileWrapper_1ad694f97c32b5567c6e58ce6802b0fa72" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>applyReversed</name></member>
+      <member refid="classDeltaFileWrapper_1a98ca24482ca99c8e5e6af8dbd99371ea" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>attachmentFieldNames</name></member>
+      <member refid="classDeltaFileWrapper_1af1d89cfe0a5784a63ab04ed67cffac12" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>attachmentFileNames</name></member>
+      <member refid="classDeltaFileWrapper_1a45cfd8c6b62d85b2923eef30186957f5" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>attributeToJsonValue</name></member>
+      <member refid="classDeltaFileWrapper_1a8193ceb1a130a513c307aee75a3351df" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>count</name></member>
+      <member refid="classDeltaFileWrapper_1a8d3d98c9376a956f78a05d5e24a46a05" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>count</name></member>
+      <member refid="classDeltaFileWrapper_1aedfb8d785783e7fded0b830263ea2bd5" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>countChanged</name></member>
+      <member refid="classDeltaFileWrapper_1aa915b85432ed3fb80c81b6fdf173c2e6" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>crsByLayerId</name></member>
+      <member refid="classDeltaFileWrapper_1a5410ed3bc5ebce629aa2923c4d90a926" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>deltaContainsActualChange</name></member>
+      <member refid="classDeltaFileWrapper_1abb8e406f2774476b703392e093983002" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>DeltaFileWrapper</name></member>
+      <member refid="classDeltaFileWrapper_1ac5fe434998e4e3c97949f217e83e0803" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>deltaLayerIds</name></member>
+      <member refid="classDeltaFileWrapper_1a8b3af7d64dcb71898cce3609a01d1ccf" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>deltas</name></member>
+      <member refid="classDeltaFileWrapper_1a4e314aa6fb40031108ad2785cab250a1" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>errorChanged</name></member>
+      <member refid="classDeltaFileWrapper_1ac9d4cb826b948d6065d9c46982bdd286" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>errorString</name></member>
+      <member refid="classDeltaFileWrapper_1a4fbae4e1ebf229a730d9a7115be38272" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>errorString</name></member>
+      <member refid="classDeltaFileWrapper_1abc06dd38b3dd4bd03721478279150292" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>ErrorType</name></member>
+      <member refid="classDeltaFileWrapper_1ad7e45f1573e3e9019bd51305c83a53b0" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>errorType</name></member>
+      <member refid="classDeltaFileWrapper_1a5f458b5423192e738e0edfba03d44aa5" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>errorType</name></member>
+      <member refid="classDeltaFileWrapper_1a7dc719774a321c463500275d404ca1f2" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>fileName</name></member>
+      <member refid="classDeltaFileWrapper_1afcb19769f86c9ed68ac2cefe65cae2e6" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>geometryToJsonValue</name></member>
+      <member refid="classDeltaFileWrapper_1a5dbcb2090f7893cb320f24609dc298c5" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>getDeltaIndexByUuid</name></member>
+      <member refid="classDeltaFileWrapper_1af4ce9a1251956e94b0b6762c134cf2f5" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>getLocalPkAttribute</name></member>
+      <member refid="classDeltaFileWrapper_1af10bd5d2c77efe285b134653cf6f54c0" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>getSourceLayerId</name></member>
+      <member refid="classDeltaFileWrapper_1a56b1a3c9715d2c07db3ff84ea458193f" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>getSourcePkAttribute</name></member>
+      <member refid="classDeltaFileWrapper_1a19750459acb03e0bf095706169f44faf" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>hasError</name></member>
+      <member refid="classDeltaFileWrapper_1ad2427eed9a680014678f7dc2f2350e60" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>hasError</name></member>
+      <member refid="classDeltaFileWrapper_1a0d061a91e6e32dda9fa2c3092ef18abf" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>id</name></member>
+      <member refid="classDeltaFileWrapper_1a12981717c42760e6132c4b759a9107f0" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>isCreatedFeature</name></member>
+      <member refid="classDeltaFileWrapper_1a3f9a50deb884993e8faf5fadb7eb6f73" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>isDeltaBeingApplied</name></member>
+      <member refid="classDeltaFileWrapper_1a8f20b7832e6b15edd69e94abc688e449" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>isDirty</name></member>
+      <member refid="classDeltaFileWrapper_1aea2224974329dd3d43d369994c1ad629" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>isPushing</name></member>
+      <member refid="classDeltaFileWrapper_1a4c33cfdab117655312fc742ce22aec89" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>isPushing</name></member>
+      <member refid="classDeltaFileWrapper_1a5ea231deedb3b224c1487eef8d37e230" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>isPushingChanged</name></member>
+      <member refid="classDeltaFileWrapper_1a580588cc16d1209b06c82e094c88f577" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mCloudProjectId</name></member>
+      <member refid="classDeltaFileWrapper_1afdcf2aa5db55ea86bced270901fe6cbc" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mDeltas</name></member>
+      <member refid="classDeltaFileWrapper_1adbc0a77a6b9e1594376fe1c21fc876dc" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mergeCreateDelta</name></member>
+      <member refid="classDeltaFileWrapper_1a2ac33933a2160dfe9709fc23d8078232" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mergeDeleteDelta</name></member>
+      <member refid="classDeltaFileWrapper_1acb7072541325af16dbca08eea1884757" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mergeDelta</name></member>
+      <member refid="classDeltaFileWrapper_1a8ad50dd3552a663c583d97e6fa157d5a" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mergePatchDelta</name></member>
+      <member refid="classDeltaFileWrapper_1a67566d187d72f1b255ea8975ae030388" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mErrorDetails</name></member>
+      <member refid="classDeltaFileWrapper_1a266860ac893c2f8dac15b8221f0d547c" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mErrorType</name></member>
+      <member refid="classDeltaFileWrapper_1a6f0988978a8bc045474bb63ae05fbde2" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mFileName</name></member>
+      <member refid="classDeltaFileWrapper_1aaf2abaf30f7aa7852113ce23a30298cb" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mIsDeltaFileBeingApplied</name></member>
+      <member refid="classDeltaFileWrapper_1a5b63e7cb97111bd6b762b15b89f78281" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mIsDirty</name></member>
+      <member refid="classDeltaFileWrapper_1a2c67ef8f121d05ce6059b8d5c8b29432" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mIsPushing</name></member>
+      <member refid="classDeltaFileWrapper_1a17c759ee3626d5f8abcf696d644ed804" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mJsonRoot</name></member>
+      <member refid="classDeltaFileWrapper_1a468bea261f3938ae88cd95edb0385490" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mLocalPkToDeltaUuid</name></member>
+      <member refid="classDeltaFileWrapper_1aaf7c05a85a9b6b2df1c3198c8f688ece" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>mPendingDeltas</name></member>
+      <member refid="classDeltaFileWrapper_1a2d45852936230cd7361047aa8519c491" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>nameByLayerId</name></member>
+      <member refid="classDeltaFileWrapper_1a73109409881c74e6f44a2ade28e4a7da" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>projectId</name></member>
+      <member refid="classDeltaFileWrapper_1a2544d91d9f6948c3baf229762ccfbdda" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>reset</name></member>
+      <member refid="classDeltaFileWrapper_1a4eaca1a363a027a359698adc41c5df53" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>resetId</name></member>
+      <member refid="classDeltaFileWrapper_1a1d181639453a35c0827cf43bfafd7bea" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>savedToFile</name></member>
+      <member refid="classDeltaFileWrapper_1af7cceab1e09d9f38d6525120ee055ae8" prot="private" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>setError</name></member>
+      <member refid="classDeltaFileWrapper_1a456bbd80eaf5e0a07ba8eb474a1cc60f" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>setIsPushing</name></member>
+      <member refid="classDeltaFileWrapper_1a084563df3cff886823dbadbcc3a1fa9b" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>toFile</name></member>
+      <member refid="classDeltaFileWrapper_1acbcb75a786db27951fab9d8cd7d96b43" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>toFileForPush</name></member>
+      <member refid="classDeltaFileWrapper_1ab901fe096b25f36d5dc0d73b9bc04ec4" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>toJson</name></member>
+      <member refid="classDeltaFileWrapper_1a7a2d88b295cddadaed6077e3f5457e9c" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>toString</name></member>
+      <member refid="classDeltaFileWrapper_1a7d17f7f415be8f5cf5916b42818c1a42" prot="public" virt="non-virtual"><scope>DeltaFileWrapper</scope><name>~DeltaFileWrapper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

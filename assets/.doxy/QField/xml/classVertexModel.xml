@@ -1,0 +1,2151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classVertexModel" kind="class" language="C++" prot="public">
+    <compoundname>VertexModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="vertexmodel_8h" local="no">vertexmodel.h</includes>
+    <innerclass refid="structVertexModel_1_1Vertex" prot="public">VertexModel::Vertex</innerclass>
+    <innerclass refid="structVertexModel_1_1VertexChange" prot="public">VertexModel::VertexChange</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classVertexModel_1aff8137f8b7fe5713c7141c2e1f596bdb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>PointType</name>
+        <qualifiedname>VertexModel::PointType</qualifiedname>
+        <enumvalue id="classVertexModel_1aff8137f8b7fe5713c7141c2e1f596bdba0adf8b34a8eb0c5ea5b236b0803f8d1b" prot="public">
+          <name>ExistingVertex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classVertexModel_1aff8137f8b7fe5713c7141c2e1f596bdbac4ad0e022344cd69303673e7a56f41f3" prot="public">
+          <name>NewVertexSegment</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classVertexModel_1aff8137f8b7fe5713c7141c2e1f596bdbaec2001d6da38d2a76ef4c8127c6d311d" prot="public">
+          <name>NewVertexExtending</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="84" column="5" bodyfile="src/core/vertexmodel.h" bodystart="85" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="enum" id="classVertexModel_1a590c8a0164000e78c17f25a40765362a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ColumnRole</name>
+        <qualifiedname>VertexModel::ColumnRole</qualifiedname>
+        <enumvalue id="classVertexModel_1a590c8a0164000e78c17f25a40765362aade0dad96b107ac38519aa8483d601821" prot="public">
+          <name>PointRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classVertexModel_1a590c8a0164000e78c17f25a40765362aa40eb18e87b2a45ce6da25a6473e1ef96" prot="public">
+          <name>CurrentVertexRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classVertexModel_1a590c8a0164000e78c17f25a40765362aa7f72228255dd65ea9141104a9127e0bf" prot="public">
+          <name>OriginalPointRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classVertexModel_1a590c8a0164000e78c17f25a40765362aa8f0231d210f3a3105ab055a93c5d8943" prot="public">
+          <name>ExistingVertexRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classVertexModel_1a590c8a0164000e78c17f25a40765362aa987d1d0e7330867b821a34276966733b" prot="public">
+          <name>RingIdRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="92" column="5" bodyfile="src/core/vertexmodel.h" bodystart="93" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="enum" id="classVertexModel_1a11f2b7867677c55fc1be1f49fe1d85cb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>EditingMode</name>
+        <qualifiedname>VertexModel::EditingMode</qualifiedname>
+        <enumvalue id="classVertexModel_1a11f2b7867677c55fc1be1f49fe1d85cbaa51fd757735fa342fe0dc80f8abad92f" prot="public">
+          <name>NoEditing</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classVertexModel_1a11f2b7867677c55fc1be1f49fe1d85cbaa7f204e82f5be25828731de6de9e7344" prot="public">
+          <name>EditVertex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classVertexModel_1a11f2b7867677c55fc1be1f49fe1d85cba2d1067178cc5d116cf651bd2da54fd93" prot="public">
+          <name>AddVertex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="102" column="5" bodyfile="src/core/vertexmodel.h" bodystart="103" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="enum" id="classVertexModel_1a7f390daeb426101c8c20d181d0782a31" prot="public" static="no" strong="no">
+        <type></type>
+        <name>VertexChangeType</name>
+        <qualifiedname>VertexModel::VertexChangeType</qualifiedname>
+        <enumvalue id="classVertexModel_1a7f390daeb426101c8c20d181d0782a31aceff40aac17d060f3518c2cad429daba" prot="public">
+          <name>NoChange</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classVertexModel_1a7f390daeb426101c8c20d181d0782a31a053e67d535046cc114cdd2b5c0815027" prot="public">
+          <name>VertexMove</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classVertexModel_1a7f390daeb426101c8c20d181d0782a31a60322ac342a0732f7ec7a2ab5c5f1b50" prot="public">
+          <name>VertexAddition</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classVertexModel_1a7f390daeb426101c8c20d181d0782a31aba8dc28de28b59ab87fe1a1899d40f4e" prot="public">
+          <name>VertexDeletion</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="119" column="5" bodyfile="src/core/vertexmodel.h" bodystart="120" bodyend="125"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classVertexModel_1a544e789d35717de9df5aceb6760972a8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>EditingMode</type>
+        <definition>EditingMode VertexModel::editingMode</definition>
+        <argsstring></argsstring>
+        <name>editingMode</name>
+        <qualifiedname>VertexModel::editingMode</qualifiedname>
+        <read>editingMode</read>
+        <write>setEditingMode</write>
+        <briefdescription>
+<para>The current mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="41" column="5" bodyfile="src/core/vertexmodel.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1a3f9bdfc7cda54bb73ab20b27b9a6333e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint VertexModel::currentPoint</definition>
+        <argsstring></argsstring>
+        <name>currentPoint</name>
+        <qualifiedname>VertexModel::currentPoint</qualifiedname>
+        <read>currentPoint</read>
+        <write>setCurrentPoint</write>
+        <briefdescription>
+<para>The current point being edited. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classVertexModel_1a544e789d35717de9df5aceb6760972a8" kindref="member">editingMode</ref>. The expected CRS to read/write is the map canvas CRS </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="43" column="5" bodyfile="src/core/vertexmodel.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1a02d8be27273fbdeea97252e3ff7cf37a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * VertexModel::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>VertexModel::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="45" column="5" bodyfile="src/core/vertexmodel.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1a26dc249dceb69af470c97d822342c2d5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int VertexModel::vertexCount</definition>
+        <argsstring></argsstring>
+        <name>vertexCount</name>
+        <qualifiedname>VertexModel::vertexCount</qualifiedname>
+        <read>vertexCount</read>
+        <briefdescription>
+<para>number of vertices in the model </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="47" column="5" bodyfile="src/core/vertexmodel.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1ab259907a78567152e448de7963868b27" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int VertexModel::ringCount</definition>
+        <argsstring></argsstring>
+        <name>ringCount</name>
+        <qualifiedname>VertexModel::ringCount</qualifiedname>
+        <read>ringCount</read>
+        <briefdescription>
+<para>number of rings in the model </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="49" column="5" bodyfile="src/core/vertexmodel.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1ac04700201f3449a87b57bc5b725bb415" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::dirty</definition>
+        <argsstring></argsstring>
+        <name>dirty</name>
+        <qualifiedname>VertexModel::dirty</qualifiedname>
+        <read>dirty</read>
+        <briefdescription>
+<para>determines if the model has changes </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="51" column="5" bodyfile="src/core/vertexmodel.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1a59d553ebbbbe45eae5a2622d48e33439" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::editingAllowed</definition>
+        <argsstring></argsstring>
+        <name>editingAllowed</name>
+        <qualifiedname>VertexModel::editingAllowed</qualifiedname>
+        <read>editingAllowed</read>
+        <briefdescription>
+<para>determines if the model allows editing the geometry </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="53" column="5" bodyfile="src/core/vertexmodel.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1a6c4a21b20ed434ee8d7bf1e74fc4b678" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::canRemoveVertex</definition>
+        <argsstring></argsstring>
+        <name>canRemoveVertex</name>
+        <qualifiedname>VertexModel::canRemoveVertex</qualifiedname>
+        <read>canRemoveVertex</read>
+        <briefdescription>
+<para>determines if one can remove current vertex </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="55" column="5" bodyfile="src/core/vertexmodel.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1a9e632581c4deb09d373ea3ce69fb8be7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::canAddVertex</definition>
+        <argsstring></argsstring>
+        <name>canAddVertex</name>
+        <qualifiedname>VertexModel::canAddVertex</qualifiedname>
+        <read>canAddVertex</read>
+        <briefdescription>
+<para>determines if one can add vertex </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="57" column="5" bodyfile="src/core/vertexmodel.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1a97ae34dde75dd908aaf660ece88c650a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::canPreviousVertex</definition>
+        <argsstring></argsstring>
+        <name>canPreviousVertex</name>
+        <qualifiedname>VertexModel::canPreviousVertex</qualifiedname>
+        <read>canPreviousVertex</read>
+        <briefdescription>
+<para>determines if one can go to previous vertex </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="59" column="5" bodyfile="src/core/vertexmodel.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1afaffbbaec94612bf9eabae5e49d6dee5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::canNextVertex</definition>
+        <argsstring></argsstring>
+        <name>canNextVertex</name>
+        <qualifiedname>VertexModel::canNextVertex</qualifiedname>
+        <read>canNextVertex</read>
+        <briefdescription>
+<para>determines if one can go to next vertex </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="61" column="5" bodyfile="src/core/vertexmodel.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1a1b165bfa3132f9baa09723af85a3df1d" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::isHovering</definition>
+        <argsstring></argsstring>
+        <name>isHovering</name>
+        <qualifiedname>VertexModel::isHovering</qualifiedname>
+        <briefdescription>
+<para>determines if the map is currently being hovered (then when moving the map, it will not move directly a vertex if the mode is AddVertex) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="63" column="5" bodyfile="src/core/vertexmodel.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1a9167d3f914b52a5749c3aea9c40b3ef2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::canUndo</definition>
+        <argsstring></argsstring>
+        <name>canUndo</name>
+        <qualifiedname>VertexModel::canUndo</qualifiedname>
+        <read>canUndo</read>
+        <briefdescription>
+<para>returns TRUE if an undo operation is available </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="66" column="5" bodyfile="src/core/vertexmodel.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1ae6bb9b82543fc4b0bff056acf7d83be1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int VertexModel::currentVertexIndex</definition>
+        <argsstring></argsstring>
+        <name>currentVertexIndex</name>
+        <qualifiedname>VertexModel::currentVertexIndex</qualifiedname>
+        <read>currentVertexIndex</read>
+        <write>setCurrentVertexIndex</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The index of the currently active vertex. If no vertex is selected, this is -1. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="71" column="5" bodyfile="src/core/vertexmodel.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1a33b7987a49ce5989d209ed4c79bdbc78" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry VertexModel::geometry</definition>
+        <argsstring></argsstring>
+        <name>geometry</name>
+        <qualifiedname>VertexModel::geometry</qualifiedname>
+        <read>geometry</read>
+        <write>setGeometry</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The geometry in layer coordinates </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="76" column="5" bodyfile="src/core/vertexmodel.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexModel_1a7a6a4d0943437de645af875c0fa916a8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem VertexModel::crs</definition>
+        <argsstring></argsstring>
+        <name>crs</name>
+        <qualifiedname>VertexModel::crs</qualifiedname>
+        <read>crs</read>
+        <write>setCrs</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The coordinate reference system in which the geometry is </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="81" column="5" bodyfile="src/core/vertexmodel.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classVertexModel_1adbf3cd76afe413a37b61ce9ffc7e2dcd" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="structVertexModel_1_1Vertex" kindref="compound">Vertex</ref> &gt;</type>
+        <definition>QList&lt;Vertex&gt; VertexModel::mVertices</definition>
+        <argsstring></argsstring>
+        <name>mVertices</name>
+        <qualifiedname>VertexModel::mVertices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="320" column="11" bodyfile="src/core/vertexmodel.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a64de3b5c37ccb683471f061d2d42f959" prot="private" static="no" mutable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry VertexModel::mOriginalGeometry</definition>
+        <argsstring></argsstring>
+        <name>mOriginalGeometry</name>
+        <qualifiedname>VertexModel::mOriginalGeometry</qualifiedname>
+        <briefdescription>
+<para>copy of the initial geometry, in destination (layer) CRS </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="323" column="17" bodyfile="src/core/vertexmodel.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1acacac1580c55a01644b55058b8721c8a" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem VertexModel::mCrs</definition>
+        <argsstring></argsstring>
+        <name>mCrs</name>
+        <qualifiedname>VertexModel::mCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="324" column="34" bodyfile="src/core/vertexmodel.h" bodystart="324" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1ac8645124151c6f0c598ed48d0c4c54f9" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateTransform</type>
+        <definition>QgsCoordinateTransform VertexModel::mTransform</definition>
+        <argsstring></argsstring>
+        <name>mTransform</name>
+        <qualifiedname>VertexModel::mTransform</qualifiedname>
+        <initializer>= QgsCoordinateTransform()</initializer>
+        <briefdescription>
+<para>CRS of the geometry, will be used to transform to map canvas coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="327" column="28" bodyfile="src/core/vertexmodel.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a4dca6938e6187ec4fef0b1fd73c2af6f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::mIsMulti</definition>
+        <argsstring></argsstring>
+        <name>mIsMulti</name>
+        <qualifiedname>VertexModel::mIsMulti</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="328" column="10" bodyfile="src/core/vertexmodel.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1aaa0b22373eec6fb4c229a0860441b669" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>VertexModel::mDirty</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="329" column="10" bodyfile="src/core/vertexmodel.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1adada0665809fffe138fcbf2e270eee4f" prot="private" static="no" mutable="no">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt;QgsPoint&gt; VertexModel::mVerticesDeleted</definition>
+        <argsstring></argsstring>
+        <name>mVerticesDeleted</name>
+        <qualifiedname>VertexModel::mVerticesDeleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="331" column="13" bodyfile="src/core/vertexmodel.h" bodystart="331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a68f7d92ef68cdbbe38d00dd947d28fcf" prot="private" static="no" mutable="no">
+        <type>EditingMode</type>
+        <definition>EditingMode VertexModel::mMode</definition>
+        <argsstring></argsstring>
+        <name>mMode</name>
+        <qualifiedname>VertexModel::mMode</qualifiedname>
+        <initializer>= NoEditing</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="340" column="17" bodyfile="src/core/vertexmodel.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a55192292df95465073f2077a0aa4f5b1" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype VertexModel::mCurrentIndex</definition>
+        <argsstring></argsstring>
+        <name>mCurrentIndex</name>
+        <qualifiedname>VertexModel::mCurrentIndex</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="342" column="15" bodyfile="src/core/vertexmodel.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a8468455baec968783b2be40b55791e29" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int VertexModel::mRingCount</definition>
+        <argsstring></argsstring>
+        <name>mRingCount</name>
+        <qualifiedname>VertexModel::mRingCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="343" column="9" bodyfile="src/core/vertexmodel.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a91e978fb2e042f93e5a963cf7bdab833" prot="private" static="no" mutable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType VertexModel::mGeometryType</definition>
+        <argsstring></argsstring>
+        <name>mGeometryType</name>
+        <qualifiedname>VertexModel::mGeometryType</qualifiedname>
+        <initializer>= Qgis::GeometryType::Line</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="344" column="24" bodyfile="src/core/vertexmodel.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a58f4349e017eef77c94cad537882c824" prot="private" static="no" mutable="no">
+        <type>Qgis::WkbType</type>
+        <definition>Qgis::WkbType VertexModel::mGeometryWkbType</definition>
+        <argsstring></argsstring>
+        <name>mGeometryWkbType</name>
+        <qualifiedname>VertexModel::mGeometryWkbType</qualifiedname>
+        <initializer>= Qgis::WkbType::Unknown</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="345" column="19" bodyfile="src/core/vertexmodel.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1aacdb22b0f2f7678de2f03a6997e63cdb" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* VertexModel::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>VertexModel::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="346" column="25" bodyfile="src/core/vertexmodel.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a696b475741d2d672bda35bd92872e123" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::mCanRemoveVertex</definition>
+        <argsstring></argsstring>
+        <name>mCanRemoveVertex</name>
+        <qualifiedname>VertexModel::mCanRemoveVertex</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="347" column="10" bodyfile="src/core/vertexmodel.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1ad59f2267984a1ac8d4eca6feaedb70c6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::mCanAddVertex</definition>
+        <argsstring></argsstring>
+        <name>mCanAddVertex</name>
+        <qualifiedname>VertexModel::mCanAddVertex</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="348" column="10" bodyfile="src/core/vertexmodel.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a6774c3e83a5a77d5d766c9ead562140d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::mCanPreviousVertex</definition>
+        <argsstring></argsstring>
+        <name>mCanPreviousVertex</name>
+        <qualifiedname>VertexModel::mCanPreviousVertex</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="349" column="10" bodyfile="src/core/vertexmodel.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a277b619d1d6963f34c3138b413782510" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::mCanNextVertex</definition>
+        <argsstring></argsstring>
+        <name>mCanNextVertex</name>
+        <qualifiedname>VertexModel::mCanNextVertex</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="350" column="10" bodyfile="src/core/vertexmodel.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a27d58b7b278d2db526286f4161a41fd8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::mIsHovering</definition>
+        <argsstring></argsstring>
+        <name>mIsHovering</name>
+        <qualifiedname>VertexModel::mIsHovering</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="351" column="10" bodyfile="src/core/vertexmodel.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a9aa7605eafe95b785df1e021bc34173b" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="structVertexModel_1_1VertexChange" kindref="compound">VertexChange</ref> &gt;</type>
+        <definition>QList&lt;VertexChange&gt; VertexModel::mHistory</definition>
+        <argsstring></argsstring>
+        <name>mHistory</name>
+        <qualifiedname>VertexModel::mHistory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="353" column="11" bodyfile="src/core/vertexmodel.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a254ae683cea39839fee80441a8597a7c" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype VertexModel::mHistoryIndex</definition>
+        <argsstring></argsstring>
+        <name>mHistoryIndex</name>
+        <qualifiedname>VertexModel::mHistoryIndex</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="354" column="15" bodyfile="src/core/vertexmodel.h" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexModel_1a4a86975433db5d123ddf6f937a6c58e6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::mHistoryTraversing</definition>
+        <argsstring></argsstring>
+        <name>mHistoryTraversing</name>
+        <qualifiedname>VertexModel::mHistoryTraversing</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="355" column="10" bodyfile="src/core/vertexmodel.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classVertexModel_1a4c0201b2090d5e9b68261618b84a889a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class VertexModelTest</definition>
+        <argsstring></argsstring>
+        <name>VertexModelTest</name>
+        <qualifiedname>VertexModel::VertexModelTest</qualifiedname>
+        <param>
+          <type>VertexModelTest</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="357" column="18" bodyfile="src/core/vertexmodel.h" bodystart="357" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classVertexModel_1a4c87b59f51af150f99bd66cbd859bfc9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VertexModel::VertexModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>VertexModel</name>
+        <qualifiedname>VertexModel::VertexModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="141" column="14" bodyfile="src/core/vertexmodel.cpp" bodystart="27" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1ad903804a8aed62b080b4355f6d66e320" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VertexModel::~VertexModel</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~VertexModel</name>
+        <qualifiedname>VertexModel::~VertexModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="142" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a67f6eaf0bffd5aaa29660499ea214c84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>VertexModel::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="145" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="37" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1aed87c83caf435de29a70f58289d15da3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * VertexModel::mapSettings</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>VertexModel::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="147" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a84ddb5aaf10fd174eeb7ad28a297fd9f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VertexModel::editingAllowed</definition>
+        <argsstring>() const</argsstring>
+        <name>editingAllowed</name>
+        <qualifiedname>VertexModel::editingAllowed</qualifiedname>
+        <briefdescription>
+<para>determines if the model allows editing the geometry   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="150" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="52" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a028dd5ce9bc7fff82d24d76ec054ca43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::setCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>setCrs</name>
+        <qualifiedname>VertexModel::setCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The coorinate reference system in which the geometry is </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="155" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="59" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a1428e1334c54af1620cfe6543ec6cf5d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem VertexModel::crs</definition>
+        <argsstring>() const</argsstring>
+        <name>crs</name>
+        <qualifiedname>VertexModel::crs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The coordinate reference system in which the geometry is </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="160" column="34" bodyfile="src/core/vertexmodel.cpp" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a54b7b628ee629fb945d959556e87513e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::setGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>setGeometry</name>
+        <qualifiedname>VertexModel::setGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The geometry in layer coordinates </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="165" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="76" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a4b4c739b111da9f73323996c4cea2056" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry VertexModel::geometry</definition>
+        <argsstring>() const</argsstring>
+        <name>geometry</name>
+        <qualifiedname>VertexModel::geometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The geometry in layer coordinates </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="170" column="17" bodyfile="src/core/vertexmodel.cpp" bodystart="468" bodyend="520"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a2bbb0634146959f550621d41a055e4b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex VertexModel::index</definition>
+        <argsstring>(int row, int column, const QModelIndex &amp;parent) const override</argsstring>
+        <name>index</name>
+        <qualifiedname>VertexModel::index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="172" column="17" bodyfile="src/core/vertexmodel.cpp" bodystart="401" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1af480cbf2fc2373272315560d2a5ece96" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex VertexModel::parent</definition>
+        <argsstring>(const QModelIndex &amp;child) const override</argsstring>
+        <name>parent</name>
+        <qualifiedname>VertexModel::parent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="173" column="17" bodyfile="src/core/vertexmodel.cpp" bodystart="414" bodyend="418"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a18c4d433a2a624f0d74f05febab3d66d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int VertexModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>VertexModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="174" column="9" bodyfile="src/core/vertexmodel.cpp" bodystart="420" bodyend="424"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a35e66d0d5ca32da8e7a08b53c2ebccb3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int VertexModel::columnCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>columnCount</name>
+        <qualifiedname>VertexModel::columnCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="175" column="9" bodyfile="src/core/vertexmodel.cpp" bodystart="426" bodyend="430"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a17bc007647769a77331f62df5fe3495d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant VertexModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>VertexModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="176" column="14" bodyfile="src/core/vertexmodel.cpp" bodystart="437" bodyend="465"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a326be9959020b10be17690db0f760f9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void VertexModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>VertexModel::clear</qualifiedname>
+        <briefdescription>
+<para>This will clear the data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="179" column="22" bodyfile="src/core/vertexmodel.cpp" bodystart="522" bodyend="535"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a04933d259177267841cbd2b9aa23c416" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void VertexModel::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>VertexModel::reset</qualifiedname>
+        <briefdescription>
+<para>Reset the model to its original geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="182" column="22" bodyfile="src/core/vertexmodel.cpp" bodystart="537" bodyend="540"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1ae731af61a2a260b163aa2a56b2d1ccb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void VertexModel::previous</definition>
+        <argsstring>()</argsstring>
+        <name>previous</name>
+        <qualifiedname>VertexModel::previous</qualifiedname>
+        <briefdescription>
+<para>previous vertex or segment </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="185" column="22" bodyfile="src/core/vertexmodel.cpp" bodystart="542" bodyend="580"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1ab8b69b85b2dc8297521ea0fb8488e0c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void VertexModel::next</definition>
+        <argsstring>()</argsstring>
+        <name>next</name>
+        <qualifiedname>VertexModel::next</qualifiedname>
+        <briefdescription>
+<para>next vertex or segment </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="188" column="22" bodyfile="src/core/vertexmodel.cpp" bodystart="582" bodyend="602"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a6a573851e11ea4830b824da3cda275c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void VertexModel::selectVertexAtPosition</definition>
+        <argsstring>(const QPointF &amp;point, double threshold, bool autoInsert=true)</argsstring>
+        <name>selectVertexAtPosition</name>
+        <qualifiedname>VertexModel::selectVertexAtPosition</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>threshold</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>autoInsert</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Selects the vertex at the given screen <emphasis>point</emphasis> within a given <emphasis>threshold</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="191" column="22" bodyfile="src/core/vertexmodel.cpp" bodystart="632" bodyend="636"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1ac8a5f8d08b2abb95716c9c2d1d8dd3f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::selectVertexAtPosition</definition>
+        <argsstring>(const QgsPoint &amp;mapPoint, double threshold, bool autoInsert=true)</argsstring>
+        <name>selectVertexAtPosition</name>
+        <qualifiedname>VertexModel::selectVertexAtPosition</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>mapPoint</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>threshold</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>autoInsert</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Selects the vertex at the given <emphasis>mapPoint</emphasis> within a given <emphasis>threshold</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="194" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="638" bodyend="683"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a2a75adeef95ecc872c08797898cddefe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void VertexModel::addVertexNearestToPosition</definition>
+        <argsstring>(const QgsPoint &amp;mapPoint)</argsstring>
+        <name>addVertexNearestToPosition</name>
+        <qualifiedname>VertexModel::addVertexNearestToPosition</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>mapPoint</declname>
+        </param>
+        <briefdescription>
+<para>Adds a new vertex on the segment having its mid-point nearest to the <emphasis>mapPoint</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="197" column="22" bodyfile="src/core/vertexmodel.cpp" bodystart="604" bodyend="630"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1aee18aa20eaaecd33b3c3e0fcb85292db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void VertexModel::removeCurrentVertex</definition>
+        <argsstring>()</argsstring>
+        <name>removeCurrentVertex</name>
+        <qualifiedname>VertexModel::removeCurrentVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="199" column="22" bodyfile="src/core/vertexmodel.cpp" bodystart="685" bodyend="711"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a37b602d1c932ca36920295147b67de52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void VertexModel::updateGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>updateGeometry</name>
+        <qualifiedname>VertexModel::updateGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets the geometry to the given <emphasis>geometry</emphasis> but preserves the index of the current vertex this is used to update the original geometry while still editing the model <simplesect kind="see"><para><computeroutput><ref refid="classVertexModel_1a33b7987a49ce5989d209ed4c79bdbc78" kindref="member">geometry</ref></computeroutput> property </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="207" column="22" bodyfile="src/core/vertexmodel.cpp" bodystart="713" bodyend="719"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a7c77de2a7783019f814a7f358356a1bd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>EditingMode</type>
+        <definition>VertexModel::EditingMode VertexModel::editingMode</definition>
+        <argsstring>() const</argsstring>
+        <name>editingMode</name>
+        <qualifiedname>VertexModel::editingMode</qualifiedname>
+        <briefdescription>
+<para>The current mode.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="210" column="17" bodyfile="src/core/vertexmodel.cpp" bodystart="721" bodyend="724"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a822a71e4329e5e507bd3e080522a542a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::setEditingMode</definition>
+        <argsstring>(EditingMode mode)</argsstring>
+        <name>setEditingMode</name>
+        <qualifiedname>VertexModel::setEditingMode</qualifiedname>
+        <param>
+          <type>EditingMode</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>The current mode.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="212" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="1080" bodyend="1125"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a6bf0e3e2e93b3402a30fc141e0a7802b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint VertexModel::currentPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>currentPoint</name>
+        <qualifiedname>VertexModel::currentPoint</qualifiedname>
+        <briefdescription>
+<para>The current point being edited.   </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classVertexModel_1a544e789d35717de9df5aceb6760972a8" kindref="member">editingMode</ref>. The expected CRS to read/write is the map canvas CRS   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="215" column="14" bodyfile="src/core/vertexmodel.cpp" bodystart="726" bodyend="729"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a5c16ad3b29431f35d51c85f4c1def6c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::setCurrentPoint</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>setCurrentPoint</name>
+        <qualifiedname>VertexModel::setCurrentPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+<para>The current point being edited.   </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classVertexModel_1a544e789d35717de9df5aceb6760972a8" kindref="member">editingMode</ref>. The expected CRS to read/write is the map canvas CRS   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="217" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="731" bodyend="789"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a49111ac8048bb5bd6851913b4c114e5f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int VertexModel::vertexCount</definition>
+        <argsstring>() const</argsstring>
+        <name>vertexCount</name>
+        <qualifiedname>VertexModel::vertexCount</qualifiedname>
+        <briefdescription>
+<para>number of vertices in the model   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="220" column="9" bodyfile="src/core/vertexmodel.cpp" bodystart="845" bodyend="848"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1aa0cabf6d05173a534958fc83498321c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int VertexModel::ringCount</definition>
+        <argsstring>() const</argsstring>
+        <name>ringCount</name>
+        <qualifiedname>VertexModel::ringCount</qualifiedname>
+        <briefdescription>
+<para>number of rings in the model   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="222" column="9" bodyfile="src/core/vertexmodel.cpp" bodystart="850" bodyend="853"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1aeef8ae747505e00732e407bd7f7de166" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VertexModel::dirty</definition>
+        <argsstring>() const</argsstring>
+        <name>dirty</name>
+        <qualifiedname>VertexModel::dirty</qualifiedname>
+        <briefdescription>
+<para>determines if the model has changes   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="225" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="855" bodyend="858"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1ac23413e9b6db39a8a01a96e4888caf9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VertexModel::canRemoveVertex</definition>
+        <argsstring>()</argsstring>
+        <name>canRemoveVertex</name>
+        <qualifiedname>VertexModel::canRemoveVertex</qualifiedname>
+        <briefdescription>
+<para>determines if one can remove current vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="228" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1af35ce09325f6c91e2f4c27d53e4291ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VertexModel::canAddVertex</definition>
+        <argsstring>()</argsstring>
+        <name>canAddVertex</name>
+        <qualifiedname>VertexModel::canAddVertex</qualifiedname>
+        <briefdescription>
+<para>determines if one can add vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="230" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a44be70368d9cec8405fdc86aa6693041" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VertexModel::canPreviousVertex</definition>
+        <argsstring>()</argsstring>
+        <name>canPreviousVertex</name>
+        <qualifiedname>VertexModel::canPreviousVertex</qualifiedname>
+        <briefdescription>
+<para>determines if one can go to previous vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="232" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1af0c2d27f52b7ea73f2f329ab71c00ef8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VertexModel::canNextVertex</definition>
+        <argsstring>()</argsstring>
+        <name>canNextVertex</name>
+        <qualifiedname>VertexModel::canNextVertex</qualifiedname>
+        <briefdescription>
+<para>determines if one can go to next vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="234" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a4a833e1f57725df51dbd2518e23617d9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType VertexModel::geometryType</definition>
+        <argsstring>() const</argsstring>
+        <name>geometryType</name>
+        <qualifiedname>VertexModel::geometryType</qualifiedname>
+        <briefdescription>
+<para>Returns the geometry type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="237" column="24" bodyfile="src/core/vertexmodel.cpp" bodystart="1075" bodyend="1078"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a5b8ec6c5bffbaf2afceee4db915a24f8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt; QgsPoint &gt; VertexModel::flatVertices</definition>
+        <argsstring>(int ringId=-1) const</argsstring>
+        <name>flatVertices</name>
+        <qualifiedname>VertexModel::flatVertices</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ringId</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of point (segment vertex, if any, will be skipped) For a polygon, if ringId is not given the current ring will be returned </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="241" column="13" bodyfile="src/core/vertexmodel.cpp" bodystart="880" bodyend="900"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1afb15df85945ac981d846b8bc341cb290" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt; QgsPoint &gt; VertexModel::verticesAdded</definition>
+        <argsstring>() const</argsstring>
+        <name>verticesAdded</name>
+        <qualifiedname>VertexModel::verticesAdded</qualifiedname>
+        <briefdescription>
+<para>Returns a list of added vertices not found in linked geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="244" column="13" bodyfile="src/core/vertexmodel.cpp" bodystart="902" bodyend="915"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a829126bb2e95dd94d815a80a56622f6a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QPair&lt; QgsPoint, QgsPoint &gt; &gt;</type>
+        <definition>QVector&lt; QPair&lt; QgsPoint, QgsPoint &gt; &gt; VertexModel::verticesMoved</definition>
+        <argsstring>() const</argsstring>
+        <name>verticesMoved</name>
+        <qualifiedname>VertexModel::verticesMoved</qualifiedname>
+        <briefdescription>
+<para>Returns a list of moved vertices found in linked geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="247" column="13" bodyfile="src/core/vertexmodel.cpp" bodystart="929" bodyend="948"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a9ce85ce9fcb476ea679d18d5b135f6d7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt; QgsPoint &gt; VertexModel::verticesDeleted</definition>
+        <argsstring>() const</argsstring>
+        <name>verticesDeleted</name>
+        <qualifiedname>VertexModel::verticesDeleted</qualifiedname>
+        <briefdescription>
+<para>Returns a list of added vertices not found in linked geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="250" column="13" bodyfile="src/core/vertexmodel.cpp" bodystart="917" bodyend="927"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a282fe0e63a7b3345af8d3fbbd943f83d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="structVertexModel_1_1Vertex" kindref="compound">Vertex</ref> &gt;</type>
+        <definition>QList&lt; VertexModel::Vertex &gt; VertexModel::vertices</definition>
+        <argsstring>() const</argsstring>
+        <name>vertices</name>
+        <qualifiedname>VertexModel::vertices</qualifiedname>
+        <briefdescription>
+<para>Returns a list of vertices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="253" column="11" bodyfile="src/core/vertexmodel.cpp" bodystart="950" bodyend="953"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1ad40cfc0e5cc85a32f183338bbc3ff649" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; VertexModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>VertexModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="255" column="11" bodyfile="src/core/vertexmodel.cpp" bodystart="955" bodyend="964"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a776870c31a99aad16a09c8681a5dc296" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int VertexModel::currentVertexIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>currentVertexIndex</name>
+        <qualifiedname>VertexModel::currentVertexIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="257" column="9" bodyfile="src/core/vertexmodel.cpp" bodystart="840" bodyend="843"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1ac5ac1e3006d1ca30acee19613b01d9a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::setCurrentVertexIndex</definition>
+        <argsstring>(qsizetype currentIndex)</argsstring>
+        <name>setCurrentVertexIndex</name>
+        <qualifiedname>VertexModel::setCurrentVertexIndex</qualifiedname>
+        <param>
+          <type>qsizetype</type>
+          <declname>currentIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="259" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="829" bodyend="838"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1abfd0d87c0a81ef8472e313f3040bacdf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structVertexModel_1_1Vertex" kindref="compound">Vertex</ref></type>
+        <definition>VertexModel::Vertex VertexModel::vertex</definition>
+        <argsstring>(int row) const</argsstring>
+        <name>vertex</name>
+        <qualifiedname>VertexModel::vertex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="261" column="12" bodyfile="src/core/vertexmodel.cpp" bodystart="432" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a9be903323b03859912bdb85d568a09b7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="structVertexModel_1_1VertexChange" kindref="compound">VertexChange</ref> &gt;</type>
+        <definition>QList&lt; VertexModel::VertexChange &gt; VertexModel::history</definition>
+        <argsstring>(bool transformPoints=false, bool includeAvailableRedos=false) const</argsstring>
+        <name>history</name>
+        <qualifiedname>VertexModel::history</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>transformPoints</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>includeAvailableRedos</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="263" column="11" bodyfile="src/core/vertexmodel.cpp" bodystart="90" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1ae5e24b9cbd4d0f4d0d7b4cc1565597e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::clearHistory</definition>
+        <argsstring>()</argsstring>
+        <name>clearHistory</name>
+        <qualifiedname>VertexModel::clearHistory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="265" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="120" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a2fe343568f74471443c6b3dbf56467fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::addToHistory</definition>
+        <argsstring>(VertexChangeType type)</argsstring>
+        <name>addToHistory</name>
+        <qualifiedname>VertexModel::addToHistory</qualifiedname>
+        <param>
+          <type>VertexChangeType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="267" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="127" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1aa267d92b31d40f0001727fdf372e5567" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void VertexModel::undoHistory</definition>
+        <argsstring>()</argsstring>
+        <name>undoHistory</name>
+        <qualifiedname>VertexModel::undoHistory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="269" column="22" bodyfile="src/core/vertexmodel.cpp" bodystart="155" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1ab9ec5b89026efae06b66d33caaba305c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VertexModel::canUndo</definition>
+        <argsstring>()</argsstring>
+        <name>canUndo</name>
+        <qualifiedname>VertexModel::canUndo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="271" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classVertexModel_1a27cc9d2c2bb69a69ee12aed9bbb8d5a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::editingModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>editingModeChanged</name>
+        <qualifiedname>VertexModel::editingModeChanged</qualifiedname>
+        <briefdescription>
+<para>The current mode.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="275" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1ac69492273341d6806a6e3a11260d16cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::currentPointChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentPointChanged</name>
+        <qualifiedname>VertexModel::currentPointChanged</qualifiedname>
+        <briefdescription>
+<para>The current point being edited.   </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classVertexModel_1a544e789d35717de9df5aceb6760972a8" kindref="member">editingMode</ref>. The expected CRS to read/write is the map canvas CRS   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="277" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1ac041e703bc24fc45bd56fc24fb767a89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>VertexModel::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="279" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1a0f98df574f1d9b418260847d2967f8c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::vertexCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vertexCountChanged</name>
+        <qualifiedname>VertexModel::vertexCountChanged</qualifiedname>
+        <briefdescription>
+<para>number of vertices in the model   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="281" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1a4960db3ff75103c79d0d8abb0571ffb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::ringCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>ringCountChanged</name>
+        <qualifiedname>VertexModel::ringCountChanged</qualifiedname>
+        <briefdescription>
+<para>number of rings in the model   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="283" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1a66170ad3586f7f3b78d4e9721aeabdad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::dirtyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>dirtyChanged</name>
+        <qualifiedname>VertexModel::dirtyChanged</qualifiedname>
+        <briefdescription>
+<para>determines if the model has changes   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="285" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1a1913d5bd33d966370c2c76e332e7c3f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::canRemoveVertexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>canRemoveVertexChanged</name>
+        <qualifiedname>VertexModel::canRemoveVertexChanged</qualifiedname>
+        <briefdescription>
+<para>determines if one can remove current vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="287" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1a692f80e57cf0d8124c549831d554ea74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::canAddVertexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>canAddVertexChanged</name>
+        <qualifiedname>VertexModel::canAddVertexChanged</qualifiedname>
+        <briefdescription>
+<para>determines if one can add vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="289" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1a4bdcee78eb76e669b4deb4ce0c005d34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::canPreviousVertexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>canPreviousVertexChanged</name>
+        <qualifiedname>VertexModel::canPreviousVertexChanged</qualifiedname>
+        <briefdescription>
+<para>determines if one can go to previous vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="291" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1a9c3a559e0ca0c9fd0a191d63aa26caf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::canNextVertexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>canNextVertexChanged</name>
+        <qualifiedname>VertexModel::canNextVertexChanged</qualifiedname>
+        <briefdescription>
+<para>determines if one can go to next vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="293" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1a184b6dc650b926062aa2b25d7d740af3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::currentVertexIndexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentVertexIndexChanged</name>
+        <qualifiedname>VertexModel::currentVertexIndexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="295" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1a27065648a827de5ed44c656dc338d8de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::crsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>crsChanged</name>
+        <qualifiedname>VertexModel::crsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the coordinate reference system has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="298" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1ac87f3ff78e550935d7b2d40d42e99eb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::geometryChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryChanged</name>
+        <qualifiedname>VertexModel::geometryChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the geometry has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="301" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1aca383df1d30e25a6ff1e357b6836326b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::geometryTypeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryTypeChanged</name>
+        <qualifiedname>VertexModel::geometryTypeChanged</qualifiedname>
+        <briefdescription>
+<para>Returns the geometry type.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="304" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classVertexModel_1a23167ad1b761a1cb2b0df810ece6902a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::historyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>historyChanged</name>
+        <qualifiedname>VertexModel::historyChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the history has been modified. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="307" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classVertexModel_1a158ea8402994d50f20e89b71a99abd04" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::refreshGeometry</definition>
+        <argsstring>()</argsstring>
+        <name>refreshGeometry</name>
+        <qualifiedname>VertexModel::refreshGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="310" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="206" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1af923e29bb5bfd0e37982a2de2b44d1e4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::createCandidates</definition>
+        <argsstring>()</argsstring>
+        <name>createCandidates</name>
+        <qualifiedname>VertexModel::createCandidates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add the candidates of new vertices (extending or segment) This will not emit the reset signals, it&apos;s up to the caller to do so </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="313" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="279" bodyend="399"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a09e604278dfe2b3422681c082ba4706c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::setDirty</definition>
+        <argsstring>(bool dirty)</argsstring>
+        <name>setDirty</name>
+        <qualifiedname>VertexModel::setDirty</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>dirty</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="314" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="966" bodyend="973"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1ad801e89052f66ddd1980f66d4feee5b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::updateCanRemoveVertex</definition>
+        <argsstring>()</argsstring>
+        <name>updateCanRemoveVertex</name>
+        <qualifiedname>VertexModel::updateCanRemoveVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="315" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="975" bodyend="1005"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1ac79dc555bc714f6c0a2d78c356332f68" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::updateCanAddVertex</definition>
+        <argsstring>()</argsstring>
+        <name>updateCanAddVertex</name>
+        <qualifiedname>VertexModel::updateCanAddVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="316" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="1007" bodyend="1016"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a3307f67a243a2b5fb47750445a644b5c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::updateCanPreviousNextVertex</definition>
+        <argsstring>()</argsstring>
+        <name>updateCanPreviousNextVertex</name>
+        <qualifiedname>VertexModel::updateCanPreviousNextVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="317" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="1018" bodyend="1064"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1aa87090e432642efdfc63c1a0724192b1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::setGeometryType</definition>
+        <argsstring>(const Qgis::GeometryType &amp;geometryType)</argsstring>
+        <name>setGeometryType</name>
+        <qualifiedname>VertexModel::setGeometryType</qualifiedname>
+        <param>
+          <type>const Qgis::GeometryType &amp;</type>
+          <declname>geometryType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="318" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="1066" bodyend="1073"/>
+      </memberdef>
+      <memberdef kind="function" id="classVertexModel_1a82141d27fd237efff3e0ffeb2d062e41" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexModel::setCurrentVertex</definition>
+        <argsstring>(qsizetype newVertex, bool forceUpdate=false)</argsstring>
+        <name>setCurrentVertex</name>
+        <qualifiedname>VertexModel::setCurrentVertex</qualifiedname>
+        <param>
+          <type>qsizetype</type>
+          <declname>newVertex</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>forceUpdate</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>setCurrentVertex set the current vertex viewed/edited in the model </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newVertex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new vertex index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>forceUpdate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true, it will force to update all vertices and emit signal </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="338" column="10" bodyfile="src/core/vertexmodel.cpp" bodystart="791" bodyend="827"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classVertexModel" kindref="compound">VertexModel</ref> class is a model to highlight and edit vertices. The model is used in map coordinates. There are different modes: no editing, edit (move/remove) nodes, add nodes (to be implemented)</para>
+<para>The model holds all vertices and the candidates for new vertices. If you need the existing nodes, use <ref refid="classVertexModel_1a5b8ec6c5bffbaf2afceee4db915a24f8" kindref="member">flatVertices()</ref>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>VertexModel</label>
+        <link refid="classVertexModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>VertexModel</label>
+        <link refid="classVertexModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/vertexmodel.h" line="37" column="1" bodyfile="src/core/vertexmodel.h" bodystart="38" bodyend="358"/>
+    <listofallmembers>
+      <member refid="classVertexModel_1a2fe343568f74471443c6b3dbf56467fb" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>addToHistory</name></member>
+      <member refid="classVertexModel_1a11f2b7867677c55fc1be1f49fe1d85cba2d1067178cc5d116cf651bd2da54fd93" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>AddVertex</name></member>
+      <member refid="classVertexModel_1a2a75adeef95ecc872c08797898cddefe" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>addVertexNearestToPosition</name></member>
+      <member refid="classVertexModel_1a9e632581c4deb09d373ea3ce69fb8be7" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canAddVertex</name></member>
+      <member refid="classVertexModel_1af35ce09325f6c91e2f4c27d53e4291ea" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canAddVertex</name></member>
+      <member refid="classVertexModel_1a692f80e57cf0d8124c549831d554ea74" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canAddVertexChanged</name></member>
+      <member refid="classVertexModel_1afaffbbaec94612bf9eabae5e49d6dee5" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canNextVertex</name></member>
+      <member refid="classVertexModel_1af0c2d27f52b7ea73f2f329ab71c00ef8" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canNextVertex</name></member>
+      <member refid="classVertexModel_1a9c3a559e0ca0c9fd0a191d63aa26caf9" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canNextVertexChanged</name></member>
+      <member refid="classVertexModel_1a97ae34dde75dd908aaf660ece88c650a" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canPreviousVertex</name></member>
+      <member refid="classVertexModel_1a44be70368d9cec8405fdc86aa6693041" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canPreviousVertex</name></member>
+      <member refid="classVertexModel_1a4bdcee78eb76e669b4deb4ce0c005d34" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canPreviousVertexChanged</name></member>
+      <member refid="classVertexModel_1a6c4a21b20ed434ee8d7bf1e74fc4b678" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canRemoveVertex</name></member>
+      <member refid="classVertexModel_1ac23413e9b6db39a8a01a96e4888caf9c" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canRemoveVertex</name></member>
+      <member refid="classVertexModel_1a1913d5bd33d966370c2c76e332e7c3f2" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canRemoveVertexChanged</name></member>
+      <member refid="classVertexModel_1a9167d3f914b52a5749c3aea9c40b3ef2" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canUndo</name></member>
+      <member refid="classVertexModel_1ab9ec5b89026efae06b66d33caaba305c" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>canUndo</name></member>
+      <member refid="classVertexModel_1a326be9959020b10be17690db0f760f9b" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>clear</name></member>
+      <member refid="classVertexModel_1ae5e24b9cbd4d0f4d0d7b4cc1565597e3" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>clearHistory</name></member>
+      <member refid="classVertexModel_1a35e66d0d5ca32da8e7a08b53c2ebccb3" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>columnCount</name></member>
+      <member refid="classVertexModel_1a590c8a0164000e78c17f25a40765362a" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>ColumnRole</name></member>
+      <member refid="classVertexModel_1af923e29bb5bfd0e37982a2de2b44d1e4" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>createCandidates</name></member>
+      <member refid="classVertexModel_1a7a6a4d0943437de645af875c0fa916a8" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>crs</name></member>
+      <member refid="classVertexModel_1a1428e1334c54af1620cfe6543ec6cf5d" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>crs</name></member>
+      <member refid="classVertexModel_1a27065648a827de5ed44c656dc338d8de" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>crsChanged</name></member>
+      <member refid="classVertexModel_1a3f9bdfc7cda54bb73ab20b27b9a6333e" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>currentPoint</name></member>
+      <member refid="classVertexModel_1a6bf0e3e2e93b3402a30fc141e0a7802b" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>currentPoint</name></member>
+      <member refid="classVertexModel_1ac69492273341d6806a6e3a11260d16cb" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>currentPointChanged</name></member>
+      <member refid="classVertexModel_1ae6bb9b82543fc4b0bff056acf7d83be1" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>currentVertexIndex</name></member>
+      <member refid="classVertexModel_1a776870c31a99aad16a09c8681a5dc296" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>currentVertexIndex</name></member>
+      <member refid="classVertexModel_1a184b6dc650b926062aa2b25d7d740af3" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>currentVertexIndexChanged</name></member>
+      <member refid="classVertexModel_1a590c8a0164000e78c17f25a40765362aa40eb18e87b2a45ce6da25a6473e1ef96" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>CurrentVertexRole</name></member>
+      <member refid="classVertexModel_1a17bc007647769a77331f62df5fe3495d" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>data</name></member>
+      <member refid="classVertexModel_1ac04700201f3449a87b57bc5b725bb415" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>dirty</name></member>
+      <member refid="classVertexModel_1aeef8ae747505e00732e407bd7f7de166" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>dirty</name></member>
+      <member refid="classVertexModel_1a66170ad3586f7f3b78d4e9721aeabdad" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>dirtyChanged</name></member>
+      <member refid="classVertexModel_1a59d553ebbbbe45eae5a2622d48e33439" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>editingAllowed</name></member>
+      <member refid="classVertexModel_1a84ddb5aaf10fd174eeb7ad28a297fd9f" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>editingAllowed</name></member>
+      <member refid="classVertexModel_1a544e789d35717de9df5aceb6760972a8" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>editingMode</name></member>
+      <member refid="classVertexModel_1a7c77de2a7783019f814a7f358356a1bd" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>editingMode</name></member>
+      <member refid="classVertexModel_1a11f2b7867677c55fc1be1f49fe1d85cb" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>EditingMode</name></member>
+      <member refid="classVertexModel_1a27cc9d2c2bb69a69ee12aed9bbb8d5a2" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>editingModeChanged</name></member>
+      <member refid="classVertexModel_1a11f2b7867677c55fc1be1f49fe1d85cbaa7f204e82f5be25828731de6de9e7344" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>EditVertex</name></member>
+      <member refid="classVertexModel_1aff8137f8b7fe5713c7141c2e1f596bdba0adf8b34a8eb0c5ea5b236b0803f8d1b" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>ExistingVertex</name></member>
+      <member refid="classVertexModel_1a590c8a0164000e78c17f25a40765362aa8f0231d210f3a3105ab055a93c5d8943" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>ExistingVertexRole</name></member>
+      <member refid="classVertexModel_1a5b8ec6c5bffbaf2afceee4db915a24f8" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>flatVertices</name></member>
+      <member refid="classVertexModel_1a33b7987a49ce5989d209ed4c79bdbc78" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>geometry</name></member>
+      <member refid="classVertexModel_1a4b4c739b111da9f73323996c4cea2056" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>geometry</name></member>
+      <member refid="classVertexModel_1ac87f3ff78e550935d7b2d40d42e99eb0" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>geometryChanged</name></member>
+      <member refid="classVertexModel_1a4a833e1f57725df51dbd2518e23617d9" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>geometryType</name></member>
+      <member refid="classVertexModel_1aca383df1d30e25a6ff1e357b6836326b" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>geometryTypeChanged</name></member>
+      <member refid="classVertexModel_1a9be903323b03859912bdb85d568a09b7" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>history</name></member>
+      <member refid="classVertexModel_1a23167ad1b761a1cb2b0df810ece6902a" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>historyChanged</name></member>
+      <member refid="classVertexModel_1a2bbb0634146959f550621d41a055e4b8" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>index</name></member>
+      <member refid="classVertexModel_1a1b165bfa3132f9baa09723af85a3df1d" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>isHovering</name></member>
+      <member refid="classVertexModel_1a02d8be27273fbdeea97252e3ff7cf37a" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>mapSettings</name></member>
+      <member refid="classVertexModel_1aed87c83caf435de29a70f58289d15da3" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>mapSettings</name></member>
+      <member refid="classVertexModel_1ac041e703bc24fc45bd56fc24fb767a89" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>mapSettingsChanged</name></member>
+      <member refid="classVertexModel_1ad59f2267984a1ac8d4eca6feaedb70c6" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mCanAddVertex</name></member>
+      <member refid="classVertexModel_1a277b619d1d6963f34c3138b413782510" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mCanNextVertex</name></member>
+      <member refid="classVertexModel_1a6774c3e83a5a77d5d766c9ead562140d" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mCanPreviousVertex</name></member>
+      <member refid="classVertexModel_1a696b475741d2d672bda35bd92872e123" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mCanRemoveVertex</name></member>
+      <member refid="classVertexModel_1acacac1580c55a01644b55058b8721c8a" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mCrs</name></member>
+      <member refid="classVertexModel_1a55192292df95465073f2077a0aa4f5b1" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mCurrentIndex</name></member>
+      <member refid="classVertexModel_1aaa0b22373eec6fb4c229a0860441b669" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mDirty</name></member>
+      <member refid="classVertexModel_1a91e978fb2e042f93e5a963cf7bdab833" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mGeometryType</name></member>
+      <member refid="classVertexModel_1a58f4349e017eef77c94cad537882c824" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mGeometryWkbType</name></member>
+      <member refid="classVertexModel_1a9aa7605eafe95b785df1e021bc34173b" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mHistory</name></member>
+      <member refid="classVertexModel_1a254ae683cea39839fee80441a8597a7c" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mHistoryIndex</name></member>
+      <member refid="classVertexModel_1a4a86975433db5d123ddf6f937a6c58e6" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mHistoryTraversing</name></member>
+      <member refid="classVertexModel_1a27d58b7b278d2db526286f4161a41fd8" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mIsHovering</name></member>
+      <member refid="classVertexModel_1a4dca6938e6187ec4fef0b1fd73c2af6f" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mIsMulti</name></member>
+      <member refid="classVertexModel_1aacdb22b0f2f7678de2f03a6997e63cdb" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mMapSettings</name></member>
+      <member refid="classVertexModel_1a68f7d92ef68cdbbe38d00dd947d28fcf" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mMode</name></member>
+      <member refid="classVertexModel_1a64de3b5c37ccb683471f061d2d42f959" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mOriginalGeometry</name></member>
+      <member refid="classVertexModel_1a8468455baec968783b2be40b55791e29" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mRingCount</name></member>
+      <member refid="classVertexModel_1ac8645124151c6f0c598ed48d0c4c54f9" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mTransform</name></member>
+      <member refid="classVertexModel_1adbf3cd76afe413a37b61ce9ffc7e2dcd" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mVertices</name></member>
+      <member refid="classVertexModel_1adada0665809fffe138fcbf2e270eee4f" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>mVerticesDeleted</name></member>
+      <member refid="classVertexModel_1aff8137f8b7fe5713c7141c2e1f596bdbaec2001d6da38d2a76ef4c8127c6d311d" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>NewVertexExtending</name></member>
+      <member refid="classVertexModel_1aff8137f8b7fe5713c7141c2e1f596bdbac4ad0e022344cd69303673e7a56f41f3" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>NewVertexSegment</name></member>
+      <member refid="classVertexModel_1ab8b69b85b2dc8297521ea0fb8488e0c2" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>next</name></member>
+      <member refid="classVertexModel_1a7f390daeb426101c8c20d181d0782a31aceff40aac17d060f3518c2cad429daba" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>NoChange</name></member>
+      <member refid="classVertexModel_1a11f2b7867677c55fc1be1f49fe1d85cbaa51fd757735fa342fe0dc80f8abad92f" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>NoEditing</name></member>
+      <member refid="classVertexModel_1a590c8a0164000e78c17f25a40765362aa7f72228255dd65ea9141104a9127e0bf" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>OriginalPointRole</name></member>
+      <member refid="classVertexModel_1af480cbf2fc2373272315560d2a5ece96" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>parent</name></member>
+      <member refid="classVertexModel_1a590c8a0164000e78c17f25a40765362aade0dad96b107ac38519aa8483d601821" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>PointRole</name></member>
+      <member refid="classVertexModel_1aff8137f8b7fe5713c7141c2e1f596bdb" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>PointType</name></member>
+      <member refid="classVertexModel_1ae731af61a2a260b163aa2a56b2d1ccb9" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>previous</name></member>
+      <member refid="classVertexModel_1a158ea8402994d50f20e89b71a99abd04" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>refreshGeometry</name></member>
+      <member refid="classVertexModel_1aee18aa20eaaecd33b3c3e0fcb85292db" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>removeCurrentVertex</name></member>
+      <member refid="classVertexModel_1a04933d259177267841cbd2b9aa23c416" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>reset</name></member>
+      <member refid="classVertexModel_1ab259907a78567152e448de7963868b27" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>ringCount</name></member>
+      <member refid="classVertexModel_1aa0cabf6d05173a534958fc83498321c0" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>ringCount</name></member>
+      <member refid="classVertexModel_1a4960db3ff75103c79d0d8abb0571ffb6" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>ringCountChanged</name></member>
+      <member refid="classVertexModel_1a590c8a0164000e78c17f25a40765362aa987d1d0e7330867b821a34276966733b" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>RingIdRole</name></member>
+      <member refid="classVertexModel_1ad40cfc0e5cc85a32f183338bbc3ff649" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>roleNames</name></member>
+      <member refid="classVertexModel_1a18c4d433a2a624f0d74f05febab3d66d" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>rowCount</name></member>
+      <member refid="classVertexModel_1a6a573851e11ea4830b824da3cda275c5" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>selectVertexAtPosition</name></member>
+      <member refid="classVertexModel_1ac8a5f8d08b2abb95716c9c2d1d8dd3f5" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>selectVertexAtPosition</name></member>
+      <member refid="classVertexModel_1a028dd5ce9bc7fff82d24d76ec054ca43" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>setCrs</name></member>
+      <member refid="classVertexModel_1a5c16ad3b29431f35d51c85f4c1def6c4" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>setCurrentPoint</name></member>
+      <member refid="classVertexModel_1a82141d27fd237efff3e0ffeb2d062e41" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>setCurrentVertex</name></member>
+      <member refid="classVertexModel_1ac5ac1e3006d1ca30acee19613b01d9a1" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>setCurrentVertexIndex</name></member>
+      <member refid="classVertexModel_1a09e604278dfe2b3422681c082ba4706c" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>setDirty</name></member>
+      <member refid="classVertexModel_1a822a71e4329e5e507bd3e080522a542a" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>setEditingMode</name></member>
+      <member refid="classVertexModel_1a54b7b628ee629fb945d959556e87513e" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>setGeometry</name></member>
+      <member refid="classVertexModel_1aa87090e432642efdfc63c1a0724192b1" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>setGeometryType</name></member>
+      <member refid="classVertexModel_1a67f6eaf0bffd5aaa29660499ea214c84" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>setMapSettings</name></member>
+      <member refid="classVertexModel_1aa267d92b31d40f0001727fdf372e5567" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>undoHistory</name></member>
+      <member refid="classVertexModel_1ac79dc555bc714f6c0a2d78c356332f68" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>updateCanAddVertex</name></member>
+      <member refid="classVertexModel_1a3307f67a243a2b5fb47750445a644b5c" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>updateCanPreviousNextVertex</name></member>
+      <member refid="classVertexModel_1ad801e89052f66ddd1980f66d4feee5b7" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>updateCanRemoveVertex</name></member>
+      <member refid="classVertexModel_1a37b602d1c932ca36920295147b67de52" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>updateGeometry</name></member>
+      <member refid="classVertexModel_1abfd0d87c0a81ef8472e313f3040bacdf" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>vertex</name></member>
+      <member refid="classVertexModel_1a7f390daeb426101c8c20d181d0782a31a60322ac342a0732f7ec7a2ab5c5f1b50" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>VertexAddition</name></member>
+      <member refid="classVertexModel_1a7f390daeb426101c8c20d181d0782a31" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>VertexChangeType</name></member>
+      <member refid="classVertexModel_1a26dc249dceb69af470c97d822342c2d5" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>vertexCount</name></member>
+      <member refid="classVertexModel_1a49111ac8048bb5bd6851913b4c114e5f" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>vertexCount</name></member>
+      <member refid="classVertexModel_1a0f98df574f1d9b418260847d2967f8c9" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>vertexCountChanged</name></member>
+      <member refid="classVertexModel_1a7f390daeb426101c8c20d181d0782a31aba8dc28de28b59ab87fe1a1899d40f4e" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>VertexDeletion</name></member>
+      <member refid="classVertexModel_1a4c87b59f51af150f99bd66cbd859bfc9" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>VertexModel</name></member>
+      <member refid="classVertexModel_1a4c0201b2090d5e9b68261618b84a889a" prot="private" virt="non-virtual"><scope>VertexModel</scope><name>VertexModelTest</name></member>
+      <member refid="classVertexModel_1a7f390daeb426101c8c20d181d0782a31a053e67d535046cc114cdd2b5c0815027" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>VertexMove</name></member>
+      <member refid="classVertexModel_1a282fe0e63a7b3345af8d3fbbd943f83d" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>vertices</name></member>
+      <member refid="classVertexModel_1afb15df85945ac981d846b8bc341cb290" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>verticesAdded</name></member>
+      <member refid="classVertexModel_1a9ce85ce9fcb476ea679d18d5b135f6d7" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>verticesDeleted</name></member>
+      <member refid="classVertexModel_1a829126bb2e95dd94d815a80a56622f6a" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>verticesMoved</name></member>
+      <member refid="classVertexModel_1ad903804a8aed62b080b4355f6d66e320" prot="public" virt="non-virtual"><scope>VertexModel</scope><name>~VertexModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

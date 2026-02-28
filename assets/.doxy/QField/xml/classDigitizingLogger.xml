@@ -1,0 +1,903 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classDigitizingLogger" kind="class" language="C++" prot="public">
+    <compoundname>DigitizingLogger</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classDigitizingLogger_1afa1df97dfe1aa101894b4dd61a7fa3f7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString DigitizingLogger::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>DigitizingLogger::type</qualifiedname>
+        <read>type</read>
+        <write>setType</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="36" column="5" bodyfile="src/core/digitizinglogger.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingLogger_1a2c5c89589194803609317607aecda095" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * DigitizingLogger::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>DigitizingLogger::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="37" column="5" bodyfile="src/core/digitizinglogger.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingLogger_1a6e0b5eb0741f5cd77c074426f7c9e4f4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * DigitizingLogger::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>DigitizingLogger::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="38" column="5" bodyfile="src/core/digitizinglogger.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingLogger_1a9f4409171f4123d25b6c4ba1e0045a4d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * DigitizingLogger::digitizingLayer</definition>
+        <argsstring></argsstring>
+        <name>digitizingLayer</name>
+        <qualifiedname>DigitizingLogger::digitizingLayer</qualifiedname>
+        <read>digitizingLayer</read>
+        <write>setDigitizingLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="39" column="5" bodyfile="src/core/digitizinglogger.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingLogger_1aff56812c83ee85903e782a51446e9b47" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation DigitizingLogger::positionInformation</definition>
+        <argsstring></argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>DigitizingLogger::positionInformation</qualifiedname>
+        <read>positionInformation</read>
+        <write>setPositionInformation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="40" column="5" bodyfile="src/core/digitizinglogger.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingLogger_1a1f23813cd52be94170672996b2564a39" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DigitizingLogger::positionLocked</definition>
+        <argsstring></argsstring>
+        <name>positionLocked</name>
+        <qualifiedname>DigitizingLogger::positionLocked</qualifiedname>
+        <read>positionLocked</read>
+        <write>setPositionLocked</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="41" column="5" bodyfile="src/core/digitizinglogger.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingLogger_1a136cabb836195ccefa9e065c82f3f62f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classSnappingResult" kindref="compound">SnappingResult</ref></type>
+        <definition>SnappingResult DigitizingLogger::topSnappingResult</definition>
+        <argsstring></argsstring>
+        <name>topSnappingResult</name>
+        <qualifiedname>DigitizingLogger::topSnappingResult</qualifiedname>
+        <read>topSnappingResult</read>
+        <write>setTopSnappingResult</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="42" column="5" bodyfile="src/core/digitizinglogger.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDigitizingLogger_1abf852dd82df64e1fd1b1bdf789c7ec06" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref></type>
+        <definition>CloudUserInformation DigitizingLogger::cloudUserInformation</definition>
+        <argsstring></argsstring>
+        <name>cloudUserInformation</name>
+        <qualifiedname>DigitizingLogger::cloudUserInformation</qualifiedname>
+        <read>cloudUserInformation</read>
+        <write>setCloudUserInformation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="43" column="5" bodyfile="src/core/digitizinglogger.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDigitizingLogger_1a67bea72d57a8a6d70e3831cd5cec9cf9" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DigitizingLogger::mType</definition>
+        <argsstring></argsstring>
+        <name>mType</name>
+        <qualifiedname>DigitizingLogger::mType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="158" column="13" bodyfile="src/core/digitizinglogger.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingLogger_1ac615c1e634b20fb2bbc50186d329f7fa" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* DigitizingLogger::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>DigitizingLogger::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="160" column="16" bodyfile="src/core/digitizinglogger.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingLogger_1a75e8f6f03ef3436d7a3392bbe445271b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* DigitizingLogger::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>DigitizingLogger::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="161" column="25" bodyfile="src/core/digitizinglogger.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingLogger_1adbd539b83b41ff37f6935f4f03c23f95" prot="private" static="no" mutable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer* DigitizingLogger::mLogsLayer</definition>
+        <argsstring></argsstring>
+        <name>mLogsLayer</name>
+        <qualifiedname>DigitizingLogger::mLogsLayer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="162" column="20" bodyfile="src/core/digitizinglogger.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingLogger_1a884c388a456c33c8dd98079be1aa5286" prot="private" static="no" mutable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer* DigitizingLogger::mDigitizingLayer</definition>
+        <argsstring></argsstring>
+        <name>mDigitizingLayer</name>
+        <qualifiedname>DigitizingLogger::mDigitizingLayer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="163" column="20" bodyfile="src/core/digitizinglogger.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingLogger_1aed8378e07e15f8d380701327b2c15e46" prot="private" static="no" mutable="no">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation DigitizingLogger::mPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>mPositionInformation</name>
+        <qualifiedname>DigitizingLogger::mPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="165" column="29" bodyfile="src/core/digitizinglogger.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingLogger_1a0d78443ab44fb6a9274d79ff9b6ffb35" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DigitizingLogger::mPositionLocked</definition>
+        <argsstring></argsstring>
+        <name>mPositionLocked</name>
+        <qualifiedname>DigitizingLogger::mPositionLocked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="166" column="10" bodyfile="src/core/digitizinglogger.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingLogger_1a4622988c01c3bd797de3578ca21b0143" prot="private" static="no" mutable="no">
+        <type><ref refid="classSnappingResult" kindref="compound">SnappingResult</ref></type>
+        <definition>SnappingResult DigitizingLogger::mTopSnappingResult</definition>
+        <argsstring></argsstring>
+        <name>mTopSnappingResult</name>
+        <qualifiedname>DigitizingLogger::mTopSnappingResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="167" column="20" bodyfile="src/core/digitizinglogger.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingLogger_1aaf40805c77cc9a6975aa37406ee54e52" prot="private" static="no" mutable="no">
+        <type><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref></type>
+        <definition>CloudUserInformation DigitizingLogger::mCloudUserInformation</definition>
+        <argsstring></argsstring>
+        <name>mCloudUserInformation</name>
+        <qualifiedname>DigitizingLogger::mCloudUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="168" column="26" bodyfile="src/core/digitizinglogger.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDigitizingLogger_1a412fcbd5b552a4e194040629f9240adf" prot="private" static="no" mutable="no">
+        <type>QList&lt; QgsFeature &gt;</type>
+        <definition>QList&lt;QgsFeature&gt; DigitizingLogger::mPointFeatures</definition>
+        <argsstring></argsstring>
+        <name>mPointFeatures</name>
+        <qualifiedname>DigitizingLogger::mPointFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="170" column="11" bodyfile="src/core/digitizinglogger.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDigitizingLogger_1aeb034475ed9b11ae9977ace52dee6c06" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DigitizingLogger::DigitizingLogger</definition>
+        <argsstring>()</argsstring>
+        <name>DigitizingLogger</name>
+        <qualifiedname>DigitizingLogger::DigitizingLogger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="46" column="14" bodyfile="src/core/digitizinglogger.cpp" bodystart="26" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a606d38086decc356cb8c265f38a41edf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DigitizingLogger::type</definition>
+        <argsstring>() const</argsstring>
+        <name>type</name>
+        <qualifiedname>DigitizingLogger::type</qualifiedname>
+        <briefdescription>
+<para>Returns the digitizing logs type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="49" column="13" bodyfile="src/core/digitizinglogger.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a3565c350923d9e9051a602bdf0d1c1aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::setType</definition>
+        <argsstring>(const QString &amp;type)</argsstring>
+        <name>setType</name>
+        <qualifiedname>DigitizingLogger::setType</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="55" column="10" bodyfile="src/core/digitizinglogger.cpp" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1ab872cc7759b89a6b071134de4c7b5f20" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * DigitizingLogger::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>DigitizingLogger::project</qualifiedname>
+        <briefdescription>
+<para>Returns the current project from which the digitizing logs will be sought. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="58" column="16" bodyfile="src/core/digitizinglogger.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1aa3db98cd90d2377d479544cf61ba14d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>DigitizingLogger::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>project</emphasis> used to find the digitizing logs layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="61" column="10" bodyfile="src/core/digitizinglogger.cpp" bodystart="70" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1aac03dab361b5da02914fbf5e541c48e5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * DigitizingLogger::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>DigitizingLogger::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Returns map settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="64" column="25" bodyfile="src/core/digitizinglogger.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a84e89a68c8c39eb9b438e8e4a24492be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>DigitizingLogger::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets map settings <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mapSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="70" column="10" bodyfile="src/core/digitizinglogger.cpp" bodystart="93" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1ae9ed566357fee07faf6407e78fafe9e6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * DigitizingLogger::digitizingLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>digitizingLayer</name>
+        <qualifiedname>DigitizingLogger::digitizingLayer</qualifiedname>
+        <briefdescription>
+<para>Returns the current vector layer used to digitize features. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="73" column="20" bodyfile="src/core/digitizinglogger.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1ad7de4c094b8ed4b634b7241bab299786" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::setDigitizingLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>setDigitizingLayer</name>
+        <qualifiedname>DigitizingLogger::setDigitizingLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Sets the current vector <emphasis>layer</emphasis> used to digitze features. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="76" column="10" bodyfile="src/core/digitizinglogger.cpp" bodystart="110" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a5b1527e722c0eb50a4d4c27d78d10ffe" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation DigitizingLogger::positionInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>DigitizingLogger::positionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns position information generated by the TransformedPositionSource according to its provider </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="81" column="29" bodyfile="src/core/digitizinglogger.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a183a7d894f6c1f30000afb0ee8916b98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::setPositionInformation</definition>
+        <argsstring>(const GnssPositionInformation &amp;positionInformation)</argsstring>
+        <name>setPositionInformation</name>
+        <qualifiedname>DigitizingLogger::setPositionInformation</qualifiedname>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets position information generated by the TransformedPositionSource according to its provider <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>positionInformation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the position information </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="87" column="10" bodyfile="src/core/digitizinglogger.cpp" bodystart="40" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1abae63ec20c7d354c5c05059b59163cb2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DigitizingLogger::positionLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>positionLocked</name>
+        <qualifiedname>DigitizingLogger::positionLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the position is locked to the GNSS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="92" column="10" bodyfile="src/core/digitizinglogger.h" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a558b33e67b91d4a04626552270dbbd3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::setPositionLocked</definition>
+        <argsstring>(bool positionLocked)</argsstring>
+        <name>setPositionLocked</name>
+        <qualifiedname>DigitizingLogger::setPositionLocked</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>positionLocked</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the position is locked to the GNSS <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>positionLocked</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE if the position is locked </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="98" column="10" bodyfile="src/core/digitizinglogger.cpp" bodystart="50" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a427f517d90d5221fc4b390f5681fefef" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classSnappingResult" kindref="compound">SnappingResult</ref></type>
+        <definition>SnappingResult DigitizingLogger::topSnappingResult</definition>
+        <argsstring>() const</argsstring>
+        <name>topSnappingResult</name>
+        <qualifiedname>DigitizingLogger::topSnappingResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the top snapping result of the coordinate locator </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="103" column="20" bodyfile="src/core/digitizinglogger.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a81020edc85755ddef917801567c3407c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::setTopSnappingResult</definition>
+        <argsstring>(const SnappingResult &amp;topSnappingResult)</argsstring>
+        <name>setTopSnappingResult</name>
+        <qualifiedname>DigitizingLogger::setTopSnappingResult</qualifiedname>
+        <param>
+          <type>const <ref refid="classSnappingResult" kindref="compound">SnappingResult</ref> &amp;</type>
+          <declname>topSnappingResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the top snapping result of the coordinate locator <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>topSnappingResult</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the top snapping result object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="109" column="10" bodyfile="src/core/digitizinglogger.cpp" bodystart="60" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a81bce8df7e05a96304ef8308dfe9b167" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref></type>
+        <definition>CloudUserInformation DigitizingLogger::cloudUserInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>cloudUserInformation</name>
+        <qualifiedname>DigitizingLogger::cloudUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current cloud user information </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="114" column="26" bodyfile="src/core/digitizinglogger.h" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1ab1984be673b7a289760604e1933f3ffa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::setCloudUserInformation</definition>
+        <argsstring>(const CloudUserInformation &amp;cloudUserInformation)</argsstring>
+        <name>setCloudUserInformation</name>
+        <qualifiedname>DigitizingLogger::setCloudUserInformation</qualifiedname>
+        <param>
+          <type>const <ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref> &amp;</type>
+          <declname>cloudUserInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current cloud user information <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cloudUserInformation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the cloud user information </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="120" column="10" bodyfile="src/core/digitizinglogger.cpp" bodystart="103" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a6175c9e369cf0b1ecbd06879e915c1ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void DigitizingLogger::addCoordinate</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>addCoordinate</name>
+        <qualifiedname>DigitizingLogger::addCoordinate</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a <emphasis>point</emphasis> into the digitizing logs&apos; buffer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="125" column="22" bodyfile="src/core/digitizinglogger.cpp" bodystart="141" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a68794494b7c2e2e195a6d617b7b9c5c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void DigitizingLogger::removeLastCoordinate</definition>
+        <argsstring>()</argsstring>
+        <name>removeLastCoordinate</name>
+        <qualifiedname>DigitizingLogger::removeLastCoordinate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the last point entered into the digitizing logs&apos; buffer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="130" column="22" bodyfile="src/core/digitizinglogger.cpp" bodystart="210" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a9ef4e49ed6f879bf750908183ef1ce55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void DigitizingLogger::writeCoordinates</definition>
+        <argsstring>()</argsstring>
+        <name>writeCoordinates</name>
+        <qualifiedname>DigitizingLogger::writeCoordinates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes the points buffer to the digitizing logs layer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="135" column="22" bodyfile="src/core/digitizinglogger.cpp" bodystart="216" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitizingLogger_1a9bcc5491285cbd01ecee8a26cfb9cbf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void DigitizingLogger::clearCoordinates</definition>
+        <argsstring>()</argsstring>
+        <name>clearCoordinates</name>
+        <qualifiedname>DigitizingLogger::clearCoordinates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clear the points buffer from the digitizing logs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="140" column="22" bodyfile="src/core/digitizinglogger.cpp" bodystart="247" bodyend="250"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classDigitizingLogger_1a3cb37d0952671e7ea4db32923290c2eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::typeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>typeChanged</name>
+        <qualifiedname>DigitizingLogger::typeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="144" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingLogger_1a1c728cb4bd4a5cec1c41bef0c3a6c131" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>DigitizingLogger::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="145" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingLogger_1ac8b8fb894d0943ba1fdeda8797cd21d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>DigitizingLogger::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="146" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingLogger_1a5e3a42685958c7d2c86d4f107f5602a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::digitizingLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>digitizingLayerChanged</name>
+        <qualifiedname>DigitizingLogger::digitizingLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="147" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingLogger_1ae483319c77a093f3b227a7bd5520924d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::positionInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positionInformationChanged</name>
+        <qualifiedname>DigitizingLogger::positionInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="148" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingLogger_1adbe6f9843cf6a52598c668e695214022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::positionLockedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positionLockedChanged</name>
+        <qualifiedname>DigitizingLogger::positionLockedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="149" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingLogger_1ad23301c897913767d5e05202a11e97e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::topSnappingResultChanged</definition>
+        <argsstring>()</argsstring>
+        <name>topSnappingResultChanged</name>
+        <qualifiedname>DigitizingLogger::topSnappingResultChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="150" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingLogger_1a1e1a5a51592b0575aa5b0ac0d34c97bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::currentCoordinateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentCoordinateChanged</name>
+        <qualifiedname>DigitizingLogger::currentCoordinateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="151" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDigitizingLogger_1a6ff8ec2de955f38f3435ca8694f0b8d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::cloudUserInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>cloudUserInformationChanged</name>
+        <qualifiedname>DigitizingLogger::cloudUserInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="152" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classDigitizingLogger_1a002259e7a0b6347e161a129e4457ec64" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DigitizingLogger::findLogsLayer</definition>
+        <argsstring>()</argsstring>
+        <name>findLogsLayer</name>
+        <qualifiedname>DigitizingLogger::findLogsLayer</qualifiedname>
+        <briefdescription>
+<para>Finds and link to the logs layer in present in the project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/digitizinglogger.h" line="156" column="10" bodyfile="src/core/digitizinglogger.cpp" bodystart="120" bodyend="139"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DigitizingLogger</label>
+        <link refid="classDigitizingLogger"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DigitizingLogger</label>
+        <link refid="classDigitizingLogger"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/digitizinglogger.h" line="32" column="1" bodyfile="src/core/digitizinglogger.h" bodystart="33" bodyend="171"/>
+    <listofallmembers>
+      <member refid="classDigitizingLogger_1a6175c9e369cf0b1ecbd06879e915c1ab" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>addCoordinate</name></member>
+      <member refid="classDigitizingLogger_1a9bcc5491285cbd01ecee8a26cfb9cbf1" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>clearCoordinates</name></member>
+      <member refid="classDigitizingLogger_1abf852dd82df64e1fd1b1bdf789c7ec06" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>cloudUserInformation</name></member>
+      <member refid="classDigitizingLogger_1a81bce8df7e05a96304ef8308dfe9b167" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>cloudUserInformation</name></member>
+      <member refid="classDigitizingLogger_1a6ff8ec2de955f38f3435ca8694f0b8d1" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>cloudUserInformationChanged</name></member>
+      <member refid="classDigitizingLogger_1a1e1a5a51592b0575aa5b0ac0d34c97bc" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>currentCoordinateChanged</name></member>
+      <member refid="classDigitizingLogger_1a9f4409171f4123d25b6c4ba1e0045a4d" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>digitizingLayer</name></member>
+      <member refid="classDigitizingLogger_1ae9ed566357fee07faf6407e78fafe9e6" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>digitizingLayer</name></member>
+      <member refid="classDigitizingLogger_1a5e3a42685958c7d2c86d4f107f5602a0" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>digitizingLayerChanged</name></member>
+      <member refid="classDigitizingLogger_1aeb034475ed9b11ae9977ace52dee6c06" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>DigitizingLogger</name></member>
+      <member refid="classDigitizingLogger_1a002259e7a0b6347e161a129e4457ec64" prot="private" virt="non-virtual"><scope>DigitizingLogger</scope><name>findLogsLayer</name></member>
+      <member refid="classDigitizingLogger_1a6e0b5eb0741f5cd77c074426f7c9e4f4" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>mapSettings</name></member>
+      <member refid="classDigitizingLogger_1aac03dab361b5da02914fbf5e541c48e5" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>mapSettings</name></member>
+      <member refid="classDigitizingLogger_1ac8b8fb894d0943ba1fdeda8797cd21d4" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>mapSettingsChanged</name></member>
+      <member refid="classDigitizingLogger_1aaf40805c77cc9a6975aa37406ee54e52" prot="private" virt="non-virtual"><scope>DigitizingLogger</scope><name>mCloudUserInformation</name></member>
+      <member refid="classDigitizingLogger_1a884c388a456c33c8dd98079be1aa5286" prot="private" virt="non-virtual"><scope>DigitizingLogger</scope><name>mDigitizingLayer</name></member>
+      <member refid="classDigitizingLogger_1adbd539b83b41ff37f6935f4f03c23f95" prot="private" virt="non-virtual"><scope>DigitizingLogger</scope><name>mLogsLayer</name></member>
+      <member refid="classDigitizingLogger_1a75e8f6f03ef3436d7a3392bbe445271b" prot="private" virt="non-virtual"><scope>DigitizingLogger</scope><name>mMapSettings</name></member>
+      <member refid="classDigitizingLogger_1a412fcbd5b552a4e194040629f9240adf" prot="private" virt="non-virtual"><scope>DigitizingLogger</scope><name>mPointFeatures</name></member>
+      <member refid="classDigitizingLogger_1aed8378e07e15f8d380701327b2c15e46" prot="private" virt="non-virtual"><scope>DigitizingLogger</scope><name>mPositionInformation</name></member>
+      <member refid="classDigitizingLogger_1a0d78443ab44fb6a9274d79ff9b6ffb35" prot="private" virt="non-virtual"><scope>DigitizingLogger</scope><name>mPositionLocked</name></member>
+      <member refid="classDigitizingLogger_1ac615c1e634b20fb2bbc50186d329f7fa" prot="private" virt="non-virtual"><scope>DigitizingLogger</scope><name>mProject</name></member>
+      <member refid="classDigitizingLogger_1a4622988c01c3bd797de3578ca21b0143" prot="private" virt="non-virtual"><scope>DigitizingLogger</scope><name>mTopSnappingResult</name></member>
+      <member refid="classDigitizingLogger_1a67bea72d57a8a6d70e3831cd5cec9cf9" prot="private" virt="non-virtual"><scope>DigitizingLogger</scope><name>mType</name></member>
+      <member refid="classDigitizingLogger_1aff56812c83ee85903e782a51446e9b47" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>positionInformation</name></member>
+      <member refid="classDigitizingLogger_1a5b1527e722c0eb50a4d4c27d78d10ffe" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>positionInformation</name></member>
+      <member refid="classDigitizingLogger_1ae483319c77a093f3b227a7bd5520924d" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>positionInformationChanged</name></member>
+      <member refid="classDigitizingLogger_1a1f23813cd52be94170672996b2564a39" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>positionLocked</name></member>
+      <member refid="classDigitizingLogger_1abae63ec20c7d354c5c05059b59163cb2" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>positionLocked</name></member>
+      <member refid="classDigitizingLogger_1adbe6f9843cf6a52598c668e695214022" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>positionLockedChanged</name></member>
+      <member refid="classDigitizingLogger_1a2c5c89589194803609317607aecda095" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>project</name></member>
+      <member refid="classDigitizingLogger_1ab872cc7759b89a6b071134de4c7b5f20" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>project</name></member>
+      <member refid="classDigitizingLogger_1a1c728cb4bd4a5cec1c41bef0c3a6c131" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>projectChanged</name></member>
+      <member refid="classDigitizingLogger_1a68794494b7c2e2e195a6d617b7b9c5c6" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>removeLastCoordinate</name></member>
+      <member refid="classDigitizingLogger_1ab1984be673b7a289760604e1933f3ffa" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>setCloudUserInformation</name></member>
+      <member refid="classDigitizingLogger_1ad7de4c094b8ed4b634b7241bab299786" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>setDigitizingLayer</name></member>
+      <member refid="classDigitizingLogger_1a84e89a68c8c39eb9b438e8e4a24492be" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>setMapSettings</name></member>
+      <member refid="classDigitizingLogger_1a183a7d894f6c1f30000afb0ee8916b98" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>setPositionInformation</name></member>
+      <member refid="classDigitizingLogger_1a558b33e67b91d4a04626552270dbbd3e" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>setPositionLocked</name></member>
+      <member refid="classDigitizingLogger_1aa3db98cd90d2377d479544cf61ba14d6" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>setProject</name></member>
+      <member refid="classDigitizingLogger_1a81020edc85755ddef917801567c3407c" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>setTopSnappingResult</name></member>
+      <member refid="classDigitizingLogger_1a3565c350923d9e9051a602bdf0d1c1aa" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>setType</name></member>
+      <member refid="classDigitizingLogger_1a136cabb836195ccefa9e065c82f3f62f" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>topSnappingResult</name></member>
+      <member refid="classDigitizingLogger_1a427f517d90d5221fc4b390f5681fefef" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>topSnappingResult</name></member>
+      <member refid="classDigitizingLogger_1ad23301c897913767d5e05202a11e97e1" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>topSnappingResultChanged</name></member>
+      <member refid="classDigitizingLogger_1afa1df97dfe1aa101894b4dd61a7fa3f7" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>type</name></member>
+      <member refid="classDigitizingLogger_1a606d38086decc356cb8c265f38a41edf" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>type</name></member>
+      <member refid="classDigitizingLogger_1a3cb37d0952671e7ea4db32923290c2eb" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>typeChanged</name></member>
+      <member refid="classDigitizingLogger_1a9ef4e49ed6f879bf750908183ef1ce55" prot="public" virt="non-virtual"><scope>DigitizingLogger</scope><name>writeCoordinates</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

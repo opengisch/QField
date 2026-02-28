@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProcessingAlgorithmsModelBase" kind="class" language="C++" prot="public">
+    <compoundname>ProcessingAlgorithmsModelBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="processingalgorithmsmodel_8h" local="no">processingalgorithmsmodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Role</name>
+        <qualifiedname>ProcessingAlgorithmsModelBase::Role</qualifiedname>
+        <enumvalue id="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826a9c83800d5d956e2e1e5441a464c86709" prot="public">
+          <name>AlgorithmIdRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826a197b827067d74f1b26a6eafb670f736e" prot="public">
+          <name>AlgorithmGroupRole</name>
+          <briefdescription>
+<para>the algorithm unique ID </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826a32b861f8697111ada4e060e280dffcba" prot="public">
+          <name>AlgorithmNameRole</name>
+          <briefdescription>
+<para>the algorithm group </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826ad6115fcfb913ed194fda755bb15a8b9b" prot="public">
+          <name>AlgorithmSvgIconRole</name>
+          <briefdescription>
+<para>the algorithm name </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826ad45c239bd63af6e36b579d4ede6f71ca" prot="public">
+          <name>AlgorithmFlagsRole</name>
+          <briefdescription>
+<para>the algorithm SVG icon path </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826a500a867ad29c27e5573ba980bfd65d40" prot="public">
+          <name>AlgorithmFavoriteRole</name>
+          <briefdescription>
+<para>the algorithm flags </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Roles to get the data of the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="129" column="5" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="130" bodyend="137"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classProcessingAlgorithmsModelBase_1a19fe3d57a1b3f6b86fef0fbd562a1319" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classAlgorithmItem" kindref="compound">AlgorithmItem</ref> &gt;</type>
+        <definition>QList&lt;AlgorithmItem&gt; ProcessingAlgorithmsModelBase::mAlgorithms</definition>
+        <argsstring></argsstring>
+        <name>mAlgorithms</name>
+        <qualifiedname>ProcessingAlgorithmsModelBase::mAlgorithms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="157" column="11" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classProcessingAlgorithmsModelBase_1aaad97abda1507b0504d4629ea7a3ca8c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ProcessingAlgorithmsModelBase::ProcessingAlgorithmsModelBase</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ProcessingAlgorithmsModelBase</name>
+        <qualifiedname>ProcessingAlgorithmsModelBase::ProcessingAlgorithmsModelBase</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="140" column="14" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="117" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModelBase_1a13ee618069c9ea683bb99ce3d61fde09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ProcessingAlgorithmsModelBase::rebuild</definition>
+        <argsstring>()</argsstring>
+        <name>rebuild</name>
+        <qualifiedname>ProcessingAlgorithmsModelBase::rebuild</qualifiedname>
+        <briefdescription>
+<para>Rebuilds the algorithms model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="143" column="22" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="135" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModelBase_1a6285ffd8aa6f69c8dd8bbe0bb982389d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const QgsProcessingAlgorithm *</type>
+        <definition>const QgsProcessingAlgorithm * ProcessingAlgorithmsModelBase::algorithmForIndex</definition>
+        <argsstring>(const QModelIndex &amp;index) const</argsstring>
+        <name>algorithmForIndex</name>
+        <qualifiedname>ProcessingAlgorithmsModelBase::algorithmForIndex</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns the processing algorithm for the given index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="146" column="34" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="190" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModelBase_1abaecefaa6433aa071354d55a3305a97d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; ProcessingAlgorithmsModelBase::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>ProcessingAlgorithmsModelBase::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="148" column="11" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="200" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModelBase_1a34113b658f1d3ff8c4c4c7eeac1c5e16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ProcessingAlgorithmsModelBase::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>ProcessingAlgorithmsModelBase::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="149" column="9" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="213" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModelBase_1adc066a653064b18fcd92c8d9b88f5fe5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant ProcessingAlgorithmsModelBase::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>ProcessingAlgorithmsModelBase::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="150" column="14" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="218" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModelBase_1a0b7cdb1f5a5662d58c1b922ce63aa9fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ProcessingAlgorithmsModelBase::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>ProcessingAlgorithmsModelBase::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::EditRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="151" column="10" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="243" bodyend="258"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classProcessingAlgorithmsModelBase_1a284ceacd1076d7f0a2c4c9354ce18537" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ProcessingAlgorithmsModelBase::addProvider</definition>
+        <argsstring>(QgsProcessingProvider *provider)</argsstring>
+        <name>addProvider</name>
+        <qualifiedname>ProcessingAlgorithmsModelBase::addProvider</qualifiedname>
+        <param>
+          <type>QgsProcessingProvider *</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="155" column="10" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="149" bodyend="188"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A model for providers and algorithms available within QField. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>See ProcessingAlgorithmsProxyModel for a sorted, filterable version of this model. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ProcessingAlgorithmsModelBase</label>
+        <link refid="classProcessingAlgorithmsModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProcessingAlgorithmsModelBase</label>
+        <link refid="classProcessingAlgorithmsModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/processing/processingalgorithmsmodel.h" line="123" column="1" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="124" bodyend="158"/>
+    <listofallmembers>
+      <member refid="classProcessingAlgorithmsModelBase_1a284ceacd1076d7f0a2c4c9354ce18537" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>addProvider</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826a500a867ad29c27e5573ba980bfd65d40" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>AlgorithmFavoriteRole</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826ad45c239bd63af6e36b579d4ede6f71ca" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>AlgorithmFlagsRole</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1a6285ffd8aa6f69c8dd8bbe0bb982389d" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>algorithmForIndex</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826a197b827067d74f1b26a6eafb670f736e" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>AlgorithmGroupRole</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826a9c83800d5d956e2e1e5441a464c86709" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>AlgorithmIdRole</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826a32b861f8697111ada4e060e280dffcba" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>AlgorithmNameRole</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826ad6115fcfb913ed194fda755bb15a8b9b" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>AlgorithmSvgIconRole</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1adc066a653064b18fcd92c8d9b88f5fe5" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>data</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1a19fe3d57a1b3f6b86fef0fbd562a1319" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>mAlgorithms</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1aaad97abda1507b0504d4629ea7a3ca8c" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>ProcessingAlgorithmsModelBase</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1a13ee618069c9ea683bb99ce3d61fde09" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>rebuild</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1aa0c8b3b531a5f55e3b0a3722779b8826" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>Role</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1abaecefaa6433aa071354d55a3305a97d" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>roleNames</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1a34113b658f1d3ff8c4c4c7eeac1c5e16" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>rowCount</name></member>
+      <member refid="classProcessingAlgorithmsModelBase_1a0b7cdb1f5a5662d58c1b922ce63aa9fe" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModelBase</scope><name>setData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

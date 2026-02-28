@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structIdentifyTool_1_1IdentifyResult" kind="struct" language="C++" prot="public">
+    <compoundname>IdentifyTool::IdentifyResult</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structIdentifyTool_1_1IdentifyResult_1a5ef0d46d09ac8df2c9b6e1b328aa635f" prot="public" static="no" mutable="no">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer* IdentifyTool::IdentifyResult::layer</definition>
+        <argsstring></argsstring>
+        <name>layer</name>
+        <qualifiedname>IdentifyTool::IdentifyResult::layer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="53" column="21" bodyfile="src/core/identifytool.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structIdentifyTool_1_1IdentifyResult_1ade7ad10622b231816252220639ef5b69" prot="public" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature IdentifyTool::IdentifyResult::feature</definition>
+        <argsstring></argsstring>
+        <name>feature</name>
+        <qualifiedname>IdentifyTool::IdentifyResult::feature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="54" column="20" bodyfile="src/core/identifytool.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structIdentifyTool_1_1IdentifyResult_1a5ed7cb84ce86c7ce016b98de607ba0e8" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString IdentifyTool::IdentifyResult::representationalLayerName</definition>
+        <argsstring></argsstring>
+        <name>representationalLayerName</name>
+        <qualifiedname>IdentifyTool::IdentifyResult::representationalLayerName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="55" column="17" bodyfile="src/core/identifytool.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structIdentifyTool_1_1IdentifyResult_1a4e021dddc665fe48105619aed9fe3a4c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>IdentifyTool::IdentifyResult::IdentifyResult</definition>
+        <argsstring>(QgsMapLayer *layer, const QgsFeature &amp;feature, const QString &amp;representationalLayerName=QString())</argsstring>
+        <name>IdentifyResult</name>
+        <qualifiedname>IdentifyTool::IdentifyResult::IdentifyResult</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>representationalLayerName</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="47" column="9" bodyfile="src/core/identifytool.h" bodystart="47" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/identifytool.h" line="45" column="5" bodyfile="src/core/identifytool.h" bodystart="46" bodyend="56"/>
+    <listofallmembers>
+      <member refid="structIdentifyTool_1_1IdentifyResult_1ade7ad10622b231816252220639ef5b69" prot="public" virt="non-virtual"><scope>IdentifyTool::IdentifyResult</scope><name>feature</name></member>
+      <member refid="structIdentifyTool_1_1IdentifyResult_1a4e021dddc665fe48105619aed9fe3a4c" prot="public" virt="non-virtual"><scope>IdentifyTool::IdentifyResult</scope><name>IdentifyResult</name></member>
+      <member refid="structIdentifyTool_1_1IdentifyResult_1a5ef0d46d09ac8df2c9b6e1b328aa635f" prot="public" virt="non-virtual"><scope>IdentifyTool::IdentifyResult</scope><name>layer</name></member>
+      <member refid="structIdentifyTool_1_1IdentifyResult_1a5ed7cb84ce86c7ce016b98de607ba0e8" prot="public" virt="non-virtual"><scope>IdentifyTool::IdentifyResult</scope><name>representationalLayerName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

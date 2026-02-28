@@ -1,0 +1,2062 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class PlatformUtilities - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-platformutilities" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class PlatformUtilities
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-capability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum Capability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-filetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum FileType
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-capabilities-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property capabilities [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-resourcecanceled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal resourceCanceled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-resourceopened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal resourceOpened
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-resourcereceived" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal resourceReceived
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-additionalapplicationdirectories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function additionalApplicationDirectories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-appdatadirs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function appDataDirs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-applicationdirectory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function applicationDirectory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-availablegrids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function availableGrids
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-capabilities-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function capabilities [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-checkcamerapermission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function checkCameraPermission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-checkcamerapermissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function checkCameraPermissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-checkmicrophonepermission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function checkMicrophonePermission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-checkmicrophonepermissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function checkMicrophonePermissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-checkpositioningpermissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function checkPositioningPermissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-copytexttoclipboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function copyTextToClipboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-createdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function createDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-dimbrightness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function dimBrightness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-executeqfaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function executeQfAction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-exportdatasetto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function exportDatasetTo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-exportfolderto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function exportFolderTo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcamerapicture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCameraPicture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcameravideo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCameraVideo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getgallerypicture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getGalleryPicture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getgalleryvideo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getGalleryVideo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-gettextfromclipboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getTextFromClipboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-hasqfaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function hasQfAction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-hasqgsproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function hasQgsProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-importdatasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function importDatasets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-importprojectarchive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function importProjectArchive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-importprojectfolder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function importProjectFolder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-initsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function initSystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-issystemdarktheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isSystemDarkTheme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-loadqgsproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function loadQgsProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function open
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-openproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function openProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-removedataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function removeDataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-removefolder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function removeFolder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-renamefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function renameFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-requestbackgroundpositioningpermissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function requestBackgroundPositioningPermissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-requestcamerapermission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function requestCameraPermission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-requestmicrophonepermission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function requestMicrophonePermission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-requeststoragepermission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function requestStoragePermission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-restorebrightness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function restoreBrightness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-rmfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function rmFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-rootdirectories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function rootDirectories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-sendcompressedfolderto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function sendCompressedFolderTo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-senddatasetto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function sendDatasetTo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-sethandlevolumekeys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setHandleVolumeKeys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setscreenlockpermission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setScreenLockPermission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-startpositioningservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function startPositioningService
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-stoppositioningservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function stopPositioningService
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-systemfontpointsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function systemFontPointSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-systemlocaldatalocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function systemLocalDataLocation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-systemshareddatalocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function systemSharedDataLocation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-updateprojectfromarchive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function updateProjectFromArchive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-uploadpendingattachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function uploadPendingAttachments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vibrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vibrate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-platformutilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~PlatformUtilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Static Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-platformutilities">Class PlatformUtilities</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>PlatformUtilities</strong></a></p>
+<p>Inherits the following classes: QObject</p>
+<p>Inherited by the following classes: <a href="../classAndroidPlatformUtilities/">AndroidPlatformUtilities</a>,  <a href="../classIosPlatformUtilities/">IosPlatformUtilities</a></p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-capability"><strong>Capability</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-filetype"><strong>FileType</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property PlatformUtilities::Capabilities</td>
+<td style="text-align: left;"><a href="./#property-capabilities-12"><strong>capabilities</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-resourcecanceled"><strong>resourceCanceled</strong></a> (const QString &amp; message) <br><em>Emitted when a resource has been opened.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-resourceopened"><strong>resourceOpened</strong></a> (const QString &amp; path) <br><em>Emitted when a resource has been opened.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-resourcereceived"><strong>resourceReceived</strong></a> (const QString &amp; path) <br><em>Emitted when a resource has been received.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">virtual QStringList</td>
+<td style="text-align: left;"><a href="#function-additionalapplicationdirectories"><strong>additionalApplicationDirectories</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE QStringList</td>
+<td style="text-align: left;"><a href="#function-appdatadirs"><strong>appDataDirs</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE QString</td>
+<td style="text-align: left;"><a href="#function-applicationdirectory"><strong>applicationDirectory</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QStringList</td>
+<td style="text-align: left;"><a href="#function-availablegrids"><strong>availableGrids</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual PlatformUtilities::Capabilities</td>
+<td style="text-align: left;"><a href="#function-capabilities-22"><strong>capabilities</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Qt::PermissionStatus</td>
+<td style="text-align: left;"><a href="#function-checkcamerapermission"><strong>checkCameraPermission</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_DECL_DEPRECATED virtual Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-checkcamerapermissions"><strong>checkCameraPermissions</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Qt::PermissionStatus</td>
+<td style="text-align: left;"><a href="#function-checkmicrophonepermission"><strong>checkMicrophonePermission</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_DECL_DEPRECATED virtual Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-checkmicrophonepermissions"><strong>checkMicrophonePermissions</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_DECL_DEPRECATED virtual Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-checkpositioningpermissions"><strong>checkPositioningPermissions</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-copytexttoclipboard"><strong>copyTextToClipboard</strong></a> (const QString &amp; string) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-createdir"><strong>createDir</strong></a> (const QString &amp; path, const QString &amp; dirname) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-dimbrightness"><strong>dimBrightness</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual void</td>
+<td style="text-align: left;"><a href="#function-executeqfaction"><strong>executeQfAction</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-exportdatasetto"><strong>exportDatasetTo</strong></a> (const QString &amp; path) const<br><em>Exports a dataset</em> <em>path</em> <em>to a user-specified location.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-exportfolderto"><strong>exportFolderTo</strong></a> (const QString &amp; path) const<br><em>Exports a folder</em> <em>path</em> <em>to a user-specified location.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE <a href="../classResourceSource/"><strong>ResourceSource</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-getcamerapicture"><strong>getCameraPicture</strong></a> (const QString &amp; prefix, const QString &amp; pictureFilePath, const QString &amp; suffix, QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE <a href="../classResourceSource/"><strong>ResourceSource</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-getcameravideo"><strong>getCameraVideo</strong></a> (const QString &amp; prefix, const QString &amp; videoFilePath, const QString &amp; suffix, QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE <a href="../classResourceSource/"><strong>ResourceSource</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-getfile"><strong>getFile</strong></a> (const QString &amp; prefix, const QString &amp; filePath, <a href="./#enum-filetype"><strong>FileType</strong></a> fileType=AllFiles, QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE <a href="../classResourceSource/"><strong>ResourceSource</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-getgallerypicture"><strong>getGalleryPicture</strong></a> (const QString &amp; prefix, const QString &amp; pictureFilePath, QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE <a href="../classResourceSource/"><strong>ResourceSource</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-getgalleryvideo"><strong>getGalleryVideo</strong></a> (const QString &amp; prefix, const QString &amp; videoFilePath, QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE QString</td>
+<td style="text-align: left;"><a href="#function-gettextfromclipboard"><strong>getTextFromClipboard</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual bool</td>
+<td style="text-align: left;"><a href="#function-hasqfaction"><strong>hasQfAction</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual bool</td>
+<td style="text-align: left;"><a href="#function-hasqgsproject"><strong>hasQgsProject</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-importdatasets"><strong>importDatasets</strong></a> () const<br><em>Requests and imports one or more datasets into QField's application directory action.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-importprojectarchive"><strong>importProjectArchive</strong></a> () const<br><em>Requests and imports a project archive into QField's application directory action.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-importprojectfolder"><strong>importProjectFolder</strong></a> () const<br><em>Requests and imports a project folder into QField's application directory action.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-initsystem"><strong>initSystem</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-issystemdarktheme"><strong>isSystemDarkTheme</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual void</td>
+<td style="text-align: left;"><a href="#function-loadqgsproject"><strong>loadQgsProject</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE <a href="../classViewStatus/"><strong>ViewStatus</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-open"><strong>open</strong></a> (const QString &amp; uri, bool editing=false, QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE <a href="../classProjectSource/"><strong>ProjectSource</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-openproject"><strong>openProject</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-removedataset"><strong>removeDataset</strong></a> (const QString &amp; path) const<br><em>Removes a given dataset</em> <em>path</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-removefolder"><strong>removeFolder</strong></a> (const QString &amp; path) const<br><em>Removes a given folder</em> <em>path</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-renamefile"><strong>renameFile</strong></a> (const QString &amp; oldFilePath, const QString &amp; newFilePath, bool overwrite=true) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual void</td>
+<td style="text-align: left;"><a href="#function-requestbackgroundpositioningpermissions"><strong>requestBackgroundPositioningPermissions</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual void</td>
+<td style="text-align: left;"><a href="#function-requestcamerapermission"><strong>requestCameraPermission</strong></a> (std::function&lt; void(Qt::PermissionStatus)&gt; func) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual void</td>
+<td style="text-align: left;"><a href="#function-requestmicrophonepermission"><strong>requestMicrophonePermission</strong></a> (std::function&lt; void(Qt::PermissionStatus)&gt; func) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-requeststoragepermission"><strong>requestStoragePermission</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-restorebrightness"><strong>restoreBrightness</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-rmfile"><strong>rmFile</strong></a> (const QString &amp; filename) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual QStringList</td>
+<td style="text-align: left;"><a href="#function-rootdirectories"><strong>rootDirectories</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-sendcompressedfolderto"><strong>sendCompressedFolderTo</strong></a> (const QString &amp; path) const<br><em>Compresses a folder</em> <em>path</em> <em>and sends it via the platform native API.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-senddatasetto"><strong>sendDatasetTo</strong></a> (const QString &amp; path) const<br><em>Sends a dataset</em> <em>path</em> <em>via the platform native API.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-sethandlevolumekeys"><strong>setHandleVolumeKeys</strong></a> (const bool handle) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-setscreenlockpermission"><strong>setScreenLockPermission</strong></a> (const bool allowLock) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual QString</td>
+<td style="text-align: left;"><a href="#function-startpositioningservice"><strong>startPositioningService</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual void</td>
+<td style="text-align: left;"><a href="#function-stoppositioningservice"><strong>stopPositioningService</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE double</td>
+<td style="text-align: left;"><a href="#function-systemfontpointsize"><strong>systemFontPointSize</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual QString</td>
+<td style="text-align: left;"><a href="#function-systemlocaldatalocation"><strong>systemLocalDataLocation</strong></a> (const QString &amp; subDir=QString()) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual QString</td>
+<td style="text-align: left;"><a href="#function-systemshareddatalocation"><strong>systemSharedDataLocation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-updateprojectfromarchive"><strong>updateProjectFromArchive</strong></a> (const QString &amp; projectPath) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-uploadpendingattachments"><strong>uploadPendingAttachments</strong></a> (<a href="../classQFieldCloudConnection/"><strong>QFieldCloudConnection</strong></a> * connection) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-vibrate"><strong>vibrate</strong></a> (int milliseconds) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual</td>
+<td style="text-align: left;"><a href="#function-platformutilities"><strong>~PlatformUtilities</strong></a> () <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-functions">Public Static Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="./"><strong>PlatformUtilities</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-instance"><strong>instance</strong></a> () <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-capability">enum Capability</h3>
+<pre><code class="language-C++">enum PlatformUtilities::Capability {
+    NoCapabilities = 0,
+    NativeCamera = 1,
+    AdjustBrightness = 1 &lt;&lt; 1,
+    SentryFramework = 1 &lt;&lt; 2,
+    NativeLocalDataPicker = 1 &lt;&lt; 3,
+    CustomImport = 1 &lt;&lt; 4,
+    CustomExport = 1 &lt;&lt; 5,
+    CustomSend = 1 &lt;&lt; 6,
+    FilePicker = 1 &lt;&lt; 7,
+    VolumeKeys = 1 &lt;&lt; 8,
+    Vibrate = 1 &lt;&lt; 9,
+    UpdateProjectFromArchive = 1 &lt;&lt; 10,
+    PositioningService = 1 &lt;&lt; 11
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-filetype">enum FileType</h3>
+<pre><code class="language-C++">enum PlatformUtilities::FileType {
+    AllFiles = 0,
+    AudioFiles
+};
+</code></pre>
+<hr>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-capabilities-12">property capabilities [1/2]</h3>
+<pre><code class="language-C++">PlatformUtilities::Capabilities PlatformUtilities::capabilities;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-resourcecanceled">signal resourceCanceled</h3>
+<p><em>Emitted when a resource has been opened.</em> </p>
+<pre><code class="language-C++">void PlatformUtilities::resourceCanceled;
+</code></pre>
+<hr>
+
+<h3 id="signal-resourceopened">signal resourceOpened</h3>
+<p><em>Emitted when a resource has been opened.</em> </p>
+<pre><code class="language-C++">void PlatformUtilities::resourceOpened;
+</code></pre>
+<hr>
+
+<h3 id="signal-resourcereceived">signal resourceReceived</h3>
+<p><em>Emitted when a resource has been received.</em> </p>
+<pre><code class="language-C++">void PlatformUtilities::resourceReceived;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-additionalapplicationdirectories">function additionalApplicationDirectories</h3>
+<pre><code class="language-C++">virtual QStringList PlatformUtilities::additionalApplicationDirectories () const
+</code></pre>
+<p>Secondary application directories which can be used by individual platforms. </p>
+<hr>
+
+<h3 id="function-appdatadirs">function appDataDirs</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE QStringList PlatformUtilities::appDataDirs () const
+</code></pre>
+<p><strong>Returns:</strong></p>
+<p>a list of data directories where user data is searched. User data are pg_service.conf, authentication config, grids, ... </p>
+<hr>
+
+<h3 id="function-applicationdirectory">function applicationDirectory</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE QString PlatformUtilities::applicationDirectory () const
+</code></pre>
+<p>The main application directory within which projects and datasets can be imported. </p>
+<hr>
+
+<h3 id="function-availablegrids">function availableGrids</h3>
+<pre><code class="language-C++">Q_INVOKABLE QStringList PlatformUtilities::availableGrids () const
+</code></pre>
+<hr>
+
+<h3 id="function-capabilities-22">function capabilities [2/2]</h3>
+<pre><code class="language-C++">virtual PlatformUtilities::Capabilities PlatformUtilities::capabilities () const
+</code></pre>
+<p>Returns flags containing the supported capabilities of the platform. </p>
+<hr>
+
+<h3 id="function-checkcamerapermission">function checkCameraPermission</h3>
+<pre><code class="language-C++">virtual Qt::PermissionStatus PlatformUtilities::checkCameraPermission () const
+</code></pre>
+<hr>
+
+<h3 id="function-checkcamerapermissions">function checkCameraPermissions</h3>
+<pre><code class="language-C++">virtual Q_DECL_DEPRECATED virtual Q_INVOKABLE bool PlatformUtilities::checkCameraPermissions () const
+</code></pre>
+<p>Checks for camera permissions on the device. If the permissions are not given, the user will be asked to grant permissions. </p>
+<p><strong>Deprecated</strong></p>
+<p>Since QField 3.1 </p>
+<hr>
+
+<h3 id="function-checkmicrophonepermission">function checkMicrophonePermission</h3>
+<pre><code class="language-C++">virtual Qt::PermissionStatus PlatformUtilities::checkMicrophonePermission () const
+</code></pre>
+<hr>
+
+<h3 id="function-checkmicrophonepermissions">function checkMicrophonePermissions</h3>
+<pre><code class="language-C++">virtual Q_DECL_DEPRECATED virtual Q_INVOKABLE bool PlatformUtilities::checkMicrophonePermissions () const
+</code></pre>
+<p>Checks for camera microphone on the device. If the permissions are not given, the user will be asked to grant permissions. </p>
+<p><strong>Deprecated</strong></p>
+<p>Since QField 3.1 </p>
+<hr>
+
+<h3 id="function-checkpositioningpermissions">function checkPositioningPermissions</h3>
+<pre><code class="language-C++">virtual Q_DECL_DEPRECATED virtual Q_INVOKABLE bool PlatformUtilities::checkPositioningPermissions () const
+</code></pre>
+<p>Checks for positioning (GPS etc) permissions on the device. If the permissions are not given, the user will be asked to grant permissions. It will return true, if at least coarse permissions are granted. It will ask for fine permissions if none are granted. </p>
+<p><strong>Deprecated</strong></p>
+<p>Since QField 3.1 </p>
+<hr>
+
+<h3 id="function-copytexttoclipboard">function copyTextToClipboard</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::copyTextToClipboard (
+    const QString &amp; string
+) const
+</code></pre>
+<p>Copies a text <em>string</em> to the system clipboard. </p>
+<hr>
+
+<h3 id="function-createdir">function createDir</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool PlatformUtilities::createDir (
+    const QString &amp; path,
+    const QString &amp; dirname
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-dimbrightness">function dimBrightness</h3>
+<pre><code class="language-C++">inline virtual Q_INVOKABLE void PlatformUtilities::dimBrightness () 
+</code></pre>
+<p>Dims the brightness of the screen on supported devices. </p>
+<hr>
+
+<h3 id="function-executeqfaction">function executeQfAction</h3>
+<pre><code class="language-C++">virtual void PlatformUtilities::executeQfAction () const
+</code></pre>
+<p>Loads the action provided during launch. </p>
+<p><strong>See also:</strong> <a href="./#function-hasqfaction"><strong>hasQfAction</strong></a> </p>
+<hr>
+
+<h3 id="function-exportdatasetto">function exportDatasetTo</h3>
+<p><em>Exports a dataset</em> <em>path</em> <em>to a user-specified location.</em></p>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::exportDatasetTo (
+    const QString &amp; path
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-exportfolderto">function exportFolderTo</h3>
+<p><em>Exports a folder</em> <em>path</em> <em>to a user-specified location.</em></p>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::exportFolderTo (
+    const QString &amp; path
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-getcamerapicture">function getCameraPicture</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE ResourceSource * PlatformUtilities::getCameraPicture (
+    const QString &amp; prefix,
+    const QString &amp; pictureFilePath,
+    const QString &amp; suffix,
+    QObject * parent=nullptr
+) 
+</code></pre>
+<p>Get a picture from camera and copy it to the requested prefix </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>prefix</code> The project folder </li>
+<li><code>pictureFilePath</code> The path (including subfolders and name) of the file </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>The name of the picture or null </p>
+<hr>
+
+<h3 id="function-getcameravideo">function getCameraVideo</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE ResourceSource * PlatformUtilities::getCameraVideo (
+    const QString &amp; prefix,
+    const QString &amp; videoFilePath,
+    const QString &amp; suffix,
+    QObject * parent=nullptr
+) 
+</code></pre>
+<p>Get a video from camera and copy it to the requested prefix </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>prefix</code> The project folder </li>
+<li><code>videoFilePath</code> The path (including subfolders and name) of the file </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>The name of the video or null </p>
+<hr>
+
+<h3 id="function-getfile">function getFile</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE ResourceSource * PlatformUtilities::getFile (
+    const QString &amp; prefix,
+    const QString &amp; filePath,
+    FileType fileType=AllFiles,
+    QObject * parent=nullptr
+) 
+</code></pre>
+<p>Get a file from the operating system and copy it to the requested prefix </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>prefix</code> The project folder </li>
+<li><code>filePath</code> The path (including subfolders and name) of the file </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>The name of the file or null </p>
+<hr>
+
+<h3 id="function-getgallerypicture">function getGalleryPicture</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE ResourceSource * PlatformUtilities::getGalleryPicture (
+    const QString &amp; prefix,
+    const QString &amp; pictureFilePath,
+    QObject * parent=nullptr
+) 
+</code></pre>
+<p>Get a picture from gallery and copy it to the requested prefix </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>prefix</code> The project folder </li>
+<li><code>pictureFilePath</code> The path (including subfolders and name) of the file </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>The name of the picture or null </p>
+<hr>
+
+<h3 id="function-getgalleryvideo">function getGalleryVideo</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE ResourceSource * PlatformUtilities::getGalleryVideo (
+    const QString &amp; prefix,
+    const QString &amp; videoFilePath,
+    QObject * parent=nullptr
+) 
+</code></pre>
+<p>Get a video from gallery and copy it to the requested prefix </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>prefix</code> The project folder </li>
+<li><code>videoFilePath</code> The path (including subfolders and name) of the video </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>The name of the video or null </p>
+<hr>
+
+<h3 id="function-gettextfromclipboard">function getTextFromClipboard</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE QString PlatformUtilities::getTextFromClipboard () const
+</code></pre>
+<p>Returns the current text from the system clipboard. </p>
+<hr>
+
+<h3 id="function-hasqfaction">function hasQfAction</h3>
+<pre><code class="language-C++">virtual bool PlatformUtilities::hasQfAction () const
+</code></pre>
+<p>Returns the current action string </p>
+<p><strong>See also:</strong> loadQfAction </p>
+<hr>
+
+<h3 id="function-hasqgsproject">function hasQgsProject</h3>
+<pre><code class="language-C++">virtual bool PlatformUtilities::hasQgsProject () const
+</code></pre>
+<p>Returns TRUE is a project file has been provided and should be opened at launch. </p>
+<p><strong>See also:</strong> <a href="./#function-loadqgsproject"><strong>loadQgsProject</strong></a> </p>
+<hr>
+
+<h3 id="function-importdatasets">function importDatasets</h3>
+<p><em>Requests and imports one or more datasets into QField's application directory action.</em> </p>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::importDatasets () const
+</code></pre>
+<hr>
+
+<h3 id="function-importprojectarchive">function importProjectArchive</h3>
+<p><em>Requests and imports a project archive into QField's application directory action.</em> </p>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::importProjectArchive () const
+</code></pre>
+<hr>
+
+<h3 id="function-importprojectfolder">function importProjectFolder</h3>
+<p><em>Requests and imports a project folder into QField's application directory action.</em> </p>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::importProjectFolder () const
+</code></pre>
+<hr>
+
+<h3 id="function-initsystem">function initSystem</h3>
+<pre><code class="language-C++">void PlatformUtilities::initSystem () 
+</code></pre>
+<p>This method will do initialization tasks and copy sample projects to a writable location It will also call afterUpdate whenever a new version is detected. </p>
+<hr>
+
+<h3 id="function-issystemdarktheme">function isSystemDarkTheme</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE bool PlatformUtilities::isSystemDarkTheme () const
+</code></pre>
+<p>Returns TRUE is the system uses a dark theme. </p>
+<hr>
+
+<h3 id="function-loadqgsproject">function loadQgsProject</h3>
+<pre><code class="language-C++">virtual void PlatformUtilities::loadQgsProject () const
+</code></pre>
+<p>Loads the project file provided during launch. </p>
+<p><strong>See also:</strong> <a href="./#function-hasqgsproject"><strong>hasQgsProject</strong></a> </p>
+<hr>
+
+<h3 id="function-open">function open</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE ViewStatus * PlatformUtilities::open (
+    const QString &amp; uri,
+    bool editing=false,
+    QObject * parent=nullptr
+) 
+</code></pre>
+<p>Open the resource (file, image, ...) that is available under <em>uri</em>. The mimetype is detected to indicate the system how the file should be opened. An optional <em>editing</em> parameter can be set to true to indicate to supported systems the resource is expected to be edited. </p>
+<hr>
+
+<h3 id="function-openproject">function openProject</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE ProjectSource * PlatformUtilities::openProject (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<p>Indicates the system that we want to open a project. The system shall show a suitable user interface element (like a filebrowser) to let the user select a project. The call returns immediately and the returned <a href="../classProjectSource/"><strong>ProjectSource</strong></a> will notify when the project has actually been chosen. </p>
+<hr>
+
+<h3 id="function-removedataset">function removeDataset</h3>
+<p><em>Removes a given dataset</em> <em>path</em> <em>.</em></p>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::removeDataset (
+    const QString &amp; path
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-removefolder">function removeFolder</h3>
+<p><em>Removes a given folder</em> <em>path</em> <em>.</em></p>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::removeFolder (
+    const QString &amp; path
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-renamefile">function renameFile</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool PlatformUtilities::renameFile (
+    const QString &amp; oldFilePath,
+    const QString &amp; newFilePath,
+    bool overwrite=true
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-requestbackgroundpositioningpermissions">function requestBackgroundPositioningPermissions</h3>
+<pre><code class="language-C++">inline virtual void PlatformUtilities::requestBackgroundPositioningPermissions () 
+</code></pre>
+<hr>
+
+<h3 id="function-requestcamerapermission">function requestCameraPermission</h3>
+<pre><code class="language-C++">virtual void PlatformUtilities::requestCameraPermission (
+    std::function&lt; void(Qt::PermissionStatus)&gt; func
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-requestmicrophonepermission">function requestMicrophonePermission</h3>
+<pre><code class="language-C++">virtual void PlatformUtilities::requestMicrophonePermission (
+    std::function&lt; void(Qt::PermissionStatus)&gt; func
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-requeststoragepermission">function requestStoragePermission</h3>
+<pre><code class="language-C++">inline virtual Q_INVOKABLE void PlatformUtilities::requestStoragePermission () const
+</code></pre>
+<hr>
+
+<h3 id="function-restorebrightness">function restoreBrightness</h3>
+<pre><code class="language-C++">inline virtual Q_INVOKABLE void PlatformUtilities::restoreBrightness () 
+</code></pre>
+<p>Restores the brightness of the screen to its original value on supported devices. </p>
+<hr>
+
+<h3 id="function-rmfile">function rmFile</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool PlatformUtilities::rmFile (
+    const QString &amp; filename
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-rootdirectories">function rootDirectories</h3>
+<pre><code class="language-C++">virtual QStringList PlatformUtilities::rootDirectories () const
+</code></pre>
+<p>A list of root directories (e.g. root of an external storage) when system-wide access is available. </p>
+<hr>
+
+<h3 id="function-sendcompressedfolderto">function sendCompressedFolderTo</h3>
+<p><em>Compresses a folder</em> <em>path</em> <em>and sends it via the platform native API.</em></p>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::sendCompressedFolderTo (
+    const QString &amp; path
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-senddatasetto">function sendDatasetTo</h3>
+<p><em>Sends a dataset</em> <em>path</em> <em>via the platform native API.</em></p>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::sendDatasetTo (
+    const QString &amp; path
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-sethandlevolumekeys">function setHandleVolumeKeys</h3>
+<pre><code class="language-C++">inline virtual Q_INVOKABLE void PlatformUtilities::setHandleVolumeKeys (
+    const bool handle
+) 
+</code></pre>
+<p>Sets whether the device volume keys are handled by QField. </p>
+<hr>
+
+<h3 id="function-setscreenlockpermission">function setScreenLockPermission</h3>
+<pre><code class="language-C++">inline virtual Q_INVOKABLE void PlatformUtilities::setScreenLockPermission (
+    const bool allowLock
+) 
+</code></pre>
+<p>Sets whether the device screen is allowed to go in lock mode. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>allowLock</code> if set to FALSE, the screen will not be allowed to lock. </li>
+</ul>
+<hr>
+
+<h3 id="function-startpositioningservice">function startPositioningService</h3>
+<pre><code class="language-C++">inline virtual QString PlatformUtilities::startPositioningService () const
+</code></pre>
+<p>Starts a positioning service on supported platforms and returns the remote object URL. </p>
+<hr>
+
+<h3 id="function-stoppositioningservice">function stopPositioningService</h3>
+<pre><code class="language-C++">inline virtual void PlatformUtilities::stopPositioningService () const
+</code></pre>
+<p>Stops a positioning service on supported platforms. </p>
+<hr>
+
+<h3 id="function-systemfontpointsize">function systemFontPointSize</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE double PlatformUtilities::systemFontPointSize () const
+</code></pre>
+<p>Returns the default system font size. </p>
+<hr>
+
+<h3 id="function-systemlocaldatalocation">function systemLocalDataLocation</h3>
+<pre><code class="language-C++">virtual QString PlatformUtilities::systemLocalDataLocation (
+    const QString &amp; subDir=QString()
+) const
+</code></pre>
+<p><strong>Returns:</strong></p>
+<p>a directory where local data can be stored. this includes local qfieldcloud data or sample projects. A <em>subDir</em> is appended to the path. </p>
+<hr>
+
+<h3 id="function-systemshareddatalocation">function systemSharedDataLocation</h3>
+<pre><code class="language-C++">virtual QString PlatformUtilities::systemSharedDataLocation () const
+</code></pre>
+<p>The path to share data location. Under this path, there should be the app specific directories qgis/ proj/ qfield/ ... Refers to /share or /usr/share on Linux. This path is assumed to be read only. </p>
+<hr>
+
+<h3 id="function-updateprojectfromarchive">function updateProjectFromArchive</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::updateProjectFromArchive (
+    const QString &amp; projectPath
+) const
+</code></pre>
+<p>Update a local project content from a user-picked archive file action </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>projectPath</code> the project file path </li>
+</ul>
+<hr>
+
+<h3 id="function-uploadpendingattachments">function uploadPendingAttachments</h3>
+<pre><code class="language-C++">virtual Q_INVOKABLE void PlatformUtilities::uploadPendingAttachments (
+    QFieldCloudConnection * connection
+) const
+</code></pre>
+<p>Uploads any pending attachments linked to the logged in user account. </p>
+<hr>
+
+<h3 id="function-vibrate">function vibrate</h3>
+<pre><code class="language-C++">inline virtual Q_INVOKABLE void PlatformUtilities::vibrate (
+    int milliseconds
+) const
+</code></pre>
+<p>Vibrates the device on supported platforms. </p>
+<hr>
+
+<h3 id="function-platformutilities">function ~PlatformUtilities</h3>
+<pre><code class="language-C++">virtual PlatformUtilities::~PlatformUtilities () 
+</code></pre>
+<hr>
+<h2 id="public-static-functions-documentation">Public Static Functions Documentation</h2>
+<h3 id="function-instance">function instance</h3>
+<pre><code class="language-C++">static PlatformUtilities * PlatformUtilities::instance () 
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/platforms/platformutilities.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

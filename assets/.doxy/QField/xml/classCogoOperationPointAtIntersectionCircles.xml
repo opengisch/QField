@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCogoOperationPointAtIntersectionCircles" kind="class" language="C++" prot="public">
+    <compoundname>CogoOperationPointAtIntersectionCircles</compoundname>
+    <basecompoundref refid="classCogoOperation" prot="public" virt="non-virtual">CogoOperation</basecompoundref>
+    <includes refid="cogooperation_8h" local="no">cogooperation.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCogoOperationPointAtIntersectionCircles_1a73f005a6fa269aa4076821c31ca26f74" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CogoOperationPointAtIntersectionCircles::CogoOperationPointAtIntersectionCircles</definition>
+        <argsstring>()</argsstring>
+        <name>CogoOperationPointAtIntersectionCircles</name>
+        <qualifiedname>CogoOperationPointAtIntersectionCircles::CogoOperationPointAtIntersectionCircles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="254" column="5" bodyfile="src/core/cogo/cogooperation.h" bodystart="254" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classCogoOperationPointAtIntersectionCircles_1abc1d40907a751d742d13ef86e037388c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CogoOperationPointAtIntersectionCircles::~CogoOperationPointAtIntersectionCircles</definition>
+        <argsstring>()=default</argsstring>
+        <name>~CogoOperationPointAtIntersectionCircles</name>
+        <qualifiedname>CogoOperationPointAtIntersectionCircles::~CogoOperationPointAtIntersectionCircles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="255" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classCogoOperationPointAtIntersectionCircles_1a84082869c0dabb52a1c26b080597ef0a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>QString CogoOperationPointAtIntersectionCircles::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <qualifiedname>CogoOperationPointAtIntersectionCircles::name</qualifiedname>
+        <reimplements refid="classCogoOperation_1a37f3a0f561d3dbdae44206cb25fb2f02">name</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the name string identifier. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="257" column="13" bodyfile="src/core/cogo/cogooperation.h" bodystart="257" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="classCogoOperationPointAtIntersectionCircles_1a7563f37dc493f0ffd79bd85ab64c7901" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>QString CogoOperationPointAtIntersectionCircles::displayName</definition>
+        <argsstring>() const override</argsstring>
+        <name>displayName</name>
+        <qualifiedname>CogoOperationPointAtIntersectionCircles::displayName</qualifiedname>
+        <reimplements refid="classCogoOperation_1a6057f38831a16080c47f965835e85786">displayName</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a translatable display name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="258" column="13" bodyfile="src/core/cogo/cogooperation.h" bodystart="258" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classCogoOperationPointAtIntersectionCircles_1af8bf2ba1cd288dabc1267e00131038a2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>QString CogoOperationPointAtIntersectionCircles::icon</definition>
+        <argsstring>() const override</argsstring>
+        <name>icon</name>
+        <qualifiedname>CogoOperationPointAtIntersectionCircles::icon</qualifiedname>
+        <reimplements refid="classCogoOperation_1a6e175c95df9b9519e93ba736d7db15ef">icon</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the icon name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="259" column="13" bodyfile="src/core/cogo/cogooperation.h" bodystart="259" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="classCogoOperationPointAtIntersectionCircles_1a0f06933d81068ed81471730514a209e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QList&lt; <ref refid="classCogoParameter" kindref="compound">CogoParameter</ref> &gt;</type>
+        <definition>QList&lt; CogoParameter &gt; CogoOperationPointAtIntersectionCircles::parameters</definition>
+        <argsstring>(Qgis::WkbType wkbType) const override</argsstring>
+        <name>parameters</name>
+        <qualifiedname>CogoOperationPointAtIntersectionCircles::parameters</qualifiedname>
+        <reimplements refid="classCogoOperation_1ab2ffa4125084d99b3b07c70eb6d4f90b">parameters</reimplements>
+        <param>
+          <type>Qgis::WkbType</type>
+          <declname>wkbType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of available parameters to configure the operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>wkbType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional WKB type to reflect ability of the geometry being digitized </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="260" column="11" bodyfile="src/core/cogo/cogooperation.cpp" bodystart="205" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classCogoOperationPointAtIntersectionCircles_1affaf03e3186087dbdf7f11ae467e97f5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QList&lt; <ref refid="classCogoVisualGuide" kindref="compound">CogoVisualGuide</ref> &gt;</type>
+        <definition>QList&lt; CogoVisualGuide &gt; CogoOperationPointAtIntersectionCircles::visualGuides</definition>
+        <argsstring>(const QVariantMap &amp;parameters, QgsQuickMapSettings *mapSettings) const override</argsstring>
+        <name>visualGuides</name>
+        <qualifiedname>CogoOperationPointAtIntersectionCircles::visualGuides</qualifiedname>
+        <reimplements refid="classCogoOperation_1a8ac32808a57d6a99dae4ca50127d8ab0">visualGuides</reimplements>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of visual guides based on provided parameters. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parameters used to generate the visual guides </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mapSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the map settings object used to georeference the visual guides </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="261" column="11" bodyfile="src/core/cogo/cogooperation.cpp" bodystart="216" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classCogoOperationPointAtIntersectionCircles_1aa5580b408c94db3cd4ff6cc2c7b7862c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool CogoOperationPointAtIntersectionCircles::checkReadiness</definition>
+        <argsstring>(const QVariantMap &amp;parameters, Qgis::WkbType wkbType=Qgis::WkbType::Unknown) const override</argsstring>
+        <name>checkReadiness</name>
+        <qualifiedname>CogoOperationPointAtIntersectionCircles::checkReadiness</qualifiedname>
+        <reimplements refid="classCogoOperation_1a887b6fc4c35ad2d42a4ab9c4c1ebec3a">checkReadiness</reimplements>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>Qgis::WkbType</type>
+          <declname>wkbType</declname>
+          <defval>Qgis::WkbType::Unknown</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE is the provided parameters allow for the operation to be executed. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parameters to be validated for readiness </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wkbType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional WKB type to reflect ability of the geometry being digitized </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="262" column="10" bodyfile="src/core/cogo/cogooperation.cpp" bodystart="298" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="classCogoOperationPointAtIntersectionCircles_1a6a0634ac3cf863af1fd0126ace9f302b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool CogoOperationPointAtIntersectionCircles::execute</definition>
+        <argsstring>(RubberbandModel *rubberbandModel, const QVariantMap &amp;parameters, Qgis::WkbType wkbType) const override</argsstring>
+        <name>execute</name>
+        <qualifiedname>CogoOperationPointAtIntersectionCircles::execute</qualifiedname>
+        <reimplements refid="classCogoOperation_1a79eff34d37074e5463c32cab4d907350">execute</reimplements>
+        <param>
+          <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+          <declname>rubberbandModel</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>Qgis::WkbType</type>
+          <declname>wkbType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes the operation and add generated vertex or vertices into the rubberband model. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rubberbandModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the rubberband model within which one or more vertices will be added </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parameters used to execute the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wkbType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional WKB type to reflect ability of the geometry being digitized </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="263" column="10" bodyfile="src/core/cogo/cogooperation.cpp" bodystart="346" bodyend="366"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A COGO operation to generate a point at the intersection of two defined circles. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CogoOperation</label>
+        <link refid="classCogoOperation"/>
+      </node>
+      <node id="1">
+        <label>CogoOperationPointAtIntersectionCircles</label>
+        <link refid="classCogoOperationPointAtIntersectionCircles"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>CogoOperation</label>
+        <link refid="classCogoOperation"/>
+      </node>
+      <node id="1">
+        <label>CogoOperationPointAtIntersectionCircles</label>
+        <link refid="classCogoOperationPointAtIntersectionCircles"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/cogo/cogooperation.h" line="251" column="1" bodyfile="src/core/cogo/cogooperation.h" bodystart="252" bodyend="264"/>
+    <listofallmembers>
+      <member refid="classCogoOperationPointAtIntersectionCircles_1aa5580b408c94db3cd4ff6cc2c7b7862c" prot="public" virt="virtual"><scope>CogoOperationPointAtIntersectionCircles</scope><name>checkReadiness</name></member>
+      <member refid="classCogoOperation_1a200c8000516f212a8ff37dfa84abc4f5" prot="public" virt="non-virtual"><scope>CogoOperationPointAtIntersectionCircles</scope><name>CogoOperation</name></member>
+      <member refid="classCogoOperationPointAtIntersectionCircles_1a73f005a6fa269aa4076821c31ca26f74" prot="public" virt="non-virtual"><scope>CogoOperationPointAtIntersectionCircles</scope><name>CogoOperationPointAtIntersectionCircles</name></member>
+      <member refid="classCogoOperationPointAtIntersectionCircles_1a7563f37dc493f0ffd79bd85ab64c7901" prot="public" virt="virtual"><scope>CogoOperationPointAtIntersectionCircles</scope><name>displayName</name></member>
+      <member refid="classCogoOperationPointAtIntersectionCircles_1a6a0634ac3cf863af1fd0126ace9f302b" prot="public" virt="virtual"><scope>CogoOperationPointAtIntersectionCircles</scope><name>execute</name></member>
+      <member refid="classCogoOperationPointAtIntersectionCircles_1af8bf2ba1cd288dabc1267e00131038a2" prot="public" virt="virtual"><scope>CogoOperationPointAtIntersectionCircles</scope><name>icon</name></member>
+      <member refid="classCogoOperationPointAtIntersectionCircles_1a84082869c0dabb52a1c26b080597ef0a" prot="public" virt="virtual"><scope>CogoOperationPointAtIntersectionCircles</scope><name>name</name></member>
+      <member refid="classCogoOperationPointAtIntersectionCircles_1a0f06933d81068ed81471730514a209e7" prot="public" virt="virtual"><scope>CogoOperationPointAtIntersectionCircles</scope><name>parameters</name></member>
+      <member refid="classCogoOperationPointAtIntersectionCircles_1affaf03e3186087dbdf7f11ae467e97f5" prot="public" virt="virtual"><scope>CogoOperationPointAtIntersectionCircles</scope><name>visualGuides</name></member>
+      <member refid="classCogoOperation_1abe56613d54e968b01878b0c39757a274" prot="public" virt="virtual"><scope>CogoOperationPointAtIntersectionCircles</scope><name>~CogoOperation</name></member>
+      <member refid="classCogoOperationPointAtIntersectionCircles_1abc1d40907a751d742d13ef86e037388c" prot="public" virt="non-virtual"><scope>CogoOperationPointAtIntersectionCircles</scope><name>~CogoOperationPointAtIntersectionCircles</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

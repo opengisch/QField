@@ -1,0 +1,715 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfieldcloudutils_8cpp" kind="file" language="C++">
+    <compoundname>qfieldcloudutils.cpp</compoundname>
+    <includes refid="fileutils_8h" local="yes">fileutils.h</includes>
+    <includes refid="platformutilities_8h" local="yes">platformutilities.h</includes>
+    <includes refid="qfieldcloudconnection_8h" local="yes">qfieldcloudconnection.h</includes>
+    <includes refid="qfieldcloudutils_8h" local="yes">qfieldcloudutils.h</includes>
+    <includes refid="stringutils_8h" local="yes">stringutils.h</includes>
+    <includes local="no">QDir</includes>
+    <includes local="no">QFile</includes>
+    <includes local="no">QLockFile</includes>
+    <includes local="no">QStandardPaths</includes>
+    <includes local="no">QString</includes>
+    <includes local="no">qgsapplication.h</includes>
+    <includes local="no">qgsmessagelog.h</includes>
+    <incdepgraph>
+      <node id="9">
+        <label>platformutilities.h</label>
+        <link refid="platformutilities_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>deltafilewrapper.h</label>
+        <link refid="deltafilewrapper_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>networkmanager.h</label>
+        <link refid="networkmanager_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>networkreply.h</label>
+        <link refid="networkreply_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>qfieldcloudconnection.h</label>
+        <link refid="qfieldcloudconnection_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>qfieldcloudproject.h</label>
+        <link refid="qfieldcloudproject_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>qfieldcloudprojectsmodel.h</label>
+        <link refid="qfieldcloudprojectsmodel_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>qgsgpkgflusher.h</label>
+        <link refid="qgsgpkgflusher_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>fileutils.h</label>
+        <link refid="fileutils_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/utils/qfieldcloudutils.cpp</label>
+        <link refid="qfieldcloudutils_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>qfieldcloudutils.h</label>
+        <link refid="qfieldcloudutils_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>stringutils.h</label>
+        <link refid="stringutils_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>viewstatus.h</label>
+        <link refid="viewstatus_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="40">
+        <label>QColor</label>
+      </node>
+      <node id="4">
+        <label>QCryptographicHash</label>
+      </node>
+      <node id="43">
+        <label>QDir</label>
+      </node>
+      <node id="44">
+        <label>QFile</label>
+      </node>
+      <node id="23">
+        <label>QJsonArray</label>
+      </node>
+      <node id="24">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="25">
+        <label>QJsonObject</label>
+      </node>
+      <node id="45">
+        <label>QLockFile</label>
+      </node>
+      <node id="16">
+        <label>QNetworkAccessManager</label>
+      </node>
+      <node id="37">
+        <label>QNetworkInformation</label>
+      </node>
+      <node id="17">
+        <label>QNetworkReply</label>
+      </node>
+      <node id="5">
+        <label>QObject</label>
+      </node>
+      <node id="11">
+        <label>QPermission</label>
+      </node>
+      <node id="29">
+        <label>QPointer</label>
+      </node>
+      <node id="38">
+        <label>QSet</label>
+      </node>
+      <node id="34">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="46">
+        <label>QStandardPaths</label>
+      </node>
+      <node id="47">
+        <label>QString</label>
+      </node>
+      <node id="31">
+        <label>QThread</label>
+      </node>
+      <node id="35">
+        <label>QTimer</label>
+      </node>
+      <node id="6">
+        <label>QVariantMap</label>
+      </node>
+      <node id="3">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="7">
+        <label>qgis.h</label>
+      </node>
+      <node id="48">
+        <label>qgsapplication.h</label>
+      </node>
+      <node id="41">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="26">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="8">
+        <label>qgsfeedback.h</label>
+      </node>
+      <node id="12">
+        <label>qgsfield.h</label>
+      </node>
+      <node id="27">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="32">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="49">
+        <label>qgsmessagelog.h</label>
+      </node>
+      <node id="18">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+      <node id="42">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="36">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="28">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="qfieldcloudutils_8cpp_1a0b987dfcb94dae6044575ca38b4afb52" prot="public" static="yes" mutable="no">
+        <type>QString</type>
+        <definition>QString sLocalCloudDirectory</definition>
+        <argsstring></argsstring>
+        <name>sLocalCloudDirectory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.cpp" line="30" column="16" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>qfieldcloudutils.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/>---------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>February<sp/>2020</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2020<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>nirvn<sp/>dot<sp/>asia<sp/>at<sp/>gmail<sp/>dot<sp/>com</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;fileutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;platformutilities.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloudconnection.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloudutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stringutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDir&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFile&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QLockFile&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QStandardPaths&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QString&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsapplication.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmessagelog.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QString<sp/>sLocalCloudDirectory;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudUtils_1a12965eaf208586fb3606f17b329eb90b" kindref="member">QFieldCloudUtils::setLocalCloudDirectory</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;path<sp/>)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>sLocalCloudDirectory<sp/>=<sp/>path;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" kindref="member">QFieldCloudUtils::localCloudDirectory</ref>()</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>QString<sp/>cloudDirectoryPath<sp/>=<sp/>sLocalCloudDirectory.isNull()</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>PlatformUtilities::instance()-&gt;<ref refid="classPlatformUtilities_1a0962a50953416044358e4d7f3e108d31" kindref="member">systemLocalDataLocation</ref>(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;cloud_projects&quot;</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>sLocalCloudDirectory;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Remove<sp/>trailing<sp/>&apos;/&apos;<sp/>or<sp/>&apos;\&apos;<sp/>if<sp/>present</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>!cloudDirectoryPath.isEmpty()<sp/>&amp;&amp;<sp/>(<sp/>cloudDirectoryPath.endsWith(<sp/></highlight><highlight class="charliteral">&apos;/&apos;</highlight><highlight class="normal"><sp/>)<sp/>||<sp/>cloudDirectoryPath.endsWith(<sp/></highlight><highlight class="charliteral">&apos;\\&apos;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>cloudDirectoryPath.chop(<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cloudDirectoryPath;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classQFieldCloudUtils_1aa5ea9ec9df75f9339ee12187ac2536fe" kindref="member">QFieldCloudUtils::localProjectFilePath</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId<sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>QString<sp/>project<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2/%3&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/><ref refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" kindref="member">QFieldCloudUtils::localCloudDirectory</ref>(),<sp/>username,<sp/>projectId<sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>QDir<sp/>projectDir(<sp/>project<sp/>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>QStringList<sp/>projectFiles<sp/>=<sp/>projectDir.entryList(<sp/>QStringList()<sp/>&lt;&lt;<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;*.qgz&quot;</highlight><highlight class="normal"><sp/>)<sp/>&lt;&lt;<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;*.qgs&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>projectFiles.count()<sp/>&gt;<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>project,<sp/>projectFiles.at(<sp/>0<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QString();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudUtils_1a8769060abfce34af738bbe38bbbd03fd" kindref="member">QFieldCloudUtils::isCloudAction</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsMapLayer<sp/>*layer<sp/>)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>Q_ASSERT(<sp/>layer<sp/>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>layerAction(<sp/>layer-&gt;customProperty(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QFieldSync/cloud_action&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString().toUpper()<sp/>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>layerAction<sp/>==<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;NO_ACTION&quot;</highlight><highlight class="normal"><sp/>)<sp/>||<sp/>layerAction<sp/>==<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;REMOVE&quot;</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classQFieldCloudUtils_1aef69d7fdf59d1f653d53ad5808487250" kindref="member">QFieldCloudUtils::getProjectId</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;fileName<sp/>)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>fileName.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QString();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>path<sp/>=<sp/>QFileInfo(<sp/>fileName<sp/>).canonicalFilePath();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>path.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QString();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>cloudPath<sp/>=<sp/>QFileInfo(<sp/><ref refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" kindref="member">QFieldCloudUtils::localCloudDirectory</ref>()<sp/>).canonicalFilePath();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>cloudPath.isEmpty()<sp/>||<sp/>!path.startsWith(<sp/>cloudPath<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QString();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRegularExpression<sp/>re(</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;^%1[/\\\\][^/\\\\]+[/\\\\]([^/\\\\]+)&quot;</highlight><highlight class="normal"><sp/>)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.arg(<sp/>QRegularExpression::escape(<sp/>cloudPath<sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRegularExpressionMatch<sp/>match<sp/>=<sp/>re.match(<sp/>path<sp/>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>match.hasMatch()<sp/>)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>match.captured(<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QString();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">QString<sp/><ref refid="classQFieldCloudUtils_1a376a6dd14f355786fc3d6e3c524ea189" kindref="member">QFieldCloudUtils::userFriendlyErrorString</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;errorString<sp/>)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>QString<sp/>resultErrorString<sp/>=<sp/>errorString.startsWith(<sp/></highlight><highlight class="stringliteral">&quot;[QF/&quot;</highlight><highlight class="normal"><sp/>)<sp/>?<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;A<sp/>server<sp/>error<sp/>has<sp/>occured,<sp/>please<sp/>try<sp/>again.&quot;</highlight><highlight class="normal"><sp/>)<sp/>:<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;A<sp/>network<sp/>error<sp/>has<sp/>occured,<sp/>please<sp/>try<sp/>again.&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>errorString.contains(<sp/>errorCodeOverQuota<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>resultErrorString<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;Your<sp/>account&apos;s<sp/>available<sp/>storage<sp/>is<sp/>full.&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>resultErrorString;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal">QString<sp/><ref refid="classQFieldCloudUtils_1ad190c49b9f947e2a74d853ec7d11fb16" kindref="member">QFieldCloudUtils::documentationFromErrorString</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;errorString<sp/>)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>QString<sp/>linkToDocumentation;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>errorString.contains(<sp/>errorCodeOverQuota<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>linkToDocumentation<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;https://docs.qfield.org/get-started/storage-qfc/#adding-qfieldcloud-storage&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>linkToDocumentation;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudUtils_1a2023e61c12bee6143776782f275699b4" kindref="member">QFieldCloudUtils::setProjectSetting</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;setting,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;value<sp/>)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">thread_local</highlight><highlight class="normal"><sp/>QgsSettings<sp/>settings;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>projectPrefix<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QFieldCloud/projects/%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectId<sp/>);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>settings.setValue(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectPrefix,<sp/>setting<sp/>),<sp/>value<sp/>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/><ref refid="classQFieldCloudUtils_1afe0089315277d544743d5903b77dba0a" kindref="member">QFieldCloudUtils::projectSetting</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;setting,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;defaultValue<sp/>)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">thread_local</highlight><highlight class="normal"><sp/>QgsSettings<sp/>settings;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>projectPrefix<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;QFieldCloud/projects/%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectId<sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectPrefix,<sp/>setting<sp/>),<sp/>defaultValue<sp/>);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudUtils_1a6620bedd7eca4c975c8432d45619a536" kindref="member">QFieldCloudUtils::hasPendingAttachments</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username<sp/>)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!<ref refid="classQFieldCloudUtils_1a18c2f53d4bc4d0cf84158104cfa8695c" kindref="member">QFieldCloudUtils::getPendingAttachments</ref>(<sp/>username<sp/>).isEmpty();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QMultiMap&lt;QString,<sp/>QString&gt;<sp/><ref refid="classQFieldCloudUtils_1a18c2f53d4bc4d0cf84158104cfa8695c" kindref="member">QFieldCloudUtils::getPendingAttachments</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username<sp/>)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Migration<sp/>for<sp/>QField<sp/>&lt;<sp/>3.6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QFileInfo::exists(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/attachments.csv&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/><ref refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" kindref="member">QFieldCloudUtils::localCloudDirectory</ref>()<sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Step<sp/>1:<sp/>Load<sp/>the<sp/>already<sp/>existing<sp/>legacy<sp/>`attachments.csv`<sp/>file<sp/>contents<sp/>in<sp/>the<sp/>memory.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>QMultiMap&lt;QString,<sp/>QString&gt;<sp/>migrationFiles;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>QFile<sp/>migrationFile(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/attachments.csv&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/><ref refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" kindref="member">QFieldCloudUtils::localCloudDirectory</ref>()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>migrationFile.open(<sp/>QFile::ReadWrite<sp/>|<sp/>QFile::Text<sp/>);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>QTextStream<sp/>migrationStream(<sp/>&amp;migrationFile<sp/>);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>!migrationStream.atEnd()<sp/>)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>line<sp/>=<sp/>migrationStream.readLine().trimmed();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>values<sp/>=<sp/><ref refid="classStringUtils_1a82add959f6bd5e5cbf9c4e05f9fd21a4" kindref="member">StringUtils::csvToStringList</ref>(<sp/>line<sp/>);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>values.size()<sp/>&gt;=<sp/>2<sp/>)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>migrationFiles.insert(<sp/>values.at(<sp/>0<sp/>),<sp/>values.at(<sp/>1<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Step<sp/>2:<sp/>Group<sp/>the<sp/>attachments<sp/>list<sp/>by<sp/>username,<sp/>which<sp/>is<sp/>extracted<sp/>from<sp/>the<sp/>path<sp/>of<sp/>the<sp/>queued<sp/>files<sp/>to<sp/>upload.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>QMap&lt;QString,<sp/>QMultiMap&lt;QString,<sp/>QString&gt;&gt;<sp/>migratedAttachmentDetails;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>the<sp/>username<sp/>by<sp/>capturing<sp/>the<sp/>child<sp/>folder<sp/>name<sp/>to<sp/>the<sp/>parent<sp/>local<sp/>cloud<sp/>directory<sp/>using<sp/>/<sp/>or<sp/>\<sp/>as<sp/>folder<sp/>separators</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>QRegularExpression<sp/>re(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1[\\/\\\\]([^\\/\\\\]+)[\\/\\\\]&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>QRegularExpression::escape(<sp/><ref refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" kindref="member">QFieldCloudUtils::localCloudDirectory</ref>()<sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>projectIds<sp/>=<sp/>migrationFiles.uniqueKeys();</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId<sp/>:<sp/>projectIds<sp/>)</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>files<sp/>=<sp/>migrationFiles.values(<sp/>projectId<sp/>);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;file<sp/>:<sp/>files<sp/>)</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QRegularExpressionMatch<sp/>match<sp/>=<sp/>re.match(<sp/>file<sp/>);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>match.hasMatch()<sp/>)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>migratedAttachmentDetails[match.captured(<sp/>1<sp/>)].insert(<sp/>projectId,<sp/>file<sp/>);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Step<sp/>3:<sp/>Create<sp/>an<sp/>`attachments.csv`<sp/>file<sp/>for<sp/>each<sp/>username.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>migratedUsernames<sp/>=<sp/>migratedAttachmentDetails.keys();</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;migratedUsername<sp/>:<sp/>migratedUsernames<sp/>)</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>migratedProjectIds<sp/>=<sp/>migratedAttachmentDetails[migratedUsername].uniqueKeys();</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;migratedProjectId<sp/>:<sp/>migratedProjectIds<sp/>)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Play<sp/>safe,<sp/>create<sp/>the<sp/>user<sp/>folder</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QDir().mkpath(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/><ref refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" kindref="member">QFieldCloudUtils::localCloudDirectory</ref>(),<sp/>migratedUsername<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQFieldCloudUtils_1aedfb342c44cbccab9684eeb9a93ea8e3" kindref="member">addPendingAttachments</ref>(<sp/>migratedUsername,<sp/>migratedProjectId,<sp/>migratedAttachmentDetails[migratedUsername].values(<sp/>migratedProjectId<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>migrationFile.close();</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>migrationFile.remove();</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/>QMultiMap&lt;QString,<sp/>QString&gt;<sp/>files;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>username.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>files;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>localCloudUSerDirectory<sp/>=<sp/>QLatin1String(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2/&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/><ref refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" kindref="member">QFieldCloudUtils::localCloudDirectory</ref>(),<sp/>username<sp/>);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>QLockFile<sp/>attachmentsLock(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/attachments.lock&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>localCloudUSerDirectory<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>attachmentsLock.tryLock(<sp/>10000<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>QFile<sp/>attachmentsFile(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/attachments.csv&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>localCloudUSerDirectory<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>QFileInfo<sp/>fi(<sp/>attachmentsFile<sp/>);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!fi.exists()<sp/>||<sp/>fi.size()<sp/>==<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>files;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>attachmentsFile.open(<sp/>QFile::ReadWrite<sp/>|<sp/>QFile::Text<sp/>);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>QTextStream<sp/>attachmentsStream(<sp/>&amp;attachmentsFile<sp/>);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>!attachmentsStream.atEnd()<sp/>)</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>line<sp/>=<sp/>attachmentsStream.readLine().trimmed();</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>values<sp/>=<sp/><ref refid="classStringUtils_1a82add959f6bd5e5cbf9c4e05f9fd21a4" kindref="member">StringUtils::csvToStringList</ref>(<sp/>line<sp/>);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>expected<sp/>CSV<sp/>format<sp/>must<sp/>have<sp/>two<sp/>columns:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>project_id,file_path</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>values.size()<sp/>&gt;=<sp/>2<sp/>)</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>files.insert(<sp/>values.at(<sp/>0<sp/>),<sp/>values.at(<sp/>1<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>files;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudUtils_1aedfb342c44cbccab9684eeb9a93ea8e3" kindref="member">QFieldCloudUtils::addPendingAttachments</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>&amp;fileNames,<sp/><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref><sp/>*cloudConnection,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;checkSumCheck<sp/>)</highlight></codeline>
+<codeline lineno="235"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>username.isEmpty()<sp/>||<sp/>projectId.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ASSERT(<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!QFileInfo::exists(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/><ref refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" kindref="member">QFieldCloudUtils::localCloudDirectory</ref>(),<sp/>username<sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ASSERT(<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>checkSumCheck<sp/>&amp;&amp;<sp/>cloudConnection<sp/>)</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantMap<sp/>params;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>params.insert(<sp/></highlight><highlight class="stringliteral">&quot;skip_metadata&quot;</highlight><highlight class="normal">,<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworkReply" kindref="compound">NetworkReply</ref><sp/>*reply<sp/>=<sp/>cloudConnection-&gt;<ref refid="classQFieldCloudConnection_1a168cd75fb79e9233c00a0d2da9ed1e48" kindref="member">get</ref>(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;/api/v1/files/%1/&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectId<sp/>),<sp/>params<sp/>);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>reply,<sp/>&amp;<ref refid="classNetworkReply_1abd38bc5b08cc4a56bffd5d4972cf1ae6" kindref="member">NetworkReply::finished</ref>,<sp/>reply,<sp/>[reply,<sp/>username,<sp/>projectId,<sp/>fileNames,<sp/>checkSumCheck,<sp/>cloudConnection]()<sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QNetworkReply<sp/>*rawReply<sp/>=<sp/>reply-&gt;<ref refid="classNetworkReply_1acc900d76a118639886fccf59eca42819" kindref="member">currentRawReply</ref>();</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>reply-&gt;deleteLater();</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>rawReply-&gt;error()<sp/>!=<sp/>QNetworkReply::NoError<sp/>)</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QgsLogger::debug(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;Project<sp/>%1:<sp/>failed<sp/>to<sp/>retrieve<sp/>file<sp/>information.<sp/>%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>projectId,<sp/>QFieldCloudConnection::errorString(<sp/>rawReply<sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonArray<sp/>files<sp/>=<sp/>QJsonDocument::fromJson(<sp/>rawReply-&gt;readAll()<sp/>).array();</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QHash&lt;QString,<sp/>QString&gt;<sp/>fileChecksumMap;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonValueConstRef<sp/>&amp;fileValue<sp/>:<sp/>files<sp/>)</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonObject<sp/>fileObject<sp/>=<sp/>fileValue.toObject();</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>cloudEtag<sp/>=<sp/>fileObject.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;md5sum&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString();</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>fileName<sp/>=<sp/>fileObject.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString();</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fileChecksumMap.insert(<sp/>fileName,<sp/>cloudEtag<sp/>);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>writeToAttachmentsFile(<sp/>username,<sp/>projectId,<sp/>fileNames,<sp/>&amp;fileChecksumMap,<sp/>checkSumCheck,<sp/>cloudConnection<sp/>);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>writeToAttachmentsFile(<sp/>username,<sp/>projectId,<sp/>fileNames,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>cloudConnection<sp/>);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>QFieldCloudUtils::writeToAttachmentsFile(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>&amp;fileNames,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QHash&lt;QString,<sp/>QString&gt;<sp/>*fileChecksumMap,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;checkSumCheck,<sp/><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref><sp/>*cloudConnection<sp/>)</highlight></codeline>
+<codeline lineno="285"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>localCloudUSerDirectory<sp/>=<sp/>QLatin1String(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2/&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/><ref refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" kindref="member">QFieldCloudUtils::localCloudDirectory</ref>(),<sp/>username<sp/>);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/>QLockFile<sp/>attachmentsLock(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/attachments.lock&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>localCloudUSerDirectory<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>attachmentsLock.tryLock(<sp/>10000<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>QFile<sp/>attachmentsFile(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/attachments.csv&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>localCloudUSerDirectory<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>attachmentsFile.open(<sp/>QFile::Append<sp/>|<sp/>QFile::Text<sp/>);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>QTextStream<sp/>attachmentsStream(<sp/>&amp;attachmentsFile<sp/>);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;fileName<sp/>:<sp/>fileNames<sp/>)</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QFileInfo<sp/>fi(<sp/>QDir::cleanPath(<sp/>fileName<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>fi.isDir()<sp/>)</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writeFilesFromDirectory(<sp/>fileName,<sp/>projectId,<sp/>fileChecksumMap,<sp/>checkSumCheck,<sp/>attachmentsStream<sp/>);</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>fi.isFile()<sp/>)</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writeFileDetails(<sp/>fileName,<sp/>projectId,<sp/>fileChecksumMap,<sp/>checkSumCheck,<sp/>attachmentsStream<sp/>);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>attachmentsFile.close();</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>cloudConnection<sp/>)</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>cloudConnection-&gt;pendingAttachmentsAdded();</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="311"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>QFieldCloudUtils::writeFilesFromDirectory(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;dirPath,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QHash&lt;QString,<sp/>QString&gt;<sp/>*fileChecksumMap,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;checkSumCheck,<sp/>QTextStream<sp/>&amp;attachmentsStream<sp/>)</highlight></codeline>
+<codeline lineno="314"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/>QDir<sp/>dir(<sp/>dirPath<sp/>);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!dir.exists()<sp/>)</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/>QFileInfoList<sp/>entries<sp/>=<sp/>dir.entryInfoList(<sp/>QDir::Files<sp/>|<sp/>QDir::Dirs<sp/>|<sp/>QDir::NoDotAndDotDot<sp/>);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QFileInfo<sp/>&amp;entry<sp/>:<sp/>entries<sp/>)</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>entry.isDir()<sp/>)</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>writeFilesFromDirectory(<sp/>entry.absoluteFilePath(),<sp/>projectId,<sp/>fileChecksumMap,<sp/>checkSumCheck,<sp/>attachmentsStream<sp/>);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>entry.isFile()<sp/>)</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>writeFileDetails(<sp/>entry.absoluteFilePath(),<sp/>projectId,<sp/>fileChecksumMap,<sp/>checkSumCheck,<sp/>attachmentsStream<sp/>);</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="334"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>QFieldCloudUtils::writeFileDetails(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;fileName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QHash&lt;QString,<sp/>QString&gt;<sp/>*fileChecksumMap,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;checkSumCheck,<sp/>QTextStream<sp/>&amp;attachmentsStream<sp/>)</highlight></codeline>
+<codeline lineno="337"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>localEtag<sp/>=<sp/><ref refid="classFileUtils_1a1e180810c696414b8dbb7a1314d800b5" kindref="member">FileUtils::fileEtag</ref>(<sp/>fileName<sp/>);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/>QString<sp/>cloudFileName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>fileNameParts<sp/>=<sp/>fileName.split(<sp/>projectId<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>fileNameParts.size()<sp/>&gt;<sp/>1<sp/>)</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>cloudFileName<sp/>=<sp/>fileNameParts[1];</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!checkSumCheck<sp/>||<sp/>localEtag<sp/>!=<sp/>fileChecksumMap-&gt;value(<sp/>cloudFileName<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>QStringList<sp/>values<sp/>{<sp/>projectId,<sp/>fileName<sp/>};</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/>attachmentsStream<sp/>&lt;&lt;<sp/><ref refid="classStringUtils_1a2c4317bc54bcb67fabafba8ada2c4cd4" kindref="member">StringUtils::stringListToCsv</ref>(<sp/>values<sp/>)<sp/>&lt;&lt;<sp/>Qt::endl;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="351"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldCloudUtils_1ae56486e564b9ab8721047dc98f563400" kindref="member">QFieldCloudUtils::removePendingAttachment</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;fileName<sp/>)</highlight></codeline>
+<codeline lineno="354"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>localCloudUSerDirectory<sp/>=<sp/>QLatin1String(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2/&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/><ref refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" kindref="member">QFieldCloudUtils::localCloudDirectory</ref>(),<sp/>username<sp/>);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/>QLockFile<sp/>attachmentsLock(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/attachments.lock&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>localCloudUSerDirectory<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>attachmentsLock.tryLock(<sp/>10000<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>lineToRemove<sp/>=<sp/><ref refid="classStringUtils_1a2c4317bc54bcb67fabafba8ada2c4cd4" kindref="member">StringUtils::stringListToCsv</ref>(<sp/>QStringList()<sp/>&lt;&lt;<sp/>projectId<sp/>&lt;&lt;<sp/>fileName<sp/>);</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>output;</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/>QFile<sp/>attachmentsFile(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/attachments.csv&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>localCloudUSerDirectory<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/>attachmentsFile.open(<sp/>QFile::ReadWrite<sp/>|<sp/>QFile::Text<sp/>);</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/>QTextStream<sp/>attachmentsStream(<sp/>&amp;attachmentsFile<sp/>);</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>!attachmentsStream.atEnd()<sp/>)</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>line<sp/>=<sp/>attachmentsStream.readLine();</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!line.isEmpty()<sp/>&amp;&amp;<sp/>!line.startsWith(<sp/>lineToRemove<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output<sp/>+=<sp/>line<sp/>+<sp/>QChar(<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/>attachmentsFile.resize(<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/>attachmentsStream.reset();</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/>attachmentsStream<sp/>&lt;&lt;<sp/>output;</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/>attachmentsFile.close();</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="377"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/utils/qfieldcloudutils.cpp"/>
+  </compounddef>
+</doxygen>

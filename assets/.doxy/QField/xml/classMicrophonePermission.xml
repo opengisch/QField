@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMicrophonePermission" kind="class" language="C++" prot="public">
+    <compoundname>MicrophonePermission</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classMicrophonePermission_1a20c704a8155231736d313a47d946f8e8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qt::PermissionStatus</type>
+        <definition>Qt::PermissionStatus MicrophonePermission::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>MicrophonePermission::status</qualifiedname>
+        <read>status</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="63" column="5" bodyfile="src/core/permissions.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMicrophonePermission_1a0476f00ff4226cdabc5a2e33439197b3" prot="private" static="no" mutable="no">
+        <type>Qt::PermissionStatus</type>
+        <definition>Qt::PermissionStatus MicrophonePermission::mStatus</definition>
+        <argsstring></argsstring>
+        <name>mStatus</name>
+        <qualifiedname>MicrophonePermission::mStatus</qualifiedname>
+        <initializer>= Qt::PermissionStatus::Undetermined</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="85" column="26" bodyfile="src/core/permissions.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMicrophonePermission_1a1c1e9bd02c47d136a07da58347f05542" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MicrophonePermission::mStatusChecked</definition>
+        <argsstring></argsstring>
+        <name>mStatusChecked</name>
+        <qualifiedname>MicrophonePermission::mStatusChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="86" column="10" bodyfile="src/core/permissions.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMicrophonePermission_1abd51200aca685f659965a4dc9895bb23" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MicrophonePermission::MicrophonePermission</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>MicrophonePermission</name>
+        <qualifiedname>MicrophonePermission::MicrophonePermission</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="66" column="14" bodyfile="src/core/permissions.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classMicrophonePermission_1aa0cd10855a08b6c70fc12460f9c2bf8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Qt::PermissionStatus</type>
+        <definition>Qt::PermissionStatus MicrophonePermission::status</definition>
+        <argsstring>()</argsstring>
+        <name>status</name>
+        <qualifiedname>MicrophonePermission::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the permission status. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="71" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classMicrophonePermission_1afe83e203094864e4d69a097498a5c219" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void MicrophonePermission::request</definition>
+        <argsstring>()</argsstring>
+        <name>request</name>
+        <qualifiedname>MicrophonePermission::request</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Requests the permission. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="76" column="22" bodyfile="src/core/permissions.cpp" bodystart="66" bodyend="76"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classMicrophonePermission_1a02c1b474e8bc1cef231fdad00fb6c5ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MicrophonePermission::statusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>statusChanged</name>
+        <qualifiedname>MicrophonePermission::statusChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the status has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="82" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MicrophonePermission</label>
+        <link refid="classMicrophonePermission"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MicrophonePermission</label>
+        <link refid="classMicrophonePermission"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/permissions.h" line="59" column="1" bodyfile="src/core/permissions.h" bodystart="60" bodyend="87"/>
+    <listofallmembers>
+      <member refid="classMicrophonePermission_1abd51200aca685f659965a4dc9895bb23" prot="public" virt="non-virtual"><scope>MicrophonePermission</scope><name>MicrophonePermission</name></member>
+      <member refid="classMicrophonePermission_1a0476f00ff4226cdabc5a2e33439197b3" prot="private" virt="non-virtual"><scope>MicrophonePermission</scope><name>mStatus</name></member>
+      <member refid="classMicrophonePermission_1a1c1e9bd02c47d136a07da58347f05542" prot="private" virt="non-virtual"><scope>MicrophonePermission</scope><name>mStatusChecked</name></member>
+      <member refid="classMicrophonePermission_1afe83e203094864e4d69a097498a5c219" prot="public" virt="non-virtual"><scope>MicrophonePermission</scope><name>request</name></member>
+      <member refid="classMicrophonePermission_1a20c704a8155231736d313a47d946f8e8" prot="public" virt="non-virtual"><scope>MicrophonePermission</scope><name>status</name></member>
+      <member refid="classMicrophonePermission_1aa0cd10855a08b6c70fc12460f9c2bf8a" prot="public" virt="non-virtual"><scope>MicrophonePermission</scope><name>status</name></member>
+      <member refid="classMicrophonePermission_1a02c1b474e8bc1cef231fdad00fb6c5ab" prot="public" virt="non-virtual"><scope>MicrophonePermission</scope><name>statusChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

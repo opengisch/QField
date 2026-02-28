@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classColor" kind="class" language="C++" prot="public">
+    <compoundname>Color</compoundname>
+    <basecompoundref refid="classEditorWidgetBase" prot="public" virt="non-virtual">EditorWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classColor_1a6076915192fd3cd98e9533b90a3369b6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Color::desiredHeight</definition>
+        <argsstring></argsstring>
+        <name>desiredHeight</name>
+        <qualifiedname>Color::desiredHeight</qualifiedname>
+        <read>dummyGetter_desiredHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Color.qml" line="9" column="1" bodyfile="src/qml/editorwidgets/Color.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classColor_1a62d61ac2b248e8d52419d27870d9d170" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Color::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Color::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Color.qml" line="11" column="5" bodyfile="src/qml/editorwidgets/Color.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classColor_1a4945d28747215b482cc8e74fc61a6560" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Color::onEnabledChanged</definition>
+        <argsstring></argsstring>
+        <name>onEnabledChanged</name>
+        <qualifiedname>Color::onEnabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Color.qml" line="12" column="5" bodyfile="src/qml/editorwidgets/Color.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classColor_1a512ccd8a5b9388c4c9a1b1add7756495" prot="private" static="no" mutable="no">
+        <type>SwipeView</type>
+        <definition>SwipeView Color::colorContainer</definition>
+        <argsstring></argsstring>
+        <name>colorContainer</name>
+        <qualifiedname>Color::colorContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Color.qml" line="13" column="11" bodyfile="src/qml/editorwidgets/Color.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classColor_1a8b1693cbbe1a681d187a76c9d788008a" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout Color::currentColorView</definition>
+        <argsstring></argsstring>
+        <name>currentColorView</name>
+        <qualifiedname>Color::currentColorView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Color.qml" line="14" column="11" bodyfile="src/qml/editorwidgets/Color.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classColor_1ac5410c97276f1b86a68bb534b6fc7462" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle Color::colorArea</definition>
+        <argsstring></argsstring>
+        <name>colorArea</name>
+        <qualifiedname>Color::colorArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Color.qml" line="15" column="11" bodyfile="src/qml/editorwidgets/Color.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classColor_1a15f99476116e36313929de48e094b8ac" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout Color::selectColorView</definition>
+        <argsstring></argsstring>
+        <name>selectColorView</name>
+        <qualifiedname>Color::selectColorView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/Color.qml" line="16" column="11" bodyfile="src/qml/editorwidgets/Color.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Color</label>
+        <link refid="classColor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Color</label>
+        <link refid="classColor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/Color.qml" line="6" column="1" bodyfile="src/qml/editorwidgets/Color.qml" bodystart="6" bodyend="17"/>
+    <listofallmembers>
+      <member refid="classColor_1ac5410c97276f1b86a68bb534b6fc7462" prot="private" virt="non-virtual"><scope>Color</scope><name>colorArea</name></member>
+      <member refid="classColor_1a512ccd8a5b9388c4c9a1b1add7756495" prot="private" virt="non-virtual"><scope>Color</scope><name>colorContainer</name></member>
+      <member refid="classColor_1a8b1693cbbe1a681d187a76c9d788008a" prot="private" virt="non-virtual"><scope>Color</scope><name>currentColorView</name></member>
+      <member refid="classColor_1a6076915192fd3cd98e9533b90a3369b6" prot="public" virt="non-virtual"><scope>Color</scope><name>desiredHeight</name></member>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>Color</scope><name>hasMenu</name></member>
+      <member refid="classColor_1a62d61ac2b248e8d52419d27870d9d170" prot="private" virt="non-virtual"><scope>Color</scope><name>height</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>Color</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>Color</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>Color</scope><name>isNull</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>Color</scope><name>menu</name></member>
+      <member refid="classColor_1a4945d28747215b482cc8e74fc61a6560" prot="private" virt="non-virtual"><scope>Color</scope><name>onEnabledChanged</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>Color</scope><name>requestBarcode</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>Color</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>Color</scope><name>requestJumpToPoint</name></member>
+      <member refid="classColor_1a15f99476116e36313929de48e094b8ac" prot="private" virt="non-virtual"><scope>Color</scope><name>selectColorView</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>Color</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

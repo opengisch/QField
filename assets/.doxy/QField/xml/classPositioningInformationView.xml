@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningInformationView" kind="class" language="C++" prot="public">
+    <compoundname>PositioningInformationView</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPositioningInformationView_1aefb6ad78efc23ae1bace91a5a39d84d4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias PositioningInformationView::positionSource</definition>
+        <argsstring></argsstring>
+        <name>positionSource</name>
+        <qualifiedname>PositioningInformationView::positionSource</qualifiedname>
+        <read>dummyGetter_positionSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="13" column="1" bodyfile="src/qml/PositioningInformationView.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningInformationView_1abeb7f4cf1e21b0ddf39938563938f961" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias PositioningInformationView::antennaHeight</definition>
+        <argsstring></argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>PositioningInformationView::antennaHeight</qualifiedname>
+        <read>dummyGetter_antennaHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="15" column="1" bodyfile="src/qml/PositioningInformationView.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningInformationView_1a6e04cc2ae6e7699d44882bccf014e8db" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color PositioningInformationView::backgroundColor</definition>
+        <argsstring></argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>PositioningInformationView::backgroundColor</qualifiedname>
+        <read>dummyGetter_backgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="17" column="1" bodyfile="src/qml/PositioningInformationView.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningInformationView_1a005ba16833042157fc5162e3abaa20af" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color PositioningInformationView::alternateBackgroundColor</definition>
+        <argsstring></argsstring>
+        <name>alternateBackgroundColor</name>
+        <qualifiedname>PositioningInformationView::alternateBackgroundColor</qualifiedname>
+        <read>dummyGetter_alternateBackgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="19" column="1" bodyfile="src/qml/PositioningInformationView.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningInformationView_1a06b0a1cc30eebdc132e7cbc6ff5e4d14" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color PositioningInformationView::textColor</definition>
+        <argsstring></argsstring>
+        <name>textColor</name>
+        <qualifiedname>PositioningInformationView::textColor</qualifiedname>
+        <read>dummyGetter_textColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="21" column="1" bodyfile="src/qml/PositioningInformationView.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningInformationView_1a70f3ff3b86fe4d55fc8afde281978865" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningInformationView::cellHeight</definition>
+        <argsstring></argsstring>
+        <name>cellHeight</name>
+        <qualifiedname>PositioningInformationView::cellHeight</qualifiedname>
+        <read>dummyGetter_cellHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="23" column="1" bodyfile="src/qml/PositioningInformationView.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningInformationView_1a4eead78159fe30cad4cda5b7816930e9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningInformationView::cellPadding</definition>
+        <argsstring></argsstring>
+        <name>cellPadding</name>
+        <qualifiedname>PositioningInformationView::cellPadding</qualifiedname>
+        <read>dummyGetter_cellPadding_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="25" column="1" bodyfile="src/qml/PositioningInformationView.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningInformationView_1a92269c5f12625c40cd1640b9a781e4e7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real PositioningInformationView::contentHeight</definition>
+        <argsstring></argsstring>
+        <name>contentHeight</name>
+        <qualifiedname>PositioningInformationView::contentHeight</qualifiedname>
+        <read>dummyGetter_contentHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="27" column="1" bodyfile="src/qml/PositioningInformationView.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPositioningInformationView_1a478254f7c8b608d041efe145bd558694" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningInformationView::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>PositioningInformationView::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="29" column="5" bodyfile="src/qml/PositioningInformationView.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningInformationView_1a40d39df4cc90b9b4743bc77749c6e13c" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors PositioningInformationView::margins</definition>
+        <argsstring></argsstring>
+        <name>margins</name>
+        <qualifiedname>PositioningInformationView::margins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="30" column="12" bodyfile="src/qml/PositioningInformationView.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningInformationView_1aa947e9b58d581c21777bb0a8b9a47fd5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningInformationView::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>PositioningInformationView::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="31" column="5" bodyfile="src/qml/PositioningInformationView.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningInformationView_1a224092752d531ffa30a14408a07023e1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningInformationView::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>PositioningInformationView::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="32" column="5" bodyfile="src/qml/PositioningInformationView.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningInformationView_1ab3d5c9b27ef5cdb717c7e9a305fe211c" prot="private" static="no" mutable="no">
+        <type>GridView</type>
+        <definition>GridView PositioningInformationView::grid</definition>
+        <argsstring></argsstring>
+        <name>grid</name>
+        <qualifiedname>PositioningInformationView::grid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningInformationView.qml" line="33" column="10" bodyfile="src/qml/PositioningInformationView.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PositioningInformationView</label>
+        <link refid="classPositioningInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PositioningInformationView</label>
+        <link refid="classPositioningInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/PositioningInformationView.qml" line="10" column="1" bodyfile="src/qml/PositioningInformationView.qml" bodystart="10" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classPositioningInformationView_1a005ba16833042157fc5162e3abaa20af" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>alternateBackgroundColor</name></member>
+      <member refid="classPositioningInformationView_1abeb7f4cf1e21b0ddf39938563938f961" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>antennaHeight</name></member>
+      <member refid="classPositioningInformationView_1a6e04cc2ae6e7699d44882bccf014e8db" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>backgroundColor</name></member>
+      <member refid="classPositioningInformationView_1a70f3ff3b86fe4d55fc8afde281978865" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>cellHeight</name></member>
+      <member refid="classPositioningInformationView_1a4eead78159fe30cad4cda5b7816930e9" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>cellPadding</name></member>
+      <member refid="classPositioningInformationView_1a224092752d531ffa30a14408a07023e1" prot="private" virt="non-virtual"><scope>PositioningInformationView</scope><name>clip</name></member>
+      <member refid="classPositioningInformationView_1a478254f7c8b608d041efe145bd558694" prot="private" virt="non-virtual"><scope>PositioningInformationView</scope><name>color</name></member>
+      <member refid="classPositioningInformationView_1a92269c5f12625c40cd1640b9a781e4e7" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>contentHeight</name></member>
+      <member refid="classPositioningInformationView_1ab3d5c9b27ef5cdb717c7e9a305fe211c" prot="private" virt="non-virtual"><scope>PositioningInformationView</scope><name>grid</name></member>
+      <member refid="classPositioningInformationView_1a40d39df4cc90b9b4743bc77749c6e13c" prot="private" virt="non-virtual"><scope>PositioningInformationView</scope><name>margins</name></member>
+      <member refid="classPositioningInformationView_1aefb6ad78efc23ae1bace91a5a39d84d4" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>positionSource</name></member>
+      <member refid="classPositioningInformationView_1a06b0a1cc30eebdc132e7cbc6ff5e4d14" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>textColor</name></member>
+      <member refid="classPositioningInformationView_1aa947e9b58d581c21777bb0a8b9a47fd5" prot="private" virt="non-virtual"><scope>PositioningInformationView</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

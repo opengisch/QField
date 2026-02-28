@@ -1,0 +1,1264 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class OrderedRelationModel - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-orderedrelationmodel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class OrderedRelationModel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-inherited-from-referencingfeaturelistmodelbase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types inherited from ReferencingFeatureListModelBase
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-inherited-from-referencingfeaturelistmodelbase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties inherited from ReferencingFeatureListModelBase
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-inherited-from-referencingfeaturelistmodelbase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals inherited from ReferencingFeatureListModelBase
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-inherited-from-referencingfeaturelistmodelbase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions inherited from ReferencingFeatureListModelBase
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-description-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property description [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-imagepath-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property imagePath [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-orderingfield-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property orderingField [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-currentfeaturechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal currentFeatureChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-descriptionchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal descriptionChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-failedreorder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal failedReorder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-imagepathchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal imagePathChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-orderingfieldchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal orderingFieldChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-orderedrelationmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function OrderedRelationModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-description-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function description [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-imagepath-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function imagePath [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-moveitems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function moveItems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-orderingfield-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function orderingField [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-rolenames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function roleNames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setimagepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setImagePath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setorderingfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOrderingField
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-triggerviewcurrentfeaturechange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function triggerViewCurrentFeatureChange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-orderedrelationmodel">Class OrderedRelationModel</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>OrderedRelationModel</strong></a></p>
+<p>Inherits the following classes: <a href="../classReferencingFeatureListModelBase/">ReferencingFeatureListModelBase</a></p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-roles"><strong>Roles</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types-inherited-from-referencingfeaturelistmodelbase">Public Types inherited from ReferencingFeatureListModelBase</h2>
+<p>See <a href="../classReferencingFeatureListModelBase/">ReferencingFeatureListModelBase</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#enum-referencedfeaturelistroles"><strong>ReferencedFeatureListRoles</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-description-12"><strong>description</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-imagepath-12"><strong>imagePath</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-orderingfield-12"><strong>orderingField</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties-inherited-from-referencingfeaturelistmodelbase">Public Properties inherited from ReferencingFeatureListModelBase</h2>
+<p>See <a href="../classReferencingFeatureListModelBase/">ReferencingFeatureListModelBase</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#property-currentnmrelationid-12"><strong>currentNmRelationId</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#property-currentrelationid-12"><strong>currentRelationId</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsFeature</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#property-feature-12"><strong>feature</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#property-isloading-12"><strong>isLoading</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsRelation</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#property-nmrelation-12"><strong>nmRelation</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#property-parentprimariesavailable-12"><strong>parentPrimariesAvailable</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsRelation</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#property-relation-12"><strong>relation</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-currentfeaturechanged"><strong>currentFeatureChanged</strong></a> (QgsFeature feature) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-descriptionchanged"><strong>descriptionChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-failedreorder"><strong>failedReorder</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-imagepathchanged"><strong>imagePathChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-orderingfieldchanged"><strong>orderingFieldChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals-inherited-from-referencingfeaturelistmodelbase">Public Signals inherited from ReferencingFeatureListModelBase</h2>
+<p>See <a href="../classReferencingFeatureListModelBase/">ReferencingFeatureListModelBase</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#signal-attributeformmodelchanged"><strong>attributeFormModelChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#signal-beforemodelupdated"><strong>beforeModelUpdated</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#signal-featurechanged"><strong>featureChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#signal-isloadingchanged"><strong>isLoadingChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#signal-modelupdated"><strong>modelUpdated</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#signal-nmrelationchanged"><strong>nmRelationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#signal-parentprimariesavailablechanged"><strong>parentPrimariesAvailableChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#signal-relationchanged"><strong>relationChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-orderedrelationmodel"><strong>OrderedRelationModel</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVariant</td>
+<td style="text-align: left;"><a href="#function-data"><strong>data</strong></a> (const QModelIndex &amp; index, int role=Qt::DisplayRole) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-description-22"><strong>description</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-imagepath-22"><strong>imagePath</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-moveitems"><strong>moveItems</strong></a> (const int fromIdx, const int toIdx) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-orderingfield-22"><strong>orderingField</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QHash&lt; int, QByteArray &gt;</td>
+<td style="text-align: left;"><a href="#function-rolenames"><strong>roleNames</strong></a> () override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdescription"><strong>setDescription</strong></a> (const QString &amp; description) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setimagepath"><strong>setImagePath</strong></a> (const QString &amp; imagePath) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setorderingfield"><strong>setOrderingField</strong></a> (const QString &amp; orderingField) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-triggerviewcurrentfeaturechange"><strong>triggerViewCurrentFeatureChange</strong></a> (int index) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions-inherited-from-referencingfeaturelistmodelbase">Public Functions inherited from ReferencingFeatureListModelBase</h2>
+<p>See <a href="../classReferencingFeatureListModelBase/">ReferencingFeatureListModelBase</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-referencingfeaturelistmodelbase"><strong>ReferencingFeatureListModelBase</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-columncount"><strong>columnCount</strong></a> (const QModelIndex &amp; parent=QModelIndex()) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-currentnmrelationid-22"><strong>currentNmRelationId</strong></a> () const<br><em>On many-to-many relations returns the second relation id connecting the children in the association table to their other parent.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-currentrelationid-22"><strong>currentRelationId</strong></a> () const<br><em>Returns the id of the relation connecting the parent feature with the children in this model.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVariant</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-data"><strong>data</strong></a> (const QModelIndex &amp; index, int role=Qt::DisplayRole) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-deletefeature"><strong>deleteFeature</strong></a> (QgsFeatureId referencingFeatureId) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsFeature</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-feature-22"><strong>feature</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE int</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-getfeatureidrow"><strong>getFeatureIdRow</strong></a> (QgsFeatureId featureId) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QModelIndex</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-index"><strong>index</strong></a> (int row, int column, const QModelIndex &amp; parent=QModelIndex()) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-isloading-22"><strong>isLoading</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsRelation</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-nmrelation-22"><strong>nmRelation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QModelIndex</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-parent"><strong>parent</strong></a> (const QModelIndex &amp; index) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-parentprimariesavailable-22"><strong>parentPrimariesAvailable</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsRelation</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-relation-22"><strong>relation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-reload"><strong>reload</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QHash&lt; int, QByteArray &gt;</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-rolenames"><strong>roleNames</strong></a> () override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-rowcount"><strong>rowCount</strong></a> (const QModelIndex &amp; parent=QModelIndex()) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-setcurrentnmrelationid"><strong>setCurrentNmRelationId</strong></a> (const QString &amp; nmRelationId) <br><em>On many-to-many relations sets the second relation connecting the children in the association table to their other parent.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-setcurrentrelationid"><strong>setCurrentRelationId</strong></a> (const QString &amp; relationId) <br><em>Sets the relation connecting the parent feature with the children in this model.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-setfeature"><strong>setFeature</strong></a> (const QgsFeature &amp; feature) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-setnmrelation"><strong>setNmRelation</strong></a> (const QgsRelation &amp; relation) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-setparentprimariesavailable"><strong>setParentPrimariesAvailable</strong></a> (const bool parentPrimariesAvailable) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="../classReferencingFeatureListModelBase/#function-setrelation"><strong>setRelation</strong></a> (const QgsRelation &amp; relation) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-roles">enum Roles</h3>
+<pre><code class="language-C++">enum OrderedRelationModel::Roles {
+    ImagePathRole = Qt::UserRole + 100,
+    DescriptionRole,
+    FeatureIdRole,
+    OrderingValueRole
+};
+</code></pre>
+<hr>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-description-12">property description [1/2]</h3>
+<pre><code class="language-C++">QString OrderedRelationModel::description;
+</code></pre>
+<hr>
+
+<h3 id="property-imagepath-12">property imagePath [1/2]</h3>
+<pre><code class="language-C++">QString OrderedRelationModel::imagePath;
+</code></pre>
+<hr>
+
+<h3 id="property-orderingfield-12">property orderingField [1/2]</h3>
+<pre><code class="language-C++">QString OrderedRelationModel::orderingField;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-currentfeaturechanged">signal currentFeatureChanged</h3>
+<pre><code class="language-C++">void OrderedRelationModel::currentFeatureChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-descriptionchanged">signal descriptionChanged</h3>
+<pre><code class="language-C++">void OrderedRelationModel::descriptionChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-failedreorder">signal failedReorder</h3>
+<pre><code class="language-C++">void OrderedRelationModel::failedReorder;
+</code></pre>
+<hr>
+
+<h3 id="signal-imagepathchanged">signal imagePathChanged</h3>
+<pre><code class="language-C++">void OrderedRelationModel::imagePathChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-orderingfieldchanged">signal orderingFieldChanged</h3>
+<pre><code class="language-C++">void OrderedRelationModel::orderingFieldChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-orderedrelationmodel">function OrderedRelationModel</h3>
+<pre><code class="language-C++">explicit OrderedRelationModel::OrderedRelationModel (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-data">function data</h3>
+<pre><code class="language-C++">QVariant OrderedRelationModel::data (
+    const QModelIndex &amp; index,
+    int role=Qt::DisplayRole
+) override const
+</code></pre>
+<hr>
+
+<h3 id="function-description-22">function description [2/2]</h3>
+<pre><code class="language-C++">QString OrderedRelationModel::description () const
+</code></pre>
+<hr>
+
+<h3 id="function-imagepath-22">function imagePath [2/2]</h3>
+<pre><code class="language-C++">QString OrderedRelationModel::imagePath () const
+</code></pre>
+<hr>
+
+<h3 id="function-moveitems">function moveItems</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool OrderedRelationModel::moveItems (
+    const int fromIdx,
+    const int toIdx
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-orderingfield-22">function orderingField [2/2]</h3>
+<pre><code class="language-C++">QString OrderedRelationModel::orderingField () const
+</code></pre>
+<hr>
+
+<h3 id="function-rolenames">function roleNames</h3>
+<pre><code class="language-C++">QHash&lt; int, QByteArray &gt; OrderedRelationModel::roleNames () override const
+</code></pre>
+<hr>
+
+<h3 id="function-setdescription">function setDescription</h3>
+<pre><code class="language-C++">void OrderedRelationModel::setDescription (
+    const QString &amp; description
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setimagepath">function setImagePath</h3>
+<pre><code class="language-C++">void OrderedRelationModel::setImagePath (
+    const QString &amp; imagePath
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setorderingfield">function setOrderingField</h3>
+<pre><code class="language-C++">void OrderedRelationModel::setOrderingField (
+    const QString &amp; orderingField
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-triggerviewcurrentfeaturechange">function triggerViewCurrentFeatureChange</h3>
+<pre><code class="language-C++">Q_INVOKABLE void OrderedRelationModel::triggerViewCurrentFeatureChange (
+    int index
+) 
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/orderedrelationmodel.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

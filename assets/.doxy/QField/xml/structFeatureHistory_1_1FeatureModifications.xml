@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structFeatureHistory_1_1FeatureModifications" kind="struct" language="C++" prot="public">
+    <compoundname>FeatureHistory::FeatureModifications</compoundname>
+    <includes refid="featurehistory_8h" local="no">featurehistory.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structFeatureHistory_1_1FeatureModifications_1a12e65a58a908d6ae03c765563fbe0201" prot="public" static="no" mutable="no">
+        <type>QList&lt; OldNewFeaturePair &gt;</type>
+        <definition>QList&lt;OldNewFeaturePair&gt; FeatureHistory::FeatureModifications::createdFeatures</definition>
+        <argsstring></argsstring>
+        <name>createdFeatures</name>
+        <qualifiedname>FeatureHistory::FeatureModifications::createdFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="48" column="15" bodyfile="src/core/featurehistory.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFeatureHistory_1_1FeatureModifications_1af719b5e04c9837c3702abae70b5055c2" prot="public" static="no" mutable="no">
+        <type>QList&lt; OldNewFeaturePair &gt;</type>
+        <definition>QList&lt;OldNewFeaturePair&gt; FeatureHistory::FeatureModifications::updatedFeatures</definition>
+        <argsstring></argsstring>
+        <name>updatedFeatures</name>
+        <qualifiedname>FeatureHistory::FeatureModifications::updatedFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="49" column="15" bodyfile="src/core/featurehistory.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFeatureHistory_1_1FeatureModifications_1a1f1054e16c707f7f923e958960f43a63" prot="public" static="no" mutable="no">
+        <type>QList&lt; OldNewFeaturePair &gt;</type>
+        <definition>QList&lt;OldNewFeaturePair&gt; FeatureHistory::FeatureModifications::deletedFeatures</definition>
+        <argsstring></argsstring>
+        <name>deletedFeatures</name>
+        <qualifiedname>FeatureHistory::FeatureModifications::deletedFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="50" column="15" bodyfile="src/core/featurehistory.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structFeatureHistory_1_1FeatureModifications_1a565e90bace2723267c2d6db1a81fb618" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FeatureHistory::FeatureModifications::FeatureModifications</definition>
+        <argsstring>()</argsstring>
+        <name>FeatureModifications</name>
+        <qualifiedname>FeatureHistory::FeatureModifications::FeatureModifications</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurehistory.h" line="45" column="9" bodyfile="src/core/featurehistory.h" bodystart="45" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Stores the created, updated and deleted features on each undo/redo step. </para>
+    </detaileddescription>
+    <location file="src/core/featurehistory.h" line="43" column="5" bodyfile="src/core/featurehistory.h" bodystart="44" bodyend="51"/>
+    <listofallmembers>
+      <member refid="structFeatureHistory_1_1FeatureModifications_1a12e65a58a908d6ae03c765563fbe0201" prot="public" virt="non-virtual"><scope>FeatureHistory::FeatureModifications</scope><name>createdFeatures</name></member>
+      <member refid="structFeatureHistory_1_1FeatureModifications_1a1f1054e16c707f7f923e958960f43a63" prot="public" virt="non-virtual"><scope>FeatureHistory::FeatureModifications</scope><name>deletedFeatures</name></member>
+      <member refid="structFeatureHistory_1_1FeatureModifications_1a565e90bace2723267c2d6db1a81fb618" prot="public" virt="non-virtual"><scope>FeatureHistory::FeatureModifications</scope><name>FeatureModifications</name></member>
+      <member refid="structFeatureHistory_1_1FeatureModifications_1af719b5e04c9837c3702abae70b5055c2" prot="public" virt="non-virtual"><scope>FeatureHistory::FeatureModifications</scope><name>updatedFeatures</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

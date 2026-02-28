@@ -1,0 +1,2343 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureModel" kind="class" language="C++" prot="public">
+    <compoundname>FeatureModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <innerclass refid="structFeatureModel_1_1RememberValues" prot="public">FeatureModel::RememberValues</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classFeatureModel_1a21fadd6586043b19ca177309a389ef43" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ModelModes</name>
+        <qualifiedname>FeatureModel::ModelModes</qualifiedname>
+        <enumvalue id="classFeatureModel_1a21fadd6586043b19ca177309a389ef43aa63258dca7b9ba6ba5824c776587b732" prot="public">
+          <name>SingleFeatureModel</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureModel_1a21fadd6586043b19ca177309a389ef43a1569ed8537bf9f98f8d89740bd0f647d" prot="public">
+          <name>MultiFeatureModel</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="62" column="5" bodyfile="src/core/featuremodel.h" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="enum" id="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634" prot="public" static="no" strong="no">
+        <type></type>
+        <name>FeatureRoles</name>
+        <qualifiedname>FeatureModel::FeatureRoles</qualifiedname>
+        <enumvalue id="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634a37349921be88be8522c8d458e8560e29" prot="public">
+          <name>AttributeName</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634aaf23761aad4511b24ac3144644b7a6a7" prot="public">
+          <name>AttributeValue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634a2335d3ca2d3cacdf100eefa15b2f7fec" prot="public">
+          <name>Field</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634a26798a974c030ebc211a467b05ef0d12" prot="public">
+          <name>RememberAttribute</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634a6648009a092bd30a7b4de54ccc35815b" prot="public">
+          <name>LinkedAttribute</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634a8ff60f8473ae9a769190780acaac1cdd" prot="public">
+          <name>AttributeAllowEdit</name>
+          <briefdescription>
+<para>value of this attribute is given by the parent feature and does not to be available for editing in the form </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="69" column="5" bodyfile="src/core/featuremodel.h" bodystart="70" bodyend="77"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classFeatureModel_1aefbc7d3c467028bbf6830b2a7871cc6d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>FeatureModel::ModelModes</type>
+        <definition>FeatureModel::ModelModes FeatureModel::modelMode</definition>
+        <argsstring></argsstring>
+        <name>modelMode</name>
+        <qualifiedname>FeatureModel::modelMode</qualifiedname>
+        <read>modelMode</read>
+        <write>setModelMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="36" column="5" bodyfile="src/core/featuremodel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1ae75472529020158c3534c7000047861a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureModel::feature</definition>
+        <argsstring></argsstring>
+        <name>feature</name>
+        <qualifiedname>FeatureModel::feature</qualifiedname>
+        <read>feature</read>
+        <write>setFeature</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="37" column="5" bodyfile="src/core/featuremodel.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1a52cebcae791df7294e29a8f430b99b73" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; QgsFeature &gt;</type>
+        <definition>QList&lt;QgsFeature&gt; FeatureModel::features</definition>
+        <argsstring></argsstring>
+        <name>features</name>
+        <qualifiedname>FeatureModel::features</qualifiedname>
+        <read>features</read>
+        <write>setFeatures</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="38" column="5" bodyfile="src/core/featuremodel.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1a2821cf0c5196f4be84b8861f2db4ca7e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureModel::linkedParentFeature</definition>
+        <argsstring></argsstring>
+        <name>linkedParentFeature</name>
+        <qualifiedname>FeatureModel::linkedParentFeature</qualifiedname>
+        <read>linkedParentFeature</read>
+        <write>setLinkedParentFeature</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="39" column="5" bodyfile="src/core/featuremodel.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1aee6f58f21d02bcbe5438978fd4e0f5e4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsRelation</type>
+        <definition>QgsRelation FeatureModel::linkedRelation</definition>
+        <argsstring></argsstring>
+        <name>linkedRelation</name>
+        <qualifiedname>FeatureModel::linkedRelation</qualifiedname>
+        <read>linkedRelation</read>
+        <write>setLinkedRelation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="40" column="5" bodyfile="src/core/featuremodel.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1a1457fd8c1b6f45ca4b6107d5cded0774" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString FeatureModel::linkedRelationOrderingField</definition>
+        <argsstring></argsstring>
+        <name>linkedRelationOrderingField</name>
+        <qualifiedname>FeatureModel::linkedRelationOrderingField</qualifiedname>
+        <read>linkedRelationOrderingField</read>
+        <write>setLinkedRelationOrderingField</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="41" column="5" bodyfile="src/core/featuremodel.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1a10605fa3004c4a748f433b9e59131166" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classVertexModel" kindref="compound">VertexModel</ref> *</type>
+        <definition>VertexModel * FeatureModel::vertexModel</definition>
+        <argsstring></argsstring>
+        <name>vertexModel</name>
+        <qualifiedname>FeatureModel::vertexModel</qualifiedname>
+        <read>vertexModel</read>
+        <write>setVertexModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="42" column="5" bodyfile="src/core/featuremodel.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1aef79012a9c2194f714ecfffbf0ddf985" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classGeometry" kindref="compound">Geometry</ref> *</type>
+        <definition>Geometry * FeatureModel::geometry</definition>
+        <argsstring></argsstring>
+        <name>geometry</name>
+        <qualifiedname>FeatureModel::geometry</qualifiedname>
+        <read>geometry</read>
+        <write>setGeometry</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="43" column="5" bodyfile="src/core/featuremodel.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1a50656dbb4ebeacf7dba6cd397e2d45cd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::featureAdditionLocked</definition>
+        <argsstring></argsstring>
+        <name>featureAdditionLocked</name>
+        <qualifiedname>FeatureModel::featureAdditionLocked</qualifiedname>
+        <read>featureAdditionLocked</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="44" column="5" bodyfile="src/core/featuremodel.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1a661990109cf3c988fcfb58adb2951d8a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::attributeEditingLocked</definition>
+        <argsstring></argsstring>
+        <name>attributeEditingLocked</name>
+        <qualifiedname>FeatureModel::attributeEditingLocked</qualifiedname>
+        <read>attributeEditingLocked</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="45" column="5" bodyfile="src/core/featuremodel.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1aa07f8a3a049bfdc660c784fc96bee2d0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::geometryEditingLocked</definition>
+        <argsstring></argsstring>
+        <name>geometryEditingLocked</name>
+        <qualifiedname>FeatureModel::geometryEditingLocked</qualifiedname>
+        <read>geometryEditingLocked</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="46" column="5" bodyfile="src/core/featuremodel.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1aa1291d0d9be417c7f2d6b54525744784" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::featureDeletionLocked</definition>
+        <argsstring></argsstring>
+        <name>featureDeletionLocked</name>
+        <qualifiedname>FeatureModel::featureDeletionLocked</qualifiedname>
+        <read>featureDeletionLocked</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="47" column="5" bodyfile="src/core/featuremodel.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1a21f6ed9cd0ddc6a4beb946cd70d24470" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * FeatureModel::currentLayer</definition>
+        <argsstring></argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>FeatureModel::currentLayer</qualifiedname>
+        <read>layer</read>
+        <write>setCurrentLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="48" column="5" bodyfile="src/core/featuremodel.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1a3a842f8cc884b33bbd4bd953c2dfcff8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> *</type>
+        <definition>AppExpressionContextScopesGenerator * FeatureModel::appExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>FeatureModel::appExpressionContextScopesGenerator</qualifiedname>
+        <read>appExpressionContextScopesGenerator</read>
+        <write>setAppExpressionContextScopesGenerator</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="49" column="5" bodyfile="src/core/featuremodel.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1a63618bf836a299bb51d0e321b41bbc29" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classSnappingResult" kindref="compound">SnappingResult</ref></type>
+        <definition>SnappingResult FeatureModel::topSnappingResult</definition>
+        <argsstring></argsstring>
+        <name>topSnappingResult</name>
+        <qualifiedname>FeatureModel::topSnappingResult</qualifiedname>
+        <read>topSnappingResult</read>
+        <write>setTopSnappingResult</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="50" column="5" bodyfile="src/core/featuremodel.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1a8520d8802a49365d1dc64469d04bf093" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * FeatureModel::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>FeatureModel::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="51" column="5" bodyfile="src/core/featuremodel.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureModel_1a807fde6bfe02c271e1bf1845fdcc8bec" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::batchMode</definition>
+        <argsstring></argsstring>
+        <name>batchMode</name>
+        <qualifiedname>FeatureModel::batchMode</qualifiedname>
+        <read>batchMode</read>
+        <write>setBatchMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="52" column="5" bodyfile="src/core/featuremodel.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFeatureModel_1abf44429206c46bf792d53a99bb05d42d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::mFeatureAdditionLocked</definition>
+        <argsstring></argsstring>
+        <name>mFeatureAdditionLocked</name>
+        <qualifiedname>FeatureModel::mFeatureAdditionLocked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="344" column="10" bodyfile="src/core/featuremodel.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a4c62cffe7f48502e25a1fab1ac6770e2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::mAttributeEditingLocked</definition>
+        <argsstring></argsstring>
+        <name>mAttributeEditingLocked</name>
+        <qualifiedname>FeatureModel::mAttributeEditingLocked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="345" column="10" bodyfile="src/core/featuremodel.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a766e25319addbff7f549395459a3cb9b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::mGeometryEditingLocked</definition>
+        <argsstring></argsstring>
+        <name>mGeometryEditingLocked</name>
+        <qualifiedname>FeatureModel::mGeometryEditingLocked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="346" column="10" bodyfile="src/core/featuremodel.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a27d98a125eb7a62978e6ecaa1e5a9774" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::mFeatureDeletionLocked</definition>
+        <argsstring></argsstring>
+        <name>mFeatureDeletionLocked</name>
+        <qualifiedname>FeatureModel::mFeatureDeletionLocked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="347" column="10" bodyfile="src/core/featuremodel.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1aca2becf66413accc9593dc4865ee6203" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::mFeatureAdditionLockedByDefault</definition>
+        <argsstring></argsstring>
+        <name>mFeatureAdditionLockedByDefault</name>
+        <qualifiedname>FeatureModel::mFeatureAdditionLockedByDefault</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="349" column="10" bodyfile="src/core/featuremodel.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1ac474aff4b9f068ade7ebbc96fa450a04" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureModel::mFeatureAdditionLockedExpression</definition>
+        <argsstring></argsstring>
+        <name>mFeatureAdditionLockedExpression</name>
+        <qualifiedname>FeatureModel::mFeatureAdditionLockedExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="350" column="13" bodyfile="src/core/featuremodel.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a5773f84a067f905c737ef2151618b1fd" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::mAttributeEditingLockedByDefault</definition>
+        <argsstring></argsstring>
+        <name>mAttributeEditingLockedByDefault</name>
+        <qualifiedname>FeatureModel::mAttributeEditingLockedByDefault</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="351" column="10" bodyfile="src/core/featuremodel.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a264c3513200b5e24a2bd03a86597ab41" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureModel::mAttributeEditingLockedExpression</definition>
+        <argsstring></argsstring>
+        <name>mAttributeEditingLockedExpression</name>
+        <qualifiedname>FeatureModel::mAttributeEditingLockedExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="352" column="13" bodyfile="src/core/featuremodel.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a3acffe6a2ca7fa0ddfedecfc34bd4afc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::mGeometryEditingLockedByDefault</definition>
+        <argsstring></argsstring>
+        <name>mGeometryEditingLockedByDefault</name>
+        <qualifiedname>FeatureModel::mGeometryEditingLockedByDefault</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="353" column="10" bodyfile="src/core/featuremodel.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a4bce9e6d8ff338a7b2ea6ad0d9aa2efb" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureModel::mGeometryEditingLockedExpression</definition>
+        <argsstring></argsstring>
+        <name>mGeometryEditingLockedExpression</name>
+        <qualifiedname>FeatureModel::mGeometryEditingLockedExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="354" column="13" bodyfile="src/core/featuremodel.h" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a19fd27ee3bcc669386ba2382b3160e0f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::mFeatureDeletionLockedByDefault</definition>
+        <argsstring></argsstring>
+        <name>mFeatureDeletionLockedByDefault</name>
+        <qualifiedname>FeatureModel::mFeatureDeletionLockedByDefault</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="355" column="10" bodyfile="src/core/featuremodel.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a0a09c8e555964b8406a490522089cde0" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureModel::mFeatureDeletionLockedExpression</definition>
+        <argsstring></argsstring>
+        <name>mFeatureDeletionLockedExpression</name>
+        <qualifiedname>FeatureModel::mFeatureDeletionLockedExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="356" column="13" bodyfile="src/core/featuremodel.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1ab3bd5103b000700ffd02ecac557f8a2a" prot="private" static="no" mutable="no">
+        <type>ModelModes</type>
+        <definition>ModelModes FeatureModel::mModelMode</definition>
+        <argsstring></argsstring>
+        <name>mModelMode</name>
+        <qualifiedname>FeatureModel::mModelMode</qualifiedname>
+        <initializer>= SingleFeatureModel</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="358" column="16" bodyfile="src/core/featuremodel.h" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a84054a2b4ea908eeac1affae9803e7ed" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; FeatureModel::mLayer</definition>
+        <argsstring></argsstring>
+        <name>mLayer</name>
+        <qualifiedname>FeatureModel::mLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="359" column="14" bodyfile="src/core/featuremodel.h" bodystart="359" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a409ef629a913820ee353d4b62241aceb" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureModel::mFeature</definition>
+        <argsstring></argsstring>
+        <name>mFeature</name>
+        <qualifiedname>FeatureModel::mFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="360" column="16" bodyfile="src/core/featuremodel.h" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a7028cc7b68366100ec09476df79a6fe1" prot="private" static="no" mutable="no">
+        <type>QList&lt; QgsFeature &gt;</type>
+        <definition>QList&lt;QgsFeature&gt; FeatureModel::mFeatures</definition>
+        <argsstring></argsstring>
+        <name>mFeatures</name>
+        <qualifiedname>FeatureModel::mFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="361" column="11" bodyfile="src/core/featuremodel.h" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a465d944ee745275b14032a22881a28cd" prot="private" static="no" mutable="no">
+        <type>QList&lt; bool &gt;</type>
+        <definition>QList&lt;bool&gt; FeatureModel::mAttributesAllowEdit</definition>
+        <argsstring></argsstring>
+        <name>mAttributesAllowEdit</name>
+        <qualifiedname>FeatureModel::mAttributesAllowEdit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="362" column="11" bodyfile="src/core/featuremodel.h" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1aae206b262940afb2eda60ceebf64f378" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureModel::mLinkedParentFeature</definition>
+        <argsstring></argsstring>
+        <name>mLinkedParentFeature</name>
+        <qualifiedname>FeatureModel::mLinkedParentFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="363" column="16" bodyfile="src/core/featuremodel.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1ac12cfe604530374606bed47f23226922" prot="private" static="no" mutable="no">
+        <type>QgsRelation</type>
+        <definition>QgsRelation FeatureModel::mLinkedRelation</definition>
+        <argsstring></argsstring>
+        <name>mLinkedRelation</name>
+        <qualifiedname>FeatureModel::mLinkedRelation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="364" column="17" bodyfile="src/core/featuremodel.h" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1af05a8850594d668871d44423c33f45ef" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureModel::mLinkedRelationOrderingField</definition>
+        <argsstring></argsstring>
+        <name>mLinkedRelationOrderingField</name>
+        <qualifiedname>FeatureModel::mLinkedRelationOrderingField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="365" column="13" bodyfile="src/core/featuremodel.h" bodystart="365" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a02da4b5634081abe053c8caa38614960" prot="private" static="no" mutable="no">
+        <type>QList&lt; int &gt;</type>
+        <definition>QList&lt;int&gt; FeatureModel::mLinkedAttributeIndexes</definition>
+        <argsstring></argsstring>
+        <name>mLinkedAttributeIndexes</name>
+        <qualifiedname>FeatureModel::mLinkedAttributeIndexes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="366" column="11" bodyfile="src/core/featuremodel.h" bodystart="366" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a40a29131516239212f14afcba7eedbf7" prot="private" static="no" mutable="no">
+        <type><ref refid="classVertexModel" kindref="compound">VertexModel</ref> *</type>
+        <definition>VertexModel* FeatureModel::mVertexModel</definition>
+        <argsstring></argsstring>
+        <name>mVertexModel</name>
+        <qualifiedname>FeatureModel::mVertexModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="367" column="17" bodyfile="src/core/featuremodel.h" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a708e20aaeabb68deec5fcac2e25ac628" prot="private" static="no" mutable="no">
+        <type><ref refid="classGeometry" kindref="compound">Geometry</ref> *</type>
+        <definition>Geometry* FeatureModel::mGeometry</definition>
+        <argsstring></argsstring>
+        <name>mGeometry</name>
+        <qualifiedname>FeatureModel::mGeometry</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="368" column="14" bodyfile="src/core/featuremodel.h" bodystart="368" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1ad1879d41be66d7ce90abec1e5cc54854" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> &gt;</type>
+        <definition>QPointer&lt;AppExpressionContextScopesGenerator&gt; FeatureModel::mAppExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>mAppExpressionContextScopesGenerator</name>
+        <qualifiedname>FeatureModel::mAppExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="369" column="14" bodyfile="src/core/featuremodel.h" bodystart="369" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a3e5f9054849463cecc94f2b0faaf78aa" prot="private" static="no" mutable="no">
+        <type><ref refid="classSnappingResult" kindref="compound">SnappingResult</ref></type>
+        <definition>SnappingResult FeatureModel::mTopSnappingResult</definition>
+        <argsstring></argsstring>
+        <name>mTopSnappingResult</name>
+        <qualifiedname>FeatureModel::mTopSnappingResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="370" column="20" bodyfile="src/core/featuremodel.h" bodystart="370" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a3b7faa5b15127717bb6542fa0d3198ee" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* FeatureModel::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>FeatureModel::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="371" column="16" bodyfile="src/core/featuremodel.h" bodystart="371" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1af5e4f184c43b573d6934dfab10140b0d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureModel::mTempName</definition>
+        <argsstring></argsstring>
+        <name>mTempName</name>
+        <qualifiedname>FeatureModel::mTempName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="372" column="13" bodyfile="src/core/featuremodel.h" bodystart="372" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a2c48deb5cc79daf9efd6aada81be8b7b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::mBatchMode</definition>
+        <argsstring></argsstring>
+        <name>mBatchMode</name>
+        <qualifiedname>FeatureModel::mBatchMode</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="374" column="10" bodyfile="src/core/featuremodel.h" bodystart="374" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureModel_1a2a20e30ced97240c73aae1cef92d4d15" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureModel::mBatchModeWasEditing</definition>
+        <argsstring></argsstring>
+        <name>mBatchModeWasEditing</name>
+        <qualifiedname>FeatureModel::mBatchModeWasEditing</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="375" column="10" bodyfile="src/core/featuremodel.h" bodystart="375" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFeatureModel_1ad8bff39eb776763e1210dbe8bf5d88f8" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FeatureModel::FeatureModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>FeatureModel</name>
+        <qualifiedname>FeatureModel::FeatureModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="80" column="14" bodyfile="src/core/featuremodel.cpp" bodystart="41" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a551fa6b20123dde614286aee33ef9f66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setModelMode</definition>
+        <argsstring>(const ModelModes mode)</argsstring>
+        <name>setModelMode</name>
+        <qualifiedname>FeatureModel::setModelMode</qualifiedname>
+        <param>
+          <type>const ModelModes</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="82" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="47" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a246c7528641f92c3e2c179578425e7ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ModelModes</type>
+        <definition>FeatureModel::ModelModes FeatureModel::modelMode</definition>
+        <argsstring>() const</argsstring>
+        <name>modelMode</name>
+        <qualifiedname>FeatureModel::modelMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="83" column="16" bodyfile="src/core/featuremodel.cpp" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a1c2af79b18e05a1bb706a417a47adafa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>setFeature</name>
+        <qualifiedname>FeatureModel::setFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="85" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="63" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1af2d066e1a3381e96d6f02e72dc35c35c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureModel::feature</definition>
+        <argsstring>() const</argsstring>
+        <name>feature</name>
+        <qualifiedname>FeatureModel::feature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the feature wrapped in a QVariant for passing it around in QML </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="90" column="16" bodyfile="src/core/featuremodel.cpp" bodystart="278" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1aecdf2a5d9a543ea28a0bd6f85fee944f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setFeatures</definition>
+        <argsstring>(const QList&lt; QgsFeature &gt; &amp;features)</argsstring>
+        <name>setFeatures</name>
+        <qualifiedname>FeatureModel::setFeatures</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsFeature &gt; &amp;</type>
+          <declname>features</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="92" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="78" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a4915e9b06421a18f359b0cb275e9f3c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; QgsFeature &gt;</type>
+        <definition>QList&lt; QgsFeature &gt; FeatureModel::features</definition>
+        <argsstring>() const</argsstring>
+        <name>features</name>
+        <qualifiedname>FeatureModel::features</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the features list for passing it around in QML </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="97" column="11" bodyfile="src/core/featuremodel.cpp" bodystart="283" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1aced5904978b6a5b7424e068cdc86f9b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setLinkedParentFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>setLinkedParentFeature</name>
+        <qualifiedname>FeatureModel::setLinkedParentFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A linked feature is a parent feature of a relation passing it&apos;s pk(s) to the created child features fk(s) The fk fields are evaluated over the linked relation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>linkedParentFeature </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="105" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="326" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a61092e17ad8a06265a46e71085a8ee7c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureModel::linkedParentFeature</definition>
+        <argsstring>() const</argsstring>
+        <name>linkedParentFeature</name>
+        <qualifiedname>FeatureModel::linkedParentFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A linked feature is a parent feature of a relation passing it&apos;s pk(s) to the created child features fk(s) <simplesect kind="return"><para>the parent feature linked to this feature </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classFeatureModel_1aced5904978b6a5b7424e068cdc86f9b0" kindref="member">setLinkedParentFeature</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="112" column="16" bodyfile="src/core/featuremodel.cpp" bodystart="338" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1ac04d7def39f5d72ec0ede1bbb4de941c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setLinkedRelation</definition>
+        <argsstring>(const QgsRelation &amp;relation)</argsstring>
+        <name>setLinkedRelation</name>
+        <qualifiedname>FeatureModel::setLinkedRelation</qualifiedname>
+        <param>
+          <type>const QgsRelation &amp;</type>
+          <declname>relation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The relation connecting this feature to the parent, over which this feature has been loaded (e.g. over relation editor widget) The relation is userd to evaluate the parents pk(s) and the childs fk(s) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>relation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>linkedRelation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="120" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="343" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a08021ad4a48e543d4fe68bc5b7d34bb5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRelation</type>
+        <definition>QgsRelation FeatureModel::linkedRelation</definition>
+        <argsstring>() const</argsstring>
+        <name>linkedRelation</name>
+        <qualifiedname>FeatureModel::linkedRelation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The relation connecting this feature to the parent, over which this feature has been loaded (e.g. over relation editor widget) <simplesect kind="return"><para>the relation connecting the parent </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classFeatureModel_1ac04d7def39f5d72ec0ede1bbb4de941c" kindref="member">setLinkedRelation</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="127" column="17" bodyfile="src/core/featuremodel.cpp" bodystart="351" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1abad96a037a8761516342bfeeba6aaafa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FeatureModel::linkedRelationOrderingField</definition>
+        <argsstring>() const</argsstring>
+        <name>linkedRelationOrderingField</name>
+        <qualifiedname>FeatureModel::linkedRelationOrderingField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the field name used for ordering in ordered relations. Empty string if not available. <simplesect kind="see"><para><ref refid="classFeatureModel_1a592938b85d6cf156157ce3ea16f3c658" kindref="member">setLinkedRelationOrderingField</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="133" column="13" bodyfile="src/core/featuremodel.cpp" bodystart="356" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a592938b85d6cf156157ce3ea16f3c658" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setLinkedRelationOrderingField</definition>
+        <argsstring>(const QString &amp;orderingField)</argsstring>
+        <name>setLinkedRelationOrderingField</name>
+        <qualifiedname>FeatureModel::setLinkedRelationOrderingField</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>orderingField</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the field name used for ordering in ordered relations. Empty string if not available. <simplesect kind="see"><para>linkedRelationOrderingField </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="139" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="361" bodyend="369"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1ada61bddc1f9178fa2f9d9649372aa930" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setCurrentLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>setCurrentLayer</name>
+        <qualifiedname>FeatureModel::setCurrentLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="141" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="121" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a901d3bb55bf7d4efd58bf9a483b90e48" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * FeatureModel::layer</definition>
+        <argsstring>() const</argsstring>
+        <name>layer</name>
+        <qualifiedname>FeatureModel::layer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="142" column="20" bodyfile="src/core/featuremodel.cpp" bodystart="231" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1ac6c2d940161ea8db4950b1a19736d513" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classGeometry" kindref="compound">Geometry</ref> *</type>
+        <definition>Geometry * FeatureModel::geometry</definition>
+        <argsstring>()</argsstring>
+        <name>geometry</name>
+        <qualifiedname>FeatureModel::geometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the geometry object that will drive the feature geometry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="147" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a508f401833a7c5619b8b2943048840ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setGeometry</definition>
+        <argsstring>(Geometry *geometry)</argsstring>
+        <name>setGeometry</name>
+        <qualifiedname>FeatureModel::setGeometry</qualifiedname>
+        <param>
+          <type><ref refid="classGeometry" kindref="compound">Geometry</ref> *</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the geometry object that will drive the feature geometry. <simplesect kind="note"><para>This is not the QgsGeometry of the feature. To change that, use the changeGeometry function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="154" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="255" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a0b989da3137cc3272157e2f43ed0bb92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classVertexModel" kindref="compound">VertexModel</ref> *</type>
+        <definition>VertexModel * FeatureModel::vertexModel</definition>
+        <argsstring>()</argsstring>
+        <name>vertexModel</name>
+        <qualifiedname>FeatureModel::vertexModel</qualifiedname>
+        <briefdescription>
+<para>Returns the vertex model is used to highlight vertices on the map. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="157" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1abc048b0e6a8310329f5afc86535703f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setVertexModel</definition>
+        <argsstring>(VertexModel *model)</argsstring>
+        <name>setVertexModel</name>
+        <qualifiedname>FeatureModel::setVertexModel</qualifiedname>
+        <param>
+          <type><ref refid="classVertexModel" kindref="compound">VertexModel</ref> *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Sets the vertex <emphasis>model</emphasis> is used to highlight vertices on the map. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="159" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="269" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a9ebb9eda76dfb417a41f9a7fede5cc3d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureModel::featureAdditionLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>featureAdditionLocked</name>
+        <qualifiedname>FeatureModel::featureAdditionLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="161" column="10" bodyfile="src/core/featuremodel.h" bodystart="161" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a3b88af58d374d8c66f8dd62ef316f6be" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureModel::attributeEditingLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>attributeEditingLocked</name>
+        <qualifiedname>FeatureModel::attributeEditingLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="162" column="10" bodyfile="src/core/featuremodel.h" bodystart="162" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a7bc29c9d89acdcde67f760008cf260be" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureModel::geometryEditingLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>geometryEditingLocked</name>
+        <qualifiedname>FeatureModel::geometryEditingLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="163" column="10" bodyfile="src/core/featuremodel.h" bodystart="163" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1ae2499dde0d40434cac1270c74a54e7ca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureModel::featureDeletionLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>featureDeletionLocked</name>
+        <qualifiedname>FeatureModel::featureDeletionLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="164" column="10" bodyfile="src/core/featuremodel.h" bodystart="164" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a4d60e973d318e92aeb18a8736a382c1b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; FeatureModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>FeatureModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="166" column="11" bodyfile="src/core/featuremodel.cpp" bodystart="371" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a1174ef4d8cbef52df08331cb4c243615" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FeatureModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>FeatureModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="167" column="9" bodyfile="src/core/featuremodel.cpp" bodystart="385" bodyend="391"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1ad2543f705671fc6a4eeb42fad7523b92" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant FeatureModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>FeatureModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="168" column="14" bodyfile="src/core/featuremodel.cpp" bodystart="393" bodyend="424"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a0aa3bbdf4f70e851f061a17c244f861e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>FeatureModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::EditRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="169" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="426" bodyend="501"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a8717e1388d2af8442a81d01f69af38f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FeatureModel::changeGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>changeGeometry</name>
+        <qualifiedname>FeatureModel::changeGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <emphasis>geometry</emphasis> of the feature. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="174" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="625" bodyend="642"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a739fb0acd04fc9bcc3bd0c379eb7f7c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FeatureModel::save</definition>
+        <argsstring>(bool flushBuffer=true)</argsstring>
+        <name>save</name>
+        <qualifiedname>FeatureModel::save</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>flushBuffer</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Will commit the edit buffer of this layer. May change in the future to only commit the changes buffered in this model.</para>
+<para>By setting <emphasis>flushBuffer</emphasis> to FALSE, the edits made to the feature will remain in the edit buffer provided the vector layer was already in editing mode.</para>
+<para><simplesect kind="return"><para>TRUE if a feature was successfully saved </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="185" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="644" bodyend="766"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1aa6511d9863ec1aed87d66171fb56fa55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FeatureModel::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>FeatureModel::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Will reset the feature to the original values and dismiss any buffered edits. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="190" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="768" bodyend="774"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a7b05c69a53ba8651330e68f11854aafa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FeatureModel::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <qualifiedname>FeatureModel::refresh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Will refresh the feature values and geometry from the data source. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="195" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="776" bodyend="786"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a3dd4535c3147f346a3ea571fcd93ee87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FeatureModel::create</definition>
+        <argsstring>(bool flushBuffer=true)</argsstring>
+        <name>create</name>
+        <qualifiedname>FeatureModel::create</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>flushBuffer</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Will create this feature as a new feature on the data source.</para>
+<para>By setting <emphasis>flushBuffer</emphasis> to FALSE, the created feature will remain in the edit buffer provided the vector layer was already in editing mode. The flushBuffer parameter will be ignored for layers containing relationships.</para>
+<para><simplesect kind="return"><para>TRUE if a feature was successfully created </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="207" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="1138" bodyend="1268"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a6a8854f23a0b9c4ec972a839f1097f7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FeatureModel::deleteFeature</definition>
+        <argsstring>()</argsstring>
+        <name>deleteFeature</name>
+        <qualifiedname>FeatureModel::deleteFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes the current feature from the data source. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="212" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="1270" bodyend="1273"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1adf7679be3d3b76f426ad387e0961b40b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FeatureModel::suppressFeatureForm</definition>
+        <argsstring>() const</argsstring>
+        <name>suppressFeatureForm</name>
+        <qualifiedname>FeatureModel::suppressFeatureForm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the feature form should be suppressed when adding new features. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="217" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="788" bodyend="794"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a8951cf0380a2311d429ecccd273401a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FeatureModel::resetAttributes</definition>
+        <argsstring>(bool partialReset=false)</argsstring>
+        <name>resetAttributes</name>
+        <qualifiedname>FeatureModel::resetAttributes</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>partialReset</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the attribute values of the current feature <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>partialReset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>when set to TRUE, only attributes with default or remembered values will be reset </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="223" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="826" bodyend="875"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a42d92dcf774ca614c1593ac605951012" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FeatureModel::resetFeature</definition>
+        <argsstring>()</argsstring>
+        <name>resetFeature</name>
+        <qualifiedname>FeatureModel::resetFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="225" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="796" bodyend="809"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1ac5db08e5e6cc073ef15f1efd5f52fa65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FeatureModel::resetFeatureId</definition>
+        <argsstring>()</argsstring>
+        <name>resetFeatureId</name>
+        <qualifiedname>FeatureModel::resetFeatureId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="227" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="811" bodyend="824"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1ae7f2f34b93450b1af42cfa832f1407af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FeatureModel::updateAttributesFromFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>updateAttributesFromFeature</name>
+        <qualifiedname>FeatureModel::updateAttributesFromFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update attributes to match that of a given feature <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>feature from which attributes will be taken </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TRUE if one or more attribute was updated </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="234" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="877" bodyend="938"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a9b1b54b538b1f39a7a7485f0fee2c11f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; bool &gt;</type>
+        <definition>QVector&lt; bool &gt; FeatureModel::rememberedAttributes</definition>
+        <argsstring>() const</argsstring>
+        <name>rememberedAttributes</name>
+        <qualifiedname>FeatureModel::rememberedAttributes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="236" column="13" bodyfile="src/core/featuremodel.cpp" bodystart="1479" bodyend="1482"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a92628a23a2c1acac27e9c049c9eadafb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> *</type>
+        <definition>AppExpressionContextScopesGenerator * FeatureModel::appExpressionContextScopesGenerator</definition>
+        <argsstring>() const</argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>FeatureModel::appExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the application expression context scopes generator object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="241" column="41" bodyfile="src/core/featuremodel.cpp" bodystart="236" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a348118e97fc4137b8048dacd10c4f845" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setAppExpressionContextScopesGenerator</definition>
+        <argsstring>(AppExpressionContextScopesGenerator *generator)</argsstring>
+        <name>setAppExpressionContextScopesGenerator</name>
+        <qualifiedname>FeatureModel::setAppExpressionContextScopesGenerator</qualifiedname>
+        <param>
+          <type><ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> *</type>
+          <declname>generator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the application expression context scopes <emphasis>generator</emphasis> object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="246" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="241" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a484d08fb88d81050e566ad4b48538847" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classSnappingResult" kindref="compound">SnappingResult</ref></type>
+        <definition>SnappingResult FeatureModel::topSnappingResult</definition>
+        <argsstring>() const</argsstring>
+        <name>topSnappingResult</name>
+        <qualifiedname>FeatureModel::topSnappingResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the top snapping result of the coordinate locator </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="251" column="20" bodyfile="src/core/featuremodel.cpp" bodystart="1311" bodyend="1314"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a107f4ffc26d25a2c8f30496dcd7a5bf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setTopSnappingResult</definition>
+        <argsstring>(const SnappingResult &amp;topSnappingResult)</argsstring>
+        <name>setTopSnappingResult</name>
+        <qualifiedname>FeatureModel::setTopSnappingResult</qualifiedname>
+        <param>
+          <type>const <ref refid="classSnappingResult" kindref="compound">SnappingResult</ref> &amp;</type>
+          <declname>topSnappingResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the top snapping result of the coordinate locator <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>topSnappingResult</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the top snapping result object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="257" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="1316" bodyend="1319"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a575827ad4fd72fe9cbce333a7afc3bf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FeatureModel::applyGeometry</definition>
+        <argsstring>(bool fromVertexModel=false)</argsstring>
+        <name>applyGeometry</name>
+        <qualifiedname>FeatureModel::applyGeometry</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>fromVertexModel</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply the geometry object or vertex model object&apos;s geometry to the feature geometry. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fromVertexModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE to use the vertex model </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="263" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="940" bodyend="1105"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a30c488a8c48ab6e0185ec7c08389f7db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FeatureModel::applyGeometryToVertexModel</definition>
+        <argsstring>()</argsstring>
+        <name>applyGeometryToVertexModel</name>
+        <qualifiedname>FeatureModel::applyGeometryToVertexModel</qualifiedname>
+        <briefdescription>
+<para>Apply the feature geometry to a vertex model if present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="266" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="1321" bodyend="1327"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1ac118c9a0285ece7fa0fbe9f00bf3feb8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FeatureModel::updateRubberband</definition>
+        <argsstring>() const</argsstring>
+        <name>updateRubberband</name>
+        <qualifiedname>FeatureModel::updateRubberband</qualifiedname>
+        <briefdescription>
+<para>Update the linked geometry rubber band to match the feature&apos;s geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="269" column="22" bodyfile="src/core/featuremodel.cpp" bodystart="1484" bodyend="1487"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a65fe4ed799d8a6de952c65d154a7aa82" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureModel::positionLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>positionLocked</name>
+        <qualifiedname>FeatureModel::positionLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the position is locked to the GNSS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="274" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1aaf904ae804b3d74e8c8589b036b02431" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setPositionLocked</definition>
+        <argsstring>(bool positionLocked)</argsstring>
+        <name>setPositionLocked</name>
+        <qualifiedname>FeatureModel::setPositionLocked</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>positionLocked</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the position is locked to the GNSS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="279" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1ae7826c8c1e678e25db7fffd42bf1783a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * FeatureModel::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>FeatureModel::project</qualifiedname>
+        <briefdescription>
+<para>Returns the current project from which the digitizing logs will be sought. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="282" column="16" bodyfile="src/core/featuremodel.h" bodystart="282" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a79e1085d3a8a3ce443cb2d9df7aa7497" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>FeatureModel::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>project</emphasis> used to find the digitizing logs layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="285" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="1489" bodyend="1497"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a36c062f5d789fbaa4b5ed0b7e2a3f789" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsExpressionContext</type>
+        <definition>QgsExpressionContext FeatureModel::createExpressionContext</definition>
+        <argsstring>() const</argsstring>
+        <name>createExpressionContext</name>
+        <qualifiedname>FeatureModel::createExpressionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="287" column="26" bodyfile="src/core/featuremodel.cpp" bodystart="595" bodyend="623"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1ae5019402580f5c9f5e7243ddeba5f309" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureModel::batchMode</definition>
+        <argsstring>() const</argsstring>
+        <name>batchMode</name>
+        <qualifiedname>FeatureModel::batchMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the feature model is in batch mode. When enabled, the vector layer will remain in editing mode until batch mode is disabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="293" column="10" bodyfile="src/core/featuremodel.h" bodystart="293" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1ae6ca5ee95f603e65ff13aba7c2b8f1f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setBatchMode</definition>
+        <argsstring>(bool batchMode)</argsstring>
+        <name>setBatchMode</name>
+        <qualifiedname>FeatureModel::setBatchMode</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>batchMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Toggles the feature model batch mode. When enabled, the vector layer will remain in editing mode until batch mode is disabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="299" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="1112" bodyend="1136"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classFeatureModel_1a93d26a143f699fe6bb78c661276a7255" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::removeLayer</definition>
+        <argsstring>(QObject *layer)</argsstring>
+        <name>removeLayer</name>
+        <qualifiedname>FeatureModel::removeLayer</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="302" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="1107" bodyend="1110"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classFeatureModel_1aa4f7334d6636d269b2a38055194410be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::modelModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelModeChanged</name>
+        <qualifiedname>FeatureModel::modelModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="305" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1ad10d01e3333d2859a8ad9a2983ef9ec0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::featureUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>featureUpdated</name>
+        <qualifiedname>FeatureModel::featureUpdated</qualifiedname>
+        <briefdescription>
+<para>Emitted when the model&apos;s feature has been saved (i.e. updated) but not changed as a result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="308" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1a26831efa7d4313c52520498ae87cdbdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::featureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureChanged</name>
+        <qualifiedname>FeatureModel::featureChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the model&apos;s single feature has been changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="310" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1a7604d9be88848538bf8535b00bb5381e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::featuresChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featuresChanged</name>
+        <qualifiedname>FeatureModel::featuresChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the model&apos;s multi features list has been changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="312" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1aae19e7fd2e73c1ead3c40097877de793" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::linkedParentFeatureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>linkedParentFeatureChanged</name>
+        <qualifiedname>FeatureModel::linkedParentFeatureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="314" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1a4dfe6396da8bf6210fefae0b8a0f7150" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::linkedRelationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>linkedRelationChanged</name>
+        <qualifiedname>FeatureModel::linkedRelationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="315" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1a2fa26eb33e67542035a18ff417e9a76b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::linkedRelationOrderingFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>linkedRelationOrderingFieldChanged</name>
+        <qualifiedname>FeatureModel::linkedRelationOrderingFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="316" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1adb574a541ad2bb9f198395db0cee4ac2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::vertexModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vertexModelChanged</name>
+        <qualifiedname>FeatureModel::vertexModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="317" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1af2fe421dfb185223f8e6ef8b1ed76a83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::geometryChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryChanged</name>
+        <qualifiedname>FeatureModel::geometryChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="318" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1a7129c3425718838b69eac1730360dd56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::featureAdditionLockedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureAdditionLockedChanged</name>
+        <qualifiedname>FeatureModel::featureAdditionLockedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="319" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1a9d1cbd8c5ab587116344fc0428acaab9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::attributeEditingLockedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>attributeEditingLockedChanged</name>
+        <qualifiedname>FeatureModel::attributeEditingLockedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="320" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1aba57e9e9db102e9a9f4e591661a1682c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::geometryEditingLockedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryEditingLockedChanged</name>
+        <qualifiedname>FeatureModel::geometryEditingLockedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="321" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1aa151916997d2f46816e0d5341dc27716" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::featureDeletionLockedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureDeletionLockedChanged</name>
+        <qualifiedname>FeatureModel::featureDeletionLockedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="322" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1a754e82106782c3cd0bd1b6d522718f6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::currentLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentLayerChanged</name>
+        <qualifiedname>FeatureModel::currentLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="323" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1a40ffd29de8ff16a35ee566acf9d428b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::appExpressionContextScopesGeneratorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>appExpressionContextScopesGeneratorChanged</name>
+        <qualifiedname>FeatureModel::appExpressionContextScopesGeneratorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="324" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1a3f648019d4760986bf6e25f42769ae62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::topSnappingResultChanged</definition>
+        <argsstring>()</argsstring>
+        <name>topSnappingResultChanged</name>
+        <qualifiedname>FeatureModel::topSnappingResultChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="325" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1a3fbaf148ad1fcbf529c5a8a77657161d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>FeatureModel::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="326" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1aabf8ae7c1ba007d9f6aedab738ecdeac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::batchModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>batchModeChanged</name>
+        <qualifiedname>FeatureModel::batchModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="327" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureModel_1a79255a6d8fd49833c7864955beb7b7f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::warning</definition>
+        <argsstring>(const QString &amp;text)</argsstring>
+        <name>warning</name>
+        <qualifiedname>FeatureModel::warning</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="329" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classFeatureModel_1a8cfd67b96eb4f85d522af4b6d96efeb4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeatureIds</type>
+        <definition>QgsFeatureIds FeatureModel::applyVertexModelTopography</definition>
+        <argsstring>()</argsstring>
+        <name>applyVertexModelTopography</name>
+        <qualifiedname>FeatureModel::applyVertexModelTopography</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="332" column="19" bodyfile="src/core/featuremodel.cpp" bodystart="1367" bodyend="1477"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1adb843651c0a888d6ff4f96a4864758e2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::applyGeometryTopography</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>applyGeometryTopography</name>
+        <qualifiedname>FeatureModel::applyGeometryTopography</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="333" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="1329" bodyend="1365"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a016542bfee1089b591da88f606c546f3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureModel::commit</definition>
+        <argsstring>(bool stopEditing=true)</argsstring>
+        <name>commit</name>
+        <qualifiedname>FeatureModel::commit</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>stopEditing</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="335" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="1275" bodyend="1287"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1abc5674460ac66e42c9c810df3f995c7a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureModel::startEditing</definition>
+        <argsstring>()</argsstring>
+        <name>startEditing</name>
+        <qualifiedname>FeatureModel::startEditing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="336" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="1294" bodyend="1309"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a6638b9e2bbf508893fe83a52eb193cdb" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureModel::isEditing</definition>
+        <argsstring>() const</argsstring>
+        <name>isEditing</name>
+        <qualifiedname>FeatureModel::isEditing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="337" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="1289" bodyend="1292"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a8b02375f6729c29e4d6c58ca60e24576" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::setLinkedFeatureValues</definition>
+        <argsstring>()</argsstring>
+        <name>setLinkedFeatureValues</name>
+        <qualifiedname>FeatureModel::setLinkedFeatureValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="339" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="288" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1aafa59c2e19a2cdb94912942bd91358aa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::updateDefaultValues</definition>
+        <argsstring>()</argsstring>
+        <name>updateDefaultValues</name>
+        <qualifiedname>FeatureModel::updateDefaultValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="340" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="568" bodyend="593"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureModel_1a0249ab45aa38ee599be7aa611ec0cbb3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureModel::updatePermissions</definition>
+        <argsstring>()</argsstring>
+        <name>updatePermissions</name>
+        <qualifiedname>FeatureModel::updatePermissions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featuremodel.h" line="341" column="10" bodyfile="src/core/featuremodel.cpp" bodystart="503" bodyend="566"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureModel</label>
+        <link refid="classFeatureModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureModel</label>
+        <link refid="classFeatureModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/featuremodel.h" line="33" column="1" bodyfile="src/core/featuremodel.h" bodystart="34" bodyend="376"/>
+    <listofallmembers>
+      <member refid="classFeatureModel_1a3a842f8cc884b33bbd4bd953c2dfcff8" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classFeatureModel_1a92628a23a2c1acac27e9c049c9eadafb" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classFeatureModel_1a40ffd29de8ff16a35ee566acf9d428b5" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>appExpressionContextScopesGeneratorChanged</name></member>
+      <member refid="classFeatureModel_1a575827ad4fd72fe9cbce333a7afc3bf8" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>applyGeometry</name></member>
+      <member refid="classFeatureModel_1adb843651c0a888d6ff4f96a4864758e2" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>applyGeometryTopography</name></member>
+      <member refid="classFeatureModel_1a30c488a8c48ab6e0185ec7c08389f7db" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>applyGeometryToVertexModel</name></member>
+      <member refid="classFeatureModel_1a8cfd67b96eb4f85d522af4b6d96efeb4" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>applyVertexModelTopography</name></member>
+      <member refid="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634a8ff60f8473ae9a769190780acaac1cdd" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>AttributeAllowEdit</name></member>
+      <member refid="classFeatureModel_1a661990109cf3c988fcfb58adb2951d8a" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>attributeEditingLocked</name></member>
+      <member refid="classFeatureModel_1a3b88af58d374d8c66f8dd62ef316f6be" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>attributeEditingLocked</name></member>
+      <member refid="classFeatureModel_1a9d1cbd8c5ab587116344fc0428acaab9" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>attributeEditingLockedChanged</name></member>
+      <member refid="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634a37349921be88be8522c8d458e8560e29" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>AttributeName</name></member>
+      <member refid="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634aaf23761aad4511b24ac3144644b7a6a7" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>AttributeValue</name></member>
+      <member refid="classFeatureModel_1a807fde6bfe02c271e1bf1845fdcc8bec" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>batchMode</name></member>
+      <member refid="classFeatureModel_1ae5019402580f5c9f5e7243ddeba5f309" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>batchMode</name></member>
+      <member refid="classFeatureModel_1aabf8ae7c1ba007d9f6aedab738ecdeac" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>batchModeChanged</name></member>
+      <member refid="classFeatureModel_1a8717e1388d2af8442a81d01f69af38f3" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>changeGeometry</name></member>
+      <member refid="classFeatureModel_1a016542bfee1089b591da88f606c546f3" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>commit</name></member>
+      <member refid="classFeatureModel_1a3dd4535c3147f346a3ea571fcd93ee87" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>create</name></member>
+      <member refid="classFeatureModel_1a36c062f5d789fbaa4b5ed0b7e2a3f789" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>createExpressionContext</name></member>
+      <member refid="classFeatureModel_1a21f6ed9cd0ddc6a4beb946cd70d24470" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>currentLayer</name></member>
+      <member refid="classFeatureModel_1a754e82106782c3cd0bd1b6d522718f6a" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>currentLayerChanged</name></member>
+      <member refid="classFeatureModel_1ad2543f705671fc6a4eeb42fad7523b92" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>data</name></member>
+      <member refid="classFeatureModel_1a6a8854f23a0b9c4ec972a839f1097f7e" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>deleteFeature</name></member>
+      <member refid="classFeatureModel_1ae75472529020158c3534c7000047861a" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>feature</name></member>
+      <member refid="classFeatureModel_1af2d066e1a3381e96d6f02e72dc35c35c" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>feature</name></member>
+      <member refid="classFeatureModel_1a50656dbb4ebeacf7dba6cd397e2d45cd" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>featureAdditionLocked</name></member>
+      <member refid="classFeatureModel_1a9ebb9eda76dfb417a41f9a7fede5cc3d" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>featureAdditionLocked</name></member>
+      <member refid="classFeatureModel_1a7129c3425718838b69eac1730360dd56" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>featureAdditionLockedChanged</name></member>
+      <member refid="classFeatureModel_1a26831efa7d4313c52520498ae87cdbdf" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>featureChanged</name></member>
+      <member refid="classFeatureModel_1aa1291d0d9be417c7f2d6b54525744784" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>featureDeletionLocked</name></member>
+      <member refid="classFeatureModel_1ae2499dde0d40434cac1270c74a54e7ca" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>featureDeletionLocked</name></member>
+      <member refid="classFeatureModel_1aa151916997d2f46816e0d5341dc27716" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>featureDeletionLockedChanged</name></member>
+      <member refid="classFeatureModel_1ad8bff39eb776763e1210dbe8bf5d88f8" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>FeatureModel</name></member>
+      <member refid="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>FeatureRoles</name></member>
+      <member refid="classFeatureModel_1a52cebcae791df7294e29a8f430b99b73" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>features</name></member>
+      <member refid="classFeatureModel_1a4915e9b06421a18f359b0cb275e9f3c8" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>features</name></member>
+      <member refid="classFeatureModel_1a7604d9be88848538bf8535b00bb5381e" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>featuresChanged</name></member>
+      <member refid="classFeatureModel_1ad10d01e3333d2859a8ad9a2983ef9ec0" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>featureUpdated</name></member>
+      <member refid="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634a2335d3ca2d3cacdf100eefa15b2f7fec" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>Field</name></member>
+      <member refid="classFeatureModel_1aef79012a9c2194f714ecfffbf0ddf985" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>geometry</name></member>
+      <member refid="classFeatureModel_1ac6c2d940161ea8db4950b1a19736d513" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>geometry</name></member>
+      <member refid="classFeatureModel_1af2fe421dfb185223f8e6ef8b1ed76a83" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>geometryChanged</name></member>
+      <member refid="classFeatureModel_1aa07f8a3a049bfdc660c784fc96bee2d0" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>geometryEditingLocked</name></member>
+      <member refid="classFeatureModel_1a7bc29c9d89acdcde67f760008cf260be" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>geometryEditingLocked</name></member>
+      <member refid="classFeatureModel_1aba57e9e9db102e9a9f4e591661a1682c" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>geometryEditingLockedChanged</name></member>
+      <member refid="classFeatureModel_1a6638b9e2bbf508893fe83a52eb193cdb" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>isEditing</name></member>
+      <member refid="classFeatureModel_1a901d3bb55bf7d4efd58bf9a483b90e48" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>layer</name></member>
+      <member refid="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634a6648009a092bd30a7b4de54ccc35815b" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>LinkedAttribute</name></member>
+      <member refid="classFeatureModel_1a2821cf0c5196f4be84b8861f2db4ca7e" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>linkedParentFeature</name></member>
+      <member refid="classFeatureModel_1a61092e17ad8a06265a46e71085a8ee7c" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>linkedParentFeature</name></member>
+      <member refid="classFeatureModel_1aae19e7fd2e73c1ead3c40097877de793" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>linkedParentFeatureChanged</name></member>
+      <member refid="classFeatureModel_1aee6f58f21d02bcbe5438978fd4e0f5e4" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>linkedRelation</name></member>
+      <member refid="classFeatureModel_1a08021ad4a48e543d4fe68bc5b7d34bb5" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>linkedRelation</name></member>
+      <member refid="classFeatureModel_1a4dfe6396da8bf6210fefae0b8a0f7150" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>linkedRelationChanged</name></member>
+      <member refid="classFeatureModel_1a1457fd8c1b6f45ca4b6107d5cded0774" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>linkedRelationOrderingField</name></member>
+      <member refid="classFeatureModel_1abad96a037a8761516342bfeeba6aaafa" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>linkedRelationOrderingField</name></member>
+      <member refid="classFeatureModel_1a2fa26eb33e67542035a18ff417e9a76b" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>linkedRelationOrderingFieldChanged</name></member>
+      <member refid="classFeatureModel_1ad1879d41be66d7ce90abec1e5cc54854" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mAppExpressionContextScopesGenerator</name></member>
+      <member refid="classFeatureModel_1a4c62cffe7f48502e25a1fab1ac6770e2" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mAttributeEditingLocked</name></member>
+      <member refid="classFeatureModel_1a5773f84a067f905c737ef2151618b1fd" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mAttributeEditingLockedByDefault</name></member>
+      <member refid="classFeatureModel_1a264c3513200b5e24a2bd03a86597ab41" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mAttributeEditingLockedExpression</name></member>
+      <member refid="classFeatureModel_1a465d944ee745275b14032a22881a28cd" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mAttributesAllowEdit</name></member>
+      <member refid="classFeatureModel_1a2c48deb5cc79daf9efd6aada81be8b7b" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mBatchMode</name></member>
+      <member refid="classFeatureModel_1a2a20e30ced97240c73aae1cef92d4d15" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mBatchModeWasEditing</name></member>
+      <member refid="classFeatureModel_1a409ef629a913820ee353d4b62241aceb" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mFeature</name></member>
+      <member refid="classFeatureModel_1abf44429206c46bf792d53a99bb05d42d" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mFeatureAdditionLocked</name></member>
+      <member refid="classFeatureModel_1aca2becf66413accc9593dc4865ee6203" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mFeatureAdditionLockedByDefault</name></member>
+      <member refid="classFeatureModel_1ac474aff4b9f068ade7ebbc96fa450a04" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mFeatureAdditionLockedExpression</name></member>
+      <member refid="classFeatureModel_1a27d98a125eb7a62978e6ecaa1e5a9774" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mFeatureDeletionLocked</name></member>
+      <member refid="classFeatureModel_1a19fd27ee3bcc669386ba2382b3160e0f" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mFeatureDeletionLockedByDefault</name></member>
+      <member refid="classFeatureModel_1a0a09c8e555964b8406a490522089cde0" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mFeatureDeletionLockedExpression</name></member>
+      <member refid="classFeatureModel_1a7028cc7b68366100ec09476df79a6fe1" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mFeatures</name></member>
+      <member refid="classFeatureModel_1a708e20aaeabb68deec5fcac2e25ac628" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mGeometry</name></member>
+      <member refid="classFeatureModel_1a766e25319addbff7f549395459a3cb9b" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mGeometryEditingLocked</name></member>
+      <member refid="classFeatureModel_1a3acffe6a2ca7fa0ddfedecfc34bd4afc" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mGeometryEditingLockedByDefault</name></member>
+      <member refid="classFeatureModel_1a4bce9e6d8ff338a7b2ea6ad0d9aa2efb" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mGeometryEditingLockedExpression</name></member>
+      <member refid="classFeatureModel_1a84054a2b4ea908eeac1affae9803e7ed" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mLayer</name></member>
+      <member refid="classFeatureModel_1a02da4b5634081abe053c8caa38614960" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mLinkedAttributeIndexes</name></member>
+      <member refid="classFeatureModel_1aae206b262940afb2eda60ceebf64f378" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mLinkedParentFeature</name></member>
+      <member refid="classFeatureModel_1ac12cfe604530374606bed47f23226922" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mLinkedRelation</name></member>
+      <member refid="classFeatureModel_1af05a8850594d668871d44423c33f45ef" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mLinkedRelationOrderingField</name></member>
+      <member refid="classFeatureModel_1ab3bd5103b000700ffd02ecac557f8a2a" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mModelMode</name></member>
+      <member refid="classFeatureModel_1aefbc7d3c467028bbf6830b2a7871cc6d" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>modelMode</name></member>
+      <member refid="classFeatureModel_1a246c7528641f92c3e2c179578425e7ac" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>modelMode</name></member>
+      <member refid="classFeatureModel_1aa4f7334d6636d269b2a38055194410be" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>modelModeChanged</name></member>
+      <member refid="classFeatureModel_1a21fadd6586043b19ca177309a389ef43" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>ModelModes</name></member>
+      <member refid="classFeatureModel_1a3b7faa5b15127717bb6542fa0d3198ee" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mProject</name></member>
+      <member refid="classFeatureModel_1af5e4f184c43b573d6934dfab10140b0d" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mTempName</name></member>
+      <member refid="classFeatureModel_1a3e5f9054849463cecc94f2b0faaf78aa" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mTopSnappingResult</name></member>
+      <member refid="classFeatureModel_1a21fadd6586043b19ca177309a389ef43a1569ed8537bf9f98f8d89740bd0f647d" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>MultiFeatureModel</name></member>
+      <member refid="classFeatureModel_1a40a29131516239212f14afcba7eedbf7" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>mVertexModel</name></member>
+      <member refid="classFeatureModel_1a65fe4ed799d8a6de952c65d154a7aa82" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>positionLocked</name></member>
+      <member refid="classFeatureModel_1a8520d8802a49365d1dc64469d04bf093" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>project</name></member>
+      <member refid="classFeatureModel_1ae7826c8c1e678e25db7fffd42bf1783a" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>project</name></member>
+      <member refid="classFeatureModel_1a3fbaf148ad1fcbf529c5a8a77657161d" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>projectChanged</name></member>
+      <member refid="classFeatureModel_1a7b05c69a53ba8651330e68f11854aafa" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>refresh</name></member>
+      <member refid="classFeatureModel_1a66149f2b1c8e327876bb6753484a4634a26798a974c030ebc211a467b05ef0d12" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>RememberAttribute</name></member>
+      <member refid="classFeatureModel_1a9b1b54b538b1f39a7a7485f0fee2c11f" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>rememberedAttributes</name></member>
+      <member refid="classFeatureModel_1a93d26a143f699fe6bb78c661276a7255" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>removeLayer</name></member>
+      <member refid="classFeatureModel_1aa6511d9863ec1aed87d66171fb56fa55" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>reset</name></member>
+      <member refid="classFeatureModel_1a8951cf0380a2311d429ecccd273401a7" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>resetAttributes</name></member>
+      <member refid="classFeatureModel_1a42d92dcf774ca614c1593ac605951012" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>resetFeature</name></member>
+      <member refid="classFeatureModel_1ac5db08e5e6cc073ef15f1efd5f52fa65" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>resetFeatureId</name></member>
+      <member refid="classFeatureModel_1a4d60e973d318e92aeb18a8736a382c1b" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>roleNames</name></member>
+      <member refid="classFeatureModel_1a1174ef4d8cbef52df08331cb4c243615" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>rowCount</name></member>
+      <member refid="classFeatureModel_1a739fb0acd04fc9bcc3bd0c379eb7f7c8" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>save</name></member>
+      <member refid="classFeatureModel_1a348118e97fc4137b8048dacd10c4f845" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setAppExpressionContextScopesGenerator</name></member>
+      <member refid="classFeatureModel_1ae6ca5ee95f603e65ff13aba7c2b8f1f5" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setBatchMode</name></member>
+      <member refid="classFeatureModel_1ada61bddc1f9178fa2f9d9649372aa930" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setCurrentLayer</name></member>
+      <member refid="classFeatureModel_1a0aa3bbdf4f70e851f061a17c244f861e" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setData</name></member>
+      <member refid="classFeatureModel_1a1c2af79b18e05a1bb706a417a47adafa" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setFeature</name></member>
+      <member refid="classFeatureModel_1aecdf2a5d9a543ea28a0bd6f85fee944f" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setFeatures</name></member>
+      <member refid="classFeatureModel_1a508f401833a7c5619b8b2943048840ef" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setGeometry</name></member>
+      <member refid="classFeatureModel_1a8b02375f6729c29e4d6c58ca60e24576" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>setLinkedFeatureValues</name></member>
+      <member refid="classFeatureModel_1aced5904978b6a5b7424e068cdc86f9b0" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setLinkedParentFeature</name></member>
+      <member refid="classFeatureModel_1ac04d7def39f5d72ec0ede1bbb4de941c" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setLinkedRelation</name></member>
+      <member refid="classFeatureModel_1a592938b85d6cf156157ce3ea16f3c658" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setLinkedRelationOrderingField</name></member>
+      <member refid="classFeatureModel_1a551fa6b20123dde614286aee33ef9f66" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setModelMode</name></member>
+      <member refid="classFeatureModel_1aaf904ae804b3d74e8c8589b036b02431" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setPositionLocked</name></member>
+      <member refid="classFeatureModel_1a79e1085d3a8a3ce443cb2d9df7aa7497" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setProject</name></member>
+      <member refid="classFeatureModel_1a107f4ffc26d25a2c8f30496dcd7a5bf0" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setTopSnappingResult</name></member>
+      <member refid="classFeatureModel_1abc048b0e6a8310329f5afc86535703f9" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>setVertexModel</name></member>
+      <member refid="classFeatureModel_1a21fadd6586043b19ca177309a389ef43aa63258dca7b9ba6ba5824c776587b732" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>SingleFeatureModel</name></member>
+      <member refid="classFeatureModel_1abc5674460ac66e42c9c810df3f995c7a" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>startEditing</name></member>
+      <member refid="classFeatureModel_1adf7679be3d3b76f426ad387e0961b40b" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>suppressFeatureForm</name></member>
+      <member refid="classFeatureModel_1a63618bf836a299bb51d0e321b41bbc29" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>topSnappingResult</name></member>
+      <member refid="classFeatureModel_1a484d08fb88d81050e566ad4b48538847" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>topSnappingResult</name></member>
+      <member refid="classFeatureModel_1a3f648019d4760986bf6e25f42769ae62" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>topSnappingResultChanged</name></member>
+      <member refid="classFeatureModel_1ae7f2f34b93450b1af42cfa832f1407af" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>updateAttributesFromFeature</name></member>
+      <member refid="classFeatureModel_1aafa59c2e19a2cdb94912942bd91358aa" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>updateDefaultValues</name></member>
+      <member refid="classFeatureModel_1a0249ab45aa38ee599be7aa611ec0cbb3" prot="private" virt="non-virtual"><scope>FeatureModel</scope><name>updatePermissions</name></member>
+      <member refid="classFeatureModel_1ac118c9a0285ece7fa0fbe9f00bf3feb8" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>updateRubberband</name></member>
+      <member refid="classFeatureModel_1a10605fa3004c4a748f433b9e59131166" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>vertexModel</name></member>
+      <member refid="classFeatureModel_1a0b989da3137cc3272157e2f43ed0bb92" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>vertexModel</name></member>
+      <member refid="classFeatureModel_1adb574a541ad2bb9f198395db0cee4ac2" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>vertexModelChanged</name></member>
+      <member refid="classFeatureModel_1a79255a6d8fd49833c7864955beb7b7f8" prot="public" virt="non-virtual"><scope>FeatureModel</scope><name>warning</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

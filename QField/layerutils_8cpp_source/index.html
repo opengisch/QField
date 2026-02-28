@@ -1,0 +1,1026 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File layerutils.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-layerutilscpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File layerutils.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-layerutilscpp">File layerutils.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_a8053b3d69cfefb2b2e6ec7bf9dd5c1a/"><strong>utils</strong></a> <strong>&gt;</strong> <a href="../layerutils_8cpp/"><strong>layerutils.cpp</strong></a></p>
+<p><a href="../layerutils_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+  layerutils.cpp - LayerUtils
+
+ ---------------------
+ begin                : 01.03.2021
+ copyright            : (C) 2020 by Mathieu Pellerin
+ email                : mathieu@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &quot;layerutils.h&quot;
+
+#include &lt;QQmlEngine&gt;
+#include &lt;QScopeGuard&gt;
+#include &lt;qgsfillsymbol.h&gt;
+#include &lt;qgsfillsymbollayer.h&gt;
+#include &lt;qgshuesaturationfilter.h&gt;
+#include &lt;qgsjsonutils.h&gt;
+#include &lt;qgslabelobstaclesettings.h&gt;
+#include &lt;qgslayoutatlas.h&gt;
+#include &lt;qgslayoutmanager.h&gt;
+#include &lt;qgslinesymbol.h&gt;
+#include &lt;qgslinesymbollayer.h&gt;
+#include &lt;qgsmaplayerelevationproperties.h&gt;
+#include &lt;qgsmarkersymbol.h&gt;
+#include &lt;qgsmarkersymbollayer.h&gt;
+#include &lt;qgsmemoryproviderutils.h&gt;
+#include &lt;qgsmessagelog.h&gt;
+#include &lt;qgspallabeling.h&gt;
+#include &lt;qgsprintlayout.h&gt;
+#include &lt;qgsproject.h&gt;
+#include &lt;qgsprojectstylesettings.h&gt;
+#include &lt;qgsrasterlayer.h&gt;
+#include &lt;qgsrasterlayerelevationproperties.h&gt;
+#include &lt;qgssinglesymbolrenderer.h&gt;
+#include &lt;qgssymbol.h&gt;
+#include &lt;qgssymbollayer.h&gt;
+#include &lt;qgstextbuffersettings.h&gt;
+#include &lt;qgsvectorlayer.h&gt;
+#include &lt;qgsvectorlayerlabeling.h&gt;
+#include &lt;qgsvectorlayerutils.h&gt;
+#include &lt;qgswkbtypes.h&gt;
+
+LayerUtils::LayerUtils( QObject *parent )
+  : QObject( parent )
+{
+}
+
+void LayerUtils::setDefaultRenderer( QgsVectorLayer *layer, QgsProject *project, const QString &amp;attachmentField, const QString &amp;colorField )
+{
+  if ( !layer )
+    return;
+
+  bool hasSymbol = true;
+  Qgis::SymbolType symbolType = Qgis::SymbolType::Marker;
+  switch ( layer-&gt;geometryType() )
+  {
+    case Qgis::GeometryType::Point:
+      symbolType = Qgis::SymbolType::Marker;
+      break;
+    case Qgis::GeometryType::Line:
+      symbolType = Qgis::SymbolType::Line;
+      break;
+    case Qgis::GeometryType::Polygon:
+      symbolType = Qgis::SymbolType::Fill;
+      break;
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
+    default:
+      hasSymbol = false;
+      break;
+  }
+
+  if ( !hasSymbol )
+  {
+    return;
+  }
+
+  QgsSymbol *symbol = project ? project-&gt;styleSettings()-&gt;defaultSymbol( symbolType ) : nullptr;
+  if ( !symbol )
+  {
+    symbol = LayerUtils::defaultSymbol( layer, attachmentField, colorField );
+  }
+
+  QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
+  layer-&gt;setRenderer( renderer );
+}
+
+QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &amp;attachmentField, const QString &amp;colorField )
+{
+  QgsSymbol *symbol = nullptr;
+
+  if ( !layer )
+  {
+    return symbol;
+  }
+
+  QgsSymbolLayerList symbolLayers;
+  switch ( layer-&gt;geometryType() )
+  {
+    case Qgis::GeometryType::Point:
+    {
+      if ( !attachmentField.isEmpty() )
+      {
+        QgsSymbolLayerList subSymbolLayers;
+        QgsRasterMarkerSymbolLayer *rasterMarkerSymbolLayer = new QgsRasterMarkerSymbolLayer( QString(), 2.6, 0.0 );
+        rasterMarkerSymbolLayer-&gt;setSize( 6.0 );
+        rasterMarkerSymbolLayer-&gt;setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( &quot;scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value )&quot; ), true ) );
+        rasterMarkerSymbolLayer-&gt;setDataDefinedProperty( QgsSymbolLayer::Property::Name, QgsProperty::fromExpression( QStringLiteral( &quot;if(@map_scale &lt; 5000, @project_folder || '/' || \&quot;%1\&quot;, '')&quot; ).arg( attachmentField ), true ) );
+        subSymbolLayers &lt;&lt; rasterMarkerSymbolLayer;
+
+        QgsCentroidFillSymbolLayer *centroidFillSymbolLayer = new QgsCentroidFillSymbolLayer();
+        centroidFillSymbolLayer-&gt;setClipPoints( true );
+        centroidFillSymbolLayer-&gt;setSubSymbol( new QgsMarkerSymbol( subSymbolLayers ) );
+        subSymbolLayers.clear();
+        subSymbolLayers &lt;&lt; centroidFillSymbolLayer;
+
+        QgsFilledMarkerSymbolLayer *fillSymbolLayer = new QgsFilledMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0 );
+        fillSymbolLayer-&gt;setSize( 2.4 );
+        if ( !colorField.isEmpty() )
+        {
+          fillSymbolLayer-&gt;setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( &quot;if(\&quot;%1\&quot; is not null and \&quot;%1\&quot; != '', \&quot;%1\&quot;, @value)&quot; ).arg( colorField ), true ) );
+        }
+        fillSymbolLayer-&gt;setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( &quot;if(@map_scale &lt; 5000 and \&quot;%1\&quot; is not null and \&quot;%1\&quot; != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value)&quot; ).arg( attachmentField ), true ) );
+        fillSymbolLayer-&gt;setSubSymbol( new QgsFillSymbol( subSymbolLayers ) );
+        symbolLayers &lt;&lt; fillSymbolLayer;
+
+        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 55, 126, 184, 100 ), QColor( 55, 126, 184 ) );
+        symbolLayer-&gt;setSize( 2.4 );
+        symbolLayer-&gt;setStrokeWidth( 0.6 );
+        if ( !colorField.isEmpty() )
+        {
+          symbolLayer-&gt;setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( &quot;if(@map_scale &lt; 5000 and \&quot;%1\&quot; is not null and \&quot;%1\&quot; != '', '255,0,0,0', if(\&quot;%2\&quot; is not null and \&quot;%2\&quot; != '', set_color_part(\&quot;%2\&quot;, 'alpha', 100), @value))&quot; ).arg( attachmentField, colorField ), true ) );
+          symbolLayer-&gt;setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( &quot;if(\&quot;%1\&quot; is not null and \&quot;%1\&quot; != '', \&quot;%1\&quot;, @value)&quot; ).arg( colorField ), true ) );
+        }
+        else
+        {
+          symbolLayer-&gt;setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( &quot;if(@map_scale &lt; 5000 and \&quot;%1\&quot; is not null and \&quot;%1\&quot; != '', '255,0,0,0', @value))&quot; ).arg( attachmentField ), true ) );
+        }
+        symbolLayer-&gt;setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( &quot;if(@map_scale &lt; 5000 and \&quot;%1\&quot; is not null and \&quot;%1\&quot; != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value)&quot; ).arg( attachmentField ), true ) );
+        symbolLayers &lt;&lt; symbolLayer;
+      }
+      else
+      {
+        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, QColor( 55, 126, 184, 100 ), QColor( 55, 126, 184 ) );
+        symbolLayer-&gt;setStrokeWidth( 0.6 );
+        if ( !colorField.isEmpty() )
+        {
+          symbolLayer-&gt;setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( &quot;if(\&quot;%1\&quot; is not null and \&quot;%1\&quot; != '', set_color_part(\&quot;%1\&quot;, 'alpha', 100), @value)&quot; ).arg( colorField ), true ) );
+        }
+        symbolLayer-&gt;setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( &quot;if(\&quot;%1\&quot; is not null and \&quot;%1\&quot; != '', \&quot;%1\&quot;, @value)&quot; ).arg( colorField ), true ) );
+        symbolLayers &lt;&lt; symbolLayer;
+      }
+      symbol = new QgsMarkerSymbol( symbolLayers );
+      break;
+    }
+
+    case Qgis::GeometryType::Line:
+    {
+      QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( QColor( 55, 126, 184 ), 0.6 ); // cppcheck-suppress constVariablePointer
+      if ( !colorField.isEmpty() )
+      {
+        symbolLayer-&gt;setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( &quot;if(\&quot;%1\&quot; is not null and \&quot;%1\&quot; != '', \&quot;%1\&quot;, @value)&quot; ).arg( colorField ), true ) );
+      }
+      symbolLayers &lt;&lt; symbolLayer;
+      symbol = new QgsLineSymbol( symbolLayers );
+      break;
+    }
+
+    case Qgis::GeometryType::Polygon:
+    {
+      QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( QColor( 55, 126, 184, 100 ), DEFAULT_SIMPLEFILL_STYLE, QColor( 55, 126, 184 ), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 ); // cppcheck-suppress constVariablePointer
+      symbolLayers &lt;&lt; symbolLayer;
+      symbol = new QgsFillSymbol( symbolLayers );
+      break;
+    }
+
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
+      break;
+  }
+  return symbol;
+}
+
+void LayerUtils::setDefaultLabeling( QgsVectorLayer *layer, QgsProject *project )
+{
+  QgsTextFormat textFormat = project ? project-&gt;styleSettings()-&gt;defaultTextFormat() : QgsTextFormat();
+  textFormat.setSize( 8 );
+  textFormat.setSizeUnit( Qgis::RenderUnit::Points );
+  textFormat.buffer().setEnabled( true );
+  textFormat.buffer().setSize( 0.5 );
+  textFormat.buffer().setSizeUnit( Qgis::RenderUnit::Millimeters );
+  textFormat.buffer().setColor( QColor( 255, 255, 255, 150 ) );
+  QgsAbstractVectorLayerLabeling *labeling = LayerUtils::defaultLabeling( layer, textFormat );
+  if ( labeling )
+  {
+    layer-&gt;setLabeling( labeling );
+    layer-&gt;setLabelsEnabled( layer-&gt;geometryType() == Qgis::GeometryType::Point );
+  }
+}
+
+QgsAbstractVectorLayerLabeling *LayerUtils::defaultLabeling( QgsVectorLayer *layer, QgsTextFormat textFormat )
+{
+  QgsAbstractVectorLayerLabeling *labeling = nullptr;
+
+  if ( !layer )
+  {
+    return labeling;
+  }
+
+  bool foundFriendlyIdentifier = true;
+  QString fieldName = QgsVectorLayerUtils::guessFriendlyIdentifierField( layer-&gt;fields(), &amp;foundFriendlyIdentifier );
+  if ( !foundFriendlyIdentifier )
+  {
+    return labeling;
+  }
+
+  QgsPalLayerSettings settings;
+  settings.fieldName = fieldName;
+  settings.obstacleSettings().setIsObstacle( true );
+  switch ( layer-&gt;geometryType() )
+  {
+    case Qgis::GeometryType::Point:
+    {
+      settings.placement = Qgis::LabelPlacement::OrderedPositionsAroundPoint;
+      settings.offsetType = Qgis::LabelOffsetType::FromSymbolBounds;
+      break;
+    }
+
+    case Qgis::GeometryType::Line:
+    {
+      settings.placement = Qgis::LabelPlacement::Curved;
+      break;
+    }
+
+    case Qgis::GeometryType::Polygon:
+    {
+      settings.placement = Qgis::LabelPlacement::AroundPoint;
+      settings.obstacleSettings().setType( QgsLabelObstacleSettings::ObstacleType::PolygonBoundary );
+      break;
+    }
+
+    case Qgis::GeometryType::Unknown:
+    case Qgis::GeometryType::Null:
+      break;
+  }
+
+  if ( !textFormat.isValid() )
+  {
+    textFormat.setSize( 9 );
+    textFormat.setSizeUnit( Qgis::RenderUnit::Points );
+    textFormat.setColor( QColor( 0, 0, 0 ) );
+
+    QgsTextBufferSettings bufferSettings;
+    bufferSettings.setEnabled( true );
+    bufferSettings.setColor( QColor( 255, 255, 255 ) );
+    bufferSettings.setSize( 1 );
+    bufferSettings.setSizeUnit( Qgis::RenderUnit::Millimeters );
+    textFormat.setBuffer( bufferSettings );
+  }
+  settings.setFormat( textFormat );
+
+  labeling = new QgsVectorLayerSimpleLabeling( settings );
+
+  return labeling;
+}
+
+QgsRasterLayer *LayerUtils::createOnlineElevationLayer()
+{
+  QgsRasterLayer *layer = new QgsRasterLayer( QStringLiteral( &quot;interpretation=terrariumterrain&amp;type=xyz&amp;url=https://s3.amazonaws.com/elevation-tiles-prod/terrarium/%7Bz%7D/%7Bx%7D/%7By%7D.png&amp;zmax=15&amp;zmin=0&quot; ),
+                                              QStringLiteral( &quot;elevation&quot; ), QStringLiteral( &quot;wms&quot; ) );
+  QgsRasterLayerElevationProperties *elevationProperties = static_cast&lt;QgsRasterLayerElevationProperties *&gt;( layer-&gt;elevationProperties() );
+  elevationProperties-&gt;setEnabled( true );
+  elevationProperties-&gt;setProfileSymbology( Qgis::ProfileSurfaceSymbology::FillBelow );
+  elevationProperties-&gt;profileFillSymbol()-&gt;setColor( QColor( 130, 130, 130 ) );
+  return layer;
+}
+
+QgsMapLayer *LayerUtils::createBasemap( const QString &amp;style )
+{
+  QgsRasterLayer *layer = nullptr;
+  if ( style.compare( QStringLiteral( &quot;lightgray&quot; ) ) == 0 )
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( &quot;OpenStreetMap&quot; ), QLatin1String( &quot;wms&quot; ) );
+    layer-&gt;hueSaturationFilter()-&gt;setGrayscaleMode( QgsHueSaturationFilter::GrayscaleLightness );
+  }
+  else if ( style.compare( QStringLiteral( &quot;darkgray&quot; ) ) == 0 )
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( &quot;OpenStreetMap&quot; ), QLatin1String( &quot;wms&quot; ) );
+    layer-&gt;hueSaturationFilter()-&gt;setGrayscaleMode( QgsHueSaturationFilter::GrayscaleLightness );
+    layer-&gt;hueSaturationFilter()-&gt;setInvertColors( true );
+  }
+  else
+  {
+    layer = new QgsRasterLayer( OPENSTREETMAP_URL, QStringLiteral( &quot;OpenStreetMap&quot; ), QLatin1String( &quot;wms&quot; ) );
+  }
+  return layer;
+}
+
+bool LayerUtils::isAtlasCoverageLayer( QgsVectorLayer *layer )
+{
+  if ( !layer || !QgsProject::instance()-&gt;layoutManager() )
+    return false;
+
+  const QList&lt;QgsPrintLayout *&gt; printLayouts = QgsProject::instance()-&gt;layoutManager()-&gt;printLayouts();
+  for ( QgsPrintLayout *printLayout : printLayouts )
+  {
+    if ( printLayout-&gt;atlas() )
+    {
+      if ( printLayout-&gt;atlas()-&gt;coverageLayer() == layer )
+        return true;
+    }
+  }
+
+  return false;
+}
+
+bool LayerUtils::isFeatureAdditionLocked( QgsMapLayer *layer )
+{
+  return layer ? ( ( layer-&gt;customProperty( QStringLiteral( &quot;QFieldSync/is_geometry_locked&quot; ), false ).toBool() &amp;&amp; !layer-&gt;customProperty( QStringLiteral( &quot;QFieldSync/is_geometry_locked&quot; ), false ).toBool() ) || ( layer-&gt;customProperty( QStringLiteral( &quot;QFieldSync/is_feature_addition_locked&quot; ), false ).toBool() &amp;&amp; !layer-&gt;customProperty( QStringLiteral( &quot;QFieldSync/is_feature_addition_locked&quot; ), false ).toBool() ) ) : false;
+}
+
+void LayerUtils::selectFeaturesInLayer( QgsVectorLayer *layer, const QList&lt;int&gt; &amp;fids, Qgis::SelectBehavior behavior )
+{
+  if ( !layer )
+    return;
+
+  QgsFeatureIds qgsFids;
+  for ( const int &amp;fid : fids )
+    qgsFids &lt;&lt; fid;
+  layer-&gt;selectByIds( qgsFids, behavior );
+}
+
+QString LayerUtils::fieldType( const QgsField &amp;field )
+{
+  return QVariant( QMetaType( field.type() ) ).typeName();
+}
+
+bool LayerUtils::addFeature( QgsVectorLayer *layer, QgsFeature feature )
+{
+  if ( layer )
+  {
+    return layer-&gt;addFeature( feature );
+  }
+  return false;
+}
+
+bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool flushBuffer )
+{
+  if ( !project )
+  {
+    return false;
+  }
+
+  if ( !layer )
+  {
+    QgsMessageLog::logMessage( tr( &quot;Cannot start editing, no layer&quot; ), &quot;QField&quot;, Qgis::Warning );
+    return false;
+  }
+
+  const bool wasEditing = layer-&gt;editBuffer();
+  if ( !wasEditing &amp;&amp; !layer-&gt;startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( &quot;Cannot start editing&quot; ), &quot;QField&quot;, Qgis::Warning );
+    return false;
+  }
+  flushBuffer = flushBuffer || !wasEditing;
+
+  bool isSuccess = true;
+
+  // delete parent and related features
+  QgsVectorLayer::DeleteContext deleteContext( true, project );
+  if ( layer-&gt;deleteFeature( fid, &amp;deleteContext ) )
+  {
+    if ( flushBuffer )
+    {
+      // commit changes
+      if ( !layer-&gt;commitChanges( !wasEditing ) )
+      {
+        const QString msgs = layer-&gt;commitErrors().join( QStringLiteral( &quot;\n&quot; ) );
+        QgsMessageLog::logMessage( tr( &quot;Cannot commit deletion of feature %2 in layer \&quot;%1\&quot;. Reason:\n%3&quot; ).arg( layer-&gt;name() ).arg( fid ).arg( msgs ), QStringLiteral( &quot;QField&quot; ), Qgis::Warning );
+        isSuccess = false;
+      }
+    }
+
+    if ( isSuccess )
+    {
+      // loop and commit referenced layers in reverse
+      QList&lt;QgsVectorLayer *&gt; constHandledLayers = deleteContext.handledLayers();
+
+      for ( QList&lt;QgsVectorLayer *&gt;::reverse_iterator it = constHandledLayers.rbegin(); it != constHandledLayers.rend(); ++it )
+      {
+        QgsVectorLayer *vl = *it;
+
+        if ( vl == layer )
+        {
+          continue;
+        }
+
+        if ( !vl-&gt;commitChanges() )
+        {
+          const QString msgs = vl-&gt;commitErrors().join( QStringLiteral( &quot;\n&quot; ) );
+          QgsMessageLog::logMessage( tr( &quot;Cannot commit deletion in layer \&quot;%1\&quot;. Reason:\n%3&quot; ).arg( vl-&gt;name() ).arg( msgs ), QStringLiteral( &quot;QField&quot; ), Qgis::Warning );
+          isSuccess = false;
+          break;
+        }
+      }
+    }
+  }
+  else
+  {
+    QgsMessageLog::logMessage( tr( &quot;Cannot delete feature %1&quot; ).arg( fid ), &quot;QField&quot;, Qgis::Warning );
+    isSuccess = false;
+  }
+
+  if ( !flushBuffer &amp;&amp; !isSuccess )
+  {
+    const QList&lt;QgsVectorLayer *&gt; constHandledLayers = deleteContext.handledLayers();
+    for ( QgsVectorLayer *vl : constHandledLayers )
+      if ( vl != layer )
+      {
+        if ( !vl-&gt;rollBack() )
+        {
+          QgsMessageLog::logMessage( tr( &quot;Cannot rollback layer changes in layer %1&quot; ).arg( vl-&gt;name() ), &quot;QField&quot;, Qgis::Critical );
+        }
+      }
+
+    if ( !layer-&gt;rollBack() )
+    {
+      QgsMessageLog::logMessage( tr( &quot;Cannot rollback layer changes in layer %1&quot; ).arg( layer-&gt;name() ), &quot;QField&quot;, Qgis::Critical );
+    }
+  }
+
+  return isSuccess;
+}
+
+QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, QgsFeature feature )
+{
+  if ( !layer )
+  {
+    QgsMessageLog::logMessage( tr( &quot;Cannot start editing, no layer&quot; ), &quot;QField&quot;, Qgis::Warning );
+    return QgsFeature();
+  }
+
+  if ( !feature.isValid() )
+  {
+    QgsMessageLog::logMessage( tr( &quot;Cannot copy invalid feature&quot; ), &quot;QField&quot;, Qgis::Warning );
+    return QgsFeature();
+  }
+
+  const bool wasEditing = layer-&gt;editBuffer();
+  if ( !wasEditing &amp;&amp; !layer-&gt;startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( &quot;Cannot start editing&quot; ), &quot;QField&quot;, Qgis::Warning );
+    return QgsFeature();
+  }
+
+  // When duplicating a feature, insure the source primary ID is correctly set to null (i.e. new feature within the source dataset)
+  QString sourcePrimaryKeys = layer-&gt;customProperty( QStringLiteral( &quot;QFieldSync/sourceDataPrimaryKeys&quot; ) ).toString();
+  if ( layer-&gt;fields().lookupField( sourcePrimaryKeys ) &gt;= 0 )
+  {
+    const int sourcePrimaryKeysIndex = layer-&gt;fields().lookupField( sourcePrimaryKeys );
+    if ( !layer-&gt;fields().at( sourcePrimaryKeysIndex ).defaultValueDefinition().isValid() )
+    {
+      feature.setAttribute( sourcePrimaryKeysIndex, QVariant() );
+    }
+  }
+
+  QgsFeature duplicatedFeature;
+  QMetaObject::Connection connection = connect( layer, &amp;QgsVectorLayer::featureAdded, [layer, &amp;duplicatedFeature]( QgsFeatureId fid ) {
+    duplicatedFeature = layer-&gt;getFeature( fid );
+  } );
+  auto sweaper = qScopeGuard( [layer, connection] { layer-&gt;disconnect( connection ); } );
+
+  QgsVectorLayerUtils::QgsDuplicateFeatureContext duplicateFeatureContext;
+  duplicatedFeature = QgsVectorLayerUtils::duplicateFeature( layer, feature, QgsProject::instance(), duplicateFeatureContext );
+  const auto duplicateFeatureContextLayers = duplicateFeatureContext.layers();
+
+  // commit changes
+  if ( !layer-&gt;commitChanges( !wasEditing ) )
+  {
+    const QString msgs = layer-&gt;commitErrors().join( QStringLiteral( &quot;\n&quot; ) );
+    QgsMessageLog::logMessage( tr( &quot;Cannot add new feature in layer \&quot;%1\&quot;. Reason:\n%2&quot; ).arg( layer-&gt;name(), msgs ), &quot;QField&quot;, Qgis::Warning );
+
+    for ( QgsVectorLayer *chl : duplicateFeatureContextLayers )
+    {
+      chl-&gt;rollBack();
+    }
+
+    return QgsFeature();
+  }
+
+  // we have to re-apply referenced feature attribute value to take into account value changes form the
+  // data provider (e.g. autogenerated fid)
+  const QList&lt;QgsRelation&gt; relations = QgsProject::instance()-&gt;relationManager()-&gt;referencedRelations( layer );
+  for ( QgsVectorLayer *chl : duplicateFeatureContextLayers )
+  {
+    const QgsFeatureIds fids = duplicateFeatureContext.duplicatedFeatures( chl );
+    for ( const auto &amp;relation : relations )
+    {
+      if ( relation.referencingLayer() == chl )
+      {
+        const QList&lt;QgsRelation::FieldPair&gt; fieldPairs = relation.fieldPairs();
+        for ( const auto &amp;fieldPair : fieldPairs )
+        {
+          for ( auto fid : fids )
+          {
+            chl-&gt;changeAttributeValue( fid, chl-&gt;fields().indexOf( fieldPair.referencingField() ), duplicatedFeature.attribute( fieldPair.referencedField() ) );
+          }
+        }
+      }
+    }
+
+    // Insure the source primary ID of a duplicated child feature is correctly set to null (i.e. new feature within the source dataset)
+    sourcePrimaryKeys = chl-&gt;customProperty( QStringLiteral( &quot;QFieldSync/sourceDataPrimaryKeys&quot; ) ).toString();
+    if ( !sourcePrimaryKeys.isEmpty() &amp;&amp; chl-&gt;fields().lookupField( sourcePrimaryKeys ) &gt;= 0 )
+    {
+      const int sourcePrimaryKeysIndex = chl-&gt;fields().lookupField( sourcePrimaryKeys );
+      if ( !chl-&gt;fields().at( sourcePrimaryKeysIndex ).defaultValueDefinition().isValid() )
+      {
+        for ( auto fid : fids )
+        {
+          chl-&gt;changeAttributeValue( fid, sourcePrimaryKeysIndex, QVariant() );
+        }
+      }
+    }
+
+    chl-&gt;commitChanges();
+  }
+
+  return duplicatedFeature;
+}
+
+bool LayerUtils::hasMValue( QgsVectorLayer *layer )
+{
+  if ( !layer )
+    return false;
+
+  return QgsWkbTypes::hasM( layer-&gt;wkbType() );
+}
+
+QgsVectorLayer *LayerUtils::loadVectorLayer( const QString &amp;uri, const QString &amp;name, const QString &amp;provider )
+{
+  QgsVectorLayer *layer = new QgsVectorLayer( uri, name, provider );
+  QQmlEngine::setObjectOwnership( layer, QQmlEngine::CppOwnership );
+  return layer;
+}
+
+QgsRasterLayer *LayerUtils::loadRasterLayer( const QString &amp;uri, const QString &amp;name, const QString &amp;provider )
+{
+  QgsRasterLayer *layer = new QgsRasterLayer( uri, name, provider );
+  QQmlEngine::setObjectOwnership( layer, QQmlEngine::CppOwnership );
+  return layer;
+}
+
+QgsVectorLayer *LayerUtils::memoryLayerFromJsonString( const QString &amp;name, const QString &amp;string, const QgsCoordinateReferenceSystem &amp;crs )
+{
+  const QgsFields fields = QgsJsonUtils::stringToFields( string );
+  QgsFeatureList features = QgsJsonUtils::stringToFeatureList( string, fields );
+  if ( features.isEmpty() )
+  {
+    return nullptr;
+  }
+
+  QgsVectorLayer *layer = LayerUtils::createMemoryLayer( name, fields, features[0].geometry().wkbType(), crs );
+  if ( QgsVectorDataProvider *dataProvider = layer-&gt;dataProvider() )
+  {
+    dataProvider-&gt;addFeatures( features );
+  }
+  return layer;
+}
+
+QgsVectorLayer *LayerUtils::createMemoryLayer( const QString &amp;name, const QgsFields &amp;fields, Qgis::WkbType geometryType, const QgsCoordinateReferenceSystem &amp;crs )
+{
+  QgsVectorLayer *layer = QgsMemoryProviderUtils::createMemoryLayer( name, fields, geometryType, crs );
+  QQmlEngine::setObjectOwnership( layer, QQmlEngine::CppOwnership );
+  LayerUtils::setDefaultRenderer( layer );
+  return layer;
+}
+
+FeatureIterator LayerUtils::createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &amp;expression )
+{
+  const QgsFeatureRequest request = QgsFeatureRequest( QgsExpression( expression ) );
+  return FeatureIterator( layer, request );
+}
+
+FeatureIterator LayerUtils::createFeatureIteratorFromRectangle( QgsVectorLayer *layer, const QgsRectangle &amp;rectangle )
+{
+  const QgsFeatureRequest request = QgsFeatureRequest( rectangle );
+  return FeatureIterator( layer, request );
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

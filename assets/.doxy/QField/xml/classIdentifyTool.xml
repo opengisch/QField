@@ -1,0 +1,579 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classIdentifyTool" kind="class" language="C++" prot="public">
+    <compoundname>IdentifyTool</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <innerclass refid="structIdentifyTool_1_1IdentifyResult" prot="public">IdentifyTool::IdentifyResult</innerclass>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classIdentifyTool_1a656c8590c39a14aa482deb78cbfc77e9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * IdentifyTool::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>IdentifyTool::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="39" column="5" bodyfile="src/core/identifytool.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classIdentifyTool_1a911d013f776d1e0c007bc52b8b2de18e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double IdentifyTool::searchRadiusMm</definition>
+        <argsstring></argsstring>
+        <name>searchRadiusMm</name>
+        <qualifiedname>IdentifyTool::searchRadiusMm</qualifiedname>
+        <read>searchRadiusMm</read>
+        <write>setSearchRadiusMm</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="40" column="5" bodyfile="src/core/identifytool.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classIdentifyTool_1a71e378fb00e420eb60bcc04e241d63e1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref> *</type>
+        <definition>MultiFeatureListModel * IdentifyTool::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>IdentifyTool::model</qualifiedname>
+        <read>model</read>
+        <write>setModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="41" column="5" bodyfile="src/core/identifytool.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classIdentifyTool_1a8ee036fd9249bd41c36a260be3263ed0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool IdentifyTool::deactivated</definition>
+        <argsstring></argsstring>
+        <name>deactivated</name>
+        <qualifiedname>IdentifyTool::deactivated</qualifiedname>
+        <read>deactivated</read>
+        <write>setDeactivated</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="42" column="5" bodyfile="src/core/identifytool.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classIdentifyTool_1a6964258ff056edfa5922e08a12958966" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* IdentifyTool::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>IdentifyTool::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="88" column="25" bodyfile="src/core/identifytool.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classIdentifyTool_1a68c7466242f5ae2f14907478629e2627" prot="private" static="no" mutable="no">
+        <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref> *</type>
+        <definition>MultiFeatureListModel* IdentifyTool::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>IdentifyTool::mModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="89" column="27" bodyfile="src/core/identifytool.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classIdentifyTool_1a34180bc290f194d97576b04d46b91d63" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double IdentifyTool::mSearchRadiusMm</definition>
+        <argsstring></argsstring>
+        <name>mSearchRadiusMm</name>
+        <qualifiedname>IdentifyTool::mSearchRadiusMm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="97" column="12" bodyfile="src/core/identifytool.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classIdentifyTool_1a23ed48f58a525c13da23a3ceb18a015f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool IdentifyTool::mDeactivated</definition>
+        <argsstring></argsstring>
+        <name>mDeactivated</name>
+        <qualifiedname>IdentifyTool::mDeactivated</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="99" column="10" bodyfile="src/core/identifytool.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classIdentifyTool_1ab41ec12d8a37f03fe7d7cac9f1fbe882" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IdentifyTool::IdentifyTool</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>IdentifyTool</name>
+        <qualifiedname>IdentifyTool::IdentifyTool</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="59" column="14" bodyfile="src/core/identifytool.cpp" bodystart="33" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classIdentifyTool_1a1ed841fa9cd713e8a347d3c0f320bce3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * IdentifyTool::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>IdentifyTool::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="61" column="25" bodyfile="src/core/identifytool.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classIdentifyTool_1a9e1b075f9e99b97b2e9f69ca19b1c7d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IdentifyTool::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>IdentifyTool::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="62" column="10" bodyfile="src/core/identifytool.cpp" bodystart="45" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classIdentifyTool_1a7fd585515b86edd365d49fb8d2822dbc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double IdentifyTool::searchRadiusMm</definition>
+        <argsstring>() const</argsstring>
+        <name>searchRadiusMm</name>
+        <qualifiedname>IdentifyTool::searchRadiusMm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="64" column="12" bodyfile="src/core/identifytool.cpp" bodystart="428" bodyend="431"/>
+      </memberdef>
+      <memberdef kind="function" id="classIdentifyTool_1a7c2c34b2a5d85aada59c124bf89928db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IdentifyTool::setSearchRadiusMm</definition>
+        <argsstring>(double searchRadiusMm)</argsstring>
+        <name>setSearchRadiusMm</name>
+        <qualifiedname>IdentifyTool::setSearchRadiusMm</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>searchRadiusMm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="65" column="10" bodyfile="src/core/identifytool.cpp" bodystart="433" bodyend="440"/>
+      </memberdef>
+      <memberdef kind="function" id="classIdentifyTool_1ac70b97617a8db3aa8b9c6261f84593a5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref> *</type>
+        <definition>MultiFeatureListModel * IdentifyTool::model</definition>
+        <argsstring>() const</argsstring>
+        <name>model</name>
+        <qualifiedname>IdentifyTool::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="67" column="27" bodyfile="src/core/identifytool.cpp" bodystart="382" bodyend="385"/>
+      </memberdef>
+      <memberdef kind="function" id="classIdentifyTool_1a45e434b6cea432b086eff9e3ed1b747f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IdentifyTool::setModel</definition>
+        <argsstring>(MultiFeatureListModel *model)</argsstring>
+        <name>setModel</name>
+        <qualifiedname>IdentifyTool::setModel</qualifiedname>
+        <param>
+          <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref> *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="68" column="10" bodyfile="src/core/identifytool.cpp" bodystart="387" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classIdentifyTool_1aa042c295c7f74256ce8babcc34172e63" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool IdentifyTool::deactivated</definition>
+        <argsstring>() const</argsstring>
+        <name>deactivated</name>
+        <qualifiedname>IdentifyTool::deactivated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="70" column="10" bodyfile="src/core/identifytool.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classIdentifyTool_1aa33040ed3be739480df1273e885630a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IdentifyTool::setDeactivated</definition>
+        <argsstring>(bool deactivated)</argsstring>
+        <name>setDeactivated</name>
+        <qualifiedname>IdentifyTool::setDeactivated</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>deactivated</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="71" column="10" bodyfile="src/core/identifytool.cpp" bodystart="396" bodyend="405"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classIdentifyTool_1aa696f8b807ddcbfcdedd7b8487c7c75f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IdentifyTool::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>IdentifyTool::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="74" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classIdentifyTool_1aa1e5c632457d0e8e9c3ed30d33f4b4fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IdentifyTool::searchRadiusMmChanged</definition>
+        <argsstring>()</argsstring>
+        <name>searchRadiusMmChanged</name>
+        <qualifiedname>IdentifyTool::searchRadiusMmChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="75" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classIdentifyTool_1a36ae4d05fa48776876096ffec5d0517c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IdentifyTool::modelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelChanged</name>
+        <qualifiedname>IdentifyTool::modelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="76" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classIdentifyTool_1a8d782a6dab884174d52bbc7dada6d90b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IdentifyTool::deactivatedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deactivatedChanged</name>
+        <qualifiedname>IdentifyTool::deactivatedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="77" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classIdentifyTool_1afd70ca25dbb477fa7b7781bf8557ff1c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IdentifyTool::identifyFinished</definition>
+        <argsstring>() const</argsstring>
+        <name>identifyFinished</name>
+        <qualifiedname>IdentifyTool::identifyFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="78" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classIdentifyTool_1adf59fa5b1bcc3b35b4ae36a59577e2b3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IdentifyTool::identify</definition>
+        <argsstring>(const QPointF &amp;point) const</argsstring>
+        <name>identify</name>
+        <qualifiedname>IdentifyTool::identify</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="81" column="10" bodyfile="src/core/identifytool.cpp" bodystart="54" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="slot" id="classIdentifyTool_1a1c85153c5b2fbfb8af535b1e95fbddba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="structIdentifyTool_1_1IdentifyResult" kindref="compound">IdentifyResult</ref> &gt;</type>
+        <definition>QList&lt; IdentifyTool::IdentifyResult &gt; IdentifyTool::identifyVectorLayer</definition>
+        <argsstring>(QgsVectorLayer *layer, const QgsPointXY &amp;point) const</argsstring>
+        <name>identifyVectorLayer</name>
+        <qualifiedname>IdentifyTool::identifyVectorLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsPointXY &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="83" column="11" bodyfile="src/core/identifytool.cpp" bodystart="95" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="slot" id="classIdentifyTool_1ab212d5b0fb26d9dcc5c730db8a74af92" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="structIdentifyTool_1_1IdentifyResult" kindref="compound">IdentifyResult</ref> &gt;</type>
+        <definition>QList&lt; IdentifyTool::IdentifyResult &gt; IdentifyTool::identifyRasterLayer</definition>
+        <argsstring>(QgsRasterLayer *layer, const QgsPointXY &amp;point) const</argsstring>
+        <name>identifyRasterLayer</name>
+        <qualifiedname>IdentifyTool::identifyRasterLayer</qualifiedname>
+        <param>
+          <type>QgsRasterLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsPointXY &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="84" column="11" bodyfile="src/core/identifytool.cpp" bodystart="191" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="slot" id="classIdentifyTool_1a23ee93a712f2db41080467610f64950a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="structIdentifyTool_1_1IdentifyResult" kindref="compound">IdentifyResult</ref> &gt;</type>
+        <definition>QList&lt; IdentifyTool::IdentifyResult &gt; IdentifyTool::identifyVectorTileLayer</definition>
+        <argsstring>(QgsVectorTileLayer *layer, const QgsPointXY &amp;point) const</argsstring>
+        <name>identifyVectorTileLayer</name>
+        <qualifiedname>IdentifyTool::identifyVectorTileLayer</qualifiedname>
+        <param>
+          <type>QgsVectorTileLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsPointXY &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="85" column="11" bodyfile="src/core/identifytool.cpp" bodystart="300" bodyend="380"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classIdentifyTool_1aea2ba05b7618e65e16129f7227652b07" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double IdentifyTool::searchRadiusMU</definition>
+        <argsstring>(const QgsRenderContext &amp;context) const</argsstring>
+        <name>searchRadiusMU</name>
+        <qualifiedname>IdentifyTool::searchRadiusMU</qualifiedname>
+        <param>
+          <type>const QgsRenderContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="91" column="12" bodyfile="src/core/identifytool.cpp" bodystart="407" bodyend="410"/>
+      </memberdef>
+      <memberdef kind="function" id="classIdentifyTool_1a43718f2a41db67ea6788d45cf4069d43" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double IdentifyTool::searchRadiusMU</definition>
+        <argsstring>() const</argsstring>
+        <name>searchRadiusMU</name>
+        <qualifiedname>IdentifyTool::searchRadiusMU</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="92" column="12" bodyfile="src/core/identifytool.cpp" bodystart="412" bodyend="416"/>
+      </memberdef>
+      <memberdef kind="function" id="classIdentifyTool_1a250e773e420ad9d40ec0bc437b9e3f90" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle IdentifyTool::toLayerCoordinates</definition>
+        <argsstring>(QgsMapLayer *layer, const QgsRectangle &amp;rect) const</argsstring>
+        <name>toLayerCoordinates</name>
+        <qualifiedname>IdentifyTool::toLayerCoordinates</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>rect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="94" column="18" bodyfile="src/core/identifytool.cpp" bodystart="418" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="function" id="classIdentifyTool_1a1a45392c7e13598aa6264e33b89bbf84" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPointXY</type>
+        <definition>QgsPointXY IdentifyTool::toLayerCoordinates</definition>
+        <argsstring>(QgsMapLayer *layer, const QgsPointXY &amp;point) const</argsstring>
+        <name>toLayerCoordinates</name>
+        <qualifiedname>IdentifyTool::toLayerCoordinates</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsPointXY &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/identifytool.h" line="95" column="16" bodyfile="src/core/identifytool.cpp" bodystart="423" bodyend="426"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>IdentifyTool</label>
+        <link refid="classIdentifyTool"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>IdentifyTool</label>
+        <link refid="classIdentifyTool"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/identifytool.h" line="35" column="1" bodyfile="src/core/identifytool.h" bodystart="36" bodyend="100"/>
+    <listofallmembers>
+      <member refid="classIdentifyTool_1a8ee036fd9249bd41c36a260be3263ed0" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>deactivated</name></member>
+      <member refid="classIdentifyTool_1aa042c295c7f74256ce8babcc34172e63" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>deactivated</name></member>
+      <member refid="classIdentifyTool_1a8d782a6dab884174d52bbc7dada6d90b" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>deactivatedChanged</name></member>
+      <member refid="classIdentifyTool_1adf59fa5b1bcc3b35b4ae36a59577e2b3" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>identify</name></member>
+      <member refid="classIdentifyTool_1afd70ca25dbb477fa7b7781bf8557ff1c" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>identifyFinished</name></member>
+      <member refid="classIdentifyTool_1ab212d5b0fb26d9dcc5c730db8a74af92" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>identifyRasterLayer</name></member>
+      <member refid="classIdentifyTool_1ab41ec12d8a37f03fe7d7cac9f1fbe882" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>IdentifyTool</name></member>
+      <member refid="classIdentifyTool_1a1c85153c5b2fbfb8af535b1e95fbddba" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>identifyVectorLayer</name></member>
+      <member refid="classIdentifyTool_1a23ee93a712f2db41080467610f64950a" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>identifyVectorTileLayer</name></member>
+      <member refid="classIdentifyTool_1a656c8590c39a14aa482deb78cbfc77e9" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>mapSettings</name></member>
+      <member refid="classIdentifyTool_1a1ed841fa9cd713e8a347d3c0f320bce3" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>mapSettings</name></member>
+      <member refid="classIdentifyTool_1aa696f8b807ddcbfcdedd7b8487c7c75f" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>mapSettingsChanged</name></member>
+      <member refid="classIdentifyTool_1a23ed48f58a525c13da23a3ceb18a015f" prot="private" virt="non-virtual"><scope>IdentifyTool</scope><name>mDeactivated</name></member>
+      <member refid="classIdentifyTool_1a6964258ff056edfa5922e08a12958966" prot="private" virt="non-virtual"><scope>IdentifyTool</scope><name>mMapSettings</name></member>
+      <member refid="classIdentifyTool_1a68c7466242f5ae2f14907478629e2627" prot="private" virt="non-virtual"><scope>IdentifyTool</scope><name>mModel</name></member>
+      <member refid="classIdentifyTool_1a71e378fb00e420eb60bcc04e241d63e1" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>model</name></member>
+      <member refid="classIdentifyTool_1ac70b97617a8db3aa8b9c6261f84593a5" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>model</name></member>
+      <member refid="classIdentifyTool_1a36ae4d05fa48776876096ffec5d0517c" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>modelChanged</name></member>
+      <member refid="classIdentifyTool_1a34180bc290f194d97576b04d46b91d63" prot="private" virt="non-virtual"><scope>IdentifyTool</scope><name>mSearchRadiusMm</name></member>
+      <member refid="classIdentifyTool_1a911d013f776d1e0c007bc52b8b2de18e" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>searchRadiusMm</name></member>
+      <member refid="classIdentifyTool_1a7fd585515b86edd365d49fb8d2822dbc" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>searchRadiusMm</name></member>
+      <member refid="classIdentifyTool_1aa1e5c632457d0e8e9c3ed30d33f4b4fb" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>searchRadiusMmChanged</name></member>
+      <member refid="classIdentifyTool_1aea2ba05b7618e65e16129f7227652b07" prot="private" virt="non-virtual"><scope>IdentifyTool</scope><name>searchRadiusMU</name></member>
+      <member refid="classIdentifyTool_1a43718f2a41db67ea6788d45cf4069d43" prot="private" virt="non-virtual"><scope>IdentifyTool</scope><name>searchRadiusMU</name></member>
+      <member refid="classIdentifyTool_1aa33040ed3be739480df1273e885630a2" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>setDeactivated</name></member>
+      <member refid="classIdentifyTool_1a9e1b075f9e99b97b2e9f69ca19b1c7d8" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>setMapSettings</name></member>
+      <member refid="classIdentifyTool_1a45e434b6cea432b086eff9e3ed1b747f" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>setModel</name></member>
+      <member refid="classIdentifyTool_1a7c2c34b2a5d85aada59c124bf89928db" prot="public" virt="non-virtual"><scope>IdentifyTool</scope><name>setSearchRadiusMm</name></member>
+      <member refid="classIdentifyTool_1a250e773e420ad9d40ec0bc437b9e3f90" prot="private" virt="non-virtual"><scope>IdentifyTool</scope><name>toLayerCoordinates</name></member>
+      <member refid="classIdentifyTool_1a1a45392c7e13598aa6264e33b89bbf84" prot="private" virt="non-virtual"><scope>IdentifyTool</scope><name>toLayerCoordinates</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

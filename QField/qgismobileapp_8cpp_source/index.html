@@ -1,0 +1,1960 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File qgismobileapp.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-qgismobileappcpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File qgismobileapp.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-qgismobileappcpp">File qgismobileapp.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../qgismobileapp_8cpp/"><strong>qgismobileapp.cpp</strong></a></p>
+<p><a href="../qgismobileapp_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+                            qgismobileapp.cpp
+                              -------------------
+              begin                : Wed Apr 04 10:48:28 CET 2012
+              copyright            : (C) 2012 by Marco Bernasocchi
+              email                : marco@bernawebdesign.ch
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &lt;QApplication&gt;
+
+#ifndef _MSC_VER
+#include &lt;unistd.h&gt;
+#endif
+#include &lt;stdlib.h&gt;
+
+// use GDAL VSI mechanism
+#define CPL_SUPRESS_CPLUSPLUS //#spellok
+#include &quot;cpl_conv.h&quot;
+#include &quot;cpl_string.h&quot;
+#include &quot;cpl_vsi.h&quot;
+#include &quot;gdal_version.h&quot;
+
+#ifdef WITH_BLUETOOTH
+#include &quot;bluetoothdevicemodel.h&quot;
+#include &quot;bluetoothreceiver.h&quot;
+#endif
+#ifdef WITH_SERIALPORT
+#include &quot;serialportmodel.h&quot;
+#include &quot;serialportreceiver.h&quot;
+#endif
+#include &quot;appexpressioncontextscopesgenerator.h&quot;
+#include &quot;appinterface.h&quot;
+#include &quot;attributeformmodel.h&quot;
+#include &quot;audiorecorder.h&quot;
+#include &quot;badlayerhandler.h&quot;
+#include &quot;barcodedecoder.h&quot;
+#include &quot;barcodeimageprovider.h&quot;
+#include &quot;changelogcontents.h&quot;
+#include &quot;cogoexecutor.h&quot;
+#include &quot;cogooperation.h&quot;
+#include &quot;cogooperationsmodel.h&quot;
+#include &quot;cogoregistry.h&quot;
+#include &quot;coordinatereferencesystemutils.h&quot;
+#include &quot;deltafilewrapper.h&quot;
+#include &quot;deltalistmodel.h&quot;
+#include &quot;digitizinglogger.h&quot;
+#include &quot;distancearea.h&quot;
+#include &quot;drawingcanvas.h&quot;
+#include &quot;expressioncontextutils.h&quot;
+#include &quot;expressionevaluator.h&quot;
+#include &quot;expressionvariablemodel.h&quot;
+#include &quot;externalstorage.h&quot;
+#include &quot;featurechecklistmodel.h&quot;
+#include &quot;featurehistory.h&quot;
+#include &quot;featurelistextentcontroller.h&quot;
+#include &quot;featurelistmodel.h&quot;
+#include &quot;featurelistmodelselection.h&quot;
+#include &quot;featuremodel.h&quot;
+#include &quot;featureutils.h&quot;
+#include &quot;fileutils.h&quot;
+#include &quot;focusstack.h&quot;
+#include &quot;geofencer.h&quot;
+#include &quot;geometry.h&quot;
+#include &quot;geometryeditorsmodel.h&quot;
+#include &quot;geometryutils.h&quot;
+#include &quot;gnsspositioninformation.h&quot;
+#include &quot;gridmodel.h&quot;
+#include &quot;identifytool.h&quot;
+#include &quot;layerobserver.h&quot;
+#include &quot;layerresolver.h&quot;
+#include &quot;layertreemapcanvasbridge.h&quot;
+#include &quot;layertreemodel.h&quot;
+#include &quot;layerutils.h&quot;
+#include &quot;legendimageprovider.h&quot;
+#include &quot;linepolygonshape.h&quot;
+#include &quot;localfilesimageprovider.h&quot;
+#include &quot;localfilesmodel.h&quot;
+#include &quot;locatormodelsuperbridge.h&quot;
+#include &quot;maplayermodel.h&quot;
+#include &quot;maptoscreen.h&quot;
+#include &quot;messagelogmodel.h&quot;
+#include &quot;navigation.h&quot;
+#include &quot;navigationmodel.h&quot;
+#include &quot;nearfieldreader.h&quot;
+#include &quot;orderedrelationmodel.h&quot;
+#include &quot;parametizedimage.h&quot;
+#include &quot;permissions.h&quot;
+#include &quot;platformutilities.h&quot;
+#include &quot;pluginmodel.h&quot;
+#include &quot;positioning.h&quot;
+#include &quot;positioningdevicemodel.h&quot;
+#include &quot;positioninginformationmodel.h&quot;
+#include &quot;positioningutils.h&quot;
+#include &quot;printlayoutlistmodel.h&quot;
+#include &quot;processingalgorithm.h&quot;
+#include &quot;processingalgorithmparametersmodel.h&quot;
+#include &quot;processingalgorithmsmodel.h&quot;
+#include &quot;processingutils.h&quot;
+#include &quot;projectinfo.h&quot;
+#include &quot;projectsimageprovider.h&quot;
+#include &quot;projectsource.h&quot;
+#include &quot;projectutils.h&quot;
+#include &quot;qfield.h&quot;
+#include &quot;qfieldcloudconnection.h&quot;
+#include &quot;qfieldcloudproject.h&quot;
+#include &quot;qfieldcloudprojectsmodel.h&quot;
+#include &quot;qfieldcloudutils.h&quot;
+#include &quot;qfieldlocatorfilter.h&quot;
+#include &quot;qfieldurlhandler.h&quot;
+#include &quot;qgismobileapp.h&quot;
+#include &quot;qgsgeometrywrapper.h&quot;
+#include &quot;qgsproviderregistry.h&quot;
+#include &quot;qgsprovidersublayerdetails.h&quot;
+#include &quot;qgsquickcoordinatetransformer.h&quot;
+#include &quot;qgsquickelevationprofilecanvas.h&quot;
+#include &quot;qgsquickmapcanvasmap.h&quot;
+#include &quot;qgsquickmapsettings.h&quot;
+#include &quot;qgsquickmaptransform.h&quot;
+#include &quot;quick3dmaptexturedata.h&quot;
+#include &quot;quick3drubberbandgeometry.h&quot;
+#include &quot;quick3dterraingeometry.h&quot;
+#include &quot;quick3dterrainprovider.h&quot;
+#include &quot;recentprojectlistmodel.h&quot;
+#include &quot;referencingfeaturelistmodel.h&quot;
+#include &quot;relationutils.h&quot;
+#include &quot;resourcesource.h&quot;
+#include &quot;rubberbandmodel.h&quot;
+#include &quot;rubberbandshape.h&quot;
+#include &quot;scalebarmeasurement.h&quot;
+#include &quot;sensorlistmodel.h&quot;
+#include &quot;snappingresult.h&quot;
+#include &quot;snappingutils.h&quot;
+#include &quot;stringutils.h&quot;
+#include &quot;submodel.h&quot;
+#include &quot;theme.h&quot;
+#include &quot;trackingmodel.h&quot;
+#include &quot;urlutils.h&quot;
+#include &quot;valuemapmodel.h&quot;
+#include &quot;vertexmodel.h&quot;
+#include &quot;webdavconnection.h&quot;
+
+#include &lt;QDateTime&gt;
+#include &lt;QDesktopServices&gt;
+#include &lt;QFileInfo&gt;
+#include &lt;QFontDatabase&gt;
+#include &lt;QPalette&gt;
+#include &lt;QPermissions&gt;
+#include &lt;QQmlFileSelector&gt;
+#include &lt;QResource&gt;
+#include &lt;QScreen&gt;
+#include &lt;QSslConfiguration&gt;
+#include &lt;QStyleHints&gt;
+#include &lt;QtQml/QQmlApplicationEngine&gt;
+#include &lt;QtQml/QQmlContext&gt;
+#include &lt;QtQml/QQmlEngine&gt;
+#include &lt;qgsauthmanager.h&gt;
+#include &lt;qgsbilinearrasterresampler.h&gt;
+#include &lt;qgscoordinatereferencesystem.h&gt;
+#include &lt;qgsexpressionfunction.h&gt;
+#include &lt;qgsfeature.h&gt;
+#include &lt;qgsfield.h&gt;
+#include &lt;qgsfieldconstraints.h&gt;
+#include &lt;qgsfontmanager.h&gt;
+#include &lt;qgsgeopackageprojectstorage.h&gt;
+#include &lt;qgslayertree.h&gt;
+#include &lt;qgslayertreemodel.h&gt;
+#include &lt;qgslayertreeregistrybridge.h&gt;
+#include &lt;qgslayoutatlas.h&gt;
+#include &lt;qgslayoutexporter.h&gt;
+#include &lt;qgslayoutitemlabel.h&gt;
+#include &lt;qgslayoutitemmap.h&gt;
+#include &lt;qgslayoutmanager.h&gt;
+#include &lt;qgslayoutpagecollection.h&gt;
+#include &lt;qgslocalizeddatapathregistry.h&gt;
+#include &lt;qgslocator.h&gt;
+#include &lt;qgslocatorcontext.h&gt;
+#include &lt;qgslocatormodel.h&gt;
+#include &lt;qgsmaplayer.h&gt;
+#include &lt;qgsmaplayerstyle.h&gt;
+#include &lt;qgsmapthemecollection.h&gt;
+#include &lt;qgsmessagelog.h&gt;
+#include &lt;qgsnetworkaccessmanager.h&gt;
+#include &lt;qgsofflineediting.h&gt;
+#include &lt;qgsprintlayout.h&gt;
+#include &lt;qgsproject.h&gt;
+#include &lt;qgsprojectdisplaysettings.h&gt;
+#include &lt;qgsprojectelevationproperties.h&gt;
+#include &lt;qgsprojectstorage.h&gt;
+#include &lt;qgsprojectstorageregistry.h&gt;
+#include &lt;qgsprojectstylesettings.h&gt;
+#include &lt;qgsprojectviewsettings.h&gt;
+#include &lt;qgsrasterlayer.h&gt;
+#include &lt;qgsrasterresamplefilter.h&gt;
+#include &lt;qgsrelationmanager.h&gt;
+#include &lt;qgssettingsregistrycore.h&gt;
+#include &lt;qgssinglesymbolrenderer.h&gt;
+#include &lt;qgssnappingutils.h&gt;
+#include &lt;qgstemporalutils.h&gt;
+#include &lt;qgsterrainprovider.h&gt;
+#include &lt;qgsunittypes.h&gt;
+#include &lt;qgsvectorlayer.h&gt;
+#include &lt;qgsvectorlayereditbuffer.h&gt;
+#include &lt;qgsvectorlayertemporalproperties.h&gt;
+
+
+#define QUOTE( string ) _QUOTE( string )
+#define _QUOTE( string ) #string
+
+QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
+  : QQmlApplicationEngine( parent )
+  , mIface( new AppInterface( this ) )
+  , mFirstRenderingFlag( true )
+  , mApp( app )
+{
+  // Set QGIS-specific core settings
+  QgsSettingsRegistryCore::settingsEnableWMSTilePrefetching-&gt;setValue( true );
+
+  // Increase maximum concurrent connections allowed
+  QgsApplication::settingsConnectionPoolMaximumConcurrentConnections-&gt;setValue( 10 );
+
+  mUrlHandler.reset( new QFieldUrlHandler( mIface, this ) );
+  QDesktopServices::setUrlHandler( QStringLiteral( &quot;qfield&quot; ), mUrlHandler.get(), &quot;handleUrl&quot; );
+
+  mMessageLogModel = new MessageLogModel( this );
+
+  mCogoRegistry.reset( new CogoRegistry() );
+  CogoRegistry::setInstance( mCogoRegistry.get() );
+
+  QSettings settings;
+  if ( PlatformUtilities::instance()-&gt;capabilities() &amp; PlatformUtilities::AdjustBrightness )
+  {
+    mScreenDimmer = std::make_unique&lt;ScreenDimmer&gt;( app );
+    mScreenDimmer-&gt;setTimeout( settings.value( QStringLiteral( &quot;dimTimeoutSeconds&quot; ), 40 ).toInt() );
+  }
+
+  QgsNetworkAccessManager::settingsNetworkTimeout-&gt;setValue( 60 * 1000 );
+
+  // we cannot use &quot;/&quot; as separator, since QGIS puts a suffix QGIS/31700 anyway
+  const QString userAgent = QStringLiteral( &quot;qfield|%1|%2|%3|&quot; ).arg( qfield::appVersion, qfield::appVersionStr.normalized( QString::NormalizationForm_KD ), qfield::gitRev );
+  settings.setValue( QStringLiteral( &quot;/qgis/networkAndProxy/userAgent&quot; ), userAgent );
+
+  AppInterface::setInstance( mIface );
+
+  //set the authHandler to qfield-handler
+  std::unique_ptr&lt;QgsNetworkAuthenticationHandler&gt; handler;
+  mAuthRequestHandler = new QFieldAppAuthRequestHandler();
+  handler.reset( mAuthRequestHandler );
+  QgsNetworkAccessManager::instance()-&gt;setAuthHandler( std::move( handler ) );
+
+  QStringList dataDirs = PlatformUtilities::instance()-&gt;appDataDirs();
+  if ( !dataDirs.isEmpty() )
+  {
+    //set localized data paths and register fonts
+    QStringList localizedDataPaths;
+    for ( const QString &amp;dataDir : dataDirs )
+    {
+      localizedDataPaths &lt;&lt; dataDir + QStringLiteral( &quot;basemaps/&quot; );
+
+      // Add app-wide font(s)
+      const QDir fontDir = QDir::cleanPath( QFileInfo( dataDir ).absoluteDir().path() + QDir::separator() + QStringLiteral( &quot;fonts&quot; ) );
+      const QStringList fontExts = QStringList() &lt;&lt; &quot;*.ttf&quot;
+                                                 &lt;&lt; &quot;*.TTF&quot;
+                                                 &lt;&lt; &quot;*.otf&quot;
+                                                 &lt;&lt; &quot;*.OTF&quot;;
+      const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
+      for ( const QString &amp;fontFile : fontFiles )
+      {
+        const int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+        qInfo() &lt;&lt; QStringLiteral( &quot;App-wide font registered: %1&quot; ).arg( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+        if ( id == -1 )
+        {
+          QgsMessageLog::logMessage( tr( &quot;Could not load font: %1&quot; ).arg( fontFile ) );
+        }
+      }
+    }
+    QgsApplication::instance()-&gt;localizedDataPathRegistry()-&gt;setPaths( localizedDataPaths );
+  }
+
+  // Add app resource font(s)
+  const QDir resourceFontDir = QStringLiteral( &quot;:/fonts/&quot; );
+  const QStringList resourceFontExts = QStringList() &lt;&lt; &quot;*.ttf&quot;
+                                                     &lt;&lt; &quot;*.TTF&quot;
+                                                     &lt;&lt; &quot;*.otf&quot;
+                                                     &lt;&lt; &quot;*.OTF&quot;;
+  const QStringList resourceFontFiles = resourceFontDir.entryList( resourceFontExts, QDir::Files );
+  for ( const QString &amp;resourceFontFile : resourceFontFiles )
+  {
+    const int id = QFontDatabase::addApplicationFont( QStringLiteral( &quot;:/fonts/%1&quot; ).arg( resourceFontFile ) );
+    if ( id == -1 )
+    {
+      QgsMessageLog::logMessage( tr( &quot;Could not load resource font: %1&quot; ).arg( resourceFontFile ) );
+    }
+  }
+
+  QgsApplication::fontManager()-&gt;enableFontDownloadsForSession();
+
+  mProject = QgsProject::instance();
+  connect( mProject, &amp;QgsProject::aboutToBeCleared, this, [this] {
+    if ( !mProjectFilePath.isEmpty() )
+    {
+      mPluginManager-&gt;unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
+    }
+  } );
+
+  mTrackingModel = new TrackingModel();
+  mGpkgFlusher = std::make_unique&lt;QgsGpkgFlusher&gt;( mProject );
+  mLayerObserver = std::make_unique&lt;LayerObserver&gt;( mProject );
+  mFeatureHistory = std::make_unique&lt;FeatureHistory&gt;( mProject, mTrackingModel );
+  mClipboardManager = std::make_unique&lt;ClipboardManager&gt;( this );
+  mFlatLayerTree = new FlatLayerTreeModel( mProject-&gt;layerTreeRoot(), mProject, this );
+  mLegendImageProvider = new LegendImageProvider( mFlatLayerTree-&gt;layerTreeModel() );
+  mAsyncLegendImageProvider = new AsyncLegendImageProvider( mFlatLayerTree-&gt;layerTreeModel() );
+  mLocalFilesImageProvider = new LocalFilesImageProvider();
+  mProjectsImageProvider = new ProjectsImageProvider();
+  mBarcodeImageProvider = new BarcodeImageProvider();
+
+  mBookmarkModel = new BookmarkModel( QgsApplication::bookmarkManager(), mProject-&gt;bookmarkManager(), this );
+  mDrawingTemplateModel = new DrawingTemplateModel( this );
+
+  mPluginManager = new PluginManager( this );
+
+  // cppcheck-suppress leakReturnValNotUsed
+  initDeclarative( this );
+
+  registerGlobalVariables();
+
+  if ( !dataDirs.isEmpty() )
+  {
+    // import authentication method configurations
+    for ( const QString &amp;dataDir : dataDirs )
+    {
+      QDir configurationsDir( QStringLiteral( &quot;%1/auth/&quot; ).arg( dataDir ) );
+      if ( configurationsDir.exists() )
+      {
+        const QStringList configurations = configurationsDir.entryList( QStringList() &lt;&lt; QStringLiteral( &quot;*.xml&quot; ) &lt;&lt; QStringLiteral( &quot;*.XML&quot; ), QDir::Files );
+        for ( const QString &amp;configuration : configurations )
+        {
+          QgsApplication::authManager()-&gt;importAuthenticationConfigsFromXml( configurationsDir.absoluteFilePath( configuration ), QString(), true );
+        }
+      }
+    }
+  }
+
+  PlatformUtilities::instance()-&gt;setScreenLockPermission( false );
+
+  load( QUrl( &quot;qrc:/qml/qgismobileapp.qml&quot; ) );
+  mMapCanvas = rootObjects().first()-&gt;findChild&lt;QgsQuickMapCanvasMap *&gt;();
+  Q_ASSERT_X( mMapCanvas, &quot;QML Init&quot;, &quot;QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages.&quot; );
+  mMapCanvas-&gt;mapSettings()-&gt;setProject( mProject );
+  mBookmarkModel-&gt;setMapSettings( mMapCanvas-&gt;mapSettings() );
+  mAsyncLegendImageProvider-&gt;setMapSettings( mMapCanvas-&gt;mapSettings() );
+
+  mFlatLayerTree-&gt;layerTreeModel()-&gt;setLegendMapViewData( mMapCanvas-&gt;mapSettings()-&gt;mapSettings().mapUnitsPerPixel(),
+                                                          static_cast&lt;int&gt;( std::round( mMapCanvas-&gt;mapSettings()-&gt;outputDpi() ) ), mMapCanvas-&gt;mapSettings()-&gt;mapSettings().scale() );
+
+  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mFlatLayerTree, mMapCanvas-&gt;mapSettings(), mTrackingModel, this );
+
+  connect( this, &amp;QgisMobileapp::loadProjectTriggered, mIface, &amp;AppInterface::loadProjectTriggered );
+  connect( this, &amp;QgisMobileapp::loadProjectEnded, mIface, &amp;AppInterface::loadProjectEnded );
+  connect( this, &amp;QgisMobileapp::setMapExtent, mIface, &amp;AppInterface::setMapExtent );
+
+  QTimer::singleShot( 1, this, &amp;QgisMobileapp::onAfterFirstRendering );
+
+  mOfflineEditing = new QgsOfflineEditing();
+
+  mSettings.setValue( &quot;/Map/searchRadiusMM&quot;, 5 );
+
+  mAppMissingGridHandler = new AppMissingGridHandler( this );
+
+  // Set GDAL option to fix loading of datasets within ZIP containers
+  CPLSetConfigOption( &quot;CPL_ZIP_ENCODING&quot;, &quot;UTF-8&quot; );
+
+  connect( QgsApplication::instance(), &amp;QGuiApplication::applicationStateChanged, this, []( Qt::ApplicationState state ) {
+    switch ( state )
+    {
+      case Qt::ApplicationSuspended:
+      case Qt::ApplicationHidden:
+      case Qt::ApplicationInactive:
+      {
+        // Write settings to permanent storage
+        QSettings().sync();
+      }
+
+      case Qt::ApplicationActive:
+      {
+        break;
+      }
+    }
+  } );
+}
+
+void QgisMobileapp::initDeclarative( QQmlEngine *engine )
+{
+#if defined( Q_OS_ANDROID )
+  QResource::registerResource( QStringLiteral( &quot;assets:/android_rcc_bundle.rcc&quot; ) );
+#endif
+  engine-&gt;addImportPath( QStringLiteral( &quot;qrc:/qml/imports&quot; ) );
+
+  qRegisterMetaType&lt;QMetaType::Type&gt;( &quot;QMetaType::Type&quot; );
+
+  // Register QGIS QML types
+  qmlRegisterType&lt;QgsSnappingUtils&gt;( &quot;org.qgis&quot;, 1, 0, &quot;SnappingUtils&quot; );
+  qmlRegisterType&lt;QgsMapLayerProxyModel&gt;( &quot;org.qgis&quot;, 1, 0, &quot;MapLayerModel&quot; );
+  qmlRegisterType&lt;QgsVectorLayer&gt;( &quot;org.qgis&quot;, 1, 0, &quot;VectorLayer&quot; );
+  qmlRegisterType&lt;QgsMapThemeCollection&gt;( &quot;org.qgis&quot;, 1, 0, &quot;MapThemeCollection&quot; );
+  qmlRegisterType&lt;QgsLocatorProxyModel&gt;( &quot;org.qgis&quot;, 1, 0, &quot;QgsLocatorProxyModel&quot; );
+  qmlRegisterType&lt;QgsVectorLayerEditBuffer&gt;( &quot;org.qgis&quot;, 1, 0, &quot;QgsVectorLayerEditBuffer&quot; );
+
+  qRegisterMetaType&lt;QgsGeometry&gt;( &quot;QgsGeometry&quot; );
+  qRegisterMetaType&lt;QgsFeature&gt;( &quot;QgsFeature&quot; );
+  qRegisterMetaType&lt;QgsFeatureRequest&gt;( &quot;QgsFeatureRequest&quot; );
+  qRegisterMetaType&lt;QgsFeatureIterator&gt;( &quot;QgsFeatureIterator&quot; );
+  qRegisterMetaType&lt;QgsPoint&gt;( &quot;QgsPoint&quot; );
+  qRegisterMetaType&lt;QgsPointXY&gt;( &quot;QgsPointXY&quot; );
+  qRegisterMetaType&lt;QgsPointSequence&gt;( &quot;QgsPointSequence&quot; );
+  qRegisterMetaType&lt;QgsCoordinateTransformContext&gt;( &quot;QgsCoordinateTransformContext&quot; );
+  qRegisterMetaType&lt;QgsFeatureId&gt;( &quot;QgsFeatureId&quot; );
+  qRegisterMetaType&lt;QgsFeatureIds&gt;( &quot;QgsFeatureIds&quot; );
+  qRegisterMetaType&lt;QgsAttributes&gt;( &quot;QgsAttributes&quot; );
+  qRegisterMetaType&lt;QgsSnappingConfig&gt;( &quot;QgsSnappingConfig&quot; );
+  qRegisterMetaType&lt;QgsRelation&gt;( &quot;QgsRelation&quot; );
+  qRegisterMetaType&lt;QgsPolymorphicRelation&gt;( &quot;QgsPolymorphicRelation&quot; );
+  qRegisterMetaType&lt;QgsFields&gt;( &quot;QgsFields&quot; );
+  qRegisterMetaType&lt;QgsField&gt;( &quot;QgsField&quot; );
+  qRegisterMetaType&lt;QgsDefaultValue&gt;( &quot;QgsDefaultValue&quot; );
+  qRegisterMetaType&lt;QgsFieldConstraints&gt;( &quot;QgsFieldConstraints&quot; );
+
+  qRegisterMetaType&lt;Qgis::GeometryType&gt;( &quot;Qgis::GeometryType&quot; );
+  qRegisterMetaType&lt;Qgis::WkbType&gt;( &quot;Qgis::WkbType&quot; );
+  qRegisterMetaType&lt;Qgis::LayerType&gt;( &quot;Qgis::LayerType&quot; );
+  qRegisterMetaType&lt;Qgis::LayerFilters&gt;( &quot;Qgis::LayerFilters&quot; );
+  qRegisterMetaType&lt;Qgis::DistanceUnit&gt;( &quot;Qgis::DistanceUnit&quot; );
+  qRegisterMetaType&lt;Qgis::AreaUnit&gt;( &quot;Qgis::AreaUnit&quot; );
+  qRegisterMetaType&lt;Qgis::AngleUnit&gt;( &quot;Qgis::AngleUnit&quot; );
+  qRegisterMetaType&lt;Qgis::DeviceConnectionStatus&gt;( &quot;Qgis::DeviceConnectionStatus&quot; );
+  qRegisterMetaType&lt;Qgis::SnappingMode&gt;( &quot;Qgis::SnappingMode&quot; );
+
+  qmlRegisterUncreatableType&lt;Qgis&gt;( &quot;org.qgis&quot;, 1, 0, &quot;Qgis&quot;, &quot;&quot; );
+
+  qmlRegisterUncreatableType&lt;QgsProject&gt;( &quot;org.qgis&quot;, 1, 0, &quot;Project&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;QgsProjectDisplaySettings&gt;( &quot;org.qgis&quot;, 1, 0, &quot;ProjectDisplaySettings&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;QgsCoordinateReferenceSystem&gt;( &quot;org.qgis&quot;, 1, 0, &quot;CoordinateReferenceSystem&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;QgsUnitTypes&gt;( &quot;org.qgis&quot;, 1, 0, &quot;QgsUnitTypes&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;QgsRelationManager&gt;( &quot;org.qgis&quot;, 1, 0, &quot;RelationManager&quot;, &quot;The relation manager is available from the QgsProject. Try `qgisProject.relationManager`&quot; );
+  qmlRegisterUncreatableType&lt;QgsWkbTypes&gt;( &quot;org.qgis&quot;, 1, 0, &quot;QgsWkbTypes&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;QgsMapLayer&gt;( &quot;org.qgis&quot;, 1, 0, &quot;MapLayer&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;QgsRasterLayer&gt;( &quot;org.qgis&quot;, 1, 0, &quot;RasterLayer&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;QgsVectorLayer&gt;( &quot;org.qgis&quot;, 1, 0, &quot;VectorLayerStatic&quot;, &quot;&quot; );
+
+  // Register QgsQuick QML types
+  qmlRegisterType&lt;QgsQuickMapCanvasMap&gt;( &quot;org.qgis&quot;, 1, 0, &quot;MapCanvasMap&quot; );
+  qmlRegisterType&lt;QgsQuickMapSettings&gt;( &quot;org.qgis&quot;, 1, 0, &quot;MapSettings&quot; );
+  qmlRegisterType&lt;QgsQuickCoordinateTransformer&gt;( &quot;org.qfield&quot;, 1, 0, &quot;CoordinateTransformer&quot; );
+  qmlRegisterType&lt;QgsQuickElevationProfileCanvas&gt;( &quot;org.qgis&quot;, 1, 0, &quot;ElevationProfileCanvas&quot; );
+  qmlRegisterType&lt;QgsQuickMapTransform&gt;( &quot;org.qgis&quot;, 1, 0, &quot;MapTransform&quot; );
+
+  // Register 3D QML types
+  qmlRegisterType&lt;Quick3DRubberbandGeometry&gt;( &quot;org.qfield&quot;, 1, 0, &quot;Quick3DRubberbandGeometry&quot; );
+  qmlRegisterType&lt;Quick3DTerrainGeometry&gt;( &quot;org.qfield&quot;, 1, 0, &quot;Quick3DTerrainGeometry&quot; );
+  qmlRegisterType&lt;Quick3DTerrainProvider&gt;( &quot;org.qfield&quot;, 1, 0, &quot;Quick3DTerrainProvider&quot; );
+  qmlRegisterType&lt;Quick3DMapTextureData&gt;( &quot;org.qfield&quot;, 1, 0, &quot;Quick3DMapTextureData&quot; );
+
+  // Register QField QML types
+  qRegisterMetaType&lt;PlatformUtilities::Capabilities&gt;( &quot;PlatformUtilities::Capabilities&quot; );
+  qRegisterMetaType&lt;GeometryUtils::GeometryOperationResult&gt;( &quot;GeometryOperationResult&quot; );
+  qRegisterMetaType&lt;QFieldCloudConnection::ConnectionStatus&gt;( &quot;QFieldCloudConnection::ConnectionStatus&quot; );
+  qRegisterMetaType&lt;CloudUserInformation&gt;( &quot;CloudUserInformation&quot; );
+  qRegisterMetaType&lt;QFieldCloudProject::ProjectStatus&gt;( &quot;QFieldCloudProject::ProjectStatus&quot; );
+  qRegisterMetaType&lt;QFieldCloudProject::ProjectCheckout&gt;( &quot;QFieldCloudProject::ProjectCheckout&quot; );
+  qRegisterMetaType&lt;QFieldCloudProject::ProjectModification&gt;( &quot;QFieldCloudProject::ProjectModification&quot; );
+  qRegisterMetaType&lt;Tracker::MeasureType&gt;( &quot;Tracker::MeasureType&quot; );
+  qRegisterMetaType&lt;PositioningSource::ElevationCorrectionMode&gt;( &quot;PositioningSource::ElevationCorrectionMode&quot; );
+
+  qmlRegisterType&lt;MultiFeatureListModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;MultiFeatureListModel&quot; );
+  qmlRegisterType&lt;FeatureIterator&gt;( &quot;org.qfield&quot;, 1, 0, &quot;FeatureIterator&quot; );
+  qmlRegisterType&lt;FeatureListModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;FeatureListModel&quot; );
+  qmlRegisterType&lt;FeatureListModelSelection&gt;( &quot;org.qfield&quot;, 1, 0, &quot;FeatureListModelSelection&quot; );
+  qmlRegisterType&lt;FeatureListExtentController&gt;( &quot;org.qfield&quot;, 1, 0, &quot;FeaturelistExtentController&quot; );
+  qmlRegisterType&lt;Geometry&gt;( &quot;org.qfield&quot;, 1, 0, &quot;Geometry&quot; );
+  qmlRegisterType&lt;RubberbandShape&gt;( &quot;org.qfield&quot;, 1, 0, &quot;RubberbandShape&quot; );
+  qmlRegisterType&lt;RubberbandModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;RubberbandModel&quot; );
+  qmlRegisterType&lt;ResourceSource&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ResourceSource&quot; );
+  qmlRegisterType&lt;ProjectInfo&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ProjectInfo&quot; );
+  qmlRegisterType&lt;ProjectSource&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ProjectSource&quot; );
+  qmlRegisterType&lt;ViewStatus&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ViewStatus&quot; );
+  qmlRegisterType&lt;GridModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;GridModel&quot; );
+  qmlRegisterUncreatableType&lt;GridAnnotation&gt;( &quot;org.qfield&quot;, 1, 0, &quot;GridAnnotation&quot;, &quot;&quot; );
+
+  qmlRegisterType&lt;CogoExecutor&gt;( &quot;org.qfield&quot;, 1, 0, &quot;CogoExecutor&quot; );
+  qmlRegisterType&lt;CogoOperationsModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;CogoOperationsModel&quot; );
+  qmlRegisterUncreatableType&lt;CogoParameter&gt;( &quot;org.qfield&quot;, 1, 0, &quot;CogoParameter&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;CogoVisualGuide&gt;( &quot;org.qfield&quot;, 1, 0, &quot;CogoVisualGuide&quot;, &quot;&quot; );
+
+  qmlRegisterType&lt;Geofencer&gt;( &quot;org.qfield&quot;, 1, 0, &quot;Geofencer&quot; );
+  qmlRegisterType&lt;DigitizingLogger&gt;( &quot;org.qfield&quot;, 1, 0, &quot;DigitizingLogger&quot; );
+  qmlRegisterType&lt;AttributeFormModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;AttributeFormModel&quot; );
+  qmlRegisterType&lt;FeatureModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;FeatureModel&quot; );
+  qmlRegisterType&lt;IdentifyTool&gt;( &quot;org.qfield&quot;, 1, 0, &quot;IdentifyTool&quot; );
+  qmlRegisterType&lt;DrawingCanvas&gt;( &quot;org.qfield&quot;, 1, 0, &quot;DrawingCanvas&quot; );
+  qmlRegisterType&lt;SubModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;SubModel&quot; );
+  qmlRegisterType&lt;ExpressionVariableModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ExpressionVariableModel&quot; );
+  qmlRegisterType&lt;ExternalStorage&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ExternalStorage&quot; );
+  qmlRegisterType&lt;BadLayerHandler&gt;( &quot;org.qfield&quot;, 1, 0, &quot;BadLayerHandler&quot; );
+  qmlRegisterType&lt;SnappingUtils&gt;( &quot;org.qfield&quot;, 1, 0, &quot;SnappingUtils&quot; );
+  qmlRegisterType&lt;DistanceArea&gt;( &quot;org.qfield&quot;, 1, 0, &quot;DistanceArea&quot; );
+  qmlRegisterType&lt;FocusStack&gt;( &quot;org.qfield&quot;, 1, 0, &quot;FocusStack&quot; );
+  qmlRegisterType&lt;ParametizedImage&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ParametizedImage&quot; );
+  qmlRegisterType&lt;PrintLayoutListModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;PrintLayoutListModel&quot; );
+  qmlRegisterType&lt;VertexModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;VertexModel&quot; );
+  qmlRegisterType&lt;MapLayerModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;MapLayerModel&quot; );
+  qmlRegisterType&lt;MapToScreen&gt;( &quot;org.qfield&quot;, 1, 0, &quot;MapToScreen&quot; );
+  qmlRegisterType&lt;LocatorModelSuperBridge&gt;( &quot;org.qfield&quot;, 1, 0, &quot;LocatorModelSuperBridge&quot; );
+  qmlRegisterType&lt;LocatorActionsModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;LocatorActionsModel&quot; );
+  qmlRegisterType&lt;LocatorFiltersModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;LocatorFiltersModel&quot; );
+  qmlRegisterType&lt;LinePolygonShape&gt;( &quot;org.qfield&quot;, 1, 0, &quot;LinePolygonShape&quot; );
+  qmlRegisterType&lt;LocalFilesModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;LocalFilesModel&quot; );
+  qmlRegisterType&lt;QgsGeometryWrapper&gt;( &quot;org.qfield&quot;, 1, 0, &quot;QgsGeometryWrapper&quot; );
+  qmlRegisterType&lt;ValueMapModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ValueMapModel&quot; );
+  qmlRegisterType&lt;RecentProjectListModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;RecentProjectListModel&quot; );
+  qmlRegisterType&lt;ReferencingFeatureListModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ReferencingFeatureListModel&quot; );
+  qmlRegisterType&lt;OrderedRelationModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;OrderedRelationModel&quot; );
+  qmlRegisterType&lt;FeatureCheckListModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;FeatureCheckListModel&quot; );
+  qmlRegisterType&lt;GeometryEditorsModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;GeometryEditorsModel&quot; );
+  qmlRegisterType&lt;ExpressionEvaluator&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ExpressionEvaluator&quot; );
+#ifdef WITH_BLUETOOTH
+  qmlRegisterType&lt;BluetoothDeviceModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;BluetoothDeviceModel&quot; );
+  qmlRegisterType&lt;BluetoothReceiver&gt;( &quot;org.qfield&quot;, 1, 0, &quot;BluetoothReceiver&quot; );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;withBluetooth&quot;, QVariant( true ) );
+#else
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;withBluetooth&quot;, QVariant( false ) );
+#endif
+#ifdef WITH_SERIALPORT
+  qmlRegisterType&lt;SerialPortModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;SerialPortModel&quot; );
+  qmlRegisterType&lt;SerialPortReceiver&gt;( &quot;org.qfield&quot;, 1, 0, &quot;SerialPortReceiver&quot; );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;withSerialPort&quot;, QVariant( true ) );
+#else
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;withSerialPort&quot;, QVariant( false ) );
+#endif
+  qmlRegisterType&lt;NearFieldReader&gt;( &quot;org.qfield&quot;, 1, 0, &quot;NearFieldReader&quot; );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;withNfc&quot;, QVariant( NearFieldReader::isSupported() ) );
+  qmlRegisterType&lt;ChangelogContents&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ChangelogContents&quot; );
+  qmlRegisterType&lt;LayerResolver&gt;( &quot;org.qfield&quot;, 1, 0, &quot;LayerResolver&quot; );
+  qmlRegisterType&lt;QFieldCloudConnection&gt;( &quot;org.qfield&quot;, 1, 0, &quot;QFieldCloudConnection&quot; );
+  qmlRegisterType&lt;QFieldCloudProject&gt;( &quot;org.qfield&quot;, 1, 0, &quot;QFieldCloudProject&quot; );
+  qmlRegisterType&lt;QFieldCloudProjectsModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;QFieldCloudProjectsModel&quot; );
+  qmlRegisterType&lt;QFieldCloudProjectsFilterModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;QFieldCloudProjectsFilterModel&quot; );
+  qmlRegisterType&lt;DeltaListModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;DeltaListModel&quot; );
+  qmlRegisterType&lt;ScaleBarMeasurement&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ScaleBarMeasurement&quot; );
+  qmlRegisterType&lt;SensorListModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;SensorListModel&quot; );
+  qmlRegisterType&lt;Navigation&gt;( &quot;org.qfield&quot;, 1, 0, &quot;Navigation&quot; );
+  qmlRegisterType&lt;NavigationModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;NavigationModel&quot; );
+  qmlRegisterType&lt;Positioning&gt;( &quot;org.qfield&quot;, 1, 0, &quot;Positioning&quot; );
+  qmlRegisterType&lt;PositioningInformationModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;PositioningInformationModel&quot; );
+  qmlRegisterType&lt;PositioningDeviceModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;PositioningDeviceModel&quot; );
+  qmlRegisterType&lt;WebdavConnection&gt;( &quot;org.qfield&quot;, 1, 0, &quot;WebdavConnection&quot; );
+  qmlRegisterType&lt;AppExpressionContextScopesGenerator&gt;( &quot;org.qfield&quot;, 1, 0, &quot;AppExpressionContextScopesGenerator&quot; );
+  qmlRegisterType&lt;AudioRecorder&gt;( &quot;org.qfield&quot;, 1, 0, &quot;AudioRecorder&quot; );
+  qmlRegisterType&lt;BarcodeDecoder&gt;( &quot;org.qfield&quot;, 1, 0, &quot;BarcodeDecoder&quot; );
+  qmlRegisterType&lt;CameraPermission&gt;( &quot;org.qfield&quot;, 1, 0, &quot;QfCameraPermission&quot; );
+  qmlRegisterType&lt;MicrophonePermission&gt;( &quot;org.qfield&quot;, 1, 0, &quot;QfMicrophonePermission&quot; );
+  qmlRegisterUncreatableType&lt;QAbstractSocket&gt;( &quot;org.qfield&quot;, 1, 0, &quot;QAbstractSocket&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;AbstractGnssReceiver&gt;( &quot;org.qfield&quot;, 1, 0, &quot;AbstractGnssReceiver&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;Tracker&gt;( &quot;org.qfield&quot;, 1, 0, &quot;Tracker&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;GnssPositionInformation&gt;( &quot;org.qfield&quot;, 1, 0, &quot;GnssPositionInformation&quot;, &quot;Access to enums and properties only; cannot instantiate in QML.&quot; );
+
+  qRegisterMetaType&lt;GnssPositionDetails&gt;( &quot;GnssPositionDetails&quot; );
+  qRegisterMetaType&lt;PluginInformation&gt;( &quot;PluginInformation&quot; );
+
+  qmlRegisterType&lt;PluginModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;PluginModel&quot; );
+  qmlRegisterType&lt;PluginProxyModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;PluginProxyModel&quot; );
+
+  qmlRegisterType&lt;ProcessingAlgorithm&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ProcessingAlgorithm&quot; );
+  qmlRegisterType&lt;ProcessingAlgorithmParametersModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ProcessingAlgorithmParametersModel&quot; );
+  qmlRegisterType&lt;ProcessingAlgorithmsModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;ProcessingAlgorithmsModel&quot; );
+
+  qmlRegisterType&lt;QgsLocatorContext&gt;( &quot;org.qgis&quot;, 1, 0, &quot;QgsLocatorContext&quot; );
+  qmlRegisterType&lt;QFieldLocatorFilter&gt;( &quot;org.qfield&quot;, 1, 0, &quot;QFieldLocatorFilter&quot; );
+
+  QScreen *screen = QGuiApplication::primaryScreen();
+  const qreal dpi = screen ? screen-&gt;logicalDotsPerInch() * screen-&gt;devicePixelRatio() : 96.0;
+  const qreal systemFontPointSize = PlatformUtilities::instance()-&gt;systemFontPointSize();
+  qmlRegisterSingletonType&lt;Theme&gt;( &quot;org.qfield&quot;, 1, 0, &quot;Theme&quot;, [dpi, systemFontPointSize]( QQmlEngine *, QJSEngine * ) -&gt; QObject * {
+    Theme *t = new Theme();
+    t-&gt;setScreenPpi( dpi );
+    t-&gt;setSystemFontPointSize( systemFontPointSize );
+    return t;
+  } );
+
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, ExpressionContextUtils, &quot;ExpressionContextUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, GeometryEditorsModel, &quot;GeometryEditorsModelSingleton&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, GeometryUtils, &quot;GeometryUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, FeatureUtils, &quot;FeatureUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, FileUtils, &quot;FileUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, LayerUtils, &quot;LayerUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, RelationUtils, &quot;RelationUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, StringUtils, &quot;StringUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, UrlUtils, &quot;UrlUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, QFieldCloudUtils, &quot;QFieldCloudUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, PositioningUtils, &quot;PositioningUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, ProcessingUtils, &quot;ProcessingUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, ProjectUtils, &quot;ProjectUtils&quot; );
+  REGISTER_SINGLETON( &quot;org.qfield&quot;, CoordinateReferenceSystemUtils, &quot;CoordinateReferenceSystemUtils&quot; );
+
+  qmlRegisterUncreatableType&lt;AppInterface&gt;( &quot;org.qfield&quot;, 1, 0, &quot;AppInterface&quot;, &quot;AppInterface is only provided by the environment and cannot be created ad-hoc&quot; );
+  qmlRegisterUncreatableType&lt;Settings&gt;( &quot;org.qfield&quot;, 1, 0, &quot;SettingsInterface&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;PluginManager&gt;( &quot;org.qfield&quot;, 1, 0, &quot;PluginManager&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;PlatformUtilities&gt;( &quot;org.qfield&quot;, 1, 0, &quot;PlatformUtilities&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;FlatLayerTreeModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;FlatLayerTreeModel&quot;, &quot;The FlatLayerTreeModel is available as context property `flatLayerTree`.&quot; );
+  qmlRegisterUncreatableType&lt;TrackingModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;TrackingModel&quot;, &quot;The TrackingModel is available as context property `trackingModel`.&quot; );
+  qmlRegisterUncreatableType&lt;QgsGpkgFlusher&gt;( &quot;org.qfield&quot;, 1, 0, &quot;QgsGpkgFlusher&quot;, &quot;The gpkgFlusher is available as context property `gpkgFlusher`&quot; );
+  qmlRegisterUncreatableType&lt;LayerObserver&gt;( &quot;org.qfield&quot;, 1, 0, &quot;LayerObserver&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;DeltaFileWrapper&gt;( &quot;org.qfield&quot;, 1, 0, &quot;DeltaFileWrapper&quot;, &quot;&quot; );
+  qmlRegisterUncreatableType&lt;BookmarkModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;BookmarkModel&quot;, &quot;The BookmarkModel is available as context property `bookmarkModel`&quot; );
+  qmlRegisterUncreatableType&lt;MessageLogModel&gt;( &quot;org.qfield&quot;, 1, 0, &quot;MessageLogModel&quot;, &quot;The MessageLogModel is available as context property `messageLogModel`.&quot; );
+
+  qRegisterMetaType&lt;SnappingResult&gt;( &quot;SnappingResult&quot; );
+
+  // Register some globally available variables
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;qVersion&quot;, qVersion() );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;qgisVersion&quot;, Qgis::version() );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;gdalVersion&quot;, GDAL_RELEASE_NAME );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;withNfc&quot;, QVariant( NearFieldReader::isSupported() ) );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;systemFontPointSize&quot;, PlatformUtilities::instance()-&gt;systemFontPointSize() );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;mouseDoubleClickInterval&quot;, QApplication::styleHints()-&gt;mouseDoubleClickInterval() );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;appName&quot;, qfield::appName );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;appVersion&quot;, qfield::appVersion );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;appVersionStr&quot;, qfield::appVersionStr );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;gitRev&quot;, qfield::gitRev );
+  engine-&gt;rootContext()-&gt;setContextProperty( &quot;platformUtilities&quot;, PlatformUtilities::instance() );
+}
+
+void QgisMobileapp::registerGlobalVariables()
+{
+  // Calculate device pixels
+  rootContext()-&gt;setContextProperty( &quot;qgisProject&quot;, mProject );
+  rootContext()-&gt;setContextProperty( &quot;iface&quot;, mIface );
+  rootContext()-&gt;setContextProperty( &quot;pluginManager&quot;, mPluginManager );
+  rootContext()-&gt;setContextProperty( &quot;settings&quot;, &amp;mSettings );
+  rootContext()-&gt;setContextProperty( &quot;flatLayerTree&quot;, mFlatLayerTree );
+  rootContext()-&gt;setContextProperty( &quot;CrsFactory&quot;, QVariant::fromValue&lt;QgsCoordinateReferenceSystem&gt;( mCrsFactory ) );
+  rootContext()-&gt;setContextProperty( &quot;UnitTypes&quot;, QVariant::fromValue&lt;QgsUnitTypes&gt;( mUnitTypes ) );
+  rootContext()-&gt;setContextProperty( &quot;ExifTools&quot;, QVariant::fromValue&lt;QgsExifTools&gt;( mExifTools ) );
+  rootContext()-&gt;setContextProperty( &quot;bookmarkModel&quot;, mBookmarkModel );
+  rootContext()-&gt;setContextProperty( &quot;gpkgFlusher&quot;, mGpkgFlusher.get() );
+  rootContext()-&gt;setContextProperty( &quot;layerObserver&quot;, mLayerObserver.get() );
+  rootContext()-&gt;setContextProperty( &quot;featureHistory&quot;, mFeatureHistory.get() );
+  rootContext()-&gt;setContextProperty( &quot;clipboardManager&quot;, mClipboardManager.get() );
+  rootContext()-&gt;setContextProperty( &quot;messageLogModel&quot;, mMessageLogModel );
+  rootContext()-&gt;setContextProperty( &quot;drawingTemplateModel&quot;, mDrawingTemplateModel );
+  rootContext()-&gt;setContextProperty( &quot;qfieldAuthRequestHandler&quot;, mAuthRequestHandler );
+  rootContext()-&gt;setContextProperty( &quot;trackingModel&quot;, mTrackingModel );
+  addImageProvider( QLatin1String( &quot;legend&quot; ), mLegendImageProvider );
+  addImageProvider( QLatin1String( &quot;asynclegend&quot; ), mAsyncLegendImageProvider );
+  addImageProvider( QLatin1String( &quot;localfiles&quot; ), mLocalFilesImageProvider );
+  addImageProvider( QLatin1String( &quot;projects&quot; ), mProjectsImageProvider );
+  addImageProvider( QLatin1String( &quot;barcode&quot; ), mBarcodeImageProvider );
+}
+
+
+void QgisMobileapp::loadProjectQuirks()
+{
+  // force update of canvas, without automatic changes to extent and OTF projections
+  bool autoEnableCrsTransform = mLayerTreeCanvasBridge-&gt;autoEnableCrsTransform();
+  bool autoSetupOnFirstLayer = mLayerTreeCanvasBridge-&gt;autoSetupOnFirstLayer();
+  mLayerTreeCanvasBridge-&gt;setAutoEnableCrsTransform( false );
+  mLayerTreeCanvasBridge-&gt;setAutoSetupOnFirstLayer( false );
+
+  mLayerTreeCanvasBridge-&gt;setCanvasLayers();
+
+  if ( autoEnableCrsTransform )
+    mLayerTreeCanvasBridge-&gt;setAutoEnableCrsTransform( true );
+
+  if ( autoSetupOnFirstLayer )
+    mLayerTreeCanvasBridge-&gt;setAutoSetupOnFirstLayer( true );
+}
+
+void QgisMobileapp::removeRecentProject( const QString &amp;path )
+{
+  QList&lt;QPair&lt;QString, QString&gt;&gt; projects = recentProjects();
+  for ( int idx = 0; idx &lt; projects.count(); idx++ )
+  {
+    if ( projects.at( idx ).second == path )
+    {
+      projects.removeAt( idx );
+      break;
+    }
+  }
+  saveRecentProjects( projects );
+}
+
+QList&lt;QPair&lt;QString, QString&gt;&gt; QgisMobileapp::recentProjects()
+{
+  QSettings settings;
+  QList&lt;QPair&lt;QString, QString&gt;&gt; projects;
+
+  settings.beginGroup( &quot;/qgis/recentProjects&quot; );
+  const QStringList projectKeysList = settings.childGroups();
+  QList&lt;int&gt; projectKeys;
+  // This is overdoing it since we're clipping the recent projects list to five items at the moment, but might as well be futureproof
+  for ( const QString &amp;key : projectKeysList )
+  {
+    projectKeys.append( key.toInt() );
+  }
+  for ( int i = 0; i &lt; projectKeys.count(); i++ )
+  {
+    settings.beginGroup( QString::number( projectKeys.at( i ) ) );
+    projects &lt;&lt; qMakePair( settings.value( QStringLiteral( &quot;title&quot; ) ).toString(), settings.value( QStringLiteral( &quot;path&quot; ) ).toString() );
+    settings.endGroup();
+  }
+  settings.endGroup();
+  return projects;
+}
+
+void QgisMobileapp::saveRecentProjects( const QList&lt;QPair&lt;QString, QString&gt;&gt; &amp;projects )
+{
+  QSettings settings;
+  settings.remove( QStringLiteral( &quot;/qgis/recentProjects&quot; ) );
+  for ( int idx = 0; idx &lt; projects.count() &amp;&amp; idx &lt; 5; idx++ )
+  {
+    settings.beginGroup( QStringLiteral( &quot;/qgis/recentProjects/%1&quot; ).arg( idx ) );
+    settings.setValue( QStringLiteral( &quot;title&quot; ), projects.at( idx ).first );
+    settings.setValue( QStringLiteral( &quot;path&quot; ), projects.at( idx ).second );
+    settings.endGroup();
+  }
+}
+
+void QgisMobileapp::onAfterFirstRendering()
+{
+  // This should get triggered exactly once, so we disconnect it right away
+  // disconnect( this, &amp;QgisMobileapp::afterRendering, this, &amp;QgisMobileapp::onAfterFirstRendering );
+  if ( mFirstRenderingFlag )
+  {
+    mPluginManager-&gt;restoreAppPlugins();
+    if ( PlatformUtilities::instance()-&gt;hasQfAction() )
+    {
+      PlatformUtilities::instance()-&gt;executeQfAction();
+    }
+    else if ( PlatformUtilities::instance()-&gt;hasQgsProject() )
+    {
+      PlatformUtilities::instance()-&gt;loadQgsProject();
+    }
+    else
+    {
+      if ( QSettings().value( &quot;/QField/loadProjectOnLaunch&quot;, true ).toBool() )
+      {
+        QSettings settings;
+        const QString defaultProject = settings.value( QStringLiteral( &quot;QField/defaultProject&quot; ), QString() ).toString();
+        if ( !defaultProject.isEmpty() &amp;&amp; QFileInfo::exists( defaultProject ) )
+        {
+          loadProjectFile( defaultProject );
+        }
+        else
+        {
+          const QString lastProjectFilePath = settings.value( QStringLiteral( &quot;QField/lastProjectFilePath&quot; ), QString() ).toString();
+          if ( !lastProjectFilePath.isEmpty() &amp;&amp; QFileInfo::exists( lastProjectFilePath ) )
+          {
+            loadProjectFile( lastProjectFilePath );
+          }
+        }
+      }
+    }
+    rootObjects().first()-&gt;setProperty( &quot;sceneLoaded&quot;, true );
+    mFirstRenderingFlag = false;
+  }
+}
+
+void QgisMobileapp::onMapCanvasRefreshed()
+{
+  disconnect( mMapCanvas, &amp;QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &amp;QgisMobileapp::onMapCanvasRefreshed );
+  if ( !mProjectFilePath.isEmpty() )
+  {
+    if ( !QFileInfo::exists( QStringLiteral( &quot;%1.png&quot; ).arg( mProjectFilePath ) ) )
+    {
+      saveProjectPreviewImage();
+    }
+  }
+}
+
+bool QgisMobileapp::loadProjectFile( const QString &amp;path, const QString &amp;name )
+{
+  QFileInfo fi( path );
+  if ( !fi.exists() )
+  {
+    QgsMessageLog::logMessage( tr( &quot;Can't load project, file \&quot;%1\&quot; does not exist&quot; ).arg( path ), QStringLiteral( &quot;QField&quot; ), Qgis::Warning );
+    return false;
+  }
+
+  const QString suffix = fi.suffix().toLower();
+  if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) || SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) || SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
+  {
+    saveProjectPreviewImage();
+
+    if ( !mProjectFilePath.isEmpty() )
+    {
+      mPluginManager-&gt;unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
+    }
+    mAuthRequestHandler-&gt;clearStoredRealms();
+
+    mProjectFilePath = path;
+    mProjectFileName = !name.isEmpty() ? name : fi.completeBaseName();
+
+    emit loadProjectTriggered( mProjectFilePath, mProjectFileName );
+    return true;
+  }
+
+  return false;
+}
+
+void QgisMobileapp::reloadProjectFile()
+{
+  if ( mProjectFilePath.isEmpty() )
+    QgsMessageLog::logMessage( tr( &quot;No project file currently opened&quot; ), QStringLiteral( &quot;QField&quot; ), Qgis::Warning );
+
+  emit loadProjectTriggered( mProjectFilePath, mProjectFileName );
+}
+
+void QgisMobileapp::readProjectFile()
+{
+  QFileInfo fi( mProjectFilePath );
+  if ( !fi.exists() )
+    QgsMessageLog::logMessage( tr( &quot;Can't read project, file \&quot;%1\&quot; does not exist&quot; ).arg( mProjectFilePath ), QStringLiteral( &quot;QField&quot; ), Qgis::Warning );
+
+  QSettings().setValue( QStringLiteral( &quot;QField/lastProjectFilePath&quot; ), mProjectFilePath );
+
+  const QString suffix = fi.suffix().toLower();
+
+  mProject-&gt;clear();
+  mProject-&gt;layerTreeRegistryBridge()-&gt;setLayerInsertionMethod( Qgis::LayerTreeInsertionMethod::OptimalInInsertionGroup );
+
+  mTrackingModel-&gt;reset();
+
+  // load project file fonts if present
+  const QStringList fontDirNames = QStringList() &lt;&lt; QStringLiteral( &quot;.fonts&quot; ) &lt;&lt; QStringLiteral( &quot;fonts&quot; );
+  for ( const QString &amp;fontDirName : fontDirNames )
+  {
+    const QDir fontDir = QDir::cleanPath( QFileInfo( mProjectFilePath ).absoluteDir().path() + QDir::separator() + fontDirName );
+    const QStringList fontExts = QStringList() &lt;&lt; &quot;*.ttf&quot;
+                                               &lt;&lt; &quot;*.TTF&quot;
+                                               &lt;&lt; &quot;*.otf&quot;
+                                               &lt;&lt; &quot;*.OTF&quot;;
+    const QStringList fontFiles = fontDir.entryList( fontExts, QDir::Files );
+    for ( const QString &amp;fontFile : fontFiles )
+    {
+      const int id = QFontDatabase::addApplicationFont( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+      qInfo() &lt;&lt; QStringLiteral( &quot;Project font registered: %1&quot; ).arg( QDir::cleanPath( fontDir.path() + QDir::separator() + fontFile ) );
+      if ( id == -1 )
+      {
+        QgsMessageLog::logMessage( tr( &quot;Could not load font: %1&quot; ).arg( fontFile ) );
+      }
+    }
+  }
+
+  // Load project file
+  bool projectLoaded = false;
+  if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
+  {
+    mProject-&gt;read( mProjectFilePath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
+    projectLoaded = true;
+  }
+  else if ( suffix == QStringLiteral( &quot;gpkg&quot; ) )
+  {
+    QgsProjectStorage *storage = QgsApplication::projectStorageRegistry()-&gt;projectStorageFromType( &quot;geopackage&quot; );
+    if ( storage )
+    {
+      const QStringList projectNames = storage-&gt;listProjects( mProjectFilePath );
+      if ( !projectNames.isEmpty() )
+      {
+        QgsGeoPackageProjectUri projectUri { true, mProjectFilePath, projectNames.at( 0 ) };
+        mProject-&gt;read( QgsGeoPackageProjectStorage::encodeUri( projectUri ), Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
+        projectLoaded = true;
+      }
+    }
+  }
+
+  if ( projectLoaded )
+  {
+    mProject-&gt;writeEntry( QStringLiteral( &quot;QField&quot; ), QStringLiteral( &quot;isDataset&quot; ), false );
+    if ( !QFileInfo::exists( mProject-&gt;homePath() ) )
+    {
+      // When a custom home path is not available, revert to the project file path
+      QFileInfo projectFileInfo( mProjectFilePath );
+      mProject-&gt;setPresetHomePath( projectFileInfo.absolutePath() );
+    }
+
+    if ( !mProject-&gt;error().isEmpty() )
+    {
+      QgsMessageLog::logMessage( mProject-&gt;error() );
+    }
+  }
+
+  QString title;
+  if ( mProject-&gt;fileName().startsWith( QFieldCloudUtils::localCloudDirectory() ) )
+  {
+    // Overwrite the title to match what is used in QFieldCloud
+    const QString projectId = fi.dir().dirName();
+    title = QSettings().value( QStringLiteral( &quot;QFieldCloud/projects/%1/name&quot; ).arg( projectId ), fi.fileName() ).toString();
+  }
+  else
+  {
+    title = mProject-&gt;title().isEmpty() ? mProjectFileName : mProject-&gt;title();
+  }
+
+  QList&lt;QPair&lt;QString, QString&gt;&gt; projects = recentProjects();
+  for ( int idx = 0; idx &lt; projects.count(); idx++ )
+  {
+    if ( projects.at( idx ).second == mProjectFilePath )
+    {
+      projects.removeAt( idx );
+      break;
+    }
+  }
+  QPair&lt;QString, QString&gt; project = qMakePair( title, mProjectFilePath );
+  projects.insert( 0, project );
+  saveRecentProjects( projects );
+
+  QList&lt;QgsMapLayer *&gt; vectorLayers;
+  QList&lt;QgsMapLayer *&gt; rasterLayers;
+  QgsCoordinateReferenceSystem crs;
+  QgsRectangle extent;
+
+  QStringList files;
+  if ( suffix == QStringLiteral( &quot;zip&quot; ) || suffix == QStringLiteral( &quot;7z&quot; ) || suffix == QStringLiteral( &quot;rar&quot; ) )
+  {
+    // get list of files inside zip file
+    QString tmpPath;
+    char **papszSiblingFiles = VSIReadDirRecursive( QStringLiteral( &quot;/vsi%1/%2&quot; ).arg( suffix, mProjectFilePath ).toLocal8Bit().constData() );
+    if ( papszSiblingFiles )
+    {
+      for ( int i = 0; papszSiblingFiles[i]; i++ )
+      {
+        tmpPath = papszSiblingFiles[i];
+        // skip directories (files ending with /)
+        if ( tmpPath.right( 1 ) != QLatin1String( &quot;/&quot; ) )
+        {
+          const QFileInfo tmpFi( tmpPath );
+          if ( SUPPORTED_VECTOR_EXTENSIONS.contains( tmpFi.suffix().toLower() ) || SUPPORTED_RASTER_EXTENSIONS.contains( tmpFi.suffix().toLower() ) )
+            files &lt;&lt; QStringLiteral( &quot;/vsi%1/%2/%3&quot; ).arg( suffix, mProjectFilePath, tmpPath );
+        }
+      }
+      CSLDestroy( papszSiblingFiles );
+    }
+  }
+  else if ( !projectLoaded )
+  {
+    files &lt;&lt; mProjectFilePath;
+  }
+
+  QgsProviderSublayerDetails::LayerOptions options( QgsProject::instance()-&gt;transformContext() );
+  options.loadDefaultStyle = true;
+
+  for ( auto filePath : std::as_const( files ) )
+  {
+    const QString fileSuffix = QFileInfo( filePath ).suffix().toLower();
+
+    if ( fileSuffix == QLatin1String( &quot;kmz&quot; ) )
+    {
+      // GDAL's internal KML driver doesn't support KMZ, work around this limitation
+      filePath = QStringLiteral( &quot;/vsizip/%1/doc.kml&quot; ).arg( mProjectFilePath );
+    }
+    else if ( fileSuffix == QLatin1String( &quot;pdf&quot; ) )
+    {
+      // Hardcode a DPI value of 300 for PDFs as most PDFs fail to register their proper resolution
+      filePath += QStringLiteral( &quot;|option:DPI=300&quot; );
+    }
+
+    const QList&lt;QgsProviderSublayerDetails&gt; sublayers = QgsProviderRegistry::instance()-&gt;querySublayers( filePath, Qgis::SublayerQueryFlags() | Qgis::SublayerQueryFlag::ResolveGeometryType );
+    for ( const QgsProviderSublayerDetails &amp;sublayer : sublayers )
+    {
+      std::unique_ptr&lt;QgsMapLayer&gt; layer( sublayer.toLayer( options ) );
+      if ( !layer || !layer-&gt;isValid() )
+        continue;
+
+      if ( layer-&gt;crs().isValid() )
+      {
+        if ( !crs.isValid() )
+          crs = layer-&gt;crs();
+
+        if ( !layer-&gt;extent().isEmpty() )
+        {
+          if ( crs != layer-&gt;crs() )
+          {
+            QgsCoordinateTransform transform( layer-&gt;crs(), crs, mProject-&gt;transformContext() );
+            try
+            {
+              if ( extent.isEmpty() )
+                extent = transform.transformBoundingBox( layer-&gt;extent() );
+              else
+                extent.combineExtentWith( transform.transformBoundingBox( layer-&gt;extent() ) );
+            }
+            catch ( const QgsCsException &amp;exp )
+            {
+              Q_UNUSED( exp )
+              // Ignore extent if it can't be transformed
+            }
+          }
+          else
+          {
+            if ( extent.isEmpty() )
+              extent = layer-&gt;extent();
+            else
+              extent.combineExtentWith( layer-&gt;extent() );
+          }
+        }
+      }
+
+      switch ( sublayer.type() )
+      {
+        case Qgis::LayerType::Vector:
+          vectorLayers &lt;&lt; layer.release();
+          break;
+        case Qgis::LayerType::Raster:
+          rasterLayers &lt;&lt; layer.release();
+          break;
+        case Qgis::LayerType::Mesh:
+        case Qgis::LayerType::VectorTile:
+        case Qgis::LayerType::Annotation:
+        case Qgis::LayerType::PointCloud:
+        case Qgis::LayerType::Group:
+        case Qgis::LayerType::Plugin:
+        case Qgis::LayerType::TiledScene:
+          continue;
+          break;
+      }
+    }
+  }
+
+  if ( vectorLayers.size() &gt; 1 )
+  {
+    std::sort( vectorLayers.begin(), vectorLayers.end(), []( QgsMapLayer *a, QgsMapLayer *b ) {
+      QgsVectorLayer *alayer = qobject_cast&lt;QgsVectorLayer *&gt;( a );
+      QgsVectorLayer *blayer = qobject_cast&lt;QgsVectorLayer *&gt;( b );
+      if ( alayer-&gt;geometryType() == Qgis::GeometryType::Point &amp;&amp; blayer-&gt;geometryType() != Qgis::GeometryType::Point )
+      {
+        return true;
+      }
+      else if ( alayer-&gt;geometryType() == Qgis::GeometryType::Line &amp;&amp; blayer-&gt;geometryType() == Qgis::GeometryType::Polygon )
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    } );
+  }
+
+  if ( vectorLayers.size() &gt; 0 || rasterLayers.size() &gt; 0 )
+  {
+    if ( crs.isValid() )
+    {
+      QSettings settings;
+      const QString fileAssociationProject = settings.value( QStringLiteral( &quot;QField/baseMapProject&quot; ), QString() ).toString();
+      if ( !fileAssociationProject.isEmpty() &amp;&amp; QFile::exists( fileAssociationProject ) )
+      {
+        mProject-&gt;read( fileAssociationProject, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
+      }
+      else
+      {
+        const QStringList dataDirs = PlatformUtilities::instance()-&gt;appDataDirs();
+        bool projectFound = false;
+        for ( const QString &amp;dataDir : dataDirs )
+        {
+          if ( QFile::exists( dataDir + QStringLiteral( &quot;basemap.qgs&quot; ) ) )
+          {
+            projectFound = true;
+            mProject-&gt;read( dataDir + QStringLiteral( &quot;basemap.qgs&quot; ), Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
+            break;
+          }
+          else if ( QFile::exists( dataDir + QStringLiteral( &quot;basemap.qgz&quot; ) ) )
+          {
+            projectFound = true;
+            mProject-&gt;read( dataDir + QStringLiteral( &quot;basemap.qgs&quot; ), Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
+            break;
+          }
+        }
+        if ( !projectFound )
+        {
+          mProject-&gt;clear();
+
+          // Add a default basemap
+          mProject-&gt;addMapLayers( QList&lt;QgsMapLayer *&gt;() &lt;&lt; LayerUtils::createBasemap() );
+        }
+      }
+
+      if ( !mProject-&gt;error().isEmpty() )
+      {
+        QgsMessageLog::logMessage( mProject-&gt;error() );
+      }
+    }
+    else
+    {
+      mProject-&gt;clear();
+    }
+
+    mProject-&gt;setCrs( crs );
+    mProject-&gt;setEllipsoid( crs.ellipsoidAcronym() );
+    mProject-&gt;setTitle( mProjectFileName );
+    mProject-&gt;setPresetHomePath( fi.absolutePath() );
+    mProject-&gt;writeEntry( QStringLiteral( &quot;QField&quot; ), QStringLiteral( &quot;isDataset&quot; ), true );
+
+    for ( QgsMapLayer *l : std::as_const( rasterLayers ) )
+    {
+      QgsRasterLayer *rlayer = qobject_cast&lt;QgsRasterLayer *&gt;( l );
+      bool ok;
+      rlayer-&gt;loadDefaultStyle( ok );
+      if ( !ok &amp;&amp; fi.size() &lt; 50000000 )
+      {
+        // If the raster size is reasonably small, apply nicer resampling settings
+        rlayer-&gt;resampleFilter()-&gt;setZoomedInResampler( new QgsBilinearRasterResampler() );
+        rlayer-&gt;resampleFilter()-&gt;setZoomedOutResampler( new QgsBilinearRasterResampler() );
+        rlayer-&gt;resampleFilter()-&gt;setMaxOversampling( 2.0 );
+      }
+    }
+    mProject-&gt;addMapLayers( rasterLayers );
+
+    bool hasTemporalLayers = false;
+    for ( QgsMapLayer *l : std::as_const( vectorLayers ) )
+    {
+      QgsVectorLayer *vlayer = qobject_cast&lt;QgsVectorLayer *&gt;( l );
+      bool ok;
+      vlayer-&gt;loadDefaultStyle( ok );
+      if ( !ok )
+      {
+        LayerUtils::setDefaultRenderer( vlayer, mProject );
+      }
+
+      if ( !vlayer-&gt;labeling() )
+      {
+        LayerUtils::setDefaultLabeling( vlayer, mProject );
+      }
+
+      const QgsFields fields = vlayer-&gt;fields();
+      int temporalFieldIndex = -1;
+      for ( int i = 0; i &lt; fields.size(); i++ )
+      {
+        if ( fields[i].type() == QMetaType::QDateTime || fields[i].type() == QMetaType::QDate )
+        {
+          if ( temporalFieldIndex == -1 )
+          {
+            temporalFieldIndex = i;
+          }
+          else
+          {
+            // Be super conservative, if more than one temporal field is present, don't auto setup
+            temporalFieldIndex = -1;
+            break;
+          }
+        }
+      }
+      if ( temporalFieldIndex &gt; 0 )
+      {
+        hasTemporalLayers = true;
+        QgsVectorLayerTemporalProperties *temporalProperties = static_cast&lt;QgsVectorLayerTemporalProperties *&gt;( vlayer-&gt;temporalProperties() );
+        temporalProperties-&gt;setStartField( fields[temporalFieldIndex].name() );
+        temporalProperties-&gt;setMode( Qgis::VectorTemporalMode::FeatureDateTimeInstantFromField );
+        temporalProperties-&gt;setLimitMode( Qgis::VectorTemporalLimitMode::IncludeBeginIncludeEnd );
+        temporalProperties-&gt;setAccumulateFeatures( false );
+        temporalProperties-&gt;setIsActive( true );
+      }
+    }
+    mProject-&gt;addMapLayers( vectorLayers );
+
+    if ( hasTemporalLayers )
+    {
+      const QgsDateTimeRange range = QgsTemporalUtils::calculateTemporalRangeForProject( mProject );
+      mMapCanvas-&gt;mapSettings()-&gt;setTemporalBegin( range.begin() );
+      mMapCanvas-&gt;mapSettings()-&gt;setTemporalEnd( range.end() );
+      mMapCanvas-&gt;mapSettings()-&gt;setIsTemporal( false );
+    }
+
+    if ( suffix.compare( QLatin1String( &quot;pdf&quot; ) ) == 0 )
+    {
+      // Geospatial PDFs should have vector layers hidden by default
+      for ( QgsMapLayer *layer : vectorLayers )
+      {
+        mProject-&gt;layerTreeRoot()-&gt;findLayer( layer-&gt;id() )-&gt;setItemVisibilityChecked( false );
+      }
+    }
+  }
+
+  if ( mProject-&gt;elevationProperties()-&gt;terrainProvider()-&gt;type() == QStringLiteral( &quot;flat&quot; ) &amp;&amp; qgsDoubleNear( mProject-&gt;elevationProperties()-&gt;terrainProvider()-&gt;offset(), 0.0 ) &amp;&amp; qgsDoubleNear( mProject-&gt;elevationProperties()-&gt;terrainProvider()-&gt;scale(), 1.0 ) )
+  {
+    QgsRasterLayer *elevationLayer = LayerUtils::createOnlineElevationLayer();
+    mProject-&gt;addMapLayer( elevationLayer, false, true );
+    QgsRasterDemTerrainProvider *terrainProvider = new QgsRasterDemTerrainProvider();
+    terrainProvider-&gt;setLayer( elevationLayer );
+    mProject-&gt;elevationProperties()-&gt;setTerrainProvider( terrainProvider );
+  }
+
+  loadProjectQuirks();
+
+  // Restore project information (extent, customized style, layer visibility, etc.)
+  QSettings settings;
+  const QStringList parts = settings.value( QStringLiteral( &quot;/qgis/projectInfo/%1/extent&quot; ).arg( mProjectFilePath ), QString() ).toString().split( '|' );
+  if ( parts.size() == 4 )
+  {
+    extent.setXMinimum( parts[0].toDouble() );
+    extent.setXMaximum( parts[1].toDouble() );
+    extent.setYMinimum( parts[2].toDouble() );
+    extent.setYMaximum( parts[3].toDouble() );
+    mMapCanvas-&gt;mapSettings()-&gt;setExtent( extent );
+  }
+  else if ( !extent.isNull() )
+  {
+    if ( extent.width() == 0.0 || extent.height() == 0.0 )
+    {
+      // If all of the features are at the one point, buffer the
+      // rectangle a bit. If they are all at zero, do something a bit
+      // more crude.
+      if ( extent.xMinimum() == 0.0 &amp;&amp; extent.xMaximum() == 0.0 &amp;&amp; extent.yMinimum() == 0.0 &amp;&amp; extent.yMaximum() == 0.0 )
+      {
+        extent.set( -1.0, -1.0, 1.0, 1.0 );
+      }
+      else
+      {
+        const double padFactor = 1e-8;
+        const double widthPad = extent.xMinimum() * padFactor;
+        const double heightPad = extent.yMinimum() * padFactor;
+        const double xmin = extent.xMinimum() - widthPad;
+        const double xmax = extent.xMaximum() + widthPad;
+        const double ymin = extent.yMinimum() - heightPad;
+        const double ymax = extent.yMaximum() + heightPad;
+        extent.set( xmin, ymin, xmax, ymax );
+      }
+    }
+
+    // Add a bit of buffer so datasets don't touch the very edge of the map on the screen
+    mMapCanvas-&gt;mapSettings()-&gt;setExtent( extent.buffered( extent.width() * 0.02 ) );
+  }
+
+  ProjectInfo::restoreSettings( mProjectFilePath, mProject, mMapCanvas, mFlatLayerTree );
+  emit loadProjectEnded( mProjectFilePath, mProjectFileName );
+  mTrackingModel-&gt;createProjectTrackers( mProject );
+
+  connect( mMapCanvas, &amp;QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &amp;QgisMobileapp::onMapCanvasRefreshed );
+
+  const QString projectPluginPath = PluginManager::findProjectPlugin( mProjectFilePath );
+  if ( !projectPluginPath.isEmpty() )
+  {
+    mPluginManager-&gt;loadPlugin( projectPluginPath, tr( &quot;Project Plugin&quot; ), false, true );
+  }
+}
+
+QString QgisMobileapp::readProjectEntry( const QString &amp;scope, const QString &amp;key, const QString &amp;def ) const
+{
+  if ( !mProject )
+    return def;
+
+  return mProject-&gt;readEntry( scope, key, def );
+}
+
+int QgisMobileapp::readProjectNumEntry( const QString &amp;scope, const QString &amp;key, int def ) const
+{
+  if ( !mProject )
+    return def;
+
+  return mProject-&gt;readNumEntry( scope, key, def );
+}
+
+double QgisMobileapp::readProjectDoubleEntry( const QString &amp;scope, const QString &amp;key, double def ) const
+{
+  if ( !mProject )
+    return def;
+
+  return mProject-&gt;readDoubleEntry( scope, key, def );
+}
+
+bool QgisMobileapp::readProjectBoolEntry( const QString &amp;scope, const QString &amp;key, bool def ) const
+{
+  if ( !mProject )
+    return def;
+
+  return mProject-&gt;readBoolEntry( scope, key, def );
+}
+
+bool QgisMobileapp::print( const QString &amp;layoutName )
+{
+  const QList&lt;QgsPrintLayout *&gt; printLayouts = mProject-&gt;layoutManager()-&gt;printLayouts();
+  QgsPrintLayout *layoutToPrint = nullptr;
+  std::unique_ptr&lt;QgsPrintLayout&gt; templateLayout;
+  if ( layoutName.isEmpty() &amp;&amp; printLayouts.isEmpty() )
+  {
+    QFile templateFile( QStringLiteral( &quot;:/templates/layout.qpt&quot; ) );
+    QDomDocument templateDoc;
+    templateDoc.setContent( &amp;templateFile );
+
+    templateLayout = std::make_unique&lt;QgsPrintLayout&gt;( QgsProject::instance() );
+    bool loadedOK = false;
+    QList&lt;QgsLayoutItem *&gt; items = templateLayout-&gt;loadFromTemplate( templateDoc, QgsReadWriteContext(), true, &amp;loadedOK );
+    if ( !loadedOK )
+    {
+      return false;
+    }
+
+    for ( QgsLayoutItem *item : items )
+    {
+      if ( item-&gt;type() == QgsLayoutItemRegistry::LayoutLabel &amp;&amp; item-&gt;id() == QStringLiteral( &quot;Title&quot; ) )
+      {
+        QgsLayoutItemLabel *labelItem = qobject_cast&lt;QgsLayoutItemLabel *&gt;( item );
+        labelItem-&gt;setText( tr( &quot;Map printed on %1 using QField&quot; ).arg( &quot;[%format_date(now(), 'yyyy-MM-dd @ hh:mm')%]&quot; ) );
+      }
+    }
+    layoutToPrint = templateLayout.get();
+  }
+  else
+  {
+    auto match = std::find_if( printLayouts.begin(), printLayouts.end(), [&amp;layoutName]( QgsPrintLayout *layout ) { return layout-&gt;name() == layoutName || layoutName.isEmpty(); } );
+    if ( match != printLayouts.end() )
+    {
+      layoutToPrint = *match;
+    }
+  }
+
+  if ( !layoutToPrint || layoutToPrint-&gt;pageCollection()-&gt;pageCount() == 0 )
+    return false;
+
+  const QString destination = QStringLiteral( &quot;%1/layouts/%2-%3.pdf&quot; ).arg( mProject-&gt;homePath(), layoutToPrint-&gt;name(), QDateTime::currentDateTime().toString( QStringLiteral( &quot;yyyyMMdd_hhmmss&quot; ) ) );
+
+  if ( !layoutToPrint-&gt;atlas() || !layoutToPrint-&gt;atlas()-&gt;enabled() )
+  {
+    if ( layoutToPrint-&gt;referenceMap() )
+      layoutToPrint-&gt;referenceMap()-&gt;zoomToExtent( mMapCanvas-&gt;mapSettings()-&gt;visibleExtent() );
+    layoutToPrint-&gt;refresh();
+
+    QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
+
+    QgsLayoutExporter::PdfExportSettings pdfSettings;
+    pdfSettings.rasterizeWholeImage = layoutToPrint-&gt;customProperty( QStringLiteral( &quot;rasterize&quot; ), false ).toBool();
+    pdfSettings.dpi = layoutToPrint-&gt;renderContext().dpi();
+    pdfSettings.appendGeoreference = true;
+    pdfSettings.exportMetadata = true;
+    pdfSettings.simplifyGeometries = true;
+    QgsLayoutExporter::ExportResult result = exporter.exportToPdf( destination, pdfSettings );
+
+    if ( result == QgsLayoutExporter::Success )
+      PlatformUtilities::instance()-&gt;open( destination );
+
+    return result == QgsLayoutExporter::Success ? true : false;
+  }
+  else
+  {
+    bool success = printAtlas( layoutToPrint, destination );
+    if ( success )
+    {
+      if ( layoutToPrint-&gt;customProperty( QStringLiteral( &quot;singleFile&quot; ), true ).toBool() )
+      {
+        PlatformUtilities::instance()-&gt;open( destination );
+      }
+      else
+      {
+        PlatformUtilities::instance()-&gt;open( mProject-&gt;homePath() );
+      }
+    }
+    return success;
+  }
+}
+
+bool QgisMobileapp::printAtlasFeatures( const QString &amp;layoutName, const QList&lt;long long&gt; &amp;featureIds )
+{
+  const QList&lt;QgsPrintLayout *&gt; printLayouts = mProject-&gt;layoutManager()-&gt;printLayouts();
+  QgsPrintLayout *layoutToPrint = nullptr;
+  auto match = std::find_if( printLayouts.begin(), printLayouts.end(), [&amp;layoutName]( QgsPrintLayout *layout ) { return layout-&gt;name() == layoutName; } );
+  if ( match != printLayouts.end() )
+  {
+    layoutToPrint = *match;
+  }
+
+  if ( !layoutToPrint || !layoutToPrint-&gt;atlas() )
+    return false;
+
+  QStringList ids;
+  for ( const auto id : featureIds )
+  {
+    ids &lt;&lt; QString::number( id );
+  }
+
+  QString error;
+  const QString priorFilterExpression = layoutToPrint-&gt;atlas()-&gt;filterExpression();
+  const bool priorFilterFeatures = layoutToPrint-&gt;atlas()-&gt;filterFeatures();
+
+  layoutToPrint-&gt;atlas()-&gt;setFilterExpression( QStringLiteral( &quot;@id IN (%1)&quot; ).arg( ids.join( ',' ) ), error );
+  layoutToPrint-&gt;atlas()-&gt;setFilterFeatures( true );
+  layoutToPrint-&gt;atlas()-&gt;updateFeatures();
+
+  const QString destination = QStringLiteral( &quot;%1/layouts/%2-%3.pdf&quot; ).arg( mProject-&gt;homePath(), layoutToPrint-&gt;name(), QDateTime::currentDateTime().toString( QStringLiteral( &quot;yyyyMMdd_hhmmss&quot; ) ) );
+  QString finalDestination;
+  const bool destinationSingleFile = layoutToPrint-&gt;customProperty( QStringLiteral( &quot;singleFile&quot; ), true ).toBool();
+  if ( !destinationSingleFile &amp;&amp; ids.size() == 1 )
+  {
+    layoutToPrint-&gt;atlas()-&gt;first();
+    finalDestination = mProject-&gt;homePath() + '/' + layoutToPrint-&gt;atlas()-&gt;currentFilename() + QStringLiteral( &quot;.pdf&quot; );
+  }
+  else
+  {
+    finalDestination = destination;
+  }
+  const bool success = printAtlas( layoutToPrint, destination );
+
+  layoutToPrint-&gt;atlas()-&gt;setFilterExpression( priorFilterExpression, error );
+  layoutToPrint-&gt;atlas()-&gt;setFilterFeatures( priorFilterFeatures );
+
+  if ( success )
+  {
+    if ( destinationSingleFile || ids.size() == 1 )
+    {
+      PlatformUtilities::instance()-&gt;open( finalDestination );
+    }
+    else
+    {
+      PlatformUtilities::instance()-&gt;open( mProject-&gt;homePath() );
+    }
+  }
+  return success;
+}
+
+bool QgisMobileapp::printAtlas( QgsPrintLayout *layoutToPrint, const QString &amp;destination )
+{
+  QString error;
+
+  QVector&lt;double&gt; mapScales = layoutToPrint-&gt;project()-&gt;viewSettings()-&gt;mapScales();
+  bool hasProjectScales( layoutToPrint-&gt;project()-&gt;viewSettings()-&gt;useProjectScales() );
+  if ( !hasProjectScales || mapScales.isEmpty() )
+  {
+    // default to global map tool scales
+    const QStringList scales = Qgis::defaultProjectScales().split( ',' );
+    for ( const QString &amp;scale : scales )
+    {
+      QStringList parts( scale.split( ':' ) );
+      if ( parts.size() == 2 )
+      {
+        mapScales.push_back( parts[1].toDouble() );
+      }
+    }
+  }
+
+  QgsLayoutExporter::PdfExportSettings pdfSettings;
+  pdfSettings.rasterizeWholeImage = layoutToPrint-&gt;customProperty( QStringLiteral( &quot;rasterize&quot; ), false ).toBool();
+  pdfSettings.dpi = layoutToPrint-&gt;renderContext().dpi();
+  pdfSettings.appendGeoreference = true;
+  pdfSettings.exportMetadata = true;
+  pdfSettings.simplifyGeometries = true;
+  pdfSettings.predefinedMapScales = mapScales;
+
+  if ( layoutToPrint-&gt;atlas()-&gt;updateFeatures() )
+  {
+    QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
+    QgsLayoutExporter::ExportResult result;
+
+    if ( layoutToPrint-&gt;customProperty( QStringLiteral( &quot;singleFile&quot; ), true ).toBool() )
+    {
+      result = exporter.exportToPdf( layoutToPrint-&gt;atlas(), destination, pdfSettings, error );
+    }
+    else
+    {
+      result = exporter.exportToPdfs( layoutToPrint-&gt;atlas(), destination, pdfSettings, error );
+    }
+
+    return result == QgsLayoutExporter::Success ? true : false;
+  }
+
+  return false;
+}
+
+void QgisMobileapp::setScreenDimmerTimeout( int timeoutSeconds )
+{
+  if ( mScreenDimmer )
+  {
+    mScreenDimmer-&gt;setTimeout( timeoutSeconds );
+  }
+}
+
+bool QgisMobileapp::event( QEvent *event )
+{
+  if ( event-&gt;type() == QEvent::Close )
+  {
+    quit();
+  }
+
+  return QQmlApplicationEngine::event( event );
+}
+
+void QgisMobileapp::clearProject()
+{
+  mAuthRequestHandler-&gt;clearStoredRealms();
+
+  mProject-&gt;clear();
+  mProjectFileName = QString();
+  mProjectFilePath = QString();
+}
+
+void QgisMobileapp::saveProjectPreviewImage()
+{
+  if ( !mProjectFilePath.isEmpty() &amp;&amp; mMapCanvas &amp;&amp; !mMapCanvas-&gt;isRendering() )
+  {
+    const QImage grab = mMapCanvas-&gt;image();
+    if ( !grab.isNull() )
+    {
+      const int pixels = std::min( grab.width(), grab.height() );
+      const QRect rect( ( grab.width() - pixels ) / 2, ( grab.height() - pixels ) / 2, pixels, pixels );
+      const QImage img = grab.copy( rect );
+      img.save( QStringLiteral( &quot;%1.png&quot; ).arg( mProjectFilePath ) );
+    }
+  }
+}
+
+QgisMobileapp::~QgisMobileapp()
+{
+  PlatformUtilities::instance()-&gt;stopPositioningService();
+
+  saveProjectPreviewImage();
+
+  mPluginManager-&gt;unloadPlugins();
+
+  delete mOfflineEditing;
+  mProject-&gt;clear();
+  delete mProject;
+  delete mAppMissingGridHandler;
+
+  QgsApplication::taskManager()-&gt;cancelAll();
+  mApp-&gt;exitQgis();
+  QMetaObject::invokeMethod( mApp, &amp;QgsApplication::quit, Qt::QueuedConnection );
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classangle" kind="class" language="C++" prot="public">
+    <compoundname>angle</compoundname>
+    <basecompoundref refid="classCogoParameterWidgetBase" prot="public" virt="non-virtual">CogoParameterWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classangle_1aa17aecbed0a35d3aeb5f43e116617884" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var angle::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>angle::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/angle.qml" line="8" column="5" bodyfile="src/qml/cogoparameterwidgets/angle.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classangle_1a47593e745f18bcd55ecb29f3405bef13" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var angle::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>angle::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/angle.qml" line="9" column="5" bodyfile="src/qml/cogoparameterwidgets/angle.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classangle_1a77499fa2dfaafe3b7338de77dbc6a928" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField angle::angleField</definition>
+        <argsstring></argsstring>
+        <name>angleField</name>
+        <qualifiedname>angle::angleField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/angle.qml" line="10" column="13" bodyfile="src/qml/cogoparameterwidgets/angle.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classangle_1acca1fa3779329bb549b1a442bdb21474" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void angle::processValue</definition>
+        <argsstring>()</argsstring>
+        <name>processValue</name>
+        <qualifiedname>angle::processValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/angle.qml" line="13" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>angle</label>
+        <link refid="classangle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>angle</label>
+        <link refid="classangle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/cogoparameterwidgets/angle.qml" line="7" column="1" bodyfile="src/qml/cogoparameterwidgets/angle.qml" bodystart="7" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classangle_1a77499fa2dfaafe3b7338de77dbc6a928" prot="private" virt="non-virtual"><scope>angle</scope><name>angleField</name></member>
+      <member refid="classangle_1a47593e745f18bcd55ecb29f3405bef13" prot="private" virt="non-virtual"><scope>angle</scope><name>height</name></member>
+      <member refid="classangle_1acca1fa3779329bb549b1a442bdb21474" prot="public" virt="non-virtual"><scope>angle</scope><name>processValue</name></member>
+      <member refid="classCogoParameterWidgetBase_1a52b53003934d715a6bbbf2f77b658371" prot="public" virt="non-virtual"><scope>angle</scope><name>requestPosition</name></member>
+      <member refid="classCogoParameterWidgetBase_1ab7393dc8cfb637327c684bef80703422" prot="public" virt="non-virtual"><scope>angle</scope><name>valueChangeRequested</name></member>
+      <member refid="classangle_1aa17aecbed0a35d3aeb5f43e116617884" prot="private" virt="non-virtual"><scope>angle</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

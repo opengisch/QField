@@ -1,0 +1,517 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classToast" kind="class" language="C++" prot="public">
+    <compoundname>Toast</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Popup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classToast_1a4fef83258e7f472e8304d22ebc7dde10" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Toast::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>Toast::type</qualifiedname>
+        <read>dummyGetter_type_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="11" column="1" bodyfile="src/qml/Toast.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classToast_1ac8d2bb77650b0c32e3967c8bc6b4c467" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Toast::edgeSpacing</definition>
+        <argsstring></argsstring>
+        <name>edgeSpacing</name>
+        <qualifiedname>Toast::edgeSpacing</qualifiedname>
+        <read>dummyGetter_edgeSpacing_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="13" column="1" bodyfile="src/qml/Toast.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classToast_1a2d6742ca43719603bc7a7d2cc298be66" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Toast::bottomSpacing</definition>
+        <argsstring></argsstring>
+        <name>bottomSpacing</name>
+        <qualifiedname>Toast::bottomSpacing</qualifiedname>
+        <read>dummyGetter_bottomSpacing_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="15" column="1" bodyfile="src/qml/Toast.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classToast_1a10e4938c7c94598654265fabb47192dd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var Toast::act</definition>
+        <argsstring></argsstring>
+        <name>act</name>
+        <qualifiedname>Toast::act</qualifiedname>
+        <read>dummyGetter_act_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="17" column="1" bodyfile="src/qml/Toast.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classToast_1ad7ea5348eb1437e69ee29e7aa0991fdd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var Toast::timeoutAct</definition>
+        <argsstring></argsstring>
+        <name>timeoutAct</name>
+        <qualifiedname>Toast::timeoutAct</qualifiedname>
+        <read>dummyGetter_timeoutAct_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="19" column="1" bodyfile="src/qml/Toast.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classToast_1abf579a0de9a2f034a6091190e6c9497e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Toast::timeoutFeedback</definition>
+        <argsstring></argsstring>
+        <name>timeoutFeedback</name>
+        <qualifiedname>Toast::timeoutFeedback</qualifiedname>
+        <read>dummyGetter_timeoutFeedback_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="21" column="1" bodyfile="src/qml/Toast.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classToast_1a7aaca4567f41e0e3b74e1fbc8db37a29" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Toast::virtualKeyboardHeight</definition>
+        <argsstring></argsstring>
+        <name>virtualKeyboardHeight</name>
+        <qualifiedname>Toast::virtualKeyboardHeight</qualifiedname>
+        <read>dummyGetter_virtualKeyboardHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="23" column="1" bodyfile="src/qml/Toast.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classToast_1a60a3ad3e08cf603f5ec00425c1993812" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>Toast::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="25" column="5" bodyfile="src/qml/Toast.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1ace386277c6a31f8878665b832638a9f8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>Toast::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="26" column="5" bodyfile="src/qml/Toast.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a0d59d5f968ca6cb200e62f325270e413" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <qualifiedname>Toast::z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="27" column="5" bodyfile="src/qml/Toast.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a2d51fe00d09fc883adb5898927893b9d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>Toast::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="28" column="5" bodyfile="src/qml/Toast.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a73ec7c9e7e37a6a03e1c624ee3a99af8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Toast::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="29" column="5" bodyfile="src/qml/Toast.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a3ec45743df59200373c9a2e566b335f1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::topMargin</definition>
+        <argsstring></argsstring>
+        <name>topMargin</name>
+        <qualifiedname>Toast::topMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="30" column="5" bodyfile="src/qml/Toast.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a4e6d27178374ca8a8d35830ca4b5515b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::leftMargin</definition>
+        <argsstring></argsstring>
+        <name>leftMargin</name>
+        <qualifiedname>Toast::leftMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="31" column="5" bodyfile="src/qml/Toast.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1adfa34e0e7ac67ebc706adaef341fe69f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::rightMargin</definition>
+        <argsstring></argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>Toast::rightMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="32" column="5" bodyfile="src/qml/Toast.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1af03d1b22ecfa6fdbf5fb35dcfa843433" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>Toast::bottomMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="33" column="5" bodyfile="src/qml/Toast.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1aebc5abf5b9dafaebe1c9f67d4a5f39de" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>Toast::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="34" column="5" bodyfile="src/qml/Toast.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a7e94a956656beaa3aa8738a36c31dd35" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>Toast::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="35" column="5" bodyfile="src/qml/Toast.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a6fc1be2bfe47bc8efcde41ae351ae831" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>Toast::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="36" column="5" bodyfile="src/qml/Toast.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1aa9dad7dc72e0b3bff8a6dcfdafd250a7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Toast::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>Toast::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="37" column="5" bodyfile="src/qml/Toast.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a4ab03ea62bf7c8e49722a62d2ca5758f" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle Toast::toastContent</definition>
+        <argsstring></argsstring>
+        <name>toastContent</name>
+        <qualifiedname>Toast::toastContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="38" column="11" bodyfile="src/qml/Toast.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a18e5372d78eaa278bfd6d719251dbe1c" prot="private" static="no" mutable="no">
+        <type>ProgressBar</type>
+        <definition>ProgressBar Toast::animationProgressBar</definition>
+        <argsstring></argsstring>
+        <name>animationProgressBar</name>
+        <qualifiedname>Toast::animationProgressBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="39" column="13" bodyfile="src/qml/Toast.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1afcd48a19e8b15c1efbd72ff1dfa96aea" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row Toast::toastRow</definition>
+        <argsstring></argsstring>
+        <name>toastRow</name>
+        <qualifiedname>Toast::toastRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="40" column="5" bodyfile="src/qml/Toast.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a251df8deafa97da942fbea3ca7f0e746" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle Toast::toastIndicator</definition>
+        <argsstring></argsstring>
+        <name>toastIndicator</name>
+        <qualifiedname>Toast::toastIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="41" column="11" bodyfile="src/qml/Toast.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a9f523caabd4cc2ee58f6f7a7b9d3509d" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text Toast::toastMessage</definition>
+        <argsstring></argsstring>
+        <name>toastMessage</name>
+        <qualifiedname>Toast::toastMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="42" column="6" bodyfile="src/qml/Toast.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a67b7e8f3767f236b42c071f9d27c4e58" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton Toast::toastAction</definition>
+        <argsstring></argsstring>
+        <name>toastAction</name>
+        <qualifiedname>Toast::toastAction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="43" column="10" bodyfile="src/qml/Toast.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1ad1e331954706c48961a8c875f6f1ad17" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics Toast::toastFontMetrics</definition>
+        <argsstring></argsstring>
+        <name>toastFontMetrics</name>
+        <qualifiedname>Toast::toastFontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="44" column="13" bodyfile="src/qml/Toast.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1abe981409d1f6888b0a48134707c424ab" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer Toast::animationTimer</definition>
+        <argsstring></argsstring>
+        <name>animationTimer</name>
+        <qualifiedname>Toast::animationTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="45" column="7" bodyfile="src/qml/Toast.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classToast_1a6681a10f9edb161c61b52f844c24815c" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer Toast::toastTimer</definition>
+        <argsstring></argsstring>
+        <name>toastTimer</name>
+        <qualifiedname>Toast::toastTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="46" column="7" bodyfile="src/qml/Toast.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classToast_1a8aee778b72187ed47e7d11dd4e9c782e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Toast::show</definition>
+        <argsstring>(text, type, action_text, action_function, timeout_feedback, timeout_function)</argsstring>
+        <name>show</name>
+        <qualifiedname>Toast::show</qualifiedname>
+        <param>
+          <type>text</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <param>
+          <type>action_text</type>
+        </param>
+        <param>
+          <type>action_function</type>
+        </param>
+        <param>
+          <type>timeout_feedback</type>
+        </param>
+        <param>
+          <type>timeout_function</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Toast.qml" line="49" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>Toast</label>
+        <link refid="classToast"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>Toast</label>
+        <link refid="classToast"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/Toast.qml" line="8" column="1" bodyfile="src/qml/Toast.qml" bodystart="8" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classToast_1a10e4938c7c94598654265fabb47192dd" prot="public" virt="non-virtual"><scope>Toast</scope><name>act</name></member>
+      <member refid="classToast_1a18e5372d78eaa278bfd6d719251dbe1c" prot="private" virt="non-virtual"><scope>Toast</scope><name>animationProgressBar</name></member>
+      <member refid="classToast_1abe981409d1f6888b0a48134707c424ab" prot="private" virt="non-virtual"><scope>Toast</scope><name>animationTimer</name></member>
+      <member refid="classToast_1a6fc1be2bfe47bc8efcde41ae351ae831" prot="private" virt="non-virtual"><scope>Toast</scope><name>background</name></member>
+      <member refid="classToast_1af03d1b22ecfa6fdbf5fb35dcfa843433" prot="private" virt="non-virtual"><scope>Toast</scope><name>bottomMargin</name></member>
+      <member refid="classToast_1a2d6742ca43719603bc7a7d2cc298be66" prot="public" virt="non-virtual"><scope>Toast</scope><name>bottomSpacing</name></member>
+      <member refid="classToast_1a7e94a956656beaa3aa8738a36c31dd35" prot="private" virt="non-virtual"><scope>Toast</scope><name>closePolicy</name></member>
+      <member refid="classToast_1ac8d2bb77650b0c32e3967c8bc6b4c467" prot="public" virt="non-virtual"><scope>Toast</scope><name>edgeSpacing</name></member>
+      <member refid="classToast_1a73ec7c9e7e37a6a03e1c624ee3a99af8" prot="private" virt="non-virtual"><scope>Toast</scope><name>height</name></member>
+      <member refid="classToast_1a4e6d27178374ca8a8d35830ca4b5515b" prot="private" virt="non-virtual"><scope>Toast</scope><name>leftMargin</name></member>
+      <member refid="classToast_1aa9dad7dc72e0b3bff8a6dcfdafd250a7" prot="private" virt="non-virtual"><scope>Toast</scope><name>onClosed</name></member>
+      <member refid="classToast_1aebc5abf5b9dafaebe1c9f67d4a5f39de" prot="private" virt="non-virtual"><scope>Toast</scope><name>padding</name></member>
+      <member refid="classToast_1adfa34e0e7ac67ebc706adaef341fe69f" prot="private" virt="non-virtual"><scope>Toast</scope><name>rightMargin</name></member>
+      <member refid="classToast_1a8aee778b72187ed47e7d11dd4e9c782e" prot="public" virt="non-virtual"><scope>Toast</scope><name>show</name></member>
+      <member refid="classToast_1ad7ea5348eb1437e69ee29e7aa0991fdd" prot="public" virt="non-virtual"><scope>Toast</scope><name>timeoutAct</name></member>
+      <member refid="classToast_1abf579a0de9a2f034a6091190e6c9497e" prot="public" virt="non-virtual"><scope>Toast</scope><name>timeoutFeedback</name></member>
+      <member refid="classToast_1a67b7e8f3767f236b42c071f9d27c4e58" prot="private" virt="non-virtual"><scope>Toast</scope><name>toastAction</name></member>
+      <member refid="classToast_1a4ab03ea62bf7c8e49722a62d2ca5758f" prot="private" virt="non-virtual"><scope>Toast</scope><name>toastContent</name></member>
+      <member refid="classToast_1ad1e331954706c48961a8c875f6f1ad17" prot="private" virt="non-virtual"><scope>Toast</scope><name>toastFontMetrics</name></member>
+      <member refid="classToast_1a251df8deafa97da942fbea3ca7f0e746" prot="private" virt="non-virtual"><scope>Toast</scope><name>toastIndicator</name></member>
+      <member refid="classToast_1a9f523caabd4cc2ee58f6f7a7b9d3509d" prot="private" virt="non-virtual"><scope>Toast</scope><name>toastMessage</name></member>
+      <member refid="classToast_1afcd48a19e8b15c1efbd72ff1dfa96aea" prot="private" virt="non-virtual"><scope>Toast</scope><name>toastRow</name></member>
+      <member refid="classToast_1a6681a10f9edb161c61b52f844c24815c" prot="private" virt="non-virtual"><scope>Toast</scope><name>toastTimer</name></member>
+      <member refid="classToast_1a3ec45743df59200373c9a2e566b335f1" prot="private" virt="non-virtual"><scope>Toast</scope><name>topMargin</name></member>
+      <member refid="classToast_1a4fef83258e7f472e8304d22ebc7dde10" prot="public" virt="non-virtual"><scope>Toast</scope><name>type</name></member>
+      <member refid="classToast_1a7aaca4567f41e0e3b74e1fbc8db37a29" prot="public" virt="non-virtual"><scope>Toast</scope><name>virtualKeyboardHeight</name></member>
+      <member refid="classToast_1a2d51fe00d09fc883adb5898927893b9d" prot="private" virt="non-virtual"><scope>Toast</scope><name>width</name></member>
+      <member refid="classToast_1a60a3ad3e08cf603f5ec00425c1993812" prot="private" virt="non-virtual"><scope>Toast</scope><name>x</name></member>
+      <member refid="classToast_1ace386277c6a31f8878665b832638a9f8" prot="private" virt="non-virtual"><scope>Toast</scope><name>y</name></member>
+      <member refid="classToast_1a0d59d5f968ca6cb200e62f325270e413" prot="private" virt="non-virtual"><scope>Toast</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

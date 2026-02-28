@@ -1,0 +1,2457 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class Positioning - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-positioning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class Positioning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-active-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property active [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-antennaheight-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property antennaHeight [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-averagedposition-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property averagedPosition [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-averagedpositioncount-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property averagedPositionCount [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-averagedpositionfilteraccuracy-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property averagedPositionFilterAccuracy [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-backgroundmode-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property backgroundMode [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-badaccuracythreshold-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property badAccuracyThreshold [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-coordinatetransformer-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property coordinateTransformer [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-devicecapabilities-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deviceCapabilities [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-deviceid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deviceId [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-devicelasterror-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deviceLastError [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-devicesocketstate-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deviceSocketState [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-devicesocketstatestring-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deviceSocketStateString [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-elevationcorrectionmode-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property elevationCorrectionMode [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-excellentaccuracythreshold-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property excellentAccuracyThreshold [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-logging-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property logging [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-loggingpath-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property loggingPath [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-orientation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property orientation [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-positioninformation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property positionInformation [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-projectedhorizontalaccuracy-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property projectedHorizontalAccuracy [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-projectedposition-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property projectedPosition [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-servicemode-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property serviceMode [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-sourceposition-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property sourcePosition [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-valid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property valid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-activechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal activeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-antennaheightchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal antennaHeightChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-averagedpositionchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal averagedPositionChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-averagedpositioncountchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal averagedPositionCountChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-averagedpositionfilteraccuracychanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal averagedPositionFilterAccuracyChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-backgroundmodechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal backgroundModeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-badaccuracythresholdchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal badAccuracyThresholdChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-coordinatetransformerchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal coordinateTransformerChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-deviceidchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deviceIdChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-devicelasterrorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deviceLastErrorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-devicesocketstatechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deviceSocketStateChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-devicesocketstatestringchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deviceSocketStateStringChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-elevationcorrectionmodechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal elevationCorrectionModeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-excellentaccuracythresholdchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal excellentAccuracyThresholdChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-loggingchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal loggingChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-loggingpathchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal loggingPathChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-orientationchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal orientationChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-positioninformationchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal positionInformationChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-projectedpositionchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal projectedPositionChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-servicemodechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal serviceModeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-triggerconnectdevice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal triggerConnectDevice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-triggerdisconnectdevice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal triggerDisconnectDevice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-validchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal validChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-positioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function Positioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-active-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function active [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-antennaheight-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function antennaHeight [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-averagedposition-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function averagedPosition [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-averagedpositioncount-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function averagedPositionCount [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-averagedpositionfilteraccuracy-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function averagedPositionFilterAccuracy [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-backgroundmode-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function backgroundMode [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-badaccuracythreshold-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function badAccuracyThreshold [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-coordinatetransformer-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function coordinateTransformer [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-devicecapabilities-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deviceCapabilities [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-devicedetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deviceDetails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-deviceid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deviceId [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-devicelasterror-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deviceLastError [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-devicesocketstate-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deviceSocketState [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-devicesocketstatestring-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deviceSocketStateString [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-elevationcorrectionmode-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function elevationCorrectionMode [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-excellentaccuracythreshold-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function excellentAccuracyThreshold [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getbackgroundpositioninformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getBackgroundPositionInformation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-logging-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function logging [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-loggingpath-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function loggingPath [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-orientation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function orientation [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-positioninformation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function positionInformation [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-projectedhorizontalaccuracy-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function projectedHorizontalAccuracy [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-projectedposition-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function projectedPosition [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-servicemode-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function serviceMode [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setactive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setActive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setantennaheight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAntennaHeight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setaveragedposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAveragedPosition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setaveragedpositionfilteraccuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAveragedPositionFilterAccuracy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setbackgroundmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setBackgroundMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setbadaccuracythreshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setBadAccuracyThreshold
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcoordinatetransformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCoordinateTransformer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdeviceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDeviceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setelevationcorrectionmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setElevationCorrectionMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setexcellentaccuracythreshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setExcellentAccuracyThreshold
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlogging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLogging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setloggingpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLoggingPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setservicemode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setServiceMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setvalid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setValid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-sourceposition-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function sourcePosition [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-valid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function valid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-positioning_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~Positioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-positioning">Class Positioning</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>Positioning</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;positioning.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QObject</p>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-active-12"><strong>active</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-antennaheight-12"><strong>antennaHeight</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-averagedposition-12"><strong>averagedPosition</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-averagedpositioncount-12"><strong>averagedPositionCount</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-averagedpositionfilteraccuracy-12"><strong>averagedPositionFilterAccuracy</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-backgroundmode-12"><strong>backgroundMode</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-badaccuracythreshold-12"><strong>badAccuracyThreshold</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classQgsQuickCoordinateTransformer/"><strong>QgsQuickCoordinateTransformer</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-coordinatetransformer-12"><strong>coordinateTransformer</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property AbstractGnssReceiver::Capabilities</td>
+<td style="text-align: left;"><a href="./#property-devicecapabilities-12"><strong>deviceCapabilities</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-deviceid-12"><strong>deviceId</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-devicelasterror-12"><strong>deviceLastError</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QAbstractSocket::SocketState</td>
+<td style="text-align: left;"><a href="./#property-devicesocketstate-12"><strong>deviceSocketState</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-devicesocketstatestring-12"><strong>deviceSocketStateString</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classPositioningSource/#enum-elevationcorrectionmode"><strong>PositioningSource::ElevationCorrectionMode</strong></a></td>
+<td style="text-align: left;"><a href="./#property-elevationcorrectionmode-12"><strong>elevationCorrectionMode</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-excellentaccuracythreshold-12"><strong>excellentAccuracyThreshold</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-logging-12"><strong>logging</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-loggingpath-12"><strong>loggingPath</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-orientation-12"><strong>orientation</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classGnssPositionInformation/"><strong>GnssPositionInformation</strong></a></td>
+<td style="text-align: left;"><a href="./#property-positioninformation-12"><strong>positionInformation</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-projectedhorizontalaccuracy-12"><strong>projectedHorizontalAccuracy</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsPoint</td>
+<td style="text-align: left;"><a href="./#property-projectedposition-12"><strong>projectedPosition</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-servicemode-12"><strong>serviceMode</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsPoint</td>
+<td style="text-align: left;"><a href="./#property-sourceposition-12"><strong>sourcePosition</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-valid-12"><strong>valid</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-activechanged"><strong>activeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-antennaheightchanged"><strong>antennaHeightChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-averagedpositionchanged"><strong>averagedPositionChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-averagedpositioncountchanged"><strong>averagedPositionCountChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-averagedpositionfilteraccuracychanged"><strong>averagedPositionFilterAccuracyChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-backgroundmodechanged"><strong>backgroundModeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-badaccuracythresholdchanged"><strong>badAccuracyThresholdChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-coordinatetransformerchanged"><strong>coordinateTransformerChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-deviceidchanged"><strong>deviceIdChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-devicelasterrorchanged"><strong>deviceLastErrorChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-devicesocketstatechanged"><strong>deviceSocketStateChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-devicesocketstatestringchanged"><strong>deviceSocketStateStringChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-elevationcorrectionmodechanged"><strong>elevationCorrectionModeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-excellentaccuracythresholdchanged"><strong>excellentAccuracyThresholdChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-loggingchanged"><strong>loggingChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-loggingpathchanged"><strong>loggingPathChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-orientationchanged"><strong>orientationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-positioninformationchanged"><strong>positionInformationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-projectedpositionchanged"><strong>projectedPositionChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-servicemodechanged"><strong>serviceModeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-triggerconnectdevice"><strong>triggerConnectDevice</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-triggerdisconnectdevice"><strong>triggerDisconnectDevice</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-validchanged"><strong>validChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-positioning"><strong>Positioning</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-active-22"><strong>active</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-antennaheight-22"><strong>antennaHeight</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-averagedposition-22"><strong>averagedPosition</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-averagedpositioncount-22"><strong>averagedPositionCount</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-averagedpositionfilteraccuracy-22"><strong>averagedPositionFilterAccuracy</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-backgroundmode-22"><strong>backgroundMode</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-badaccuracythreshold-22"><strong>badAccuracyThreshold</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classQgsQuickCoordinateTransformer/"><strong>QgsQuickCoordinateTransformer</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-coordinatetransformer-22"><strong>coordinateTransformer</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">AbstractGnssReceiver::Capabilities</td>
+<td style="text-align: left;"><a href="#function-devicecapabilities-22"><strong>deviceCapabilities</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classGnssPositionDetails/"><strong>GnssPositionDetails</strong></a></td>
+<td style="text-align: left;"><a href="#function-devicedetails"><strong>deviceDetails</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-deviceid-22"><strong>deviceId</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-devicelasterror-22"><strong>deviceLastError</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QAbstractSocket::SocketState</td>
+<td style="text-align: left;"><a href="#function-devicesocketstate-22"><strong>deviceSocketState</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-devicesocketstatestring-22"><strong>deviceSocketStateString</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classPositioningSource/#enum-elevationcorrectionmode"><strong>PositioningSource::ElevationCorrectionMode</strong></a></td>
+<td style="text-align: left;"><a href="#function-elevationcorrectionmode-22"><strong>elevationCorrectionMode</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-excellentaccuracythreshold-22"><strong>excellentAccuracyThreshold</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QList&lt; <a href="../classGnssPositionInformation/"><strong>GnssPositionInformation</strong></a> &gt;</td>
+<td style="text-align: left;"><a href="#function-getbackgroundpositioninformation"><strong>getBackgroundPositionInformation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-logging-22"><strong>logging</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-loggingpath-22"><strong>loggingPath</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-orientation-22"><strong>orientation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classGnssPositionInformation/"><strong>GnssPositionInformation</strong></a></td>
+<td style="text-align: left;"><a href="#function-positioninformation-22"><strong>positionInformation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-projectedhorizontalaccuracy-22"><strong>projectedHorizontalAccuracy</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-projectedposition-22"><strong>projectedPosition</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-servicemode-22"><strong>serviceMode</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setactive"><strong>setActive</strong></a> (bool active) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setantennaheight"><strong>setAntennaHeight</strong></a> (double antennaHeight) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setaveragedposition"><strong>setAveragedPosition</strong></a> (bool averaged) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setaveragedpositionfilteraccuracy"><strong>setAveragedPositionFilterAccuracy</strong></a> (bool enabled) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setbackgroundmode"><strong>setBackgroundMode</strong></a> (bool enabled) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setbadaccuracythreshold"><strong>setBadAccuracyThreshold</strong></a> (double threshold) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcoordinatetransformer"><strong>setCoordinateTransformer</strong></a> (<a href="../classQgsQuickCoordinateTransformer/"><strong>QgsQuickCoordinateTransformer</strong></a> * coordinateTransformer) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdeviceid"><strong>setDeviceId</strong></a> (const QString &amp; id) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setelevationcorrectionmode"><strong>setElevationCorrectionMode</strong></a> (<a href="../classPositioningSource/#enum-elevationcorrectionmode"><strong>PositioningSource::ElevationCorrectionMode</strong></a> elevationCorrectionMode) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setexcellentaccuracythreshold"><strong>setExcellentAccuracyThreshold</strong></a> (double threshold) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlogging"><strong>setLogging</strong></a> (bool logging) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setloggingpath"><strong>setLoggingPath</strong></a> (const QString &amp; path) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setservicemode"><strong>setServiceMode</strong></a> (bool enabled) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setvalid"><strong>setValid</strong></a> (bool valid) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-sourceposition-22"><strong>sourcePosition</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-valid-22"><strong>valid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual</td>
+<td style="text-align: left;"><a href="#function-positioning"><strong>~Positioning</strong></a> () = default<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>This class manages the positioning source and offers positioning details. </p>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-active-12">property active [1/2]</h3>
+<pre><code class="language-C++">bool Positioning::active;
+</code></pre>
+<hr>
+
+<h3 id="property-antennaheight-12">property antennaHeight [1/2]</h3>
+<pre><code class="language-C++">double Positioning::antennaHeight;
+</code></pre>
+<hr>
+
+<h3 id="property-averagedposition-12">property averagedPosition [1/2]</h3>
+<pre><code class="language-C++">bool Positioning::averagedPosition;
+</code></pre>
+<hr>
+
+<h3 id="property-averagedpositioncount-12">property averagedPositionCount [1/2]</h3>
+<pre><code class="language-C++">int Positioning::averagedPositionCount;
+</code></pre>
+<hr>
+
+<h3 id="property-averagedpositionfilteraccuracy-12">property averagedPositionFilterAccuracy [1/2]</h3>
+<pre><code class="language-C++">bool Positioning::averagedPositionFilterAccuracy;
+</code></pre>
+<hr>
+
+<h3 id="property-backgroundmode-12">property backgroundMode [1/2]</h3>
+<pre><code class="language-C++">bool Positioning::backgroundMode;
+</code></pre>
+<hr>
+
+<h3 id="property-badaccuracythreshold-12">property badAccuracyThreshold [1/2]</h3>
+<pre><code class="language-C++">double Positioning::badAccuracyThreshold;
+</code></pre>
+<hr>
+
+<h3 id="property-coordinatetransformer-12">property coordinateTransformer [1/2]</h3>
+<pre><code class="language-C++">QgsQuickCoordinateTransformer * Positioning::coordinateTransformer;
+</code></pre>
+<hr>
+
+<h3 id="property-devicecapabilities-12">property deviceCapabilities [1/2]</h3>
+<pre><code class="language-C++">AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities;
+</code></pre>
+<hr>
+
+<h3 id="property-deviceid-12">property deviceId [1/2]</h3>
+<pre><code class="language-C++">QString Positioning::deviceId;
+</code></pre>
+<hr>
+
+<h3 id="property-devicelasterror-12">property deviceLastError [1/2]</h3>
+<pre><code class="language-C++">QString Positioning::deviceLastError;
+</code></pre>
+<hr>
+
+<h3 id="property-devicesocketstate-12">property deviceSocketState [1/2]</h3>
+<pre><code class="language-C++">QAbstractSocket::SocketState Positioning::deviceSocketState;
+</code></pre>
+<hr>
+
+<h3 id="property-devicesocketstatestring-12">property deviceSocketStateString [1/2]</h3>
+<pre><code class="language-C++">QString Positioning::deviceSocketStateString;
+</code></pre>
+<hr>
+
+<h3 id="property-elevationcorrectionmode-12">property elevationCorrectionMode [1/2]</h3>
+<pre><code class="language-C++">PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode;
+</code></pre>
+<hr>
+
+<h3 id="property-excellentaccuracythreshold-12">property excellentAccuracyThreshold [1/2]</h3>
+<pre><code class="language-C++">double Positioning::excellentAccuracyThreshold;
+</code></pre>
+<hr>
+
+<h3 id="property-logging-12">property logging [1/2]</h3>
+<pre><code class="language-C++">bool Positioning::logging;
+</code></pre>
+<hr>
+
+<h3 id="property-loggingpath-12">property loggingPath [1/2]</h3>
+<pre><code class="language-C++">QString Positioning::loggingPath;
+</code></pre>
+<hr>
+
+<h3 id="property-orientation-12">property orientation [1/2]</h3>
+<pre><code class="language-C++">double Positioning::orientation;
+</code></pre>
+<hr>
+
+<h3 id="property-positioninformation-12">property positionInformation [1/2]</h3>
+<pre><code class="language-C++">GnssPositionInformation Positioning::positionInformation;
+</code></pre>
+<hr>
+
+<h3 id="property-projectedhorizontalaccuracy-12">property projectedHorizontalAccuracy [1/2]</h3>
+<pre><code class="language-C++">double Positioning::projectedHorizontalAccuracy;
+</code></pre>
+<hr>
+
+<h3 id="property-projectedposition-12">property projectedPosition [1/2]</h3>
+<pre><code class="language-C++">QgsPoint Positioning::projectedPosition;
+</code></pre>
+<hr>
+
+<h3 id="property-servicemode-12">property serviceMode [1/2]</h3>
+<pre><code class="language-C++">bool Positioning::serviceMode;
+</code></pre>
+<hr>
+
+<h3 id="property-sourceposition-12">property sourcePosition [1/2]</h3>
+<pre><code class="language-C++">QgsPoint Positioning::sourcePosition;
+</code></pre>
+<hr>
+
+<h3 id="property-valid-12">property valid [1/2]</h3>
+<pre><code class="language-C++">bool Positioning::valid;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-activechanged">signal activeChanged</h3>
+<pre><code class="language-C++">void Positioning::activeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-antennaheightchanged">signal antennaHeightChanged</h3>
+<pre><code class="language-C++">void Positioning::antennaHeightChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-averagedpositionchanged">signal averagedPositionChanged</h3>
+<pre><code class="language-C++">void Positioning::averagedPositionChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-averagedpositioncountchanged">signal averagedPositionCountChanged</h3>
+<pre><code class="language-C++">void Positioning::averagedPositionCountChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-averagedpositionfilteraccuracychanged">signal averagedPositionFilterAccuracyChanged</h3>
+<pre><code class="language-C++">void Positioning::averagedPositionFilterAccuracyChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-backgroundmodechanged">signal backgroundModeChanged</h3>
+<pre><code class="language-C++">void Positioning::backgroundModeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-badaccuracythresholdchanged">signal badAccuracyThresholdChanged</h3>
+<pre><code class="language-C++">void Positioning::badAccuracyThresholdChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-coordinatetransformerchanged">signal coordinateTransformerChanged</h3>
+<pre><code class="language-C++">void Positioning::coordinateTransformerChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-deviceidchanged">signal deviceIdChanged</h3>
+<pre><code class="language-C++">void Positioning::deviceIdChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-devicelasterrorchanged">signal deviceLastErrorChanged</h3>
+<pre><code class="language-C++">void Positioning::deviceLastErrorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-devicesocketstatechanged">signal deviceSocketStateChanged</h3>
+<pre><code class="language-C++">void Positioning::deviceSocketStateChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-devicesocketstatestringchanged">signal deviceSocketStateStringChanged</h3>
+<pre><code class="language-C++">void Positioning::deviceSocketStateStringChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-elevationcorrectionmodechanged">signal elevationCorrectionModeChanged</h3>
+<pre><code class="language-C++">void Positioning::elevationCorrectionModeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-excellentaccuracythresholdchanged">signal excellentAccuracyThresholdChanged</h3>
+<pre><code class="language-C++">void Positioning::excellentAccuracyThresholdChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-loggingchanged">signal loggingChanged</h3>
+<pre><code class="language-C++">void Positioning::loggingChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-loggingpathchanged">signal loggingPathChanged</h3>
+<pre><code class="language-C++">void Positioning::loggingPathChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-orientationchanged">signal orientationChanged</h3>
+<pre><code class="language-C++">void Positioning::orientationChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-positioninformationchanged">signal positionInformationChanged</h3>
+<pre><code class="language-C++">void Positioning::positionInformationChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-projectedpositionchanged">signal projectedPositionChanged</h3>
+<pre><code class="language-C++">void Positioning::projectedPositionChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-servicemodechanged">signal serviceModeChanged</h3>
+<pre><code class="language-C++">void Positioning::serviceModeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-triggerconnectdevice">signal triggerConnectDevice</h3>
+<pre><code class="language-C++">void Positioning::triggerConnectDevice;
+</code></pre>
+<hr>
+
+<h3 id="signal-triggerdisconnectdevice">signal triggerDisconnectDevice</h3>
+<pre><code class="language-C++">void Positioning::triggerDisconnectDevice;
+</code></pre>
+<hr>
+
+<h3 id="signal-validchanged">signal validChanged</h3>
+<pre><code class="language-C++">void Positioning::validChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-positioning">function Positioning</h3>
+<pre><code class="language-C++">explicit Positioning::Positioning (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-active-22">function active [2/2]</h3>
+<pre><code class="language-C++">bool Positioning::active () const
+</code></pre>
+<p>Returns TRUE when positioning is active. </p>
+<p><strong>See also:</strong> <a href="./#function-setactive"><strong>setActive</strong></a> </p>
+<hr>
+
+<h3 id="function-antennaheight-22">function antennaHeight [2/2]</h3>
+<pre><code class="language-C++">double Positioning::antennaHeight () const
+</code></pre>
+<p>Sets the GNSS device antenna height. This should be the pole height + sensore phase height. </p>
+<p><strong>Note:</strong></p>
+<p>When IMU is active this value is ignored as the device does the correction internally. </p>
+<hr>
+
+<h3 id="function-averagedposition-22">function averagedPosition [2/2]</h3>
+<pre><code class="language-C++">bool Positioning::averagedPosition () const
+</code></pre>
+<p>Returns whether the position information is averaged from an ongoing stream of incoming positions from the device. </p>
+<hr>
+
+<h3 id="function-averagedpositioncount-22">function averagedPositionCount [2/2]</h3>
+<pre><code class="language-C++">int Positioning::averagedPositionCount () const
+</code></pre>
+<p>Returns the current number of collected position informations from which the averaged position is calculated. </p>
+<p><strong>Note:</strong></p>
+<p>When averaged position is off, the value is zero. </p>
+<hr>
+
+<h3 id="function-averagedpositionfilteraccuracy-22">function averagedPositionFilterAccuracy [2/2]</h3>
+<pre><code class="language-C++">bool Positioning::averagedPositionFilterAccuracy () const
+</code></pre>
+<p>Returns whether the average position filter accuracy is enabled. </p>
+<hr>
+
+<h3 id="function-backgroundmode-22">function backgroundMode [2/2]</h3>
+<pre><code class="language-C++">bool Positioning::backgroundMode () const
+</code></pre>
+<p>Returns TRUE if the background mode is active. When activated, position information details will not be signaled but instead saved to disk until deactivated. </p>
+<p><strong>See also:</strong> <a href="./#function-getbackgroundpositioninformation"><strong>getBackgroundPositionInformation()</strong></a> </p>
+<hr>
+
+<h3 id="function-badaccuracythreshold-22">function badAccuracyThreshold [2/2]</h3>
+<pre><code class="language-C++">inline double Positioning::badAccuracyThreshold () const
+</code></pre>
+<p>Returns the threshold above which accuracy is considered bad. </p>
+<hr>
+
+<h3 id="function-coordinatetransformer-22">function coordinateTransformer [2/2]</h3>
+<pre><code class="language-C++">inline QgsQuickCoordinateTransformer * Positioning::coordinateTransformer () const
+</code></pre>
+<p>Returns the coordinate transformer object used to reproject the position location. </p>
+<hr>
+
+<h3 id="function-devicecapabilities-22">function deviceCapabilities [2/2]</h3>
+<pre><code class="language-C++">AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities () const
+</code></pre>
+<hr>
+
+<h3 id="function-devicedetails">function deviceDetails</h3>
+<pre><code class="language-C++">GnssPositionDetails Positioning::deviceDetails () const
+</code></pre>
+<p>Returns extra details (such as hdop, vdop, pdop) provided by the positioning device. </p>
+<hr>
+
+<h3 id="function-deviceid-22">function deviceId [2/2]</h3>
+<pre><code class="language-C++">QString Positioning::deviceId () const
+</code></pre>
+<p>Returns the current positioning device <em>id</em> used to fetch position information. </p>
+<p><strong>See also:</strong> setDevice </p>
+<hr>
+
+<h3 id="function-devicelasterror-22">function deviceLastError [2/2]</h3>
+<pre><code class="language-C++">QString Positioning::deviceLastError () const
+</code></pre>
+<p>Returns positioning device's last error string. </p>
+<hr>
+
+<h3 id="function-devicesocketstate-22">function deviceSocketState [2/2]</h3>
+<pre><code class="language-C++">QAbstractSocket::SocketState Positioning::deviceSocketState () const
+</code></pre>
+<p>Returns positioning device's socket state. </p>
+<p><strong>See also:</strong> deviceSocketStateString </p>
+<hr>
+
+<h3 id="function-devicesocketstatestring-22">function deviceSocketStateString [2/2]</h3>
+<pre><code class="language-C++">QString Positioning::deviceSocketStateString () const
+</code></pre>
+<p>Returns a string representation of the positioning device's socket state. </p>
+<p><strong>See also:</strong> deviceSocketState </p>
+<hr>
+
+<h3 id="function-elevationcorrectionmode-22">function elevationCorrectionMode [2/2]</h3>
+<pre><code class="language-C++">PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode () const
+</code></pre>
+<p>Returns the current elevation correction mode. </p>
+<p><strong>Note:</strong></p>
+<p>Some modes depends on device capabilities. </p>
+<hr>
+
+<h3 id="function-excellentaccuracythreshold-22">function excellentAccuracyThreshold [2/2]</h3>
+<pre><code class="language-C++">inline double Positioning::excellentAccuracyThreshold () const
+</code></pre>
+<p>Returns the threshold below which accuracy is considered excellent. </p>
+<hr>
+
+<h3 id="function-getbackgroundpositioninformation">function getBackgroundPositionInformation</h3>
+<pre><code class="language-C++">Q_INVOKABLE QList&lt; GnssPositionInformation &gt; Positioning::getBackgroundPositionInformation () const
+</code></pre>
+<p>Returns a list of position information collected while background mode is active. </p>
+<p><strong>See also:</strong> backgroundMode() </p>
+<p><strong>See also:</strong> <a href="./#function-setbackgroundmode"><strong>setBackgroundMode()</strong></a> </p>
+<hr>
+
+<h3 id="function-logging-22">function logging [2/2]</h3>
+<pre><code class="language-C++">bool Positioning::logging () const
+</code></pre>
+<p>Returns whether GNSS devices will log their incoming position stream into a logfile. </p>
+<p><strong>Note:</strong></p>
+<p>Requires a device type with logging capability </p>
+<hr>
+
+<h3 id="function-loggingpath-22">function loggingPath [2/2]</h3>
+<pre><code class="language-C++">QString Positioning::loggingPath () const
+</code></pre>
+<p>Returns the path where GNSS devices will log their incoming position stream into logfiles. </p>
+<p><strong>Note:</strong></p>
+<p>Requires a device type with logging capability </p>
+<hr>
+
+<h3 id="function-orientation-22">function orientation [2/2]</h3>
+<pre><code class="language-C++">double Positioning::orientation () const
+</code></pre>
+<p>Returns the current device orientation </p>
+<hr>
+
+<h3 id="function-positioninformation-22">function positionInformation [2/2]</h3>
+<pre><code class="language-C++">GnssPositionInformation Positioning::positionInformation () const
+</code></pre>
+<p>Returns a <a href="../classGnssPositionInformation/"><strong>GnssPositionInformation</strong></a> position information object. </p>
+<hr>
+
+<h3 id="function-projectedhorizontalaccuracy-22">function projectedHorizontalAccuracy [2/2]</h3>
+<pre><code class="language-C++">double Positioning::projectedHorizontalAccuracy () const
+</code></pre>
+<p>Returns the position horizontal accuracy in the destination CRS' map units. </p>
+<hr>
+
+<h3 id="function-projectedposition-22">function projectedPosition [2/2]</h3>
+<pre><code class="language-C++">QgsPoint Positioning::projectedPosition () const
+</code></pre>
+<p>Returns the position point in its destination CRS defined in the coordinate transformer. </p>
+<hr>
+
+<h3 id="function-servicemode-22">function serviceMode [2/2]</h3>
+<pre><code class="language-C++">bool Positioning::serviceMode () const
+</code></pre>
+<p>Returns TRUE if the service mode is active. On supported platform, positioning runs into a dedicated service that is not suspended when devices are locked or the application is put suspended. </p>
+<p><strong>See also:</strong> <a href="./#function-setservicemode"><strong>setServiceMode()</strong></a> </p>
+<hr>
+
+<h3 id="function-setactive">function setActive</h3>
+<pre><code class="language-C++">void Positioning::setActive (
+    bool active
+) 
+</code></pre>
+<p>Sets the positioning <em>active</em> status. </p>
+<p><strong>See also:</strong> active </p>
+<hr>
+
+<h3 id="function-setantennaheight">function setAntennaHeight</h3>
+<pre><code class="language-C++">void Positioning::setAntennaHeight (
+    double antennaHeight
+) 
+</code></pre>
+<p>Returns the GNSS device antenna height. This should be the pole height + sensore phase height. </p>
+<p><strong>Note:</strong></p>
+<p>When IMU is active this value is ignored as the device does the correction internally. </p>
+<hr>
+
+<h3 id="function-setaveragedposition">function setAveragedPosition</h3>
+<pre><code class="language-C++">void Positioning::setAveragedPosition (
+    bool averaged
+) 
+</code></pre>
+<p>Sets whether the position information is <em>averaged</em> from an ongoing stream of incoming positions from the device. </p>
+<hr>
+
+<h3 id="function-setaveragedpositionfilteraccuracy">function setAveragedPositionFilterAccuracy</h3>
+<pre><code class="language-C++">void Positioning::setAveragedPositionFilterAccuracy (
+    bool enabled
+) 
+</code></pre>
+<p>Enables or disables the average position filter accuracy. </p>
+<hr>
+
+<h3 id="function-setbackgroundmode">function setBackgroundMode</h3>
+<pre><code class="language-C++">void Positioning::setBackgroundMode (
+    bool enabled
+) 
+</code></pre>
+<p>Sets whether the background mode is active. When activated, position information details will not be signaled but instead saved to disk until deactivated. </p>
+<p><strong>See also:</strong> <a href="./#function-getbackgroundpositioninformation"><strong>getBackgroundPositionInformation()</strong></a> </p>
+<hr>
+
+<h3 id="function-setbadaccuracythreshold">function setBadAccuracyThreshold</h3>
+<pre><code class="language-C++">void Positioning::setBadAccuracyThreshold (
+    double threshold
+) 
+</code></pre>
+<p>Sets the threshold above which accuracy is considered bad. </p>
+<hr>
+
+<h3 id="function-setcoordinatetransformer">function setCoordinateTransformer</h3>
+<pre><code class="language-C++">void Positioning::setCoordinateTransformer (
+    QgsQuickCoordinateTransformer * coordinateTransformer
+) 
+</code></pre>
+<p>Sets the coordinate transformer object used to reproject the position location. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>coordinateTransformer</code> A <a href="../classQgsQuickCoordinateTransformer/"><strong>QgsQuickCoordinateTransformer</strong></a> object. </li>
+</ul>
+<hr>
+
+<h3 id="function-setdeviceid">function setDeviceId</h3>
+<pre><code class="language-C++">void Positioning::setDeviceId (
+    const QString &amp; id
+) 
+</code></pre>
+<p>Sets the positioning device <em>id</em> used to fetch position information. </p>
+<p><strong>Note:</strong></p>
+<p>A blank string will connect the internal positioning device; bluetooth addresses will trigger an NMEA connection to external devices. </p>
+<hr>
+
+<h3 id="function-setelevationcorrectionmode">function setElevationCorrectionMode</h3>
+<pre><code class="language-C++">void Positioning::setElevationCorrectionMode (
+    PositioningSource::ElevationCorrectionMode elevationCorrectionMode
+) 
+</code></pre>
+<p>Sets the current elevation correction mode. </p>
+<p><strong>Note:</strong></p>
+<p>Some modes depends on device capabilities. </p>
+<hr>
+
+<h3 id="function-setexcellentaccuracythreshold">function setExcellentAccuracyThreshold</h3>
+<pre><code class="language-C++">void Positioning::setExcellentAccuracyThreshold (
+    double threshold
+) 
+</code></pre>
+<p>Sets the threshold below which accuracy is considered excellent. </p>
+<hr>
+
+<h3 id="function-setlogging">function setLogging</h3>
+<pre><code class="language-C++">void Positioning::setLogging (
+    bool logging
+) 
+</code></pre>
+<p>Sets whether GNSS devices will log their incoming position stream into a logfile. </p>
+<p><strong>Note:</strong></p>
+<p>Requires a device type with logging capability </p>
+<hr>
+
+<h3 id="function-setloggingpath">function setLoggingPath</h3>
+<pre><code class="language-C++">void Positioning::setLoggingPath (
+    const QString &amp; path
+) 
+</code></pre>
+<p>Sets the path where GNSS devices will log their incoming position stream into logfiles. </p>
+<p><strong>Note:</strong></p>
+<p>Requires a device type with logging capability </p>
+<hr>
+
+<h3 id="function-setservicemode">function setServiceMode</h3>
+<pre><code class="language-C++">void Positioning::setServiceMode (
+    bool enabled
+) 
+</code></pre>
+<p>Sets whether the service mode is active. On supported platform, positioning runs into a dedicated service that is not suspended when devices are locked or the application is put suspended. </p>
+<p><strong>See also:</strong> serviceMode() </p>
+<hr>
+
+<h3 id="function-setvalid">function setValid</h3>
+<pre><code class="language-C++">void Positioning::setValid (
+    bool valid
+) 
+</code></pre>
+<p>Sets whether the positioning device is valid. </p>
+<hr>
+
+<h3 id="function-sourceposition-22">function sourcePosition [2/2]</h3>
+<pre><code class="language-C++">QgsPoint Positioning::sourcePosition () const
+</code></pre>
+<p>Returns the position point in its original WGS84 projection. </p>
+<hr>
+
+<h3 id="function-valid-22">function valid [2/2]</h3>
+<pre><code class="language-C++">bool Positioning::valid () const
+</code></pre>
+<p>Returns TRUE when the positioning device is valid. </p>
+<hr>
+
+<h3 id="function-positioning_1">function ~Positioning</h3>
+<pre><code class="language-C++">virtual Positioning::~Positioning () = default
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/positioning/positioning.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

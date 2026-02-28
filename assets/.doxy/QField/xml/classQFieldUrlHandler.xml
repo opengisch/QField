@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldUrlHandler" kind="class" language="C++" prot="public">
+    <compoundname>QFieldUrlHandler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldUrlHandler_1aa48bd01c2baef4c490301c6282ceafaf" prot="private" static="no" mutable="no">
+        <type><ref refid="classAppInterface" kindref="compound">AppInterface</ref> *</type>
+        <definition>AppInterface* QFieldUrlHandler::mIface</definition>
+        <argsstring></argsstring>
+        <name>mIface</name>
+        <qualifiedname>QFieldUrlHandler::mIface</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldurlhandler.h" line="36" column="18" bodyfile="src/core/qfieldurlhandler.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQFieldUrlHandler_1affa5402b407dcac3c350dcf3d2fe5c4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QFieldUrlHandler::QFieldUrlHandler</definition>
+        <argsstring>(AppInterface *iface=nullptr, QObject *parent=nullptr)</argsstring>
+        <name>QFieldUrlHandler</name>
+        <qualifiedname>QFieldUrlHandler::QFieldUrlHandler</qualifiedname>
+        <param>
+          <type><ref refid="classAppInterface" kindref="compound">AppInterface</ref> *</type>
+          <declname>iface</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldurlhandler.h" line="30" column="5" bodyfile="src/core/qfieldurlhandler.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classQFieldUrlHandler_1a01e4567bb2dd6ebec4f96287ad78fd37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldUrlHandler::handleUrl</definition>
+        <argsstring>(const QUrl &amp;url)</argsstring>
+        <name>handleUrl</name>
+        <qualifiedname>QFieldUrlHandler::handleUrl</qualifiedname>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldurlhandler.h" line="33" column="10" bodyfile="src/core/qfieldurlhandler.cpp" bodystart="26" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QFieldUrlHandler</label>
+        <link refid="classQFieldUrlHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QFieldUrlHandler</label>
+        <link refid="classQFieldUrlHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldurlhandler.h" line="25" column="1" bodyfile="src/core/qfieldurlhandler.h" bodystart="26" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classQFieldUrlHandler_1a01e4567bb2dd6ebec4f96287ad78fd37" prot="public" virt="non-virtual"><scope>QFieldUrlHandler</scope><name>handleUrl</name></member>
+      <member refid="classQFieldUrlHandler_1aa48bd01c2baef4c490301c6282ceafaf" prot="private" virt="non-virtual"><scope>QFieldUrlHandler</scope><name>mIface</name></member>
+      <member refid="classQFieldUrlHandler_1affa5402b407dcac3c350dcf3d2fe5c4f" prot="public" virt="non-virtual"><scope>QFieldUrlHandler</scope><name>QFieldUrlHandler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

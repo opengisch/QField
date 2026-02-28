@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGotoLocatorFilter" kind="class" language="C++" prot="public">
+    <compoundname>GotoLocatorFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsLocatorFilter</basecompoundref>
+    <includes refid="gotolocatorfilter_8h" local="no">gotolocatorfilter.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classGotoLocatorFilter_1ab5fa15ec33884862a26f69b3b093251a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ActionOrigin</name>
+        <qualifiedname>GotoLocatorFilter::ActionOrigin</qualifiedname>
+        <enumvalue id="classGotoLocatorFilter_1ab5fa15ec33884862a26f69b3b093251aafd980848383e44576884b6832492356f" prot="public">
+          <name>Normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGotoLocatorFilter_1ab5fa15ec33884862a26f69b3b093251aab715f4a2648c4131ef7bb9951d92bd29" prot="public">
+          <name>Navigation</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Origin of the action which triggers the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="38" column="5" bodyfile="src/core/locator/gotolocatorfilter.h" bodystart="39" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGotoLocatorFilter_1ae057a028b7e64b924e17e39fe6ee4589" prot="private" static="no" mutable="no">
+        <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+        <definition>LocatorModelSuperBridge* GotoLocatorFilter::mLocatorBridge</definition>
+        <argsstring></argsstring>
+        <name>mLocatorBridge</name>
+        <qualifiedname>GotoLocatorFilter::mLocatorBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="58" column="29" bodyfile="src/core/locator/gotolocatorfilter.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGotoLocatorFilter_1a1fc6226d3b9763848544dadae673bc99" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GotoLocatorFilter::GotoLocatorFilter</definition>
+        <argsstring>(LocatorModelSuperBridge *locatorBridge, QObject *parent=nullptr)</argsstring>
+        <name>GotoLocatorFilter</name>
+        <qualifiedname>GotoLocatorFilter::GotoLocatorFilter</qualifiedname>
+        <param>
+          <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+          <declname>locatorBridge</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="44" column="14" bodyfile="src/core/locator/gotolocatorfilter.cpp" bodystart="31" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classGotoLocatorFilter_1ab7a1f9d04e33384c2663919995cf1929" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classGotoLocatorFilter" kindref="compound">GotoLocatorFilter</ref> *</type>
+        <definition>GotoLocatorFilter * GotoLocatorFilter::clone</definition>
+        <argsstring>() const override</argsstring>
+        <name>clone</name>
+        <qualifiedname>GotoLocatorFilter::clone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="45" column="23" bodyfile="src/core/locator/gotolocatorfilter.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classGotoLocatorFilter_1a53242d685758e5883855e02f4b5ca9b6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString GotoLocatorFilter::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <qualifiedname>GotoLocatorFilter::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="46" column="13" bodyfile="src/core/locator/gotolocatorfilter.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classGotoLocatorFilter_1aa5e2ea0cd52e0d28fe60cded033412ea" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString GotoLocatorFilter::displayName</definition>
+        <argsstring>() const override</argsstring>
+        <name>displayName</name>
+        <qualifiedname>GotoLocatorFilter::displayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="47" column="13" bodyfile="src/core/locator/gotolocatorfilter.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classGotoLocatorFilter_1a995ebc80acffe6b7ff1f89ffd4727fa9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString GotoLocatorFilter::description</definition>
+        <argsstring>() const override</argsstring>
+        <name>description</name>
+        <qualifiedname>GotoLocatorFilter::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="48" column="13" bodyfile="src/core/locator/gotolocatorfilter.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classGotoLocatorFilter_1aa60dd80b511c5ab06d666ccc942e4f6b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Priority</type>
+        <definition>Priority GotoLocatorFilter::priority</definition>
+        <argsstring>() const override</argsstring>
+        <name>priority</name>
+        <qualifiedname>GotoLocatorFilter::priority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="49" column="14" bodyfile="src/core/locator/gotolocatorfilter.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classGotoLocatorFilter_1a683fee3ea1601bf93500a4c7a4b2aecc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString GotoLocatorFilter::prefix</definition>
+        <argsstring>() const override</argsstring>
+        <name>prefix</name>
+        <qualifiedname>GotoLocatorFilter::prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="50" column="13" bodyfile="src/core/locator/gotolocatorfilter.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classGotoLocatorFilter_1a52010d4f852f129bf4210eb3d80e92f7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsLocatorFilter::Flags</type>
+        <definition>QgsLocatorFilter::Flags GotoLocatorFilter::flags</definition>
+        <argsstring>() const override</argsstring>
+        <name>flags</name>
+        <qualifiedname>GotoLocatorFilter::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="51" column="29" bodyfile="src/core/locator/gotolocatorfilter.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classGotoLocatorFilter_1ab213dca30cbd2bc70584e32ea93436fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GotoLocatorFilter::fetchResults</definition>
+        <argsstring>(const QString &amp;string, const QgsLocatorContext &amp;context, QgsFeedback *feedback) override</argsstring>
+        <name>fetchResults</name>
+        <qualifiedname>GotoLocatorFilter::fetchResults</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsLocatorContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>QgsFeedback *</type>
+          <declname>feedback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="53" column="10" bodyfile="src/core/locator/gotolocatorfilter.cpp" bodystart="43" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="classGotoLocatorFilter_1a6ba9ad1282af9dd68a293bff4eac3731" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GotoLocatorFilter::triggerResult</definition>
+        <argsstring>(const QgsLocatorResult &amp;result) override</argsstring>
+        <name>triggerResult</name>
+        <qualifiedname>GotoLocatorFilter::triggerResult</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="54" column="10" bodyfile="src/core/locator/gotolocatorfilter.cpp" bodystart="193" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classGotoLocatorFilter_1a7d29351ca0dd4ee9c4de37521e5596a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GotoLocatorFilter::triggerResultFromAction</definition>
+        <argsstring>(const QgsLocatorResult &amp;result, const int actionId) override</argsstring>
+        <name>triggerResultFromAction</name>
+        <qualifiedname>GotoLocatorFilter::triggerResultFromAction</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>actionId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/gotolocatorfilter.h" line="55" column="10" bodyfile="src/core/locator/gotolocatorfilter.cpp" bodystart="198" bodyend="217"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classGotoLocatorFilter" kindref="compound">GotoLocatorFilter</ref> is a locator filter to search for and display coordinates. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GotoLocatorFilter</label>
+        <link refid="classGotoLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GotoLocatorFilter</label>
+        <link refid="classGotoLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/gotolocatorfilter.h" line="32" column="1" bodyfile="src/core/locator/gotolocatorfilter.h" bodystart="33" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classGotoLocatorFilter_1ab5fa15ec33884862a26f69b3b093251a" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>ActionOrigin</name></member>
+      <member refid="classGotoLocatorFilter_1ab7a1f9d04e33384c2663919995cf1929" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>clone</name></member>
+      <member refid="classGotoLocatorFilter_1a995ebc80acffe6b7ff1f89ffd4727fa9" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>description</name></member>
+      <member refid="classGotoLocatorFilter_1aa5e2ea0cd52e0d28fe60cded033412ea" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>displayName</name></member>
+      <member refid="classGotoLocatorFilter_1ab213dca30cbd2bc70584e32ea93436fb" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>fetchResults</name></member>
+      <member refid="classGotoLocatorFilter_1a52010d4f852f129bf4210eb3d80e92f7" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>flags</name></member>
+      <member refid="classGotoLocatorFilter_1a1fc6226d3b9763848544dadae673bc99" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>GotoLocatorFilter</name></member>
+      <member refid="classGotoLocatorFilter_1ae057a028b7e64b924e17e39fe6ee4589" prot="private" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>mLocatorBridge</name></member>
+      <member refid="classGotoLocatorFilter_1a53242d685758e5883855e02f4b5ca9b6" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>name</name></member>
+      <member refid="classGotoLocatorFilter_1ab5fa15ec33884862a26f69b3b093251aab715f4a2648c4131ef7bb9951d92bd29" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>Navigation</name></member>
+      <member refid="classGotoLocatorFilter_1ab5fa15ec33884862a26f69b3b093251aafd980848383e44576884b6832492356f" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>Normal</name></member>
+      <member refid="classGotoLocatorFilter_1a683fee3ea1601bf93500a4c7a4b2aecc" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>prefix</name></member>
+      <member refid="classGotoLocatorFilter_1aa60dd80b511c5ab06d666ccc942e4f6b" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>priority</name></member>
+      <member refid="classGotoLocatorFilter_1a6ba9ad1282af9dd68a293bff4eac3731" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>triggerResult</name></member>
+      <member refid="classGotoLocatorFilter_1a7d29351ca0dd4ee9c4de37521e5596a6" prot="public" virt="non-virtual"><scope>GotoLocatorFilter</scope><name>triggerResultFromAction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

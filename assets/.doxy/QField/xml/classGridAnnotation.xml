@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGridAnnotation" kind="class" language="C++" prot="public">
+    <compoundname>GridAnnotation</compoundname>
+    <includes refid="gridmodel_8h" local="no">gridmodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classGridAnnotation_1a97ea2c63c297b3f2e6db5c6d05053763" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Positions</name>
+        <qualifiedname>GridAnnotation::Positions</qualifiedname>
+        <enumvalue id="classGridAnnotation_1a97ea2c63c297b3f2e6db5c6d05053763ae3784b26a0bd1a51c335ccb712a471db" prot="public">
+          <name>Top</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGridAnnotation_1a97ea2c63c297b3f2e6db5c6d05053763a2299d4ece22065affd65f5679b81d68a" prot="public">
+          <name>Bottom</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGridAnnotation_1a97ea2c63c297b3f2e6db5c6d05053763ab033a1b35a4c21f4d2008ae121a3481c" prot="public">
+          <name>Left</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGridAnnotation_1a97ea2c63c297b3f2e6db5c6d05053763a4ff0d6bab51e40e8c0f08768291aa22f" prot="public">
+          <name>Right</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="35" column="5" bodyfile="src/core/gridmodel.h" bodystart="36" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classGridAnnotation_1a156d4d55356d9a811c9e6efe1e2dd9ba" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Positions</type>
+        <definition>Positions GridAnnotation::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>GridAnnotation::position</qualifiedname>
+        <initializer>= Top</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="30" column="5" bodyfile="src/core/gridmodel.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridAnnotation_1a8dda8ef859ca3f7bcee21e3ea5b344d3" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QPointF</type>
+        <definition>QPointF GridAnnotation::coordinate</definition>
+        <argsstring></argsstring>
+        <name>coordinate</name>
+        <qualifiedname>GridAnnotation::coordinate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="31" column="5" bodyfile="src/core/gridmodel.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridAnnotation_1a3f2811d920ac83aa02972df492e2d4fd" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GridAnnotation::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>GridAnnotation::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="32" column="5" bodyfile="src/core/gridmodel.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGridAnnotation_1a14de5fbbc13d91b3691fff140dfff746" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GridAnnotation::GridAnnotation</definition>
+        <argsstring>(const Positions position=Top, const QPointF coordinate=QPointF(), const double value=0.0)</argsstring>
+        <name>GridAnnotation</name>
+        <qualifiedname>GridAnnotation::GridAnnotation</qualifiedname>
+        <param>
+          <type>const Positions</type>
+          <declname>position</declname>
+          <defval>Top</defval>
+        </param>
+        <param>
+          <type>const QPointF</type>
+          <declname>coordinate</declname>
+          <defval>QPointF()</defval>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>value</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/gridmodel.h" line="44" column="5" bodyfile="src/core/gridmodel.h" bodystart="44" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Holds details for a given grid annotation. </para>
+    </detaileddescription>
+    <location file="src/core/gridmodel.h" line="26" column="1" bodyfile="src/core/gridmodel.h" bodystart="27" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classGridAnnotation_1a97ea2c63c297b3f2e6db5c6d05053763a2299d4ece22065affd65f5679b81d68a" prot="public" virt="non-virtual"><scope>GridAnnotation</scope><name>Bottom</name></member>
+      <member refid="classGridAnnotation_1a8dda8ef859ca3f7bcee21e3ea5b344d3" prot="public" virt="non-virtual"><scope>GridAnnotation</scope><name>coordinate</name></member>
+      <member refid="classGridAnnotation_1a14de5fbbc13d91b3691fff140dfff746" prot="public" virt="non-virtual"><scope>GridAnnotation</scope><name>GridAnnotation</name></member>
+      <member refid="classGridAnnotation_1a97ea2c63c297b3f2e6db5c6d05053763ab033a1b35a4c21f4d2008ae121a3481c" prot="public" virt="non-virtual"><scope>GridAnnotation</scope><name>Left</name></member>
+      <member refid="classGridAnnotation_1a156d4d55356d9a811c9e6efe1e2dd9ba" prot="public" virt="non-virtual"><scope>GridAnnotation</scope><name>position</name></member>
+      <member refid="classGridAnnotation_1a97ea2c63c297b3f2e6db5c6d05053763" prot="public" virt="non-virtual"><scope>GridAnnotation</scope><name>Positions</name></member>
+      <member refid="classGridAnnotation_1a97ea2c63c297b3f2e6db5c6d05053763a4ff0d6bab51e40e8c0f08768291aa22f" prot="public" virt="non-virtual"><scope>GridAnnotation</scope><name>Right</name></member>
+      <member refid="classGridAnnotation_1a97ea2c63c297b3f2e6db5c6d05053763ae3784b26a0bd1a51c335ccb712a471db" prot="public" virt="non-virtual"><scope>GridAnnotation</scope><name>Top</name></member>
+      <member refid="classGridAnnotation_1a3f2811d920ac83aa02972df492e2d4fd" prot="public" virt="non-virtual"><scope>GridAnnotation</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

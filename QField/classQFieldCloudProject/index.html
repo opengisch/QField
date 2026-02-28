@@ -1,0 +1,5184 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class QFieldCloudProject - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-qfieldcloudproject" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class QFieldCloudProject
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-deltafilestatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum DeltaFileStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-jobstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum JobStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-jobtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum JobType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-packagingstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum PackagingStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-projectcheckout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum ProjectCheckout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-projecterrorstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum ProjectErrorStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-projectmodification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum ProjectModification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-projectrefreshreason" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum ProjectRefreshReason
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-projectstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum ProjectStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-attachmentsondemandenabled-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property attachmentsOnDemandEnabled [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-autopushenabled-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property autoPushEnabled [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-autopushintervalmins-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property autoPushIntervalMins [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-createdat-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property createdAt [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-deltafilepushstatus-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deltaFilePushStatus [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-deltafilewrapper-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deltaFileWrapper [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-deltalistmodel-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deltaListModel [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-deltascount-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deltasCount [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-description-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property description [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-downloadbytesreceived-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property downloadBytesReceived [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-downloadbytestotal-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property downloadBytesTotal [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-downloadprogress-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property downloadProgress [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-forceautopush-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property forceAutoPush [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-id-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property id [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isfeatured-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isFeatured [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isoutdated-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isOutdated [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isprojectoutdated-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isProjectOutdated [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-ispublic-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isPublic [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-lastlocalexportedat-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property lastLocalExportedAt [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-lastlocalpushdeltas-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property lastLocalPushDeltas [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-localpath-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property localPath [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-name-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property name [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-owner-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property owner [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-packagedlayererrors-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property packagedLayerErrors [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-packagingstatus-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property packagingStatus [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-pushdeltaprogress-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property pushDeltaProgress [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-status-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property status [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-thumbnailpath-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property thumbnailPath [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-updatedat-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property updatedAt [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-uploadbytessent-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property uploadBytesSent [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-uploadbytestotal-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property uploadBytesTotal [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-uploadprogress-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property uploadProgress [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-userrole-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property userRole [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-userroleorigin-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property userRoleOrigin [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-attachmentsondemandenabledchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal attachmentsOnDemandEnabledChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-autopushenabledchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal autoPushEnabledChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-autopushintervalminschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal autoPushIntervalMinsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-canrepackagechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal canRepackageChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-checkoutchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal checkoutChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-createdatchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal createdAtChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-datalastupdatedatchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal dataLastUpdatedAtChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-datarefreshed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal dataRefreshed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-deltafileidchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deltaFileIdChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-deltafilepushstatuschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deltaFilePushStatusChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-deltafilepushstatusstringchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deltaFilePushStatusStringChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-deltafilewrapperchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deltaFileWrapperChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-deltalayerstodownloadchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deltaLayersToDownloadChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-deltalistmodelchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deltaListModelChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-deltascountchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deltasCountChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-descriptionchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal descriptionChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-downloadattachmentfinished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal downloadAttachmentFinished
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-downloadbytesreceivedchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal downloadBytesReceivedChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-downloadbytestotalchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal downloadBytesTotalChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-downloadfinished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal downloadFinished
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-downloadprogresschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal downloadProgressChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-downloaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal downloaded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-errorstatuschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal errorStatusChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-forceautopushchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal forceAutoPushChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-idchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal idChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isfeaturedchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isFeaturedChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isoutdatedchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isOutdatedChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-ispackagingactivechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isPackagingActiveChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-ispackagingfailedchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isPackagingFailedChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isprojectoutdatedchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isProjectOutdatedChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-ispublicchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isPublicChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isshareddatasetsprojectchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isSharedDatasetsProjectChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-jobfinished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal jobFinished
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-lastdatalastupdatedatchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal lastDataLastUpdatedAtChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-lastlocaldatalastupdatedatchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal lastLocalDataLastUpdatedAtChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-lastlocalexportidchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal lastLocalExportIdChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-lastlocalexportedatchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal lastLocalExportedAtChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-lastlocalpushdeltaschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal lastLocalPushDeltasChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-lastlocalrestricteddatalastupdatedatchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal lastLocalRestrictedDataLastUpdatedAtChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-lastrefreshedatchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal lastRefreshedAtChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-localpathchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal localPathChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-modificationchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal modificationChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-namechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal nameChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-needsrepackagingchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal needsRepackagingChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-networkdeltapushed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal networkDeltaPushed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-networkdeltastatuschecked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal networkDeltaStatusChecked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-ownerchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal ownerChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-packagedlayererrorschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal packagedLayerErrorsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-packagingstatuschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal packagingStatusChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-packagingstatusstringchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal packagingStatusStringChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-pushdeltaprogresschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal pushDeltaProgressChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-pushfinished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal pushFinished
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-restricteddatalastupdatedatchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal restrictedDataLastUpdatedAtChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-shareddatasetsprojectidchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal sharedDatasetsProjectIdChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-statuschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal statusChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-thumbnailpathchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal thumbnailPathChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-updatedatchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal updatedAtChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-uploadbytessentchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal uploadBytesSentChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-uploadbytestotalchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal uploadBytesTotalChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-uploadfinished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal uploadFinished
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-uploadprogresschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal uploadProgressChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-userrolechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal userRoleChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-userroleoriginchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal userRoleOriginChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-qfieldcloudproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function QFieldCloudProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-attachmentsondemandenabled-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function attachmentsOnDemandEnabled [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-autopushenabled-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function autoPushEnabled [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-autopushintervalmins-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function autoPushIntervalMins [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-canrepackage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function canRepackage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-canceldownload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function cancelDownload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-cancelpush" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function cancelPush
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-checkout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function checkout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-createdat-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function createdAt [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-datalastupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function dataLastUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-deltafileid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deltaFileId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-deltafilepushstatus-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deltaFilePushStatus [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-deltafilepushstatusstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deltaFilePushStatusString
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-deltafilewrapper-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deltaFileWrapper [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-deltalayerstodownload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deltaLayersToDownload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-deltalistmodel-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deltaListModel [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-deltascount-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deltasCount [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-description-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function description [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-downloadattachment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function downloadAttachment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-downloadbytesreceived-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function downloadBytesReceived [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-downloadbytestotal-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function downloadBytesTotal [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-downloadprogress-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function downloadProgress [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-downloadthumbnail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function downloadThumbnail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-errorstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function errorStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-forceautopush-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function forceAutoPush [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-id-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function id [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isfeatured-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isFeatured [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isoutdated-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isOutdated [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-ispackagingactive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isPackagingActive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-ispackagingfailed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isPackagingFailed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isprojectoutdated-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isProjectOutdated [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-ispublic-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isPublic [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isshareddatasetsproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isSharedDatasetsProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lastlocaldatalastupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function lastLocalDataLastUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lastlocalexportid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function lastLocalExportId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lastlocalexportedat-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function lastLocalExportedAt [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lastlocalpushdeltas-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function lastLocalPushDeltas [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lastlocalrestricteddatalastupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function lastLocalRestrictedDataLastUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lastrefreshedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function lastRefreshedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-localpath-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function localPath [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-modification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function modification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-name-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function name [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-needsrepackaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function needsRepackaging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-owner-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function owner [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-packageanddownload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function packageAndDownload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-packagedlayererrors-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function packagedLayerErrors [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-packagingstatus-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function packagingStatus [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-packagingstatusstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function packagingStatusString
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function push
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-pushdeltaprogress-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function pushDeltaProgress [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-refreshdeltalist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function refreshDeltaList
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-refreshmodification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function refreshModification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-removelocally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function removeLocally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-restricteddatalastupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function restrictedDataLastUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setattachmentsondemandenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAttachmentsOnDemandEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setautopushenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAutoPushEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setautopushintervalmins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAutoPushIntervalMins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcanrepackage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCanRepackage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcheckout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCheckout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdatalastupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDataLastUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdeltafileid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDeltaFileId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdeltafilepushstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDeltaFilePushStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdeltafilepushstatusstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDeltaFilePushStatusString
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdeltalayerstodownload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDeltaLayersToDownload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-seterrorstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setErrorStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setforceautopush" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setForceAutoPush
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setisfeatured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIsFeatured
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setisoutdated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIsOutdated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setispackagingactive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIsPackagingActive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setispackagingfailed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIsPackagingFailed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setisprojectoutdated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIsProjectOutdated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setispublic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIsPublic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setisshareddatasetsproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIsSharedDatasetsProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlastlocaldatalastupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLastLocalDataLastUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlastlocalexportid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLastLocalExportId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlastlocalexportedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLastLocalExportedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlastlocalpushdeltas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLastLocalPushDeltas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlastlocalrestricteddatalastupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLastLocalRestrictedDataLastUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlastrefreshedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLastRefreshedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlocalpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLocalPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmodification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setModification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setneedsrepackaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setNeedsRepackaging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setowner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOwner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setpackagedlayererrors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPackagedLayerErrors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setpackagingstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPackagingStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setpackagingstatusstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPackagingStatusString
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setrestricteddatalastupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setRestrictedDataLastUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setshareddatasetsprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setSharedDatasetsProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setthumbnailpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setThumbnailPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setuserrole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setUserRole
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setuserroleorigin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setUserRoleOrigin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-shareddatasetsprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function sharedDatasetsProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-status-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function status [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-thumbnailpath-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function thumbnailPath [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-updatedat-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function updatedAt [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-uploadbytessent-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function uploadBytesSent [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-uploadbytestotal-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function uploadBytesTotal [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-uploadlocalpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function uploadLocalPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-uploadprogress-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function uploadProgress [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-userrole-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function userRole [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-userroleorigin-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function userRoleOrigin [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-qfieldcloudproject_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~QFieldCloudProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Static Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-fromdetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function fromDetails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-fromlocalsettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function fromLocalSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getjobstatusfromstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getJobStatusFromString
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getjobtypeasstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getJobTypeAsString
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-restorelocalsettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function restoreLocalSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-qfieldcloudproject">Class QFieldCloudProject</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>QFieldCloudProject</strong></a></p>
+<p>Inherits the following classes: QObject</p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structQFieldCloudProject_1_1FileTransfer/"><strong>FileTransfer</strong></a> <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-deltafilestatus"><strong>DeltaFileStatus</strong></a>  <br><em>The status of the running server job for applying deltas on a project.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-jobstatus"><strong>JobStatus</strong></a>  <br><em>The status of the running server job.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-jobtype"><strong>JobType</strong></a>  <br><em>The status of the running server job.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-packagingstatus"><strong>PackagingStatus</strong></a>  <br><em>The status of the running server job for packaging a project.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-projectcheckout"><strong>ProjectCheckout</strong></a>  <br><em>Whether the project has been available locally and/or remotely.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-projecterrorstatus"><strong>ProjectErrorStatus</strong></a>  <br><em>Whether the project has experienced an error.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-projectmodification"><strong>ProjectModification</strong></a>  <br><em>Whether the project has no or local and/or remote modification. Indicates wheter can be synced.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-projectrefreshreason"><strong>ProjectRefreshReason</strong></a>  <br><em>The reason why projectRefreshData was called.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-projectstatus"><strong>ProjectStatus</strong></a>  <br><em>Whether the project is busy or idle.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-attachmentsondemandenabled-12"><strong>attachmentsOnDemandEnabled</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-autopushenabled-12"><strong>autoPushEnabled</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-autopushintervalmins-12"><strong>autoPushIntervalMins</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QDateTime</td>
+<td style="text-align: left;"><a href="./#property-createdat-12"><strong>createdAt</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="./#enum-deltafilestatus"><strong>DeltaFileStatus</strong></a></td>
+<td style="text-align: left;"><a href="./#property-deltafilepushstatus-12"><strong>deltaFilePushStatus</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classDeltaFileWrapper/"><strong>DeltaFileWrapper</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-deltafilewrapper-12"><strong>deltaFileWrapper</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classDeltaListModel/"><strong>DeltaListModel</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-deltalistmodel-12"><strong>deltaListModel</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-deltascount-12"><strong>deltasCount</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-description-12"><strong>description</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property qint64</td>
+<td style="text-align: left;"><a href="./#property-downloadbytesreceived-12"><strong>downloadBytesReceived</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property qint64</td>
+<td style="text-align: left;"><a href="./#property-downloadbytestotal-12"><strong>downloadBytesTotal</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-downloadprogress-12"><strong>downloadProgress</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-forceautopush-12"><strong>forceAutoPush</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-id-12"><strong>id</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isfeatured-12"><strong>isFeatured</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isoutdated-12"><strong>isOutdated</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isprojectoutdated-12"><strong>isProjectOutdated</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-ispublic-12"><strong>isPublic</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-lastlocalexportedat-12"><strong>lastLocalExportedAt</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-lastlocalpushdeltas-12"><strong>lastLocalPushDeltas</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-localpath-12"><strong>localPath</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-name-12"><strong>name</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-owner-12"><strong>owner</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QStringList</td>
+<td style="text-align: left;"><a href="./#property-packagedlayererrors-12"><strong>packagedLayerErrors</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="./#enum-packagingstatus"><strong>PackagingStatus</strong></a></td>
+<td style="text-align: left;"><a href="./#property-packagingstatus-12"><strong>packagingStatus</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-pushdeltaprogress-12"><strong>pushDeltaProgress</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="./#enum-projectstatus"><strong>ProjectStatus</strong></a></td>
+<td style="text-align: left;"><a href="./#property-status-12"><strong>status</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-thumbnailpath-12"><strong>thumbnailPath</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QDateTime</td>
+<td style="text-align: left;"><a href="./#property-updatedat-12"><strong>updatedAt</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property qint64</td>
+<td style="text-align: left;"><a href="./#property-uploadbytessent-12"><strong>uploadBytesSent</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property qint64</td>
+<td style="text-align: left;"><a href="./#property-uploadbytestotal-12"><strong>uploadBytesTotal</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-uploadprogress-12"><strong>uploadProgress</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-userrole-12"><strong>userRole</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-userroleorigin-12"><strong>userRoleOrigin</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-attachmentsondemandenabledchanged"><strong>attachmentsOnDemandEnabledChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-autopushenabledchanged"><strong>autoPushEnabledChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-autopushintervalminschanged"><strong>autoPushIntervalMinsChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-canrepackagechanged"><strong>canRepackageChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-checkoutchanged"><strong>checkoutChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-createdatchanged"><strong>createdAtChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-datalastupdatedatchanged"><strong>dataLastUpdatedAtChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-datarefreshed"><strong>dataRefreshed</strong></a> (<a href="./#enum-projectrefreshreason"><strong>ProjectRefreshReason</strong></a> reason, const QString &amp; error=QString()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-deltafileidchanged"><strong>deltaFileIdChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-deltafilepushstatuschanged"><strong>deltaFilePushStatusChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-deltafilepushstatusstringchanged"><strong>deltaFilePushStatusStringChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-deltafilewrapperchanged"><strong>deltaFileWrapperChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-deltalayerstodownloadchanged"><strong>deltaLayersToDownloadChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-deltalistmodelchanged"><strong>deltaListModelChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-deltascountchanged"><strong>deltasCountChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-descriptionchanged"><strong>descriptionChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-downloadattachmentfinished"><strong>downloadAttachmentFinished</strong></a> (const QString &amp; fileName, const QString &amp; error=QString()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-downloadbytesreceivedchanged"><strong>downloadBytesReceivedChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-downloadbytestotalchanged"><strong>downloadBytesTotalChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-downloadfinished"><strong>downloadFinished</strong></a> (const QString &amp; error=QString()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-downloadprogresschanged"><strong>downloadProgressChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-downloaded"><strong>downloaded</strong></a> (const QString &amp; name, const QString &amp; error=QString()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-errorstatuschanged"><strong>errorStatusChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-forceautopushchanged"><strong>forceAutoPushChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-idchanged"><strong>idChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isfeaturedchanged"><strong>isFeaturedChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isoutdatedchanged"><strong>isOutdatedChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-ispackagingactivechanged"><strong>isPackagingActiveChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-ispackagingfailedchanged"><strong>isPackagingFailedChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isprojectoutdatedchanged"><strong>isProjectOutdatedChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-ispublicchanged"><strong>isPublicChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isshareddatasetsprojectchanged"><strong>isSharedDatasetsProjectChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-jobfinished"><strong>jobFinished</strong></a> (<a href="./#enum-jobtype"><strong>JobType</strong></a> type, const QString &amp; error=QString()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-lastdatalastupdatedatchanged"><strong>lastDataLastUpdatedAtChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-lastlocaldatalastupdatedatchanged"><strong>lastLocalDataLastUpdatedAtChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-lastlocalexportidchanged"><strong>lastLocalExportIdChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-lastlocalexportedatchanged"><strong>lastLocalExportedAtChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-lastlocalpushdeltaschanged"><strong>lastLocalPushDeltasChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-lastlocalrestricteddatalastupdatedatchanged"><strong>lastLocalRestrictedDataLastUpdatedAtChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-lastrefreshedatchanged"><strong>lastRefreshedAtChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-localpathchanged"><strong>localPathChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-modificationchanged"><strong>modificationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-namechanged"><strong>nameChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-needsrepackagingchanged"><strong>needsRepackagingChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-networkdeltapushed"><strong>networkDeltaPushed</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-networkdeltastatuschecked"><strong>networkDeltaStatusChecked</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-ownerchanged"><strong>ownerChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-packagedlayererrorschanged"><strong>packagedLayerErrorsChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-packagingstatuschanged"><strong>packagingStatusChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-packagingstatusstringchanged"><strong>packagingStatusStringChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-pushdeltaprogresschanged"><strong>pushDeltaProgressChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-pushfinished"><strong>pushFinished</strong></a> (bool isDownloading, const QString &amp; error=QString()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-restricteddatalastupdatedatchanged"><strong>restrictedDataLastUpdatedAtChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-shareddatasetsprojectidchanged"><strong>sharedDatasetsProjectIdChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-statuschanged"><strong>statusChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-thumbnailpathchanged"><strong>thumbnailPathChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-updatedatchanged"><strong>updatedAtChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-uploadbytessentchanged"><strong>uploadBytesSentChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-uploadbytestotalchanged"><strong>uploadBytesTotalChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-uploadfinished"><strong>uploadFinished</strong></a> (const QString &amp; error=QString()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-uploadprogresschanged"><strong>uploadProgressChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-userrolechanged"><strong>userRoleChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-userroleoriginchanged"><strong>userRoleOriginChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qfieldcloudproject"><strong>QFieldCloudProject</strong></a> (const QString &amp; id=QString(), <a href="../classQFieldCloudConnection/"><strong>QFieldCloudConnection</strong></a> * connection=nullptr, <a href="../classQgsGpkgFlusher/"><strong>QgsGpkgFlusher</strong></a> * gpkgFlusher=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-attachmentsondemandenabled-22"><strong>attachmentsOnDemandEnabled</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-autopushenabled-22"><strong>autoPushEnabled</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-autopushintervalmins-22"><strong>autoPushIntervalMins</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-canrepackage"><strong>canRepackage</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-canceldownload"><strong>cancelDownload</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-cancelpush"><strong>cancelPush</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">ProjectCheckouts</td>
+<td style="text-align: left;"><a href="#function-checkout"><strong>checkout</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QDateTime</td>
+<td style="text-align: left;"><a href="#function-createdat-22"><strong>createdAt</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QDateTime</td>
+<td style="text-align: left;"><a href="#function-datalastupdatedat"><strong>dataLastUpdatedAt</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-deltafileid"><strong>deltaFileId</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="./#enum-deltafilestatus"><strong>DeltaFileStatus</strong></a></td>
+<td style="text-align: left;"><a href="#function-deltafilepushstatus-22"><strong>deltaFilePushStatus</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-deltafilepushstatusstring"><strong>deltaFilePushStatusString</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classDeltaFileWrapper/"><strong>DeltaFileWrapper</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-deltafilewrapper-22"><strong>deltaFileWrapper</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QStringList</td>
+<td style="text-align: left;"><a href="#function-deltalayerstodownload"><strong>deltaLayersToDownload</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classDeltaListModel/"><strong>DeltaListModel</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-deltalistmodel-22"><strong>deltaListModel</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-deltascount-22"><strong>deltasCount</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-description-22"><strong>description</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-downloadattachment"><strong>downloadAttachment</strong></a> (const QString &amp; fileName) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">qint64</td>
+<td style="text-align: left;"><a href="#function-downloadbytesreceived-22"><strong>downloadBytesReceived</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">qint64</td>
+<td style="text-align: left;"><a href="#function-downloadbytestotal-22"><strong>downloadBytesTotal</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-downloadprogress-22"><strong>downloadProgress</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-downloadthumbnail"><strong>downloadThumbnail</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="./#enum-projecterrorstatus"><strong>ProjectErrorStatus</strong></a></td>
+<td style="text-align: left;"><a href="#function-errorstatus"><strong>errorStatus</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-forceautopush-22"><strong>forceAutoPush</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-id-22"><strong>id</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isfeatured-22"><strong>isFeatured</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isoutdated-22"><strong>isOutdated</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-ispackagingactive"><strong>isPackagingActive</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-ispackagingfailed"><strong>isPackagingFailed</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isprojectoutdated-22"><strong>isProjectOutdated</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-ispublic-22"><strong>isPublic</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isshareddatasetsproject"><strong>isSharedDatasetsProject</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QDateTime</td>
+<td style="text-align: left;"><a href="#function-lastlocaldatalastupdatedat"><strong>lastLocalDataLastUpdatedAt</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-lastlocalexportid"><strong>lastLocalExportId</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-lastlocalexportedat-22"><strong>lastLocalExportedAt</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-lastlocalpushdeltas-22"><strong>lastLocalPushDeltas</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QDateTime</td>
+<td style="text-align: left;"><a href="#function-lastlocalrestricteddatalastupdatedat"><strong>lastLocalRestrictedDataLastUpdatedAt</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QDateTime</td>
+<td style="text-align: left;"><a href="#function-lastrefreshedat"><strong>lastRefreshedAt</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-localpath-22"><strong>localPath</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">ProjectModifications</td>
+<td style="text-align: left;"><a href="#function-modification"><strong>modification</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-name-22"><strong>name</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-needsrepackaging"><strong>needsRepackaging</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-owner-22"><strong>owner</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-packageanddownload"><strong>packageAndDownload</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QStringList</td>
+<td style="text-align: left;"><a href="#function-packagedlayererrors-22"><strong>packagedLayerErrors</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="./#enum-packagingstatus"><strong>PackagingStatus</strong></a></td>
+<td style="text-align: left;"><a href="#function-packagingstatus-22"><strong>packagingStatus</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-packagingstatusstring"><strong>packagingStatusString</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-push"><strong>push</strong></a> (bool shouldDownloadUpdates) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-pushdeltaprogress-22"><strong>pushDeltaProgress</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-refreshdeltalist"><strong>refreshDeltaList</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-refreshmodification"><strong>refreshModification</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-removelocally"><strong>removeLocally</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QDateTime</td>
+<td style="text-align: left;"><a href="#function-restricteddatalastupdatedat"><strong>restrictedDataLastUpdatedAt</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setattachmentsondemandenabled"><strong>setAttachmentsOnDemandEnabled</strong></a> (bool enabled) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setautopushenabled"><strong>setAutoPushEnabled</strong></a> (bool enabled) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setautopushintervalmins"><strong>setAutoPushIntervalMins</strong></a> (int minutes) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcanrepackage"><strong>setCanRepackage</strong></a> (bool canRepackage) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcheckout"><strong>setCheckout</strong></a> (ProjectCheckouts checkout) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcreatedat"><strong>setCreatedAt</strong></a> (const QDateTime &amp; createdAt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdatalastupdatedat"><strong>setDataLastUpdatedAt</strong></a> (const QDateTime &amp; dataLastUpdatedAt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdeltafileid"><strong>setDeltaFileId</strong></a> (const QString &amp; deltaFileId) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdeltafilepushstatus"><strong>setDeltaFilePushStatus</strong></a> (<a href="./#enum-deltafilestatus"><strong>DeltaFileStatus</strong></a> deltaFilePushStatus) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdeltafilepushstatusstring"><strong>setDeltaFilePushStatusString</strong></a> (const QString &amp; deltaFilePushStatusString) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdeltalayerstodownload"><strong>setDeltaLayersToDownload</strong></a> (const QStringList &amp; deltaLayersToDownload) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdescription"><strong>setDescription</strong></a> (const QString &amp; description) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-seterrorstatus"><strong>setErrorStatus</strong></a> (<a href="./#enum-projecterrorstatus"><strong>ProjectErrorStatus</strong></a> errorStatus) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setforceautopush"><strong>setForceAutoPush</strong></a> (bool force) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setisfeatured"><strong>setIsFeatured</strong></a> (bool isFeatured) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setisoutdated"><strong>setIsOutdated</strong></a> (bool isOutdated) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setispackagingactive"><strong>setIsPackagingActive</strong></a> (bool isPackagingActive) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setispackagingfailed"><strong>setIsPackagingFailed</strong></a> (bool isPackagingFailed) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setisprojectoutdated"><strong>setIsProjectOutdated</strong></a> (bool isProjectOutdated) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setispublic"><strong>setIsPublic</strong></a> (bool isPublic) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setisshareddatasetsproject"><strong>setIsSharedDatasetsProject</strong></a> (bool isSharedDatasetsProject) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlastlocaldatalastupdatedat"><strong>setLastLocalDataLastUpdatedAt</strong></a> (const QDateTime &amp; lastLocalDataLastUpdatedAt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlastlocalexportid"><strong>setLastLocalExportId</strong></a> (const QString &amp; lastLocalExportId) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlastlocalexportedat"><strong>setLastLocalExportedAt</strong></a> (const QString &amp; lastLocalExportedAt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlastlocalpushdeltas"><strong>setLastLocalPushDeltas</strong></a> (const QString &amp; lastLocalPushDeltas) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlastlocalrestricteddatalastupdatedat"><strong>setLastLocalRestrictedDataLastUpdatedAt</strong></a> (const QDateTime &amp; lastLocalRestrictedDataLastUpdatedAt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlastrefreshedat"><strong>setLastRefreshedAt</strong></a> (const QDateTime &amp; lastRefreshedAt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlocalpath"><strong>setLocalPath</strong></a> (const QString &amp; localPath) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setmodification"><strong>setModification</strong></a> (<a href="./#enum-projectmodification"><strong>ProjectModification</strong></a> modification) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setname"><strong>setName</strong></a> (const QString &amp; name) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setneedsrepackaging"><strong>setNeedsRepackaging</strong></a> (bool needsRepackaging) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setowner"><strong>setOwner</strong></a> (const QString &amp; owner) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setpackagedlayererrors"><strong>setPackagedLayerErrors</strong></a> (const QStringList &amp; packagedLayerErrors) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setpackagingstatus"><strong>setPackagingStatus</strong></a> (<a href="./#enum-packagingstatus"><strong>PackagingStatus</strong></a> packagingStatus) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setpackagingstatusstring"><strong>setPackagingStatusString</strong></a> (const QString &amp; packagingStatusString) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setrestricteddatalastupdatedat"><strong>setRestrictedDataLastUpdatedAt</strong></a> (const QDateTime &amp; restrictedDataLastUpdatedAt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setshareddatasetsprojectid"><strong>setSharedDatasetsProjectId</strong></a> (const QString &amp; id) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setstatus"><strong>setStatus</strong></a> (<a href="./#enum-projectstatus"><strong>ProjectStatus</strong></a> status) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setthumbnailpath"><strong>setThumbnailPath</strong></a> (const QString &amp; thumbnailPath) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setupdatedat"><strong>setUpdatedAt</strong></a> (const QDateTime &amp; updatedAt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setuserrole"><strong>setUserRole</strong></a> (const QString &amp; userRole) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setuserroleorigin"><strong>setUserRoleOrigin</strong></a> (const QString &amp; userRoleOrigin) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-shareddatasetsprojectid"><strong>sharedDatasetsProjectId</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="./#enum-projectstatus"><strong>ProjectStatus</strong></a></td>
+<td style="text-align: left;"><a href="#function-status-22"><strong>status</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-thumbnailpath-22"><strong>thumbnailPath</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QDateTime</td>
+<td style="text-align: left;"><a href="#function-updatedat-22"><strong>updatedAt</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">qint64</td>
+<td style="text-align: left;"><a href="#function-uploadbytessent-22"><strong>uploadBytesSent</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">qint64</td>
+<td style="text-align: left;"><a href="#function-uploadbytestotal-22"><strong>uploadBytesTotal</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-uploadlocalpath"><strong>uploadLocalPath</strong></a> (QString localPath, bool deleteAfterSuccessfulUpload=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-uploadprogress-22"><strong>uploadProgress</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-userrole-22"><strong>userRole</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-userroleorigin-22"><strong>userRoleOrigin</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qfieldcloudproject"><strong>~QFieldCloudProject</strong></a> () = default<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-functions">Public Static Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="./"><strong>QFieldCloudProject</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-fromdetails"><strong>fromDetails</strong></a> (const QVariantHash &amp; details, <a href="../classQFieldCloudConnection/"><strong>QFieldCloudConnection</strong></a> * connection, <a href="../classQgsGpkgFlusher/"><strong>QgsGpkgFlusher</strong></a> * gpkgFlusher=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="./"><strong>QFieldCloudProject</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-fromlocalsettings"><strong>fromLocalSettings</strong></a> (const QString &amp; id, <a href="../classQFieldCloudConnection/"><strong>QFieldCloudConnection</strong></a> * connection, <a href="../classQgsGpkgFlusher/"><strong>QgsGpkgFlusher</strong></a> * gpkgFlusher=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="./#enum-jobstatus"><strong>QFieldCloudProject::JobStatus</strong></a></td>
+<td style="text-align: left;"><a href="#function-getjobstatusfromstring"><strong>getJobStatusFromString</strong></a> (const QString &amp; status) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-getjobtypeasstring"><strong>getJobTypeAsString</strong></a> (<a href="./#enum-jobtype"><strong>QFieldCloudProject::JobType</strong></a> jobType) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-restorelocalsettings"><strong>restoreLocalSettings</strong></a> (<a href="./"><strong>QFieldCloudProject</strong></a> * project, const QDir &amp; localPath) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-deltafilestatus">enum DeltaFileStatus</h3>
+<p><em>The status of the running server job for applying deltas on a project.</em> </p>
+<pre><code class="language-C++">enum QFieldCloudProject::DeltaFileStatus {
+    DeltaErrorStatus,
+    DeltaLocalStatus,
+    DeltaPendingStatus,
+    DeltaBusyStatus,
+    DeltaConflictStatus,
+    DeltaNotAppliedStatus,
+    DeltaAppliedStatus
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-jobstatus">enum JobStatus</h3>
+<p><em>The status of the running server job.</em> </p>
+<pre><code class="language-C++">enum QFieldCloudProject::JobStatus {
+    JobPendingStatus,
+    JobQueuedStatus,
+    JobStartedStatus,
+    JobFinishedStatus,
+    JobStoppedStatus,
+    JobFailedStatus
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-jobtype">enum JobType</h3>
+<p><em>The status of the running server job.</em> </p>
+<pre><code class="language-C++">enum QFieldCloudProject::JobType {
+    Package
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-packagingstatus">enum PackagingStatus</h3>
+<p><em>The status of the running server job for packaging a project.</em> </p>
+<pre><code class="language-C++">enum QFieldCloudProject::PackagingStatus {
+    PackagingUnstartedStatus,
+    PackagingErrorStatus,
+    PackagingBusyStatus,
+    PackagingFinishedStatus,
+    PackagingAbortStatus
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-projectcheckout">enum ProjectCheckout</h3>
+<p><em>Whether the project has been available locally and/or remotely.</em> </p>
+<pre><code class="language-C++">enum QFieldCloudProject::ProjectCheckout {
+    RemoteCheckout = 2 &lt;&lt; 0,
+    LocalCheckout = 2 &lt;&lt; 1,
+    LocalAndRemoteCheckout = RemoteCheckout | LocalCheckout
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-projecterrorstatus">enum ProjectErrorStatus</h3>
+<p><em>Whether the project has experienced an error.</em> </p>
+<pre><code class="language-C++">enum QFieldCloudProject::ProjectErrorStatus {
+    NoErrorStatus,
+    DownloadErrorStatus,
+    PushErrorStatus
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-projectmodification">enum ProjectModification</h3>
+<p><em>Whether the project has no or local and/or remote modification. Indicates wheter can be synced.</em> </p>
+<pre><code class="language-C++">enum QFieldCloudProject::ProjectModification {
+    NoModification = 0,
+    LocalModification = 2 &lt;&lt; 0,
+    RemoteModification = 2 &lt;&lt; 1,
+    LocalAndRemoteModification = RemoteModification | LocalModification
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-projectrefreshreason">enum ProjectRefreshReason</h3>
+<p><em>The reason why projectRefreshData was called.</em> </p>
+<pre><code class="language-C++">enum QFieldCloudProject::ProjectRefreshReason {
+    Package,
+    DeltaPushed
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-projectstatus">enum ProjectStatus</h3>
+<p><em>Whether the project is busy or idle.</em> </p>
+<pre><code class="language-C++">enum QFieldCloudProject::ProjectStatus {
+    Idle,
+    Downloading,
+    Pushing,
+    Uploading,
+    Failing
+};
+</code></pre>
+<hr>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-attachmentsondemandenabled-12">property attachmentsOnDemandEnabled [1/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudProject::attachmentsOnDemandEnabled;
+</code></pre>
+<hr>
+
+<h3 id="property-autopushenabled-12">property autoPushEnabled [1/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudProject::autoPushEnabled;
+</code></pre>
+<hr>
+
+<h3 id="property-autopushintervalmins-12">property autoPushIntervalMins [1/2]</h3>
+<pre><code class="language-C++">int QFieldCloudProject::autoPushIntervalMins;
+</code></pre>
+<hr>
+
+<h3 id="property-createdat-12">property createdAt [1/2]</h3>
+<pre><code class="language-C++">QDateTime QFieldCloudProject::createdAt;
+</code></pre>
+<hr>
+
+<h3 id="property-deltafilepushstatus-12">property deltaFilePushStatus [1/2]</h3>
+<pre><code class="language-C++">DeltaFileStatus QFieldCloudProject::deltaFilePushStatus;
+</code></pre>
+<hr>
+
+<h3 id="property-deltafilewrapper-12">property deltaFileWrapper [1/2]</h3>
+<pre><code class="language-C++">DeltaFileWrapper * QFieldCloudProject::deltaFileWrapper;
+</code></pre>
+<hr>
+
+<h3 id="property-deltalistmodel-12">property deltaListModel [1/2]</h3>
+<pre><code class="language-C++">DeltaListModel * QFieldCloudProject::deltaListModel;
+</code></pre>
+<hr>
+
+<h3 id="property-deltascount-12">property deltasCount [1/2]</h3>
+<pre><code class="language-C++">int QFieldCloudProject::deltasCount;
+</code></pre>
+<hr>
+
+<h3 id="property-description-12">property description [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudProject::description;
+</code></pre>
+<hr>
+
+<h3 id="property-downloadbytesreceived-12">property downloadBytesReceived [1/2]</h3>
+<pre><code class="language-C++">qint64 QFieldCloudProject::downloadBytesReceived;
+</code></pre>
+<hr>
+
+<h3 id="property-downloadbytestotal-12">property downloadBytesTotal [1/2]</h3>
+<pre><code class="language-C++">qint64 QFieldCloudProject::downloadBytesTotal;
+</code></pre>
+<hr>
+
+<h3 id="property-downloadprogress-12">property downloadProgress [1/2]</h3>
+<pre><code class="language-C++">double QFieldCloudProject::downloadProgress;
+</code></pre>
+<hr>
+
+<h3 id="property-forceautopush-12">property forceAutoPush [1/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudProject::forceAutoPush;
+</code></pre>
+<hr>
+
+<h3 id="property-id-12">property id [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudProject::id;
+</code></pre>
+<hr>
+
+<h3 id="property-isfeatured-12">property isFeatured [1/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudProject::isFeatured;
+</code></pre>
+<hr>
+
+<h3 id="property-isoutdated-12">property isOutdated [1/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudProject::isOutdated;
+</code></pre>
+<hr>
+
+<h3 id="property-isprojectoutdated-12">property isProjectOutdated [1/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudProject::isProjectOutdated;
+</code></pre>
+<hr>
+
+<h3 id="property-ispublic-12">property isPublic [1/2]</h3>
+<pre><code class="language-C++">bool QFieldCloudProject::isPublic;
+</code></pre>
+<hr>
+
+<h3 id="property-lastlocalexportedat-12">property lastLocalExportedAt [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudProject::lastLocalExportedAt;
+</code></pre>
+<hr>
+
+<h3 id="property-lastlocalpushdeltas-12">property lastLocalPushDeltas [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudProject::lastLocalPushDeltas;
+</code></pre>
+<hr>
+
+<h3 id="property-localpath-12">property localPath [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudProject::localPath;
+</code></pre>
+<hr>
+
+<h3 id="property-name-12">property name [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudProject::name;
+</code></pre>
+<hr>
+
+<h3 id="property-owner-12">property owner [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudProject::owner;
+</code></pre>
+<hr>
+
+<h3 id="property-packagedlayererrors-12">property packagedLayerErrors [1/2]</h3>
+<pre><code class="language-C++">QStringList QFieldCloudProject::packagedLayerErrors;
+</code></pre>
+<hr>
+
+<h3 id="property-packagingstatus-12">property packagingStatus [1/2]</h3>
+<pre><code class="language-C++">PackagingStatus QFieldCloudProject::packagingStatus;
+</code></pre>
+<hr>
+
+<h3 id="property-pushdeltaprogress-12">property pushDeltaProgress [1/2]</h3>
+<pre><code class="language-C++">double QFieldCloudProject::pushDeltaProgress;
+</code></pre>
+<hr>
+
+<h3 id="property-status-12">property status [1/2]</h3>
+<pre><code class="language-C++">ProjectStatus QFieldCloudProject::status;
+</code></pre>
+<hr>
+
+<h3 id="property-thumbnailpath-12">property thumbnailPath [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudProject::thumbnailPath;
+</code></pre>
+<hr>
+
+<h3 id="property-updatedat-12">property updatedAt [1/2]</h3>
+<pre><code class="language-C++">QDateTime QFieldCloudProject::updatedAt;
+</code></pre>
+<hr>
+
+<h3 id="property-uploadbytessent-12">property uploadBytesSent [1/2]</h3>
+<pre><code class="language-C++">qint64 QFieldCloudProject::uploadBytesSent;
+</code></pre>
+<hr>
+
+<h3 id="property-uploadbytestotal-12">property uploadBytesTotal [1/2]</h3>
+<pre><code class="language-C++">qint64 QFieldCloudProject::uploadBytesTotal;
+</code></pre>
+<hr>
+
+<h3 id="property-uploadprogress-12">property uploadProgress [1/2]</h3>
+<pre><code class="language-C++">double QFieldCloudProject::uploadProgress;
+</code></pre>
+<hr>
+
+<h3 id="property-userrole-12">property userRole [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudProject::userRole;
+</code></pre>
+<hr>
+
+<h3 id="property-userroleorigin-12">property userRoleOrigin [1/2]</h3>
+<pre><code class="language-C++">QString QFieldCloudProject::userRoleOrigin;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-attachmentsondemandenabledchanged">signal attachmentsOnDemandEnabledChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::attachmentsOnDemandEnabledChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-autopushenabledchanged">signal autoPushEnabledChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::autoPushEnabledChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-autopushintervalminschanged">signal autoPushIntervalMinsChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::autoPushIntervalMinsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-canrepackagechanged">signal canRepackageChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::canRepackageChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-checkoutchanged">signal checkoutChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::checkoutChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-createdatchanged">signal createdAtChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::createdAtChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-datalastupdatedatchanged">signal dataLastUpdatedAtChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::dataLastUpdatedAtChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-datarefreshed">signal dataRefreshed</h3>
+<pre><code class="language-C++">void QFieldCloudProject::dataRefreshed;
+</code></pre>
+<hr>
+
+<h3 id="signal-deltafileidchanged">signal deltaFileIdChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::deltaFileIdChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-deltafilepushstatuschanged">signal deltaFilePushStatusChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::deltaFilePushStatusChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-deltafilepushstatusstringchanged">signal deltaFilePushStatusStringChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::deltaFilePushStatusStringChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-deltafilewrapperchanged">signal deltaFileWrapperChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::deltaFileWrapperChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-deltalayerstodownloadchanged">signal deltaLayersToDownloadChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::deltaLayersToDownloadChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-deltalistmodelchanged">signal deltaListModelChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::deltaListModelChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-deltascountchanged">signal deltasCountChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::deltasCountChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-descriptionchanged">signal descriptionChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::descriptionChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-downloadattachmentfinished">signal downloadAttachmentFinished</h3>
+<pre><code class="language-C++">void QFieldCloudProject::downloadAttachmentFinished;
+</code></pre>
+<hr>
+
+<h3 id="signal-downloadbytesreceivedchanged">signal downloadBytesReceivedChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::downloadBytesReceivedChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-downloadbytestotalchanged">signal downloadBytesTotalChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::downloadBytesTotalChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-downloadfinished">signal downloadFinished</h3>
+<pre><code class="language-C++">void QFieldCloudProject::downloadFinished;
+</code></pre>
+<hr>
+
+<h3 id="signal-downloadprogresschanged">signal downloadProgressChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::downloadProgressChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-downloaded">signal downloaded</h3>
+<pre><code class="language-C++">void QFieldCloudProject::downloaded;
+</code></pre>
+<hr>
+
+<h3 id="signal-errorstatuschanged">signal errorStatusChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::errorStatusChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-forceautopushchanged">signal forceAutoPushChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::forceAutoPushChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-idchanged">signal idChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::idChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-isfeaturedchanged">signal isFeaturedChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::isFeaturedChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-isoutdatedchanged">signal isOutdatedChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::isOutdatedChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-ispackagingactivechanged">signal isPackagingActiveChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::isPackagingActiveChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-ispackagingfailedchanged">signal isPackagingFailedChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::isPackagingFailedChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-isprojectoutdatedchanged">signal isProjectOutdatedChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::isProjectOutdatedChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-ispublicchanged">signal isPublicChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::isPublicChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-isshareddatasetsprojectchanged">signal isSharedDatasetsProjectChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::isSharedDatasetsProjectChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-jobfinished">signal jobFinished</h3>
+<pre><code class="language-C++">void QFieldCloudProject::jobFinished;
+</code></pre>
+<hr>
+
+<h3 id="signal-lastdatalastupdatedatchanged">signal lastDataLastUpdatedAtChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::lastDataLastUpdatedAtChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-lastlocaldatalastupdatedatchanged">signal lastLocalDataLastUpdatedAtChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::lastLocalDataLastUpdatedAtChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-lastlocalexportidchanged">signal lastLocalExportIdChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::lastLocalExportIdChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-lastlocalexportedatchanged">signal lastLocalExportedAtChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::lastLocalExportedAtChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-lastlocalpushdeltaschanged">signal lastLocalPushDeltasChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::lastLocalPushDeltasChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-lastlocalrestricteddatalastupdatedatchanged">signal lastLocalRestrictedDataLastUpdatedAtChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::lastLocalRestrictedDataLastUpdatedAtChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-lastrefreshedatchanged">signal lastRefreshedAtChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::lastRefreshedAtChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-localpathchanged">signal localPathChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::localPathChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-modificationchanged">signal modificationChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::modificationChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-namechanged">signal nameChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::nameChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-needsrepackagingchanged">signal needsRepackagingChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::needsRepackagingChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-networkdeltapushed">signal networkDeltaPushed</h3>
+<pre><code class="language-C++">void QFieldCloudProject::networkDeltaPushed;
+</code></pre>
+<hr>
+
+<h3 id="signal-networkdeltastatuschecked">signal networkDeltaStatusChecked</h3>
+<pre><code class="language-C++">void QFieldCloudProject::networkDeltaStatusChecked;
+</code></pre>
+<hr>
+
+<h3 id="signal-ownerchanged">signal ownerChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::ownerChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-packagedlayererrorschanged">signal packagedLayerErrorsChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::packagedLayerErrorsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-packagingstatuschanged">signal packagingStatusChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::packagingStatusChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-packagingstatusstringchanged">signal packagingStatusStringChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::packagingStatusStringChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-pushdeltaprogresschanged">signal pushDeltaProgressChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::pushDeltaProgressChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-pushfinished">signal pushFinished</h3>
+<pre><code class="language-C++">void QFieldCloudProject::pushFinished;
+</code></pre>
+<hr>
+
+<h3 id="signal-restricteddatalastupdatedatchanged">signal restrictedDataLastUpdatedAtChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::restrictedDataLastUpdatedAtChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-shareddatasetsprojectidchanged">signal sharedDatasetsProjectIdChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::sharedDatasetsProjectIdChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-statuschanged">signal statusChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::statusChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-thumbnailpathchanged">signal thumbnailPathChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::thumbnailPathChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-updatedatchanged">signal updatedAtChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::updatedAtChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-uploadbytessentchanged">signal uploadBytesSentChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::uploadBytesSentChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-uploadbytestotalchanged">signal uploadBytesTotalChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::uploadBytesTotalChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-uploadfinished">signal uploadFinished</h3>
+<pre><code class="language-C++">void QFieldCloudProject::uploadFinished;
+</code></pre>
+<hr>
+
+<h3 id="signal-uploadprogresschanged">signal uploadProgressChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::uploadProgressChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-userrolechanged">signal userRoleChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::userRoleChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-userroleoriginchanged">signal userRoleOriginChanged</h3>
+<pre><code class="language-C++">void QFieldCloudProject::userRoleOriginChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-qfieldcloudproject">function QFieldCloudProject</h3>
+<pre><code class="language-C++">QFieldCloudProject::QFieldCloudProject (
+    const QString &amp; id=QString(),
+    QFieldCloudConnection * connection=nullptr,
+    QgsGpkgFlusher * gpkgFlusher=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-attachmentsondemandenabled-22">function attachmentsOnDemandEnabled [2/2]</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::attachmentsOnDemandEnabled () const
+</code></pre>
+<hr>
+
+<h3 id="function-autopushenabled-22">function autoPushEnabled [2/2]</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::autoPushEnabled () const
+</code></pre>
+<hr>
+
+<h3 id="function-autopushintervalmins-22">function autoPushIntervalMins [2/2]</h3>
+<pre><code class="language-C++">inline int QFieldCloudProject::autoPushIntervalMins () const
+</code></pre>
+<hr>
+
+<h3 id="function-canrepackage">function canRepackage</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::canRepackage () const
+</code></pre>
+<hr>
+
+<h3 id="function-canceldownload">function cancelDownload</h3>
+<pre><code class="language-C++">void QFieldCloudProject::cancelDownload () 
+</code></pre>
+<hr>
+
+<h3 id="function-cancelpush">function cancelPush</h3>
+<pre><code class="language-C++">void QFieldCloudProject::cancelPush () 
+</code></pre>
+<hr>
+
+<h3 id="function-checkout">function checkout</h3>
+<pre><code class="language-C++">inline ProjectCheckouts QFieldCloudProject::checkout () const
+</code></pre>
+<hr>
+
+<h3 id="function-createdat-22">function createdAt [2/2]</h3>
+<pre><code class="language-C++">inline QDateTime QFieldCloudProject::createdAt () const
+</code></pre>
+<hr>
+
+<h3 id="function-datalastupdatedat">function dataLastUpdatedAt</h3>
+<pre><code class="language-C++">inline QDateTime QFieldCloudProject::dataLastUpdatedAt () const
+</code></pre>
+<hr>
+
+<h3 id="function-deltafileid">function deltaFileId</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::deltaFileId () const
+</code></pre>
+<hr>
+
+<h3 id="function-deltafilepushstatus-22">function deltaFilePushStatus [2/2]</h3>
+<pre><code class="language-C++">inline DeltaFileStatus QFieldCloudProject::deltaFilePushStatus () const
+</code></pre>
+<hr>
+
+<h3 id="function-deltafilepushstatusstring">function deltaFilePushStatusString</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::deltaFilePushStatusString () const
+</code></pre>
+<hr>
+
+<h3 id="function-deltafilewrapper-22">function deltaFileWrapper [2/2]</h3>
+<pre><code class="language-C++">inline DeltaFileWrapper * QFieldCloudProject::deltaFileWrapper () const
+</code></pre>
+<hr>
+
+<h3 id="function-deltalayerstodownload">function deltaLayersToDownload</h3>
+<pre><code class="language-C++">inline QStringList QFieldCloudProject::deltaLayersToDownload () const
+</code></pre>
+<hr>
+
+<h3 id="function-deltalistmodel-22">function deltaListModel [2/2]</h3>
+<pre><code class="language-C++">inline DeltaListModel * QFieldCloudProject::deltaListModel () const
+</code></pre>
+<hr>
+
+<h3 id="function-deltascount-22">function deltasCount [2/2]</h3>
+<pre><code class="language-C++">inline int QFieldCloudProject::deltasCount () const
+</code></pre>
+<hr>
+
+<h3 id="function-description-22">function description [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::description () const
+</code></pre>
+<hr>
+
+<h3 id="function-downloadattachment">function downloadAttachment</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldCloudProject::downloadAttachment (
+    const QString &amp; fileName
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-downloadbytesreceived-22">function downloadBytesReceived [2/2]</h3>
+<pre><code class="language-C++">inline qint64 QFieldCloudProject::downloadBytesReceived () const
+</code></pre>
+<hr>
+
+<h3 id="function-downloadbytestotal-22">function downloadBytesTotal [2/2]</h3>
+<pre><code class="language-C++">inline qint64 QFieldCloudProject::downloadBytesTotal () const
+</code></pre>
+<hr>
+
+<h3 id="function-downloadprogress-22">function downloadProgress [2/2]</h3>
+<pre><code class="language-C++">inline double QFieldCloudProject::downloadProgress () const
+</code></pre>
+<hr>
+
+<h3 id="function-downloadthumbnail">function downloadThumbnail</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldCloudProject::downloadThumbnail () 
+</code></pre>
+<hr>
+
+<h3 id="function-errorstatus">function errorStatus</h3>
+<pre><code class="language-C++">inline ProjectErrorStatus QFieldCloudProject::errorStatus () const
+</code></pre>
+<hr>
+
+<h3 id="function-forceautopush-22">function forceAutoPush [2/2]</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::forceAutoPush () const
+</code></pre>
+<hr>
+
+<h3 id="function-id-22">function id [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::id () const
+</code></pre>
+<hr>
+
+<h3 id="function-isfeatured-22">function isFeatured [2/2]</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::isFeatured () const
+</code></pre>
+<hr>
+
+<h3 id="function-isoutdated-22">function isOutdated [2/2]</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::isOutdated () const
+</code></pre>
+<hr>
+
+<h3 id="function-ispackagingactive">function isPackagingActive</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::isPackagingActive () const
+</code></pre>
+<hr>
+
+<h3 id="function-ispackagingfailed">function isPackagingFailed</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::isPackagingFailed () const
+</code></pre>
+<hr>
+
+<h3 id="function-isprojectoutdated-22">function isProjectOutdated [2/2]</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::isProjectOutdated () const
+</code></pre>
+<hr>
+
+<h3 id="function-ispublic-22">function isPublic [2/2]</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::isPublic () const
+</code></pre>
+<hr>
+
+<h3 id="function-isshareddatasetsproject">function isSharedDatasetsProject</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::isSharedDatasetsProject () const
+</code></pre>
+<hr>
+
+<h3 id="function-lastlocaldatalastupdatedat">function lastLocalDataLastUpdatedAt</h3>
+<pre><code class="language-C++">inline QDateTime QFieldCloudProject::lastLocalDataLastUpdatedAt () const
+</code></pre>
+<hr>
+
+<h3 id="function-lastlocalexportid">function lastLocalExportId</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::lastLocalExportId () const
+</code></pre>
+<hr>
+
+<h3 id="function-lastlocalexportedat-22">function lastLocalExportedAt [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::lastLocalExportedAt () const
+</code></pre>
+<hr>
+
+<h3 id="function-lastlocalpushdeltas-22">function lastLocalPushDeltas [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::lastLocalPushDeltas () const
+</code></pre>
+<hr>
+
+<h3 id="function-lastlocalrestricteddatalastupdatedat">function lastLocalRestrictedDataLastUpdatedAt</h3>
+<pre><code class="language-C++">inline QDateTime QFieldCloudProject::lastLocalRestrictedDataLastUpdatedAt () const
+</code></pre>
+<hr>
+
+<h3 id="function-lastrefreshedat">function lastRefreshedAt</h3>
+<pre><code class="language-C++">inline QDateTime QFieldCloudProject::lastRefreshedAt () const
+</code></pre>
+<hr>
+
+<h3 id="function-localpath-22">function localPath [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::localPath () const
+</code></pre>
+<hr>
+
+<h3 id="function-modification">function modification</h3>
+<pre><code class="language-C++">inline ProjectModifications QFieldCloudProject::modification () const
+</code></pre>
+<hr>
+
+<h3 id="function-name-22">function name [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::name () const
+</code></pre>
+<hr>
+
+<h3 id="function-needsrepackaging">function needsRepackaging</h3>
+<pre><code class="language-C++">inline bool QFieldCloudProject::needsRepackaging () const
+</code></pre>
+<hr>
+
+<h3 id="function-owner-22">function owner [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::owner () const
+</code></pre>
+<hr>
+
+<h3 id="function-packageanddownload">function packageAndDownload</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldCloudProject::packageAndDownload () 
+</code></pre>
+<hr>
+
+<h3 id="function-packagedlayererrors-22">function packagedLayerErrors [2/2]</h3>
+<pre><code class="language-C++">inline QStringList QFieldCloudProject::packagedLayerErrors () const
+</code></pre>
+<hr>
+
+<h3 id="function-packagingstatus-22">function packagingStatus [2/2]</h3>
+<pre><code class="language-C++">inline PackagingStatus QFieldCloudProject::packagingStatus () const
+</code></pre>
+<hr>
+
+<h3 id="function-packagingstatusstring">function packagingStatusString</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::packagingStatusString () const
+</code></pre>
+<hr>
+
+<h3 id="function-push">function push</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldCloudProject::push (
+    bool shouldDownloadUpdates
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-pushdeltaprogress-22">function pushDeltaProgress [2/2]</h3>
+<pre><code class="language-C++">inline double QFieldCloudProject::pushDeltaProgress () const
+</code></pre>
+<hr>
+
+<h3 id="function-refreshdeltalist">function refreshDeltaList</h3>
+<pre><code class="language-C++">void QFieldCloudProject::refreshDeltaList () 
+</code></pre>
+<hr>
+
+<h3 id="function-refreshmodification">function refreshModification</h3>
+<pre><code class="language-C++">void QFieldCloudProject::refreshModification () 
+</code></pre>
+<hr>
+
+<h3 id="function-removelocally">function removeLocally</h3>
+<pre><code class="language-C++">void QFieldCloudProject::removeLocally () 
+</code></pre>
+<hr>
+
+<h3 id="function-restricteddatalastupdatedat">function restrictedDataLastUpdatedAt</h3>
+<pre><code class="language-C++">inline QDateTime QFieldCloudProject::restrictedDataLastUpdatedAt () const
+</code></pre>
+<hr>
+
+<h3 id="function-setattachmentsondemandenabled">function setAttachmentsOnDemandEnabled</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setAttachmentsOnDemandEnabled (
+    bool enabled
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setautopushenabled">function setAutoPushEnabled</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setAutoPushEnabled (
+    bool enabled
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setautopushintervalmins">function setAutoPushIntervalMins</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setAutoPushIntervalMins (
+    int minutes
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setcanrepackage">function setCanRepackage</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setCanRepackage (
+    bool canRepackage
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setcheckout">function setCheckout</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setCheckout (
+    ProjectCheckouts checkout
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setcreatedat">function setCreatedAt</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setCreatedAt (
+    const QDateTime &amp; createdAt
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdatalastupdatedat">function setDataLastUpdatedAt</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setDataLastUpdatedAt (
+    const QDateTime &amp; dataLastUpdatedAt
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdeltafileid">function setDeltaFileId</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setDeltaFileId (
+    const QString &amp; deltaFileId
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdeltafilepushstatus">function setDeltaFilePushStatus</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setDeltaFilePushStatus (
+    DeltaFileStatus deltaFilePushStatus
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdeltafilepushstatusstring">function setDeltaFilePushStatusString</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setDeltaFilePushStatusString (
+    const QString &amp; deltaFilePushStatusString
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdeltalayerstodownload">function setDeltaLayersToDownload</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setDeltaLayersToDownload (
+    const QStringList &amp; deltaLayersToDownload
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdescription">function setDescription</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setDescription (
+    const QString &amp; description
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-seterrorstatus">function setErrorStatus</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setErrorStatus (
+    ProjectErrorStatus errorStatus
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setforceautopush">function setForceAutoPush</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setForceAutoPush (
+    bool force
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setisfeatured">function setIsFeatured</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setIsFeatured (
+    bool isFeatured
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setisoutdated">function setIsOutdated</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setIsOutdated (
+    bool isOutdated
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setispackagingactive">function setIsPackagingActive</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setIsPackagingActive (
+    bool isPackagingActive
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setispackagingfailed">function setIsPackagingFailed</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setIsPackagingFailed (
+    bool isPackagingFailed
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setisprojectoutdated">function setIsProjectOutdated</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setIsProjectOutdated (
+    bool isProjectOutdated
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setispublic">function setIsPublic</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setIsPublic (
+    bool isPublic
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setisshareddatasetsproject">function setIsSharedDatasetsProject</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setIsSharedDatasetsProject (
+    bool isSharedDatasetsProject
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setlastlocaldatalastupdatedat">function setLastLocalDataLastUpdatedAt</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setLastLocalDataLastUpdatedAt (
+    const QDateTime &amp; lastLocalDataLastUpdatedAt
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setlastlocalexportid">function setLastLocalExportId</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setLastLocalExportId (
+    const QString &amp; lastLocalExportId
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setlastlocalexportedat">function setLastLocalExportedAt</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setLastLocalExportedAt (
+    const QString &amp; lastLocalExportedAt
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setlastlocalpushdeltas">function setLastLocalPushDeltas</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setLastLocalPushDeltas (
+    const QString &amp; lastLocalPushDeltas
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setlastlocalrestricteddatalastupdatedat">function setLastLocalRestrictedDataLastUpdatedAt</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setLastLocalRestrictedDataLastUpdatedAt (
+    const QDateTime &amp; lastLocalRestrictedDataLastUpdatedAt
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setlastrefreshedat">function setLastRefreshedAt</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setLastRefreshedAt (
+    const QDateTime &amp; lastRefreshedAt
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setlocalpath">function setLocalPath</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setLocalPath (
+    const QString &amp; localPath
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setmodification">function setModification</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setModification (
+    ProjectModification modification
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setname">function setName</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setName (
+    const QString &amp; name
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setneedsrepackaging">function setNeedsRepackaging</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setNeedsRepackaging (
+    bool needsRepackaging
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setowner">function setOwner</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setOwner (
+    const QString &amp; owner
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setpackagedlayererrors">function setPackagedLayerErrors</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setPackagedLayerErrors (
+    const QStringList &amp; packagedLayerErrors
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setpackagingstatus">function setPackagingStatus</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setPackagingStatus (
+    PackagingStatus packagingStatus
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setpackagingstatusstring">function setPackagingStatusString</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setPackagingStatusString (
+    const QString &amp; packagingStatusString
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setrestricteddatalastupdatedat">function setRestrictedDataLastUpdatedAt</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setRestrictedDataLastUpdatedAt (
+    const QDateTime &amp; restrictedDataLastUpdatedAt
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setshareddatasetsprojectid">function setSharedDatasetsProjectId</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setSharedDatasetsProjectId (
+    const QString &amp; id
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setstatus">function setStatus</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setStatus (
+    ProjectStatus status
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setthumbnailpath">function setThumbnailPath</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setThumbnailPath (
+    const QString &amp; thumbnailPath
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setupdatedat">function setUpdatedAt</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setUpdatedAt (
+    const QDateTime &amp; updatedAt
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setuserrole">function setUserRole</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setUserRole (
+    const QString &amp; userRole
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setuserroleorigin">function setUserRoleOrigin</h3>
+<pre><code class="language-C++">void QFieldCloudProject::setUserRoleOrigin (
+    const QString &amp; userRoleOrigin
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-shareddatasetsprojectid">function sharedDatasetsProjectId</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::sharedDatasetsProjectId () const
+</code></pre>
+<hr>
+
+<h3 id="function-status-22">function status [2/2]</h3>
+<pre><code class="language-C++">inline ProjectStatus QFieldCloudProject::status () const
+</code></pre>
+<hr>
+
+<h3 id="function-thumbnailpath-22">function thumbnailPath [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::thumbnailPath () const
+</code></pre>
+<hr>
+
+<h3 id="function-updatedat-22">function updatedAt [2/2]</h3>
+<pre><code class="language-C++">inline QDateTime QFieldCloudProject::updatedAt () const
+</code></pre>
+<hr>
+
+<h3 id="function-uploadbytessent-22">function uploadBytesSent [2/2]</h3>
+<pre><code class="language-C++">inline qint64 QFieldCloudProject::uploadBytesSent () const
+</code></pre>
+<hr>
+
+<h3 id="function-uploadbytestotal-22">function uploadBytesTotal [2/2]</h3>
+<pre><code class="language-C++">inline qint64 QFieldCloudProject::uploadBytesTotal () const
+</code></pre>
+<hr>
+
+<h3 id="function-uploadlocalpath">function uploadLocalPath</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QFieldCloudProject::uploadLocalPath (
+    QString localPath,
+    bool deleteAfterSuccessfulUpload=false
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-uploadprogress-22">function uploadProgress [2/2]</h3>
+<pre><code class="language-C++">inline double QFieldCloudProject::uploadProgress () const
+</code></pre>
+<hr>
+
+<h3 id="function-userrole-22">function userRole [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::userRole () const
+</code></pre>
+<hr>
+
+<h3 id="function-userroleorigin-22">function userRoleOrigin [2/2]</h3>
+<pre><code class="language-C++">inline QString QFieldCloudProject::userRoleOrigin () const
+</code></pre>
+<hr>
+
+<h3 id="function-qfieldcloudproject_1">function ~QFieldCloudProject</h3>
+<pre><code class="language-C++">QFieldCloudProject::~QFieldCloudProject () = default
+</code></pre>
+<hr>
+<h2 id="public-static-functions-documentation">Public Static Functions Documentation</h2>
+<h3 id="function-fromdetails">function fromDetails</h3>
+<pre><code class="language-C++">static QFieldCloudProject * QFieldCloudProject::fromDetails (
+    const QVariantHash &amp; details,
+    QFieldCloudConnection * connection,
+    QgsGpkgFlusher * gpkgFlusher=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-fromlocalsettings">function fromLocalSettings</h3>
+<pre><code class="language-C++">static QFieldCloudProject * QFieldCloudProject::fromLocalSettings (
+    const QString &amp; id,
+    QFieldCloudConnection * connection,
+    QgsGpkgFlusher * gpkgFlusher=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-getjobstatusfromstring">function getJobStatusFromString</h3>
+<pre><code class="language-C++">static QFieldCloudProject::JobStatus QFieldCloudProject::getJobStatusFromString (
+    const QString &amp; status
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-getjobtypeasstring">function getJobTypeAsString</h3>
+<pre><code class="language-C++">static QString QFieldCloudProject::getJobTypeAsString (
+    QFieldCloudProject::JobType jobType
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-restorelocalsettings">function restoreLocalSettings</h3>
+<pre><code class="language-C++">static void QFieldCloudProject::restoreLocalSettings (
+    QFieldCloudProject * project,
+    const QDir &amp; localPath
+) 
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/qfieldcloud/qfieldcloudproject.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

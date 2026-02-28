@@ -1,0 +1,2457 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class VertexModel - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-vertexmodel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class VertexModel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-columnrole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum ColumnRole
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-editingmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum EditingMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-pointtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum PointType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-vertexchangetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum VertexChangeType
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-canaddvertex-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property canAddVertex [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-cannextvertex-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property canNextVertex [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-canpreviousvertex-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property canPreviousVertex [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-canremovevertex-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property canRemoveVertex [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-canundo-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property canUndo [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-crs-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property crs [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-currentpoint-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property currentPoint [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-currentvertexindex-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property currentVertexIndex [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-dirty-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property dirty [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-editingallowed-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property editingAllowed [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-editingmode-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property editingMode [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-geometry-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property geometry [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-ishovering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isHovering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-mapsettings-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mapSettings [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-ringcount-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property ringCount [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vertexcount-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vertexCount [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-canaddvertexchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal canAddVertexChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-cannextvertexchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal canNextVertexChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-canpreviousvertexchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal canPreviousVertexChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-canremovevertexchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal canRemoveVertexChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-crschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal crsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-currentpointchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal currentPointChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-currentvertexindexchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal currentVertexIndexChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-dirtychanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal dirtyChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-editingmodechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal editingModeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-geometrychanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal geometryChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-geometrytypechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal geometryTypeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-historychanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal historyChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-mapsettingschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal mapSettingsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-ringcountchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal ringCountChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-vertexcountchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal vertexCountChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-vertexmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function VertexModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-addtohistory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function addToHistory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-addvertexnearesttoposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function addVertexNearestToPosition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-canaddvertex-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function canAddVertex [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-cannextvertex-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function canNextVertex [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-canpreviousvertex-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function canPreviousVertex [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-canremovevertex-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function canRemoveVertex [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-canundo-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function canUndo [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-clearhistory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function clearHistory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-columncount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function columnCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-crs-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function crs [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-currentpoint-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function currentPoint [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-currentvertexindex-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function currentVertexIndex [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-dirty-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function dirty [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-editingallowed-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function editingAllowed [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-editingmode-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function editingMode [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-flatvertices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function flatVertices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-geometry-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function geometry [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-geometrytype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function geometryType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-mapsettings-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function mapSettings [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function next
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-parent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function parent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-previous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function previous
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-removecurrentvertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function removeCurrentVertex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-ringcount-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ringCount [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-rolenames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function roleNames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-rowcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function rowCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-selectvertexatposition-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function selectVertexAtPosition [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-selectvertexatposition-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function selectVertexAtPosition [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCrs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcurrentpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCurrentPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcurrentvertexindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCurrentVertexIndex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-seteditingmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setEditingMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setgeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setGeometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmapsettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setMapSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-undohistory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function undoHistory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-updategeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function updateGeometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vertex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vertexcount-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vertexCount [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vertices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vertices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-verticesadded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function verticesAdded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-verticesdeleted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function verticesDeleted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-verticesmoved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function verticesMoved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vertexmodel_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~VertexModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-vertexmodel">Class VertexModel</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>VertexModel</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;vertexmodel.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QAbstractListModel</p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structVertexModel_1_1Vertex/"><strong>Vertex</strong></a> <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structVertexModel_1_1VertexChange/"><strong>VertexChange</strong></a> <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-columnrole"><strong>ColumnRole</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-editingmode"><strong>EditingMode</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-pointtype"><strong>PointType</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-vertexchangetype"><strong>VertexChangeType</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-canaddvertex-12"><strong>canAddVertex</strong></a>  <br><em>determines if one can add vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-cannextvertex-12"><strong>canNextVertex</strong></a>  <br><em>determines if one can go to next vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-canpreviousvertex-12"><strong>canPreviousVertex</strong></a>  <br><em>determines if one can go to previous vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-canremovevertex-12"><strong>canRemoveVertex</strong></a>  <br><em>determines if one can remove current vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-canundo-12"><strong>canUndo</strong></a>  <br><em>returns TRUE if an undo operation is available</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsCoordinateReferenceSystem</td>
+<td style="text-align: left;"><a href="./#property-crs-12"><strong>crs</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsPoint</td>
+<td style="text-align: left;"><a href="./#property-currentpoint-12"><strong>currentPoint</strong></a>  <br><em>The current point being edited.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-currentvertexindex-12"><strong>currentVertexIndex</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-dirty-12"><strong>dirty</strong></a>  <br><em>determines if the model has changes</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-editingallowed-12"><strong>editingAllowed</strong></a>  <br><em>determines if the model allows editing the geometry</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property EditingMode</td>
+<td style="text-align: left;"><a href="./#property-editingmode-12"><strong>editingMode</strong></a>  <br><em>The current mode.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsGeometry</td>
+<td style="text-align: left;"><a href="./#property-geometry-12"><strong>geometry</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-ishovering"><strong>isHovering</strong></a>  <br><em>determines if the map is currently being hovered (then when moving the map, it will not move directly a vertex if the mode is AddVertex)</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-mapsettings-12"><strong>mapSettings</strong></a>  <br><em>Map settings is used to define the map canvas CRS and detect any extent change.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-ringcount-12"><strong>ringCount</strong></a>  <br><em>number of rings in the model</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-vertexcount-12"><strong>vertexCount</strong></a>  <br><em>number of vertices in the model</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-canaddvertexchanged"><strong>canAddVertexChanged</strong></a>  <br><em>determines if one can add vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-cannextvertexchanged"><strong>canNextVertexChanged</strong></a>  <br><em>determines if one can go to next vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-canpreviousvertexchanged"><strong>canPreviousVertexChanged</strong></a>  <br><em>determines if one can go to previous vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-canremovevertexchanged"><strong>canRemoveVertexChanged</strong></a>  <br><em>determines if one can remove current vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-crschanged"><strong>crsChanged</strong></a>  <br><em>Emitted when the coordinate reference system has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-currentpointchanged"><strong>currentPointChanged</strong></a>  <br><em>The current point being edited.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-currentvertexindexchanged"><strong>currentVertexIndexChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-dirtychanged"><strong>dirtyChanged</strong></a>  <br><em>determines if the model has changes</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-editingmodechanged"><strong>editingModeChanged</strong></a>  <br><em>The current mode.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-geometrychanged"><strong>geometryChanged</strong></a>  <br><em>Emitted when the geometry has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-geometrytypechanged"><strong>geometryTypeChanged</strong></a>  <br><em>Returns the geometry type.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-historychanged"><strong>historyChanged</strong></a>  <br><em>Emitted when the history has been modified.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-mapsettingschanged"><strong>mapSettingsChanged</strong></a>  <br><em>Map settings is used to define the map canvas CRS and detect any extent change.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-ringcountchanged"><strong>ringCountChanged</strong></a>  <br><em>number of rings in the model</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-vertexcountchanged"><strong>vertexCountChanged</strong></a>  <br><em>number of vertices in the model</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-vertexmodel"><strong>VertexModel</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-addtohistory"><strong>addToHistory</strong></a> (VertexChangeType type) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-addvertexnearesttoposition"><strong>addVertexNearestToPosition</strong></a> (const QgsPoint &amp; mapPoint) <br><em>Adds a new vertex on the segment having its mid-point nearest to the</em> <em>mapPoint</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-canaddvertex-22"><strong>canAddVertex</strong></a> () <br><em>determines if one can add vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-cannextvertex-22"><strong>canNextVertex</strong></a> () <br><em>determines if one can go to next vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-canpreviousvertex-22"><strong>canPreviousVertex</strong></a> () <br><em>determines if one can go to previous vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-canremovevertex-22"><strong>canRemoveVertex</strong></a> () <br><em>determines if one can remove current vertex</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-canundo-22"><strong>canUndo</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-clear"><strong>clear</strong></a> () <br><em>This will clear the data.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-clearhistory"><strong>clearHistory</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-columncount"><strong>columnCount</strong></a> (const QModelIndex &amp; parent) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsCoordinateReferenceSystem</td>
+<td style="text-align: left;"><a href="#function-crs-22"><strong>crs</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-currentpoint-22"><strong>currentPoint</strong></a> () const<br><em>The current point being edited.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-currentvertexindex-22"><strong>currentVertexIndex</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVariant</td>
+<td style="text-align: left;"><a href="#function-data"><strong>data</strong></a> (const QModelIndex &amp; index, int role) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-dirty-22"><strong>dirty</strong></a> () const<br><em>determines if the model has changes</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-editingallowed-22"><strong>editingAllowed</strong></a> () const<br><em>determines if the model allows editing the geometry</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">EditingMode</td>
+<td style="text-align: left;"><a href="#function-editingmode-22"><strong>editingMode</strong></a> () const<br><em>The current mode.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVector&lt; QgsPoint &gt;</td>
+<td style="text-align: left;"><a href="#function-flatvertices"><strong>flatVertices</strong></a> (int ringId=-1) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsGeometry</td>
+<td style="text-align: left;"><a href="#function-geometry-22"><strong>geometry</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Qgis::GeometryType</td>
+<td style="text-align: left;"><a href="#function-geometrytype"><strong>geometryType</strong></a> () const<br><em>Returns the geometry type.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; <a href="../structVertexModel_1_1VertexChange/"><strong>VertexChange</strong></a> &gt;</td>
+<td style="text-align: left;"><a href="#function-history"><strong>history</strong></a> (bool transformPoints=false, bool includeAvailableRedos=false) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QModelIndex</td>
+<td style="text-align: left;"><a href="#function-index"><strong>index</strong></a> (int row, int column, const QModelIndex &amp; parent) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-mapsettings-22"><strong>mapSettings</strong></a> () <br><em>Map settings is used to define the map canvas CRS and detect any extent change.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-next"><strong>next</strong></a> () <br><em>next vertex or segment</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QModelIndex</td>
+<td style="text-align: left;"><a href="#function-parent"><strong>parent</strong></a> (const QModelIndex &amp; child) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-previous"><strong>previous</strong></a> () <br><em>previous vertex or segment</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-removecurrentvertex"><strong>removeCurrentVertex</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-reset"><strong>reset</strong></a> () <br><em>Reset the model to its original geometry.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-ringcount-22"><strong>ringCount</strong></a> () const<br><em>number of rings in the model</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QHash&lt; int, QByteArray &gt;</td>
+<td style="text-align: left;"><a href="#function-rolenames"><strong>roleNames</strong></a> () override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-rowcount"><strong>rowCount</strong></a> (const QModelIndex &amp; parent) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-selectvertexatposition-12"><strong>selectVertexAtPosition</strong></a> (const QPointF &amp; point, double threshold, bool autoInsert=true) <br><em>Selects the vertex at the given screen</em> <em>point</em> <em>within a given__threshold</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-selectvertexatposition-22"><strong>selectVertexAtPosition</strong></a> (const QgsPoint &amp; mapPoint, double threshold, bool autoInsert=true) <br><em>Selects the vertex at the given</em> <em>mapPoint</em> <em>within a given__threshold</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcrs"><strong>setCrs</strong></a> (const QgsCoordinateReferenceSystem &amp; crs) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcurrentpoint"><strong>setCurrentPoint</strong></a> (const QgsPoint &amp; point) <br><em>The current point being edited.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcurrentvertexindex"><strong>setCurrentVertexIndex</strong></a> (qsizetype currentIndex) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-seteditingmode"><strong>setEditingMode</strong></a> (EditingMode mode) <br><em>The current mode.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setgeometry"><strong>setGeometry</strong></a> (const QgsGeometry &amp; geometry) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setmapsettings"><strong>setMapSettings</strong></a> (<a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> * mapSettings) <br><em>Map settings is used to define the map canvas CRS and detect any extent change.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-undohistory"><strong>undoHistory</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-updategeometry"><strong>updateGeometry</strong></a> (const QgsGeometry &amp; geometry) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../structVertexModel_1_1Vertex/"><strong>Vertex</strong></a></td>
+<td style="text-align: left;"><a href="#function-vertex"><strong>vertex</strong></a> (int row) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-vertexcount-22"><strong>vertexCount</strong></a> () const<br><em>number of vertices in the model</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; <a href="../structVertexModel_1_1Vertex/"><strong>Vertex</strong></a> &gt;</td>
+<td style="text-align: left;"><a href="#function-vertices"><strong>vertices</strong></a> () const<br><em>Returns a list of vertices.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVector&lt; QgsPoint &gt;</td>
+<td style="text-align: left;"><a href="#function-verticesadded"><strong>verticesAdded</strong></a> () const<br><em>Returns a list of added vertices not found in linked geometry.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVector&lt; QgsPoint &gt;</td>
+<td style="text-align: left;"><a href="#function-verticesdeleted"><strong>verticesDeleted</strong></a> () const<br><em>Returns a list of added vertices not found in linked geometry.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVector&lt; QPair&lt; QgsPoint, QgsPoint &gt; &gt;</td>
+<td style="text-align: left;"><a href="#function-verticesmoved"><strong>verticesMoved</strong></a> () const<br><em>Returns a list of moved vertices found in linked geometry.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-vertexmodel"><strong>~VertexModel</strong></a> () override<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>The <a href="./"><strong>VertexModel</strong></a> class is a model to highlight and edit vertices. The model is used in map coordinates. There are different modes: no editing, edit (move/remove) nodes, add nodes (to be implemented)</p>
+<p>The model holds all vertices and the candidates for new vertices. If you need the existing nodes, use <a href="./#function-flatvertices"><strong>flatVertices()</strong></a>. </p>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-columnrole">enum ColumnRole</h3>
+<pre><code class="language-C++">enum VertexModel::ColumnRole {
+    PointRole = Qt::UserRole + 1,
+    CurrentVertexRole,
+    OriginalPointRole,
+    ExistingVertexRole,
+    RingIdRole
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-editingmode">enum EditingMode</h3>
+<pre><code class="language-C++">enum VertexModel::EditingMode {
+    NoEditing,
+    EditVertex,
+    AddVertex
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-pointtype">enum PointType</h3>
+<pre><code class="language-C++">enum VertexModel::PointType {
+    ExistingVertex,
+    NewVertexSegment,
+    NewVertexExtending
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-vertexchangetype">enum VertexChangeType</h3>
+<pre><code class="language-C++">enum VertexModel::VertexChangeType {
+    NoChange,
+    VertexMove,
+    VertexAddition,
+    VertexDeletion
+};
+</code></pre>
+<hr>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-canaddvertex-12">property canAddVertex [1/2]</h3>
+<p><em>determines if one can add vertex</em> </p>
+<pre><code class="language-C++">bool VertexModel::canAddVertex;
+</code></pre>
+<hr>
+
+<h3 id="property-cannextvertex-12">property canNextVertex [1/2]</h3>
+<p><em>determines if one can go to next vertex</em> </p>
+<pre><code class="language-C++">bool VertexModel::canNextVertex;
+</code></pre>
+<hr>
+
+<h3 id="property-canpreviousvertex-12">property canPreviousVertex [1/2]</h3>
+<p><em>determines if one can go to previous vertex</em> </p>
+<pre><code class="language-C++">bool VertexModel::canPreviousVertex;
+</code></pre>
+<hr>
+
+<h3 id="property-canremovevertex-12">property canRemoveVertex [1/2]</h3>
+<p><em>determines if one can remove current vertex</em> </p>
+<pre><code class="language-C++">bool VertexModel::canRemoveVertex;
+</code></pre>
+<hr>
+
+<h3 id="property-canundo-12">property canUndo [1/2]</h3>
+<p><em>returns TRUE if an undo operation is available</em> </p>
+<pre><code class="language-C++">bool VertexModel::canUndo;
+</code></pre>
+<hr>
+
+<h3 id="property-crs-12">property crs [1/2]</h3>
+<pre><code class="language-C++">QgsCoordinateReferenceSystem VertexModel::crs;
+</code></pre>
+<p>The coordinate reference system in which the geometry is </p>
+<hr>
+
+<h3 id="property-currentpoint-12">property currentPoint [1/2]</h3>
+<p><em>The current point being edited.</em> </p>
+<pre><code class="language-C++">QgsPoint VertexModel::currentPoint;
+</code></pre>
+<p><strong>See also:</strong> <a href="./#property-editingmode-12"><strong>editingMode</strong></a>. The expected CRS to read/write is the map canvas CRS </p>
+<hr>
+
+<h3 id="property-currentvertexindex-12">property currentVertexIndex [1/2]</h3>
+<pre><code class="language-C++">int VertexModel::currentVertexIndex;
+</code></pre>
+<p>The index of the currently active vertex. If no vertex is selected, this is -1. </p>
+<hr>
+
+<h3 id="property-dirty-12">property dirty [1/2]</h3>
+<p><em>determines if the model has changes</em> </p>
+<pre><code class="language-C++">bool VertexModel::dirty;
+</code></pre>
+<hr>
+
+<h3 id="property-editingallowed-12">property editingAllowed [1/2]</h3>
+<p><em>determines if the model allows editing the geometry</em> </p>
+<pre><code class="language-C++">bool VertexModel::editingAllowed;
+</code></pre>
+<hr>
+
+<h3 id="property-editingmode-12">property editingMode [1/2]</h3>
+<p><em>The current mode.</em> </p>
+<pre><code class="language-C++">EditingMode VertexModel::editingMode;
+</code></pre>
+<hr>
+
+<h3 id="property-geometry-12">property geometry [1/2]</h3>
+<pre><code class="language-C++">QgsGeometry VertexModel::geometry;
+</code></pre>
+<p>The geometry in layer coordinates </p>
+<hr>
+
+<h3 id="property-ishovering">property isHovering</h3>
+<p><em>determines if the map is currently being hovered (then when moving the map, it will not move directly a vertex if the mode is AddVertex)</em> </p>
+<pre><code class="language-C++">bool VertexModel::isHovering;
+</code></pre>
+<hr>
+
+<h3 id="property-mapsettings-12">property mapSettings [1/2]</h3>
+<p><em>Map settings is used to define the map canvas CRS and detect any extent change.</em> </p>
+<pre><code class="language-C++">QgsQuickMapSettings * VertexModel::mapSettings;
+</code></pre>
+<hr>
+
+<h3 id="property-ringcount-12">property ringCount [1/2]</h3>
+<p><em>number of rings in the model</em> </p>
+<pre><code class="language-C++">int VertexModel::ringCount;
+</code></pre>
+<hr>
+
+<h3 id="property-vertexcount-12">property vertexCount [1/2]</h3>
+<p><em>number of vertices in the model</em> </p>
+<pre><code class="language-C++">int VertexModel::vertexCount;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-canaddvertexchanged">signal canAddVertexChanged</h3>
+<p><em>determines if one can add vertex</em> </p>
+<pre><code class="language-C++">void VertexModel::canAddVertexChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-cannextvertexchanged">signal canNextVertexChanged</h3>
+<p><em>determines if one can go to next vertex</em> </p>
+<pre><code class="language-C++">void VertexModel::canNextVertexChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-canpreviousvertexchanged">signal canPreviousVertexChanged</h3>
+<p><em>determines if one can go to previous vertex</em> </p>
+<pre><code class="language-C++">void VertexModel::canPreviousVertexChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-canremovevertexchanged">signal canRemoveVertexChanged</h3>
+<p><em>determines if one can remove current vertex</em> </p>
+<pre><code class="language-C++">void VertexModel::canRemoveVertexChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-crschanged">signal crsChanged</h3>
+<p><em>Emitted when the coordinate reference system has changed.</em> </p>
+<pre><code class="language-C++">void VertexModel::crsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-currentpointchanged">signal currentPointChanged</h3>
+<p><em>The current point being edited.</em> </p>
+<pre><code class="language-C++">void VertexModel::currentPointChanged;
+</code></pre>
+<p><strong>See also:</strong> <a href="./#property-editingmode-12"><strong>editingMode</strong></a>. The expected CRS to read/write is the map canvas CRS   </p>
+<hr>
+
+<h3 id="signal-currentvertexindexchanged">signal currentVertexIndexChanged</h3>
+<pre><code class="language-C++">void VertexModel::currentVertexIndexChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-dirtychanged">signal dirtyChanged</h3>
+<p><em>determines if the model has changes</em> </p>
+<pre><code class="language-C++">void VertexModel::dirtyChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-editingmodechanged">signal editingModeChanged</h3>
+<p><em>The current mode.</em> </p>
+<pre><code class="language-C++">void VertexModel::editingModeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-geometrychanged">signal geometryChanged</h3>
+<p><em>Emitted when the geometry has changed.</em> </p>
+<pre><code class="language-C++">void VertexModel::geometryChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-geometrytypechanged">signal geometryTypeChanged</h3>
+<p><em>Returns the geometry type.</em> </p>
+<pre><code class="language-C++">void VertexModel::geometryTypeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-historychanged">signal historyChanged</h3>
+<p><em>Emitted when the history has been modified.</em> </p>
+<pre><code class="language-C++">void VertexModel::historyChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-mapsettingschanged">signal mapSettingsChanged</h3>
+<p><em>Map settings is used to define the map canvas CRS and detect any extent change.</em> </p>
+<pre><code class="language-C++">void VertexModel::mapSettingsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-ringcountchanged">signal ringCountChanged</h3>
+<p><em>number of rings in the model</em> </p>
+<pre><code class="language-C++">void VertexModel::ringCountChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-vertexcountchanged">signal vertexCountChanged</h3>
+<p><em>number of vertices in the model</em> </p>
+<pre><code class="language-C++">void VertexModel::vertexCountChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-vertexmodel">function VertexModel</h3>
+<pre><code class="language-C++">explicit VertexModel::VertexModel (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-addtohistory">function addToHistory</h3>
+<pre><code class="language-C++">void VertexModel::addToHistory (
+    VertexChangeType type
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-addvertexnearesttoposition">function addVertexNearestToPosition</h3>
+<p><em>Adds a new vertex on the segment having its mid-point nearest to the</em> <em>mapPoint</em> <em>.</em></p>
+<pre><code class="language-C++">Q_INVOKABLE void VertexModel::addVertexNearestToPosition (
+    const QgsPoint &amp; mapPoint
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-canaddvertex-22">function canAddVertex [2/2]</h3>
+<p><em>determines if one can add vertex</em> </p>
+<pre><code class="language-C++">bool VertexModel::canAddVertex () 
+</code></pre>
+<hr>
+
+<h3 id="function-cannextvertex-22">function canNextVertex [2/2]</h3>
+<p><em>determines if one can go to next vertex</em> </p>
+<pre><code class="language-C++">bool VertexModel::canNextVertex () 
+</code></pre>
+<hr>
+
+<h3 id="function-canpreviousvertex-22">function canPreviousVertex [2/2]</h3>
+<p><em>determines if one can go to previous vertex</em> </p>
+<pre><code class="language-C++">bool VertexModel::canPreviousVertex () 
+</code></pre>
+<hr>
+
+<h3 id="function-canremovevertex-22">function canRemoveVertex [2/2]</h3>
+<p><em>determines if one can remove current vertex</em> </p>
+<pre><code class="language-C++">bool VertexModel::canRemoveVertex () 
+</code></pre>
+<hr>
+
+<h3 id="function-canundo-22">function canUndo [2/2]</h3>
+<pre><code class="language-C++">bool VertexModel::canUndo () 
+</code></pre>
+<hr>
+
+<h3 id="function-clear">function clear</h3>
+<p><em>This will clear the data.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void VertexModel::clear () 
+</code></pre>
+<hr>
+
+<h3 id="function-clearhistory">function clearHistory</h3>
+<pre><code class="language-C++">void VertexModel::clearHistory () 
+</code></pre>
+<hr>
+
+<h3 id="function-columncount">function columnCount</h3>
+<pre><code class="language-C++">int VertexModel::columnCount (
+    const QModelIndex &amp; parent
+) override const
+</code></pre>
+<hr>
+
+<h3 id="function-crs-22">function crs [2/2]</h3>
+<pre><code class="language-C++">QgsCoordinateReferenceSystem VertexModel::crs () const
+</code></pre>
+<p>The coordinate reference system in which the geometry is </p>
+<hr>
+
+<h3 id="function-currentpoint-22">function currentPoint [2/2]</h3>
+<p><em>The current point being edited.</em> </p>
+<pre><code class="language-C++">QgsPoint VertexModel::currentPoint () const
+</code></pre>
+<p><strong>See also:</strong> <a href="./#property-editingmode-12"><strong>editingMode</strong></a>. The expected CRS to read/write is the map canvas CRS   </p>
+<hr>
+
+<h3 id="function-currentvertexindex-22">function currentVertexIndex [2/2]</h3>
+<pre><code class="language-C++">int VertexModel::currentVertexIndex () const
+</code></pre>
+<hr>
+
+<h3 id="function-data">function data</h3>
+<pre><code class="language-C++">QVariant VertexModel::data (
+    const QModelIndex &amp; index,
+    int role
+) override const
+</code></pre>
+<hr>
+
+<h3 id="function-dirty-22">function dirty [2/2]</h3>
+<p><em>determines if the model has changes</em> </p>
+<pre><code class="language-C++">bool VertexModel::dirty () const
+</code></pre>
+<hr>
+
+<h3 id="function-editingallowed-22">function editingAllowed [2/2]</h3>
+<p><em>determines if the model allows editing the geometry</em> </p>
+<pre><code class="language-C++">bool VertexModel::editingAllowed () const
+</code></pre>
+<hr>
+
+<h3 id="function-editingmode-22">function editingMode [2/2]</h3>
+<p><em>The current mode.</em> </p>
+<pre><code class="language-C++">EditingMode VertexModel::editingMode () const
+</code></pre>
+<hr>
+
+<h3 id="function-flatvertices">function flatVertices</h3>
+<pre><code class="language-C++">QVector&lt; QgsPoint &gt; VertexModel::flatVertices (
+    int ringId=-1
+) const
+</code></pre>
+<p>Returns a list of point (segment vertex, if any, will be skipped) For a polygon, if ringId is not given the current ring will be returned </p>
+<hr>
+
+<h3 id="function-geometry-22">function geometry [2/2]</h3>
+<pre><code class="language-C++">QgsGeometry VertexModel::geometry () const
+</code></pre>
+<p>The geometry in layer coordinates </p>
+<hr>
+
+<h3 id="function-geometrytype">function geometryType</h3>
+<p><em>Returns the geometry type.</em> </p>
+<pre><code class="language-C++">Qgis::GeometryType VertexModel::geometryType () const
+</code></pre>
+<hr>
+
+<h3 id="function-history">function history</h3>
+<pre><code class="language-C++">QList&lt; VertexChange &gt; VertexModel::history (
+    bool transformPoints=false,
+    bool includeAvailableRedos=false
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-index">function index</h3>
+<pre><code class="language-C++">QModelIndex VertexModel::index (
+    int row,
+    int column,
+    const QModelIndex &amp; parent
+) override const
+</code></pre>
+<hr>
+
+<h3 id="function-mapsettings-22">function mapSettings [2/2]</h3>
+<p><em>Map settings is used to define the map canvas CRS and detect any extent change.</em> </p>
+<pre><code class="language-C++">QgsQuickMapSettings * VertexModel::mapSettings () 
+</code></pre>
+<hr>
+
+<h3 id="function-next">function next</h3>
+<p><em>next vertex or segment</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void VertexModel::next () 
+</code></pre>
+<hr>
+
+<h3 id="function-parent">function parent</h3>
+<pre><code class="language-C++">QModelIndex VertexModel::parent (
+    const QModelIndex &amp; child
+) override const
+</code></pre>
+<hr>
+
+<h3 id="function-previous">function previous</h3>
+<p><em>previous vertex or segment</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void VertexModel::previous () 
+</code></pre>
+<hr>
+
+<h3 id="function-removecurrentvertex">function removeCurrentVertex</h3>
+<pre><code class="language-C++">Q_INVOKABLE void VertexModel::removeCurrentVertex () 
+</code></pre>
+<hr>
+
+<h3 id="function-reset">function reset</h3>
+<p><em>Reset the model to its original geometry.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void VertexModel::reset () 
+</code></pre>
+<hr>
+
+<h3 id="function-ringcount-22">function ringCount [2/2]</h3>
+<p><em>number of rings in the model</em> </p>
+<pre><code class="language-C++">int VertexModel::ringCount () const
+</code></pre>
+<hr>
+
+<h3 id="function-rolenames">function roleNames</h3>
+<pre><code class="language-C++">QHash&lt; int, QByteArray &gt; VertexModel::roleNames () override const
+</code></pre>
+<hr>
+
+<h3 id="function-rowcount">function rowCount</h3>
+<pre><code class="language-C++">int VertexModel::rowCount (
+    const QModelIndex &amp; parent
+) override const
+</code></pre>
+<hr>
+
+<h3 id="function-selectvertexatposition-12">function selectVertexAtPosition [1/2]</h3>
+<p><em>Selects the vertex at the given screen</em> <em>point</em> <em>within a given__threshold</em> <em>.</em></p>
+<pre><code class="language-C++">Q_INVOKABLE void VertexModel::selectVertexAtPosition (
+    const QPointF &amp; point,
+    double threshold,
+    bool autoInsert=true
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-selectvertexatposition-22">function selectVertexAtPosition [2/2]</h3>
+<p><em>Selects the vertex at the given</em> <em>mapPoint</em> <em>within a given__threshold</em> <em>.</em></p>
+<pre><code class="language-C++">void VertexModel::selectVertexAtPosition (
+    const QgsPoint &amp; mapPoint,
+    double threshold,
+    bool autoInsert=true
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setcrs">function setCrs</h3>
+<pre><code class="language-C++">void VertexModel::setCrs (
+    const QgsCoordinateReferenceSystem &amp; crs
+) 
+</code></pre>
+<p>The coorinate reference system in which the geometry is </p>
+<hr>
+
+<h3 id="function-setcurrentpoint">function setCurrentPoint</h3>
+<p><em>The current point being edited.</em> </p>
+<pre><code class="language-C++">void VertexModel::setCurrentPoint (
+    const QgsPoint &amp; point
+) 
+</code></pre>
+<p><strong>See also:</strong> <a href="./#property-editingmode-12"><strong>editingMode</strong></a>. The expected CRS to read/write is the map canvas CRS   </p>
+<hr>
+
+<h3 id="function-setcurrentvertexindex">function setCurrentVertexIndex</h3>
+<pre><code class="language-C++">void VertexModel::setCurrentVertexIndex (
+    qsizetype currentIndex
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-seteditingmode">function setEditingMode</h3>
+<p><em>The current mode.</em> </p>
+<pre><code class="language-C++">void VertexModel::setEditingMode (
+    EditingMode mode
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setgeometry">function setGeometry</h3>
+<pre><code class="language-C++">void VertexModel::setGeometry (
+    const QgsGeometry &amp; geometry
+) 
+</code></pre>
+<p>The geometry in layer coordinates </p>
+<hr>
+
+<h3 id="function-setmapsettings">function setMapSettings</h3>
+<p><em>Map settings is used to define the map canvas CRS and detect any extent change.</em> </p>
+<pre><code class="language-C++">void VertexModel::setMapSettings (
+    QgsQuickMapSettings * mapSettings
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-undohistory">function undoHistory</h3>
+<pre><code class="language-C++">Q_INVOKABLE void VertexModel::undoHistory () 
+</code></pre>
+<hr>
+
+<h3 id="function-updategeometry">function updateGeometry</h3>
+<pre><code class="language-C++">Q_INVOKABLE void VertexModel::updateGeometry (
+    const QgsGeometry &amp; geometry
+) 
+</code></pre>
+<p>sets the geometry to the given <em>geometry</em> but preserves the index of the current vertex this is used to update the original geometry while still editing the model </p>
+<p><strong>See also:</strong> <code>geometry</code> property </p>
+<hr>
+
+<h3 id="function-vertex">function vertex</h3>
+<pre><code class="language-C++">Vertex VertexModel::vertex (
+    int row
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-vertexcount-22">function vertexCount [2/2]</h3>
+<p><em>number of vertices in the model</em> </p>
+<pre><code class="language-C++">int VertexModel::vertexCount () const
+</code></pre>
+<hr>
+
+<h3 id="function-vertices">function vertices</h3>
+<p><em>Returns a list of vertices.</em> </p>
+<pre><code class="language-C++">QList&lt; Vertex &gt; VertexModel::vertices () const
+</code></pre>
+<hr>
+
+<h3 id="function-verticesadded">function verticesAdded</h3>
+<p><em>Returns a list of added vertices not found in linked geometry.</em> </p>
+<pre><code class="language-C++">QVector&lt; QgsPoint &gt; VertexModel::verticesAdded () const
+</code></pre>
+<hr>
+
+<h3 id="function-verticesdeleted">function verticesDeleted</h3>
+<p><em>Returns a list of added vertices not found in linked geometry.</em> </p>
+<pre><code class="language-C++">QVector&lt; QgsPoint &gt; VertexModel::verticesDeleted () const
+</code></pre>
+<hr>
+
+<h3 id="function-verticesmoved">function verticesMoved</h3>
+<p><em>Returns a list of moved vertices found in linked geometry.</em> </p>
+<pre><code class="language-C++">QVector&lt; QPair&lt; QgsPoint, QgsPoint &gt; &gt; VertexModel::verticesMoved () const
+</code></pre>
+<hr>
+
+<h3 id="function-vertexmodel_1">function ~VertexModel</h3>
+<pre><code class="language-C++">VertexModel::~VertexModel () override
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/vertexmodel.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

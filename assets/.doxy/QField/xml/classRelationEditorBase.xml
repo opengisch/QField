@@ -1,0 +1,533 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRelationEditorBase" kind="class" language="C++" prot="public">
+    <compoundname>RelationEditorBase</compoundname>
+    <basecompoundref refid="classEditorWidgetBase" prot="public" virt="non-virtual">EditorWidgetBase</basecompoundref>
+    <derivedcompoundref refid="classordered__relation__editor" prot="public" virt="non-virtual">ordered_relation_editor</derivedcompoundref>
+    <derivedcompoundref refid="classrelation__editor" prot="public" virt="non-virtual">relation_editor</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classRelationEditorBase_1a6bd26b8d6049f85de33904c384af0867" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var RelationEditorBase::relationEditorModel</definition>
+        <argsstring></argsstring>
+        <name>relationEditorModel</name>
+        <qualifiedname>RelationEditorBase::relationEditorModel</qualifiedname>
+        <read>dummyGetter_relationEditorModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="9" column="1" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRelationEditorBase_1af9338b08eaddcbeaef5b8e3ec753ada9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias RelationEditorBase::listView</definition>
+        <argsstring></argsstring>
+        <name>listView</name>
+        <qualifiedname>RelationEditorBase::listView</qualifiedname>
+        <read>dummyGetter_listView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="11" column="1" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRelationEditorBase_1a7f71188f33e63c9b0ca6e7115f6cd32c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int RelationEditorBase::itemHeight</definition>
+        <argsstring></argsstring>
+        <name>itemHeight</name>
+        <qualifiedname>RelationEditorBase::itemHeight</qualifiedname>
+        <read>dummyGetter_itemHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="13" column="1" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRelationEditorBase_1a0b1358aacfc746c456a8b6dafd7e56ca" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int RelationEditorBase::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>RelationEditorBase::bottomMargin</qualifiedname>
+        <read>dummyGetter_bottomMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="15" column="1" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRelationEditorBase_1ab7379038b99e7503187dc0bdc6878c51" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int RelationEditorBase::maximumVisibleItems</definition>
+        <argsstring></argsstring>
+        <name>maximumVisibleItems</name>
+        <qualifiedname>RelationEditorBase::maximumVisibleItems</qualifiedname>
+        <read>dummyGetter_maximumVisibleItems_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="17" column="1" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRelationEditorBase_1a1a827458f333928b77dcb263bddc1125" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool RelationEditorBase::showAllItems</definition>
+        <argsstring></argsstring>
+        <name>showAllItems</name>
+        <qualifiedname>RelationEditorBase::showAllItems</qualifiedname>
+        <read>dummyGetter_showAllItems_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="19" column="1" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRelationEditorBase_1abbb94843663de8f6d24d46407545f343" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool RelationEditorBase::showSortButton</definition>
+        <argsstring></argsstring>
+        <name>showSortButton</name>
+        <qualifiedname>RelationEditorBase::showSortButton</qualifiedname>
+        <read>dummyGetter_showSortButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="21" column="1" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRelationEditorBase_1a345db2d35b0cc8f825dab478e6da8146" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classTheme_1_1QfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog RelationEditorBase::deleteDialog</definition>
+        <argsstring></argsstring>
+        <name>deleteDialog</name>
+        <qualifiedname>RelationEditorBase::deleteDialog</qualifiedname>
+        <read>dummyGetter_deleteDialog_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="38" column="1" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRelationEditorBase_1ae242243bffe58b7d37a0f10e3a447e1d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classEmbeddedFeatureForm" kindref="compound">EmbeddedFeatureForm</ref></type>
+        <definition>EmbeddedFeatureForm RelationEditorBase::embeddedPopup</definition>
+        <argsstring></argsstring>
+        <name>embeddedPopup</name>
+        <qualifiedname>RelationEditorBase::embeddedPopup</qualifiedname>
+        <read>dummyGetter_embeddedPopup_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="40" column="1" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classRelationEditorBase_1aa43132d3b35d2a05418f15c3f46caeef" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Menu</type>
+        <definition>Menu RelationEditorBase::childMenu</definition>
+        <argsstring></argsstring>
+        <name>childMenu</name>
+        <qualifiedname>RelationEditorBase::childMenu</qualifiedname>
+        <read>dummyGetter_childMenu_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="47" column="1" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRelationEditorBase_1a6fa748ade60319052fb43dd69d26e222" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component RelationEditorBase::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>RelationEditorBase::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="25" column="14" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1ab29b79979b17b43361884c853820664c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var RelationEditorBase::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>RelationEditorBase::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="26" column="5" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1afe68969a21be0f1605e3c538464a5949" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var RelationEditorBase::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>RelationEditorBase::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="27" column="5" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1ad27a4e641c3e0823888f814b83b5129c" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle RelationEditorBase::headerEntry</definition>
+        <argsstring></argsstring>
+        <name>headerEntry</name>
+        <qualifiedname>RelationEditorBase::headerEntry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="28" column="11" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1a011175cbc2bdaf115fce18c513eeca9a" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row RelationEditorBase::addButtonRow</definition>
+        <argsstring></argsstring>
+        <name>addButtonRow</name>
+        <qualifiedname>RelationEditorBase::addButtonRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="29" column="5" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1a9c9e444590e558263d3d96c9c475f3fd" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton RelationEditorBase::addButton</definition>
+        <argsstring></argsstring>
+        <name>addButton</name>
+        <qualifiedname>RelationEditorBase::addButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="30" column="14" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1af9e5a243c8ca5f10270a2088fb1319d1" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton RelationEditorBase::sortButton</definition>
+        <argsstring></argsstring>
+        <name>sortButton</name>
+        <qualifiedname>RelationEditorBase::sortButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="31" column="14" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1a87b5021b43198f648481ff1678c6e92d" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator RelationEditorBase::addingIndicator</definition>
+        <argsstring></argsstring>
+        <name>addingIndicator</name>
+        <qualifiedname>RelationEditorBase::addingIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="32" column="15" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1a8be896678ed2d37a0cfa08d1fdafea0b" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer RelationEditorBase::addingTimer</definition>
+        <argsstring></argsstring>
+        <name>addingTimer</name>
+        <qualifiedname>RelationEditorBase::addingTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="33" column="7" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1a2d1c5aaef4e9a45c9c0ec6e01008754c" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView RelationEditorBase::listView</definition>
+        <argsstring></argsstring>
+        <name>listView</name>
+        <qualifiedname>RelationEditorBase::listView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="34" column="10" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1a1139b3f1b20533bbc96964315308c6e0" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator RelationEditorBase::busyIndicator</definition>
+        <argsstring></argsstring>
+        <name>busyIndicator</name>
+        <qualifiedname>RelationEditorBase::busyIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="35" column="15" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1ace4256e76d0721db22c2947d09f13a60" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader RelationEditorBase::embeddedPopupLoader</definition>
+        <argsstring></argsstring>
+        <name>embeddedPopupLoader</name>
+        <qualifiedname>RelationEditorBase::embeddedPopupLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="44" column="8" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationEditorBase_1ad7e9f4ea3bc896d2fd3d42fb216ad406" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader RelationEditorBase::atlasMenuLoader</definition>
+        <argsstring></argsstring>
+        <name>atlasMenuLoader</name>
+        <qualifiedname>RelationEditorBase::atlasMenuLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="51" column="8" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classRelationEditorBase_1ac28ebc1abecde7bafcd636a967bb6bd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RelationEditorBase::toggleSortAction</definition>
+        <argsstring>()</argsstring>
+        <name>toggleSortAction</name>
+        <qualifiedname>RelationEditorBase::toggleSortAction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="23" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRelationEditorBase_1a3f02e30c8ca2a8bd3b44f5f14b768f3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RelationEditorBase::ensureEmbeddedFormLoaded</definition>
+        <argsstring>()</argsstring>
+        <name>ensureEmbeddedFormLoaded</name>
+        <qualifiedname>RelationEditorBase::ensureEmbeddedFormLoaded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="42" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelationEditorBase_1a77636f42f2208e63c20980ddee48a837" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RelationEditorBase::showAtlasMenu</definition>
+        <argsstring>()</argsstring>
+        <name>showAtlasMenu</name>
+        <qualifiedname>RelationEditorBase::showAtlasMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="54" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelationEditorBase_1af22c928cd2fd81e5283057233e9557fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RelationEditorBase::isActionEnabled</definition>
+        <argsstring>(buttonType)</argsstring>
+        <name>isActionEnabled</name>
+        <qualifiedname>RelationEditorBase::isActionEnabled</qualifiedname>
+        <param>
+          <type>buttonType</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="56" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelationEditorBase_1a434aaf56f9e0d61d16fdcdde4ad806ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RelationEditorBase::requestedGeometryReceived</definition>
+        <argsstring>(geometry)</argsstring>
+        <name>requestedGeometryReceived</name>
+        <qualifiedname>RelationEditorBase::requestedGeometryReceived</qualifiedname>
+        <param>
+          <type>geometry</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="58" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelationEditorBase_1a883415bd76c10f83c0af730b0254d789" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RelationEditorBase::showAddFeaturePopup</definition>
+        <argsstring>(geometry)</argsstring>
+        <name>showAddFeaturePopup</name>
+        <qualifiedname>RelationEditorBase::showAddFeaturePopup</qualifiedname>
+        <param>
+          <type>geometry</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="60" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>RelationEditorBase</label>
+        <link refid="classRelationEditorBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ordered_relation_editor</label>
+        <link refid="classordered__relation__editor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>relation_editor</label>
+        <link refid="classrelation__editor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>RelationEditorBase</label>
+        <link refid="classRelationEditorBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/RelationEditorBase.qml" line="6" column="1" bodyfile="src/qml/editorwidgets/RelationEditorBase.qml" bodystart="6" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classRelationEditorBase_1a9c9e444590e558263d3d96c9c475f3fd" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>addButton</name></member>
+      <member refid="classRelationEditorBase_1a011175cbc2bdaf115fce18c513eeca9a" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>addButtonRow</name></member>
+      <member refid="classRelationEditorBase_1a87b5021b43198f648481ff1678c6e92d" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>addingIndicator</name></member>
+      <member refid="classRelationEditorBase_1a8be896678ed2d37a0cfa08d1fdafea0b" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>addingTimer</name></member>
+      <member refid="classRelationEditorBase_1ad7e9f4ea3bc896d2fd3d42fb216ad406" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>atlasMenuLoader</name></member>
+      <member refid="classRelationEditorBase_1a0b1358aacfc746c456a8b6dafd7e56ca" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>bottomMargin</name></member>
+      <member refid="classRelationEditorBase_1a1139b3f1b20533bbc96964315308c6e0" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>busyIndicator</name></member>
+      <member refid="classRelationEditorBase_1aa43132d3b35d2a05418f15c3f46caeef" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>childMenu</name></member>
+      <member refid="classRelationEditorBase_1a345db2d35b0cc8f825dab478e6da8146" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>deleteDialog</name></member>
+      <member refid="classRelationEditorBase_1ae242243bffe58b7d37a0f10e3a447e1d" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>embeddedPopup</name></member>
+      <member refid="classRelationEditorBase_1ace4256e76d0721db22c2947d09f13a60" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>embeddedPopupLoader</name></member>
+      <member refid="classRelationEditorBase_1afe68969a21be0f1605e3c538464a5949" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>enabled</name></member>
+      <member refid="classRelationEditorBase_1a3f02e30c8ca2a8bd3b44f5f14b768f3f" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>ensureEmbeddedFormLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>hasMenu</name></member>
+      <member refid="classRelationEditorBase_1ad27a4e641c3e0823888f814b83b5129c" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>headerEntry</name></member>
+      <member refid="classRelationEditorBase_1ab29b79979b17b43361884c853820664c" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>height</name></member>
+      <member refid="classRelationEditorBase_1af22c928cd2fd81e5283057233e9557fb" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>isActionEnabled</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>isNull</name></member>
+      <member refid="classRelationEditorBase_1a7f71188f33e63c9b0ca6e7115f6cd32c" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>itemHeight</name></member>
+      <member refid="classRelationEditorBase_1af9338b08eaddcbeaef5b8e3ec753ada9" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>listView</name></member>
+      <member refid="classRelationEditorBase_1a2d1c5aaef4e9a45c9c0ec6e01008754c" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>listView</name></member>
+      <member refid="classRelationEditorBase_1ab7379038b99e7503187dc0bdc6878c51" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>maximumVisibleItems</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>menu</name></member>
+      <member refid="classRelationEditorBase_1a6fa748ade60319052fb43dd69d26e222" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>onCompleted</name></member>
+      <member refid="classRelationEditorBase_1a6bd26b8d6049f85de33904c384af0867" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>relationEditorModel</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>requestBarcode</name></member>
+      <member refid="classRelationEditorBase_1a434aaf56f9e0d61d16fdcdde4ad806ba" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>requestedGeometryReceived</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>requestJumpToPoint</name></member>
+      <member refid="classRelationEditorBase_1a883415bd76c10f83c0af730b0254d789" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>showAddFeaturePopup</name></member>
+      <member refid="classRelationEditorBase_1a1a827458f333928b77dcb263bddc1125" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>showAllItems</name></member>
+      <member refid="classRelationEditorBase_1a77636f42f2208e63c20980ddee48a837" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>showAtlasMenu</name></member>
+      <member refid="classRelationEditorBase_1abbb94843663de8f6d24d46407545f343" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>showSortButton</name></member>
+      <member refid="classRelationEditorBase_1af9e5a243c8ca5f10270a2088fb1319d1" prot="private" virt="non-virtual"><scope>RelationEditorBase</scope><name>sortButton</name></member>
+      <member refid="classRelationEditorBase_1ac28ebc1abecde7bafcd636a967bb6bd2" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>toggleSortAction</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>RelationEditorBase</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

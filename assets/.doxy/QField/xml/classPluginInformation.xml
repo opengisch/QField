@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPluginInformation" kind="class" language="C++" prot="public">
+    <compoundname>PluginInformation</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPluginInformation_1af600c47f88294ddfc89b54b3e7a9d199" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PluginInformation::uuid</definition>
+        <argsstring></argsstring>
+        <name>uuid</name>
+        <qualifiedname>PluginInformation::uuid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="32" column="5" bodyfile="src/core/pluginmanager.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPluginInformation_1a2491cb63bda2f0d00795161c2c43bc7c" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PluginInformation::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>PluginInformation::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="33" column="5" bodyfile="src/core/pluginmanager.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPluginInformation_1aa222f699120e273f69b49f4fbf9d10b6" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PluginInformation::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>PluginInformation::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="34" column="5" bodyfile="src/core/pluginmanager.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPluginInformation_1aa0572a37e880d6b992bf2f150d03c8a0" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PluginInformation::author</definition>
+        <argsstring></argsstring>
+        <name>author</name>
+        <qualifiedname>PluginInformation::author</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="35" column="5" bodyfile="src/core/pluginmanager.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPluginInformation_1a1d9caa80e532a2f1048f4c355dfa2636" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PluginInformation::homepage</definition>
+        <argsstring></argsstring>
+        <name>homepage</name>
+        <qualifiedname>PluginInformation::homepage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="36" column="5" bodyfile="src/core/pluginmanager.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPluginInformation_1aed23d763e5b759a31604c5bd038756cd" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PluginInformation::icon</definition>
+        <argsstring></argsstring>
+        <name>icon</name>
+        <qualifiedname>PluginInformation::icon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="37" column="5" bodyfile="src/core/pluginmanager.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPluginInformation_1a5fbad2d5610c6c82a53939bb5c3f3c1d" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PluginInformation::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <qualifiedname>PluginInformation::version</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="38" column="5" bodyfile="src/core/pluginmanager.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPluginInformation_1a740a4a02204cd2445f9eeb27c32e4080" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PluginInformation::bundled</definition>
+        <argsstring></argsstring>
+        <name>bundled</name>
+        <qualifiedname>PluginInformation::bundled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="39" column="5" bodyfile="src/core/pluginmanager.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classPluginInformation_1a332910d576d88232e6d3ddc44e84d7ae" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PluginInformation::locallyAvailable</definition>
+        <argsstring></argsstring>
+        <name>locallyAvailable</name>
+        <qualifiedname>PluginInformation::locallyAvailable</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="59" column="10" bodyfile="src/core/pluginmanager.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginInformation_1a7e66384940be85f77c9b201998bf3562" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString PluginInformation::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <qualifiedname>PluginInformation::path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="60" column="13" bodyfile="src/core/pluginmanager.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginInformation_1ab80fda8fd4238f27c1e225d613419a3d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PluginInformation::remotelyAvailable</definition>
+        <argsstring></argsstring>
+        <name>remotelyAvailable</name>
+        <qualifiedname>PluginInformation::remotelyAvailable</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="63" column="10" bodyfile="src/core/pluginmanager.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginInformation_1a29f95314318720c5824a78006d30e049" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PluginInformation::updateAvailable</definition>
+        <argsstring></argsstring>
+        <name>updateAvailable</name>
+        <qualifiedname>PluginInformation::updateAvailable</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="64" column="10" bodyfile="src/core/pluginmanager.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginInformation_1aa60ecdb22ad4314a51cf50148dd67867" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString PluginInformation::downloadLink</definition>
+        <argsstring></argsstring>
+        <name>downloadLink</name>
+        <qualifiedname>PluginInformation::downloadLink</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="65" column="13" bodyfile="src/core/pluginmanager.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginInformation_1a364cd48bb420599e44a18976148d1abf" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString PluginInformation::remoteVersion</definition>
+        <argsstring></argsstring>
+        <name>remoteVersion</name>
+        <qualifiedname>PluginInformation::remoteVersion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="66" column="13" bodyfile="src/core/pluginmanager.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginInformation_1a8c04b00caf19376f54d543e468b89913" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PluginInformation::trusted</definition>
+        <argsstring></argsstring>
+        <name>trusted</name>
+        <qualifiedname>PluginInformation::trusted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="69" column="10" bodyfile="src/core/pluginmanager.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginInformation_1ae2570dd85ee8cdcd1ce5506985d54dbc" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PluginInformation::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>PluginInformation::enabled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="70" column="10" bodyfile="src/core/pluginmanager.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginInformation_1a5cc88b7479a2b584ec1db663e03deccf" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PluginInformation::configurable</definition>
+        <argsstring></argsstring>
+        <name>configurable</name>
+        <qualifiedname>PluginInformation::configurable</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="71" column="10" bodyfile="src/core/pluginmanager.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPluginInformation_1ac9b493e0670c08301510525d8219689a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PluginInformation::PluginInformation</definition>
+        <argsstring>(const QString &amp;uuid=QString(), const QString &amp;name=QString(), const QString &amp;description=QString(), const QString &amp;author=QString(), const QString &amp;homepage=QString(), const QString &amp;icon=QString())</argsstring>
+        <name>PluginInformation</name>
+        <qualifiedname>PluginInformation::PluginInformation</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>description</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>author</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>homepage</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>icon</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="42" column="5" bodyfile="src/core/pluginmanager.h" bodystart="42" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginInformation_1a5801c71ced15ea6c613ca3d36f9f2bcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PluginInformation::~PluginInformation</definition>
+        <argsstring>()=default</argsstring>
+        <name>~PluginInformation</name>
+        <qualifiedname>PluginInformation::~PluginInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmanager.h" line="50" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/pluginmanager.h" line="28" column="1" bodyfile="src/core/pluginmanager.h" bodystart="29" bodyend="72"/>
+    <listofallmembers>
+      <member refid="classPluginInformation_1aa0572a37e880d6b992bf2f150d03c8a0" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>author</name></member>
+      <member refid="classPluginInformation_1a740a4a02204cd2445f9eeb27c32e4080" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>bundled</name></member>
+      <member refid="classPluginInformation_1a5cc88b7479a2b584ec1db663e03deccf" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>configurable</name></member>
+      <member refid="classPluginInformation_1aa222f699120e273f69b49f4fbf9d10b6" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>description</name></member>
+      <member refid="classPluginInformation_1aa60ecdb22ad4314a51cf50148dd67867" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>downloadLink</name></member>
+      <member refid="classPluginInformation_1ae2570dd85ee8cdcd1ce5506985d54dbc" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>enabled</name></member>
+      <member refid="classPluginInformation_1a1d9caa80e532a2f1048f4c355dfa2636" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>homepage</name></member>
+      <member refid="classPluginInformation_1aed23d763e5b759a31604c5bd038756cd" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>icon</name></member>
+      <member refid="classPluginInformation_1a332910d576d88232e6d3ddc44e84d7ae" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>locallyAvailable</name></member>
+      <member refid="classPluginInformation_1a2491cb63bda2f0d00795161c2c43bc7c" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>name</name></member>
+      <member refid="classPluginInformation_1a7e66384940be85f77c9b201998bf3562" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>path</name></member>
+      <member refid="classPluginInformation_1ac9b493e0670c08301510525d8219689a" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>PluginInformation</name></member>
+      <member refid="classPluginInformation_1ab80fda8fd4238f27c1e225d613419a3d" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>remotelyAvailable</name></member>
+      <member refid="classPluginInformation_1a364cd48bb420599e44a18976148d1abf" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>remoteVersion</name></member>
+      <member refid="classPluginInformation_1a8c04b00caf19376f54d543e468b89913" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>trusted</name></member>
+      <member refid="classPluginInformation_1a29f95314318720c5824a78006d30e049" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>updateAvailable</name></member>
+      <member refid="classPluginInformation_1af600c47f88294ddfc89b54b3e7a9d199" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>uuid</name></member>
+      <member refid="classPluginInformation_1a5fbad2d5610c6c82a53939bb5c3f3c1d" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>version</name></member>
+      <member refid="classPluginInformation_1a5801c71ced15ea6c613ca3d36f9f2bcb" prot="public" virt="non-virtual"><scope>PluginInformation</scope><name>~PluginInformation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classScreenLocker" kind="class" language="C++" prot="public">
+    <compoundname>ScreenLocker</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classScreenLocker_1ab26ac1860fc5d2b9ea9a4e5350fc4f59" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool ScreenLocker::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>ScreenLocker::enabled</qualifiedname>
+        <read>dummyGetter_enabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScreenLocker.qml" line="7" column="1" bodyfile="src/qml/ScreenLocker.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classScreenLocker_1a432cc3b35a6cd29c143ebc8900cb5f38" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double ScreenLocker::threshold</definition>
+        <argsstring></argsstring>
+        <name>threshold</name>
+        <qualifiedname>ScreenLocker::threshold</qualifiedname>
+        <read>dummyGetter_threshold_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScreenLocker.qml" line="9" column="1" bodyfile="src/qml/ScreenLocker.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classScreenLocker_1ab3b39a0e724546bbbfcd0731a0c6d5b4" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors ScreenLocker::fill</definition>
+        <argsstring></argsstring>
+        <name>fill</name>
+        <qualifiedname>ScreenLocker::fill</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScreenLocker.qml" line="11" column="12" bodyfile="src/qml/ScreenLocker.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScreenLocker_1a5fc697aa153c81cbde2572c35b22d0e4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ScreenLocker::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>ScreenLocker::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScreenLocker.qml" line="12" column="5" bodyfile="src/qml/ScreenLocker.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScreenLocker_1acab33d9170da45864676758281a88767" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ScreenLocker::onEnabledChanged</definition>
+        <argsstring></argsstring>
+        <name>onEnabledChanged</name>
+        <qualifiedname>ScreenLocker::onEnabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScreenLocker.qml" line="13" column="5" bodyfile="src/qml/ScreenLocker.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScreenLocker_1a0ae56f23d1e336b7f4e79cc44e1986d5" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle ScreenLocker::unlockThreshold</definition>
+        <argsstring></argsstring>
+        <name>unlockThreshold</name>
+        <qualifiedname>ScreenLocker::unlockThreshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScreenLocker.qml" line="14" column="11" bodyfile="src/qml/ScreenLocker.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScreenLocker_1ac82f27bc7c97ca1421f7e1e69fb6f8f8" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle ScreenLocker::unlockNode</definition>
+        <argsstring></argsstring>
+        <name>unlockNode</name>
+        <qualifiedname>ScreenLocker::unlockNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScreenLocker.qml" line="15" column="11" bodyfile="src/qml/ScreenLocker.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScreenLocker_1ae9c5843be4c597fa7f47c34304219587" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler ScreenLocker::unlockHandler</definition>
+        <argsstring></argsstring>
+        <name>unlockHandler</name>
+        <qualifiedname>ScreenLocker::unlockHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScreenLocker.qml" line="16" column="13" bodyfile="src/qml/ScreenLocker.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScreenLocker_1aca46dea6f028aef9a1b053d77c481acf" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer ScreenLocker::unlockOpacityTimer</definition>
+        <argsstring></argsstring>
+        <name>unlockOpacityTimer</name>
+        <qualifiedname>ScreenLocker::unlockOpacityTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScreenLocker.qml" line="17" column="7" bodyfile="src/qml/ScreenLocker.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ScreenLocker</label>
+        <link refid="classScreenLocker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ScreenLocker</label>
+        <link refid="classScreenLocker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/ScreenLocker.qml" line="4" column="1" bodyfile="src/qml/ScreenLocker.qml" bodystart="4" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classScreenLocker_1ab26ac1860fc5d2b9ea9a4e5350fc4f59" prot="public" virt="non-virtual"><scope>ScreenLocker</scope><name>enabled</name></member>
+      <member refid="classScreenLocker_1ab3b39a0e724546bbbfcd0731a0c6d5b4" prot="private" virt="non-virtual"><scope>ScreenLocker</scope><name>fill</name></member>
+      <member refid="classScreenLocker_1acab33d9170da45864676758281a88767" prot="private" virt="non-virtual"><scope>ScreenLocker</scope><name>onEnabledChanged</name></member>
+      <member refid="classScreenLocker_1a432cc3b35a6cd29c143ebc8900cb5f38" prot="public" virt="non-virtual"><scope>ScreenLocker</scope><name>threshold</name></member>
+      <member refid="classScreenLocker_1ae9c5843be4c597fa7f47c34304219587" prot="private" virt="non-virtual"><scope>ScreenLocker</scope><name>unlockHandler</name></member>
+      <member refid="classScreenLocker_1ac82f27bc7c97ca1421f7e1e69fb6f8f8" prot="private" virt="non-virtual"><scope>ScreenLocker</scope><name>unlockNode</name></member>
+      <member refid="classScreenLocker_1aca46dea6f028aef9a1b053d77c481acf" prot="private" virt="non-virtual"><scope>ScreenLocker</scope><name>unlockOpacityTimer</name></member>
+      <member refid="classScreenLocker_1a0ae56f23d1e336b7f4e79cc44e1986d5" prot="private" virt="non-virtual"><scope>ScreenLocker</scope><name>unlockThreshold</name></member>
+      <member refid="classScreenLocker_1a5fc697aa153c81cbde2572c35b22d0e4" prot="private" virt="non-virtual"><scope>ScreenLocker</scope><name>visible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,386 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfButton" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfButton</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Button</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfButton_1a1d125eaa5d1e40b926adb9f5424d45cb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color Theme::QfButton::bgcolor</definition>
+        <argsstring></argsstring>
+        <name>bgcolor</name>
+        <qualifiedname>Theme::QfButton::bgcolor</qualifiedname>
+        <read>dummyGetter_bgcolor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="18" column="1" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfButton_1af26aabf4fdf2ed8c4e01dc20feec2bcf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color Theme::QfButton::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Theme::QfButton::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="20" column="1" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfButton_1a52c17a16854809fc2112a2930cd2dd5a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfButton::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>Theme::QfButton::radius</qualifiedname>
+        <read>dummyGetter_radius_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="22" column="1" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfButton_1aabbf2c98b1541e6ff745fd80fbddae8e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfButton::borderColor</definition>
+        <argsstring></argsstring>
+        <name>borderColor</name>
+        <qualifiedname>Theme::QfButton::borderColor</qualifiedname>
+        <read>dummyGetter_borderColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="24" column="1" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfButton_1a31f76885320451ef55f304830d8a125c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfButton::dropdown</definition>
+        <argsstring></argsstring>
+        <name>dropdown</name>
+        <qualifiedname>Theme::QfButton::dropdown</qualifiedname>
+        <read>dummyGetter_dropdown_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="26" column="1" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfButton_1a7cd2eb34861983b9229865b23d2dd07c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfButton::progressValue</definition>
+        <argsstring></argsstring>
+        <name>progressValue</name>
+        <qualifiedname>Theme::QfButton::progressValue</qualifiedname>
+        <read>dummyGetter_progressValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="28" column="1" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfButton_1a40cfbf6dd78fe4c12d6f30b808c58654" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfButton::showProgress</definition>
+        <argsstring></argsstring>
+        <name>showProgress</name>
+        <qualifiedname>Theme::QfButton::showProgress</qualifiedname>
+        <read>dummyGetter_showProgress_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="30" column="1" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1a9b814847e7c242776450331e2d7b2cd1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfButton::verticalPadding</definition>
+        <argsstring></argsstring>
+        <name>verticalPadding</name>
+        <qualifiedname>Theme::QfButton::verticalPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="34" column="5" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1a4e0758a1b17d0208a8c6a10f1410b72a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfButton::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>Theme::QfButton::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="35" column="5" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1ab9d7f2417ac86de3d1187ae106450ba3" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfButton::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>Theme::QfButton::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="36" column="5" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1ae6741d21ae8f761d71158dca2dd18049" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfButton::topInset</definition>
+        <argsstring></argsstring>
+        <name>topInset</name>
+        <qualifiedname>Theme::QfButton::topInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="37" column="5" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1aa256559515ab30c57e818d202f3dde28" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfButton::bottomInset</definition>
+        <argsstring></argsstring>
+        <name>bottomInset</name>
+        <qualifiedname>Theme::QfButton::bottomInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="38" column="5" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1addf33e1046d5af6cd7ecfc67b60908e5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfButton::leftInset</definition>
+        <argsstring></argsstring>
+        <name>leftInset</name>
+        <qualifiedname>Theme::QfButton::leftInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="39" column="5" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1a529f236d0f019ee4b0a9bca0602842e5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfButton::rightInset</definition>
+        <argsstring></argsstring>
+        <name>rightInset</name>
+        <qualifiedname>Theme::QfButton::rightInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="40" column="5" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1a824e49f7538b04711e6b1032ec036d60" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfButton::focusPolicy</definition>
+        <argsstring></argsstring>
+        <name>focusPolicy</name>
+        <qualifiedname>Theme::QfButton::focusPolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="41" column="5" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1a19f680829f6576202b7648b97a3323ed" prot="private" static="no" mutable="no">
+        <type>var icon</type>
+        <definition>var icon Theme::QfButton::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Theme::QfButton::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="42" column="9" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1a55286b6d79b0ac5531a5f4bd1f89ba56" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfButton::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>Theme::QfButton::font</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="43" column="5" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1a41bd3eab99b237ac36f9a6b511d578af" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfButton::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>Theme::QfButton::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="44" column="5" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1a50247dd05cd829b4e876557846b73a59" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfButton::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>Theme::QfButton::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="45" column="5" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1a02ca609577792f4c9dd23c2f141f9f55" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle Theme::QfButton::dropdownArea</definition>
+        <argsstring></argsstring>
+        <name>dropdownArea</name>
+        <qualifiedname>Theme::QfButton::dropdownArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="46" column="11" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfButton_1a7eb7bffefff5371a9bb82cedd63c78be" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape Theme::QfButton::dropdownArrow</definition>
+        <argsstring></argsstring>
+        <name>dropdownArrow</name>
+        <qualifiedname>Theme::QfButton::dropdownArrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="47" column="7" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTheme_1_1QfButton_1aa0cbf4323cba826dbd042d075036b889" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfButton::dropdownClicked</definition>
+        <argsstring>()</argsstring>
+        <name>dropdownClicked</name>
+        <qualifiedname>Theme::QfButton::dropdownClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfButton.qml" line="32" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Button</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfButton</label>
+        <link refid="classTheme_1_1QfButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Button</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfButton</label>
+        <link refid="classTheme_1_1QfButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfButton.qml" line="15" column="1" bodyfile="src/qml/imports/Theme/QfButton.qml" bodystart="15" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfButton_1a41bd3eab99b237ac36f9a6b511d578af" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>background</name></member>
+      <member refid="classTheme_1_1QfButton_1a1d125eaa5d1e40b926adb9f5424d45cb" prot="public" virt="non-virtual"><scope>Theme::QfButton</scope><name>bgcolor</name></member>
+      <member refid="classTheme_1_1QfButton_1aabbf2c98b1541e6ff745fd80fbddae8e" prot="public" virt="non-virtual"><scope>Theme::QfButton</scope><name>borderColor</name></member>
+      <member refid="classTheme_1_1QfButton_1aa256559515ab30c57e818d202f3dde28" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>bottomInset</name></member>
+      <member refid="classTheme_1_1QfButton_1af26aabf4fdf2ed8c4e01dc20feec2bcf" prot="public" virt="non-virtual"><scope>Theme::QfButton</scope><name>color</name></member>
+      <member refid="classTheme_1_1QfButton_1a19f680829f6576202b7648b97a3323ed" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>color</name></member>
+      <member refid="classTheme_1_1QfButton_1a50247dd05cd829b4e876557846b73a59" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>contentItem</name></member>
+      <member refid="classTheme_1_1QfButton_1a31f76885320451ef55f304830d8a125c" prot="public" virt="non-virtual"><scope>Theme::QfButton</scope><name>dropdown</name></member>
+      <member refid="classTheme_1_1QfButton_1a02ca609577792f4c9dd23c2f141f9f55" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>dropdownArea</name></member>
+      <member refid="classTheme_1_1QfButton_1a7eb7bffefff5371a9bb82cedd63c78be" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>dropdownArrow</name></member>
+      <member refid="classTheme_1_1QfButton_1aa0cbf4323cba826dbd042d075036b889" prot="public" virt="non-virtual"><scope>Theme::QfButton</scope><name>dropdownClicked</name></member>
+      <member refid="classTheme_1_1QfButton_1a824e49f7538b04711e6b1032ec036d60" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>focusPolicy</name></member>
+      <member refid="classTheme_1_1QfButton_1a55286b6d79b0ac5531a5f4bd1f89ba56" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>font</name></member>
+      <member refid="classTheme_1_1QfButton_1addf33e1046d5af6cd7ecfc67b60908e5" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>leftInset</name></member>
+      <member refid="classTheme_1_1QfButton_1a4e0758a1b17d0208a8c6a10f1410b72a" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>leftPadding</name></member>
+      <member refid="classTheme_1_1QfButton_1a7cd2eb34861983b9229865b23d2dd07c" prot="public" virt="non-virtual"><scope>Theme::QfButton</scope><name>progressValue</name></member>
+      <member refid="classTheme_1_1QfButton_1a52c17a16854809fc2112a2930cd2dd5a" prot="public" virt="non-virtual"><scope>Theme::QfButton</scope><name>radius</name></member>
+      <member refid="classTheme_1_1QfButton_1a529f236d0f019ee4b0a9bca0602842e5" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>rightInset</name></member>
+      <member refid="classTheme_1_1QfButton_1ab9d7f2417ac86de3d1187ae106450ba3" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>rightPadding</name></member>
+      <member refid="classTheme_1_1QfButton_1a40cfbf6dd78fe4c12d6f30b808c58654" prot="public" virt="non-virtual"><scope>Theme::QfButton</scope><name>showProgress</name></member>
+      <member refid="classTheme_1_1QfButton_1ae6741d21ae8f761d71158dca2dd18049" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>topInset</name></member>
+      <member refid="classTheme_1_1QfButton_1a9b814847e7c242776450331e2d7b2cd1" prot="private" virt="non-virtual"><scope>Theme::QfButton</scope><name>verticalPadding</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

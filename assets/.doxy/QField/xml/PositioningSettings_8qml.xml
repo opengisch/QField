@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="PositioningSettings_8qml" kind="file" language="C++">
+    <compoundname>PositioningSettings.qml</compoundname>
+    <innerclass refid="classPositioningSettings" prot="public">PositioningSettings</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtCore</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">Settings<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>enum<sp/>FollowMode<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>PositionOnly,</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>PositionAndCompass,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>PositionAndDirection</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>positioningActivated:<sp/>false</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>positioningCoordinateLock:<sp/>false</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>property<sp/>string<sp/>positioningDevice:<sp/>&quot;&quot;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>property<sp/>string<sp/>positioningDeviceName:<sp/>qsTr(&quot;Internal<sp/>device</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"><sp/><sp/>property<sp/>int<sp/>elevationCorrectionMode:<sp/>Positioning.ElevationCorrectionMode.None</highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>logging:<sp/>false</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>showPositionInformation:<sp/>false</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>alwaysShowPreciseView:<sp/>false</highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"><sp/><sp/>property<sp/>real<sp/>preciseViewPrecision:<sp/>2.5</highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>preciseViewProximityAlarm:<sp/>true</highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>accuracyIndicator:<sp/>false</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"><sp/><sp/>property<sp/>real<sp/>accuracyBad:<sp/>5.0</highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"><sp/><sp/>property<sp/>real<sp/>accuracyExcellent:<sp/>1.0</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>accuracyRequirement:<sp/>false</highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>averagedPositioning:<sp/>false</highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/>property<sp/>int<sp/>averagedPositioningMinimumCount:<sp/>1</highlight></codeline>
+<codeline lineno="35"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>averagedPositioningAutomaticStop:<sp/>true</highlight></codeline>
+<codeline lineno="36"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="37"><highlight class="stringliteral"><sp/><sp/>property<sp/>real<sp/>antennaHeight:<sp/>0.0</highlight></codeline>
+<codeline lineno="38"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>antennaHeightActivated:<sp/>false</highlight></codeline>
+<codeline lineno="39"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>skipAltitudeCorrection:<sp/>false</highlight></codeline>
+<codeline lineno="40"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="41"><highlight class="stringliteral"><sp/><sp/>property<sp/>string<sp/>verticalGrid:<sp/>&quot;</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="42"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="43"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>trackerTimeIntervalConstraint:<sp/>false</highlight></codeline>
+<codeline lineno="44"><highlight class="stringliteral"><sp/><sp/>property<sp/>double<sp/>trackerTimeInterval:<sp/>30</highlight></codeline>
+<codeline lineno="45"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>trackerMinimumDistanceConstraint:<sp/>false</highlight></codeline>
+<codeline lineno="46"><highlight class="stringliteral"><sp/><sp/>property<sp/>double<sp/>trackerMinimumDistance:<sp/>30</highlight></codeline>
+<codeline lineno="47"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>trackerSensorCaptureConstraint:<sp/>false</highlight></codeline>
+<codeline lineno="48"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>trackerMeetAllConstraints:<sp/>false</highlight></codeline>
+<codeline lineno="49"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="50"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>trackerErroneousDistanceSafeguard:<sp/>false</highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"><sp/><sp/>property<sp/>double<sp/>trackerErroneousDistance:<sp/>100</highlight></codeline>
+<codeline lineno="52"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="53"><highlight class="stringliteral"><sp/><sp/>property<sp/>int<sp/>trackerMeasureType:<sp/>0</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/>property<sp/>int<sp/>digitizingMeasureType:<sp/>1</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="56"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>geofencingPreventDigitizingDuringAlert:<sp/>false</highlight></codeline>
+<codeline lineno="57"><highlight class="stringliteral"><sp/><sp/>property<sp/>bool<sp/>egenioussEnabled:<sp/>false</highlight></codeline>
+<codeline lineno="58"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="59"><highlight class="stringliteral"><sp/><sp/>property<sp/>int<sp/>positionFollowMode:<sp/>PositioningSettings.FollowMode.PositionOnly</highlight></codeline>
+<codeline lineno="60"><highlight class="stringliteral">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/PositioningSettings.qml"/>
+  </compounddef>
+</doxygen>

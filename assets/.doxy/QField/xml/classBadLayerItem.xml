@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBadLayerItem" kind="class" language="C++" prot="public">
+    <compoundname>BadLayerItem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Page</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classBadLayerItem_1ac3fffe294cdc6ad652c82cdd9f125de9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias BadLayerItem::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>BadLayerItem::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BadLayerItem.qml" line="12" column="1" bodyfile="src/qml/BadLayerItem.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBadLayerItem_1a030a645d962c4fa83d86733cfca547f4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BadLayerItem::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>BadLayerItem::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BadLayerItem.qml" line="14" column="5" bodyfile="src/qml/BadLayerItem.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBadLayerItem_1a519ff9afe82008e7cae77fb3581ba78a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BadLayerItem::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>BadLayerItem::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BadLayerItem.qml" line="15" column="5" bodyfile="src/qml/BadLayerItem.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBadLayerItem_1a6a361c03bd3ee49b4204918187bcdeea" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BadLayerItem::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>BadLayerItem::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BadLayerItem.qml" line="16" column="5" bodyfile="src/qml/BadLayerItem.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBadLayerItem_1a353832132247957f161b2e59c6ab0ca7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BadLayerItem::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>BadLayerItem::header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BadLayerItem.qml" line="17" column="5" bodyfile="src/qml/BadLayerItem.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBadLayerItem_1a6f49ebc74aa38e0fde5d4a50d3c3c2a1" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView BadLayerItem::table</definition>
+        <argsstring></argsstring>
+        <name>table</name>
+        <qualifiedname>BadLayerItem::table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BadLayerItem.qml" line="18" column="10" bodyfile="src/qml/BadLayerItem.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BadLayerItem</label>
+        <link refid="classBadLayerItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Page</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BadLayerItem</label>
+        <link refid="classBadLayerItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Page</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/BadLayerItem.qml" line="9" column="1" bodyfile="src/qml/BadLayerItem.qml" bodystart="9" bodyend="19"/>
+    <listofallmembers>
+      <member refid="classBadLayerItem_1a353832132247957f161b2e59c6ab0ca7" prot="private" virt="non-virtual"><scope>BadLayerItem</scope><name>header</name></member>
+      <member refid="classBadLayerItem_1a6a361c03bd3ee49b4204918187bcdeea" prot="private" virt="non-virtual"><scope>BadLayerItem</scope><name>height</name></member>
+      <member refid="classBadLayerItem_1ac3fffe294cdc6ad652c82cdd9f125de9" prot="public" virt="non-virtual"><scope>BadLayerItem</scope><name>model</name></member>
+      <member refid="classBadLayerItem_1a030a645d962c4fa83d86733cfca547f4" prot="private" virt="non-virtual"><scope>BadLayerItem</scope><name>padding</name></member>
+      <member refid="classBadLayerItem_1a6f49ebc74aa38e0fde5d4a50d3c3c2a1" prot="private" virt="non-virtual"><scope>BadLayerItem</scope><name>table</name></member>
+      <member refid="classBadLayerItem_1a519ff9afe82008e7cae77fb3581ba78a" prot="private" virt="non-virtual"><scope>BadLayerItem</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

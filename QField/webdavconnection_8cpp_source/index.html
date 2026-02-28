@@ -1,0 +1,1825 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File webdavconnection.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-webdavconnectioncpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File webdavconnection.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-webdavconnectioncpp">File webdavconnection.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../webdavconnection_8cpp/"><strong>webdavconnection.cpp</strong></a></p>
+<p><a href="../webdavconnection_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+                          webdavconnection.cpp
+                             -------------------
+  begin                : January 2025
+  copyright            : (C) 2025 by Mathieu Pellerin
+  email                : mathieu@opengis.ch
+***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+
+#include &quot;platformutilities.h&quot;
+#include &quot;webdavconnection.h&quot;
+
+#include &lt;QCryptographicHash&gt;
+#include &lt;QDir&gt;
+#include &lt;QDirIterator&gt;
+#include &lt;QFile&gt;
+#include &lt;QJsonDocument&gt;
+#include &lt;QJsonParseError&gt;
+#include &lt;QLockFile&gt;
+#include &lt;QNetworkReply&gt;
+#include &lt;QRegularExpression&gt;
+#include &lt;QSettings&gt;
+#include &lt;QTemporaryFile&gt;
+#include &lt;QUrl&gt;
+#include &lt;QtWebDAV/qwebdavitem.h&gt;
+#include &lt;qgsapplication.h&gt;
+#include &lt;qgsauthmanager.h&gt;
+
+#include &lt;algorithm&gt;
+
+#define WEBDAV_CONFIGURATION_FILENAME QStringLiteral( &quot;qfield_webdav_configuration.json&quot; )
+#define WEBDAV_LOCK_FILENAME QStringLiteral( &quot;qfield_webdav_configuration.lock&quot; )
+
+WebdavConnection::WebdavConnection( QObject *parent )
+  : QObject( parent )
+{
+  connect( &amp;mWebdavConnection, &amp;QWebdav::errorChanged, this, &amp;WebdavConnection::processConnectionError );
+  connect( &amp;mWebdavDirParser, &amp;QWebdavDirParser::errorChanged, this, &amp;WebdavConnection::processDirParserError );
+  connect( &amp;mWebdavDirParser, &amp;QWebdavDirParser::finished, this, &amp;WebdavConnection::processDirParserFinished );
+}
+
+void WebdavConnection::setUrl( const QString &amp;url )
+{
+  if ( mUrl == url.trimmed() )
+  {
+    return;
+  }
+
+  mUrl = url.trimmed();
+  emit urlChanged();
+
+  if ( !mAvailablePaths.isEmpty() )
+  {
+    mAvailablePaths.clear();
+    emit availablePathsChanged();
+  }
+
+  checkStoredPassword();
+}
+
+void WebdavConnection::setUsername( const QString &amp;username )
+{
+  if ( mUsername == username )
+  {
+    return;
+  }
+
+  mUsername = username;
+  emit usernameChanged();
+
+  if ( !mAvailablePaths.isEmpty() )
+  {
+    mAvailablePaths.clear();
+    emit availablePathsChanged();
+  }
+
+  mWebdavConnection.clearAccessCache();
+  checkStoredPassword();
+}
+
+void WebdavConnection::setPassword( const QString &amp;password )
+{
+  if ( mPassword == password )
+  {
+    return;
+  }
+
+  mPassword = password;
+  emit passwordChanged();
+
+  if ( !mAvailablePaths.isEmpty() )
+  {
+    mAvailablePaths.clear();
+    emit availablePathsChanged();
+  }
+
+  mWebdavConnection.clearAccessCache();
+}
+
+void WebdavConnection::setStorePassword( bool storePassword )
+{
+  if ( mStorePassword == storePassword )
+  {
+    return;
+  }
+
+  mStorePassword = storePassword;
+  emit storePasswordChanged();
+}
+
+void WebdavConnection::checkStoredPassword()
+{
+  mStoredPassword.clear();
+
+  if ( !mUrl.isEmpty() &amp;&amp; !mUsername.isEmpty() )
+  {
+    QgsAuthManager *authManager = QgsApplication::authManager();
+    QgsAuthMethodConfigsMap configs = authManager-&gt;availableAuthMethodConfigs();
+    for ( QgsAuthMethodConfig &amp;config : configs )
+    {
+      if ( config.uri() == mUrl )
+      {
+        authManager-&gt;loadAuthenticationConfig( config.id(), config, true );
+        if ( config.config( QStringLiteral( &quot;username&quot; ) ) == mUsername )
+        {
+          mStoredPassword = config.config( QStringLiteral( &quot;password&quot; ) );
+        }
+      }
+    }
+  }
+
+  emit isPasswordStoredChanged();
+}
+
+void WebdavConnection::applyStoredPassword()
+{
+  QgsAuthManager *authManager = QgsApplication::authManager();
+  QgsAuthMethodConfigsMap configs = authManager-&gt;availableAuthMethodConfigs();
+  if ( mStorePassword )
+  {
+    if ( !mPassword.isEmpty() )
+    {
+      bool found = false;
+      for ( QgsAuthMethodConfig &amp;config : configs )
+      {
+        if ( config.uri() == mUrl )
+        {
+          authManager-&gt;loadAuthenticationConfig( config.id(), config, true );
+          if ( config.config( QStringLiteral( &quot;username&quot; ) ) == mUsername )
+          {
+            if ( config.config( QStringLiteral( &quot;password&quot; ) ) != mPassword )
+            {
+              config.setConfig( &quot;password&quot;, mPassword );
+              authManager-&gt;updateAuthenticationConfig( config );
+
+              mStoredPassword = mPassword;
+              emit isPasswordStoredChanged();
+            }
+
+            found = true;
+            break;
+          }
+        }
+      }
+
+      if ( !found )
+      {
+        QgsAuthMethodConfig config( QStringLiteral( &quot;Basic&quot; ) );
+        config.setName( QStringLiteral( &quot;WebDAV created on %1&quot; ).arg( QDateTime::currentDateTime().toString() ) );
+        config.setUri( mUrl );
+        config.setConfig( &quot;username&quot;, mUsername );
+        config.setConfig( &quot;password&quot;, mPassword );
+        authManager-&gt;storeAuthenticationConfig( config );
+
+        mStoredPassword = mPassword;
+        emit isPasswordStoredChanged();
+      }
+    }
+  }
+  else
+  {
+    for ( QgsAuthMethodConfig &amp;config : configs )
+    {
+      if ( config.uri() == mUrl )
+      {
+        authManager-&gt;loadAuthenticationConfig( config.id(), config, true );
+        if ( config.config( QStringLiteral( &quot;username&quot; ) ) == mUsername )
+        {
+          authManager-&gt;removeAuthenticationConfig( config.id() );
+        }
+      }
+    }
+
+    if ( !mStoredPassword.isEmpty() )
+    {
+      mStoredPassword.clear();
+      emit isPasswordStoredChanged();
+    }
+  }
+}
+
+void WebdavConnection::setupConnection()
+{
+  QUrl connectionUrl( mUrl );
+  bool isHttps = connectionUrl.scheme() == QStringLiteral( &quot;https&quot; );
+  mWebdavConnection.setConnectionSettings( isHttps ? QWebdav::HTTPS : QWebdav::HTTP, connectionUrl.host(), connectionUrl.path( QUrl::FullyEncoded ), mUsername, !mPassword.isEmpty() ? mPassword : mStoredPassword );
+}
+
+void WebdavConnection::fetchAvailablePaths( const QString &amp;remotePath )
+{
+  if ( mUrl.isEmpty() || mUsername.isEmpty() || ( mPassword.isEmpty() &amp;&amp; mStoredPassword.isEmpty() ) )
+  {
+    return;
+  }
+
+  setupConnection();
+
+  mIsFetchingAvailablePaths = true;
+  emit isFetchingAvailablePathsChanged();
+
+  QString path = remotePath;
+  if ( path.isEmpty() )
+  {
+    // Reset any previously fetched details
+    path = QStringLiteral( &quot;/&quot; );
+    mAvailablePaths.clear();
+    mCheckedPaths.clear();
+    mAvailablePaths &lt;&lt; QStringLiteral( &quot;/&quot; );
+  }
+  else
+  {
+    // Assume this is building on a valid paths tree, but reset any children to that remote path
+    mCheckedPaths.erase( std::remove_if( mCheckedPaths.begin(), mCheckedPaths.end(), [path]( const QString &amp;checkedPath ) { return checkedPath.startsWith( path ); } ), mCheckedPaths.end() );
+  }
+
+  mCheckedPaths &lt;&lt; path;
+  mWebdavDirParser.listDirectory( &amp;mWebdavConnection, path, false );
+}
+
+void WebdavConnection::processDirParserFinished()
+{
+  const QList&lt;QWebdavItem&gt; list = mWebdavDirParser.getList();
+  if ( !list.isEmpty() )
+  {
+    applyStoredPassword();
+
+    for ( const QWebdavItem &amp;item : list )
+    {
+      mWebdavItems &lt;&lt; item;
+      if ( item.isDir() )
+      {
+        if ( !mAvailablePaths.contains( item.path() ) )
+        {
+          mAvailablePaths &lt;&lt; item.path();
+        }
+      }
+    }
+
+    if ( !mIsFetchingAvailablePaths &amp;&amp; !mAvailablePaths.isEmpty() )
+    {
+      // When downloading or uploading folders, we must fetch all possible paths
+      auto match = std::find_if( mAvailablePaths.begin(), mAvailablePaths.end(), [this]( const QString &amp;availablePath ) { return !mCheckedPaths.contains( availablePath ); } );
+      if ( match != mAvailablePaths.end() )
+      {
+        mCheckedPaths &lt;&lt; *match;
+        mWebdavDirParser.listDirectory( &amp;mWebdavConnection, *match, false );
+        return;
+      }
+    }
+  }
+
+  if ( mIsFetchingAvailablePaths )
+  {
+    mAvailablePaths.sort();
+    mIsFetchingAvailablePaths = false;
+    emit checkedPathsChanged();
+    emit isFetchingAvailablePathsChanged();
+    emit availablePathsChanged();
+  }
+  else if ( mIsImportingPath || mIsDownloadingPath )
+  {
+    if ( !mWebdavItems.isEmpty() )
+    {
+      QDir localDir( mProcessLocalPath );
+      for ( const QWebdavItem &amp;item : mWebdavItems )
+      {
+        if ( item.isDir() )
+        {
+          const QString normalizedRemote = ensureTrailingSlash( mProcessRemotePath );
+          const QString rel = item.path().mid( normalizedRemote.size() ); // no leading '/'
+          localDir.mkpath( rel );
+        }
+        else
+        {
+          if ( mIsDownloadingPath )
+          {
+            QFileInfo fileInfo( mProcessLocalPath + item.path().mid( mProcessRemotePath.size() ) );
+            if ( !fileInfo.exists() || ( fileInfo.fileTime( QFileDevice::FileModificationTime ) != item.lastModified() ) )
+            {
+              mBytesTotal += item.size();
+            }
+          }
+          else
+          {
+            mBytesTotal += item.size();
+          }
+        }
+      }
+      emit progressChanged();
+    }
+
+    getWebdavItems();
+  }
+  else if ( mIsUploadingPath )
+  {
+    if ( !mWebdavLastModified.isEmpty() )
+    {
+      // Adjust modified date to match upload files
+      for ( const QWebdavItem &amp;item : mWebdavItems )
+      {
+        if ( mWebdavLastModified.contains( item.path() ) )
+        {
+          QFile file( mProcessLocalPath + item.path().mid( mProcessRemotePath.size() ) );
+          if ( file.exists() )
+          {
+            // The local file should always exist at this stage, just playing safe
+            file.open( QFile::Append );
+            file.setFileTime( item.lastModified(), QFileDevice::FileModificationTime );
+            file.setFileTime( item.lastModified(), QFileDevice::FileAccessTime );
+            file.close();
+          }
+        }
+      }
+
+      mWebdavLastModified.clear();
+
+      finishUpload( true, QString() );
+    }
+    else
+    {
+      applyStoredPassword();
+
+      const QString normalizedRemotePath = ensureTrailingSlash( mProcessRemotePath );
+
+      QStringList remoteDirs;
+      for ( const QWebdavItem &amp;item : mWebdavItems )
+      {
+        if ( item.isDir() )
+        {
+          remoteDirs &lt;&lt; ensureTrailingSlash( item.path() );
+        }
+        else
+        {
+          const QString rel = item.path().mid( normalizedRemotePath.size() );
+          if ( isInHiddenDotFolder( rel ) )
+          {
+            continue;
+          }
+
+          QFileInfo fileInfo( mProcessLocalPath + item.path().mid( normalizedRemotePath.size() ) );
+          if ( fileInfo.exists() )
+          {
+            auto localFileInfo = std::find_if( mLocalItems.begin(), mLocalItems.end(), [&amp;fileInfo]( const QFileInfo &amp;entry ) {
+              return entry.absoluteFilePath() == fileInfo.absoluteFilePath();
+            } );
+
+            if ( localFileInfo != mLocalItems.end() )
+            {
+              if ( localFileInfo-&gt;fileTime( QFileDevice::FileModificationTime ) == item.lastModified() )
+              {
+                mLocalItems.remove( localFileInfo - mLocalItems.begin(), 1 );
+              }
+            }
+          }
+        }
+      }
+
+      remoteDirs &lt;&lt; normalizedRemotePath;
+      remoteDirs.removeDuplicates();
+
+      mWebdavMkDirs.clear();
+
+      const QDir base( mProcessLocalPath );
+      for ( const QFileInfo &amp;fileInfo : mLocalItems )
+      {
+        const QString relFile = base.relativeFilePath( fileInfo.absoluteFilePath() );
+
+        if ( relFile.isEmpty() || relFile == QStringLiteral( &quot;.&quot; ) || isInHiddenDotFolder( relFile ) )
+        {
+          continue;
+        }
+
+        QString relDir = QFileInfo( relFile ).path();
+        QString remoteDir = normalizedRemotePath;
+
+        if ( relDir != QStringLiteral( &quot;.&quot; ) &amp;&amp; !relDir.isEmpty() )
+        {
+          remoteDir += relDir.replace( QDir::separator(), QLatin1Char( '/' ) ) + QLatin1Char( '/' );
+        }
+
+        remoteDir = ensureTrailingSlash( remoteDir );
+
+        // Insure the path exists remotely
+        if ( !remoteDirs.contains( remoteDir ) &amp;&amp; !mWebdavMkDirs.contains( remoteDir ) )
+        {
+          const QStringList parts = remoteDir.mid( normalizedRemotePath.size() ).split( &quot;/&quot;, Qt::SkipEmptyParts );
+          QString currentPath = normalizedRemotePath;
+          for ( const QString &amp;part : parts )
+          {
+            currentPath += part + &quot;/&quot;;
+            if ( !remoteDirs.contains( currentPath ) &amp;&amp; !mWebdavMkDirs.contains( currentPath ) )
+            {
+              mWebdavMkDirs &lt;&lt; currentPath;
+            }
+          }
+        }
+
+        mBytesTotal += fileInfo.size();
+      }
+
+      std::sort( mWebdavMkDirs.begin(), mWebdavMkDirs.end(), []( const QString &amp;first, const QString &amp;second ) {
+        const qsizetype dfirst = first.count( QLatin1Char( '/' ) );
+        const qsizetype dsecond = second.count( QLatin1Char( '/' ) );
+        return dfirst == dsecond ? first &lt; second : dfirst &lt; dsecond;
+      } );
+      mWebdavMkDirs.removeDuplicates();
+
+      emit progressChanged();
+      putLocalItems();
+    }
+  }
+}
+
+void WebdavConnection::getWebdavItems()
+{
+  if ( !mWebdavItems.isEmpty() )
+  {
+    if ( mWebdavItems.first().isDir() )
+    {
+      mWebdavItems.removeFirst();
+      getWebdavItems();
+      return;
+    }
+
+    const QString itemPath = mWebdavItems.first().path();
+    const QDateTime itemLastModified = mWebdavItems.first().lastModified();
+    QNetworkReply *reply = mWebdavConnection.get( itemPath );
+    QTemporaryFile *temporaryFile = new QTemporaryFile( reply );
+    temporaryFile-&gt;setFileTemplate( QStringLiteral( &quot;%1%2.XXXXXXXXXXXX&quot; ).arg( mProcessLocalPath, itemPath.mid( mProcessRemotePath.size() ) ) );
+    temporaryFile-&gt;open();
+
+    connect( reply, &amp;QNetworkReply::downloadProgress, this, [this, reply, temporaryFile]( qint64 bytesReceived, qint64 bytesTotal ) {
+      mCurrentBytesProcessed = bytesReceived;
+      emit progressChanged();
+
+      temporaryFile-&gt;write( reply-&gt;readAll() );
+    } );
+
+    connect( reply, &amp;QNetworkReply::finished, this, [this, reply, temporaryFile, itemPath, itemLastModified]() {
+      mBytesProcessed += mCurrentBytesProcessed;
+      mCurrentBytesProcessed = 0;
+      if ( reply-&gt;error() == QNetworkReply::NoError )
+      {
+        QFile file( mProcessLocalPath + itemPath.mid( mProcessRemotePath.size() ) );
+        if ( file.exists() )
+        {
+          // Remove pre-existing file
+          file.remove();
+        }
+
+        temporaryFile-&gt;write( reply-&gt;readAll() );
+        temporaryFile-&gt;setAutoRemove( false );
+        temporaryFile-&gt;rename( mProcessLocalPath + itemPath.mid( mProcessRemotePath.size() ) );
+        temporaryFile-&gt;close();
+        delete temporaryFile;
+
+        // Attach last modified date value coming from the server (cannot be done via QTemporaryFile)
+        file.open( QFile::Append );
+        file.setFileTime( itemLastModified, QFileDevice::FileModificationTime );
+        file.setFileTime( itemLastModified, QFileDevice::FileAccessTime );
+        file.close();
+      }
+      else
+      {
+        mLastError = tr( &quot;Failed to download file %1 due to network error (%2)&quot; ).arg( itemPath ).arg( reply-&gt;error() );
+      }
+
+      mWebdavItems.removeFirst();
+      getWebdavItems();
+      reply-&gt;deleteLater();
+    } );
+  }
+  else
+  {
+    if ( mIsImportingPath )
+    {
+      QVariantMap webdavConfiguration;
+      webdavConfiguration[QStringLiteral( &quot;url&quot; )] = mUrl;
+      webdavConfiguration[QStringLiteral( &quot;username&quot; )] = mUsername;
+      webdavConfiguration[QStringLiteral( &quot;remote_path&quot; )] = mProcessRemotePath;
+
+      QJsonDocument jsonDocument = QJsonDocument::fromVariant( webdavConfiguration );
+      QFile jsonFile( QDir( mProcessLocalPath ).filePath( WEBDAV_CONFIGURATION_FILENAME ) );
+      jsonFile.open( QFile::WriteOnly );
+      jsonFile.write( jsonDocument.toJson() );
+      jsonFile.close();
+
+      QSettings settings;
+      settings.beginGroup( QStringLiteral( &quot;/qfield/webdavImports/%1/users/%2&quot; ).arg( QUrl::toPercentEncoding( mUrl ), QUrl::toPercentEncoding( mUsername ) ) );
+      settings.setValue( QStringLiteral( &quot;lastImportPath&quot; ), mProcessRemotePath );
+      settings.setValue( QStringLiteral( &quot;lastImportTime&quot; ), QDateTime::currentDateTime() );
+      settings.endGroup();
+
+      mIsImportingPath = false;
+      emit isImportingPathChanged();
+      emit importSuccessful( mProcessLocalPath );
+    }
+    else if ( mIsDownloadingPath )
+    {
+      mIsDownloadingPath = false;
+      emit isDownloadingPathChanged();
+    }
+  }
+}
+
+void WebdavConnection::forgetHistory( const QString &amp;url, const QString &amp;username )
+{
+  QgsAuthManager *authManager = QgsApplication::authManager();
+  QgsAuthMethodConfigsMap configs = authManager-&gt;availableAuthMethodConfigs();
+  QSettings settings;
+  if ( !username.isEmpty() )
+  {
+    // Add a dummy value into the root of the server to avoid it being deleted due to empty group
+    settings.setValue( QStringLiteral( &quot;/qfield/webdavImports/%1/dummy&quot; ).arg( QUrl::toPercentEncoding( url ) ), 1 );
+    settings.beginGroup( QStringLiteral( &quot;/qfield/webdavImports/%1/users/%2&quot; ).arg( QUrl::toPercentEncoding( url ), QUrl::toPercentEncoding( username ) ) );
+    settings.remove( &quot;&quot; );
+    settings.endGroup();
+
+    for ( QgsAuthMethodConfig &amp;config : configs )
+    {
+      if ( config.uri() == url )
+      {
+        authManager-&gt;loadAuthenticationConfig( config.id(), config, true );
+        if ( config.config( QStringLiteral( &quot;username&quot; ) ) == username )
+        {
+          authManager-&gt;removeAuthenticationConfig( config.id() );
+        }
+      }
+    }
+  }
+  else if ( !url.isEmpty() )
+  {
+    settings.beginGroup( QStringLiteral( &quot;/qfield/webdavImports/%1&quot; ).arg( QUrl::toPercentEncoding( url ) ) );
+    settings.remove( &quot;&quot; );
+    settings.endGroup();
+
+    for ( QgsAuthMethodConfig &amp;config : configs )
+    {
+      if ( config.uri() == url )
+      {
+        authManager-&gt;removeAuthenticationConfig( config.id() );
+      }
+    }
+  }
+  else
+  {
+    settings.beginGroup( QStringLiteral( &quot;/qfield/webdavImports&quot; ) );
+    const QStringList urls = settings.allKeys();
+    settings.remove( &quot;&quot; );
+    settings.endGroup();
+
+    for ( QgsAuthMethodConfig &amp;config : configs )
+    {
+      if ( urls.contains( config.uri() ) )
+      {
+        authManager-&gt;removeAuthenticationConfig( config.id() );
+      }
+    }
+  }
+}
+
+QVariantMap WebdavConnection::importHistory()
+{
+  // Collect imported folders
+  QMap&lt;QString, QVariantMap&gt; importedFolders;
+  QDir importedProjectsDir( QStringLiteral( &quot;%1/Imported Projects/&quot; ).arg( PlatformUtilities::instance()-&gt;applicationDirectory() ) );
+  const QStringList projectFolders = findWebdavProjectFolders( importedProjectsDir.absolutePath() );
+
+  for ( const QString &amp;projectFolder : projectFolders )
+  {
+    QFile webdavConfigurationFile( projectFolder + QDir::separator() + WEBDAV_CONFIGURATION_FILENAME );
+    if ( !webdavConfigurationFile.open( QFile::ReadOnly ) )
+    {
+      continue;
+    }
+
+    const QJsonDocument jsonDocument = QJsonDocument::fromJson( webdavConfigurationFile.readAll() );
+    if ( jsonDocument.isEmpty() )
+    {
+      continue;
+    }
+
+    const QVariantMap webdavConfiguration = jsonDocument.toVariant().toMap();
+    const QString importedFolderKey = QStringLiteral( &quot;%1 - %2&quot; ).arg( webdavConfiguration.value( &quot;url&quot; ).toString(), webdavConfiguration.value( &quot;username&quot; ).toString() );
+
+    importedFolders[importedFolderKey][webdavConfiguration.value( &quot;remote_path&quot; ).toString()] = importedProjectsDir.relativeFilePath( projectFolder );
+  }
+
+  // Collect saved imports
+  QVariantMap history;
+
+  QSettings settings;
+  settings.beginGroup( QStringLiteral( &quot;/qfield/webdavImports&quot; ) );
+  const QStringList urls = settings.childGroups();
+  settings.endGroup();
+
+  QDateTime lastUrlImportTime( QDate( 1900, 1, 1 ), QTime( 0, 0 ) );
+  QString lastUrl;
+
+  QVariantMap urlsDetails;
+
+  for ( const QString &amp;url : urls )
+  {
+    const QString decodedUrl = QUrl::fromPercentEncoding( url.toLatin1() );
+
+    settings.beginGroup( QStringLiteral( &quot;/qfield/webdavImports/%1/users&quot; ).arg( url ) );
+    const QStringList users = settings.childGroups();
+    settings.endGroup();
+
+    QDateTime lastUserImportTime( QDate( 1900, 1, 1 ), QTime( 0, 0 ) );
+    QString lastUser;
+
+    QVariantMap usersDetails;
+
+    for ( const QString &amp;user : users )
+    {
+      const QString decodedUser = QUrl::fromPercentEncoding( user.toLatin1() );
+
+      settings.beginGroup( QStringLiteral( &quot;/qfield/webdavImports/%1/users/%2&quot; ).arg( url, user ) );
+
+      QVariantMap details;
+      details[QStringLiteral( &quot;lastImportPath&quot; )] = settings.value( QStringLiteral( &quot;lastImportPath&quot; ) ).toString();
+
+      const QString importedKey = QStringLiteral( &quot;%1 - %2&quot; ).arg( decodedUrl, decodedUser );
+      details[QStringLiteral( &quot;importPaths&quot; )] = importedFolders.contains( importedKey ) ? importedFolders[importedKey] : QVariantMap();
+
+      const QDateTime importTime = settings.value( QStringLiteral( &quot;lastImportTime&quot; ) ).toDateTime();
+
+      if ( lastUserImportTime &lt; importTime )
+      {
+        lastUserImportTime = importTime;
+        lastUser = decodedUser;
+      }
+
+      if ( lastUrlImportTime &lt; importTime )
+      {
+        lastUrlImportTime = importTime;
+        lastUrl = decodedUrl;
+      }
+
+      usersDetails[decodedUser] = details;
+
+      settings.endGroup();
+    }
+
+    QVariantMap urlDetails;
+    urlDetails[QStringLiteral( &quot;users&quot; )] = usersDetails;
+    urlDetails[QStringLiteral( &quot;lastUser&quot; )] = lastUser;
+
+    urlsDetails[decodedUrl] = urlDetails;
+  }
+
+  history[QStringLiteral( &quot;urls&quot; )] = urlsDetails;
+  history[QStringLiteral( &quot;lastUrl&quot; )] = lastUrl;
+
+  return history;
+}
+
+QStringList WebdavConnection::findWebdavProjectFolders( const QString &amp;basePath )
+{
+  QStringList projects;
+  if ( basePath.isEmpty() )
+  {
+    return projects;
+  }
+
+  QDirIterator it( basePath,
+                   QStringList() &lt;&lt; WEBDAV_CONFIGURATION_FILENAME,
+                   QDir::Files,
+                   QDirIterator::Subdirectories );
+
+  while ( it.hasNext() )
+  {
+    it.next();
+    projects &lt;&lt; it.fileInfo().absolutePath();
+  }
+  return projects;
+}
+
+void WebdavConnection::putLocalItems()
+{
+  if ( !mWebdavMkDirs.isEmpty() )
+  {
+    const QString dirPath = ensureTrailingSlash( mWebdavMkDirs.first() );
+
+    QNetworkReply *reply = mWebdavConnection.mkdir( dirPath );
+
+    connect( reply, &amp;QNetworkReply::finished, this, [this, reply, dirPath]() {
+      mBytesProcessed += mCurrentBytesProcessed;
+      mCurrentBytesProcessed = 0;
+
+      // WebDAV MKCOL:
+      // - 2xx =&gt; created
+      // - 405 =&gt; already exists (common on some servers) -&gt; treat as success
+      const int httpStatus = reply-&gt;attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      bool ok = ( reply-&gt;error() == QNetworkReply::NoError );
+      if ( !ok )
+      {
+        ok = ( httpStatus &gt;= 200 &amp;&amp; httpStatus &lt; 300 ) || httpStatus == 405;
+      }
+
+      if ( !ok )
+      {
+        mLastError = tr( &quot;Failed to upload file %1 due to network error (%2)&quot; ).arg( dirPath ).arg( httpStatus );
+      }
+
+      mWebdavMkDirs.removeFirst();
+      reply-&gt;deleteLater();
+      putLocalItems();
+    } );
+  }
+  else if ( !mLocalItems.isEmpty() )
+  {
+    const QString itemPath = mLocalItems.first().absoluteFilePath();
+
+    const QDir base( mProcessLocalPath );
+    const QString relFile = base.relativeFilePath( itemPath );
+
+    if ( relFile.isEmpty() || relFile == QStringLiteral( &quot;.&quot; ) || isInHiddenDotFolder( relFile ) )
+    {
+      mLocalItems.removeFirst();
+      putLocalItems();
+      return;
+    }
+
+    const QString remoteItemPath = ensureTrailingSlash( mProcessRemotePath ) + QString( relFile ).replace( QDir::separator(), QLatin1Char( '/' ) );
+
+    mCurrentUploadFileSize = mLocalItems.first().size();
+    mCurrentUploadBytesSentMax = 0;
+    mCurrentBytesProcessed = 0;
+    emit progressChanged();
+
+    QFile *file = new QFile( itemPath );
+    file-&gt;open( QFile::ReadOnly );
+    QNetworkReply *reply = mWebdavConnection.put( remoteItemPath, file );
+    file-&gt;setParent( reply );
+
+    connect( reply, &amp;QNetworkReply::uploadProgress, this, [this]( qint64 bytesSent, qint64 bytesTotal ) {
+      // Prefer bytesTotal if provided, else fall back to QFileInfo size
+      const qint64 total = ( bytesTotal &gt; 0 ) ? bytesTotal : mCurrentUploadFileSize;
+
+      qint64 sent = bytesSent;
+      if ( total &gt; 0 )
+      {
+        sent = std::min( sent, total );
+      }
+
+      if ( sent &gt; mCurrentUploadBytesSentMax )
+      {
+        mCurrentUploadBytesSentMax = sent;
+      }
+
+      mCurrentBytesProcessed = mCurrentUploadBytesSentMax;
+      emit progressChanged();
+    } );
+
+    connect( reply, &amp;QNetworkReply::finished, this, [this, reply, remoteItemPath]() {
+      const qint64 completed = ( mCurrentUploadFileSize &gt; 0 )
+                                 ? mCurrentUploadFileSize
+                                 : mCurrentUploadBytesSentMax;
+
+      mBytesProcessed += completed;
+
+      mCurrentBytesProcessed = 0;
+      mCurrentUploadFileSize = 0;
+      mCurrentUploadBytesSentMax = 0;
+      emit progressChanged();
+
+      // HTTP 2xx codes are success for WebDAV PUT
+      const int httpStatus = reply-&gt;attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      if ( reply-&gt;error() != QNetworkReply::NoError &amp;&amp; ( httpStatus &lt; 200 || httpStatus &gt;= 300 ) )
+      {
+        mLastError = tr( &quot;Failed to upload file %1 due to network error (%2)&quot; ).arg( remoteItemPath ).arg( httpStatus );
+      }
+
+      mWebdavLastModified &lt;&lt; remoteItemPath;
+
+      mLocalItems.removeFirst();
+      reply-&gt;deleteLater();
+      putLocalItems();
+    } );
+  }
+  else
+  {
+    if ( mIsUploadingPath )
+    {
+      if ( !mWebdavLastModified.isEmpty() )
+      {
+        mCheckedPaths.clear();
+        mCheckedPaths &lt;&lt; mProcessRemotePath;
+        mAvailablePaths.clear();
+        mWebdavDirParser.listDirectory( &amp;mWebdavConnection, mProcessRemotePath, false );
+      }
+      else
+      {
+        finishUpload( true, QString() );
+      }
+    }
+  }
+}
+
+void WebdavConnection::finishUpload( bool success, const QString &amp;errorMessage )
+{
+  mIsUploadingPath = false;
+  emit isUploadingPathChanged();
+
+  const bool ok = success &amp;&amp; mLastError.isEmpty();
+  const QString msg = ok ? tr( &quot;Upload finished.&quot; ) : ( mLastError.isEmpty() ? errorMessage : mLastError );
+
+  if ( mAutoUploadActive )
+  {
+    if ( ok )
+    {
+      mAutoUploadSignature = computeLocalSignature( mAutoUploadRoot );
+      mAutoUploadSignatureRoot = mAutoUploadRoot;
+    }
+
+    mAutoUploadActive = false;
+    mAutoUploadRoot.clear();
+    emit uploadFinished( ok, msg );
+  }
+
+  unlockUpload();
+}
+
+void WebdavConnection::importPath( const QString &amp;remotePath, const QString &amp;localPath, QString localFolder )
+{
+  if ( mUrl.isEmpty() || mUsername.isEmpty() || ( mPassword.isEmpty() &amp;&amp; mStoredPassword.isEmpty() ) )
+    return;
+
+  setupConnection();
+
+  if ( localFolder.isEmpty() )
+  {
+    localFolder = QStringLiteral( &quot;%1 - %2&quot; ).arg( remotePath, mWebdavConnection.username() );
+  }
+  localFolder.replace( QRegularExpression( &quot;[\\\\\\/\\&lt;\\&gt;\\:\\|\\?\\*\\\&quot;]&quot; ), QString( &quot;_&quot; ) );
+
+  QDir localDir( localPath );
+  QString localFolderCheck = localFolder;
+  int folderSuffix = 0;
+  while ( localDir.exists( localFolderCheck ) )
+  {
+    localFolderCheck = QStringLiteral( &quot;%1 - %2&quot; ).arg( localFolder, QString::number( ++folderSuffix ) );
+  }
+  localFolder = localFolderCheck;
+  ( void ) localDir.mkdir( localFolder );
+
+  mProcessRemotePath = remotePath;
+  mProcessLocalPath = QDir::cleanPath( localPath + QDir::separator() + localFolder ) + QDir::separator();
+
+  mWebdavItems.clear();
+  mBytesProcessed = 0;
+  mBytesTotal = 0;
+  emit progressChanged();
+
+  mIsImportingPath = true;
+  emit isImportingPathChanged();
+
+  mCheckedPaths.clear();
+  mCheckedPaths &lt;&lt; mProcessRemotePath;
+  mAvailablePaths.clear();
+  mWebdavDirParser.listDirectory( &amp;mWebdavConnection, mProcessRemotePath, false );
+}
+
+void WebdavConnection::downloadPath( const QString &amp;localPath )
+{
+  QDir dir( localPath );
+  bool webdavConfigurationExists = dir.exists( WEBDAV_CONFIGURATION_FILENAME );
+  QStringList remoteChildrenPath;
+  while ( !webdavConfigurationExists )
+  {
+    remoteChildrenPath.prepend( dir.dirName() );
+    if ( !dir.cdUp() )
+    {
+      break;
+    }
+
+    webdavConfigurationExists = dir.exists( WEBDAV_CONFIGURATION_FILENAME );
+  }
+
+  if ( webdavConfigurationExists )
+  {
+    QFile webdavConfigurationFile( dir.absoluteFilePath( WEBDAV_CONFIGURATION_FILENAME ) );
+    webdavConfigurationFile.open( QFile::ReadOnly );
+    QJsonDocument jsonDocument = QJsonDocument::fromJson( webdavConfigurationFile.readAll() );
+    if ( !jsonDocument.isEmpty() )
+    {
+      QVariantMap webdavConfiguration = jsonDocument.toVariant().toMap();
+      setUrl( webdavConfiguration[&quot;url&quot;].toString() );
+      setUsername( webdavConfiguration[&quot;username&quot;].toString() );
+      setStorePassword( isPasswordStored() );
+
+      mProcessRemotePath = webdavConfiguration[&quot;remote_path&quot;].toString();
+      if ( !remoteChildrenPath.isEmpty() )
+      {
+        mProcessRemotePath = mProcessRemotePath + remoteChildrenPath.join( &quot;/&quot; ) + QStringLiteral( &quot;/&quot; );
+      }
+      mProcessLocalPath = QDir::cleanPath( localPath ) + QDir::separator();
+
+      mWebdavItems.clear();
+      mBytesProcessed = 0;
+      mBytesTotal = 0;
+      emit progressChanged();
+
+      mIsDownloadingPath = true;
+      emit isDownloadingPathChanged();
+      const QUrl url( mUrl );
+      emit confirmationRequested( url.host(), mUsername );
+    }
+  }
+}
+
+bool WebdavConnection::uploadPathsInternal( const QStringList &amp;localPaths, bool requireConfirmation, bool autoUpload, bool force, QString *errorMessage )
+{
+  auto fail = [&amp;]( const QString &amp;msg ) -&gt; bool {
+    if ( errorMessage )
+    {
+      *errorMessage = msg;
+    }
+    unlockUpload();
+    return false;
+  };
+
+  if ( localPaths.isEmpty() )
+  {
+    return fail( tr( &quot;No local paths provided.&quot; ) );
+  }
+
+  if ( mIsFetchingAvailablePaths || mIsImportingPath || mIsDownloadingPath || mIsUploadingPath )
+  {
+    return fail( tr( &quot;WebDAV is busy.&quot; ) );
+  }
+
+  mLocalItems.clear();
+
+  // Find config root from first path (and ensure all paths match it)
+  QString configRoot;
+  QVariantMap webdavConfiguration;
+  QString webdavConfigurationErr;
+
+  bool webdavConfigurationLoaded = false;
+
+  for ( const QString &amp;localPath : localPaths )
+  {
+    QFileInfo fi( QDir::cleanPath( localPath ) );
+    const QString fileLocalPath = fi.isFile() ? fi.absolutePath() : fi.absoluteFilePath();
+
+    QDir dir( fileLocalPath );
+    QStringList remoteChildrenPath;
+
+    while ( !dir.exists( WEBDAV_CONFIGURATION_FILENAME ) )
+    {
+      remoteChildrenPath.prepend( dir.dirName() );
+      if ( !dir.cdUp() )
+      {
+        break;
+      }
+    }
+
+    if ( !webdavConfigurationLoaded )
+    {
+      if ( !dir.exists( WEBDAV_CONFIGURATION_FILENAME ) )
+      {
+        return fail( tr( &quot;Not a WebDAV imported project.&quot; ) );
+      }
+
+      configRoot = dir.absolutePath();
+
+      // lock applies to BOTH auto upload and 3-dot upload
+      if ( !tryLockUpload( configRoot, errorMessage ) )
+      {
+        return false;
+      }
+
+      if ( !readWebdavConfig( configRoot, webdavConfiguration, webdavConfigurationErr ) )
+      {
+        return fail( webdavConfigurationErr );
+      }
+
+      const QString webdavConfigurationUrl = webdavConfiguration.value( QStringLiteral( &quot;url&quot; ) ).toString();
+      const QString webdavConfigurationUser = webdavConfiguration.value( QStringLiteral( &quot;username&quot; ) ).toString();
+      QString webdavConfigurationRemote = webdavConfiguration.value( QStringLiteral( &quot;remote_path&quot; ) ).toString();
+
+      if ( webdavConfigurationUrl.isEmpty() || webdavConfigurationUser.isEmpty() || webdavConfigurationRemote.isEmpty() )
+      {
+        return fail( tr( &quot;WebDAV config is missing required fields.&quot; ) );
+      }
+
+      webdavConfigurationRemote = ensureTrailingSlash( webdavConfigurationRemote );
+
+      setUrl( webdavConfigurationUrl );
+      setUsername( webdavConfigurationUser );
+      setStorePassword( isPasswordStored() );
+
+      // auto-upload must not pop UI for password
+      if ( autoUpload &amp;&amp; mPassword.isEmpty() &amp;&amp; mStoredPassword.isEmpty() )
+      {
+        return fail( tr( &quot;No stored password available.&quot; ) );
+      }
+
+      // compute final remote base for this selection
+      if ( !remoteChildrenPath.isEmpty() )
+      {
+        webdavConfigurationRemote = ensureTrailingSlash( webdavConfigurationRemote + remoteChildrenPath.join( &quot;/&quot; ) + &quot;/&quot; );
+      }
+
+      mProcessRemotePath = webdavConfigurationRemote;
+      mProcessLocalPath = QDir::cleanPath( fileLocalPath ) + QDir::separator();
+
+      webdavConfigurationLoaded = true;
+    }
+    else
+    {
+      // enforce same config root across all selected paths
+      if ( dir.absolutePath() != configRoot )
+      {
+        return fail( tr( &quot;Selected items belong to different WebDAV projects.&quot; ) );
+      }
+
+      QString newRemotePath = ensureTrailingSlash( webdavConfiguration.value( QStringLiteral( &quot;remote_path&quot; ) ).toString() );
+      if ( !remoteChildrenPath.isEmpty() )
+      {
+        newRemotePath = ensureTrailingSlash( newRemotePath + remoteChildrenPath.join( &quot;/&quot; ) );
+      }
+
+      mProcessRemotePath = getCommonPath( newRemotePath, mProcessRemotePath );
+      mProcessLocalPath = QDir::cleanPath( getCommonPath( fileLocalPath, mProcessLocalPath ) ) + QDir::separator();
+    }
+
+    const QDir base( configRoot );
+
+    if ( fi.isDir() )
+    {
+      QDirIterator it( fileLocalPath, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories );
+      while ( it.hasNext() )
+      {
+        it.next();
+        const QFileInfo itemFi = it.fileInfo();
+
+        const QString name = itemFi.fileName();
+        if ( name == WEBDAV_CONFIGURATION_FILENAME || name == WEBDAV_LOCK_FILENAME )
+        {
+          continue;
+        }
+
+        const QString rel = base.relativeFilePath( itemFi.absoluteFilePath() );
+        if ( isInHiddenDotFolder( rel ) )
+        {
+          continue;
+        }
+
+        mLocalItems &lt;&lt; itemFi;
+      }
+    }
+    else
+    {
+      const QString name = fi.fileName();
+      if ( name != WEBDAV_CONFIGURATION_FILENAME &amp;&amp; name != WEBDAV_LOCK_FILENAME )
+      {
+        const QString rel = base.relativeFilePath( fi.absoluteFilePath() );
+        if ( !isInHiddenDotFolder( rel ) )
+        {
+          mLocalItems &lt;&lt; fi;
+        }
+      }
+    }
+  }
+
+  if ( mLocalItems.isEmpty() )
+  {
+    return fail( tr( &quot;Nothing to upload.&quot; ) );
+  }
+
+  // auto-upload-&gt;unchanged check (only here, so both paths share the same implementation)
+  if ( autoUpload )
+  {
+    const QByteArray sig = computeLocalSignature( configRoot );
+    if ( !force &amp;&amp; !mAutoUploadSignature.isEmpty() &amp;&amp; mAutoUploadSignatureRoot == configRoot &amp;&amp; sig == mAutoUploadSignature )
+    {
+      return fail( tr( &quot;No local changes detected.&quot; ) );
+    }
+
+    mAutoUploadActive = true;
+    mAutoUploadRoot = configRoot;
+    mLastError.clear();
+  }
+
+  beginUpload( requireConfirmation );
+  return true;
+}
+
+void WebdavConnection::uploadPaths( const QStringList &amp;localPaths )
+{
+  QString err;
+  if ( !uploadPathsInternal( localPaths, true, false, false, &amp;err ) )
+  {
+    if ( !err.isEmpty() )
+    {
+      mLastError = err;
+      emit lastErrorChanged();
+    }
+  }
+}
+
+QString WebdavConnection::getCommonPath( const QString &amp;addressA, const QString &amp;addressB )
+{
+  const QStringList pathComponentsA = addressA.split( &quot;/&quot; );
+  const QStringList pathComponentsB = addressB.split( &quot;/&quot; );
+  const qsizetype minLength = std::min( pathComponentsA.size(), pathComponentsB.size() );
+
+  QString commonPath = QStringLiteral( &quot;/&quot; );
+
+  for ( qsizetype i = 0; i &lt; minLength; ++i )
+  {
+    if ( pathComponentsA[i] == pathComponentsB[i] )
+    {
+      if ( i &gt; 0 )
+      {
+        commonPath += pathComponentsA[i] + QStringLiteral( &quot;/&quot; );
+      }
+    }
+    else
+    {
+      break;
+    }
+  }
+
+  while ( !commonPath.isEmpty() &amp;&amp; commonPath.endsWith( &quot;/&quot; ) )
+  {
+    commonPath.chop( 1 );
+  }
+
+  commonPath += QStringLiteral( &quot;/&quot; );
+
+  return commonPath;
+}
+
+void WebdavConnection::confirmRequest()
+{
+  if ( mIsDownloadingPath || mIsUploadingPath )
+  {
+    mWebdavItems.clear();
+    mLastError.clear();
+    setupConnection();
+    mCheckedPaths.clear();
+    mCheckedPaths &lt;&lt; mProcessRemotePath;
+    mAvailablePaths.clear();
+    mWebdavDirParser.listDirectory( &amp;mWebdavConnection, mProcessRemotePath, false );
+  }
+}
+
+void WebdavConnection::cancelRequest()
+{
+  if ( mIsDownloadingPath )
+  {
+    mIsDownloadingPath = false;
+    emit isDownloadingPathChanged();
+  }
+  else if ( mIsUploadingPath )
+  {
+    mIsUploadingPath = false;
+    emit isUploadingPathChanged();
+
+    if ( mAutoUploadActive )
+    {
+      mAutoUploadActive = false;
+      mAutoUploadRoot.clear();
+      emit uploadFinished( false, tr( &quot;Upload cancelled.&quot; ) );
+    }
+
+    unlockUpload();
+  }
+}
+
+double WebdavConnection::progress() const
+{
+  if ( ( mIsImportingPath || mIsDownloadingPath || mIsUploadingPath ) &amp;&amp; mBytesTotal &gt; 0 )
+  {
+    return static_cast&lt;double&gt;( mBytesProcessed + mCurrentBytesProcessed ) / mBytesTotal;
+  }
+
+  return 0;
+}
+
+void WebdavConnection::processConnectionError( const QString &amp;error )
+{
+  mLastError = error;
+  emit lastErrorChanged();
+}
+
+void WebdavConnection::processDirParserError( const QString &amp;error )
+{
+  mLastError = error;
+  emit lastErrorChanged();
+}
+
+void WebdavConnection::requestUpload( const QString &amp;projectPath, bool force )
+{
+  const QString root = findWebdavRootForPath( projectPath );
+  if ( root.isEmpty() )
+  {
+    emit uploadSkipped( tr( &quot;Not a WebDAV imported project.&quot; ) );
+    return;
+  }
+
+  QString reason;
+  if ( !uploadPathsInternal( QStringList() &lt;&lt; root, false, true, force, &amp;reason ) )
+  {
+    emit uploadSkipped( reason.isEmpty() ? tr( &quot;Upload skipped.&quot; ) : reason );
+  }
+}
+
+bool WebdavConnection::hasWebdavConfiguration( const QString &amp;path )
+{
+  return !findWebdavRootForPath( path ).isEmpty();
+}
+
+bool WebdavConnection::tryLockUpload( const QString &amp;root, QString *errorMessage )
+{
+  unlockUpload();
+
+  mUploadLock.reset( new QLockFile( root + QDir::separator() + WEBDAV_LOCK_FILENAME ) );
+  mUploadLock-&gt;setStaleLockTime( 0 );
+
+  if ( !mUploadLock-&gt;tryLock( 0 ) )
+  {
+    if ( errorMessage )
+    {
+      *errorMessage = tr( &quot;Upload is locked by another process.&quot; );
+    }
+    mUploadLock.reset();
+    return false;
+  }
+
+  return true;
+}
+
+void WebdavConnection::unlockUpload()
+{
+  if ( mUploadLock )
+  {
+    mUploadLock-&gt;unlock();
+    mUploadLock.reset();
+  }
+}
+
+void WebdavConnection::beginUpload( bool requireConfirmation )
+{
+  mBytesProcessed = 0;
+  mBytesTotal = 0;
+  mCurrentBytesProcessed = 0;
+  emit progressChanged();
+
+  mIsUploadingPath = true;
+  emit isUploadingPathChanged();
+
+  if ( requireConfirmation )
+  {
+    const QUrl url( mUrl );
+    emit confirmationRequested( url.host(), mUsername );
+  }
+  else
+  {
+    confirmRequest();
+  }
+}
+
+bool WebdavConnection::isInHiddenDotFolder( const QString &amp;relativePath ) const
+{
+  return relativePath.startsWith( QLatin1Char( '.' ) ) || relativePath.contains( QStringLiteral( &quot;/.&quot; ) );
+}
+
+QString WebdavConnection::ensureTrailingSlash( QString path ) const
+{
+  if ( !path.endsWith( QLatin1Char( '/' ) ) )
+  {
+    path += QLatin1Char( '/' );
+  }
+  return path;
+}
+
+QString WebdavConnection::findWebdavRootForPath( const QString &amp;path )
+{
+  QFileInfo fi( QDir::cleanPath( path ) );
+  QDir dir( fi.isFile() ? fi.absolutePath() : fi.absoluteFilePath() );
+
+  while ( !dir.exists( WEBDAV_CONFIGURATION_FILENAME ) )
+  {
+    if ( !dir.cdUp() )
+    {
+      return QString();
+    }
+  }
+
+  return dir.absolutePath();
+}
+
+bool WebdavConnection::readWebdavConfig( const QString &amp;rootPath, QVariantMap &amp;outConfig, QString &amp;errorMessage ) const
+{
+  QFile f( rootPath + QDir::separator() + WEBDAV_CONFIGURATION_FILENAME );
+  if ( !f.open( QFile::ReadOnly ) )
+  {
+    errorMessage = tr( &quot;Failed to read WebDAV config file.&quot; );
+    return false;
+  }
+
+  const QByteArray raw = f.readAll();
+  QJsonParseError e;
+  const QJsonDocument doc = QJsonDocument::fromJson( raw, &amp;e );
+
+  if ( e.error != QJsonParseError::NoError || doc.isNull() )
+  {
+    errorMessage = tr( &quot;Invalid WebDAV config JSON.&quot; );
+    return false;
+  }
+
+  outConfig = doc.toVariant().toMap();
+  return true;
+}
+
+QByteArray WebdavConnection::computeLocalSignature( const QString &amp;rootPath ) const
+{
+  if ( rootPath.isEmpty() )
+  {
+    return QByteArray();
+  }
+
+  const QDir base( rootPath );
+  QList&lt;QByteArray&gt; entries;
+
+  QDirIterator it( rootPath, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories );
+  while ( it.hasNext() )
+  {
+    it.next();
+    const QFileInfo fi = it.fileInfo();
+
+    const QString name = fi.fileName();
+    if ( name == WEBDAV_CONFIGURATION_FILENAME || name == WEBDAV_LOCK_FILENAME )
+    {
+      continue;
+    }
+
+    const QString rel = base.relativeFilePath( fi.absoluteFilePath() );
+    if ( isInHiddenDotFolder( rel ) )
+    {
+      continue;
+    }
+
+    const qint64 size = fi.size();
+    const qint64 mtime = fi.fileTime( QFileDevice::FileModificationTime ).toMSecsSinceEpoch();
+    entries &lt;&lt; ( rel + &quot;\n&quot; + QString::number( size ) + &quot;|&quot; + QString::number( mtime ) + &quot;\n&quot; ).toUtf8();
+  }
+
+  std::sort( entries.begin(), entries.end() );
+
+  QCryptographicHash hash( QCryptographicHash::Sha256 );
+  for ( const QByteArray &amp;e : entries )
+  {
+    hash.addData( e );
+  }
+
+  return hash.result();
+}
+
+#undef WEBDAV_CONFIGURATION_FILENAME
+#undef WEBDAV_LOCK_FILENAME
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

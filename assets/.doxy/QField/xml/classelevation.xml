@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classelevation" kind="class" language="C++" prot="public">
+    <compoundname>elevation</compoundname>
+    <basecompoundref refid="classCogoParameterWidgetBase" prot="public" virt="non-virtual">CogoParameterWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classelevation_1a9b0cc50e83bce51ab8eda2b1f5c36fb0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var elevation::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>elevation::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/elevation.qml" line="8" column="5" bodyfile="src/qml/cogoparameterwidgets/elevation.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classelevation_1a13970dfe4c223b430f3a2146446d74f5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var elevation::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>elevation::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/elevation.qml" line="9" column="5" bodyfile="src/qml/cogoparameterwidgets/elevation.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classelevation_1a9d16d3e087dbe78943f6335e9002f28f" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField elevation::elevationField</definition>
+        <argsstring></argsstring>
+        <name>elevationField</name>
+        <qualifiedname>elevation::elevationField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/elevation.qml" line="10" column="13" bodyfile="src/qml/cogoparameterwidgets/elevation.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classelevation_1a2477b9b2e9c2e415f53e4448972b2e89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void elevation::processValue</definition>
+        <argsstring>()</argsstring>
+        <name>processValue</name>
+        <qualifiedname>elevation::processValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/elevation.qml" line="13" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>elevation</label>
+        <link refid="classelevation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>elevation</label>
+        <link refid="classelevation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/cogoparameterwidgets/elevation.qml" line="7" column="1" bodyfile="src/qml/cogoparameterwidgets/elevation.qml" bodystart="7" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classelevation_1a9d16d3e087dbe78943f6335e9002f28f" prot="private" virt="non-virtual"><scope>elevation</scope><name>elevationField</name></member>
+      <member refid="classelevation_1a13970dfe4c223b430f3a2146446d74f5" prot="private" virt="non-virtual"><scope>elevation</scope><name>height</name></member>
+      <member refid="classelevation_1a2477b9b2e9c2e415f53e4448972b2e89" prot="public" virt="non-virtual"><scope>elevation</scope><name>processValue</name></member>
+      <member refid="classCogoParameterWidgetBase_1a52b53003934d715a6bbbf2f77b658371" prot="public" virt="non-virtual"><scope>elevation</scope><name>requestPosition</name></member>
+      <member refid="classCogoParameterWidgetBase_1ab7393dc8cfb637327c684bef80703422" prot="public" virt="non-virtual"><scope>elevation</scope><name>valueChangeRequested</name></member>
+      <member refid="classelevation_1a9b0cc50e83bce51ab8eda2b1f5c36fb0" prot="private" virt="non-virtual"><scope>elevation</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

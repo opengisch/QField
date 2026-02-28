@@ -1,0 +1,2869 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File qfieldcloudproject.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-qfieldcloudprojectcpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File qfieldcloudproject.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-qfieldcloudprojectcpp">File qfieldcloudproject.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_d27ac98b23548f5810403c734ce9817b/"><strong>qfieldcloud</strong></a> <strong>&gt;</strong> <a href="../qfieldcloudproject_8cpp/"><strong>qfieldcloudproject.cpp</strong></a></p>
+<p><a href="../qfieldcloudproject_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+    qfieldcloudconnection.cpp
+    ---------------------
+    begin                : April 2025
+    copyright            : (C) 2025 by Mathieu Pellerin
+    email                : mathieu at opengis dot ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &quot;appinterface.h&quot;
+#include &quot;deltafilewrapper.h&quot;
+#include &quot;deltalistmodel.h&quot;
+#include &quot;fileutils.h&quot;
+#include &quot;qfieldcloudconnection.h&quot;
+#include &quot;qfieldcloudproject.h&quot;
+#include &quot;qfieldcloudutils.h&quot;
+
+#include &lt;QDirIterator&gt;
+#include &lt;QFileInfo&gt;
+#include &lt;QQmlEngine&gt;
+#include &lt;qgsmessagelog.h&gt;
+
+#define MAX_REDIRECTS_ALLOWED 10
+#define MAX_PARALLEL_REQUESTS 6
+#define CACHE_PROJECT_DATA_SECS 1
+#define QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH 1000000
+
+QFieldCloudProject::QFieldCloudProject( const QString &amp;id, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher )
+  : mId( id ), mCloudConnection( connection ), mGpkgFlusher( gpkgFlusher )
+{
+  QQmlEngine::setObjectOwnership( this, QQmlEngine::CppOwnership );
+
+  if ( mCloudConnection )
+  {
+    mUsername = mCloudConnection-&gt;username();
+  }
+}
+
+void QFieldCloudProject::setSharedDatasetsProjectId( const QString &amp;id )
+{
+  if ( mSharedDatasetsProjectId == id )
+    return;
+
+  mSharedDatasetsProjectId = id;
+  emit sharedDatasetsProjectIdChanged();
+}
+
+void QFieldCloudProject::setIsSharedDatasetsProject( bool isSharedDatasetsProject )
+{
+  if ( mIsSharedDatasetsProject == isSharedDatasetsProject )
+    return;
+
+  mIsSharedDatasetsProject = isSharedDatasetsProject;
+  emit isSharedDatasetsProjectChanged();
+}
+
+void QFieldCloudProject::setIsPublic( bool isPublic )
+{
+  if ( mIsPublic == isPublic )
+    return;
+
+  mIsPublic = isPublic;
+  emit isPublicChanged();
+}
+
+void QFieldCloudProject::setIsFeatured( bool isFeatured )
+{
+  if ( mIsFeatured == isFeatured )
+    return;
+
+  mIsFeatured = isFeatured;
+  emit isFeaturedChanged();
+}
+
+void QFieldCloudProject::setOwner( const QString &amp;owner )
+{
+  if ( mOwner == owner )
+    return;
+
+  mOwner = owner;
+  emit ownerChanged();
+}
+
+void QFieldCloudProject::setName( const QString &amp;name )
+{
+  if ( mName == name )
+    return;
+
+  mName = name;
+  emit nameChanged();
+}
+
+void QFieldCloudProject::setDescription( const QString &amp;description )
+{
+  if ( mDescription == description )
+    return;
+
+  mDescription = description;
+  emit descriptionChanged();
+}
+
+void QFieldCloudProject::setUserRole( const QString &amp;userRole )
+{
+  if ( mUserRole == userRole )
+    return;
+
+  mUserRole = userRole;
+  emit userRoleChanged();
+}
+
+void QFieldCloudProject::setUserRoleOrigin( const QString &amp;userRoleOrigin )
+{
+  if ( mUserRoleOrigin == userRoleOrigin )
+    return;
+
+  mUserRoleOrigin = userRoleOrigin;
+  emit userRoleOriginChanged();
+}
+
+void QFieldCloudProject::setCanRepackage( bool canRepackage )
+{
+  if ( mCanRepackage == canRepackage )
+    return;
+
+  mCanRepackage = canRepackage;
+  emit canRepackageChanged();
+}
+
+void QFieldCloudProject::setNeedsRepackaging( bool needsRepackaging )
+{
+  if ( mNeedsRepackaging == needsRepackaging )
+    return;
+
+  mNeedsRepackaging = needsRepackaging;
+  emit needsRepackagingChanged();
+}
+
+void QFieldCloudProject::setIsOutdated( bool isOutdated )
+{
+  if ( mIsOutdated == isOutdated )
+    return;
+
+  mIsOutdated = isOutdated;
+  emit isOutdatedChanged();
+}
+
+void QFieldCloudProject::setIsProjectOutdated( bool isProjectOutdated )
+{
+  if ( mIsProjectOutdated == isProjectOutdated )
+    return;
+
+  mIsProjectOutdated = isProjectOutdated;
+  emit isProjectOutdatedChanged();
+}
+
+void QFieldCloudProject::setLastRefreshedAt( const QDateTime &amp;lastRefreshedAt )
+{
+  if ( mLastRefreshedAt == lastRefreshedAt )
+    return;
+
+  mLastRefreshedAt = lastRefreshedAt;
+  emit lastRefreshedAtChanged();
+}
+
+void QFieldCloudProject::setCreatedAt( const QDateTime &amp;createdAt )
+{
+  if ( mCreatedAt == createdAt )
+    return;
+
+  mCreatedAt = createdAt;
+  emit createdAtChanged();
+}
+
+void QFieldCloudProject::setUpdatedAt( const QDateTime &amp;updatedAt )
+{
+  if ( mUpdatedAt == updatedAt )
+    return;
+
+  mUpdatedAt = updatedAt;
+  emit updatedAtChanged();
+}
+
+void QFieldCloudProject::setDataLastUpdatedAt( const QDateTime &amp;dataLastUpdatedAt )
+{
+  if ( mDataLastUpdatedAt == dataLastUpdatedAt )
+    return;
+
+  mDataLastUpdatedAt = dataLastUpdatedAt;
+
+  if ( mDataLastUpdatedAt.isValid() &amp;&amp; mLastLocalDataLastUpdatedAt.isValid() )
+  {
+    setIsOutdated( mDataLastUpdatedAt &gt; mLastLocalDataLastUpdatedAt );
+  }
+
+  emit dataLastUpdatedAtChanged();
+}
+
+void QFieldCloudProject::setRestrictedDataLastUpdatedAt( const QDateTime &amp;restrictedDataLastUpdatedAt )
+{
+  if ( mRestrictedDataLastUpdatedAt == restrictedDataLastUpdatedAt )
+    return;
+
+  mRestrictedDataLastUpdatedAt = restrictedDataLastUpdatedAt;
+
+  if ( mRestrictedDataLastUpdatedAt.isValid() &amp;&amp; mLastLocalDataLastUpdatedAt.isValid() )
+  {
+    setIsProjectOutdated( mRestrictedDataLastUpdatedAt &gt; mLastLocalDataLastUpdatedAt );
+  }
+
+  emit restrictedDataLastUpdatedAtChanged();
+}
+
+void QFieldCloudProject::setErrorStatus( ProjectErrorStatus errorStatus )
+{
+  if ( mErrorStatus == errorStatus )
+    return;
+
+  mErrorStatus = errorStatus;
+  emit errorStatusChanged();
+}
+
+void QFieldCloudProject::setCheckout( ProjectCheckouts checkout )
+{
+  if ( mCheckout == checkout )
+    return;
+
+  mCheckout = checkout;
+  emit checkoutChanged();
+}
+
+void QFieldCloudProject::setStatus( ProjectStatus status )
+{
+  if ( mStatus == status )
+    return;
+
+  mStatus = status;
+  emit statusChanged();
+}
+
+void QFieldCloudProject::setModification( ProjectModification modification )
+{
+  if ( mModification == modification )
+    return;
+
+  mModification = modification;
+  emit modificationChanged();
+}
+
+void QFieldCloudProject::setLocalPath( const QString &amp;localPath )
+{
+  if ( mLocalPath == localPath )
+    return;
+
+  mLocalPath = localPath;
+  emit localPathChanged();
+}
+
+void QFieldCloudProject::setDeltaFileId( const QString &amp;deltaFileId )
+{
+  if ( mDeltaFileId == deltaFileId )
+    return;
+
+  mDeltaFileId = deltaFileId;
+  emit deltaFileIdChanged();
+}
+
+void QFieldCloudProject::setDeltaFilePushStatus( DeltaFileStatus deltaFilePushStatus )
+{
+  if ( mDeltaFilePushStatus == deltaFilePushStatus )
+    return;
+
+  mDeltaFilePushStatus = deltaFilePushStatus;
+  emit deltaFilePushStatusChanged();
+}
+
+void QFieldCloudProject::setDeltaFilePushStatusString( const QString &amp;deltaFilePushStatusString )
+{
+  if ( mDeltaFilePushStatusString == deltaFilePushStatusString )
+    return;
+
+  mDeltaFilePushStatusString = deltaFilePushStatusString;
+  emit deltaFilePushStatusStringChanged();
+}
+
+void QFieldCloudProject::setDeltaLayersToDownload( const QStringList &amp;deltaLayersToDownload )
+{
+  if ( mDeltaLayersToDownload == deltaLayersToDownload )
+    return;
+
+  mDeltaLayersToDownload = deltaLayersToDownload;
+  emit deltaLayersToDownloadChanged();
+}
+
+void QFieldCloudProject::setIsPackagingActive( bool isPackagingActive )
+{
+  if ( mIsPackagingActive == isPackagingActive )
+    return;
+
+  mIsPackagingActive = isPackagingActive;
+  emit isPackagingActiveChanged();
+}
+
+void QFieldCloudProject::setIsPackagingFailed( bool isPackagingFailed )
+{
+  if ( mIsPackagingFailed == isPackagingFailed )
+    return;
+
+  mIsPackagingFailed = isPackagingFailed;
+  emit isPackagingFailedChanged();
+}
+
+void QFieldCloudProject::setPackagingStatus( PackagingStatus packagingStatus )
+{
+  if ( mPackagingStatus == packagingStatus )
+    return;
+
+  mPackagingStatus = packagingStatus;
+  emit packagingStatusChanged();
+}
+
+void QFieldCloudProject::setPackagingStatusString( const QString &amp;packagingStatusString )
+{
+  if ( mPackagingStatusString == packagingStatusString )
+    return;
+
+  mPackagingStatusString = packagingStatusString;
+  emit packagingStatusStringChanged();
+}
+
+void QFieldCloudProject::setPackagedLayerErrors( const QStringList &amp;packagedLayerErrors )
+{
+  if ( mPackagedLayerErrors == packagedLayerErrors )
+    return;
+
+  mPackagedLayerErrors = packagedLayerErrors;
+  emit packagedLayerErrorsChanged();
+}
+
+void QFieldCloudProject::setForceAutoPush( bool force )
+{
+  if ( mForceAutoPush == force )
+    return;
+
+  mForceAutoPush = force;
+  emit forceAutoPushChanged();
+}
+
+void QFieldCloudProject::setAutoPushEnabled( bool enabled )
+{
+  if ( mAutoPushEnabled == enabled )
+    return;
+
+  mAutoPushEnabled = enabled;
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;autoPushEnabled&quot; ), mAutoPushEnabled );
+  emit autoPushEnabledChanged();
+}
+
+void QFieldCloudProject::setAutoPushIntervalMins( int minutes )
+{
+  if ( mAutoPushIntervalMins == minutes )
+    return;
+
+  mAutoPushIntervalMins = minutes;
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;autoPushIntervalMins&quot; ), mAutoPushIntervalMins );
+  emit autoPushIntervalMinsChanged();
+}
+
+void QFieldCloudProject::setAttachmentsOnDemandEnabled( bool enabled )
+{
+  if ( mAttachmentsOnDemandEnabled == enabled )
+    return;
+
+  mAttachmentsOnDemandEnabled = enabled;
+  emit attachmentsOnDemandEnabledChanged();
+}
+
+void QFieldCloudProject::setLastLocalPushDeltas( const QString &amp;lastLocalPushDeltas )
+{
+  if ( mLastLocalPushDeltas == lastLocalPushDeltas )
+    return;
+
+  mLastLocalPushDeltas = lastLocalPushDeltas;
+  emit lastLocalPushDeltasChanged();
+}
+
+void QFieldCloudProject::setLastLocalExportedAt( const QString &amp;lastLocalExportedAt )
+{
+  if ( mLastLocalExportedAt == lastLocalExportedAt )
+    return;
+
+  mLastLocalExportedAt = lastLocalExportedAt;
+  emit lastLocalExportedAtChanged();
+}
+
+void QFieldCloudProject::setLastLocalExportId( const QString &amp;lastLocalExportId )
+{
+  if ( mLastLocalExportId == lastLocalExportId )
+    return;
+
+  mLastLocalExportId = lastLocalExportId;
+  emit lastLocalExportIdChanged();
+}
+
+void QFieldCloudProject::setLastLocalDataLastUpdatedAt( const QDateTime &amp;lastLocalDataLastUpdatedAt )
+{
+  if ( mLastLocalDataLastUpdatedAt == lastLocalDataLastUpdatedAt )
+    return;
+
+  mLastLocalDataLastUpdatedAt = lastLocalDataLastUpdatedAt;
+
+  if ( mDataLastUpdatedAt.isValid() &amp;&amp; mLastLocalDataLastUpdatedAt.isValid() )
+  {
+    setIsOutdated( mDataLastUpdatedAt &gt; mLastLocalDataLastUpdatedAt );
+  }
+
+  emit lastLocalDataLastUpdatedAtChanged();
+}
+
+void QFieldCloudProject::setLastLocalRestrictedDataLastUpdatedAt( const QDateTime &amp;lastLocalRestrictedDataLastUpdatedAt )
+{
+  if ( mLastLocalRestrictedDataLastUpdatedAt == lastLocalRestrictedDataLastUpdatedAt )
+    return;
+
+  mLastLocalRestrictedDataLastUpdatedAt = lastLocalRestrictedDataLastUpdatedAt;
+
+  if ( mRestrictedDataLastUpdatedAt.isValid() &amp;&amp; mLastLocalRestrictedDataLastUpdatedAt.isValid() )
+  {
+    setIsOutdated( mRestrictedDataLastUpdatedAt &gt; mLastLocalRestrictedDataLastUpdatedAt );
+  }
+
+  emit lastLocalRestrictedDataLastUpdatedAtChanged();
+}
+
+void QFieldCloudProject::setThumbnailPath( const QString &amp;thumbnailPath )
+{
+  if ( mThumbnailPath == thumbnailPath )
+    return;
+
+  mThumbnailPath = thumbnailPath;
+  emit thumbnailPathChanged();
+}
+
+void QFieldCloudProject::downloadThumbnail()
+{
+  QgsLogger::debug( QStringLiteral( &quot;Project %1: thumbnail download initiated.&quot; ).arg( mId ) );
+
+  if ( !mCloudConnection )
+    return;
+
+  QNetworkRequest request;
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  mCloudConnection-&gt;setAuthenticationDetails( request );
+
+  NetworkReply *reply = mCloudConnection-&gt;get( request, QStringLiteral( &quot;/api/v1/files/thumbnails/%1/&quot; ).arg( mId ) );
+  connect( reply, &amp;NetworkReply::finished, reply, [this, reply]() {
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+
+    Q_ASSERT( reply-&gt;isFinished() );
+    Q_ASSERT( rawReply );
+
+    if ( rawReply-&gt;error() == QNetworkReply::NoError )
+    {
+      QString imageExtension( &quot;PNG&quot; );
+      const QString contentType = rawReply-&gt;header( QNetworkRequest::ContentTypeHeader ).toString();
+      if ( !contentType.isEmpty() )
+      {
+        if ( contentType.contains( QStringLiteral( &quot;image/png&quot; ) ) )
+        {
+          imageExtension = QStringLiteral( &quot;PNG&quot; );
+        }
+        else if ( contentType.contains( QStringLiteral( &quot;image/jpg&quot; ) ) || contentType.contains( QStringLiteral( &quot;image/jpeg&quot; ) ) )
+        {
+          imageExtension = QStringLiteral( &quot;JPG&quot; );
+        }
+        else if ( contentType.contains( QStringLiteral( &quot;image/webp&quot; ) ) )
+        {
+          imageExtension = QStringLiteral( &quot;WEBP&quot; );
+        }
+      }
+      QTemporaryFile file( QString( &quot;%1/XXXXXX.%2&quot; ).arg( QDir::tempPath(), imageExtension ) );
+      file.setAutoRemove( false );
+      file.open();
+      file.write( rawReply-&gt;readAll() );
+      file.close();
+      setThumbnailPath( file.fileName() );
+    };
+  } );
+}
+
+void QFieldCloudProject::downloadAttachment( const QString &amp;fileName )
+{
+  if ( !mAttachmentsFileTransfers.contains( fileName ) )
+  {
+    mAttachmentsFileTransfers.insert( fileName, FileTransfer( fileName, 0, mId, FileUtils::fileEtag( fileName ) ) );
+
+    NetworkReply *reply = downloadFile( mId, fileName, true, true );
+    QTemporaryFile *file = new QTemporaryFile( reply );
+    file-&gt;setAutoRemove( false );
+    if ( !file-&gt;open() )
+    {
+      emit downloadAttachmentFinished( fileName, tr( &quot;Failed to open temporary file for `%1`, reason:\n%2&quot; ).arg( fileName ).arg( file-&gt;errorString() ) );
+      mAttachmentsFileTransfers.remove( fileName );
+      return;
+    }
+
+    mAttachmentsFileTransfers[fileName].tmpFile = file-&gt;fileName();
+    mAttachmentsFileTransfers[fileName].networkReply = reply;
+    downloadAttachmentConnections( fileName );
+  }
+}
+
+void QFieldCloudProject::downloadAttachmentConnections( const QString &amp;fileKey )
+{
+  if ( !mAttachmentsFileTransfers.contains( fileKey ) )
+  {
+    Q_ASSERT( false );
+    return;
+  }
+
+  NetworkReply *reply = mAttachmentsFileTransfers[fileKey].networkReply;
+  if ( !reply )
+  {
+    Q_ASSERT( false );
+    return;
+  }
+
+  connect( reply, &amp;NetworkReply::downloadProgress, reply, [this, reply, fileKey]( qint64 bytesReceived, qint64 bytesTotal ) {
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+    if ( !rawReply )
+    {
+      return;
+    }
+
+    QString errorMessage;
+    bool hasError = false;
+
+    QFile file( mAttachmentsFileTransfers[fileKey].tmpFile );
+    if ( file.open( QIODevice::WriteOnly | QIODevice::Append ) )
+    {
+      file.write( rawReply-&gt;readAll() );
+      if ( file.error() != QFile::NoError )
+      {
+        hasError = true;
+        errorMessage = tr( &quot;File system error. Failed to write attachment to temporary location `%1`.&quot; ).arg( mAttachmentsFileTransfers[fileKey].tmpFile );
+      }
+
+      file.close();
+    }
+    else
+    {
+      hasError = true;
+      errorMessage = tr( &quot;File system error. Failed to open attachment for writing on temporary `%1`.&quot; ).arg( mAttachmentsFileTransfers[fileKey].tmpFile );
+    }
+
+    if ( hasError )
+    {
+      rawReply-&gt;abort();
+      emit downloadAttachmentFinished( fileKey, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
+      return;
+    }
+  } );
+
+  connect( reply, &amp;NetworkReply::finished, reply, [this, reply, fileKey]() {
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+    Q_ASSERT( reply-&gt;isFinished() );
+    Q_ASSERT( rawReply );
+
+    QString errorMessage;
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      errorMessage = tr( &quot;Network error. Failed to download attachment `%1`.&quot; ).arg( mAttachmentsFileTransfers[fileKey].fileName );
+      rawReply-&gt;abort();
+      emit downloadAttachmentFinished( fileKey, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
+      return;
+    }
+
+    QFileInfo fileInfo( mAttachmentsFileTransfers[fileKey].fileName );
+    QDir dir( QStringLiteral( &quot;%1/%2/%3/%4&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mAttachmentsFileTransfers[fileKey].projectId, fileInfo.path() ) );
+
+    if ( !dir.exists() &amp;&amp; !dir.mkpath( QStringLiteral( &quot;.&quot; ) ) )
+    {
+      errorMessage = QStringLiteral( &quot;Failed to create attachment directory at `%1`&quot; ).arg( dir.path() );
+      rawReply-&gt;abort();
+      emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
+      return;
+    }
+
+    QFile file( mAttachmentsFileTransfers[fileKey].tmpFile );
+    const QString destinationFileName( QDir::cleanPath( dir.filePath( fileInfo.fileName() ) ) );
+
+    // if the file already exists, we need to delete it first, as QT does not support overwriting
+    // NOTE: it is possible that someone creates the file in the meantime between this and the next if statement
+    if ( QFile::exists( destinationFileName ) &amp;&amp; !file.remove( destinationFileName ) )
+    {
+      errorMessage = QStringLiteral( &quot;Failed to remove pre-existing attachment before overwriting stored at `%1`, reason:\n%2&quot; ).arg( destinationFileName ).arg( file.errorString() );
+      rawReply-&gt;abort();
+      emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
+      return;
+    }
+
+    if ( !file.copy( destinationFileName ) )
+    {
+      errorMessage = QStringLiteral( &quot;Failed to write downloaded attachment stored at `%1`, reason:\n%2&quot; ).arg( destinationFileName ).arg( file.errorString() );
+      rawReply-&gt;abort();
+      emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName, errorMessage );
+      mAttachmentsFileTransfers.remove( fileKey );
+      return;
+    }
+
+    if ( !file.remove() )
+    {
+      QgsMessageLog::logMessage( QStringLiteral( &quot;Failed to remove temporary attachment `%1`&quot; ).arg( destinationFileName ) );
+    }
+
+    emit downloadAttachmentFinished( mAttachmentsFileTransfers[fileKey].fileName );
+    mAttachmentsFileTransfers.remove( fileKey );
+  } );
+}
+
+void QFieldCloudProject::packageAndDownload()
+{
+  QgsLogger::debug( QStringLiteral( &quot;Project %1: package and download initiated.&quot; ).arg( mId ) );
+
+  if ( !mCloudConnection )
+    return;
+
+  if ( mStatus != ProjectStatus::Idle )
+  {
+    return;
+  }
+
+  mDownloadFileTransfers.clear();
+  mDownloadFilesFinished = 0;
+  mDownloadFilesFailed = 0;
+  mDownloadBytesTotal = 0;
+  mDownloadBytesReceived = 0;
+  mDownloadProgress = 0;
+  emit downloadBytesTotalChanged();
+  emit downloadBytesReceivedChanged();
+  emit downloadProgressChanged();
+
+  setPackagingStatus( PackagingUnstartedStatus );
+  setPackagingStatusString( QString() );
+  setPackagedLayerErrors( QStringList() );
+  setStatus( ProjectStatus::Downloading );
+  setErrorStatus( NoErrorStatus );
+  setModification( NoModification );
+
+  auto repackageIfNeededAndThenDownload = [this]() {
+    if ( mNeedsRepackaging )
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Project %1: repackaging triggered.&quot; ).arg( mId ) );
+
+      setPackagingStatus( PackagingBusyStatus );
+      startJob( JobType::Package );
+
+      QObject *tempProjectJobFinishedParent = new QObject( this ); // we need this to unsubscribe
+      connect( this, &amp;QFieldCloudProject::jobFinished, tempProjectJobFinishedParent, [this, tempProjectJobFinishedParent]( const JobType type, const QString &amp;errorString ) {
+        if ( type != JobType::Package )
+        {
+          QMetaEnum me = QMetaEnum::fromType&lt;JobType&gt;();
+          QgsLogger::debug( QStringLiteral( &quot;Project %1: unexpected job type, expected %2 but %3 received.&quot; ).arg( mId, me.valueToKey( static_cast&lt;int&gt;( JobType::Package ) ), me.valueToKey( static_cast&lt;int&gt;( type ) ) ) );
+          Q_ASSERT( 0 );
+          return;
+        }
+
+        tempProjectJobFinishedParent-&gt;deleteLater();
+
+        if ( mPackagingStatus == PackagingAbortStatus )
+        {
+          // no need to emit why we aborted packaging, whoever sets the packagingStatus is responsible to inform the user
+          QgsLogger::debug( QStringLiteral( &quot;Project %1: packaging finished, but project operations are aborted.&quot; ).arg( mId ) );
+          return;
+        }
+
+        if ( mJobs[type].status != JobFinishedStatus )
+        {
+          QgsLogger::warning( QStringLiteral( &quot;Project %1: packaging has an error: %2&quot; ).arg( mId, errorString ) );
+
+          mJobs.take( type );
+
+          setPackagingStatus( PackagingErrorStatus );
+          setPackagingStatusString( errorString );
+
+          emit downloadFinished( tr( &quot;Packaging job finished unsuccessfully for `%1`. %2&quot; ).arg( mName ).arg( errorString ) );
+          return;
+        }
+
+        setPackagingStatus( PackagingFinishedStatus );
+        setPackagingStatusString( QString() );
+
+        download();
+      } );
+    }
+    else
+    {
+      download();
+    }
+  };
+
+  // Check and refresh project data if needed, because it might be outdated
+  if ( !mLastRefreshedAt.isValid() || mLastRefreshedAt.secsTo( QDateTime::currentDateTimeUtc() ) &gt; CACHE_PROJECT_DATA_SECS )
+  {
+    QgsLogger::debug( QStringLiteral( &quot;Project %1: refreshing data...&quot; ).arg( mId ) );
+
+    refreshData( ProjectRefreshReason::Package );
+
+    QObject *tempProjectRefreshParent = new QObject( this ); // we need this to unsubscribe
+    connect( this, &amp;QFieldCloudProject::dataRefreshed, tempProjectRefreshParent, [this, tempProjectRefreshParent, repackageIfNeededAndThenDownload]( const ProjectRefreshReason reason, const QString &amp;error ) {
+      if ( reason != ProjectRefreshReason::Package )
+      {
+        QgsLogger::critical( QStringLiteral( &quot;Project %1: unexpected job type, expected %2 but %3 received.&quot; ).arg( mId ).arg( static_cast&lt;int&gt;( ProjectRefreshReason::Package ) ).arg( static_cast&lt;int&gt;( reason ) ) );
+        Q_ASSERT( 0 );
+        return;
+      }
+
+      tempProjectRefreshParent-&gt;deleteLater();
+
+      if ( mPackagingStatus == PackagingAbortStatus )
+      {
+        // no need to emit why we aborted packaging, whoever sets the packagingStatus is responsible to inform the user
+        QgsLogger::debug( QStringLiteral( &quot;Project %1: refreshing data finished, but project operations are aborted.&quot; ).arg( mId ) );
+        return;
+      }
+
+      if ( !error.isNull() )
+      {
+        QgsLogger::debug( QStringLiteral( &quot;Project %1: refreshing data finished with an error: %2.&quot; ).arg( mId, error ) );
+        emit downloadFinished( tr( &quot;Failed to refresh the latest info for `%1`: %2&quot; ).arg( mName, error ) );
+        return;
+      }
+
+      repackageIfNeededAndThenDownload();
+    } );
+  }
+  else
+  {
+    repackageIfNeededAndThenDownload();
+  }
+
+  QObject *tempProjectDownloadFinishedParent = new QObject( this ); // we need this to unsubscribe
+  connect( this, &amp;QFieldCloudProject::downloadFinished, tempProjectDownloadFinishedParent, [this, tempProjectDownloadFinishedParent]( const QString &amp;error ) {
+    tempProjectDownloadFinishedParent-&gt;deleteLater();
+
+    if ( mPackagingStatus == PackagingAbortStatus )
+    {
+      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
+      QgsLogger::debug( QStringLiteral( &quot;Project %1: downloading project finished, but project operations are aborted.&quot; ).arg( mId ) );
+      return;
+    }
+
+    const QStringList fileKeys = mDownloadFileTransfers.keys();
+    for ( const QString &amp;fileKey : fileKeys )
+    {
+      if ( mDownloadFileTransfers[fileKey].networkReply )
+      {
+        if ( !mDownloadFileTransfers[fileKey].networkReply-&gt;isFinished() )
+        {
+          mDownloadFileTransfers[fileKey].networkReply-&gt;abort();
+        }
+        mDownloadFileTransfers[fileKey].networkReply-&gt;deleteLater();
+      }
+    }
+
+    mActiveFilesToDownload.clear();
+
+    const bool hasError = !error.isNull();
+    if ( hasError )
+    {
+      setErrorStatus( DownloadErrorStatus );
+      QgsMessageLog::logMessage( QStringLiteral( &quot;Downloading project `%1` finished with an error: %2&quot; ).arg( mId ).arg( error ) );
+    }
+    else
+    {
+      setErrorStatus( NoErrorStatus );
+    }
+
+    setStatus( ProjectStatus::Idle );
+
+    emit downloaded( mName, error );
+  } );
+}
+
+void QFieldCloudProject::download()
+{
+  QVariantMap params;
+  params.insert( &quot;skip_metadata&quot;, &quot;1&quot; );
+  NetworkReply *reply = mCloudConnection-&gt;get( QStringLiteral( &quot;/api/v1/packages/%1/latest/&quot; ).arg( mId ), params );
+
+  connect( reply, &amp;NetworkReply::finished, reply, [this, reply]() {
+    reply-&gt;deleteLater();
+
+    if ( mPackagingStatus == PackagingAbortStatus )
+    {
+      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
+      QgsLogger::debug( QStringLiteral( &quot;Project %1: adding download file connections, but the project is aborted.&quot; ).arg( mId ) );
+      return;
+    }
+
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Project %1: failed to get latest package data. %2&quot; ).arg( mId, QFieldCloudConnection::errorString( rawReply ) ) );
+      emit downloadFinished( tr( &quot;Failed to get latest package data.&quot; ) );
+      return;
+    }
+
+    const QJsonObject payload = QJsonDocument::fromJson( rawReply-&gt;readAll() ).object();
+    const QString packageId = payload.value( QStringLiteral( &quot;package_id&quot; ) ).toString();
+    const QString packagedAt = payload.value( QStringLiteral( &quot;packaged_at&quot; ) ).toString();
+
+    if ( packageId.isNull() || packagedAt.isNull() || !payload.value( QStringLiteral( &quot;files&quot; ) ).isArray() )
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Project %1: JSON for package does not contain the expected fields: package_id(string), packaged_at(string), files(array), layers(object)&quot; ).arg( mId ) );
+      emit downloadFinished( tr( &quot;Latest package data response error.&quot; ) );
+      return;
+    }
+
+    const QJsonArray files = payload.value( QStringLiteral( &quot;files&quot; ) ).toArray();
+    for ( const QJsonValue fileValue : files )
+    {
+      const QJsonObject fileObject = fileValue.toObject();
+
+      const qint64 fileSize = fileObject.value( QStringLiteral( &quot;size&quot; ) ).toInteger();
+      const QString fileName = fileObject.value( QStringLiteral( &quot;name&quot; ) ).toString();
+      const QString projectFileName = QStringLiteral( &quot;%1/%2/%3/%4&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId, fileName );
+      // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
+      // This actually is an Object Storage (S3) implementation specific ETag.
+      const QString cloudEtag = fileObject.value( QStringLiteral( &quot;md5sum&quot; ) ).toString();
+      const QString localEtag = FileUtils::fileEtag( projectFileName );
+
+      if ( !fileObject.value( QStringLiteral( &quot;size&quot; ) ).isDouble() || fileName.isEmpty() || cloudEtag.isEmpty() )
+      {
+        QgsLogger::debug( QStringLiteral( &quot;Project %1: package in \&quot;files\&quot; list does not contain the expected fields: size(int), name(string), md5sum(string)&quot; ).arg( mId ) );
+        emit downloadFinished( tr( &quot;Latest package data structure error.&quot; ) );
+        return;
+      }
+
+
+      if ( mAttachmentsOnDemandEnabled &amp;&amp; fileObject.value( QStringLiteral( &quot;is_attachment&quot; ) ).toBool() )
+      {
+        if ( !localEtag.isEmpty() &amp;&amp; cloudEtag != localEtag )
+        {
+          // The cloud attachment has changed, remove locally to trigger a new download locally
+          QFile::remove( projectFileName );
+        }
+        continue;
+      }
+
+      if ( cloudEtag == localEtag )
+      {
+        continue;
+      }
+
+      prepareDownloadTransfer( mId, fileName, fileSize, cloudEtag );
+    }
+
+    emit downloadBytesTotalChanged();
+
+    const QJsonObject layers = payload.value( QStringLiteral( &quot;layers&quot; ) ).toObject();
+    QStringList localizedDatasetsFileNames;
+    bool hasLayerExportErrror = false;
+    for ( const QString &amp;layerKey : layers.keys() )
+    {
+      QJsonObject layer = layers.value( layerKey ).toObject();
+      QString layerName = layer.value( QStringLiteral( &quot;name&quot; ) ).toString();
+      QString layerStatus = layer.value( QStringLiteral( &quot;error_code&quot; ) ).toString();
+
+      if ( layerKey.isEmpty() || layerName.isEmpty() || layerStatus.isEmpty() || !layer.value( QStringLiteral( &quot;is_valid&quot; ) ).isBool() )
+      {
+        QgsLogger::debug( QStringLiteral( &quot;Project %1: JSON structure package in \&quot;layers\&quot; list does not contain the expected fields: name(string), error_code(string), is_valid(bool)&quot; ).arg( mId ) );
+      }
+      else
+      {
+        if ( layer.value( QStringLiteral( &quot;is_localized&quot; ) ).toBool() )
+        {
+          const QString localizedDatasetFileName = layer.value( &quot;filename&quot; ).toString();
+          if ( !localizedDatasetFileName.isEmpty() )
+          {
+            localizedDatasetsFileNames &lt;&lt; localizedDatasetFileName;
+          }
+        }
+        else if ( !layer.value( QStringLiteral( &quot;is_valid&quot; ) ).toBool() )
+        {
+          QString errorSummary = layer.value( QStringLiteral( &quot;error_summary&quot; ) ).toString() + layer.value( QStringLiteral( &quot;provider_error_summary&quot; ) ).toString();
+
+          mPackagedLayerErrors.append( tr( &quot;Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4&quot; ).arg( mId, layerName, layerStatus, errorSummary ) );
+          QgsMessageLog::logMessage( mPackagedLayerErrors.last() );
+
+          hasLayerExportErrror = true;
+        }
+      }
+    }
+
+    if ( hasLayerExportErrror )
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Project %1: packaged files list request finished with some failed layers:\n%2&quot; ).arg( mId, mPackagedLayerErrors.join( QStringLiteral( &quot;\n&quot; ) ) ) );
+      emit packagedLayerErrorsChanged();
+    }
+
+    mLastExportId = packageId;
+    mLastExportedAt = packagedAt;
+
+    if ( !localizedDatasetsFileNames.isEmpty() &amp;&amp; !mSharedDatasetsProjectId.isEmpty() )
+    {
+      NetworkReply *localizedDatasetsReply = mCloudConnection-&gt;get( QStringLiteral( &quot;/api/v1/files/%1/&quot; ).arg( mSharedDatasetsProjectId ) );
+      connect( localizedDatasetsReply, &amp;NetworkReply::finished, localizedDatasetsReply, [this, localizedDatasetsReply, localizedDatasetsFileNames]() {
+        QNetworkReply *localizedDatasetsRawReply = localizedDatasetsReply-&gt;currentRawReply();
+        localizedDatasetsReply-&gt;deleteLater();
+
+        if ( localizedDatasetsRawReply-&gt;error() == QNetworkReply::NoError )
+        {
+          const QJsonArray files = QJsonDocument::fromJson( localizedDatasetsRawReply-&gt;readAll() ).array();
+          for ( const QJsonValue fileValue : files )
+          {
+            const QJsonObject fileObject = fileValue.toObject();
+            const QString fileName = fileObject.value( QStringLiteral( &quot;name&quot; ) ).toString();
+            if ( localizedDatasetsFileNames.contains( fileName ) )
+            {
+              const qint64 fileSize = fileObject.value( QStringLiteral( &quot;size&quot; ) ).toInteger();
+              const QString absoluteFileName = QStringLiteral( &quot;%1/%2/%3/%4&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mSharedDatasetsProjectId, fileName );
+              // NOTE the cloud API is giving the false impression that the file keys `md5sum` is having a MD5 or another checksum.
+              // This actually is an Object Storage (S3) implementation specific ETag.
+              const QString cloudEtag = fileObject.value( QStringLiteral( &quot;md5sum&quot; ) ).toString();
+              const QString localEtag = FileUtils::fileEtag( absoluteFileName );
+
+              if (
+                !fileObject.value( QStringLiteral( &quot;size&quot; ) ).isDouble()
+                || fileName.isEmpty()
+                || cloudEtag.isEmpty() )
+              {
+                QgsLogger::debug( QStringLiteral( &quot;Project %1: package in \&quot;files\&quot; list does not contain the expected fields: size(int), name(string), md5sum(string)&quot; ).arg( mSharedDatasetsProjectId ) );
+                emit downloadFinished( tr( &quot;Latest package data structure error.&quot; ) );
+                return;
+              }
+
+              if ( cloudEtag == localEtag )
+              {
+                continue;
+              }
+
+              prepareDownloadTransfer( mSharedDatasetsProjectId, fileName, fileSize, cloudEtag );
+            }
+          }
+          emit downloadBytesTotalChanged();
+
+          QgsLogger::debug( QStringLiteral( &quot;Project %1: packaged files to download - %2 files, namely: %3&quot; ).arg( mId ).arg( mDownloadFileTransfers.count() ).arg( mDownloadFileTransfers.keys().join( &quot;, &quot; ) ) );
+        }
+        else if ( localizedDatasetsRawReply-&gt;error() == QNetworkReply::ContentAccessDenied )
+        {
+          QgsLogger::debug( QStringLiteral( &quot;Project %1: access denied to shared datasets&quot; ).arg( mId ) );
+        }
+        else
+        {
+          QgsLogger::debug( QStringLiteral( &quot;Project %1: failed to get latest shared datasets data. %2&quot; ).arg( mId, QFieldCloudConnection::errorString( localizedDatasetsRawReply ) ) );
+          emit downloadFinished( tr( &quot;Failed to get latest package data.&quot; ) );
+          return;
+        }
+
+        updateActiveFilesToDownload();
+        downloadFiles();
+      } );
+    }
+    else
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Project %1: packaged files to download - %2 files, namely: %3&quot; ).arg( mId ).arg( mDownloadFileTransfers.count() ).arg( mDownloadFileTransfers.keys().join( &quot;, &quot; ) ) );
+
+      updateActiveFilesToDownload();
+      downloadFiles();
+    }
+  } );
+}
+
+void QFieldCloudProject::prepareDownloadTransfer( const QString &amp;projectId, const QString &amp;fileName, qint64 fileSize, const QString &amp;cloudEtag )
+{
+  const QString fileKey = QStringLiteral( &quot;%1/%2&quot; ).arg( projectId, fileName );
+  const QString projectDir = QStringLiteral( &quot;%1/%2/%3&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId );
+
+  FileTransfer transfer( fileName, fileSize, projectId, cloudEtag );
+  transfer.partialFilePath = QDir( projectDir ).filePath( QStringLiteral( &quot;%1.%2.part&quot; ).arg( fileName, cloudEtag ) );
+
+  mDownloadFileTransfers.insert( fileKey, transfer );
+
+  // Remove old .part files with different etag
+  QDir dir( projectDir );
+  QStringList partFiles = dir.entryList( QStringList() &lt;&lt; QStringLiteral( &quot;%1.*.part&quot; ).arg( fileName ), QDir::Files );
+  for ( const QString &amp;partFile : partFiles )
+  {
+    if ( partFile.startsWith( fileName + &quot;.&quot; ) &amp;&amp; !partFile.endsWith( QStringLiteral( &quot;%1.part&quot; ).arg( cloudEtag ) ) )
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Deleting outdated partial file: %1&quot; ).arg( partFile ) );
+      QFile::remove( dir.filePath( partFile ) );
+    }
+  }
+  mDownloadBytesTotal += std::max( fileSize, static_cast&lt;qint64&gt;( 0 ) );
+}
+
+void QFieldCloudProject::updateActiveFilesToDownload()
+{
+  if ( !mCloudConnection )
+    return;
+
+  const QStringList fileKeys = mDownloadFileTransfers.keys();
+
+  if ( fileKeys.isEmpty() )
+  {
+    mActiveFilesToDownload.clear();
+    return;
+  }
+
+  for ( const QString &amp;fileKey : fileKeys )
+  {
+    if ( mDownloadFileTransfers[fileKey].networkReply )
+    {
+      if ( mDownloadFileTransfers[fileKey].networkReply-&gt;isFinished() )
+      {
+        if ( mActiveFilesToDownload.removeOne( fileKey ) )
+        {
+          // QgsLogger::debug( QStringLiteral( &quot;Project %1, file `%2`: removed from the list of active download files&quot; ).arg( projectId, fileName ) );
+        }
+        continue;
+      }
+      else
+      {
+        // the request is still active
+        continue;
+      }
+    }
+
+    if ( mActiveFilesToDownload.size() &gt;= MAX_PARALLEL_REQUESTS )
+    {
+      return;
+    }
+
+    // QgsLogger::debug( QStringLiteral( &quot;Project %1, file `%2`: appended to the active download files list&quot; ).arg( projectId, fileName ) );
+
+    mActiveFilesToDownload.append( fileKey );
+  }
+
+  if ( mActiveFilesToDownload.count() &gt; 0 )
+  {
+    QgsLogger::debug( QStringLiteral( &quot;Project %1: active download files list contains %2 files, namely: %3&quot; ).arg( mId ).arg( mActiveFilesToDownload.count() ).arg( mActiveFilesToDownload.join( &quot;, &quot; ) ) );
+  }
+  else
+  {
+    QgsLogger::debug( QStringLiteral( &quot;Project %1: active download files list is empty&quot; ).arg( mId ) );
+  }
+}
+
+void QFieldCloudProject::downloadFiles()
+{
+  // calling updateActiveProjectFilesToDownload() before calling this function is mandatory
+
+  if ( !mCloudConnection )
+    return;
+
+  // Don't call download project files, if there are no project files
+  if ( mActiveFilesToDownload.isEmpty() )
+  {
+    setStatus( ProjectStatus::Idle );
+    mDownloadProgress = 1;
+
+    emit downloadProgressChanged();
+
+    return;
+  }
+
+  QgsLogger::debug( QStringLiteral( &quot;Project %1: active download files list before actual download: %2&quot; ).arg( mId, mActiveFilesToDownload.join( &quot;, &quot; ) ) );
+
+  for ( const QString &amp;fileKey : std::as_const( mActiveFilesToDownload ) )
+  {
+    if ( mDownloadFileTransfers[fileKey].networkReply )
+    {
+      // Download is already in progress
+      continue;
+    }
+
+    FileTransfer &amp;fileTransfer = mDownloadFileTransfers[fileKey];
+
+    NetworkReply *reply = downloadFile( fileTransfer.projectId, fileTransfer.fileName, fileTransfer.projectId == mId );
+
+    const QDir partialDir = QFileInfo( fileTransfer.partialFilePath ).dir();
+    if ( !partialDir.exists() )
+      partialDir.mkpath( &quot;.&quot; );
+
+    if ( reply )
+    {
+      fileTransfer.networkReply = reply;
+      downloadFileConnections( fileKey );
+    }
+  }
+}
+
+void QFieldCloudProject::downloadFileConnections( const QString &amp;fileKey )
+{
+  if ( !mDownloadFileTransfers.contains( fileKey ) )
+  {
+    Q_ASSERT( false );
+    return;
+  }
+
+  NetworkReply *reply = mDownloadFileTransfers[fileKey].networkReply;
+  if ( !reply )
+  {
+    Q_ASSERT( false );
+    return;
+  }
+
+  const QStringList fileKeys = mDownloadFileTransfers.keys();
+
+  QgsLogger::debug( QStringLiteral( &quot;Project %1, file `%2`: requested.&quot; ).arg( mDownloadFileTransfers[fileKey].projectId, mDownloadFileTransfers[fileKey].fileName ) );
+
+  connect( reply, &amp;NetworkReply::redirected, reply, [this, reply, fileKey]( const QUrl &amp;url ) {
+    QUrl oldUrl = mDownloadFileTransfers[fileKey].lastRedirectUrl;
+
+    mDownloadFileTransfers[fileKey].redirectsCount++;
+    mDownloadFileTransfers[fileKey].lastRedirectUrl = url;
+
+    if ( mDownloadFileTransfers[fileKey].redirectsCount &gt;= MAX_REDIRECTS_ALLOWED )
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Project %1, file `%2`: too many redirects, last two urls are `%3` and `%4`&quot; ).arg( mId, fileKey, oldUrl.toString(), url.toString() ) );
+      reply-&gt;abort();
+      return;
+    }
+
+    if ( oldUrl == url )
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Project %1, file `%2`: has redirects to the same URL `%3`&quot; ).arg( mId, fileKey, url.toString() ) );
+      reply-&gt;abort();
+      return;
+    }
+
+    QgsLogger::debug( QStringLiteral( &quot;Package %1, file `%2`: redirected to `%3`&quot; ).arg( mId, fileKey, url.toString() ) );
+
+    QNetworkRequest request;
+    mDownloadFileTransfers[fileKey].networkReply = mCloudConnection-&gt;get( request, url );
+    mDownloadFileTransfers[fileKey].networkReply-&gt;setParent( reply );
+
+    // we need to somehow finish the request, otherwise it will remain unfinished for the QFieldCloudConnection
+    reply-&gt;abort();
+
+    downloadFileConnections( fileKey );
+  } );
+
+  connect( reply, &amp;NetworkReply::downloadProgress, reply, [this, reply, fileKey]( qint64 bytesReceived, qint64 bytesTotal ) {
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+    if ( !rawReply )
+    {
+      return;
+    }
+
+    const QString partialFileName = mDownloadFileTransfers[fileKey].partialFilePath;
+    QFile file( partialFileName );
+    QString errorMessageDetail;
+    QString errorMessage;
+    bool hasError = false;
+
+    if ( file.open( QIODevice::WriteOnly | QIODevice::Append ) )
+    {
+      file.write( rawReply-&gt;readAll() );
+
+      if ( file.error() != QFile::NoError )
+      {
+        hasError = true;
+        errorMessageDetail = file.errorString();
+        errorMessage = tr( &quot;File system error. Failed to write to partial file `%1`.&quot; ).arg( partialFileName );
+      }
+
+      file.close();
+    }
+    else
+    {
+      hasError = true;
+      errorMessageDetail = file.errorString();
+      errorMessage = tr( &quot;File system error. Failed to open partial file `%1`.&quot; ).arg( partialFileName );
+    }
+
+    // check if the code above failed with error
+    if ( hasError )
+    {
+      logFailedDownload( fileKey, errorMessage, errorMessageDetail );
+      rawReply-&gt;abort();
+      return;
+    }
+
+    Q_UNUSED( bytesTotal )
+
+    mDownloadBytesReceived -= mDownloadFileTransfers[fileKey].bytesTransferred;
+    mDownloadBytesReceived += bytesReceived;
+    mDownloadFileTransfers[fileKey].bytesTransferred = bytesReceived;
+
+    mDownloadProgress = std::clamp( ( static_cast&lt;double&gt;( mDownloadBytesReceived ) / std::max( mDownloadBytesTotal, static_cast&lt;qint64&gt;( 1 ) ) ), 0., 1. );
+
+    emit downloadBytesReceivedChanged();
+    emit downloadProgressChanged();
+  } );
+
+  connect( reply, &amp;NetworkReply::finished, reply, [this, reply, fileKey, fileKeys]() {
+    if ( mPackagingStatus == PackagingAbortStatus )
+    {
+      return;
+    }
+
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+
+    Q_ASSERT( reply-&gt;isFinished() );
+    Q_ASSERT( rawReply );
+
+    // this is most probably the redirected request, nothing to do with this reply anymore, just ignore it
+    if ( mDownloadFileTransfers[fileKey].networkReply != reply )
+    {
+      return;
+    }
+
+    mDownloadFilesFinished++;
+
+    bool hasError = false;
+    QString errorMessageDetail;
+    QString errorMessage;
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      const int httpStatus = rawReply-&gt;attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      if ( httpStatus == 416 &amp;&amp; mDownloadFileTransfers[fileKey].retryCount &lt; 3 )
+      {
+        mDownloadFileTransfers[fileKey].resumableDownload = false;
+        mDownloadFileTransfers[fileKey].retryCount++;
+
+        NetworkReply *newReply = downloadFile(
+          mDownloadFileTransfers[fileKey].projectId,
+          mDownloadFileTransfers[fileKey].fileName,
+          true,
+          true );
+
+        if ( newReply )
+        {
+          mDownloadFileTransfers[fileKey].networkReply = newReply;
+          newReply-&gt;setParent( reply );
+          downloadFileConnections( fileKey );
+        }
+
+        reply-&gt;abort();
+        return;
+      }
+
+      hasError = true;
+      errorMessageDetail = QFieldCloudConnection::errorString( rawReply );
+      errorMessage = tr( &quot;Network error. Failed to download file `%1`.&quot; ).arg( fileKey );
+    }
+
+    if ( !hasError )
+    {
+      mDownloadBytesReceived -= mDownloadFileTransfers[fileKey].bytesTransferred;
+      mDownloadBytesReceived += mDownloadFileTransfers[fileKey].bytesTotal;
+      mDownloadProgress = std::clamp( ( static_cast&lt;double&gt;( mDownloadBytesReceived ) / std::max( mDownloadBytesTotal, static_cast&lt;qint64&gt;( 1 ) ) ), 0., 1. );
+
+      emit downloadBytesReceivedChanged();
+      emit downloadProgressChanged();
+    }
+
+    // check if the code above failed with error
+    if ( hasError )
+    {
+      logFailedDownload( fileKey, errorMessage, errorMessageDetail );
+      rawReply-&gt;abort();
+      return;
+    }
+
+    QgsLogger::debug( QStringLiteral( &quot;Package %1, file `%2`: downloaded&quot; ).arg( mId, fileKey ) );
+
+    updateActiveFilesToDownload();
+
+    if ( mDownloadFilesFinished == fileKeys.count() )
+    {
+      downloadFilesCompleted();
+    }
+    else
+    {
+      downloadFiles();
+    }
+  } );
+}
+
+void QFieldCloudProject::downloadFilesCompleted()
+{
+  QgsLogger::debug( QStringLiteral( &quot;Project %1: All files downloaded.&quot; ).arg( mId ) );
+  Q_ASSERT( mActiveFilesToDownload.size() == 0 );
+
+  if ( !mDeltaFileWrapper )
+  {
+    setupDeltaFileWrapper();
+  }
+
+  const QDir projectPath( QStringLiteral( &quot;%1/%2/%3&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+  const bool currentProjectReloadNeeded = QgsProject::instance()-&gt;homePath().startsWith( projectPath.absolutePath() );
+  QStringList gpkgFileNames;
+  if ( currentProjectReloadNeeded )
+  {
+    // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
+    QDirIterator it( projectPath.absolutePath(), { QStringLiteral( &quot;*.gpkg&quot; ), QStringLiteral( &quot;*.sqlite&quot; ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+    while ( it.hasNext() )
+    {
+      gpkgFileNames &lt;&lt; it.nextFileInfo().absoluteFilePath();
+    }
+
+    QgsProject::instance()-&gt;clear();
+    if ( mGpkgFlusher )
+    {
+      for ( const QString &amp;fileName : gpkgFileNames )
+      {
+        mGpkgFlusher-&gt;stop( fileName );
+      }
+    }
+  }
+
+  // move the files from their temporary location to their permanent one
+  if ( !moveDownloadedFilesToPermanentStorage() )
+  {
+    emit downloadFinished( tr( &quot;Failed to copy some of the downloaded files on your device. Check your device storage.&quot; ) );
+    return;
+  }
+
+  if ( currentProjectReloadNeeded )
+  {
+    // Clear up Geopackage's shm and wal files
+    for ( const QString &amp;fileName : gpkgFileNames )
+    {
+      QFile shmFile( QStringLiteral( &quot;%1-shm&quot; ).arg( fileName ) );
+      if ( shmFile.exists() )
+      {
+        if ( !shmFile.remove() )
+        {
+          QgsMessageLog::logMessage( QStringLiteral( &quot;Failed to remove -shm file '%1' &quot; ).arg( shmFile.fileName() ) );
+        }
+      }
+
+      QFile walFile( QStringLiteral( &quot;%1-wal&quot; ).arg( fileName ) );
+      if ( walFile.exists() )
+      {
+        if ( !walFile.remove() )
+        {
+          QgsMessageLog::logMessage( QStringLiteral( &quot;Failed to remove -wal file '%1' &quot; ).arg( walFile.fileName() ) );
+        }
+      }
+    }
+
+    AppInterface::instance()-&gt;reloadProject();
+  }
+
+  setStatus( ProjectStatus::Idle );
+  setErrorStatus( NoErrorStatus );
+  setCheckout( ProjectCheckout::LocalAndRemoteCheckout );
+  setLocalPath( QFieldCloudUtils::localProjectFilePath( mUsername, mId ) );
+  setLastLocalExportedAt( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
+  setLastLocalExportId( QUuid::createUuid().toString( QUuid::WithoutBraces ) );
+  setLastLocalDataLastUpdatedAt( mDataLastUpdatedAt );
+  setLastLocalRestrictedDataLastUpdatedAt( mRestrictedDataLastUpdatedAt );
+  setIsOutdated( false );
+  setIsProjectOutdated( false );
+
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;lastExportedAt&quot; ), mLastExportedAt );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;lastExportId&quot; ), mLastExportId );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;lastLocalExportedAt&quot; ), mLastLocalExportedAt );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;lastLocalExportId&quot; ), mLastLocalExportId );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;lastLocalDataLastUpdatedAt&quot; ), mLastLocalDataLastUpdatedAt );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;lastLocalRestrictedDataLastUpdatedAt&quot; ), mLastLocalRestrictedDataLastUpdatedAt );
+
+  emit downloadFinished();
+}
+
+NetworkReply *QFieldCloudProject::downloadFile( const QString &amp;projectId, const QString &amp;fileName, bool fromLatestPackage, bool autoRedirect )
+{
+  QNetworkRequest request;
+  if ( autoRedirect )
+  {
+    request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  }
+  else
+  {
+    request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::UserVerifiedRedirectPolicy );
+  }
+
+  // Never rely on cache to insure latest package files are properly downloaded
+  request.setAttribute( QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::AlwaysNetwork );
+
+  mCloudConnection-&gt;setAuthenticationDetails( request );
+
+  const QString fileKey = QStringLiteral( &quot;%1/%2&quot; ).arg( projectId, fileName );
+  const FileTransfer &amp;fileTransfer = mDownloadFileTransfers[fileKey];
+  QFile partialFile( fileTransfer.partialFilePath );
+
+  if ( partialFile.exists() )
+  {
+    qint64 partialSize = partialFile.size();
+    if ( !fileTransfer.resumableDownload || partialSize &lt; QFIELDCLOUD_MINIMUM_RANGE_HEADER_LENGTH || partialSize &gt; fileTransfer.bytesTotal || ( partialSize == fileTransfer.bytesTotal &amp;&amp; fileTransfer.etag != FileUtils::fileEtag( fileTransfer.partialFilePath ) ) )
+    {
+      // Invalid or dirty file; delete and re-download
+      partialFile.remove();
+    }
+    else if ( partialSize &lt; fileTransfer.bytesTotal )
+    {
+      // Partial file found; resume download using Range header
+      request.setRawHeader( &quot;Range&quot;, &quot;bytes=&quot; + QByteArray::number( partialSize ) + &quot;-&quot; );
+      mDownloadBytesReceived += partialSize;
+    }
+    else if ( partialSize == fileTransfer.bytesTotal )
+    {
+      // File already fully downloaded and valid; skip download
+      mDownloadBytesReceived += partialSize;
+      mDownloadFilesFinished++;
+      mActiveFilesToDownload.removeOne( fileKey );
+
+      if ( mActiveFilesToDownload.size() == 0 )
+      {
+        downloadFilesCompleted();
+      }
+      return nullptr;
+    }
+  }
+
+  const QString urlPath = fromLatestPackage ? QStringLiteral( &quot;/api/v1/packages/%1/latest/files/%2/&quot; ).arg( projectId, fileName ) : QStringLiteral( &quot;/api/v1/files/%1/%2/&quot; ).arg( projectId, fileName );
+  return mCloudConnection-&gt;get( request, urlPath );
+}
+
+bool QFieldCloudProject::moveDownloadedFilesToPermanentStorage()
+{
+  bool hasError = false;
+  const QStringList fileKeys = mDownloadFileTransfers.keys();
+
+  for ( const QString &amp;fileKey : fileKeys )
+  {
+    const FileTransfer &amp;fileTransfer = mDownloadFileTransfers[fileKey];
+    const QFileInfo origInfo( fileTransfer.fileName );
+
+    const QDir targetDir( QStringLiteral( &quot;%1/%2/%3/%4&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, fileTransfer.projectId, origInfo.path() ) );
+
+    if ( !targetDir.exists() &amp;&amp; !targetDir.mkpath( &quot;.&quot; ) )
+    {
+      hasError = true;
+      QgsMessageLog::logMessage( QStringLiteral( &quot;Failed to create directory `%1`&quot; ).arg( targetDir.absolutePath() ) );
+      continue;
+    }
+
+    const QString finalFilePath = targetDir.filePath( origInfo.fileName() );
+
+    // If the file already exists, we need to delete it first, as QT does not support overwriting
+    // NOTE: it is possible that someone creates the file in the meantime between this and the next if statement
+    if ( QFile::exists( finalFilePath ) &amp;&amp; !QFile::remove( finalFilePath ) )
+    {
+      hasError = true;
+      QgsMessageLog::logMessage( QStringLiteral( &quot;Failed to remove existing file `%1`&quot; ).arg( finalFilePath ) );
+      continue;
+    }
+
+    // Rename the .part file to the final file name
+    if ( !QFile::rename( fileTransfer.partialFilePath, finalFilePath ) )
+    {
+      hasError = true;
+      QgsMessageLog::logMessage( QStringLiteral( &quot;Failed to rename `%1` to `%2`.&quot; ).arg( fileTransfer.partialFilePath, finalFilePath ) );
+    }
+    else
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Moved downloaded file `%1` to `%2`&quot; ).arg( fileTransfer.partialFilePath, finalFilePath ) );
+    }
+  }
+
+  return !hasError;
+}
+
+void QFieldCloudProject::logFailedDownload( const QString &amp;fileKey, const QString &amp;errorMessage, const QString &amp;errorMessageDetail )
+{
+  mDownloadFilesFailed++;
+
+  QgsLogger::debug( QStringLiteral( &quot;Project %1, file `%2`: %3 %4&quot; ).arg( mId, fileKey, errorMessage, errorMessageDetail ) );
+
+  // translate the user messages
+  const QString baseMessage = tr( &quot;Project `%1`, file `%2`: %3&quot; ).arg( mName, fileKey, errorMessage );
+  const QString trimmedMessage = baseMessage + QStringLiteral( &quot; &quot; ) + tr( &quot;System message: &quot; )
+                                 + ( ( errorMessageDetail.size() &gt; 100 )
+                                       ? ( errorMessageDetail.left( 100 ) + tr( &quot; (see more in the QField error log)…&quot; ) )
+                                       : errorMessageDetail );
+
+  QgsMessageLog::logMessage( QStringLiteral( &quot;%1\n%2&quot; ).arg( baseMessage, errorMessageDetail ) );
+
+  emit downloadFinished( trimmedMessage );
+}
+
+void QFieldCloudProject::push( bool shouldDownloadUpdates )
+{
+  if ( mStatus != ProjectStatus::Idle )
+  {
+    return;
+  }
+
+  if ( shouldDownloadUpdates &amp;&amp; mDeltaFileWrapper-&gt;count() == 0 )
+  {
+    setStatus( ProjectStatus::Idle );
+    packageAndDownload();
+    return;
+  }
+
+  if ( !( mModification &amp; LocalModification ) )
+  {
+    return;
+  }
+
+  if ( !mDeltaFileWrapper-&gt;toFile() )
+  {
+    return;
+  }
+
+  if ( mDeltaFileWrapper-&gt;hasError() )
+  {
+    QgsMessageLog::logMessage( QStringLiteral( &quot;The delta file has an error: %1&quot; ).arg( mDeltaFileWrapper-&gt;errorString() ) );
+    return;
+  }
+
+  mDeltaFileWrapper-&gt;setIsPushing( true );
+
+  setStatus( ProjectStatus::Pushing );
+  setDeltaFileId( mDeltaFileWrapper-&gt;id() );
+  setDeltaFilePushStatus( DeltaLocalStatus );
+  setDeltaFilePushStatusString( QString() );
+  mPushDeltaProgress = 0.0;
+
+  emit pushDeltaProgressChanged();
+
+  refreshModification();
+
+  // //////////
+  // prepare attachment files to be uploaded
+  // //////////
+
+  const QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, mId ) );
+  const QDir projectDir( projectInfo.absolutePath() );
+  const QStringList attachmentFileNames = mDeltaFileWrapper-&gt;attachmentFileNames().keys();
+
+  for ( const QString &amp;fileName : attachmentFileNames )
+  {
+    if ( fileName.isEmpty() )
+      continue;
+
+    QString absoluteFilePath = fileName;
+    QFileInfo fileInfo( fileName );
+    if ( fileInfo.isRelative() )
+    {
+      absoluteFilePath = projectDir.absoluteFilePath( fileName );
+      fileInfo = QFileInfo( absoluteFilePath );
+    }
+
+    if ( !fileInfo.exists() || !fileInfo.isFile() )
+    {
+      QgsMessageLog::logMessage( QStringLiteral( &quot;Attachment file '%1' does not exist&quot; ).arg( absoluteFilePath ) );
+      continue;
+    }
+
+    // ? should we also check the checksums of the files being uploaded? they are available at deltaFile-&gt;attachmentFileNames()-&gt;values()
+    QFieldCloudUtils::addPendingAttachments( mUsername, mId, { absoluteFilePath } );
+  }
+
+  QString deltaFileToUpload = mDeltaFileWrapper-&gt;toFileForPush();
+
+  if ( deltaFileToUpload.isEmpty() )
+  {
+    mDeltaFileWrapper-&gt;setIsPushing( false );
+    setStatus( ProjectStatus::Idle );
+    return;
+  }
+
+  // //////////
+  // 1) upload the deltas
+  // //////////
+  NetworkReply *deltasCloudReply = mCloudConnection-&gt;post( QStringLiteral( &quot;/api/v1/deltas/%1/&quot; ).arg( mId ), QVariantMap(), QStringList( { deltaFileToUpload } ) );
+
+  Q_ASSERT( deltasCloudReply );
+
+  connect( deltasCloudReply, &amp;NetworkReply::uploadProgress, this, [this]( qint64 bytesSent, qint64 bytesTotal ) {
+    mPushDeltaProgress = std::clamp( ( static_cast&lt;double&gt;( bytesSent ) / bytesTotal ), 0., 1. );
+    emit pushDeltaProgressChanged();
+  } );
+
+  connect( deltasCloudReply, &amp;NetworkReply::finished, this, [this, deltasCloudReply]() {
+    QNetworkReply *deltasReply = deltasCloudReply-&gt;currentRawReply();
+    deltasCloudReply-&gt;deleteLater();
+
+    Q_ASSERT( deltasCloudReply-&gt;isFinished() );
+    Q_ASSERT( deltasReply );
+
+    // if there is an error, cannot continue sync
+    if ( deltasReply-&gt;error() != QNetworkReply::NoError )
+    {
+      setDeltaFilePushStatusString( QFieldCloudConnection::errorString( deltasReply ) );
+      // TODO check why exactly we failed
+      // maybe the project does not exist, then create it?
+      QgsMessageLog::logMessage( QStringLiteral( &quot;Failed to upload delta file, reason:\n%1\n%2&quot; ).arg( deltasReply-&gt;errorString(), mDeltaFilePushStatusString ) );
+
+      mDeltaFileWrapper-&gt;setIsPushing( false );
+
+      cancelPush();
+      return;
+    }
+
+    mPushDeltaProgress = 1.0;
+    setDeltaFilePushStatus( DeltaPendingStatus );
+    setDeltaLayersToDownload( mDeltaFileWrapper-&gt;deltaLayerIds() );
+
+    emit pushDeltaProgressChanged();
+
+    emit networkDeltaPushed();
+  } );
+
+
+  // //////////
+  // 2) delta successfully uploaded
+  // //////////
+  QObject *networkDeltaPushedParent = new QObject( this ); // we need this to unsubscribe
+  connect( this, &amp;QFieldCloudProject::networkDeltaPushed, networkDeltaPushedParent, [this, networkDeltaPushedParent, shouldDownloadUpdates]() {
+    delete networkDeltaPushedParent;
+
+    if ( shouldDownloadUpdates )
+    {
+      getDeltaStatus();
+    }
+    else
+    {
+      mModification ^= LocalModification;
+      emit modificationChanged();
+
+      setStatus( ProjectStatus::Idle );
+      setLastLocalPushDeltas( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
+
+      if ( !isOutdated() )
+      {
+        // If we are not in an outdated state, avoid falling into outdated state due to our own data change
+        setLastLocalDataLastUpdatedAt( QDateTime::currentDateTimeUtc().addSecs( 60 * 2 ) );
+        QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;lastLocalDataLastUpdatedAt&quot; ), mLastLocalDataLastUpdatedAt );
+      }
+
+      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;lastLocalPushDeltas&quot; ), mLastLocalPushDeltas );
+
+      mDeltaFileWrapper-&gt;reset();
+      mDeltaFileWrapper-&gt;resetId();
+      mDeltaFileWrapper-&gt;setIsPushing( false );
+
+      if ( !mDeltaFileWrapper-&gt;toFile() )
+      {
+        QgsMessageLog::logMessage( QStringLiteral( &quot;Failed to reset delta file after delta push. %1&quot; ).arg( mDeltaFileWrapper-&gt;errorString() ) );
+      }
+
+      emit pushFinished( false );
+
+      refreshData( ProjectRefreshReason::DeltaPushed );
+    }
+  } );
+
+  // //////////
+  // 3) new delta status received. Never give up to get a successful status.
+  // //////////
+  QObject *networkDeltaStatusCheckedParent = new QObject( this ); // we need this to unsubscribe
+  connect( this, &amp;QFieldCloudProject::networkDeltaStatusChecked, networkDeltaStatusCheckedParent, [this, networkDeltaStatusCheckedParent, shouldDownloadUpdates]() {
+    switch ( mDeltaFilePushStatus )
+    {
+      case DeltaLocalStatus:
+        // delta file should be already sent!!!
+        Q_ASSERT( 0 );
+        [[fallthrough]];
+
+      case DeltaPendingStatus:
+      case DeltaBusyStatus:
+        // infinite retry, there should be one day, when we can get the status!
+        QTimer::singleShot( sDelayBeforeStatusRetry, [this]() { getDeltaStatus(); } );
+        break;
+
+      case DeltaErrorStatus:
+        delete networkDeltaStatusCheckedParent;
+        mDeltaFileWrapper-&gt;resetId();
+        mDeltaFileWrapper-&gt;setIsPushing( false );
+
+        if ( !mDeltaFileWrapper-&gt;toFile() )
+        {
+          QgsMessageLog::logMessage( QStringLiteral( &quot;Failed update committed delta file.&quot; ) );
+        }
+
+        cancelPush();
+        return;
+
+      case DeltaConflictStatus:
+      case DeltaNotAppliedStatus:
+      case DeltaAppliedStatus:
+        delete networkDeltaStatusCheckedParent;
+
+        mDeltaFileWrapper-&gt;reset();
+        mDeltaFileWrapper-&gt;resetId();
+        mDeltaFileWrapper-&gt;setIsPushing( false );
+
+        if ( !mDeltaFileWrapper-&gt;toFile() )
+        {
+          QgsMessageLog::logMessage( QStringLiteral( &quot;Failed to reset delta file. %1&quot; ).arg( mDeltaFileWrapper-&gt;errorString() ) );
+        }
+
+        mModification ^= LocalModification;
+        mModification |= RemoteModification;
+        emit modificationChanged();
+        setStatus( ProjectStatus::Idle );
+        setLastLocalPushDeltas( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
+
+        QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;lastLocalPushDeltas&quot; ), mLastLocalPushDeltas );
+
+        // download the updated files, so the files are for sure the same on the client and on the server
+        if ( shouldDownloadUpdates )
+        {
+          emit pushFinished( true, QString() );
+          packageAndDownload();
+        }
+        else
+        {
+          emit statusChanged();
+          emit pushFinished( false, QString() );
+
+          refreshData( ProjectRefreshReason::DeltaPushed );
+        }
+    }
+  } );
+}
+
+void QFieldCloudProject::cancelPush()
+{
+  setStatus( ProjectStatus::Idle );
+  setErrorStatus( PushErrorStatus );
+
+  emit pushFinished( false, mDeltaFilePushStatusString );
+
+  return;
+}
+
+
+void QFieldCloudProject::startJob( JobType type )
+{
+  mJobs[type] = Job( QString(), mId, type );
+
+  QString jobTypeName = getJobTypeAsString( type );
+  QgsLogger::debug( QStringLiteral( &quot;Project %1: creating a new `%2` job...&quot; ).arg( mId, jobTypeName ) );
+  NetworkReply *reply = mCloudConnection-&gt;post( QStringLiteral( &quot;/api/v1/jobs/&quot; ),
+                                                QVariantMap(
+                                                  {
+                                                    { &quot;project_id&quot;, mId },
+                                                    { &quot;type&quot;, jobTypeName },
+                                                  } ) );
+
+  connect( reply, &amp;NetworkReply::finished, reply, [this, reply, type]() {
+    reply-&gt;deleteLater();
+
+    if ( mPackagingStatus == PackagingAbortStatus )
+    {
+      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
+      QgsLogger::debug( QStringLiteral( &quot;Project %1: job creation finished, but project operations are aborted.&quot; ).arg( mId ) );
+      return;
+    }
+
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      QString errorString = QFieldCloudConnection::errorString( rawReply );
+      QgsLogger::debug( QStringLiteral( &quot;Project %1: job creation failed with an error: %2&quot; ).arg( mId, errorString ) );
+      emit jobFinished( type, errorString );
+      return;
+    }
+
+    const QJsonObject payload = QJsonDocument::fromJson( rawReply-&gt;readAll() ).object();
+    const QString jobId = payload.value( QStringLiteral( &quot;id&quot; ) ).toString();
+
+    if ( jobId.isEmpty() )
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Project %1: job creation finished, but missing id key from the response payload&quot; ).arg( mId ) );
+      emit jobFinished( type, tr( &quot;Job creation finished, but the server response is missing required fields: id(string)&quot; ).arg( jobId ) );
+      return;
+    }
+
+    QgsLogger::debug( QStringLiteral( &quot;Project %1: created job with id `%2`&quot; ).arg( mId ).arg( jobId ) );
+
+    mJobs[type].id = jobId;
+
+    getJobStatus( type );
+  } );
+}
+
+void QFieldCloudProject::getDeltaStatus()
+{
+  setDeltaFilePushStatusString( QString() );
+
+  NetworkReply *deltaStatusReply = mCloudConnection-&gt;get( QStringLiteral( &quot;/api/v1/deltas/%1/%2/&quot; ).arg( mId, mDeltaFileId ) );
+  connect( deltaStatusReply, &amp;NetworkReply::finished, this, [this, deltaStatusReply]() {
+    QNetworkReply *rawReply = deltaStatusReply-&gt;currentRawReply();
+    deltaStatusReply-&gt;deleteLater();
+
+    Q_ASSERT( deltaStatusReply-&gt;isFinished() );
+    Q_ASSERT( rawReply );
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      setDeltaFilePushStatus( DeltaErrorStatus );
+      // TODO this is oversimplification. e.g. 404 error is when the requested delta file id is not existant
+      setDeltaFilePushStatusString( QFieldCloudConnection::errorString( rawReply ) );
+
+      emit networkDeltaStatusChecked();
+      return;
+    }
+
+    const QJsonDocument doc = QJsonDocument::fromJson( rawReply-&gt;readAll() );
+    DeltaListModel deltaListModel( doc );
+    if ( !deltaListModel.isValid() )
+    {
+      setDeltaFilePushStatus( DeltaErrorStatus );
+      setDeltaFilePushStatusString( deltaListModel.errorString() );
+
+      emit networkDeltaStatusChecked();
+      return;
+    }
+
+    setDeltaFilePushStatusString( QString() );
+
+    if ( !deltaListModel.allHaveFinalStatus() )
+    {
+      setDeltaFilePushStatus( DeltaPendingStatus );
+
+      emit networkDeltaStatusChecked();
+      return;
+    }
+
+    setDeltaFilePushStatus( DeltaAppliedStatus );
+
+    emit networkDeltaStatusChecked();
+  } );
+}
+
+void QFieldCloudProject::getJobStatus( const JobType type )
+{
+  if ( mPackagingStatus == PackagingAbortStatus )
+  {
+    // no need to emit why we aborted packaging, it is callers responsibility to inform the user
+    QgsLogger::debug( QStringLiteral( &quot;Project %1: getting job status, but project operations are aborted.&quot; ).arg( mId ) );
+    return;
+  }
+
+  if ( !mJobs.contains( type ) )
+  {
+    const QString jobTypeName = getJobTypeAsString( type );
+    QgsLogger::debug( QStringLiteral( &quot;Project %1: getting job status, but no `%2` job triggered yet.&quot; ).arg( mId, jobTypeName ) );
+    emit jobFinished( type, tr( &quot;Getting job status, but no `%2` job triggered yet.&quot; ).arg( jobTypeName ) );
+    return;
+  }
+
+  const QString jobId = mJobs[type].id;
+  QgsLogger::debug( QStringLiteral( &quot;Project %1, job %2: getting job status...&quot; ).arg( mId, jobId ) );
+  NetworkReply *reply = mCloudConnection-&gt;get( QStringLiteral( &quot;/api/v1/jobs/%1/&quot; ).arg( jobId ) );
+
+  connect( reply, &amp;NetworkReply::finished, this, [this, reply, type, jobId]() {
+    reply-&gt;deleteLater();
+
+    if ( mPackagingStatus == PackagingAbortStatus )
+    {
+      // no need to emit why we aborted packaging, it is callers responsibility to inform the user
+      QgsLogger::debug( QStringLiteral( &quot;Project %1, job %2: getting job status finished, but project operations are aborted.&quot; ).arg( mId, jobId ) );
+      return;
+    }
+
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      QString errorString = QFieldCloudConnection::errorString( rawReply );
+      QgsLogger::debug( QStringLiteral( &quot;Project %1, job %2: getting job status finished with an error: %3.&quot; ).arg( mId, jobId, errorString ) );
+      mJobs[type].status = JobFailedStatus;
+      emit jobFinished( type, errorString );
+      return;
+    }
+
+    const QJsonObject payload = QJsonDocument::fromJson( rawReply-&gt;readAll() ).object();
+    const QString jobStatusString = payload.value( QStringLiteral( &quot;status&quot; ) ).toString();
+
+    if ( jobStatusString.isEmpty() )
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Project %1, job %2: getting job status finished, but missing status key from the response payload&quot; ).arg( mId, jobId ) );
+
+      mJobs[type].status = JobFailedStatus;
+      emit jobFinished( type, tr( &quot;job(%1) status response does not contain all the expected keys: status(string)&quot; ).arg( jobId ) );
+      return;
+    }
+
+    mJobs[type].status = getJobStatusFromString( jobStatusString );
+
+    QgsLogger::debug( QStringLiteral( &quot;Project %1, job %2: getting job status finished with `%3`&quot; ).arg( mId, jobId, jobStatusString ) );
+
+    switch ( mJobs[type].status )
+    {
+      case JobPendingStatus:
+      case JobQueuedStatus:
+      case JobStartedStatus:
+      case JobStoppedStatus:
+        // infinite retry, there should be one day, when we can get the status!
+        QTimer::singleShot( sDelayBeforeStatusRetry, [this, type]() {
+          getJobStatus( type );
+        } );
+        break;
+
+      case JobFailedStatus:
+        emit jobFinished( type, tr( &quot;Job(%1) finished with a failed status.&quot; ).arg( jobId ) );
+        return;
+      case JobFinishedStatus:
+        emit jobFinished( type );
+        return;
+    }
+  } );
+}
+
+QFieldCloudProject::JobStatus QFieldCloudProject::getJobStatusFromString( const QString &amp;status )
+{
+  const QString statusLower = status.toLower();
+  if ( statusLower == QStringLiteral( &quot;pending&quot; ) )
+    return QFieldCloudProject::JobPendingStatus;
+  else if ( statusLower == QStringLiteral( &quot;queued&quot; ) )
+    return QFieldCloudProject::JobQueuedStatus;
+  else if ( statusLower == QStringLiteral( &quot;started&quot; ) )
+    return QFieldCloudProject::JobStartedStatus;
+  else if ( statusLower == QStringLiteral( &quot;stopped&quot; ) )
+    return QFieldCloudProject::JobStoppedStatus;
+  else if ( statusLower == QStringLiteral( &quot;finished&quot; ) )
+    return QFieldCloudProject::JobFinishedStatus;
+  //cppcheck-suppress duplicateBranch
+  else if ( statusLower == QStringLiteral( &quot;failed&quot; ) )
+    return QFieldCloudProject::JobFailedStatus;
+  else
+    // &quot;STATUS_ERROR&quot; or any unknown status is considered an error
+    return QFieldCloudProject::JobFailedStatus;
+}
+
+QString QFieldCloudProject::getJobTypeAsString( JobType jobType )
+{
+  switch ( jobType )
+  {
+    case QFieldCloudProject::JobType::Package:
+      return QStringLiteral( &quot;package&quot; );
+  }
+
+  return QString();
+}
+
+void QFieldCloudProject::refreshModification()
+{
+  ProjectModifications oldModifications = mModification;
+
+  if ( mDeltaFileWrapper &amp;&amp; mDeltaFileWrapper-&gt;count() &gt; 0 )
+  {
+    mModification |= LocalModification;
+  }
+  else if ( mModification &amp; QFieldCloudProject::LocalModification )
+  {
+    mModification ^= LocalModification;
+  }
+
+  if ( oldModifications != mModification )
+  {
+    emit modificationChanged();
+  }
+}
+
+void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
+{
+  NetworkReply *reply = mCloudConnection-&gt;get( QStringLiteral( &quot;/api/v1/projects/%1/&quot; ).arg( mId ) );
+  connect( reply, &amp;NetworkReply::finished, reply, [this, reply, reason]() {
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+
+    reply-&gt;deleteLater();
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      emit dataRefreshed( reason, QFieldCloudConnection::errorString( rawReply ) );
+      return;
+    }
+
+    const QJsonObject projectData = QJsonDocument::fromJson( rawReply-&gt;readAll() ).object();
+    const QString projectId = projectData.value( &quot;id&quot; ).toString();
+    if ( mId != projectId )
+      return;
+
+    QgsLogger::debug( QStringLiteral( &quot;Project %1: data refreshed.&quot; ).arg( mId ) );
+
+    if (
+      !projectData.value( &quot;name&quot; ).isString()
+      || !projectData.value( &quot;owner&quot; ).isString()
+      || !projectData.value( &quot;description&quot; ).isString()
+      || !projectData.value( &quot;user_role&quot; ).isString()
+      || !projectData.value( &quot;is_public&quot; ).isBool()
+      || !projectData.value( &quot;can_repackage&quot; ).isBool()
+      || !projectData.value( &quot;needs_repackaging&quot; ).isBool() )
+    {
+      emit dataRefreshed( reason, tr( &quot;project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)&quot; ).arg( projectId ) );
+      return;
+    }
+
+    setName( projectData.value( &quot;name&quot; ).toString() );
+    setOwner( projectData.value( &quot;owner&quot; ).toString() );
+    setDescription( projectData.value( &quot;description&quot; ).toString() );
+    setUserRole( projectData.value( &quot;user_role&quot; ).toString() );
+    setUserRoleOrigin( mUserRoleOrigin = projectData.value( &quot;user_role_origin&quot; ).toString() );
+    setCreatedAt( QDateTime::fromString( projectData.value( &quot;created_at&quot; ).toString(), Qt::ISODate ) );
+    setUpdatedAt( QDateTime::fromString( projectData.value( &quot;updated_at&quot; ).toString(), Qt::ISODate ) );
+    setIsPublic( projectData.value( &quot;is_public&quot; ).toBool() );
+    setIsFeatured( projectData.value( &quot;is_featured&quot; ).toBool() );
+    setCanRepackage( projectData.value( &quot;can_repackage&quot; ).toBool() );
+    setNeedsRepackaging( projectData.value( &quot;needs_repackaging&quot; ).toBool() );
+    setLastRefreshedAt( QDateTime::currentDateTimeUtc() );
+    setDataLastUpdatedAt( QDateTime::fromString( projectData.value( &quot;data_last_updated_at&quot; ).toString(), Qt::ISODate ) );
+
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;name&quot; ), mName );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;owner&quot; ), mOwner );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;description&quot; ), mDescription );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;userRole&quot; ), mUserRole );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;userRoleOrigin&quot; ), mUserRoleOrigin );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;createdAt&quot; ), mCreatedAt.toString( Qt::DateFormat::ISODate ) );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;updatedAt&quot; ), mUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;isPublic&quot; ), mIsPublic );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;isFeatured&quot; ), mIsFeatured );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;canRepackage&quot; ), mCanRepackage );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;needsRepackaging&quot; ), mNeedsRepackaging );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( &quot;dataLastUpdatedAt&quot; ), mDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+
+    emit dataRefreshed( reason );
+  } );
+}
+
+void QFieldCloudProject::refreshDeltaList()
+{
+  if ( mDeltaListModel )
+  {
+    mDeltaListModel.reset();
+    emit deltaListModelChanged();
+  }
+
+  NetworkReply *deltaStatusReply = mCloudConnection-&gt;get( QStringLiteral( &quot;/api/v1/deltas/%1/&quot; ).arg( mId ) );
+  connect( deltaStatusReply, &amp;NetworkReply::finished, this, [this, deltaStatusReply]() {
+    QNetworkReply *rawReply = deltaStatusReply-&gt;currentRawReply();
+    deltaStatusReply-&gt;deleteLater();
+
+    Q_ASSERT( deltaStatusReply-&gt;isFinished() );
+    Q_ASSERT( rawReply );
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      return;
+    }
+
+    const QJsonDocument doc = QJsonDocument::fromJson( rawReply-&gt;readAll() );
+    mDeltaListModel.reset( new DeltaListModel( doc ) );
+    emit deltaListModelChanged();
+  } );
+}
+void QFieldCloudProject::cancelDownload()
+{
+  const QStringList fileKeys = mDownloadFileTransfers.keys();
+  for ( const QString &amp;fileKey : fileKeys )
+  {
+    NetworkReply *reply = mDownloadFileTransfers[fileKey].networkReply;
+
+    if ( reply )
+      reply-&gt;abort();
+
+    mDownloadFileTransfers.remove( fileKey );
+  }
+
+  QgsMessageLog::logMessage( QStringLiteral( &quot;Download of project id `%1` aborted&quot; ).arg( mId ) );
+
+  setPackagingStatus( PackagingAbortStatus );
+  setPackagingStatusString( tr( &quot;aborted&quot; ) );
+  setErrorStatus( NoErrorStatus );
+  setIsPackagingActive( false );
+  setIsPackagingFailed( true );
+  setStatus( ProjectStatus::Idle );
+}
+
+void QFieldCloudProject::removeLocally()
+{
+  QDir dir( QStringLiteral( &quot;%1/%2/%3&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+  if ( dir.exists() )
+  {
+    dir.removeRecursively();
+
+    if ( mDeltaFileWrapper )
+    {
+      mDeltaFileWrapper.reset();
+      emit deltasCountChanged();
+      emit deltaFileWrapperChanged();
+    }
+
+    setLocalPath( QString() );
+    setModification( NoModification );
+    mCheckout = mCheckout &amp; ~LocalCheckout;
+    emit checkoutChanged();
+  }
+
+  QSettings().remove( QStringLiteral( &quot;QFieldCloud/projects/%1&quot; ).arg( mId ) );
+}
+
+QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &amp;details, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher )
+{
+  QFieldCloudProject *project = new QFieldCloudProject( details.value( &quot;id&quot; ).toString(), connection, gpkgFlusher );
+  project-&gt;mIsPublic = details.value( &quot;is_public&quot; ).toBool();
+  project-&gt;mIsFeatured = details.value( &quot;is_featured&quot; ).toBool();
+  project-&gt;mOwner = details.value( &quot;owner&quot; ).toString();
+  project-&gt;mName = details.value( &quot;name&quot; ).toString();
+  project-&gt;mDescription = details.value( &quot;description&quot; ).toString();
+  project-&gt;mUserRole = details.value( &quot;user_role&quot; ).toString();
+  project-&gt;mUserRoleOrigin = details.value( &quot;user_role_origin&quot; ).toString();
+  project-&gt;mCheckout = RemoteCheckout;
+  project-&gt;mStatus = details.value( &quot;status&quot; ).toString() == &quot;failed&quot; ? ProjectStatus::Failing : ProjectStatus::Idle;
+  project-&gt;mCreatedAt = QDateTime::fromString( details.value( &quot;created_at&quot; ).toString(), Qt::ISODate );
+  project-&gt;mUpdatedAt = QDateTime::fromString( details.value( &quot;updated_at&quot; ).toString(), Qt::ISODate );
+  project-&gt;mDataLastUpdatedAt = QDateTime::fromString( details.value( &quot;data_last_updated_at&quot; ).toString(), Qt::ISODate );
+  project-&gt;mRestrictedDataLastUpdatedAt = QDateTime::fromString( details.value( &quot;restricted_data_last_updated_at&quot; ).toString(), Qt::ISODate );
+  project-&gt;mCanRepackage = details.value( &quot;can_repackage&quot; ).toBool();
+  project-&gt;mNeedsRepackaging = details.value( &quot;needs_repackaging&quot; ).toBool();
+  project-&gt;mSharedDatasetsProjectId = details.value( &quot;shared_datasets_project_id&quot; ).toString();
+  project-&gt;mIsSharedDatasetsProject = details.value( &quot;is_shared_datasets_project&quot; ).toBool();
+  project-&gt;mAttachmentsOnDemandEnabled = details.value( &quot;is_attachment_download_on_demand&quot; ).toBool();
+
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;owner&quot; ), project-&gt;owner() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;name&quot; ), project-&gt;name() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;description&quot; ), project-&gt;description() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;userRole&quot; ), project-&gt;userRole() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;userRoleOrigin&quot; ), project-&gt;userRoleOrigin() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;createdAt&quot; ), project-&gt;createdAt().toString( Qt::DateFormat::ISODate ) );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;updatedAt&quot; ), project-&gt;updatedAt().toString( Qt::DateFormat::ISODate ) );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;canRepackage&quot; ), project-&gt;canRepackage() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;needsRepackaging&quot; ), project-&gt;needsRepackaging() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;sharedDatasetsProjectId&quot; ), project-&gt;sharedDatasetsProjectId() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;isSharedDatasetsProject&quot; ), project-&gt;isSharedDatasetsProject() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;isPublic&quot; ), project-&gt;isPublic() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;isFeatured&quot; ), project-&gt;isFeatured() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;isAttachmentDownloadOnDemand&quot; ), project-&gt;attachmentsOnDemandEnabled() );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;dataLastUpdatedAt&quot; ), project-&gt;mDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+  QFieldCloudUtils::setProjectSetting( project-&gt;id(), QStringLiteral( &quot;restrictedDataLastUpdatedAt&quot; ), project-&gt;mRestrictedDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+
+  QString username = connection ? connection-&gt;username() : QString();
+  if ( !username.isEmpty() )
+  {
+    project-&gt;mLocalPath = QFieldCloudUtils::localProjectFilePath( username, project-&gt;id() );
+    QDir localPath( QStringLiteral( &quot;%1/%2/%3&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), username, project-&gt;id() ) );
+    if ( localPath.exists() )
+    {
+      restoreLocalSettings( project, localPath );
+      project-&gt;mCheckout = !project-&gt;mLocalPath.isEmpty() ? LocalAndRemoteCheckout : RemoteCheckout;
+    }
+  }
+
+  project-&gt;mLastRefreshedAt = QDateTime::currentDateTimeUtc();
+  return project;
+}
+
+QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &amp;id, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher )
+{
+  const QString projectPrefix = QStringLiteral( &quot;QFieldCloud/projects/%1&quot; ).arg( id );
+  if ( !QSettings().contains( QStringLiteral( &quot;%1/name&quot; ).arg( projectPrefix ) ) )
+  {
+    return nullptr;
+  }
+
+  const bool isPublic = QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;isPublic&quot; ) ).toBool();
+  const bool isFeatured = QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;isFeatured&quot; ) ).toBool();
+  const QString owner = QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;owner&quot; ) ).toString();
+  const QString name = QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;name&quot; ) ).toString();
+  const QString description = QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;description&quot; ) ).toString();
+  const QString status = QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;status&quot; ) ).toString();
+  const QString userRole = QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;userRole&quot; ) ).toString();
+  const QString userRoleOrigin = QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;userRoleOrigin&quot; ) ).toString();
+  const QDateTime createdAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;createdAt&quot; ) ).toString(), Qt::DateFormat::ISODate );
+  const QDateTime updatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;updatedAt&quot; ) ).toString(), Qt::DateFormat::ISODate );
+  const QString sharedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;sharedDatasetsProjectId&quot; ) ).toString();
+  const bool isSharedDatasetsProject = QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;isSharedDatasetsProject&quot; ) ).toBool();
+  const bool isAttachmentDownloadOnDemand = QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;isAttachmentDownloadOnDemand&quot; ) ).toBool();
+  const QDateTime dataLastUpdatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;dataLastUpdatedAt&quot; ) ).toString(), Qt::DateFormat::ISODate );
+  const QDateTime restrictedDataLastUpdatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( &quot;restrictedDataLastUpdatedAt&quot; ) ).toString(), Qt::DateFormat::ISODate );
+
+  QFieldCloudProject *project = new QFieldCloudProject( id, connection, gpkgFlusher );
+  project-&gt;mIsPublic = isPublic;
+  project-&gt;mIsFeatured = isFeatured;
+  project-&gt;mOwner = owner;
+  project-&gt;mName = name;
+  project-&gt;mDescription = description;
+  project-&gt;mUserRole = userRole;
+  project-&gt;mUserRoleOrigin = userRoleOrigin;
+  project-&gt;mCheckout = LocalCheckout;
+  project-&gt;mStatus = status == &quot;failed&quot; ? ProjectStatus::Failing : ProjectStatus::Idle;
+  project-&gt;mCreatedAt = createdAt;
+  project-&gt;mUpdatedAt = updatedAt;
+  project-&gt;mDataLastUpdatedAt = dataLastUpdatedAt;
+  project-&gt;mRestrictedDataLastUpdatedAt = restrictedDataLastUpdatedAt;
+  project-&gt;mCanRepackage = false;
+  project-&gt;mNeedsRepackaging = false;
+  project-&gt;mSharedDatasetsProjectId = sharedDatasetsProjectId;
+  project-&gt;mIsSharedDatasetsProject = isSharedDatasetsProject;
+  project-&gt;mAttachmentsOnDemandEnabled = isAttachmentDownloadOnDemand;
+
+  QString username = connection ? connection-&gt;username() : QString();
+  if ( !username.isEmpty() )
+  {
+    project-&gt;mLocalPath = QFieldCloudUtils::localProjectFilePath( username, project-&gt;mId );
+  }
+
+  const QDir localPath( QStringLiteral( &quot;%1/%2/%3&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), username, project-&gt;mId ) );
+  restoreLocalSettings( project, localPath );
+
+  return project;
+}
+
+void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, const QDir &amp;localPath )
+{
+  project-&gt;mLastExportId = QFieldCloudUtils::projectSetting( project-&gt;id(), QStringLiteral( &quot;lastExportId&quot; ) ).toString();
+  project-&gt;mLastExportedAt = QFieldCloudUtils::projectSetting( project-&gt;id(), QStringLiteral( &quot;lastExportedAt&quot; ) ).toString();
+  project-&gt;mLastLocalExportId = QFieldCloudUtils::projectSetting( project-&gt;id(), QStringLiteral( &quot;lastLocalExportId&quot; ) ).toString();
+  project-&gt;mLastLocalExportedAt = QFieldCloudUtils::projectSetting( project-&gt;id(), QStringLiteral( &quot;lastLocalExportedAt&quot; ) ).toString();
+  project-&gt;mLastLocalPushDeltas = QFieldCloudUtils::projectSetting( project-&gt;id(), QStringLiteral( &quot;lastLocalPushDeltas&quot; ) ).toString();
+  project-&gt;mLastLocalDataLastUpdatedAt = QFieldCloudUtils::projectSetting( project-&gt;id(), QStringLiteral( &quot;lastLocalDataLastUpdatedAt&quot; ) ).toDateTime();
+  project-&gt;mLastLocalRestrictedDataLastUpdatedAt = QFieldCloudUtils::projectSetting( project-&gt;id(), QStringLiteral( &quot;lastLocalRestrictedDataLastUpdatedAt&quot; ) ).toDateTime();
+  project-&gt;mIsOutdated = project-&gt;mDataLastUpdatedAt &gt; project-&gt;mLastLocalDataLastUpdatedAt;
+  project-&gt;mIsProjectOutdated = project-&gt;mRestrictedDataLastUpdatedAt.isValid() &amp;&amp; project-&gt;mLastLocalRestrictedDataLastUpdatedAt.isValid() &amp;&amp; project-&gt;mRestrictedDataLastUpdatedAt &gt; project-&gt;mLastLocalRestrictedDataLastUpdatedAt;
+  project-&gt;mAutoPushEnabled = QFieldCloudUtils::projectSetting( project-&gt;id(), QStringLiteral( &quot;autoPushEnabled&quot; ), false ).toBool();
+  project-&gt;mAutoPushIntervalMins = QFieldCloudUtils::projectSetting( project-&gt;id(), QStringLiteral( &quot;autoPushIntervalMins&quot; ), 30 ).toInt();
+
+  // generate local export id if not present. Possible reasons for missing localExportId are:
+  // - the cloud project download aborted halfway
+  // - the local settings were somehow deleted, but not the project itself (unlikely)
+  if ( !project-&gt;lastLocalExportId().isEmpty() )
+  {
+    project-&gt;setupDeltaFileWrapper();
+  }
+  else
+  {
+    project-&gt;mLocalPath.clear();
+  }
+};
+
+void QFieldCloudProject::setupDeltaFileWrapper()
+{
+  const QDir localPath( QStringLiteral( &quot;%1/%2/%3&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+  mDeltaFileWrapper.reset( new DeltaFileWrapper( mId, QStringLiteral( &quot;%1/deltafile.json&quot; ).arg( localPath.absolutePath() ) ) );
+
+  connect( mDeltaFileWrapper.get(), &amp;DeltaFileWrapper::countChanged, this, [this]() {
+    refreshModification();
+    emit deltasCountChanged();
+  } );
+
+  emit deltaFileWrapperChanged();
+  refreshModification();
+  emit deltasCountChanged();
+}
+
+void QFieldCloudProject::uploadLocalPath( QString localPath, bool deleteAfterSuccessfulUpload )
+{
+  QFileInfo localInfo( localPath );
+  if ( !localInfo.exists() )
+  {
+    emit uploadFinished( tr( &quot;Local path doesn't exist&quot; ) );
+    return;
+  }
+
+  if ( localInfo.isFile() )
+  {
+    localPath = localInfo.absolutePath();
+  }
+
+  QFileInfo projectFileInfo;
+  QDirIterator projectDirIterator( localPath, { &quot;*.qgs&quot;, &quot;*.qgz&quot; }, QDir::Files, QDirIterator::Subdirectories );
+  while ( projectDirIterator.hasNext() )
+  {
+    projectDirIterator.next();
+    if ( projectFileInfo.exists() )
+    {
+      emit uploadFinished( tr( &quot;Local path to upload cannot be used as it has multiple project files&quot; ) );
+      return;
+    }
+    projectFileInfo = projectDirIterator.fileInfo();
+  }
+
+  if ( !projectFileInfo.exists() || projectFileInfo.size() == 0 )
+  {
+    emit uploadFinished( tr( &quot;Local path to upload is missing a valid project file&quot; ) );
+    return;
+  }
+
+  const QString currentProjectLocalPath = FileUtils::absolutePath( QgsProject::instance()-&gt;fileName() );
+  if ( projectFileInfo.absoluteFilePath() == currentProjectLocalPath )
+  {
+    // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
+    QDirIterator it( localPath, { QStringLiteral( &quot;*.gpkg&quot; ), QStringLiteral( &quot;*.sqlite&quot; ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+    QStringList gpkgFileNames;
+    while ( it.hasNext() )
+    {
+      gpkgFileNames &lt;&lt; it.nextFileInfo().absoluteFilePath();
+    }
+
+    QgsProject::instance()-&gt;clear();
+    if ( mGpkgFlusher )
+    {
+      for ( const QString &amp;fileName : gpkgFileNames )
+      {
+        mGpkgFlusher-&gt;stop( fileName );
+      }
+    }
+  }
+
+  mUploadFilesFailed = 0;
+  mUploadBytesTotal = 0;
+  mUploadBytesSent = 0;
+  mUploadProgress = 0.0;
+
+  QDir localDir( localPath );
+  QDirIterator localDirIterator( localPath, QDir::Files, QDirIterator::Subdirectories );
+  while ( localDirIterator.hasNext() )
+  {
+    localDirIterator.next();
+    QFileInfo localFileInfo = localDirIterator.fileInfo();
+    const QString localFileSuffix = localFileInfo.suffix().toLower();
+    if ( localFileSuffix == QStringLiteral( &quot;gpkg-shm&quot; ) || localFileSuffix == QStringLiteral( &quot;gpkg-wal&quot; ) )
+    {
+      continue;
+    }
+
+    mUploadFileTransfers.insert( localFileInfo.absoluteFilePath(), QFieldCloudProject::FileTransfer( localDir.relativeFilePath( localFileInfo.absoluteFilePath() ), localFileInfo.size(), mId, QString() ) );
+    mUploadBytesTotal += localFileInfo.size();
+  }
+
+  if ( !mUploadFileTransfers.isEmpty() )
+  {
+    emit uploadBytesTotalChanged();
+    emit uploadBytesSentChanged();
+    emit uploadProgressChanged();
+
+    setStatus( ProjectStatus::Uploading );
+
+    mUploadLocalPath = localPath;
+    mUploadDeleteAfterSuccessfulUpload = deleteAfterSuccessfulUpload;
+
+    uploadFiles();
+  }
+}
+
+void QFieldCloudProject::uploadFiles()
+{
+  if ( mUploadFileTransfers.isEmpty() )
+  {
+    if ( mStatus == ProjectStatus::Uploading )
+    {
+      setStatus( ProjectStatus::Idle );
+    }
+    return;
+  }
+
+  QString filePath = mUploadFileTransfers.lastKey();
+  QFieldCloudProject::FileTransfer &amp;fileTransfer = mUploadFileTransfers.last();
+
+  NetworkReply *reply = mCloudConnection-&gt;post( QStringLiteral( &quot;/api/v1/files/%1/%2/&quot; ).arg( fileTransfer.projectId, fileTransfer.fileName ), QVariantMap(), QStringList( { filePath } ) );
+  fileTransfer.networkReply = reply;
+  connect( reply, &amp;NetworkReply::finished, this, [this, reply, filePath]() {
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+
+    Q_ASSERT( reply-&gt;isFinished() );
+    Q_ASSERT( rawReply );
+
+    // this is most probably the redirected request, nothing to do with this reply anymore, just ignore it
+    if ( mUploadFileTransfers[filePath].networkReply != reply )
+    {
+      return;
+    }
+
+    rawReply-&gt;deleteLater();
+
+    const QString projectId = mUploadFileTransfers[filePath].projectId;
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      const QString errorMessage = tr( &quot;Network error. Failed to upload file `%1`.&quot; ).arg( filePath );
+      QgsLogger::debug( errorMessage );
+      rawReply-&gt;abort();
+
+      if ( mUploadFileTransfers[filePath].retryCount++ &lt;= 3 )
+      {
+        uploadFiles();
+        return;
+      }
+      else
+      {
+        mUploadFilesFailed++;
+      }
+    }
+    else
+    {
+      QgsLogger::debug( QStringLiteral( &quot;Project %1, file `%2`: uploaded&quot; ).arg( projectId, filePath ) );
+    }
+
+    mUploadBytesSent += mUploadFileTransfers[filePath].bytesTotal;
+    mUploadProgress = std::clamp( ( static_cast&lt;double&gt;( mUploadBytesSent ) / std::max( mUploadBytesTotal, static_cast&lt;qint64&gt;( 1 ) ) ), 0., 1. );
+    emit uploadBytesSentChanged();
+    emit uploadProgressChanged();
+
+    mUploadFileTransfers.remove( filePath );
+    if ( mUploadFileTransfers.isEmpty() )
+    {
+      setStatus( ProjectStatus::Idle );
+      if ( mUploadDeleteAfterSuccessfulUpload &amp;&amp; mUploadFilesFailed == 0 )
+      {
+        const QString currentProjectLocalPath = FileUtils::absolutePath( QgsProject::instance()-&gt;fileName() );
+        if ( mUploadLocalPath == currentProjectLocalPath )
+        {
+          // Remove local path in favor of cloud version
+          QDir uploadLocalDir( mUploadLocalPath );
+          uploadLocalDir.removeRecursively();
+        }
+      }
+
+      emit uploadFinished( mUploadFilesFailed &gt; 0 ? tr( &quot;One or more files could not be uploaded&quot; ) : QString() );
+    }
+    else
+    {
+      uploadFiles();
+    }
+  } );
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

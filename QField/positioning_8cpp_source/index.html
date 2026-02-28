@@ -1,0 +1,1207 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File positioning.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-positioningcpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File positioning.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-positioningcpp">File positioning.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_a0fecca670957e90f44ebd037fd955ed/"><strong>positioning</strong></a> <strong>&gt;</strong> <a href="../positioning_8cpp/"><strong>positioning.cpp</strong></a></p>
+<p><a href="../positioning_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+  positioning.cpp - Positioning
+
+ ---------------------
+ begin                : 22.05.2022
+ copyright            : (C) 2022 by Mathieu Pellerin
+ email                : mathieu at opengis dot ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &quot;platformutilities.h&quot;
+#include &quot;positioning.h&quot;
+#include &quot;positioningutils.h&quot;
+#include &quot;tcpreceiver.h&quot;
+#include &quot;udpreceiver.h&quot;
+#ifdef WITH_SERIALPORT
+#include &quot;serialportreceiver.h&quot;
+#endif
+
+#include &lt;QFile&gt;
+#include &lt;QGuiApplication&gt;
+#include &lt;QPermissions&gt;
+#include &lt;QRemoteObjectPendingCall&gt;
+#include &lt;QScreen&gt;
+#include &lt;qgsapplication.h&gt;
+#include &lt;qgsunittypes.h&gt;
+
+Positioning::Positioning( QObject *parent )
+  : QObject( parent )
+{
+  if ( QFile::exists( PositioningSource::backgroundFilePath ) )
+  {
+    QFile::remove( PositioningSource::backgroundFilePath );
+    mProperties[&quot;backgroundMode&quot;] = false;
+  }
+
+  connect( QgsApplication::instance(), &amp;QGuiApplication::applicationStateChanged, this, &amp;Positioning::onApplicationStateChanged );
+}
+
+void Positioning::setupSource()
+{
+  mPositioningSourceReplica.reset();
+  mNode.reset();
+  if ( mPositioningSource )
+  {
+    mHost.disableRemoting( mPositioningSource );
+    // Don't rely on deleteLater(), insure any device is disconnected prior to switching source
+    mPositioningSource-&gt;setActive( false );
+    mPositioningSource-&gt;setDeviceId( QString() );
+    mPositioningSource-&gt;deleteLater();
+    mPositioningSource = nullptr;
+  }
+
+  QString nodeUrl;
+  if ( mServiceMode &amp;&amp; ( PlatformUtilities::instance()-&gt;capabilities() &amp; PlatformUtilities::PositioningService ) )
+  {
+    nodeUrl = PlatformUtilities::instance()-&gt;startPositioningService();
+  }
+  else
+  {
+    PlatformUtilities::instance()-&gt;stopPositioningService();
+
+    if ( mHost.hostUrl().isEmpty() )
+    {
+      mHost.setHostUrl( QUrl( QStringLiteral( &quot;local:replica&quot; ) ) );
+    }
+
+    mPositioningSource = new PositioningSource( this );
+    mHost.enableRemoting( mPositioningSource, &quot;PositioningSource&quot; );
+    nodeUrl = QStringLiteral( &quot;local:replica&quot; );
+  }
+
+  mNode.reset( new QRemoteObjectNode( this ) );
+  mNode-&gt;connectToNode( QUrl( nodeUrl ) );
+  mPositioningSourceReplica.reset( mNode-&gt;acquireDynamic( &quot;PositioningSource&quot; ) );
+  mPositioningSourceReplica-&gt;waitForSource();
+
+  connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SLOT( onActiveChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( validChanged() ), this, SLOT( onValidChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceIdChanged() ), this, SLOT( onDeviceIdChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( elevationCorrectionModeChanged() ), this, SLOT( onElevationCorrectionModeChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( antennaHeightChanged() ), this, SLOT( onAntennaHeightChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( loggingChanged() ), this, SLOT( onLoggingChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( loggingPathChanged() ), this, SLOT( onLoggingPathChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( positionInformationChanged() ), this, SLOT( onPositionInformationChanged() ) );
+
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceLastErrorChanged() ), this, SIGNAL( deviceLastErrorChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateChanged() ), this, SIGNAL( deviceSocketStateChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateStringChanged() ), this, SIGNAL( deviceSocketStateStringChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
+
+  connect( this, SIGNAL( triggerConnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerConnectDevice() ) );
+  connect( this, SIGNAL( triggerDisconnectDevice() ), mPositioningSourceReplica.data(), SLOT( triggerDisconnectDevice() ) );
+
+  // Synchronize properties
+  const QList&lt;QString&gt; properties = mProperties.keys();
+  for ( const QString &amp;property : properties )
+  {
+    mPositioningSourceReplica-&gt;setProperty( property.toLatin1(), mProperties[property] );
+  }
+}
+
+bool Positioning::isSourceAvailable() const
+{
+  return mPositioningSourceReplica &amp;&amp; mPositioningSourceReplica-&gt;isInitialized();
+}
+
+void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
+{
+#if defined( Q_OS_ANDROID ) || defined( Q_OS_IOS )
+  // Google Play policy only allows for background access if it's explicitly stated and justified
+  // Not stopping on Activity::onPause is detected as violation
+  if ( mServiceMode )
+  {
+    // Service path
+    setBackgroundMode( state != Qt::ApplicationState::ApplicationActive );
+  }
+  else
+  {
+    // Non-service path
+    const bool isActive = active();
+    if ( isActive )
+    {
+      switch ( state )
+      {
+        case Qt::ApplicationState::ApplicationActive:
+          if ( isActive )
+          {
+            emit triggerConnectDevice();
+          }
+          break;
+
+        default:
+          if ( isActive )
+          {
+            emit triggerDisconnectDevice();
+          }
+      }
+    }
+  }
+#else
+  Q_UNUSED( state )
+#endif
+}
+
+void Positioning::onActiveChanged()
+{
+  if ( mProperties[&quot;active&quot;] == mPositioningSourceReplica-&gt;property( &quot;active&quot; ) )
+  {
+    return;
+  }
+
+  mProperties[&quot;active&quot;] = mPositioningSourceReplica-&gt;property( &quot;active&quot; );
+  emit activeChanged();
+}
+
+bool Positioning::active() const
+{
+  return isSourceAvailable() ? mPositioningSourceReplica-&gt;property( &quot;active&quot; ).toBool() : false;
+}
+
+void Positioning::setActive( bool active )
+{
+  const QString devId = deviceId();
+  if ( devId.isEmpty() )
+  {
+    // Handle internal receiver permission
+    if ( !mInternalPermissionChecked )
+    {
+      QLocationPermission locationPermission;
+      locationPermission.setAccuracy( QLocationPermission::Precise );
+      Qt::PermissionStatus permissionStatus = qApp-&gt;checkPermission( locationPermission );
+
+      if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+      {
+        qApp-&gt;requestPermission( locationPermission, this, [this]( const QPermission &amp;permission ) {
+          if ( permission.status() == Qt::PermissionStatus::Granted )
+          {
+            mInternalPermissionChecked = true;
+            setActive( true );
+          }
+          else
+          {
+            setValid( false );
+          }
+        } );
+        return;
+      }
+      else if ( permissionStatus == Qt::PermissionStatus::Denied )
+      {
+        setValid( false );
+        return;
+      }
+      mInternalPermissionChecked = true;
+    }
+  }
+  else
+  {
+    // Handle external receiver permission
+    if (
+      !devId.startsWith( TcpReceiver::identifier + &quot;:&quot; )
+      &amp;&amp; !devId.startsWith( UdpReceiver::identifier + &quot;:&quot; )
+#ifdef WITH_SERIALPORT
+      &amp;&amp; !devId.startsWith( SerialPortReceiver::identifier + &quot;:&quot; )
+#endif
+    )
+    {
+      if ( !mBluetoothPermissionChecked )
+      {
+        QBluetoothPermission bluetoothPermission;
+        bluetoothPermission.setCommunicationModes( QBluetoothPermission::Access );
+        Qt::PermissionStatus permissionStatus = qApp-&gt;checkPermission( bluetoothPermission );
+        if ( permissionStatus == Qt::PermissionStatus::Undetermined )
+        {
+          qApp-&gt;requestPermission( bluetoothPermission, this, [this]( const QPermission &amp;permission ) {
+            if ( permission.status() == Qt::PermissionStatus::Granted )
+            {
+              mBluetoothPermissionChecked = true;
+              setActive( true );
+            }
+            else
+            {
+              setValid( false );
+            }
+          } );
+          return;
+        }
+        else if ( permissionStatus == Qt::PermissionStatus::Denied )
+        {
+          setValid( false );
+          return;
+        }
+        mBluetoothPermissionChecked = true;
+      }
+    }
+  }
+
+  if ( !mPositioningSourceReplica )
+  {
+    setupSource();
+  }
+
+  if ( mPositioningSourceReplica-&gt;property( &quot;active&quot; ).toBool() != active )
+  {
+    mPositioningSourceReplica-&gt;setProperty( &quot;active&quot;, active );
+  }
+  else
+  {
+    emit activeChanged();
+  }
+}
+
+void Positioning::onValidChanged()
+{
+  if ( mProperties[&quot;valid&quot;] == mPositioningSourceReplica-&gt;property( &quot;valid&quot; ) )
+  {
+    return;
+  }
+
+  mValid = mPositioningSourceReplica-&gt;property( &quot;valid&quot; ).toBool();
+  emit validChanged();
+}
+
+bool Positioning::valid() const
+{
+  return isSourceAvailable() ? mPositioningSourceReplica-&gt;property( &quot;valid&quot; ).toBool() : mValid;
+}
+
+void Positioning::setValid( bool valid )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica-&gt;setProperty( &quot;valid&quot;, valid );
+  }
+  else
+  {
+    mValid = valid;
+    emit validChanged();
+  }
+}
+
+void Positioning::onDeviceIdChanged()
+{
+  if ( mProperties[&quot;deviceId&quot;] == mPositioningSourceReplica-&gt;property( &quot;deviceId&quot; ) )
+  {
+    return;
+  }
+
+  mProperties[&quot;deviceId&quot;] = mPositioningSourceReplica-&gt;property( &quot;deviceId&quot; );
+  emit deviceIdChanged();
+}
+
+QString Positioning::deviceId() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica-&gt;property( &quot;deviceId&quot; ) : mProperties.value( &quot;deviceId&quot; ) ).toString();
+}
+
+void Positioning::setDeviceId( const QString &amp;id )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica-&gt;setProperty( &quot;deviceId&quot;, id );
+  }
+  else
+  {
+    mProperties[&quot;deviceId&quot;] = id;
+    emit deviceIdChanged();
+  }
+}
+
+QString Positioning::deviceLastError() const
+{
+  return isSourceAvailable() ? mPositioningSourceReplica-&gt;property( &quot;deviceLastError&quot; ).toString() : QString();
+}
+
+QAbstractSocket::SocketState Positioning::deviceSocketState() const
+{
+  return isSourceAvailable() ? mPositioningSourceReplica-&gt;property( &quot;deviceSocketState&quot; ).value&lt;QAbstractSocket::SocketState&gt;() : QAbstractSocket::UnconnectedState;
+}
+
+QString Positioning::deviceSocketStateString() const
+{
+  return isSourceAvailable() ? mPositioningSourceReplica-&gt;property( &quot;deviceSocketStateString&quot; ).toString() : QString();
+}
+
+GnssPositionDetails Positioning::deviceDetails() const
+{
+  GnssPositionDetails list;
+  if ( isSourceAvailable() )
+  {
+    list = mPositioningSourceReplica-&gt;property( &quot;deviceDetails&quot; ).value&lt;GnssPositionDetails&gt;();
+  }
+  return list;
+}
+
+AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
+{
+  const QString deviceId = ( isSourceAvailable() ? mPositioningSourceReplica-&gt;property( &quot;deviceId&quot; ) : mProperties.value( &quot;deviceId&quot; ) ).toString();
+  if ( !deviceId.isEmpty() || deviceId.startsWith( TcpReceiver::identifier + &quot;:&quot; ) || deviceId.startsWith( UdpReceiver::identifier + &quot;:&quot; ) )
+  {
+    // NMEA-based devices
+    return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging;
+  }
+#ifdef WITH_SERIALPORT
+  else if ( deviceId.startsWith( SerialPortReceiver::identifier + &quot;:&quot; ) )
+  {
+    // NMEA-based device
+    return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging;
+  }
+#endif
+
+  return AbstractGnssReceiver::NoCapabilities;
+}
+
+int Positioning::averagedPositionCount() const
+{
+  return static_cast&lt;int&gt;( mCollectedPositionInformations.size() );
+}
+
+bool Positioning::averagedPosition() const
+{
+  return mAveragedPosition;
+}
+
+void Positioning::setAveragedPosition( bool averaged )
+{
+  if ( mAveragedPosition == averaged )
+    return;
+
+  mAveragedPosition = averaged;
+  if ( mAveragedPosition )
+  {
+    mCollectedPositionInformations &lt;&lt; mPositionInformation;
+  }
+  else
+  {
+    mCollectedPositionInformations.clear();
+  }
+
+  emit averagedPositionCountChanged();
+  emit averagedPositionChanged();
+}
+
+void Positioning::onLoggingChanged()
+{
+  if ( mProperties[&quot;logging&quot;] == mPositioningSourceReplica-&gt;property( &quot;logging&quot; ) )
+  {
+    return;
+  }
+
+  mProperties[&quot;logging&quot;] = mPositioningSourceReplica-&gt;property( &quot;logging&quot; );
+  emit loggingChanged();
+}
+
+bool Positioning::logging() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica-&gt;property( &quot;logging&quot; ) : mProperties.value( &quot;logging&quot;, false ) ).toBool();
+}
+
+void Positioning::setLogging( bool logging )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica-&gt;setProperty( &quot;logging&quot;, logging );
+  }
+  else
+  {
+    mProperties[&quot;logging&quot;] = logging;
+    emit loggingChanged();
+  }
+}
+
+void Positioning::onLoggingPathChanged()
+{
+  if ( mProperties[&quot;loggingPath&quot;] == mPositioningSourceReplica-&gt;property( &quot;loggingPath&quot; ) )
+  {
+    return;
+  }
+
+  mProperties[&quot;loggingPath&quot;] = mPositioningSourceReplica-&gt;property( &quot;loggingPath&quot; );
+  emit loggingPathChanged();
+}
+
+QString Positioning::loggingPath() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica-&gt;property( &quot;loggingPath&quot; ) : mProperties.value( &quot;loggingPath&quot; ) ).toString();
+}
+
+void Positioning::setLoggingPath( const QString &amp;path )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica-&gt;setProperty( &quot;loggingPath&quot;, path );
+  }
+  else
+  {
+    mProperties[&quot;loggingPath&quot;] = path;
+    emit loggingPathChanged();
+  }
+}
+
+bool Positioning::serviceMode() const
+{
+  return mServiceMode;
+}
+
+void Positioning::setServiceMode( bool enabled )
+{
+  if ( mServiceMode == enabled )
+    return;
+
+  mServiceMode = enabled;
+
+  if ( active() )
+  {
+    setupSource();
+  }
+
+  emit serviceModeChanged();
+}
+
+bool Positioning::backgroundMode() const
+{
+  return mBackgroundMode;
+}
+
+void Positioning::setBackgroundMode( bool enabled )
+{
+  if ( mBackgroundMode == enabled )
+    return;
+
+  mBackgroundMode = enabled;
+
+  QFile backgroundFile( PositioningSource::backgroundFilePath );
+  if ( mBackgroundMode )
+  {
+    backgroundFile.open( QFile::WriteOnly );
+    backgroundFile.close();
+  }
+  else
+  {
+    if ( backgroundFile.exists() )
+    {
+      backgroundFile.remove();
+    }
+  }
+
+  if ( isSourceAvailable() )
+  {
+    // Note that on Android, the property will not be set if the application is suspended _until_ it has become active again
+    mPositioningSourceReplica-&gt;setProperty( &quot;backgroundMode&quot;, mBackgroundMode );
+  }
+
+  emit backgroundModeChanged();
+}
+
+QList&lt;GnssPositionInformation&gt; Positioning::getBackgroundPositionInformation() const
+{
+  QList&lt;GnssPositionInformation&gt; positionInformationList;
+
+  if ( isSourceAvailable() )
+  {
+    QRemoteObjectPendingCall call;
+    QMetaObject::invokeMethod( mPositioningSourceReplica.data(), &quot;getBackgroundPositionInformation&quot;, Qt::DirectConnection, Q_RETURN_ARG( QRemoteObjectPendingCall, call ) );
+    call.waitForFinished();
+    positionInformationList = call.returnValue().value&lt;QList&lt;GnssPositionInformation&gt;&gt;();
+  }
+
+  return positionInformationList;
+}
+
+void Positioning::onElevationCorrectionModeChanged()
+{
+  if ( mProperties[&quot;elevationCorrectionMode&quot;] == mPositioningSourceReplica-&gt;property( &quot;elevationCorrectionMode&quot; ) )
+  {
+    return;
+  }
+
+  mProperties[&quot;elevationCorrectionMode&quot;] = mPositioningSourceReplica-&gt;property( &quot;elevationCorrectionMode&quot; );
+  emit elevationCorrectionModeChanged();
+}
+
+PositioningSource::ElevationCorrectionMode Positioning::elevationCorrectionMode() const
+{
+  return static_cast&lt;PositioningSource::ElevationCorrectionMode&gt;( ( isSourceAvailable() ? mPositioningSourceReplica-&gt;property( &quot;elevationCorrectionMode&quot; ) : mProperties.value( &quot;elevationCorrectionMode&quot;, static_cast&lt;int&gt;( PositioningSource::ElevationCorrectionMode::None ) ) ).toInt() );
+}
+
+void Positioning::setElevationCorrectionMode( PositioningSource::ElevationCorrectionMode elevationCorrectionMode )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica-&gt;setProperty( &quot;elevationCorrectionMode&quot;, static_cast&lt;int&gt;( elevationCorrectionMode ) );
+  }
+  else
+  {
+    mProperties[&quot;elevationCorrectionMode&quot;] = static_cast&lt;int&gt;( elevationCorrectionMode );
+    emit elevationCorrectionModeChanged();
+  }
+}
+
+void Positioning::onAntennaHeightChanged()
+{
+  if ( mProperties[&quot;antennaHeight&quot;] == mPositioningSourceReplica-&gt;property( &quot;antennaHeight&quot; ) )
+  {
+    return;
+  }
+
+  mProperties[&quot;antennaHeight&quot;] = mPositioningSourceReplica-&gt;property( &quot;antennaHeight&quot; );
+  emit antennaHeightChanged();
+}
+
+double Positioning::antennaHeight() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica-&gt;property( &quot;antennaHeight&quot; ) : mProperties.value( &quot;antennaHeight&quot;, 0.0 ) ).toDouble();
+}
+
+void Positioning::setAntennaHeight( double antennaHeight )
+{
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica-&gt;setProperty( &quot;antennaHeight&quot;, antennaHeight );
+  }
+  else
+  {
+    mProperties[&quot;antennaHeight&quot;] = antennaHeight;
+    emit antennaHeightChanged();
+  }
+}
+
+GnssPositionInformation Positioning::positionInformation() const
+{
+  return mPositionInformation;
+}
+
+double Positioning::orientation() const
+{
+  return isSourceAvailable() ? adjustOrientation( mPositioningSourceReplica-&gt;property( &quot;orientation&quot; ).toDouble() ) : std::numeric_limits&lt;double&gt;::quiet_NaN();
+}
+
+double Positioning::adjustOrientation( double orientation ) const
+{
+  // Take into account the orientation of the device
+  QScreen *screen = QgsApplication::instance()-&gt;primaryScreen();
+  switch ( screen-&gt;orientation() )
+  {
+    case Qt::LandscapeOrientation:
+      orientation += 90;
+      break;
+    case Qt::InvertedLandscapeOrientation:
+      orientation += 270;
+      break;
+    case Qt::PortraitOrientation:
+    default:
+      break;
+  }
+
+  return std::fmod( orientation, 360 );
+}
+
+void Positioning::setCoordinateTransformer( QgsQuickCoordinateTransformer *coordinateTransformer )
+{
+  if ( mCoordinateTransformer == coordinateTransformer )
+    return;
+
+  if ( mCoordinateTransformer )
+  {
+    disconnect( mCoordinateTransformer, &amp;QgsQuickCoordinateTransformer::destinationCrsChanged, this, &amp;Positioning::processProjectedPosition );
+    disconnect( mCoordinateTransformer, &amp;QgsQuickCoordinateTransformer::transformContextChanged, this, &amp;Positioning::processProjectedPosition );
+    disconnect( mCoordinateTransformer, &amp;QgsQuickCoordinateTransformer::deltaZChanged, this, &amp;Positioning::processProjectedPosition );
+    disconnect( mCoordinateTransformer, &amp;QgsQuickCoordinateTransformer::skipAltitudeTransformationChanged, this, &amp;Positioning::processProjectedPosition );
+    disconnect( mCoordinateTransformer, &amp;QgsQuickCoordinateTransformer::verticalGridChanged, this, &amp;Positioning::processProjectedPosition );
+  }
+
+  mCoordinateTransformer = coordinateTransformer;
+
+  if ( mCoordinateTransformer )
+  {
+    connect( mCoordinateTransformer, &amp;QgsQuickCoordinateTransformer::destinationCrsChanged, this, &amp;Positioning::processProjectedPosition );
+    connect( mCoordinateTransformer, &amp;QgsQuickCoordinateTransformer::transformContextChanged, this, &amp;Positioning::processProjectedPosition );
+    connect( mCoordinateTransformer, &amp;QgsQuickCoordinateTransformer::deltaZChanged, this, &amp;Positioning::processProjectedPosition );
+    connect( mCoordinateTransformer, &amp;QgsQuickCoordinateTransformer::skipAltitudeTransformationChanged, this, &amp;Positioning::processProjectedPosition );
+    connect( mCoordinateTransformer, &amp;QgsQuickCoordinateTransformer::verticalGridChanged, this, &amp;Positioning::processProjectedPosition );
+  }
+
+  emit coordinateTransformerChanged();
+}
+
+QgsPoint Positioning::sourcePosition() const
+{
+  return mSourcePosition;
+}
+
+QgsPoint Positioning::projectedPosition() const
+{
+  return mProjectedPosition;
+}
+
+double Positioning::projectedHorizontalAccuracy() const
+{
+  return mProjectedHorizontalAccuracy;
+}
+
+void Positioning::onPositionInformationChanged()
+{
+  mPositionInformation = mPositioningSourceReplica-&gt;property( &quot;positionInformation&quot; ).value&lt;GnssPositionInformation&gt;();
+
+  GnssPositionInformation::AccuracyQuality quality = GnssPositionInformation::AccuracyQuality::AccuracyBad;
+  const double hacc = mPositionInformation.hacc();
+  const bool isExcellentThresholdDefined = !std::isnan( excellentAccuracyThreshold() );
+  const bool isBadThresholdDefined = !std::isnan( badAccuracyThreshold() );
+
+  if ( isExcellentThresholdDefined &amp;&amp; isBadThresholdDefined )
+  {
+    if ( !std::isnan( hacc ) )
+    {
+      if ( hacc &lt;= excellentAccuracyThreshold() )
+      {
+        quality = GnssPositionInformation::AccuracyExcellent;
+      }
+      else if ( hacc &lt;= badAccuracyThreshold() )
+      {
+        quality = GnssPositionInformation::AccuracyOk;
+      }
+      else
+      {
+        quality = GnssPositionInformation::AccuracyBad;
+      }
+    }
+    else
+    {
+      quality = GnssPositionInformation::AccuracyBad;
+    }
+  }
+  else
+  {
+    quality = GnssPositionInformation::AccuracyUndetermined;
+  }
+
+  mPositionInformation.setAccuracyQuality( quality );
+
+
+  if ( mAveragedPosition )
+  {
+    if ( !mAveragedPositionFilterAccuracy || mPositionInformation.accuracyQuality() != GnssPositionInformation::AccuracyBad )
+    {
+      mCollectedPositionInformations &lt;&lt; mPositionInformation;
+    }
+    mPositionInformation = PositioningUtils::averagedPositionInformation( mCollectedPositionInformations );
+    emit averagedPositionCountChanged();
+  }
+
+  if ( mPositionInformation.isValid() )
+  {
+    mSourcePosition = QgsPoint( mPositionInformation.longitude(), mPositionInformation.latitude(), mPositionInformation.elevation() );
+  }
+  else
+  {
+    mSourcePosition.clear();
+    mProjectedPosition.clear();
+  }
+
+  if ( mPositionInformation.orientationValid() )
+  {
+    mPositionInformation.setOrientation( adjustOrientation( mPositionInformation.orientation() ) );
+  }
+
+  if ( mCoordinateTransformer &amp;&amp; !mSourcePosition.isEmpty() )
+  {
+    // positionInformationChanged() will be emitted in this function
+    processProjectedPosition();
+  }
+  else
+  {
+    emit positionInformationChanged();
+  }
+}
+
+void Positioning::processProjectedPosition()
+{
+  if ( !mSourcePosition.isEmpty() )
+  {
+    mProjectedPosition = mCoordinateTransformer-&gt;transformPosition( mSourcePosition );
+    mProjectedHorizontalAccuracy = mPositionInformation.hacc();
+    if ( mPositionInformation.haccValid() )
+    {
+      if ( mCoordinateTransformer-&gt;destinationCrs().mapUnits() != Qgis::DistanceUnit::Unknown )
+      {
+        mProjectedHorizontalAccuracy *= QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters,
+                                                                            mCoordinateTransformer-&gt;destinationCrs().mapUnits() );
+      }
+      else
+      {
+        mProjectedHorizontalAccuracy = 0.0;
+      }
+    }
+  }
+
+  emit positionInformationChanged();
+}
+
+
+void Positioning::setBadAccuracyThreshold( double threshold )
+{
+  if ( mBadAccuracyThreshold == threshold )
+    return;
+
+  mBadAccuracyThreshold = threshold;
+  emit badAccuracyThresholdChanged();
+}
+
+void Positioning::setExcellentAccuracyThreshold( double threshold )
+{
+  if ( mExcellentAccuracyThreshold == threshold )
+    return;
+
+  mExcellentAccuracyThreshold = threshold;
+  emit excellentAccuracyThresholdChanged();
+}
+
+bool Positioning::averagedPositionFilterAccuracy() const
+{
+  return mAveragedPositionFilterAccuracy;
+}
+
+void Positioning::setAveragedPositionFilterAccuracy( bool enabled )
+{
+  if ( mAveragedPositionFilterAccuracy == enabled )
+    return;
+
+  mAveragedPositionFilterAccuracy = enabled;
+  emit averagedPositionFilterAccuracyChanged();
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

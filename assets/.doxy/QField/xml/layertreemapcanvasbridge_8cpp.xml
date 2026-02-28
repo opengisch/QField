@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="layertreemapcanvasbridge_8cpp" kind="file" language="C++">
+    <compoundname>layertreemapcanvasbridge.cpp</compoundname>
+    <includes refid="layertreemapcanvasbridge_8h" local="yes">layertreemapcanvasbridge.h</includes>
+    <includes refid="qgsquickmapcanvasmap_8h" local="yes">qgsquickmapcanvasmap.h</includes>
+    <includes refid="qgsquickmapsettings_8h" local="yes">qgsquickmapsettings.h</includes>
+    <includes local="no">qgslayertree.h</includes>
+    <includes local="no">qgslayertreegroup.h</includes>
+    <includes local="no">qgslayertreemodel.h</includes>
+    <includes local="no">qgslayertreeutils.h</includes>
+    <includes local="no">qgsmaplayer.h</includes>
+    <includes local="no">qgsmaplayerstylemanager.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/layertreemapcanvasbridge.cpp</label>
+        <link refid="layertreemapcanvasbridge_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>layertreemapcanvasbridge.h</label>
+        <link refid="layertreemapcanvasbridge_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>layertreemodel.h</label>
+        <link refid="layertreemodel_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>gnsspositioninformation.h</label>
+        <link refid="gnsspositioninformation_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>qgsquickmapcanvasmap.h</label>
+        <link refid="qgsquickmapcanvasmap_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>tracker.h</label>
+        <link refid="tracker_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>trackingmodel.h</label>
+        <link refid="trackingmodel_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="14">
+        <label>QColor</label>
+      </node>
+      <node id="9">
+        <label>QDateTime</label>
+      </node>
+      <node id="31">
+        <label>QFutureSynchronizer</label>
+      </node>
+      <node id="10">
+        <label>QObject</label>
+      </node>
+      <node id="15">
+        <label>QPointer</label>
+      </node>
+      <node id="32">
+        <label>QQuickItem</label>
+      </node>
+      <node id="4">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="11">
+        <label>QString</label>
+      </node>
+      <node id="21">
+        <label>QStringList</label>
+      </node>
+      <node id="16">
+        <label>QTimer</label>
+      </node>
+      <node id="33">
+        <label>memory</label>
+      </node>
+      <node id="26">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="12">
+        <label>qgis.h</label>
+      </node>
+      <node id="22">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="27">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="17">
+        <label>qgsdistancearea.h</label>
+      </node>
+      <node id="34">
+        <label>qgslayertree.h</label>
+      </node>
+      <node id="35">
+        <label>qgslayertreegroup.h</label>
+      </node>
+      <node id="5">
+        <label>qgslayertreelayer.h</label>
+      </node>
+      <node id="36">
+        <label>qgslayertreemodel.h</label>
+      </node>
+      <node id="37">
+        <label>qgslayertreeutils.h</label>
+      </node>
+      <node id="28">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="38">
+        <label>qgsmaplayerstylemanager.h</label>
+      </node>
+      <node id="29">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="23">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="18">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="30">
+        <label>qgsrectangle.h</label>
+      </node>
+      <node id="13">
+        <label>qgssatelliteinformation.h</label>
+      </node>
+      <node id="19">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>layertreemapcanvasbridge.cpp<sp/>-<sp/>LayerTreeMapCanvasBridge</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>26.8.2016</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2016<sp/>by<sp/>Matthias<sp/>Kuhn,<sp/>OPENGIS.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>matthias@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;layertreemapcanvasbridge.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquickmapcanvasmap.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquickmapsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslayertree.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslayertreegroup.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslayertreemodel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslayertreeutils.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmaplayer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmaplayerstylemanager.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><ref refid="classLayerTreeMapCanvasBridge_1a316a04928de9256ce9004bef9f75d0db" kindref="member">LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge</ref>(<sp/><ref refid="classFlatLayerTreeModel" kindref="compound">FlatLayerTreeModel</ref><sp/>*model,<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings,<sp/><ref refid="classTrackingModel" kindref="compound">TrackingModel</ref><sp/>*trackingModel,<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>:<sp/>QObject(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>,<sp/>mRoot(<sp/>model-&gt;layerTree()<sp/>)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>,<sp/>mModel(<sp/>model<sp/>)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>,<sp/>mMapSettings(<sp/>mapSettings<sp/>)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>,<sp/>mTrackingModel(<sp/>trackingModel<sp/>)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>,<sp/>mPendingCanvasUpdate(<sp/>false<sp/>)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>,<sp/>mHasCustomLayerOrder(<sp/>false<sp/>)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>,<sp/>mAutoSetupOnFirstLayer(<sp/>false<sp/>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>,<sp/>mAutoEnableCrsTransform(<sp/>true<sp/>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>,<sp/>mHasLayersLoaded(<sp/>!mRoot-&gt;findLayers().isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>connect(<sp/>mRoot,<sp/>&amp;QgsLayerTreeGroup::visibilityChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerTreeMapCanvasBridge::nodeVisibilityChanged<sp/>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>connect(<sp/>model,<sp/>&amp;FlatLayerTreeModel::mapThemeChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerTreeMapCanvasBridge::mapThemeChanged<sp/>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>connect(<sp/>model,<sp/>&amp;FlatLayerTreeModel::layersAdded,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerTreeMapCanvasBridge::layersChanged<sp/>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>connect(<sp/>model,<sp/>&amp;FlatLayerTreeModel::layersRemoved,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerTreeMapCanvasBridge::layersChanged<sp/>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>connect(<sp/>mTrackingModel,<sp/>&amp;TrackingModel::layerInTrackingChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerTreeMapCanvasBridge::layerInTrackingChanged<sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>connect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a1956e57291066171d306c1981691f5be" kindref="member">QgsQuickMapSettings::extentChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;LayerTreeMapCanvasBridge::extentChanged<sp/>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>setCanvasLayers();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerTreeMapCanvasBridge::extentChanged()</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>allow<sp/>symbols<sp/>in<sp/>the<sp/>legend<sp/>update<sp/>their<sp/>preview<sp/>if<sp/>they<sp/>use<sp/>map<sp/>units</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>mModel-&gt;layerTreeModel()-&gt;setLegendMapViewData(<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1aa0819eabfca106939c96d57f4d48d6f0" kindref="member">mapSettings</ref>().mapUnitsPerPixel(),</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>std::round(<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1a08181add28740e8762bee7ee5a93307f" kindref="member">outputDpi</ref>()<sp/>)<sp/>),<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1aa0819eabfca106939c96d57f4d48d6f0" kindref="member">mapSettings</ref>().scale()<sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLayerTreeMapCanvasBridge_1a059757af661c18f4543d9355b729d35e" kindref="member">LayerTreeMapCanvasBridge::setCanvasLayers</ref>()</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>canvasLayers,<sp/>allLayerOrder;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mRoot-&gt;hasCustomLayerOrder()<sp/>)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>customOrderLayers<sp/>=<sp/>mRoot-&gt;customLayerOrder();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsMapLayer<sp/>*layer<sp/>:<sp/>customOrderLayers<sp/>)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsLayerTreeLayer<sp/>*nodeLayer<sp/>=<sp/>mRoot-&gt;findLayer(<sp/>layer-&gt;id()<sp/>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>nodeLayer<sp/>)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!nodeLayer-&gt;layer()-&gt;isSpatial()<sp/>)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>allLayerOrder<sp/>&lt;&lt;<sp/>nodeLayer-&gt;layer();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>nodeLayer-&gt;isVisible()<sp/>)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>canvasLayers<sp/>&lt;&lt;<sp/>nodeLayer-&gt;layer();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classLayerTreeMapCanvasBridge_1a059757af661c18f4543d9355b729d35e" kindref="member">setCanvasLayers</ref>(<sp/>mRoot,<sp/>canvasLayers,<sp/>allLayerOrder<sp/>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QgsLayerTreeLayer<sp/>*&gt;<sp/>layerNodes<sp/>=<sp/>mRoot-&gt;findLayers();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentSpatialLayerCount<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>std::count_if(<sp/>layerNodes.begin(),<sp/>layerNodes.end(),<sp/>[](<sp/>QgsLayerTreeLayer<sp/>*layerNode<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>layerNode-&gt;layer()<sp/>&amp;&amp;<sp/>layerNode-&gt;layer()-&gt;isSpatial();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>firstLayers<sp/>=<sp/>mAutoSetupOnFirstLayer<sp/>&amp;&amp;<sp/>!mHasLayersLoaded<sp/>&amp;&amp;<sp/>currentSpatialLayerCount<sp/>!=<sp/>0;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1ab1007f4cff0f98a0dec50fad8db05b04" kindref="member">setLayers</ref>(<sp/>canvasLayers<sp/>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mFirstCRS.isValid()<sp/>)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>find<sp/>out<sp/>what<sp/>is<sp/>the<sp/>first<sp/>used<sp/>CRS<sp/>in<sp/>case<sp/>we<sp/>may<sp/>need<sp/>to<sp/>turn<sp/>on<sp/>OTF<sp/>projections<sp/>later</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>match<sp/>=<sp/>std::find_if(<sp/>layerNodes.begin(),<sp/>layerNodes.end(),<sp/>[](<sp/>QgsLayerTreeLayer<sp/>*layerNode<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>layerNode-&gt;layer()<sp/>&amp;&amp;<sp/>layerNode-&gt;layer()-&gt;crs().isValid();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>match<sp/>!=<sp/>layerNodes.end()<sp/>)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mFirstCRS<sp/>=<sp/>(<sp/>*match<sp/>)-&gt;layer()-&gt;crs();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFirstCRS.isValid()<sp/>&amp;&amp;<sp/>firstLayers<sp/>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1ac42107f6cc35b3de8b2369bbff72654b" kindref="member">setDestinationCrs</ref>(<sp/>mFirstCRS<sp/>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsProject::instance()-&gt;setCrs(<sp/>mFirstCRS<sp/>);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>mHasLayersLoaded<sp/>=<sp/>currentSpatialLayerCount;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>currentSpatialLayerCount<sp/>==<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>mFirstCRS<sp/>=<sp/>QgsCoordinateReferenceSystem();</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>mPendingCanvasUpdate<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLayerTreeMapCanvasBridge_1a059757af661c18f4543d9355b729d35e" kindref="member">LayerTreeMapCanvasBridge::setCanvasLayers</ref>(<sp/>QgsLayerTreeNode<sp/>*node,<sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>&amp;canvasLayers,<sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>&amp;allLayers<sp/>)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QgsLayerTree::isLayer(<sp/>node<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsLayerTreeLayer<sp/>*nodeLayer<sp/>=<sp/>QgsLayerTree::toLayer(<sp/>node<sp/>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>nodeLayer-&gt;layer()<sp/>&amp;&amp;<sp/>nodeLayer-&gt;layer()-&gt;isSpatial()<sp/>)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>allLayers<sp/>&lt;&lt;<sp/>nodeLayer-&gt;layer();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>nodeLayer-&gt;isVisible()<sp/>)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>canvasLayers<sp/>&lt;&lt;<sp/>nodeLayer-&gt;layer();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsVectorLayer<sp/>*layer<sp/>=<sp/>qobject_cast&lt;QgsVectorLayer<sp/>*&gt;(<sp/>nodeLayer-&gt;layer()<sp/>);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>layer<sp/>)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mTrackingModel-&gt;<ref refid="classTrackingModel_1a1baadde0bac7374d655177f538162fb1" kindref="member">setTrackerVisibility</ref>(<sp/>layer,<sp/>nodeLayer-&gt;isVisible()<sp/>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QgsLayerTreeNode<sp/>*&gt;<sp/>children<sp/>=<sp/>node-&gt;children();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>QgsLayerTreeNode<sp/>*child<sp/>:<sp/>children<sp/>)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classLayerTreeMapCanvasBridge_1a059757af661c18f4543d9355b729d35e" kindref="member">setCanvasLayers</ref>(<sp/>child,<sp/>canvasLayers,<sp/>allLayers<sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerTreeMapCanvasBridge::deferredSetCanvasLayers()</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mPendingCanvasUpdate<sp/>)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>mPendingCanvasUpdate<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>QMetaObject::invokeMethod(<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;setCanvasLayers&quot;</highlight><highlight class="normal">,<sp/>Qt::QueuedConnection<sp/>);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerTreeMapCanvasBridge::nodeVisibilityChanged()</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>deferredSetCanvasLayers();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerTreeMapCanvasBridge::mapThemeChanged()</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mModel-&gt;mapTheme().isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsProject::instance()-&gt;mapThemeCollection()-&gt;applyTheme(<sp/>mModel-&gt;mapTheme(),<sp/>mRoot,<sp/>mModel-&gt;layerTreeModel()<sp/>);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerTreeMapCanvasBridge::layersChanged()</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>deferredSetCanvasLayers();</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LayerTreeMapCanvasBridge::layerInTrackingChanged(<sp/>QgsVectorLayer<sp/>*layer,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>tracking<sp/>)</highlight></codeline>
+<codeline lineno="169"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>layer<sp/>)</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsLayerTreeLayer<sp/>*nodeLayer<sp/>=<sp/>mRoot-&gt;findLayer(<sp/>layer-&gt;id()<sp/>);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>layer-&gt;geometryType()<sp/>==<sp/>Qgis::GeometryType::Point<sp/>)</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Disable<sp/>feature<sp/>count<sp/>while<sp/>tracking<sp/>to<sp/>avoid<sp/>needless<sp/>CPU<sp/>cycles<sp/>wasted<sp/>updating<sp/>a<sp/>collapsed<sp/>legend</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>tracking<sp/>)</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QVariant<sp/>showFeatureCountValue<sp/>=<sp/>nodeLayer-&gt;customProperty(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;showFeatureCount&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>showFeatureCountValue.isValid()<sp/>&amp;&amp;<sp/>showFeatureCountValue.toInt()<sp/>!=<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeLayer-&gt;setCustomProperty(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;showFeatureCount&quot;</highlight><highlight class="normal"><sp/>),<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeLayer-&gt;setCustomProperty(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;previousShowFeatureCount&quot;</highlight><highlight class="normal"><sp/>),<sp/>showFeatureCountValue<sp/>);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QVariant<sp/>previousShowFeatureCount<sp/>=<sp/>nodeLayer-&gt;customProperty(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;previousShowFeatureCount&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>previousShowFeatureCount.isValid()<sp/>)</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeLayer-&gt;setCustomProperty(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;showFeatureCount&quot;</highlight><highlight class="normal"><sp/>),<sp/>previousShowFeatureCount<sp/>);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>mModel-&gt;<ref refid="classFlatLayerTreeModel_1aacb7a4e72d8ef0df35fbdaeaba8b9774" kindref="member">setLayerInTracking</ref>(<sp/>nodeLayer,<sp/>tracking<sp/>);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/layertreemapcanvasbridge.cpp"/>
+  </compounddef>
+</doxygen>

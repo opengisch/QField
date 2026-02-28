@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_d27ac98b23548f5810403c734ce9817b" kind="dir">
+    <compoundname>src/core/qfieldcloud</compoundname>
+    <innerfile refid="deltafilewrapper_8cpp">deltafilewrapper.cpp</innerfile>
+    <innerfile refid="deltafilewrapper_8h">deltafilewrapper.h</innerfile>
+    <innerfile refid="deltalistmodel_8cpp">deltalistmodel.cpp</innerfile>
+    <innerfile refid="deltalistmodel_8h">deltalistmodel.h</innerfile>
+    <innerfile refid="layerobserver_8cpp">layerobserver.cpp</innerfile>
+    <innerfile refid="layerobserver_8h">layerobserver.h</innerfile>
+    <innerfile refid="networkmanager_8cpp">networkmanager.cpp</innerfile>
+    <innerfile refid="networkmanager_8h">networkmanager.h</innerfile>
+    <innerfile refid="networkreply_8cpp">networkreply.cpp</innerfile>
+    <innerfile refid="networkreply_8h">networkreply.h</innerfile>
+    <innerfile refid="qfieldcloudconnection_8cpp">qfieldcloudconnection.cpp</innerfile>
+    <innerfile refid="qfieldcloudconnection_8h">qfieldcloudconnection.h</innerfile>
+    <innerfile refid="qfieldcloudproject_8cpp">qfieldcloudproject.cpp</innerfile>
+    <innerfile refid="qfieldcloudproject_8h">qfieldcloudproject.h</innerfile>
+    <innerfile refid="qfieldcloudprojectsmodel_8cpp">qfieldcloudprojectsmodel.cpp</innerfile>
+    <innerfile refid="qfieldcloudprojectsmodel_8h">qfieldcloudprojectsmodel.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/"/>
+  </compounddef>
+</doxygen>

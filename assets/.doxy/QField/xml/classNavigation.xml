@@ -1,0 +1,1301 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNavigation" kind="class" language="C++" prot="public">
+    <compoundname>Navigation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classNavigation_1a1d45a4a778965b1a443a4ba313644351" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * Navigation::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>Navigation::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="35" column="5" bodyfile="src/core/navigation.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1a0d8896a72145497de05ceb21ceb81d57" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classNavigationModel" kindref="compound">NavigationModel</ref> *</type>
+        <definition>NavigationModel * Navigation::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>Navigation::model</qualifiedname>
+        <read>model</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="36" column="5" bodyfile="src/core/navigation.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1ab7d753a1be0e0f8b6b4b19be4a460f89" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>modelChanged QgsPoint</type>
+        <definition>modelChanged QgsPoint Navigation::location</definition>
+        <argsstring></argsstring>
+        <name>location</name>
+        <qualifiedname>Navigation::location</qualifiedname>
+        <read>location</read>
+        <write>setLocation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="38" column="5" bodyfile="src/core/navigation.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1a3b22361dba71abef602d77904de76c13" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Navigation::destination</definition>
+        <argsstring></argsstring>
+        <name>destination</name>
+        <qualifiedname>Navigation::destination</qualifiedname>
+        <read>destination</read>
+        <write>setDestination</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="39" column="5" bodyfile="src/core/navigation.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1a282b71899a129f847668388df5e28207" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Navigation::destinationName</definition>
+        <argsstring></argsstring>
+        <name>destinationName</name>
+        <qualifiedname>Navigation::destinationName</qualifiedname>
+        <read>destinationName</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="40" column="5" bodyfile="src/core/navigation.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1a78d0df42ea0ffba020fbfb2e591fe81b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry Navigation::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <qualifiedname>Navigation::path</qualifiedname>
+        <read>path</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="42" column="5" bodyfile="src/core/navigation.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1a14267cc1def8f0995f6ad0ba9b904ec9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Navigation::distance</definition>
+        <argsstring></argsstring>
+        <name>distance</name>
+        <qualifiedname>Navigation::distance</qualifiedname>
+        <read>distance</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="43" column="5" bodyfile="src/core/navigation.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1ae18bee45b847449d4454a23cd345ae1d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Navigation::verticalDistance</definition>
+        <argsstring></argsstring>
+        <name>verticalDistance</name>
+        <qualifiedname>Navigation::verticalDistance</qualifiedname>
+        <read>verticalDistance</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="44" column="5" bodyfile="src/core/navigation.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1a71ceb062c35067a0a416084cbd12abc0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit Navigation::distanceUnits</definition>
+        <argsstring></argsstring>
+        <name>distanceUnits</name>
+        <qualifiedname>Navigation::distanceUnits</qualifiedname>
+        <read>distanceUnits</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="45" column="5" bodyfile="src/core/navigation.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1ab4e14fa4821aeb9462e36184da7c4096" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Navigation::bearing</definition>
+        <argsstring></argsstring>
+        <name>bearing</name>
+        <qualifiedname>Navigation::bearing</qualifiedname>
+        <read>bearing</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="46" column="5" bodyfile="src/core/navigation.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1a7397682a376e2214fab9c7e6203c2d30" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Navigation::destinationFeatureCurrentVertex</definition>
+        <argsstring></argsstring>
+        <name>destinationFeatureCurrentVertex</name>
+        <qualifiedname>Navigation::destinationFeatureCurrentVertex</qualifiedname>
+        <read>destinationFeatureCurrentVertex</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="48" column="5" bodyfile="src/core/navigation.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1a0a05a38bf7dcaf67cabb8cdc684d77f7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Navigation::destinationFeatureVertexCount</definition>
+        <argsstring></argsstring>
+        <name>destinationFeatureVertexCount</name>
+        <qualifiedname>Navigation::destinationFeatureVertexCount</qualifiedname>
+        <read>destinationFeatureVertexCount</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="49" column="5" bodyfile="src/core/navigation.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1a9f177a09199644778519c8126a636afe" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Navigation::proximityAlarm</definition>
+        <argsstring></argsstring>
+        <name>proximityAlarm</name>
+        <qualifiedname>Navigation::proximityAlarm</qualifiedname>
+        <read>proximityAlarm</read>
+        <write>setProximityAlarm</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="51" column="5" bodyfile="src/core/navigation.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1ad66040dfbb20931118e3db5275e6ed31" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Navigation::proximityAlarmThreshold</definition>
+        <argsstring></argsstring>
+        <name>proximityAlarmThreshold</name>
+        <qualifiedname>Navigation::proximityAlarmThreshold</qualifiedname>
+        <read>proximityAlarmThreshold</read>
+        <write>setProximityAlarmThreshold</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="52" column="5" bodyfile="src/core/navigation.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigation_1a7a8d348b7fa1c58f4530db9415e4dbfe" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Navigation::isActive</definition>
+        <argsstring></argsstring>
+        <name>isActive</name>
+        <qualifiedname>Navigation::isActive</qualifiedname>
+        <read>isActive</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="54" column="5" bodyfile="src/core/navigation.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNavigation_1add4a589abf59a05416fc4d9203379cd9" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classNavigationModel" kindref="compound">NavigationModel</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;NavigationModel&gt; Navigation::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>Navigation::mModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="226" column="21" bodyfile="src/core/navigation.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1a1cde213640fc1924b48e3c9e902f02df" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* Navigation::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>Navigation::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="227" column="25" bodyfile="src/core/navigation.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1a4195a5b6992ec9d3376d65fcebd4e471" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Navigation::mLocation</definition>
+        <argsstring></argsstring>
+        <name>mLocation</name>
+        <qualifiedname>Navigation::mLocation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="228" column="14" bodyfile="src/core/navigation.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1a5e36a021b1541b21b8b05564ee101c43" prot="private" static="no" mutable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry Navigation::mPath</definition>
+        <argsstring></argsstring>
+        <name>mPath</name>
+        <qualifiedname>Navigation::mPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="229" column="17" bodyfile="src/core/navigation.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1a4d8b69702bfe95fd0499976d4ccdd1ee" prot="private" static="no" mutable="no">
+        <type>QgsDistanceArea</type>
+        <definition>QgsDistanceArea Navigation::mDa</definition>
+        <argsstring></argsstring>
+        <name>mDa</name>
+        <qualifiedname>Navigation::mDa</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="230" column="21" bodyfile="src/core/navigation.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1a1e7c5958a636bd034957806d9c9982cb" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Navigation::mDistance</definition>
+        <argsstring></argsstring>
+        <name>mDistance</name>
+        <qualifiedname>Navigation::mDistance</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="231" column="12" bodyfile="src/core/navigation.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1a99a4cd0e2adf8db66f5830729816f468" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Navigation::mVerticalDistance</definition>
+        <argsstring></argsstring>
+        <name>mVerticalDistance</name>
+        <qualifiedname>Navigation::mVerticalDistance</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="232" column="12" bodyfile="src/core/navigation.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1ae1d2ee38ad13c467cecc6e4553ba10a4" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Navigation::mBearing</definition>
+        <argsstring></argsstring>
+        <name>mBearing</name>
+        <qualifiedname>Navigation::mBearing</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="233" column="12" bodyfile="src/core/navigation.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1abdd3c6b9d183c5d89c4c4ea4a2ea65bc" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Navigation::mDestinationName</definition>
+        <argsstring></argsstring>
+        <name>mDestinationName</name>
+        <qualifiedname>Navigation::mDestinationName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="234" column="13" bodyfile="src/core/navigation.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1a620180e54b98b8915f3d957e0147979c" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Navigation::mFeatureName</definition>
+        <argsstring></argsstring>
+        <name>mFeatureName</name>
+        <qualifiedname>Navigation::mFeatureName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="236" column="13" bodyfile="src/core/navigation.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1aeb4dfb76e4ba8bc15e47256eed754683" prot="private" static="no" mutable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry Navigation::mGeometry</definition>
+        <argsstring></argsstring>
+        <name>mGeometry</name>
+        <qualifiedname>Navigation::mGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="237" column="17" bodyfile="src/core/navigation.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1aa2e3d1b601354c272a9cd64342921e0b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Navigation::mCurrentVertex</definition>
+        <argsstring></argsstring>
+        <name>mCurrentVertex</name>
+        <qualifiedname>Navigation::mCurrentVertex</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="238" column="9" bodyfile="src/core/navigation.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1a7b5b45f9159aa674c72ed13725acd371" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Navigation::mVertexCount</definition>
+        <argsstring></argsstring>
+        <name>mVertexCount</name>
+        <qualifiedname>Navigation::mVertexCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="239" column="9" bodyfile="src/core/navigation.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1a90001f3dcfdc8b5cb8f66e6ff6aebdb4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Navigation::mProximityAlarm</definition>
+        <argsstring></argsstring>
+        <name>mProximityAlarm</name>
+        <qualifiedname>Navigation::mProximityAlarm</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="241" column="10" bodyfile="src/core/navigation.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1acd8f885b9617202613eabd44d5a6c812" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Navigation::mProximityAlarmThreshold</definition>
+        <argsstring></argsstring>
+        <name>mProximityAlarmThreshold</name>
+        <qualifiedname>Navigation::mProximityAlarmThreshold</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="242" column="12" bodyfile="src/core/navigation.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1afd95bc80d64ca4697ae7706a504ec52e" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer Navigation::mProximityAlarmTimer</definition>
+        <argsstring></argsstring>
+        <name>mProximityAlarmTimer</name>
+        <qualifiedname>Navigation::mProximityAlarmTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="243" column="12" bodyfile="src/core/navigation.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1a2b62b9b02ab309ed1201ea2cb8be8b95" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Navigation::mProximityAlarmInterval</definition>
+        <argsstring></argsstring>
+        <name>mProximityAlarmInterval</name>
+        <qualifiedname>Navigation::mProximityAlarmInterval</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="244" column="9" bodyfile="src/core/navigation.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1aab43c54e020293e06d57f5ed9019340e" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 Navigation::mLastProximityAlarm</definition>
+        <argsstring></argsstring>
+        <name>mLastProximityAlarm</name>
+        <qualifiedname>Navigation::mLastProximityAlarm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="245" column="12" bodyfile="src/core/navigation.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigation_1a8457480ce0b1dd033020b740b807cfa2" prot="private" static="no" mutable="no">
+        <type>QSoundEffect</type>
+        <definition>QSoundEffect Navigation::mProximitySound</definition>
+        <argsstring></argsstring>
+        <name>mProximitySound</name>
+        <qualifiedname>Navigation::mProximitySound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="246" column="18" bodyfile="src/core/navigation.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNavigation_1a81fdffdefe46340da5fa6c570066b42b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Navigation::Navigation</definition>
+        <argsstring>()</argsstring>
+        <name>Navigation</name>
+        <qualifiedname>Navigation::Navigation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="57" column="5" bodyfile="src/core/navigation.cpp" bodystart="25" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1addd4022d716df48f4e55a1db69361ba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Navigation::~Navigation</definition>
+        <argsstring>()</argsstring>
+        <name>~Navigation</name>
+        <qualifiedname>Navigation::~Navigation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="59" column="5" bodyfile="src/core/navigation.cpp" bodystart="50" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a44e63f9578bed54d2e8018df09e106d2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Navigation::isActive</definition>
+        <argsstring>() const</argsstring>
+        <name>isActive</name>
+        <qualifiedname>Navigation::isActive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when navigation is active. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="64" column="10" bodyfile="src/core/navigation.cpp" bodystart="54" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a87b2161b51751b6e34a312a68d90c129" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * Navigation::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>Navigation::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the map settings object used to project points and calculate navigation details. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="69" column="25" bodyfile="src/core/navigation.h" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1ad5ce06613391b2feaf9b5b4741735e26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>Navigation::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the map settings object used to project points and calculate navigation details. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="73" column="10" bodyfile="src/core/navigation.cpp" bodystart="59" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1aa8ee482406e2a5eef6a6dc6c4216448c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classNavigationModel" kindref="compound">NavigationModel</ref> *</type>
+        <definition>NavigationModel * Navigation::model</definition>
+        <argsstring>() const</argsstring>
+        <name>model</name>
+        <qualifiedname>Navigation::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the navigation model containing the destination point. <simplesect kind="note"><para>In the future, the model could contain intermediary stops </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="79" column="21" bodyfile="src/core/navigation.h" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1adaa5a07a526d9e3649be672b24d1385f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Navigation::location</definition>
+        <argsstring>() const</argsstring>
+        <name>location</name>
+        <qualifiedname>Navigation::location</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current location point. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="84" column="14" bodyfile="src/core/navigation.cpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1aca9ee0cb2e6b1efc6917fdb9d851f563" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::setLocation</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>setLocation</name>
+        <qualifiedname>Navigation::setLocation</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current location <emphasis>point</emphasis>. <simplesect kind="note"><para>A null/empty geometry will be threated as a lack of available location information </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="90" column="10" bodyfile="src/core/navigation.cpp" bodystart="90" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a0792394db8520ddde8e795011badca4f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint Navigation::destination</definition>
+        <argsstring>() const</argsstring>
+        <name>destination</name>
+        <qualifiedname>Navigation::destination</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current destination point. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="95" column="14" bodyfile="src/core/navigation.cpp" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a5b000492cc1df18d4dbce5e47b6f20cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::setDestination</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>setDestination</name>
+        <qualifiedname>Navigation::setDestination</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current destination <emphasis>point</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="100" column="10" bodyfile="src/core/navigation.cpp" bodystart="106" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a47afd4892ae8575a18ad23842adb353a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Navigation::destinationName</definition>
+        <argsstring>() const</argsstring>
+        <name>destinationName</name>
+        <qualifiedname>Navigation::destinationName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current destination name. <simplesect kind="see"><para><ref refid="classNavigation_1a4038ce2cd59710572c641e1a2bb94a60" kindref="member">setDestinationFeature</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="106" column="13" bodyfile="src/core/navigation.cpp" bodystart="112" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a4038ce2cd59710572c641e1a2bb94a60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Navigation::setDestinationFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature, QgsVectorLayer *layer)</argsstring>
+        <name>setDestinationFeature</name>
+        <qualifiedname>Navigation::setDestinationFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a provided feature as navigation destination, which allows for users to cycle through the feature centroid and its individual vertices as destination point. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature used as destination </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector layer associated to the feature </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="114" column="22" bodyfile="src/core/navigation.cpp" bodystart="117" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a6323e9a71af54c430054d2b2a41fadbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Navigation::clearDestinationFeature</definition>
+        <argsstring>()</argsstring>
+        <name>clearDestinationFeature</name>
+        <qualifiedname>Navigation::clearDestinationFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the current destination feature, as well as the current destination point. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="119" column="22" bodyfile="src/core/navigation.cpp" bodystart="154" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a48f241bf1db28dc6e184873408a16da0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Navigation::nextDestinationVertex</definition>
+        <argsstring>()</argsstring>
+        <name>nextDestinationVertex</name>
+        <qualifiedname>Navigation::nextDestinationVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the destination point to the next vertex or centroid of the current destination feature. <simplesect kind="note"><para>if a destination feature has not been provided, calling this function does nothing </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="125" column="22" bodyfile="src/core/navigation.cpp" bodystart="169" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1adfe9032695699da51bf0e543373ab3aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Navigation::previousDestinationVertex</definition>
+        <argsstring>()</argsstring>
+        <name>previousDestinationVertex</name>
+        <qualifiedname>Navigation::previousDestinationVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the destination point to the previous vertex or centroid of the current destination feature. <simplesect kind="note"><para>if a destination feature has not been provided, calling this function does nothing </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="131" column="22" bodyfile="src/core/navigation.cpp" bodystart="189" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a31a4ba76b5ce5f10b6de2ad72f60fdff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Navigation::destinationFeatureCurrentVertex</definition>
+        <argsstring>() const</argsstring>
+        <name>destinationFeatureCurrentVertex</name>
+        <qualifiedname>Navigation::destinationFeatureCurrentVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current focused vertex serving as destination point when a feature is used as destination. <simplesect kind="note"><para>for line and polygon geometries, vertex &apos;0&apos; represents the centroid of the geometry while it presents the first (or only) vertex in point geometries </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="138" column="9" bodyfile="src/core/navigation.cpp" bodystart="248" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a14a13c943e2a3ccb95eb5065eac951a1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Navigation::destinationFeatureVertexCount</definition>
+        <argsstring>() const</argsstring>
+        <name>destinationFeatureVertexCount</name>
+        <qualifiedname>Navigation::destinationFeatureVertexCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the vertex count available to cycle through as destination points when a feature is used as destination. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="143" column="9" bodyfile="src/core/navigation.cpp" bodystart="253" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a4e9a12b7fd09bf3985734445503284c2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry Navigation::path</definition>
+        <argsstring>() const</argsstring>
+        <name>path</name>
+        <qualifiedname>Navigation::path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the path between the current location and the destination points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="148" column="17" bodyfile="src/core/navigation.h" bodystart="148" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1ac307e9f48b950529917f53e81a31b9c6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Navigation::distance</definition>
+        <argsstring>() const</argsstring>
+        <name>distance</name>
+        <qualifiedname>Navigation::distance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the 2D distance between the current location and the destination points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="153" column="12" bodyfile="src/core/navigation.h" bodystart="153" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a6adec0049b14e9df9584cd6b9b02e92c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Navigation::verticalDistance</definition>
+        <argsstring>() const</argsstring>
+        <name>verticalDistance</name>
+        <qualifiedname>Navigation::verticalDistance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Retuens the vertical distance between the current location and the destination points <simplesect kind="note"><para>if either points miss a Z value, the returned vertical distance value will be NaN </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="159" column="12" bodyfile="src/core/navigation.h" bodystart="159" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a66da6053bb3ac6ecd159371e3d3916fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit Navigation::distanceUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>distanceUnits</name>
+        <qualifiedname>Navigation::distanceUnits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the distance unit used </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="164" column="24" bodyfile="src/core/navigation.h" bodystart="164" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a827b4715e6eb7b777fd78feadc16862d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Navigation::bearing</definition>
+        <argsstring>() const</argsstring>
+        <name>bearing</name>
+        <qualifiedname>Navigation::bearing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the bearing between the current location and the destination points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="169" column="12" bodyfile="src/core/navigation.h" bodystart="169" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1ad9ff5e3308203ea3bdbb541dfcbfaa24" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Navigation::proximityAlarm</definition>
+        <argsstring>() const</argsstring>
+        <name>proximityAlarm</name>
+        <qualifiedname>Navigation::proximityAlarm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the proximity alarm is enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="174" column="10" bodyfile="src/core/navigation.h" bodystart="174" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a8f7c45e3a02872f290d9aa21b4a31a7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::setProximityAlarm</definition>
+        <argsstring>(const bool enabled)</argsstring>
+        <name>setProximityAlarm</name>
+        <qualifiedname>Navigation::setProximityAlarm</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the proximity alarm is <emphasis>enabled</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="179" column="10" bodyfile="src/core/navigation.cpp" bodystart="333" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a76a139f13d3c3a55be603cee2412cc4e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Navigation::proximityAlarmThreshold</definition>
+        <argsstring>() const</argsstring>
+        <name>proximityAlarmThreshold</name>
+        <qualifiedname>Navigation::proximityAlarmThreshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current distance threshold below which the proximity alarm will turn on when enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="185" column="12" bodyfile="src/core/navigation.h" bodystart="185" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1af5070872fe2e03681aab386cbd87e2ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::setProximityAlarmThreshold</definition>
+        <argsstring>(const double &amp;threshold)</argsstring>
+        <name>setProximityAlarmThreshold</name>
+        <qualifiedname>Navigation::setProximityAlarmThreshold</qualifiedname>
+        <param>
+          <type>const double &amp;</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the distance <emphasis>threshold</emphasis> below which the proximity alarm will turn on when enabled. Once the distance threshold is met, the alarm sound will loop at a varying interval based on the distance between the device&apos;s current location and the destination. The closer to the destination, the shorter the interval. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="193" column="10" bodyfile="src/core/navigation.cpp" bodystart="346" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a2950c6caca499f4658880e174b6043ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Navigation::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>Navigation::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears any existing destination point and feature. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="198" column="22" bodyfile="src/core/navigation.cpp" bodystart="359" bodyend="363"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classNavigation_1afb5990a5273cfd02f670ea4e27df70fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::isActiveChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isActiveChanged</name>
+        <qualifiedname>Navigation::isActiveChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="201" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNavigation_1abe672ea1db768152d8f6db0cdf26ecc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>Navigation::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="203" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNavigation_1aac05d45c680637c8765ace9d3ca5db6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::modelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelChanged</name>
+        <qualifiedname>Navigation::modelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="204" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNavigation_1adba2c561241c6f602391c4c523bcaf6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::locationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>locationChanged</name>
+        <qualifiedname>Navigation::locationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="206" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNavigation_1a49a35dff2455a101b65c3d8dc07ed499" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::destinationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>destinationChanged</name>
+        <qualifiedname>Navigation::destinationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="207" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNavigation_1adf8c21f630edf84654e6e4398cb11c5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::destinationNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>destinationNameChanged</name>
+        <qualifiedname>Navigation::destinationNameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="208" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNavigation_1aee5dbd60e8bc37b5458b4136bb492250" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::destinationFeatureCurrentVertexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>destinationFeatureCurrentVertexChanged</name>
+        <qualifiedname>Navigation::destinationFeatureCurrentVertexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="210" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNavigation_1a3f0433ccac2f3a29f4e3860e03c68157" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::destinationFeatureVertexCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>destinationFeatureVertexCountChanged</name>
+        <qualifiedname>Navigation::destinationFeatureVertexCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="211" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNavigation_1acf16c54ddd5be46dafcc62e116d19c7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::detailsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>detailsChanged</name>
+        <qualifiedname>Navigation::detailsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="213" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNavigation_1af11ed61b80b4d4d2e354b8987fbb6bba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::proximityAlarmChanged</definition>
+        <argsstring>()</argsstring>
+        <name>proximityAlarmChanged</name>
+        <qualifiedname>Navigation::proximityAlarmChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="215" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNavigation_1a762fa66ca010e209e238aa2932bb22b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::proximityAlarmThresholdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>proximityAlarmThresholdChanged</name>
+        <qualifiedname>Navigation::proximityAlarmThresholdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="216" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classNavigation_1abc122b248d00219ae17dcc0bb176497b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::crsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>crsChanged</name>
+        <qualifiedname>Navigation::crsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="219" column="10" bodyfile="src/core/navigation.cpp" bodystart="77" bodyend="83"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classNavigation_1a64e11a09e9493a32eef1140709ff1156" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::updateDetails</definition>
+        <argsstring>()</argsstring>
+        <name>updateDetails</name>
+        <qualifiedname>Navigation::updateDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="222" column="10" bodyfile="src/core/navigation.cpp" bodystart="258" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a65df338d1171d87642c602672df5b802" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::setDestinationFromCurrentVertex</definition>
+        <argsstring>()</argsstring>
+        <name>setDestinationFromCurrentVertex</name>
+        <qualifiedname>Navigation::setDestinationFromCurrentVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="223" column="10" bodyfile="src/core/navigation.cpp" bodystart="209" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="classNavigation_1a569abba59083545f5257bc6b5defad89" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Navigation::updateProximityAlarmState</definition>
+        <argsstring>()</argsstring>
+        <name>updateProximityAlarmState</name>
+        <qualifiedname>Navigation::updateProximityAlarmState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/navigation.h" line="224" column="10" bodyfile="src/core/navigation.cpp" bodystart="302" bodyend="331"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Navigation</label>
+        <link refid="classNavigation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Navigation</label>
+        <link refid="classNavigation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/navigation.h" line="31" column="1" bodyfile="src/core/navigation.h" bodystart="32" bodyend="247"/>
+    <listofallmembers>
+      <member refid="classNavigation_1ab4e14fa4821aeb9462e36184da7c4096" prot="public" virt="non-virtual"><scope>Navigation</scope><name>bearing</name></member>
+      <member refid="classNavigation_1a827b4715e6eb7b777fd78feadc16862d" prot="public" virt="non-virtual"><scope>Navigation</scope><name>bearing</name></member>
+      <member refid="classNavigation_1a2950c6caca499f4658880e174b6043ba" prot="public" virt="non-virtual"><scope>Navigation</scope><name>clear</name></member>
+      <member refid="classNavigation_1a6323e9a71af54c430054d2b2a41fadbe" prot="public" virt="non-virtual"><scope>Navigation</scope><name>clearDestinationFeature</name></member>
+      <member refid="classNavigation_1abc122b248d00219ae17dcc0bb176497b" prot="private" virt="non-virtual"><scope>Navigation</scope><name>crsChanged</name></member>
+      <member refid="classNavigation_1a3b22361dba71abef602d77904de76c13" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destination</name></member>
+      <member refid="classNavigation_1a0792394db8520ddde8e795011badca4f" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destination</name></member>
+      <member refid="classNavigation_1a49a35dff2455a101b65c3d8dc07ed499" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destinationChanged</name></member>
+      <member refid="classNavigation_1a7397682a376e2214fab9c7e6203c2d30" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destinationFeatureCurrentVertex</name></member>
+      <member refid="classNavigation_1a31a4ba76b5ce5f10b6de2ad72f60fdff" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destinationFeatureCurrentVertex</name></member>
+      <member refid="classNavigation_1aee5dbd60e8bc37b5458b4136bb492250" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destinationFeatureCurrentVertexChanged</name></member>
+      <member refid="classNavigation_1a0a05a38bf7dcaf67cabb8cdc684d77f7" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destinationFeatureVertexCount</name></member>
+      <member refid="classNavigation_1a14a13c943e2a3ccb95eb5065eac951a1" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destinationFeatureVertexCount</name></member>
+      <member refid="classNavigation_1a3f0433ccac2f3a29f4e3860e03c68157" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destinationFeatureVertexCountChanged</name></member>
+      <member refid="classNavigation_1a282b71899a129f847668388df5e28207" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destinationName</name></member>
+      <member refid="classNavigation_1a47afd4892ae8575a18ad23842adb353a" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destinationName</name></member>
+      <member refid="classNavigation_1adf8c21f630edf84654e6e4398cb11c5a" prot="public" virt="non-virtual"><scope>Navigation</scope><name>destinationNameChanged</name></member>
+      <member refid="classNavigation_1acf16c54ddd5be46dafcc62e116d19c7d" prot="public" virt="non-virtual"><scope>Navigation</scope><name>detailsChanged</name></member>
+      <member refid="classNavigation_1a14267cc1def8f0995f6ad0ba9b904ec9" prot="public" virt="non-virtual"><scope>Navigation</scope><name>distance</name></member>
+      <member refid="classNavigation_1ac307e9f48b950529917f53e81a31b9c6" prot="public" virt="non-virtual"><scope>Navigation</scope><name>distance</name></member>
+      <member refid="classNavigation_1a71ceb062c35067a0a416084cbd12abc0" prot="public" virt="non-virtual"><scope>Navigation</scope><name>distanceUnits</name></member>
+      <member refid="classNavigation_1a66da6053bb3ac6ecd159371e3d3916fb" prot="public" virt="non-virtual"><scope>Navigation</scope><name>distanceUnits</name></member>
+      <member refid="classNavigation_1a7a8d348b7fa1c58f4530db9415e4dbfe" prot="public" virt="non-virtual"><scope>Navigation</scope><name>isActive</name></member>
+      <member refid="classNavigation_1a44e63f9578bed54d2e8018df09e106d2" prot="public" virt="non-virtual"><scope>Navigation</scope><name>isActive</name></member>
+      <member refid="classNavigation_1afb5990a5273cfd02f670ea4e27df70fd" prot="public" virt="non-virtual"><scope>Navigation</scope><name>isActiveChanged</name></member>
+      <member refid="classNavigation_1ab7d753a1be0e0f8b6b4b19be4a460f89" prot="public" virt="non-virtual"><scope>Navigation</scope><name>location</name></member>
+      <member refid="classNavigation_1adaa5a07a526d9e3649be672b24d1385f" prot="public" virt="non-virtual"><scope>Navigation</scope><name>location</name></member>
+      <member refid="classNavigation_1adba2c561241c6f602391c4c523bcaf6c" prot="public" virt="non-virtual"><scope>Navigation</scope><name>locationChanged</name></member>
+      <member refid="classNavigation_1a1d45a4a778965b1a443a4ba313644351" prot="public" virt="non-virtual"><scope>Navigation</scope><name>mapSettings</name></member>
+      <member refid="classNavigation_1a87b2161b51751b6e34a312a68d90c129" prot="public" virt="non-virtual"><scope>Navigation</scope><name>mapSettings</name></member>
+      <member refid="classNavigation_1abe672ea1db768152d8f6db0cdf26ecc2" prot="public" virt="non-virtual"><scope>Navigation</scope><name>mapSettingsChanged</name></member>
+      <member refid="classNavigation_1ae1d2ee38ad13c467cecc6e4553ba10a4" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mBearing</name></member>
+      <member refid="classNavigation_1aa2e3d1b601354c272a9cd64342921e0b" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mCurrentVertex</name></member>
+      <member refid="classNavigation_1a4d8b69702bfe95fd0499976d4ccdd1ee" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mDa</name></member>
+      <member refid="classNavigation_1abdd3c6b9d183c5d89c4c4ea4a2ea65bc" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mDestinationName</name></member>
+      <member refid="classNavigation_1a1e7c5958a636bd034957806d9c9982cb" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mDistance</name></member>
+      <member refid="classNavigation_1a620180e54b98b8915f3d957e0147979c" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mFeatureName</name></member>
+      <member refid="classNavigation_1aeb4dfb76e4ba8bc15e47256eed754683" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mGeometry</name></member>
+      <member refid="classNavigation_1aab43c54e020293e06d57f5ed9019340e" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mLastProximityAlarm</name></member>
+      <member refid="classNavigation_1a4195a5b6992ec9d3376d65fcebd4e471" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mLocation</name></member>
+      <member refid="classNavigation_1a1cde213640fc1924b48e3c9e902f02df" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mMapSettings</name></member>
+      <member refid="classNavigation_1add4a589abf59a05416fc4d9203379cd9" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mModel</name></member>
+      <member refid="classNavigation_1a0d8896a72145497de05ceb21ceb81d57" prot="public" virt="non-virtual"><scope>Navigation</scope><name>model</name></member>
+      <member refid="classNavigation_1aa8ee482406e2a5eef6a6dc6c4216448c" prot="public" virt="non-virtual"><scope>Navigation</scope><name>model</name></member>
+      <member refid="classNavigation_1aac05d45c680637c8765ace9d3ca5db6f" prot="public" virt="non-virtual"><scope>Navigation</scope><name>modelChanged</name></member>
+      <member refid="classNavigation_1a5e36a021b1541b21b8b05564ee101c43" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mPath</name></member>
+      <member refid="classNavigation_1a90001f3dcfdc8b5cb8f66e6ff6aebdb4" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mProximityAlarm</name></member>
+      <member refid="classNavigation_1a2b62b9b02ab309ed1201ea2cb8be8b95" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mProximityAlarmInterval</name></member>
+      <member refid="classNavigation_1acd8f885b9617202613eabd44d5a6c812" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mProximityAlarmThreshold</name></member>
+      <member refid="classNavigation_1afd95bc80d64ca4697ae7706a504ec52e" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mProximityAlarmTimer</name></member>
+      <member refid="classNavigation_1a8457480ce0b1dd033020b740b807cfa2" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mProximitySound</name></member>
+      <member refid="classNavigation_1a7b5b45f9159aa674c72ed13725acd371" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mVertexCount</name></member>
+      <member refid="classNavigation_1a99a4cd0e2adf8db66f5830729816f468" prot="private" virt="non-virtual"><scope>Navigation</scope><name>mVerticalDistance</name></member>
+      <member refid="classNavigation_1a81fdffdefe46340da5fa6c570066b42b" prot="public" virt="non-virtual"><scope>Navigation</scope><name>Navigation</name></member>
+      <member refid="classNavigation_1a48f241bf1db28dc6e184873408a16da0" prot="public" virt="non-virtual"><scope>Navigation</scope><name>nextDestinationVertex</name></member>
+      <member refid="classNavigation_1a78d0df42ea0ffba020fbfb2e591fe81b" prot="public" virt="non-virtual"><scope>Navigation</scope><name>path</name></member>
+      <member refid="classNavigation_1a4e9a12b7fd09bf3985734445503284c2" prot="public" virt="non-virtual"><scope>Navigation</scope><name>path</name></member>
+      <member refid="classNavigation_1adfe9032695699da51bf0e543373ab3aa" prot="public" virt="non-virtual"><scope>Navigation</scope><name>previousDestinationVertex</name></member>
+      <member refid="classNavigation_1a9f177a09199644778519c8126a636afe" prot="public" virt="non-virtual"><scope>Navigation</scope><name>proximityAlarm</name></member>
+      <member refid="classNavigation_1ad9ff5e3308203ea3bdbb541dfcbfaa24" prot="public" virt="non-virtual"><scope>Navigation</scope><name>proximityAlarm</name></member>
+      <member refid="classNavigation_1af11ed61b80b4d4d2e354b8987fbb6bba" prot="public" virt="non-virtual"><scope>Navigation</scope><name>proximityAlarmChanged</name></member>
+      <member refid="classNavigation_1ad66040dfbb20931118e3db5275e6ed31" prot="public" virt="non-virtual"><scope>Navigation</scope><name>proximityAlarmThreshold</name></member>
+      <member refid="classNavigation_1a76a139f13d3c3a55be603cee2412cc4e" prot="public" virt="non-virtual"><scope>Navigation</scope><name>proximityAlarmThreshold</name></member>
+      <member refid="classNavigation_1a762fa66ca010e209e238aa2932bb22b5" prot="public" virt="non-virtual"><scope>Navigation</scope><name>proximityAlarmThresholdChanged</name></member>
+      <member refid="classNavigation_1a5b000492cc1df18d4dbce5e47b6f20cb" prot="public" virt="non-virtual"><scope>Navigation</scope><name>setDestination</name></member>
+      <member refid="classNavigation_1a4038ce2cd59710572c641e1a2bb94a60" prot="public" virt="non-virtual"><scope>Navigation</scope><name>setDestinationFeature</name></member>
+      <member refid="classNavigation_1a65df338d1171d87642c602672df5b802" prot="private" virt="non-virtual"><scope>Navigation</scope><name>setDestinationFromCurrentVertex</name></member>
+      <member refid="classNavigation_1aca9ee0cb2e6b1efc6917fdb9d851f563" prot="public" virt="non-virtual"><scope>Navigation</scope><name>setLocation</name></member>
+      <member refid="classNavigation_1ad5ce06613391b2feaf9b5b4741735e26" prot="public" virt="non-virtual"><scope>Navigation</scope><name>setMapSettings</name></member>
+      <member refid="classNavigation_1a8f7c45e3a02872f290d9aa21b4a31a7c" prot="public" virt="non-virtual"><scope>Navigation</scope><name>setProximityAlarm</name></member>
+      <member refid="classNavigation_1af5070872fe2e03681aab386cbd87e2ca" prot="public" virt="non-virtual"><scope>Navigation</scope><name>setProximityAlarmThreshold</name></member>
+      <member refid="classNavigation_1a64e11a09e9493a32eef1140709ff1156" prot="private" virt="non-virtual"><scope>Navigation</scope><name>updateDetails</name></member>
+      <member refid="classNavigation_1a569abba59083545f5257bc6b5defad89" prot="private" virt="non-virtual"><scope>Navigation</scope><name>updateProximityAlarmState</name></member>
+      <member refid="classNavigation_1ae18bee45b847449d4454a23cd345ae1d" prot="public" virt="non-virtual"><scope>Navigation</scope><name>verticalDistance</name></member>
+      <member refid="classNavigation_1a6adec0049b14e9df9584cd6b9b02e92c" prot="public" virt="non-virtual"><scope>Navigation</scope><name>verticalDistance</name></member>
+      <member refid="classNavigation_1addd4022d716df48f4e55a1db69361ba7" prot="public" virt="non-virtual"><scope>Navigation</scope><name>~Navigation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

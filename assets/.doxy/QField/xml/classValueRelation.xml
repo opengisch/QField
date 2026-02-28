@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classValueRelation" kind="class" language="C++" prot="public">
+    <compoundname>ValueRelation</compoundname>
+    <basecompoundref refid="classEditorWidgetBase" prot="public" virt="non-virtual">EditorWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classValueRelation_1af554a937aed5b80e007699e00b86ecd7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ValueRelation::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>ValueRelation::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="8" column="5" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1a0bc8d0da3822ded3fb0f2b0bcd614e97" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ValueRelation::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>ValueRelation::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="9" column="5" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1a6102646955b17683ee890c39b4d14a4a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ValueRelation::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>ValueRelation::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="17" column="5" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueRelation_1ad0c5175e8e4657db48d36e744fdd3dba" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ValueRelation::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>ValueRelation::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="18" column="5" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classValueRelation_1a37b4b06fa9af131d4a0c8d4e568abc4e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int ValueRelation::toggleButtonsThreshold</definition>
+        <argsstring></argsstring>
+        <name>toggleButtonsThreshold</name>
+        <qualifiedname>ValueRelation::toggleButtonsThreshold</qualifiedname>
+        <read>dummyGetter_toggleButtonsThreshold_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="13" column="1" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classValueRelation_1acd37c12cc2cdc00621a68ffd962dfdb5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool ValueRelation::useToggleButtons</definition>
+        <argsstring></argsstring>
+        <name>useToggleButtons</name>
+        <qualifiedname>ValueRelation::useToggleButtons</qualifiedname>
+        <read>dummyGetter_useToggleButtons_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueRelation.qml" line="15" column="1" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ValueRelation</label>
+        <link refid="classValueRelation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ValueRelation</label>
+        <link refid="classValueRelation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/ValueRelation.qml" line="7" column="1" bodyfile="src/qml/editorwidgets/ValueRelation.qml" bodystart="7" bodyend="19"/>
+    <listofallmembers>
+      <member refid="classValueRelation_1a0bc8d0da3822ded3fb0f2b0bcd614e97" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>enabled</name></member>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>hasMenu</name></member>
+      <member refid="classValueRelation_1af554a937aed5b80e007699e00b86ecd7" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>height</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>isNull</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>menu</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>requestBarcode</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>requestJumpToPoint</name></member>
+      <member refid="classValueRelation_1a6102646955b17683ee890c39b4d14a4a" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>state</name></member>
+      <member refid="classValueRelation_1ad0c5175e8e4657db48d36e744fdd3dba" prot="private" virt="non-virtual"><scope>ValueRelation</scope><name>states</name></member>
+      <member refid="classValueRelation_1a37b4b06fa9af131d4a0c8d4e568abc4e" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>toggleButtonsThreshold</name></member>
+      <member refid="classValueRelation_1acd37c12cc2cdc00621a68ffd962dfdb5" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>useToggleButtons</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>ValueRelation</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

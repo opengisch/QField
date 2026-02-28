@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFlusher" kind="class" language="C++" prot="public">
+    <compoundname>Flusher</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFlusher_1a4037e09318b4d67b90d970ee85d512e0" prot="private" static="no" mutable="no">
+        <type>QMutex</type>
+        <definition>QMutex Flusher::mMutex</definition>
+        <argsstring></argsstring>
+        <name>mMutex</name>
+        <qualifiedname>Flusher::mMutex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.cpp" line="64" column="12" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlusher_1ae1025c6b4872cf9fd26de7636854ba21" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QTimer * &gt;</type>
+        <definition>QMap&lt;QString, QTimer *&gt; Flusher::mScheduledFlushes</definition>
+        <argsstring></argsstring>
+        <name>mScheduledFlushes</name>
+        <qualifiedname>Flusher::mScheduledFlushes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.cpp" line="65" column="10" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFlusher_1ae88389d2f00409c48ceadd939722bfa3" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, bool &gt;</type>
+        <definition>QMap&lt;QString, bool&gt; Flusher::mStoppedFlushes</definition>
+        <argsstring></argsstring>
+        <name>mStoppedFlushes</name>
+        <qualifiedname>Flusher::mStoppedFlushes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.cpp" line="66" column="10" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classFlusher_1a5b57961c789a17ae2d67445923129f27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Flusher::scheduleFlush</definition>
+        <argsstring>(const QString &amp;filename)</argsstring>
+        <name>scheduleFlush</name>
+        <qualifiedname>Flusher::scheduleFlush</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules a new flush for the given <emphasis>filename</emphasis> after 500ms. If a new flush is scheduled for the same file before the actual flush is performed, the timer is reset to wait another 500ms. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.cpp" line="41" column="10" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="124" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFlusher_1a344dd40a5c20bb91082df2e90133c93c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Flusher::flush</definition>
+        <argsstring>(const QString &amp;filename)</argsstring>
+        <name>flush</name>
+        <qualifiedname>Flusher::flush</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flushes the contents of the given <emphasis>filename</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.cpp" line="46" column="10" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="143" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFlusher_1aee1da9e8b8c192b445b3a014682931eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Flusher::stop</definition>
+        <argsstring>(const QString &amp;fileName)</argsstring>
+        <name>stop</name>
+        <qualifiedname>Flusher::stop</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Immediately performs a flush for a given <emphasis>fileName</emphasis> and returns. If the flusher is stopped, flush for that <emphasis>fileName</emphasis> would be ignored. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.cpp" line="51" column="10" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="176" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFlusher_1a715a6d66f3e64714175bbe8826447878" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Flusher::start</definition>
+        <argsstring>(const QString &amp;fileName)</argsstring>
+        <name>start</name>
+        <qualifiedname>Flusher::start</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reenables scheduling flushes for a given <emphasis>fileName</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.cpp" line="56" column="10" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="189" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFlusher_1ac8f70f2e3b289aeb42c60906b17c1fa2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Flusher::isStopped</definition>
+        <argsstring>(const QString &amp;fileName) const</argsstring>
+        <name>isStopped</name>
+        <qualifiedname>Flusher::isStopped</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the flusher is stopped for a given <emphasis>fileName</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsgpkgflusher.cpp" line="61" column="10" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="194" bodyend="197"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Flusher</label>
+        <link refid="classFlusher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Flusher</label>
+        <link refid="classFlusher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qgsgpkgflusher.cpp" line="32" column="1" bodyfile="src/core/qgsgpkgflusher.cpp" bodystart="33" bodyend="67"/>
+    <listofallmembers>
+      <member refid="classFlusher_1a344dd40a5c20bb91082df2e90133c93c" prot="public" virt="non-virtual"><scope>Flusher</scope><name>flush</name></member>
+      <member refid="classFlusher_1ac8f70f2e3b289aeb42c60906b17c1fa2" prot="public" virt="non-virtual"><scope>Flusher</scope><name>isStopped</name></member>
+      <member refid="classFlusher_1a4037e09318b4d67b90d970ee85d512e0" prot="private" virt="non-virtual"><scope>Flusher</scope><name>mMutex</name></member>
+      <member refid="classFlusher_1ae1025c6b4872cf9fd26de7636854ba21" prot="private" virt="non-virtual"><scope>Flusher</scope><name>mScheduledFlushes</name></member>
+      <member refid="classFlusher_1ae88389d2f00409c48ceadd939722bfa3" prot="private" virt="non-virtual"><scope>Flusher</scope><name>mStoppedFlushes</name></member>
+      <member refid="classFlusher_1a5b57961c789a17ae2d67445923129f27" prot="public" virt="non-virtual"><scope>Flusher</scope><name>scheduleFlush</name></member>
+      <member refid="classFlusher_1a715a6d66f3e64714175bbe8826447878" prot="public" virt="non-virtual"><scope>Flusher</scope><name>start</name></member>
+      <member refid="classFlusher_1aee1da9e8b8c192b445b3a014682931eb" prot="public" virt="non-virtual"><scope>Flusher</scope><name>stop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

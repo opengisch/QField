@@ -1,0 +1,669 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQuick3DMapTextureData" kind="class" language="C++" prot="public">
+    <compoundname>Quick3DMapTextureData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuick3DTextureData</basecompoundref>
+    <includes refid="quick3dmaptexturedata_8h" local="no">quick3dmaptexturedata.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQuick3DMapTextureData_1af607d80fe6fb8fe490e2a6a741464136" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QML_ELEMENT <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QML_ELEMENT QgsQuickMapSettings * Quick3DMapTextureData::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>Quick3DMapTextureData::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+<para>The map settings from which to get layers, extent, and output size for rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="45" column="5" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DMapTextureData_1abec5a048e5e77df4f9ad447110dd002a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle Quick3DMapTextureData::extent</definition>
+        <argsstring></argsstring>
+        <name>extent</name>
+        <qualifiedname>Quick3DMapTextureData::extent</qualifiedname>
+        <read>extent</read>
+        <write>setExtent</write>
+        <briefdescription>
+<para>Optional custom extent to render. If not set, uses mapSettings extent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="48" column="5" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DMapTextureData_1a9713fcd833c913e105b28fe93f3ec96b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Quick3DMapTextureData::ready</definition>
+        <argsstring></argsstring>
+        <name>ready</name>
+        <qualifiedname>Quick3DMapTextureData::ready</qualifiedname>
+        <read>isReady</read>
+        <briefdescription>
+<para>Whether the texture data is ready to use. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="51" column="5" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DMapTextureData_1a234a6a9c9bced799bdcf4f4cbb439caa" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Quick3DMapTextureData::incrementalRendering</definition>
+        <argsstring></argsstring>
+        <name>incrementalRendering</name>
+        <qualifiedname>Quick3DMapTextureData::incrementalRendering</qualifiedname>
+        <read>incrementalRendering</read>
+        <write>setIncrementalRendering</write>
+        <briefdescription>
+<para>When the incrementalRendering property is set to true, the incremental refresh of the terrain data during rendering is allowed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="54" column="5" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DMapTextureData_1aa6705ae606c54b94698b29f5abd2cf48" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Quick3DMapTextureData::forceDeferredLayersRepaint</definition>
+        <argsstring></argsstring>
+        <name>forceDeferredLayersRepaint</name>
+        <qualifiedname>Quick3DMapTextureData::forceDeferredLayersRepaint</qualifiedname>
+        <read>forceDeferredLayersRepaint</read>
+        <write>setForceDeferredLayersRepaint</write>
+        <briefdescription>
+<para>Defers layer repaint requests while a render job is running. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="57" column="5" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQuick3DMapTextureData_1a7b82af1c9c9ca806091baca8f4e4076a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* Quick3DMapTextureData::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>Quick3DMapTextureData::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="122" column="25" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DMapTextureData_1a46bdfcee371f24cec8bd4c30b014727f" prot="private" static="no" mutable="no">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle Quick3DMapTextureData::mExtent</definition>
+        <argsstring></argsstring>
+        <name>mExtent</name>
+        <qualifiedname>Quick3DMapTextureData::mExtent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="123" column="18" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DMapTextureData_1a73cec4c2774348ec3863b7b5f2b501c1" prot="private" static="no" mutable="no">
+        <type>QObjectUniquePtr&lt; QgsMapRendererParallelJob &gt;</type>
+        <definition>QObjectUniquePtr&lt;QgsMapRendererParallelJob&gt; Quick3DMapTextureData::mRenderJob</definition>
+        <argsstring></argsstring>
+        <name>mRenderJob</name>
+        <qualifiedname>Quick3DMapTextureData::mRenderJob</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="124" column="22" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DMapTextureData_1a78effecc5a1e148dd695d8b36d351f55" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer Quick3DMapTextureData::mMapUpdateTimer</definition>
+        <argsstring></argsstring>
+        <name>mMapUpdateTimer</name>
+        <qualifiedname>Quick3DMapTextureData::mMapUpdateTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="125" column="12" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DMapTextureData_1ac3c40ea1ef7b9e56ffc2df04f84da578" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer Quick3DMapTextureData::mRefreshTimer</definition>
+        <argsstring></argsstring>
+        <name>mRefreshTimer</name>
+        <qualifiedname>Quick3DMapTextureData::mRefreshTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="126" column="12" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DMapTextureData_1ac17665c77c6645bf9703739d313d8344" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Quick3DMapTextureData::mIncrementalRendering</definition>
+        <argsstring></argsstring>
+        <name>mIncrementalRendering</name>
+        <qualifiedname>Quick3DMapTextureData::mIncrementalRendering</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="127" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DMapTextureData_1a15f73e5d377cc8b5dc1113ce0afc647e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Quick3DMapTextureData::mForceDeferredLayersRepaint</definition>
+        <argsstring></argsstring>
+        <name>mForceDeferredLayersRepaint</name>
+        <qualifiedname>Quick3DMapTextureData::mForceDeferredLayersRepaint</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="128" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DMapTextureData_1a9c06223f164a3ad40b59f15a3521f884" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Quick3DMapTextureData::mDeferredRefreshPending</definition>
+        <argsstring></argsstring>
+        <name>mDeferredRefreshPending</name>
+        <qualifiedname>Quick3DMapTextureData::mDeferredRefreshPending</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="129" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DMapTextureData_1a3fcdfb429980d5be0f6127660db4f918" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Quick3DMapTextureData::mReady</definition>
+        <argsstring></argsstring>
+        <name>mReady</name>
+        <qualifiedname>Quick3DMapTextureData::mReady</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="130" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DMapTextureData_1a7704a39d2f80f910849775241cc476d8" prot="private" static="no" mutable="no">
+        <type>QVector&lt; QMetaObject::Connection &gt;</type>
+        <definition>QVector&lt;QMetaObject::Connection&gt; Quick3DMapTextureData::mLayerConnections</definition>
+        <argsstring></argsstring>
+        <name>mLayerConnections</name>
+        <qualifiedname>Quick3DMapTextureData::mLayerConnections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="131" column="13" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQuick3DMapTextureData_1a46cc744c31055ccbe69f9aab5e8c22b6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Quick3DMapTextureData::Quick3DMapTextureData</definition>
+        <argsstring>(QQuick3DObject *parent=nullptr)</argsstring>
+        <name>Quick3DMapTextureData</name>
+        <qualifiedname>Quick3DMapTextureData::Quick3DMapTextureData</qualifiedname>
+        <param>
+          <type>QQuick3DObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Creates a new map texture data provider. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="61" column="14" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="27" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1a450a084d21fa2ba9b5922f419c32f25f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Quick3DMapTextureData::~Quick3DMapTextureData</definition>
+        <argsstring>() override</argsstring>
+        <name>~Quick3DMapTextureData</name>
+        <qualifiedname>Quick3DMapTextureData::~Quick3DMapTextureData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="62" column="5" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="38" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1a5d9cf33902c05f8604c64c69589d59b4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * Quick3DMapTextureData::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>Quick3DMapTextureData::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Returns the map settings from which to get layers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="65" column="25" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="47" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1aa37294810cf932a86a27ce4682082917" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>Quick3DMapTextureData::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+<para>Sets the map settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="68" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="52" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1adc63d5c20f8d3b0ce475f885e4dbd08e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle Quick3DMapTextureData::extent</definition>
+        <argsstring>() const</argsstring>
+        <name>extent</name>
+        <qualifiedname>Quick3DMapTextureData::extent</qualifiedname>
+        <briefdescription>
+<para>Returns the custom extent for rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="71" column="18" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1a25f60e8bdbcec76ff9b753049558e0ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::setExtent</definition>
+        <argsstring>(const QgsRectangle &amp;extent)</argsstring>
+        <name>setExtent</name>
+        <qualifiedname>Quick3DMapTextureData::setExtent</qualifiedname>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>extent</declname>
+        </param>
+        <briefdescription>
+<para>Sets a custom extent for rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="74" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="91" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1ad084e40624064438fc1ab894b9e5fed4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Quick3DMapTextureData::isReady</definition>
+        <argsstring>() const</argsstring>
+        <name>isReady</name>
+        <qualifiedname>Quick3DMapTextureData::isReady</qualifiedname>
+        <briefdescription>
+<para>Returns whether the texture data is ready to use. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="77" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1ac1f24e0c351c3eeb0e5cf6e302850e08" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Quick3DMapTextureData::incrementalRendering</definition>
+        <argsstring>() const</argsstring>
+        <name>incrementalRendering</name>
+        <qualifiedname>Quick3DMapTextureData::incrementalRendering</qualifiedname>
+        <briefdescription>
+<para>Returns whether incremental rendering is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="80" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1aba79a1183b1450a61844233ad285af16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::setIncrementalRendering</definition>
+        <argsstring>(bool incrementalRendering)</argsstring>
+        <name>setIncrementalRendering</name>
+        <qualifiedname>Quick3DMapTextureData::setIncrementalRendering</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>incrementalRendering</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether incremental rendering is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="83" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="112" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1aeab2d7ef9c72ab41d80e98537ec69689" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Quick3DMapTextureData::forceDeferredLayersRepaint</definition>
+        <argsstring>() const</argsstring>
+        <name>forceDeferredLayersRepaint</name>
+        <qualifiedname>Quick3DMapTextureData::forceDeferredLayersRepaint</qualifiedname>
+        <briefdescription>
+<para>Returns whether deferred layers repaint is forced. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="86" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1a65d784bb07a29050950853c5902a7ab5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::setForceDeferredLayersRepaint</definition>
+        <argsstring>(bool deferred)</argsstring>
+        <name>setForceDeferredLayersRepaint</name>
+        <qualifiedname>Quick3DMapTextureData::setForceDeferredLayersRepaint</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>deferred</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether deferred layers repaint is forced. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="89" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="128" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1ad13a2b162c2b94e1116e95e36ee59ae0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Quick3DMapTextureData::render</definition>
+        <argsstring>()</argsstring>
+        <name>render</name>
+        <qualifiedname>Quick3DMapTextureData::render</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts the asynchronous map rendering process. The readyChanged signal is emitted when rendering completes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="95" column="22" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="161" bodyend="215"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQuick3DMapTextureData_1a8b0978c997c50f0c52ac26a3f41ad401" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>Quick3DMapTextureData::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when map settings changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="99" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DMapTextureData_1ab3a063aa4b144d79dc9049441e6d2a73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::extentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>extentChanged</name>
+        <qualifiedname>Quick3DMapTextureData::extentChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when extent changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="102" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DMapTextureData_1aa12839976bbbe5fd317b55db7bfcba1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::readyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>readyChanged</name>
+        <qualifiedname>Quick3DMapTextureData::readyChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when texture rendering is complete and data is ready. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="105" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DMapTextureData_1a51d723b58a69ceae48855ede75b27630" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::incrementalRenderingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>incrementalRenderingChanged</name>
+        <qualifiedname>Quick3DMapTextureData::incrementalRenderingChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when incremental rendering setting changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="108" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DMapTextureData_1aca55626f7ff1653b25321c2b249b12de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::forceDeferredLayersRepaintChanged</definition>
+        <argsstring>()</argsstring>
+        <name>forceDeferredLayersRepaintChanged</name>
+        <qualifiedname>Quick3DMapTextureData::forceDeferredLayersRepaintChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when forceDeferredLayersRepaint changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="111" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQuick3DMapTextureData_1a7a29102a34bcaf2333af16daa2722ac4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::onRenderJobUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>onRenderJobUpdated</name>
+        <qualifiedname>Quick3DMapTextureData::onRenderJobUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="114" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="217" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQuick3DMapTextureData_1a3ca0ab7a242a171abfa0c196a1dedf37" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::onRenderFinished</definition>
+        <argsstring>()</argsstring>
+        <name>onRenderFinished</name>
+        <qualifiedname>Quick3DMapTextureData::onRenderFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="115" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="229" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQuick3DMapTextureData_1a3a3660a9e65685c3c9bcd7a7191f1ca5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::layerRepaintRequested</definition>
+        <argsstring>()</argsstring>
+        <name>layerRepaintRequested</name>
+        <qualifiedname>Quick3DMapTextureData::layerRepaintRequested</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="116" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="137" bodyend="154"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQuick3DMapTextureData_1aaada78c0a3166da892d71217c77f82c2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::updateTextureData</definition>
+        <argsstring>(const QImage &amp;image)</argsstring>
+        <name>updateTextureData</name>
+        <qualifiedname>Quick3DMapTextureData::updateTextureData</qualifiedname>
+        <param>
+          <type>const QImage &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="119" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="253" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DMapTextureData_1a999a090928c3ca965bed2bc144c2a21b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DMapTextureData::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <qualifiedname>Quick3DMapTextureData::refresh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dmaptexturedata.h" line="120" column="10" bodyfile="src/core/3d/quick3dmaptexturedata.cpp" bodystart="156" bodyend="159"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides in-memory texture data from rendered map layers for 3D terrain visualization.</para>
+<para>This class inherits from QQuick3DTextureData to provide texture data directly in memory, avoiding the need for temporary files. The map is rendered using QGIS rendering engine and the result is exposed as texture data for Qt Quick 3D.</para>
+<para><simplesect kind="note"><para>QML Type: <ref refid="classQuick3DMapTextureData" kindref="compound">Quick3DMapTextureData</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuick3DTextureData</label>
+      </node>
+      <node id="1">
+        <label>Quick3DMapTextureData</label>
+        <link refid="classQuick3DMapTextureData"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuick3DTextureData</label>
+      </node>
+      <node id="1">
+        <label>Quick3DMapTextureData</label>
+        <link refid="classQuick3DMapTextureData"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/3d/quick3dmaptexturedata.h" line="39" column="1" bodyfile="src/core/3d/quick3dmaptexturedata.h" bodystart="40" bodyend="132"/>
+    <listofallmembers>
+      <member refid="classQuick3DMapTextureData_1abec5a048e5e77df4f9ad447110dd002a" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>extent</name></member>
+      <member refid="classQuick3DMapTextureData_1adc63d5c20f8d3b0ce475f885e4dbd08e" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>extent</name></member>
+      <member refid="classQuick3DMapTextureData_1ab3a063aa4b144d79dc9049441e6d2a73" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>extentChanged</name></member>
+      <member refid="classQuick3DMapTextureData_1aa6705ae606c54b94698b29f5abd2cf48" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>forceDeferredLayersRepaint</name></member>
+      <member refid="classQuick3DMapTextureData_1aeab2d7ef9c72ab41d80e98537ec69689" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>forceDeferredLayersRepaint</name></member>
+      <member refid="classQuick3DMapTextureData_1aca55626f7ff1653b25321c2b249b12de" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>forceDeferredLayersRepaintChanged</name></member>
+      <member refid="classQuick3DMapTextureData_1a234a6a9c9bced799bdcf4f4cbb439caa" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>incrementalRendering</name></member>
+      <member refid="classQuick3DMapTextureData_1ac1f24e0c351c3eeb0e5cf6e302850e08" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>incrementalRendering</name></member>
+      <member refid="classQuick3DMapTextureData_1a51d723b58a69ceae48855ede75b27630" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>incrementalRenderingChanged</name></member>
+      <member refid="classQuick3DMapTextureData_1ad084e40624064438fc1ab894b9e5fed4" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>isReady</name></member>
+      <member refid="classQuick3DMapTextureData_1a3a3660a9e65685c3c9bcd7a7191f1ca5" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>layerRepaintRequested</name></member>
+      <member refid="classQuick3DMapTextureData_1af607d80fe6fb8fe490e2a6a741464136" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mapSettings</name></member>
+      <member refid="classQuick3DMapTextureData_1a5d9cf33902c05f8604c64c69589d59b4" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mapSettings</name></member>
+      <member refid="classQuick3DMapTextureData_1a8b0978c997c50f0c52ac26a3f41ad401" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQuick3DMapTextureData_1a9c06223f164a3ad40b59f15a3521f884" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mDeferredRefreshPending</name></member>
+      <member refid="classQuick3DMapTextureData_1a46bdfcee371f24cec8bd4c30b014727f" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mExtent</name></member>
+      <member refid="classQuick3DMapTextureData_1a15f73e5d377cc8b5dc1113ce0afc647e" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mForceDeferredLayersRepaint</name></member>
+      <member refid="classQuick3DMapTextureData_1ac17665c77c6645bf9703739d313d8344" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mIncrementalRendering</name></member>
+      <member refid="classQuick3DMapTextureData_1a7704a39d2f80f910849775241cc476d8" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mLayerConnections</name></member>
+      <member refid="classQuick3DMapTextureData_1a7b82af1c9c9ca806091baca8f4e4076a" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mMapSettings</name></member>
+      <member refid="classQuick3DMapTextureData_1a78effecc5a1e148dd695d8b36d351f55" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mMapUpdateTimer</name></member>
+      <member refid="classQuick3DMapTextureData_1a3fcdfb429980d5be0f6127660db4f918" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mReady</name></member>
+      <member refid="classQuick3DMapTextureData_1ac3c40ea1ef7b9e56ffc2df04f84da578" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mRefreshTimer</name></member>
+      <member refid="classQuick3DMapTextureData_1a73cec4c2774348ec3863b7b5f2b501c1" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>mRenderJob</name></member>
+      <member refid="classQuick3DMapTextureData_1a3ca0ab7a242a171abfa0c196a1dedf37" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>onRenderFinished</name></member>
+      <member refid="classQuick3DMapTextureData_1a7a29102a34bcaf2333af16daa2722ac4" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>onRenderJobUpdated</name></member>
+      <member refid="classQuick3DMapTextureData_1a46cc744c31055ccbe69f9aab5e8c22b6" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>Quick3DMapTextureData</name></member>
+      <member refid="classQuick3DMapTextureData_1a9713fcd833c913e105b28fe93f3ec96b" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>ready</name></member>
+      <member refid="classQuick3DMapTextureData_1aa12839976bbbe5fd317b55db7bfcba1d" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>readyChanged</name></member>
+      <member refid="classQuick3DMapTextureData_1a999a090928c3ca965bed2bc144c2a21b" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>refresh</name></member>
+      <member refid="classQuick3DMapTextureData_1ad13a2b162c2b94e1116e95e36ee59ae0" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>render</name></member>
+      <member refid="classQuick3DMapTextureData_1a25f60e8bdbcec76ff9b753049558e0ec" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>setExtent</name></member>
+      <member refid="classQuick3DMapTextureData_1a65d784bb07a29050950853c5902a7ab5" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>setForceDeferredLayersRepaint</name></member>
+      <member refid="classQuick3DMapTextureData_1aba79a1183b1450a61844233ad285af16" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>setIncrementalRendering</name></member>
+      <member refid="classQuick3DMapTextureData_1aa37294810cf932a86a27ce4682082917" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>setMapSettings</name></member>
+      <member refid="classQuick3DMapTextureData_1aaada78c0a3166da892d71217c77f82c2" prot="private" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>updateTextureData</name></member>
+      <member refid="classQuick3DMapTextureData_1a450a084d21fa2ba9b5922f419c32f25f" prot="public" virt="non-virtual"><scope>Quick3DMapTextureData</scope><name>~Quick3DMapTextureData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classUuidGenerator" kind="class" language="C++" prot="public">
+    <compoundname>UuidGenerator</compoundname>
+    <basecompoundref refid="classEditorWidgetBase" prot="public" virt="non-virtual">EditorWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classUuidGenerator_1aa3f720ea51f30a3482f2aafb46e98795" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var UuidGenerator::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>UuidGenerator::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/UuidGenerator.qml" line="5" column="5" bodyfile="src/qml/editorwidgets/UuidGenerator.qml" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classUuidGenerator_1a826248d33c798b35980b12844ce6a175" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label UuidGenerator::uuidLabel</definition>
+        <argsstring></argsstring>
+        <name>uuidLabel</name>
+        <qualifiedname>UuidGenerator::uuidLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/UuidGenerator.qml" line="6" column="7" bodyfile="src/qml/editorwidgets/UuidGenerator.qml" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classUuidGenerator_1ab61da41d572fc56499cd183b8313f7d1" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics UuidGenerator::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>UuidGenerator::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/UuidGenerator.qml" line="7" column="13" bodyfile="src/qml/editorwidgets/UuidGenerator.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>UuidGenerator</label>
+        <link refid="classUuidGenerator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>UuidGenerator</label>
+        <link refid="classUuidGenerator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/UuidGenerator.qml" line="4" column="1" bodyfile="src/qml/editorwidgets/UuidGenerator.qml" bodystart="4" bodyend="8"/>
+    <listofallmembers>
+      <member refid="classUuidGenerator_1ab61da41d572fc56499cd183b8313f7d1" prot="private" virt="non-virtual"><scope>UuidGenerator</scope><name>fontMetrics</name></member>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>UuidGenerator</scope><name>hasMenu</name></member>
+      <member refid="classUuidGenerator_1aa3f720ea51f30a3482f2aafb46e98795" prot="private" virt="non-virtual"><scope>UuidGenerator</scope><name>height</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>UuidGenerator</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>UuidGenerator</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>UuidGenerator</scope><name>isNull</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>UuidGenerator</scope><name>menu</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>UuidGenerator</scope><name>requestBarcode</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>UuidGenerator</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>UuidGenerator</scope><name>requestJumpToPoint</name></member>
+      <member refid="classUuidGenerator_1a826248d33c798b35980b12844ce6a175" prot="private" virt="non-virtual"><scope>UuidGenerator</scope><name>uuidLabel</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>UuidGenerator</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

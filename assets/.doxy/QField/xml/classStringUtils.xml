@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classStringUtils" kind="class" language="C++" prot="public">
+    <compoundname>StringUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classStringUtils_1a83138d845e47bfe3cde0843de6a9e5a1" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StringUtils::StringUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>StringUtils</name>
+        <qualifiedname>StringUtils::StringUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/stringutils.h" line="36" column="14" bodyfile="src/core/utils/stringutils.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classStringUtils_1af1c2fcc2cd61c650667a4d14d146cda4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString StringUtils::insertLinks</definition>
+        <argsstring>(const QString &amp;string)</argsstring>
+        <name>insertLinks</name>
+        <qualifiedname>StringUtils::insertLinks</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+<para>Returns a string with any URL (e.g., http(s)/ftp) and mailto: text converted to valid HTML  links. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/stringutils.h" line="39" column="32" bodyfile="src/core/utils/stringutils.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classStringUtils_1aef1179a175b9137a8a2046ebfc0f7736" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool StringUtils::hasLinks</definition>
+        <argsstring>(const QString &amp;string)</argsstring>
+        <name>hasLinks</name>
+        <qualifiedname>StringUtils::hasLinks</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether a string contains one or more URLs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/stringutils.h" line="42" column="29" bodyfile="src/core/utils/stringutils.cpp" bodystart="36" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classStringUtils_1a2d82e5b945622ba2dbd9f2d4ffcc74e1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString StringUtils::createUuid</definition>
+        <argsstring>()</argsstring>
+        <name>createUuid</name>
+        <qualifiedname>StringUtils::createUuid</qualifiedname>
+        <briefdescription>
+<para>Returns a new UUID string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/stringutils.h" line="45" column="32" bodyfile="src/core/utils/stringutils.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classStringUtils_1a084ff9d257d7c84946874cd055bb41d8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool StringUtils::fuzzyMatch</definition>
+        <argsstring>(const QString &amp;source, const QString &amp;term)</argsstring>
+        <name>fuzzyMatch</name>
+        <qualifiedname>StringUtils::fuzzyMatch</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+<para>Checks whether the string <emphasis>term</emphasis> is part of <emphasis>source</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/stringutils.h" line="48" column="17" bodyfile="src/core/utils/stringutils.cpp" bodystart="50" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classStringUtils_1a9f8b5d8c7f394d6f4d540e50eb256644" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double StringUtils::calcFuzzyScore</definition>
+        <argsstring>(const QString &amp;string, const QString &amp;searchTerm)</argsstring>
+        <name>calcFuzzyScore</name>
+        <qualifiedname>StringUtils::calcFuzzyScore</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>searchTerm</declname>
+        </param>
+        <briefdescription>
+<para>Calculates a fuzzy matching score between a <emphasis>string</emphasis> and a <emphasis>searchTerm</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/stringutils.h" line="51" column="19" bodyfile="src/core/utils/stringutils.cpp" bodystart="80" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classStringUtils_1ab462966ca558c11b55693d8434476947" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString StringUtils::highlightText</definition>
+        <argsstring>(const QString &amp;string, const QString &amp;highlightText, const QColor &amp;highlightColor=QColor())</argsstring>
+        <name>highlightText</name>
+        <qualifiedname>StringUtils::highlightText</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>highlightText</declname>
+        </param>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>highlightColor</declname>
+          <defval>QColor()</defval>
+        </param>
+        <briefdescription>
+<para>Returns a string highlighting a text using HTML formatting. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/stringutils.h" line="54" column="32" bodyfile="src/core/utils/stringutils.cpp" bodystart="191" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classStringUtils_1a2121a4ee9b5827af933640df3c0607c7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString StringUtils::pointInformation</definition>
+        <argsstring>(const QgsPoint &amp;point, const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>pointInformation</name>
+        <qualifiedname>StringUtils::pointInformation</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+<para>Returns a string containing the <emphasis>point</emphasis> location and details of the <emphasis>crs</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/stringutils.h" line="57" column="32" bodyfile="src/core/utils/stringutils.cpp" bodystart="88" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classStringUtils_1a2c4317bc54bcb67fabafba8ada2c4cd4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const QString</type>
+        <definition>const QString StringUtils::stringListToCsv</definition>
+        <argsstring>(QStringList list)</argsstring>
+        <name>stringListToCsv</name>
+        <qualifiedname>StringUtils::stringListToCsv</qualifiedname>
+        <param>
+          <type>QStringList</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>Returns a CSV formatted string from a <emphasis>list</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/stringutils.h" line="60" column="26" bodyfile="src/core/utils/stringutils.cpp" bodystart="106" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classStringUtils_1a82add959f6bd5e5cbf9c4e05f9fd21a4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const QStringList</type>
+        <definition>const QStringList StringUtils::csvToStringList</definition>
+        <argsstring>(const QString &amp;string)</argsstring>
+        <name>csvToStringList</name>
+        <qualifiedname>StringUtils::csvToStringList</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+<para>Returns a list from a CSV formatted <emphasis>string</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/stringutils.h" line="63" column="30" bodyfile="src/core/utils/stringutils.cpp" bodystart="125" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classStringUtils_1af866271dddf3f4594af77f16608e5e71" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString StringUtils::replaceFilenameTags</definition>
+        <argsstring>(const QString &amp;string, const QString &amp;filename)</argsstring>
+        <name>replaceFilenameTags</name>
+        <qualifiedname>StringUtils::replaceFilenameTags</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a string in which QField-specific filename tags have been replaced with their values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/stringutils.h" line="69" column="32" bodyfile="src/core/utils/stringutils.cpp" bodystart="174" bodyend="189"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>StringUtils</label>
+        <link refid="classStringUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>StringUtils</label>
+        <link refid="classStringUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/stringutils.h" line="31" column="1" bodyfile="src/core/utils/stringutils.h" bodystart="32" bodyend="70"/>
+    <listofallmembers>
+      <member refid="classStringUtils_1a9f8b5d8c7f394d6f4d540e50eb256644" prot="public" virt="non-virtual"><scope>StringUtils</scope><name>calcFuzzyScore</name></member>
+      <member refid="classStringUtils_1a2d82e5b945622ba2dbd9f2d4ffcc74e1" prot="public" virt="non-virtual"><scope>StringUtils</scope><name>createUuid</name></member>
+      <member refid="classStringUtils_1a82add959f6bd5e5cbf9c4e05f9fd21a4" prot="public" virt="non-virtual"><scope>StringUtils</scope><name>csvToStringList</name></member>
+      <member refid="classStringUtils_1a084ff9d257d7c84946874cd055bb41d8" prot="public" virt="non-virtual"><scope>StringUtils</scope><name>fuzzyMatch</name></member>
+      <member refid="classStringUtils_1aef1179a175b9137a8a2046ebfc0f7736" prot="public" virt="non-virtual"><scope>StringUtils</scope><name>hasLinks</name></member>
+      <member refid="classStringUtils_1ab462966ca558c11b55693d8434476947" prot="public" virt="non-virtual"><scope>StringUtils</scope><name>highlightText</name></member>
+      <member refid="classStringUtils_1af1c2fcc2cd61c650667a4d14d146cda4" prot="public" virt="non-virtual"><scope>StringUtils</scope><name>insertLinks</name></member>
+      <member refid="classStringUtils_1a2121a4ee9b5827af933640df3c0607c7" prot="public" virt="non-virtual"><scope>StringUtils</scope><name>pointInformation</name></member>
+      <member refid="classStringUtils_1af866271dddf3f4594af77f16608e5e71" prot="public" virt="non-virtual"><scope>StringUtils</scope><name>replaceFilenameTags</name></member>
+      <member refid="classStringUtils_1a2c4317bc54bcb67fabafba8ada2c4cd4" prot="public" virt="non-virtual"><scope>StringUtils</scope><name>stringListToCsv</name></member>
+      <member refid="classStringUtils_1a83138d845e47bfe3cde0843de6a9e5a1" prot="public" virt="non-virtual"><scope>StringUtils</scope><name>StringUtils</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

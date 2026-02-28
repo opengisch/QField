@@ -1,0 +1,914 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File platformutilities.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-platformutilitiescpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File platformutilities.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-platformutilitiescpp">File platformutilities.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_4ed093858358730befc336a35ce794a4/"><strong>platforms</strong></a> <strong>&gt;</strong> <a href="../platformutilities_8cpp/"><strong>platformutilities.cpp</strong></a></p>
+<p><a href="../platformutilities_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+                            platformutilities.cpp  -  utilities for qfield
+
+                              -------------------
+              begin                : Wed Dec 04 10:48:28 CET 2015
+              copyright            : (C) 2015 by Marco Bernasocchi
+              email                : marco@opengis.ch
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &quot;appinterface.h&quot;
+#include &quot;fileutils.h&quot;
+#include &quot;platformutilities.h&quot;
+#include &quot;projectsource.h&quot;
+#include &quot;qfield.h&quot;
+#include &quot;qfieldcloudconnection.h&quot;
+#include &quot;qgsmessagelog.h&quot;
+#include &quot;resourcesource.h&quot;
+#include &quot;stringutils.h&quot;
+#include &quot;urlutils.h&quot;
+
+#include &lt;QApplication&gt;
+#include &lt;QClipboard&gt;
+#include &lt;QDebug&gt;
+#include &lt;QDesktopServices&gt;
+#include &lt;QDir&gt;
+#include &lt;QFileDialog&gt;
+#include &lt;QMargins&gt;
+#include &lt;QMessageBox&gt;
+#include &lt;QQuickWindow&gt;
+#include &lt;QStandardPaths&gt;
+#include &lt;QStorageInfo&gt;
+#include &lt;QTimer&gt;
+#include &lt;QUrl&gt;
+#include &lt;QtGui/qpa/qplatformwindow.h&gt;
+
+#if defined( Q_OS_ANDROID )
+#include &quot;androidplatformutilities.h&quot;
+Q_GLOBAL_STATIC( AndroidPlatformUtilities, sPlatformUtils )
+#elif defined( Q_OS_IOS )
+#include &quot;ios/iosplatformutilities.h&quot;
+Q_GLOBAL_STATIC( IosPlatformUtilities, sPlatformUtils )
+#else
+Q_GLOBAL_STATIC( PlatformUtilities, sPlatformUtils )
+#endif
+
+PlatformUtilities::~PlatformUtilities()
+{
+}
+
+PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
+{
+  PlatformUtilities::Capabilities capabilities = PlatformUtilities::Capabilities() | FilePicker | NativeLocalDataPicker;
+#if WITH_SENTRY
+  capabilities |= SentryFramework;
+#endif
+  return capabilities;
+}
+
+void PlatformUtilities::copySampleProjects()
+{
+  if ( QFileInfo::exists( systemSharedDataLocation() + QLatin1String( &quot;/qfield/sample_projects&quot; ) ) )
+  {
+    FileUtils::copyRecursively( systemSharedDataLocation() + QLatin1String( &quot;/qfield/sample_projects&quot; ), systemLocalDataLocation( QLatin1String( &quot;sample_projects&quot; ) ) );
+  }
+}
+
+void PlatformUtilities::initSystem()
+{
+  const QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
+  QFile gitRevFile( appDataLocation + QStringLiteral( &quot;/gitRev&quot; ) );
+  QByteArray localGitRev;
+  if ( gitRevFile.open( QIODevice::ReadOnly ) )
+  {
+    localGitRev = gitRevFile.readAll();
+  }
+  gitRevFile.close();
+  QByteArray appGitRev = qfield::gitRev.toUtf8();
+  if ( localGitRev != appGitRev )
+  {
+    afterUpdate();
+    copySampleProjects();
+
+    gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate );
+    gitRevFile.write( appGitRev );
+    gitRevFile.close();
+  }
+}
+
+void PlatformUtilities::afterUpdate()
+{
+  const QStringList dirs = appDataDirs();
+  for ( const QString &amp;dir : dirs )
+  {
+    QDir appDataDir( dir );
+    appDataDir.mkpath( QStringLiteral( &quot;proj&quot; ) );
+    appDataDir.mkpath( QStringLiteral( &quot;auth&quot; ) );
+    appDataDir.mkpath( QStringLiteral( &quot;fonts&quot; ) );
+    appDataDir.mkpath( QStringLiteral( &quot;basemaps&quot; ) );
+    appDataDir.mkpath( QStringLiteral( &quot;logs&quot; ) );
+    appDataDir.mkpath( QStringLiteral( &quot;plugins&quot; ) );
+  }
+
+  QDir applicationDir( applicationDirectory() );
+  applicationDir.mkpath( QStringLiteral( &quot;Created Projects&quot; ) );
+  applicationDir.mkpath( QStringLiteral( &quot;Imported Projects&quot; ) );
+  applicationDir.mkpath( QStringLiteral( &quot;Imported Datasets&quot; ) );
+}
+
+QString PlatformUtilities::systemSharedDataLocation() const
+{
+  const static QString sharePath = QDir( QFileInfo( !QCoreApplication::applicationFilePath().isEmpty() ? QCoreApplication::applicationFilePath() : QCoreApplication::arguments().value( 0 ) ).canonicalPath()
+                                         + QLatin1String( &quot;/../share&quot; ) )
+                                     .absolutePath();
+  const static QString environmentSharePath = QString( qgetenv( &quot;QFIELD_SYSTEM_SHARED_DATA_PATH&quot; ) );
+  return !environmentSharePath.isEmpty() ? QDir( environmentSharePath ).absolutePath() : sharePath;
+}
+
+QString PlatformUtilities::systemLocalDataLocation( const QString &amp;subDir ) const
+{
+  return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + ( !subDir.isEmpty() ? '/' + subDir : QString() );
+}
+
+bool PlatformUtilities::hasQgsProject() const
+{
+  return qApp-&gt;arguments().count() &gt; 1 &amp;&amp; !qApp-&gt;arguments().last().isEmpty();
+}
+
+void PlatformUtilities::loadQgsProject() const
+{
+  if ( hasQgsProject() )
+  {
+    AppInterface::instance()-&gt;loadFile( qApp-&gt;arguments().last() );
+  }
+}
+
+bool PlatformUtilities::hasQfAction() const
+{
+  return false;
+}
+
+void PlatformUtilities::executeQfAction() const
+{
+  return;
+}
+
+QStringList PlatformUtilities::appDataDirs() const
+{
+  return QStringList() &lt;&lt; QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( &quot;/QField Documents/QField/&quot; );
+}
+
+QStringList PlatformUtilities::availableGrids() const
+{
+  QStringList dataDirs = appDataDirs();
+  QStringList grids;
+  for ( const QString &amp;dataDir : dataDirs )
+  {
+    QDir gridsDir( dataDir + &quot;proj/&quot; );
+    if ( gridsDir.exists() )
+    {
+      grids &lt;&lt; gridsDir.entryList( QStringList() &lt;&lt; QStringLiteral( &quot;*.tif&quot; ) &lt;&lt; QStringLiteral( &quot;*.gtx&quot; ) &lt;&lt; QStringLiteral( &quot;*.gsb&quot; ) &lt;&lt; QStringLiteral( &quot;*.byn&quot; ) );
+    }
+  }
+  return grids;
+}
+
+bool PlatformUtilities::createDir( const QString &amp;path, const QString &amp;dirname ) const
+{
+  QDir parentDir( path );
+  return parentDir.mkdir( dirname );
+}
+
+bool PlatformUtilities::rmFile( const QString &amp;filename ) const
+{
+  QFile file( filename );
+  return file.remove( filename );
+}
+
+bool PlatformUtilities::renameFile( const QString &amp;oldFilePath, const QString &amp;newFilePath, bool overwrite ) const
+{
+  QFileInfo oldFi( oldFilePath );
+  QFileInfo newFi( newFilePath );
+  if ( oldFi.absoluteFilePath() == newFi.absoluteFilePath() )
+  {
+    return true;
+  }
+
+  bool ok = false;
+
+  // Insure the path exists
+  QDir dir( newFi.absolutePath() );
+  ok = dir.mkpath( newFi.absolutePath() );
+  if ( !ok )
+  {
+    return false;
+  }
+
+  // If the renamed file exists, overwrite
+  if ( newFi.exists() &amp;&amp; overwrite )
+  {
+    QFile newfile( newFilePath );
+    ok = newfile.remove();
+    if ( !ok )
+    {
+      return false;
+    }
+  }
+
+  ok = QFile::rename( oldFilePath, newFilePath );
+  if ( !ok )
+  {
+    ok = QFile::copy( oldFilePath, newFilePath );
+    QFile oldfile( oldFilePath );
+    oldfile.remove();
+  }
+  return ok;
+}
+
+QString PlatformUtilities::applicationDirectory() const
+{
+  return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( &quot;/QField Documents/&quot; );
+}
+
+QStringList PlatformUtilities::additionalApplicationDirectories() const
+{
+  return QStringList() &lt;&lt; QString();
+}
+
+QStringList PlatformUtilities::rootDirectories() const
+{
+  QStringList rootDirectories;
+  rootDirectories &lt;&lt; QDir::homePath();
+  for ( const QStorageInfo &amp;volume : QStorageInfo::mountedVolumes() )
+  {
+    if ( volume.isReady() &amp;&amp; !volume.isReadOnly() )
+    {
+      if ( volume.fileSystemType() != QLatin1String( &quot;tmpfs&quot; ) &amp;&amp; !volume.rootPath().startsWith( QLatin1String( &quot;/boot&quot; ) ) )
+      {
+        rootDirectories &lt;&lt; volume.rootPath();
+      }
+    }
+  }
+  return rootDirectories;
+}
+
+void PlatformUtilities::importProjectFolder() const
+{}
+
+void PlatformUtilities::importProjectArchive() const
+{}
+
+void PlatformUtilities::importDatasets() const
+{}
+
+void PlatformUtilities::updateProjectFromArchive( const QString &amp;projectPath ) const
+{
+  Q_UNUSED( projectPath )
+}
+
+void PlatformUtilities::exportFolderTo( const QString &amp;path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::exportDatasetTo( const QString &amp;path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::sendDatasetTo( const QString &amp;path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::sendCompressedFolderTo( const QString &amp;path ) const
+{
+  Q_UNUSED( path )
+}
+
+void PlatformUtilities::removeDataset( const QString &amp;path ) const
+{
+  const QStringList allowedDirectories = QStringList() &lt;&lt; applicationDirectory() &lt;&lt; additionalApplicationDirectories();
+  if ( std::any_of( allowedDirectories.begin(), allowedDirectories.end(), [&amp;path]( const QString &amp;directory ) { return path.startsWith( directory ); } ) )
+  {
+    if ( QMessageBox::warning( nullptr,
+                               tr( &quot;Removal Confirmation&quot; ),
+                               tr( &quot;The dataset will be deleted, proceed with removal?&quot; ),
+                               QMessageBox::StandardButtons() | QMessageBox::Ok | QMessageBox::Abort )
+         == QMessageBox::Ok )
+    {
+      QFile::moveToTrash( path );
+    }
+  }
+}
+
+void PlatformUtilities::removeFolder( const QString &amp;path ) const
+{
+  const QStringList allowedDirectories = QStringList() &lt;&lt; applicationDirectory() &lt;&lt; additionalApplicationDirectories();
+  if ( std::any_of( allowedDirectories.begin(), allowedDirectories.end(), [&amp;path]( const QString &amp;directory ) { return path.startsWith( directory ); } ) )
+  {
+    if ( QMessageBox::warning( nullptr,
+                               tr( &quot;Removal Confirmation&quot; ),
+                               tr( &quot;The project folder will be deleted, proceed with removal?&quot; ),
+                               QMessageBox::StandardButtons() | QMessageBox::Ok | QMessageBox::Abort )
+         == QMessageBox::Ok )
+    {
+      QFile::moveToTrash( path );
+    }
+  }
+}
+
+ResourceSource *PlatformUtilities::getCameraPicture( const QString &amp;, const QString &amp;, const QString &amp;, QObject * )
+{
+  return nullptr;
+}
+
+ResourceSource *PlatformUtilities::getCameraVideo( const QString &amp;, const QString &amp;, const QString &amp;, QObject * )
+{
+  return nullptr;
+}
+
+ResourceSource *PlatformUtilities::createResource( const QString &amp;prefix, const QString &amp;filePath, const QString &amp;fileName, QObject *parent )
+{
+  QFileInfo fi( fileName );
+  if ( fi.exists() )
+  {
+    // if the file is already in the prefixed path, no need to copy
+    if ( fileName.startsWith( prefix ) )
+    {
+      return new ResourceSource( parent, prefix, fileName );
+    }
+    else
+    {
+      QString finalFilePath = StringUtils::replaceFilenameTags( filePath, fi.fileName() );
+      QString destinationFile = prefix + finalFilePath;
+      QFileInfo destinationInfo( destinationFile );
+      QDir prefixDir( prefix );
+      if ( prefixDir.mkpath( destinationInfo.absolutePath() ) &amp;&amp; QFile::copy( fileName, destinationFile ) )
+      {
+        return new ResourceSource( parent, prefix, destinationFile );
+      }
+    }
+
+    QgsMessageLog::logMessage( tr( &quot;Failed to save file resource&quot; ), &quot;QField&quot;, Qgis::Critical );
+  }
+
+  return new ResourceSource( parent, prefix, QString() );
+}
+
+ResourceSource *PlatformUtilities::getGalleryPicture( const QString &amp;prefix, const QString &amp;pictureFilePath, QObject *parent )
+{
+  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( &quot;Select Image File&quot; ), prefix,
+                                                   tr( &quot;All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)&quot; ) );
+  return createResource( prefix, pictureFilePath, fileName, parent );
+}
+
+ResourceSource *PlatformUtilities::getGalleryVideo( const QString &amp;prefix, const QString &amp;videoFilePath, QObject *parent )
+{
+  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( &quot;Select Video File&quot; ), prefix,
+                                                   tr( &quot;All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)&quot; ) );
+  return createResource( prefix, videoFilePath, fileName, parent );
+}
+
+ResourceSource *PlatformUtilities::getFile( const QString &amp;prefix, const QString &amp;filePath, FileType fileType, QObject *parent )
+{
+  QString filter;
+  switch ( fileType )
+  {
+    case AudioFiles:
+      filter = tr( &quot;Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)&quot; );
+      break;
+
+    case AllFiles:
+    default:
+      filter = tr( &quot;All files (*.*)&quot; );
+      break;
+  }
+
+  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( &quot;Select File&quot; ), prefix, filter );
+  return createResource( prefix, filePath, fileName, parent );
+}
+
+ViewStatus *PlatformUtilities::open( const QString &amp;uri, bool, QObject * )
+{
+  QDesktopServices::openUrl( UrlUtils::fromString( uri ) );
+  return nullptr;
+}
+
+ProjectSource *PlatformUtilities::openProject( QObject * )
+{
+  QSettings settings;
+  ProjectSource *source = new ProjectSource();
+  QString fileName { QFileDialog::getOpenFileName( nullptr,
+                                                   tr( &quot;Open File&quot; ),
+                                                   settings.value( QStringLiteral( &quot;QField/lastOpenDir&quot; ), QString() ).toString(),
+                                                   QStringLiteral( &quot;%1 (*.%2);;%3 (*.%4);;%5 (*.%6);;%7 (*.%8)&quot; ).arg( tr( &quot;All Supported Files&quot; ), ( SUPPORTED_PROJECT_EXTENSIONS + SUPPORTED_VECTOR_EXTENSIONS + SUPPORTED_RASTER_EXTENSIONS ).join( QStringLiteral( &quot; *.&quot; ) ), tr( &quot;QGIS Project Files&quot; ), SUPPORTED_PROJECT_EXTENSIONS.join( QStringLiteral( &quot; *.&quot; ) ), tr( &quot;Vector Datasets&quot; ), SUPPORTED_VECTOR_EXTENSIONS.join( QStringLiteral( &quot; *.&quot; ) ), tr( &quot;Raster Datasets&quot; ), SUPPORTED_RASTER_EXTENSIONS.join( QStringLiteral( &quot; *.&quot; ) ) ) ) };
+  if ( !fileName.isEmpty() )
+  {
+    settings.setValue( QStringLiteral( &quot;/QField/lastOpenDir&quot; ), QFileInfo( fileName ).absolutePath() );
+    QTimer::singleShot( 0, this, [source, fileName]() { emit source-&gt;projectOpened( fileName ); } );
+  }
+  return source;
+}
+
+bool PlatformUtilities::checkPositioningPermissions() const
+{
+  return true;
+}
+
+bool PlatformUtilities::checkCameraPermissions() const
+{
+  return true;
+}
+
+bool PlatformUtilities::checkMicrophonePermissions() const
+{
+  return true;
+}
+
+void PlatformUtilities::copyTextToClipboard( const QString &amp;string ) const
+{
+  QGuiApplication::clipboard()-&gt;setText( string );
+}
+
+QString PlatformUtilities::getTextFromClipboard() const
+{
+  return QGuiApplication::clipboard()-&gt;text();
+}
+
+double PlatformUtilities::systemFontPointSize() const
+{
+  return QApplication::font().pointSizeF() + 2.0;
+}
+
+void PlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *connection ) const
+{
+  QTimer::singleShot( 500, [connection]() {
+    if ( connection )
+    {
+      connection-&gt;uploadPendingAttachments();
+    }
+  } );
+}
+
+bool PlatformUtilities::isSystemDarkTheme() const
+{
+  return false;
+}
+
+PlatformUtilities *PlatformUtilities::instance()
+{
+  return sPlatformUtils;
+}
+
+Qt::PermissionStatus PlatformUtilities::checkCameraPermission() const
+{
+  QCameraPermission cameraPermission;
+  return qApp-&gt;checkPermission( cameraPermission );
+}
+
+void PlatformUtilities::requestCameraPermission( std::function&lt;void( Qt::PermissionStatus )&gt; func )
+{
+  QCameraPermission cameraPermission;
+  qApp-&gt;requestPermission( cameraPermission, [this, func]( const QPermission &amp;permission ) { func( permission.status() ); } );
+}
+
+Qt::PermissionStatus PlatformUtilities::checkMicrophonePermission() const
+{
+  QMicrophonePermission microphonePermission;
+  return qApp-&gt;checkPermission( microphonePermission );
+}
+
+void PlatformUtilities::requestMicrophonePermission( std::function&lt;void( Qt::PermissionStatus )&gt; func )
+{
+  QMicrophonePermission microphonePermission;
+  qApp-&gt;requestPermission( microphonePermission, [this, func]( const QPermission &amp;permission ) { func( permission.status() ); } );
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

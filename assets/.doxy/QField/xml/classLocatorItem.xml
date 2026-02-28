@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLocatorItem" kind="class" language="C++" prot="public">
+    <compoundname>LocatorItem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classLocatorItem_1a371e4c5c53a34d3f48fee0898876af18" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref></type>
+        <definition>LocatorModelSuperBridge LocatorItem::locatorBridge</definition>
+        <argsstring></argsstring>
+        <name>locatorBridge</name>
+        <qualifiedname>LocatorItem::locatorBridge</qualifiedname>
+        <read>dummyGetter_locatorBridge_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorItem.qml" line="14" column="1" bodyfile="src/qml/LocatorItem.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocatorItem_1a3f36e3969a79ea83a37edf988e58d1c8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LocatorItem::searchFieldVisible</definition>
+        <argsstring></argsstring>
+        <name>searchFieldVisible</name>
+        <qualifiedname>LocatorItem::searchFieldVisible</qualifiedname>
+        <read>dummyGetter_searchFieldVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorItem.qml" line="16" column="1" bodyfile="src/qml/LocatorItem.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocatorItem_1a5120108b5750125ef73018aeaa594a8d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias LocatorItem::locatorFiltersModel</definition>
+        <argsstring></argsstring>
+        <name>locatorFiltersModel</name>
+        <qualifiedname>LocatorItem::locatorFiltersModel</qualifiedname>
+        <read>dummyGetter_locatorFiltersModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorItem.qml" line="18" column="1" bodyfile="src/qml/LocatorItem.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLocatorItem_1a30e7b745d6a2399d4ddebc1dbab55b71" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LocatorItem::searchTermHandled</definition>
+        <argsstring></argsstring>
+        <name>searchTermHandled</name>
+        <qualifiedname>LocatorItem::searchTermHandled</qualifiedname>
+        <read>dummyGetter_searchTermHandled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorItem.qml" line="26" column="1" bodyfile="src/qml/LocatorItem.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLocatorItem_1a417998f74053630394de14d8e85fd1db" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LocatorItem::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>LocatorItem::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorItem.qml" line="28" column="5" bodyfile="src/qml/LocatorItem.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocatorItem_1a640baf13bcd30bddb6b7f2b8d1927960" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LocatorItem::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>LocatorItem::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorItem.qml" line="29" column="5" bodyfile="src/qml/LocatorItem.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocatorItem_1a6ae577c8643ca834b6f9f07e8acd6849" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LocatorItem::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>LocatorItem::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorItem.qml" line="30" column="5" bodyfile="src/qml/LocatorItem.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLocatorItem_1a858888ccf9fffc3ad5461eef1948194b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LocatorItem::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>LocatorItem::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorItem.qml" line="31" column="5" bodyfile="src/qml/LocatorItem.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classLocatorItem_1ab319df5ad1da77f5054b65f6aea5f980" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LocatorItem::searchTermChanged</definition>
+        <argsstring>(var searchTerm)</argsstring>
+        <name>searchTermChanged</name>
+        <qualifiedname>LocatorItem::searchTermChanged</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>searchTerm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LocatorItem.qml" line="24" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LocatorItem</label>
+        <link refid="classLocatorItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LocatorItem</label>
+        <link refid="classLocatorItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/LocatorItem.qml" line="11" column="1" bodyfile="src/qml/LocatorItem.qml" bodystart="11" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classLocatorItem_1a6ae577c8643ca834b6f9f07e8acd6849" prot="private" virt="non-virtual"><scope>LocatorItem</scope><name>height</name></member>
+      <member refid="classLocatorItem_1a371e4c5c53a34d3f48fee0898876af18" prot="public" virt="non-virtual"><scope>LocatorItem</scope><name>locatorBridge</name></member>
+      <member refid="classLocatorItem_1a5120108b5750125ef73018aeaa594a8d" prot="public" virt="non-virtual"><scope>LocatorItem</scope><name>locatorFiltersModel</name></member>
+      <member refid="classLocatorItem_1a3f36e3969a79ea83a37edf988e58d1c8" prot="public" virt="non-virtual"><scope>LocatorItem</scope><name>searchFieldVisible</name></member>
+      <member refid="classLocatorItem_1ab319df5ad1da77f5054b65f6aea5f980" prot="public" virt="non-virtual"><scope>LocatorItem</scope><name>searchTermChanged</name></member>
+      <member refid="classLocatorItem_1a30e7b745d6a2399d4ddebc1dbab55b71" prot="public" virt="non-virtual"><scope>LocatorItem</scope><name>searchTermHandled</name></member>
+      <member refid="classLocatorItem_1a417998f74053630394de14d8e85fd1db" prot="private" virt="non-virtual"><scope>LocatorItem</scope><name>state</name></member>
+      <member refid="classLocatorItem_1a858888ccf9fffc3ad5461eef1948194b" prot="private" virt="non-virtual"><scope>LocatorItem</scope><name>states</name></member>
+      <member refid="classLocatorItem_1a640baf13bcd30bddb6b7f2b8d1927960" prot="private" virt="non-virtual"><scope>LocatorItem</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

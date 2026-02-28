@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQFieldCloudProject_1_1Job" kind="struct" language="C++" prot="private">
+    <compoundname>QFieldCloudProject::Job</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQFieldCloudProject_1_1Job_1aa4265f52ab7d5e4c233285e89561c2c3" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudProject::Job::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>QFieldCloudProject::Job::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudproject.h" line="505" column="17" bodyfile="src/core/qfieldcloud/qfieldcloudproject.h" bodystart="505" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQFieldCloudProject_1_1Job_1a8fad20ccddf16040250274e727f639a3" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudProject::Job::projectId</definition>
+        <argsstring></argsstring>
+        <name>projectId</name>
+        <qualifiedname>QFieldCloudProject::Job::projectId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudproject.h" line="506" column="17" bodyfile="src/core/qfieldcloud/qfieldcloudproject.h" bodystart="506" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQFieldCloudProject_1_1Job_1adf6dec3d028a7237a4f8e51e70e3aee2" prot="public" static="no" mutable="no">
+        <type><ref refid="classQFieldCloudProject_1a4ca0b270610133d18ec96410197b5629" kindref="member">QFieldCloudProject::JobType</ref></type>
+        <definition>QFieldCloudProject::JobType QFieldCloudProject::Job::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>QFieldCloudProject::Job::type</qualifiedname>
+        <initializer>= QFieldCloudProject::JobType::Package</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudproject.h" line="507" column="37" bodyfile="src/core/qfieldcloud/qfieldcloudproject.h" bodystart="507" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQFieldCloudProject_1_1Job_1a77a57696c4a258f1c8704cfb56157afd" prot="public" static="no" mutable="no">
+        <type><ref refid="classQFieldCloudProject_1a94eee61787f4d7e79dbd3565474bc0b7" kindref="member">QFieldCloudProject::JobStatus</ref></type>
+        <definition>QFieldCloudProject::JobStatus QFieldCloudProject::Job::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>QFieldCloudProject::Job::status</qualifiedname>
+        <initializer>= QFieldCloudProject::JobPendingStatus</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudproject.h" line="508" column="39" bodyfile="src/core/qfieldcloud/qfieldcloudproject.h" bodystart="508" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQFieldCloudProject_1_1Job_1a858917409c9c679e8e63ccfd52488a0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QFieldCloudProject::Job::Job</definition>
+        <argsstring>(const QString &amp;id, const QString &amp;projectId, const QFieldCloudProject::JobType type)</argsstring>
+        <name>Job</name>
+        <qualifiedname>QFieldCloudProject::Job::Job</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classQFieldCloudProject_1a4ca0b270610133d18ec96410197b5629" kindref="member">QFieldCloudProject::JobType</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudproject.h" line="497" column="9" bodyfile="src/core/qfieldcloud/qfieldcloudproject.h" bodystart="497" bodyend="501"/>
+      </memberdef>
+      <memberdef kind="function" id="structQFieldCloudProject_1_1Job_1a0bba327704a6b58ce98639d7bfb3582f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QFieldCloudProject::Job::Job</definition>
+        <argsstring>()=default</argsstring>
+        <name>Job</name>
+        <qualifiedname>QFieldCloudProject::Job::Job</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudproject.h" line="503" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Tracks the job status (status, error etc) for a particular project. For now 1 project can have only 1 job of a type. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/qfieldcloudproject.h" line="495" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudproject.h" bodystart="496" bodyend="509"/>
+    <listofallmembers>
+      <member refid="structQFieldCloudProject_1_1Job_1aa4265f52ab7d5e4c233285e89561c2c3" prot="public" virt="non-virtual"><scope>QFieldCloudProject::Job</scope><name>id</name></member>
+      <member refid="structQFieldCloudProject_1_1Job_1a858917409c9c679e8e63ccfd52488a0b" prot="public" virt="non-virtual"><scope>QFieldCloudProject::Job</scope><name>Job</name></member>
+      <member refid="structQFieldCloudProject_1_1Job_1a0bba327704a6b58ce98639d7bfb3582f" prot="public" virt="non-virtual"><scope>QFieldCloudProject::Job</scope><name>Job</name></member>
+      <member refid="structQFieldCloudProject_1_1Job_1a8fad20ccddf16040250274e727f639a3" prot="public" virt="non-virtual"><scope>QFieldCloudProject::Job</scope><name>projectId</name></member>
+      <member refid="structQFieldCloudProject_1_1Job_1a77a57696c4a258f1c8704cfb56157afd" prot="public" virt="non-virtual"><scope>QFieldCloudProject::Job</scope><name>status</name></member>
+      <member refid="structQFieldCloudProject_1_1Job_1adf6dec3d028a7237a4f8e51e70e3aee2" prot="public" virt="non-virtual"><scope>QFieldCloudProject::Job</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

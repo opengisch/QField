@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classErase" kind="class" language="C++" prot="public">
+    <compoundname>Erase</compoundname>
+    <basecompoundref refid="classGeometryEditorBase" prot="public" virt="non-virtual">GeometryEditorBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classErase_1afd97cfc858f8c7a4922a3ba7cdbef262" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Erase::screenHovering</definition>
+        <argsstring></argsstring>
+        <name>screenHovering</name>
+        <qualifiedname>Erase::screenHovering</qualifiedname>
+        <read>dummyGetter_screenHovering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="8" column="1" bodyfile="src/qml/geometryeditors/Erase.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classErase_1a29dffcefe82dadc3b6063f4e21c60fe1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Erase::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>Erase::size</qualifiedname>
+        <read>dummyGetter_size_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="10" column="1" bodyfile="src/qml/geometryeditors/Erase.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classErase_1a86ae98c4b2469f7b0c56951a77bbbad8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Erase::blocking</definition>
+        <argsstring></argsstring>
+        <name>blocking</name>
+        <qualifiedname>Erase::blocking</qualifiedname>
+        <read>dummyGetter_blocking_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="13" column="1" bodyfile="src/qml/geometryeditors/Erase.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classErase_1adbc1389ec7d151eeb34a29fdd66f8134" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Erase::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>Erase::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="15" column="5" bodyfile="src/qml/geometryeditors/Erase.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classErase_1add1d787889e37d7904e531568c06ff24" prot="private" static="no" mutable="no">
+        <type><ref refid="classDigitizingToolbar" kindref="compound">DigitizingToolbar</ref></type>
+        <definition>DigitizingToolbar Erase::drawPolygonToolbar</definition>
+        <argsstring></argsstring>
+        <name>drawPolygonToolbar</name>
+        <qualifiedname>Erase::drawPolygonToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="26" column="19" bodyfile="src/qml/geometryeditors/Erase.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classErase_1a33544c2b03313c65079623847a07c0de" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Erase::sizeButton</definition>
+        <argsstring></argsstring>
+        <name>sizeButton</name>
+        <qualifiedname>Erase::sizeButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="27" column="14" bodyfile="src/qml/geometryeditors/Erase.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classErase_1a887f4aa10d2d77396928340376c72c68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Erase::canvasClicked</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasClicked</name>
+        <qualifiedname>Erase::canvasClicked</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="18" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classErase_1a85015c95744b04461a0980d914308fba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Erase::canvasLongPressed</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasLongPressed</name>
+        <qualifiedname>Erase::canvasLongPressed</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="20" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classErase_1a07ffcb428e5e2c86dc97974644cc520d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Erase::canvasFreehandBegin</definition>
+        <argsstring>()</argsstring>
+        <name>canvasFreehandBegin</name>
+        <qualifiedname>Erase::canvasFreehandBegin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="22" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classErase_1a787c648e967a55feeb4499bc39bf14bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Erase::canvasFreehandEnd</definition>
+        <argsstring>()</argsstring>
+        <name>canvasFreehandEnd</name>
+        <qualifiedname>Erase::canvasFreehandEnd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="24" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classErase_1a88af2fdd3bbc14457abfd092fbeae8bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Erase::adjustSize</definition>
+        <argsstring>()</argsstring>
+        <name>adjustSize</name>
+        <qualifiedname>Erase::adjustSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classErase_1a864beae4e2b24094d36837adcd917b8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Erase::init</definition>
+        <argsstring>(featureModel, mapSettings, editorRubberbandModel, editorRenderer)</argsstring>
+        <name>init</name>
+        <qualifiedname>Erase::init</qualifiedname>
+        <param>
+          <type>featureModel</type>
+        </param>
+        <param>
+          <type>mapSettings</type>
+        </param>
+        <param>
+          <type>editorRubberbandModel</type>
+        </param>
+        <param>
+          <type>editorRenderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classErase_1aca0283928a2853cd4f507a6e530bec0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Erase::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>Erase::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/Erase.qml" line="34" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Erase</label>
+        <link refid="classErase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GeometryEditorBase</label>
+        <link refid="classGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+      <node id="3">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Erase</label>
+        <link refid="classErase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GeometryEditorBase</label>
+        <link refid="classGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+      <node id="3">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/geometryeditors/Erase.qml" line="5" column="1" bodyfile="src/qml/geometryeditors/Erase.qml" bodystart="5" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classErase_1a88af2fdd3bbc14457abfd092fbeae8bf" prot="public" virt="non-virtual"><scope>Erase</scope><name>adjustSize</name></member>
+      <member refid="classErase_1a86ae98c4b2469f7b0c56951a77bbbad8" prot="public" virt="non-virtual"><scope>Erase</scope><name>blocking</name></member>
+      <member refid="classErase_1aca0283928a2853cd4f507a6e530bec0b" prot="public" virt="non-virtual"><scope>Erase</scope><name>cancel</name></member>
+      <member refid="classErase_1a887f4aa10d2d77396928340376c72c68" prot="public" virt="non-virtual"><scope>Erase</scope><name>canvasClicked</name></member>
+      <member refid="classErase_1a07ffcb428e5e2c86dc97974644cc520d" prot="public" virt="non-virtual"><scope>Erase</scope><name>canvasFreehandBegin</name></member>
+      <member refid="classErase_1a787c648e967a55feeb4499bc39bf14bf" prot="public" virt="non-virtual"><scope>Erase</scope><name>canvasFreehandEnd</name></member>
+      <member refid="classErase_1a85015c95744b04461a0980d914308fba" prot="public" virt="non-virtual"><scope>Erase</scope><name>canvasLongPressed</name></member>
+      <member refid="classErase_1add1d787889e37d7904e531568c06ff24" prot="private" virt="non-virtual"><scope>Erase</scope><name>drawPolygonToolbar</name></member>
+      <member refid="classGeometryEditorBase_1a812216b79434d6d6574cd15f4882812d" prot="public" virt="non-virtual"><scope>Erase</scope><name>editorRenderer</name></member>
+      <member refid="classGeometryEditorBase_1a6643fdabf1ea07e1838aa9763af7abbf" prot="public" virt="non-virtual"><scope>Erase</scope><name>featureModel</name></member>
+      <member refid="classGeometryEditorBase_1a45fa84fa67ccbe332d28bf989ad6602c" prot="public" virt="non-virtual"><scope>Erase</scope><name>finished</name></member>
+      <member refid="classErase_1a864beae4e2b24094d36837adcd917b8d" prot="public" virt="non-virtual"><scope>Erase</scope><name>init</name></member>
+      <member refid="classGeometryEditorBase_1a2caaddaad7be03263eda29824c88c722" prot="public" virt="non-virtual"><scope>Erase</scope><name>mapSettings</name></member>
+      <member refid="classGeometryEditorBase_1a7f750f40a04cdd685b84c95719e3fb83" prot="public" virt="non-virtual"><scope>Erase</scope><name>requestJumpToPoint</name></member>
+      <member refid="classErase_1afd97cfc858f8c7a4922a3ba7cdbef262" prot="public" virt="non-virtual"><scope>Erase</scope><name>screenHovering</name></member>
+      <member refid="classErase_1a29dffcefe82dadc3b6063f4e21c60fe1" prot="public" virt="non-virtual"><scope>Erase</scope><name>size</name></member>
+      <member refid="classErase_1a33544c2b03313c65079623847a07c0de" prot="private" virt="non-virtual"><scope>Erase</scope><name>sizeButton</name></member>
+      <member refid="classErase_1adbc1389ec7d151eeb34a29fdd66f8134" prot="private" virt="non-virtual"><scope>Erase</scope><name>spacing</name></member>
+      <member refid="classTheme_1_1QfVisibilityFadingRow_1a5757c98a1693481e83314781b5d3433e" prot="public" virt="non-virtual"><scope>Erase</scope><name>stateVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

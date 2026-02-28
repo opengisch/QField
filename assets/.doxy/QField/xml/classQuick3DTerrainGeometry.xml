@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQuick3DTerrainGeometry" kind="class" language="C++" prot="public">
+    <compoundname>Quick3DTerrainGeometry</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuick3DGeometry</basecompoundref>
+    <includes refid="quick3dterraingeometry_8h" local="no">quick3dterraingeometry.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQuick3DTerrainGeometry_1a78d1d8bfcf79b8bf9c76a001d3b1c5d8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QML_ELEMENT QSize</type>
+        <definition>QML_ELEMENT QSize Quick3DTerrainGeometry::gridSize</definition>
+        <argsstring></argsstring>
+        <name>gridSize</name>
+        <qualifiedname>Quick3DTerrainGeometry::gridSize</qualifiedname>
+        <read>gridSize</read>
+        <write>setGridSize</write>
+        <briefdescription>
+<para>Grid dimensions (width x height) for terrain vertices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="42" column="5" bodyfile="src/core/3d/quick3dterraingeometry.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DTerrainGeometry_1ac35b6f6a2aa56070dfef67a80a445cc1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QSizeF</type>
+        <definition>QSizeF Quick3DTerrainGeometry::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>Quick3DTerrainGeometry::size</qualifiedname>
+        <read>size</read>
+        <write>setSize</write>
+        <briefdescription>
+<para>Width of the terrain mesh in 3D scene units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="45" column="5" bodyfile="src/core/3d/quick3dterraingeometry.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DTerrainGeometry_1a107af6e5cb70d7ecf3d0fcfc44020d74" prot="public" static="no" readable="no" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantList</type>
+        <definition>QVariantList Quick3DTerrainGeometry::heightData</definition>
+        <argsstring></argsstring>
+        <name>heightData</name>
+        <qualifiedname>Quick3DTerrainGeometry::heightData</qualifiedname>
+        <write>setHeightData</write>
+        <briefdescription>
+<para>Height data array for terrain elevation values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="48" column="5" bodyfile="src/core/3d/quick3dterraingeometry.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQuick3DTerrainGeometry_1a80392f15450ce17333204de32c6807dd" prot="private" static="no" mutable="no">
+        <type>QSize</type>
+        <definition>QSize Quick3DTerrainGeometry::mGridSize</definition>
+        <argsstring></argsstring>
+        <name>mGridSize</name>
+        <qualifiedname>Quick3DTerrainGeometry::mGridSize</qualifiedname>
+        <initializer>= QSize( 64, 64 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="90" column="11" bodyfile="src/core/3d/quick3dterraingeometry.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainGeometry_1aec28cb6dace15b037c4dddb5adf34f2d" prot="private" static="no" mutable="no">
+        <type>QSizeF</type>
+        <definition>QSizeF Quick3DTerrainGeometry::mSize</definition>
+        <argsstring></argsstring>
+        <name>mSize</name>
+        <qualifiedname>Quick3DTerrainGeometry::mSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="91" column="12" bodyfile="src/core/3d/quick3dterraingeometry.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainGeometry_1af7a49db86e3d52ff264949d12c29b908" prot="private" static="no" mutable="no">
+        <type>QVector&lt; float &gt;</type>
+        <definition>QVector&lt;float&gt; Quick3DTerrainGeometry::mHeights</definition>
+        <argsstring></argsstring>
+        <name>mHeights</name>
+        <qualifiedname>Quick3DTerrainGeometry::mHeights</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="93" column="13" bodyfile="src/core/3d/quick3dterraingeometry.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainGeometry_1adb59ef37d0db00170c29ab58a1a5bb61" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Quick3DTerrainGeometry::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>Quick3DTerrainGeometry::mDirty</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="94" column="10" bodyfile="src/core/3d/quick3dterraingeometry.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQuick3DTerrainGeometry_1a71a62e2dc3f9ff876a073d5011dfbdf9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Quick3DTerrainGeometry::Quick3DTerrainGeometry</definition>
+        <argsstring>(QQuick3DObject *parent=nullptr)</argsstring>
+        <name>Quick3DTerrainGeometry</name>
+        <qualifiedname>Quick3DTerrainGeometry::Quick3DTerrainGeometry</qualifiedname>
+        <param>
+          <type>QQuick3DObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Creates a new terrain geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="52" column="14" bodyfile="src/core/3d/quick3dterraingeometry.cpp" bodystart="21" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainGeometry_1a259ddcc65a0ba55d375ec9b98f83465c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QSize</type>
+        <definition>QSize Quick3DTerrainGeometry::gridSize</definition>
+        <argsstring>() const</argsstring>
+        <name>gridSize</name>
+        <qualifiedname>Quick3DTerrainGeometry::gridSize</qualifiedname>
+        <briefdescription>
+<para>Returns the grid dimensions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="55" column="11" bodyfile="src/core/3d/quick3dterraingeometry.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainGeometry_1acc0b42f915c722b5219eefa9e94de972" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainGeometry::setGridSize</definition>
+        <argsstring>(const QSize &amp;size)</argsstring>
+        <name>setGridSize</name>
+        <qualifiedname>Quick3DTerrainGeometry::setGridSize</qualifiedname>
+        <param>
+          <type>const QSize &amp;</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid dimensions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="58" column="10" bodyfile="src/core/3d/quick3dterraingeometry.cpp" bodystart="29" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainGeometry_1aace4d53fc635d79149850c0713275b79" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QSizeF</type>
+        <definition>QSizeF Quick3DTerrainGeometry::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <qualifiedname>Quick3DTerrainGeometry::size</qualifiedname>
+        <briefdescription>
+<para>Returns the width of the terrain mesh in 3D scene units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="61" column="12" bodyfile="src/core/3d/quick3dterraingeometry.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainGeometry_1a8bd1fda627aade2c6888b107df8f497a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainGeometry::setSize</definition>
+        <argsstring>(QSizeF size)</argsstring>
+        <name>setSize</name>
+        <qualifiedname>Quick3DTerrainGeometry::setSize</qualifiedname>
+        <param>
+          <type>QSizeF</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Sets the terrain width. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="64" column="10" bodyfile="src/core/3d/quick3dterraingeometry.cpp" bodystart="43" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainGeometry_1af230ddab4e881c3de21bd51baa09ed2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainGeometry::setHeightData</definition>
+        <argsstring>(const QVariantList &amp;data)</argsstring>
+        <name>setHeightData</name>
+        <qualifiedname>Quick3DTerrainGeometry::setHeightData</qualifiedname>
+        <param>
+          <type>const QVariantList &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Sets the height data array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="67" column="10" bodyfile="src/core/3d/quick3dterraingeometry.cpp" bodystart="57" bodyend="70"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQuick3DTerrainGeometry_1aa942815fc963dc0e7ed47cb163789e65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainGeometry::gridSizeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>gridSizeChanged</name>
+        <qualifiedname>Quick3DTerrainGeometry::gridSizeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="70" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DTerrainGeometry_1a5db43b6d4b2da3567dc566fb08fd6195" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainGeometry::sizeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>sizeChanged</name>
+        <qualifiedname>Quick3DTerrainGeometry::sizeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="71" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DTerrainGeometry_1ae0c8efd8f17d2545e430cee2f5f43297" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainGeometry::heightDataChanged</definition>
+        <argsstring>()</argsstring>
+        <name>heightDataChanged</name>
+        <qualifiedname>Quick3DTerrainGeometry::heightDataChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="72" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQuick3DTerrainGeometry_1a74c2497fe040a9ace86771711f14c318" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainGeometry::updateGeometry</definition>
+        <argsstring>()</argsstring>
+        <name>updateGeometry</name>
+        <qualifiedname>Quick3DTerrainGeometry::updateGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Regenerates the terrain mesh geometry from current height data.</para>
+<para>This method constructs a triangulated grid by generating vertex positions, per-vertex normals, and UV texture coordinates. The mesh is built using a resolution×resolution grid where each quad is split into two triangles. Vertex normals are calculated using the cross product of adjacent edges for proper lighting. The geometry buffers are uploaded to the GPU through Qt Quick 3D&apos;s geometry API. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="85" column="10" bodyfile="src/core/3d/quick3dterraingeometry.cpp" bodystart="106" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainGeometry_1a38b989839d54869d4bd252eb00e91a71" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector3D</type>
+        <definition>QVector3D Quick3DTerrainGeometry::calculateNormal</definition>
+        <argsstring>(int x, int z) const</argsstring>
+        <name>calculateNormal</name>
+        <qualifiedname>Quick3DTerrainGeometry::calculateNormal</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="87" column="15" bodyfile="src/core/3d/quick3dterraingeometry.cpp" bodystart="88" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainGeometry_1abbc2607cac72e91ae0ae19c2a489fb80" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Quick3DTerrainGeometry::getHeight</definition>
+        <argsstring>(int x, int z) const</argsstring>
+        <name>getHeight</name>
+        <qualifiedname>Quick3DTerrainGeometry::getHeight</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterraingeometry.h" line="88" column="11" bodyfile="src/core/3d/quick3dterraingeometry.cpp" bodystart="72" bodyend="86"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Custom Qt Quick 3D geometry for rendering terrain meshes with height data.</para>
+<para>This class generates a triangulated mesh grid with vertex positions, normals, and texture coordinates based on provided elevation data. The geometry is suitable for use with Qt Quick 3D Model items and supports dynamic updates when height data changes.</para>
+<para><simplesect kind="note"><para>QML Type: <ref refid="classQuick3DTerrainGeometry" kindref="compound">Quick3DTerrainGeometry</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="1">
+        <label>Quick3DTerrainGeometry</label>
+        <link refid="classQuick3DTerrainGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="1">
+        <label>Quick3DTerrainGeometry</label>
+        <link refid="classQuick3DTerrainGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/3d/quick3dterraingeometry.h" line="36" column="1" bodyfile="src/core/3d/quick3dterraingeometry.h" bodystart="37" bodyend="95"/>
+    <listofallmembers>
+      <member refid="classQuick3DTerrainGeometry_1a38b989839d54869d4bd252eb00e91a71" prot="private" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>calculateNormal</name></member>
+      <member refid="classQuick3DTerrainGeometry_1abbc2607cac72e91ae0ae19c2a489fb80" prot="private" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>getHeight</name></member>
+      <member refid="classQuick3DTerrainGeometry_1a78d1d8bfcf79b8bf9c76a001d3b1c5d8" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>gridSize</name></member>
+      <member refid="classQuick3DTerrainGeometry_1a259ddcc65a0ba55d375ec9b98f83465c" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>gridSize</name></member>
+      <member refid="classQuick3DTerrainGeometry_1aa942815fc963dc0e7ed47cb163789e65" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>gridSizeChanged</name></member>
+      <member refid="classQuick3DTerrainGeometry_1a107af6e5cb70d7ecf3d0fcfc44020d74" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>heightData</name></member>
+      <member refid="classQuick3DTerrainGeometry_1ae0c8efd8f17d2545e430cee2f5f43297" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>heightDataChanged</name></member>
+      <member refid="classQuick3DTerrainGeometry_1adb59ef37d0db00170c29ab58a1a5bb61" prot="private" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>mDirty</name></member>
+      <member refid="classQuick3DTerrainGeometry_1a80392f15450ce17333204de32c6807dd" prot="private" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>mGridSize</name></member>
+      <member refid="classQuick3DTerrainGeometry_1af7a49db86e3d52ff264949d12c29b908" prot="private" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>mHeights</name></member>
+      <member refid="classQuick3DTerrainGeometry_1aec28cb6dace15b037c4dddb5adf34f2d" prot="private" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>mSize</name></member>
+      <member refid="classQuick3DTerrainGeometry_1a71a62e2dc3f9ff876a073d5011dfbdf9" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>Quick3DTerrainGeometry</name></member>
+      <member refid="classQuick3DTerrainGeometry_1acc0b42f915c722b5219eefa9e94de972" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>setGridSize</name></member>
+      <member refid="classQuick3DTerrainGeometry_1af230ddab4e881c3de21bd51baa09ed2c" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>setHeightData</name></member>
+      <member refid="classQuick3DTerrainGeometry_1a8bd1fda627aade2c6888b107df8f497a" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>setSize</name></member>
+      <member refid="classQuick3DTerrainGeometry_1ac35b6f6a2aa56070dfef67a80a445cc1" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>size</name></member>
+      <member refid="classQuick3DTerrainGeometry_1aace4d53fc635d79149850c0713275b79" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>size</name></member>
+      <member refid="classQuick3DTerrainGeometry_1a5db43b6d4b2da3567dc566fb08fd6195" prot="public" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>sizeChanged</name></member>
+      <member refid="classQuick3DTerrainGeometry_1a74c2497fe040a9ace86771711f14c318" prot="private" virt="non-virtual"><scope>Quick3DTerrainGeometry</scope><name>updateGeometry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

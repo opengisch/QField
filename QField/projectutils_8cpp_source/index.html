@@ -1,0 +1,857 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File projectutils.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-projectutilscpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File projectutils.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-projectutilscpp">File projectutils.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_a8053b3d69cfefb2b2e6ec7bf9dd5c1a/"><strong>utils</strong></a> <strong>&gt;</strong> <a href="../projectutils_8cpp/"><strong>projectutils.cpp</strong></a></p>
+<p><a href="../projectutils_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+  projectutils.cpp - ProjectUtils
+
+ ---------------------
+ begin                : 19.04.2024
+ copyright            : (C) 2024 by Mathieu Pellerin
+ email                : mathieu@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &quot;layerutils.h&quot;
+#include &quot;platformutilities.h&quot;
+#include &quot;positioningutils.h&quot;
+#include &quot;projectutils.h&quot;
+
+#include &lt;qgsmaplayer.h&gt;
+#include &lt;qgsprojectdisplaysettings.h&gt;
+#include &lt;qgsrasterlayer.h&gt;
+#include &lt;qgsvectorfilewriter.h&gt;
+#include &lt;qgsvectorlayer.h&gt;
+#include &lt;qgsvectortilelayer.h&gt;
+#include &lt;qgsvectortileutils.h&gt;
+
+ProjectUtils::ProjectUtils( QObject *parent )
+  : QObject( parent )
+{
+}
+
+QVariantMap ProjectUtils::mapLayers( QgsProject *project )
+{
+  if ( !project )
+    return QVariantMap();
+
+  QVariantMap mapLayers;
+  const QMap&lt;QString, QgsMapLayer *&gt; projectMapLayers = project-&gt;mapLayers();
+  for ( const QString &amp;layerId : projectMapLayers.keys() )
+  {
+    mapLayers.insert( layerId, QVariant::fromValue&lt;QgsMapLayer *&gt;( projectMapLayers[layerId] ) );
+  }
+
+  return mapLayers;
+}
+
+bool ProjectUtils::addMapLayer( QgsProject *project, QgsMapLayer *layer )
+{
+  if ( !project )
+    return false;
+
+  return ( project-&gt;addMapLayer( layer ) );
+}
+
+void ProjectUtils::removeMapLayer( QgsProject *project, QgsMapLayer *layer )
+{
+  if ( !project || !layer )
+    return;
+
+  project-&gt;removeMapLayer( layer );
+}
+
+void ProjectUtils::removeMapLayer( QgsProject *project, const QString &amp;layerId )
+{
+  if ( !project || layerId.isEmpty() )
+    return;
+
+  project-&gt;removeMapLayer( layerId );
+}
+
+Qgis::TransactionMode ProjectUtils::transactionMode( QgsProject *project )
+{
+  if ( !project )
+    return Qgis::TransactionMode::Disabled;
+
+  return project-&gt;transactionMode();
+}
+
+QString ProjectUtils::title( QgsProject *project )
+{
+  if ( !project )
+    return QString();
+
+  const QString title = project-&gt;title();
+  return !title.isEmpty() ? title : QFileInfo( project-&gt;fileName() ).completeBaseName();
+}
+
+QString ProjectUtils::createProject( const QVariantMap &amp;options, const GnssPositionInformation &amp;positionInformation )
+{
+  QString projectTitle = options.value( QStringLiteral( &quot;title&quot; ), tr( &quot;Created Project&quot; ) ).toString();
+  QString projectFilename = projectTitle;
+  projectFilename.replace( QRegularExpression( &quot;[^A-Za-z0-9_]&quot; ), QStringLiteral( &quot;_&quot; ) );
+
+  QDir createdProjectsDir( QStringLiteral( &quot;%1/Created Projects/&quot; ).arg( PlatformUtilities::instance()-&gt;applicationDirectory() ) );
+  QString createdProjectDir = createdProjectsDir.filePath( projectFilename );
+  int uniqueSuffix = 2;
+  while ( QFileInfo::exists( createdProjectDir ) )
+  {
+    createdProjectDir = QStringLiteral( &quot;%1_%2&quot; ).arg( createdProjectsDir.filePath( projectFilename ), QString::number( uniqueSuffix++ ) );
+  }
+  createdProjectDir = QDir::cleanPath( createdProjectDir );
+  createdProjectsDir.mkpath( createdProjectDir );
+  const QString projectFilepath = QStringLiteral( &quot;%1/%2.qgz&quot; ).arg( createdProjectDir, projectFilename );
+
+  QList&lt;QgsMapLayer *&gt; createdProjectLayers;
+  QgsProject *createdProject = new QgsProject();
+
+  // Basic project settings
+  createdProject-&gt;setCrs( QgsCoordinateReferenceSystem( &quot;EPSG:3857&quot; ) );
+  createdProject-&gt;displaySettings()-&gt;setCoordinateType( Qgis::CoordinateDisplayType::CustomCrs );
+  createdProject-&gt;displaySettings()-&gt;setCoordinateCustomCrs( QgsCoordinateReferenceSystem( &quot;EPSG:4326&quot; ) );
+
+  // Notes layer
+  QgsVectorLayer *notesLayer = nullptr;
+  if ( options.value( QStringLiteral( &quot;notes&quot; ) ).toBool() )
+  {
+    createdProject-&gt;writeEntry( QStringLiteral( &quot;qfieldsync&quot; ), QStringLiteral( &quot;initialMapMode&quot; ), QStringLiteral( &quot;digitize&quot; ) );
+
+    const QString notesFilepath = QStringLiteral( &quot;%1/notes.gpkg&quot; ).arg( createdProjectDir );
+
+    QgsFields fields;
+    if ( options.value( QStringLiteral( &quot;camera_capture&quot; ) ).toBool() )
+    {
+      fields.append( QgsField( QStringLiteral( &quot;media&quot; ), QMetaType::QString ) );
+    }
+    fields.append( QgsField( QStringLiteral( &quot;color&quot; ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( &quot;title&quot; ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( &quot;note&quot; ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( &quot;timestamp&quot; ), QMetaType::QDateTime ) );
+
+    QgsVectorFileWriter::SaveVectorOptions writerOptions;
+    QgsVectorFileWriter *writer = QgsVectorFileWriter::create( notesFilepath, fields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( &quot;EPSG:4326&quot; ), createdProject-&gt;transformContext(), writerOptions );
+    delete writer;
+
+    notesLayer = new QgsVectorLayer( notesFilepath, tr( &quot;Notes&quot; ) );
+    fields = notesLayer-&gt;fields();
+    LayerUtils::setDefaultRenderer( notesLayer, nullptr, options.value( QStringLiteral( &quot;camera_capture&quot; ) ).toBool() ? QStringLiteral( &quot;media&quot; ) : QString(), QStringLiteral( &quot;color&quot; ) );
+    LayerUtils::setDefaultLabeling( notesLayer );
+
+    // Set a nice display expression for the feature list
+    notesLayer-&gt;setDisplayExpression( &quot;COALESCE( title , 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )&quot; );
+
+    int fieldIndex;
+    QVariantMap widgetOptions;
+    QgsEditorWidgetSetup widgetSetup;
+
+    // Configure fid field
+    fieldIndex = fields.indexOf( QStringLiteral( &quot;fid&quot; ) );
+    if ( fieldIndex &gt;= 0 )
+    {
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( &quot;Hidden&quot; ), widgetOptions );
+      notesLayer-&gt;setEditorWidgetSetup( fieldIndex, widgetSetup );
+    }
+
+    // Configure time field
+    fieldIndex = fields.indexOf( QStringLiteral( &quot;timestamp&quot; ) );
+    if ( fieldIndex &gt;= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( &quot;display_format&quot; )] = QStringLiteral( &quot;yyyy-MM-dd HH:mm&quot; );
+      widgetOptions[QStringLiteral( &quot;field_format&quot; )] = QStringLiteral( &quot;yyyy-MM-dd HH:mm&quot; );
+      widgetOptions[QStringLiteral( &quot;field_format_overwrite&quot; )] = true;
+      widgetOptions[QStringLiteral( &quot;allow_null&quot; )] = true;
+      widgetOptions[QStringLiteral( &quot;calendar_popup&quot; )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( &quot;DateTime&quot; ), widgetOptions );
+      notesLayer-&gt;setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer-&gt;setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( &quot;now()&quot; ), false ) );
+      notesLayer-&gt;setFieldAlias( fieldIndex, tr( &quot;Time&quot; ) );
+    }
+
+    // Configure color field
+    fieldIndex = fields.indexOf( QStringLiteral( &quot;color&quot; ) );
+    if ( fieldIndex &gt;= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( &quot;Color&quot; ), widgetOptions );
+      notesLayer-&gt;setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer-&gt;setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( &quot;'#377eb8'&quot; ), false ) );
+      notesLayer-&gt;setFieldAlias( fieldIndex, tr( &quot;Marker color&quot; ) );
+    }
+
+    // Configure note field
+    fieldIndex = fields.indexOf( QStringLiteral( &quot;title&quot; ) );
+    if ( fieldIndex &gt;= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( &quot;TextEdit&quot; ), widgetOptions );
+      notesLayer-&gt;setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer-&gt;setFieldAlias( fieldIndex, tr( &quot;Title&quot; ) );
+    }
+
+    // Configure note field
+    fieldIndex = fields.indexOf( QStringLiteral( &quot;note&quot; ) );
+    if ( fieldIndex &gt;= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( &quot;IsMultiline&quot; )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( &quot;TextEdit&quot; ), widgetOptions );
+      notesLayer-&gt;setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer-&gt;setFieldAlias( fieldIndex, tr( &quot;Note&quot; ) );
+    }
+
+    if ( options.value( QStringLiteral( &quot;camera_capture&quot; ) ).toBool() )
+    {
+      // Configure camera field
+      fieldIndex = fields.indexOf( QStringLiteral( &quot;media&quot; ) );
+      if ( fieldIndex &gt;= 0 )
+      {
+        widgetOptions.clear();
+        widgetOptions[QStringLiteral( &quot;DocumentViewer&quot; )] = 1;
+        widgetOptions[QStringLiteral( &quot;RelativeStorage&quot; )] = 1;
+        widgetOptions[QStringLiteral( &quot;FileWidget&quot; )] = true;
+        widgetOptions[QStringLiteral( &quot;FileWidgetButton&quot; )] = true;
+        widgetSetup = QgsEditorWidgetSetup( QStringLiteral( &quot;ExternalResource&quot; ), widgetOptions );
+        notesLayer-&gt;setEditorWidgetSetup( fieldIndex, widgetSetup );
+        notesLayer-&gt;setFieldAlias( fieldIndex, tr( &quot;Media&quot; ) );
+      }
+    }
+
+    // Insure the layer is ready cloud-friendly
+    notesLayer-&gt;setCustomProperty( QStringLiteral( &quot;QFieldSync/cloud_action&quot; ), QStringLiteral( &quot;offline&quot; ) );
+    notesLayer-&gt;setCustomProperty( QStringLiteral( &quot;QFieldSync/action&quot; ), QStringLiteral( &quot;offline&quot; ) );
+
+    notesLayer-&gt;setDisplayExpression( QStringLiteral( &quot;\&quot;title\&quot;&quot; ) );
+
+    createdProjectLayers &lt;&lt; notesLayer;
+  }
+
+  // Tracks layer
+  QgsVectorLayer *tracksLayer = nullptr;
+  if ( options.value( QStringLiteral( &quot;tracks&quot; ) ).toBool() )
+  {
+    const QString tracksFilepath = QStringLiteral( &quot;%1/tracks.gpkg&quot; ).arg( createdProjectDir );
+
+    QgsFields fields;
+    fields.append( QgsField( QStringLiteral( &quot;color&quot; ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( &quot;title&quot; ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( &quot;timestamp&quot; ), QMetaType::QDateTime ) );
+    QgsVectorFileWriter::SaveVectorOptions writerOptions;
+    QgsVectorFileWriter *writer = QgsVectorFileWriter::create( tracksFilepath, fields, Qgis::WkbType::LineStringZM, QgsCoordinateReferenceSystem( &quot;EPSG:4326&quot; ), createdProject-&gt;transformContext(), writerOptions );
+    delete writer;
+
+    tracksLayer = new QgsVectorLayer( tracksFilepath, tr( &quot;Tracks&quot; ) );
+    fields = tracksLayer-&gt;fields();
+    LayerUtils::setDefaultRenderer( tracksLayer, nullptr, QString(), QStringLiteral( &quot;color&quot; ) );
+
+    // Set a nice display expression for the feature list
+    tracksLayer-&gt;setDisplayExpression( &quot;'Track #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' )&quot; );
+
+    int fieldIndex;
+    QVariantMap widgetOptions;
+    QgsEditorWidgetSetup widgetSetup;
+
+    // Configure fid field
+    fieldIndex = fields.indexOf( QStringLiteral( &quot;fid&quot; ) );
+    if ( fieldIndex &gt;= 0 )
+    {
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( &quot;Hidden&quot; ), widgetOptions );
+      tracksLayer-&gt;setEditorWidgetSetup( fieldIndex, widgetSetup );
+    }
+
+    // Configure color field
+    fieldIndex = fields.indexOf( QStringLiteral( &quot;color&quot; ) );
+    if ( fieldIndex &gt;= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( &quot;Color&quot; ), widgetOptions );
+      tracksLayer-&gt;setEditorWidgetSetup( fieldIndex, widgetSetup );
+      tracksLayer-&gt;setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( &quot;'#377eb8'&quot; ), false ) );
+      tracksLayer-&gt;setFieldAlias( fieldIndex, tr( &quot;Track color&quot; ) );
+    }
+
+    // Configure note field
+    fieldIndex = fields.indexOf( QStringLiteral( &quot;title&quot; ) );
+    if ( fieldIndex &gt;= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( &quot;TextEdit&quot; ), widgetOptions );
+      tracksLayer-&gt;setEditorWidgetSetup( fieldIndex, widgetSetup );
+      tracksLayer-&gt;setFieldAlias( fieldIndex, tr( &quot;Title&quot; ) );
+    }
+
+    // Configure time field
+    fieldIndex = fields.indexOf( QStringLiteral( &quot;timestamp&quot; ) );
+    if ( fieldIndex &gt;= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( &quot;display_format&quot; )] = QStringLiteral( &quot;yyyy-MM-dd HH:mm&quot; );
+      widgetOptions[QStringLiteral( &quot;field_format&quot; )] = QStringLiteral( &quot;yyyy-MM-dd HH:mm&quot; );
+      widgetOptions[QStringLiteral( &quot;field_format_overwrite&quot; )] = true;
+      widgetOptions[QStringLiteral( &quot;allow_null&quot; )] = true;
+      widgetOptions[QStringLiteral( &quot;calendar_popup&quot; )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( &quot;DateTime&quot; ), widgetOptions );
+      tracksLayer-&gt;setEditorWidgetSetup( fieldIndex, widgetSetup );
+      tracksLayer-&gt;setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( &quot;now()&quot; ), false ) );
+      tracksLayer-&gt;setFieldAlias( fieldIndex, tr( &quot;Time&quot; ) );
+    }
+
+    if ( options.value( QStringLiteral( &quot;track_on_launch&quot; ) ).toBool() )
+    {
+      // Skip feature form when launching tracks
+      QgsEditFormConfig formConfig = tracksLayer-&gt;editFormConfig();
+      formConfig.setSuppress( Qgis::AttributeFormSuppression::On );
+      tracksLayer-&gt;setEditFormConfig( formConfig );
+
+      // Launch tracks on project opening
+      tracksLayer-&gt;setCustomProperty( QStringLiteral( &quot;QFieldSync/tracking_session_active&quot; ), true );
+      tracksLayer-&gt;setCustomProperty( QStringLiteral( &quot;QFieldSync/tracking_time_requirement_active&quot; ), true );
+      tracksLayer-&gt;setCustomProperty( QStringLiteral( &quot;QFieldSync/tracking_time_requirement_interval_seconds&quot; ), 2 );
+      tracksLayer-&gt;setCustomProperty( QStringLiteral( &quot;QFieldSync/tracking_erroneous_distance_safeguard_active&quot; ), true );
+      tracksLayer-&gt;setCustomProperty( QStringLiteral( &quot;QFieldSync/tracking_erroneous_distance_safeguard_maximum_meters&quot; ), 50 );
+      tracksLayer-&gt;setCustomProperty( QStringLiteral( &quot;QFieldSync/tracking_measurement_type&quot; ), 1 ); // Attach epoch value to the M value
+    }
+    else
+    {
+      createdProject-&gt;writeEntry( QStringLiteral( &quot;qfieldsync&quot; ), QStringLiteral( &quot;initialMapMode&quot; ), QStringLiteral( &quot;digitize&quot; ) );
+    }
+
+    // Insure the layer is ready cloud-friendly
+    tracksLayer-&gt;setCustomProperty( QStringLiteral( &quot;QFieldSync/cloud_action&quot; ), QStringLiteral( &quot;offline&quot; ) );
+    tracksLayer-&gt;setCustomProperty( QStringLiteral( &quot;QFieldSync/action&quot; ), QStringLiteral( &quot;offline&quot; ) );
+
+    createdProjectLayers &lt;&lt; tracksLayer;
+  }
+
+  // Basemap
+  QgsMapLayer *basemapLayer = nullptr;
+  QgsRectangle basemapExtent;
+  const QString basemap = options.value( QStringLiteral( &quot;basemap&quot; ), QStringLiteral( &quot;color&quot; ) ).toString();
+  const QString basemapCustomProvider = options.value( QStringLiteral( &quot;basemap_custom_provider&quot; ) ).toString();
+  const QString basemapCustomExtent = options.value( QStringLiteral( &quot;basemap_custom_extent&quot; ) ).toString();
+  QString basemapCustomSource = options.value( QStringLiteral( &quot;basemap_custom_source&quot; ) ).toString();
+  if ( basemap.compare( QStringLiteral( &quot;colorful&quot; ) ) == 0 || basemap.compare( QStringLiteral( &quot;darkgray&quot; ) ) == 0 || basemap.compare( QStringLiteral( &quot;lightgray&quot; ) ) == 0 )
+  {
+    basemapLayer = LayerUtils::createBasemap( basemap );
+    if ( basemap.compare( QStringLiteral( &quot;darkgray&quot; ) ) == 0 )
+    {
+      createdProject-&gt;setBackgroundColor( QColor( 15, 15, 15 ) );
+    }
+    else if ( basemap.compare( QStringLiteral( &quot;lightgray&quot; ) ) == 0 )
+    {
+      createdProject-&gt;setBackgroundColor( QColor( 240, 240, 240 ) );
+    }
+    else
+    {
+      createdProject-&gt;setBackgroundColor( QColor( 242, 239, 233 ) );
+    }
+  }
+  else if ( basemap.compare( QStringLiteral( &quot;custom&quot; ) ) == 0 || ( !basemapCustomSource.isEmpty() &amp;&amp; !basemapCustomProvider.isEmpty() ) )
+  {
+    if ( basemapCustomProvider.toLower() == QStringLiteral( &quot;vectortile&quot; ) )
+    {
+      QgsVectorTileUtils::updateUriSources( basemapCustomSource );
+      QgsVectorTileLayer *layer = new QgsVectorTileLayer( basemapCustomSource, tr( &quot;Basemap&quot; ) );
+      QString error;
+      QStringList warnings;
+      QList&lt;QgsMapLayer *&gt; subLayers;
+      layer-&gt;loadDefaultStyleAndSubLayers( error, warnings, subLayers );
+      basemapLayer = layer;
+    }
+    else
+    {
+      basemapLayer = new QgsRasterLayer( basemapCustomSource, tr( &quot;Basemap&quot; ), basemapCustomProvider );
+    }
+
+    basemapExtent = basemapLayer-&gt;extent();
+    if ( !basemapCustomExtent.isEmpty() )
+    {
+      const QgsRectangle customExtent = QgsRectangle::fromWkt( basemapCustomExtent );
+      if ( !customExtent.isEmpty() )
+      {
+        basemapExtent = customExtent;
+      }
+    }
+  }
+
+  QgsRectangle createdProjectExtent;
+  if ( basemapLayer &amp;&amp; basemapLayer-&gt;isValid() )
+  {
+    createdProjectLayers &lt;&lt; basemapLayer;
+    createdProject-&gt;setCrs( basemapLayer-&gt;crs() );
+    createdProjectExtent = basemapExtent;
+  }
+
+  // Insure attachment directories are populated in preparation for cloud project
+  createdProject-&gt;writeEntry( QStringLiteral( &quot;qfieldsync&quot; ), QStringLiteral( &quot;attachmentDirs&quot; ), QStringList() &lt;&lt; &quot;DCIM&quot;
+                                                                                                                &lt;&lt; &quot;audio&quot;
+                                                                                                                &lt;&lt; &quot;video&quot;
+                                                                                                                &lt;&lt; &quot;files&quot; );
+
+  createdProject-&gt;addMapLayers( createdProjectLayers );
+
+  connect( createdProject, &amp;QgsProject::writeProject, [createdProject, createdProjectExtent, positionInformation]( QDomDocument &amp;document ) {
+    QDomNodeList nodes = document.elementsByTagName( &quot;qgis&quot; );
+    if ( !nodes.isEmpty() )
+    {
+      QDomNode node = nodes.item( 0 );
+      QDomElement element = node.toElement();
+
+      QDomElement canvasElement = document.createElement( QStringLiteral( &quot;mapcanvas&quot; ) );
+      canvasElement.setAttribute( QStringLiteral( &quot;name&quot; ), QStringLiteral( &quot;theMapCanvas&quot; ) );
+
+      node.appendChild( canvasElement );
+
+      QgsRectangle extent = PositioningUtils::createExtentForDevice( positionInformation, createdProject-&gt;crs(), createdProjectExtent );
+      if ( !extent.isEmpty() )
+      {
+        QgsMapSettings mapSettings;
+        mapSettings.setDestinationCrs( createdProject-&gt;crs() );
+        mapSettings.setOutputSize( QSize( 500, 500 ) );
+        mapSettings.setExtent( extent );
+        mapSettings.writeXml( canvasElement, document );
+      }
+    }
+  } );
+
+  const bool written = createdProject-&gt;write( projectFilepath );
+  createdProject-&gt;clear();
+  createdProject-&gt;deleteLater();
+
+  // Remove any pre-existing settings
+  QSettings().remove( QStringLiteral( &quot;/qgis/projectInfo/%1&quot; ).arg( projectFilepath ) );
+
+  return written ? projectFilepath : QString();
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

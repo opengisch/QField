@@ -1,0 +1,83 @@
+
+
+# File qfield.h.in
+
+[**File List**](files.md) **>** [**core**](dir_aebb8dcc11953d78e620bbef0b9e2183.md) **>** [**qfield.h.in**](qfield_8h_8in.md)
+
+[Go to the documentation of this file](qfield_8h_8in.md)
+
+
+```C++
+/***************************************************************************
+                        qfield.h
+                        ---------------
+  begin                : Jun 2020
+  copyright            : (C) 2020 by Ivan Ivanov
+  email                : ivan@opengis.ch
+***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#ifndef QFIELD_H
+#define QFIELD_H
+
+#include <QString>
+
+/**
+ * Contains "polyfills" for backporting c++ features from standards > c++17 and Qt global methods
+ * added later than our minimum version, as well nice some sugar.
+ */
+namespace qfield
+{
+  /**
+   * Can be used to iterate over `QMap`s in a convenient way.
+   *
+   * \code{.cpp}
+   * for (auto [key, value]: asKeyValueRange(map))
+   * {
+   *   // do something with `key` and `value`
+   * }
+   * \endcode
+   */
+  template<typename T> class asKeyValueRange
+  {
+    public:
+      explicit asKeyValueRange( T &data )
+        : mData { data }
+      {
+      }
+
+      auto begin() { return mData.keyValueBegin(); }
+
+      auto end() { return mData.keyValueEnd(); }
+
+    private:
+      T &mData;
+  };
+
+  static inline const QString gitRev{ QStringLiteral( "@GIT_REV@" ) };
+  static inline const QString appVersion{ QStringLiteral( "@APP_VERSION@" ) };
+  static inline const QString appVersionStr{ QStringLiteral( "@APP_VERSION_STR@" ) };
+  static inline const QString appName{ QStringLiteral( "@APP_NAME@" ) };
+}; // namespace qfield
+
+#define WITH_SENTRY @WITH_SENTRY@
+#define QGIS_PREFIX_PATH "@QGIS_PREFIX_PATH@"
+
+#define SUPPORTED_PROJECT_EXTENSIONS QStringList( { QStringLiteral( "qgs" ), QStringLiteral( "qgz" ) } )
+#define SUPPORTED_VECTOR_EXTENSIONS QStringList( { QStringLiteral( "gpkg" ), QStringLiteral( "shp" ), QStringLiteral( "kml" ), QStringLiteral( "kmz" ), QStringLiteral( "geojson" ), QStringLiteral( "json" ), QStringLiteral( "pdf" ), QStringLiteral( "gpx" ), QStringLiteral( "gml" ), QStringLiteral( "mif" ), QStringLiteral( "fgb" ), QStringLiteral( "db" ), QStringLiteral( "sqlite" ), QStringLiteral( "mbtiles" ), QStringLiteral( "vrt" ), QStringLiteral( "zip" ), QStringLiteral( "7z" ), QStringLiteral( "rar" ) } )
+#define SUPPORTED_RASTER_EXTENSIONS QStringList( { QStringLiteral( "tif" ), QStringLiteral( "tiff" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "jpeg" ), QStringLiteral( "png" ), QStringLiteral( "gpkg" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ), QStringLiteral( "mbtiles" ), QStringLiteral( "vrt" ), QStringLiteral( "zip" ), QStringLiteral( "7z" ) } )
+#define SUPPORTED_FILE_EXTENSIONS QStringList( { QStringLiteral( "log" ), QStringLiteral( "txt" ), QStringLiteral( "mp4" ), QStringLiteral( "m4a" ), QStringLiteral( "ogg" ), QStringLiteral( "mp3" ) } )
+#define SUPPORTED_DATASET_THUMBNAIL QStringList( { QStringLiteral( "zip" ), QStringLiteral( "tif" ), QStringLiteral( "tiff" ), QStringLiteral( "pdf" ), QStringLiteral( "jpg" ), QStringLiteral( "jpeg" ), QStringLiteral( "png" ), QStringLiteral( "jp2" ), QStringLiteral( "webp" ) } )
+
+#endif // QFIELD_H
+```
+
+

@@ -1,0 +1,417 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="processingalgorithmparametersmodel_8cpp" kind="file" language="C++">
+    <compoundname>processingalgorithmparametersmodel.cpp</compoundname>
+    <includes refid="processingalgorithmparametersmodel_8h" local="yes">processingalgorithmparametersmodel.h</includes>
+    <includes local="no">qgsapplication.h</includes>
+    <includes local="no">qgscoordinatereferencesystem.h</includes>
+    <includes local="no">qgsprocessingalgorithm.h</includes>
+    <includes local="no">qgsprocessingparameters.h</includes>
+    <includes local="no">qgsprocessingregistry.h</includes>
+    <includes local="no">qgsunittypes.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/processing/processingalgorithmparametersmodel.cpp</label>
+        <link refid="processingalgorithmparametersmodel_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>processingalgorithmparametersmodel.h</label>
+        <link refid="processingalgorithmparametersmodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="5">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="6">
+        <label>qgsapplication.h</label>
+      </node>
+      <node id="7">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="8">
+        <label>qgsprocessingalgorithm.h</label>
+      </node>
+      <node id="9">
+        <label>qgsprocessingparameters.h</label>
+      </node>
+      <node id="10">
+        <label>qgsprocessingregistry.h</label>
+      </node>
+      <node id="11">
+        <label>qgsunittypes.h</label>
+      </node>
+      <node id="3">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>processingalgorithmparametersmodel.h<sp/>-<sp/>ProcessingAlgorithmParametersModel</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>21.06.2024</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2024<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu<sp/>at<sp/>opengis<sp/>dot<sp/>ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;processingalgorithmparametersmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsapplication.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgscoordinatereferencesystem.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsprocessingalgorithm.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsprocessingparameters.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsprocessingregistry.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsunittypes.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">ProcessingAlgorithmParametersModel::ProcessingAlgorithmParametersModel(<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>:<sp/>QSortFilterProxyModel(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>,<sp/>mModel(<sp/>new<sp/><ref refid="classProcessingAlgorithmParametersModelBase" kindref="compound">ProcessingAlgorithmParametersModelBase</ref>(<sp/>parent<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>setSourceModel(<sp/>mModel<sp/>);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>connect(<sp/>mModel,<sp/>&amp;<ref refid="classProcessingAlgorithmParametersModelBase_1aac5f4d65bc9792f9ffdb0a704d73c9a1" kindref="member">ProcessingAlgorithmParametersModelBase::algorithmIdChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classProcessingAlgorithmParametersModel_1ac3dcf4e56e2423aec65b99344cd34a70" kindref="member">ProcessingAlgorithmParametersModel::algorithmIdChanged</ref><sp/>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>connect(<sp/>mModel,<sp/>&amp;<ref refid="classProcessingAlgorithmParametersModelBase_1aa710d19e7e0642e2a2e80b9321895cc7" kindref="member">ProcessingAlgorithmParametersModelBase::inPlaceLayerChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classProcessingAlgorithmParametersModel_1a7245340b8731e7a30c6e10d0eddc533e" kindref="member">ProcessingAlgorithmParametersModel::inPlaceLayerChanged</ref><sp/>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>connect(<sp/>mModel,<sp/>&amp;<ref refid="classProcessingAlgorithmParametersModelBase_1a39df99d0beef6e593d2ac1076e6f8fce" kindref="member">ProcessingAlgorithmParametersModelBase::parametersChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classProcessingAlgorithmParametersModel_1a9f2eec60c7f0266b7144defa589b3e5c" kindref="member">ProcessingAlgorithmParametersModel::parametersChanged</ref><sp/>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModel_1a2b501be18c7df75f2f3911b73c5cf986" kindref="member">ProcessingAlgorithmParametersModel::setFilters</ref>(<sp/>ProcessingAlgorithmParametersModel::Filters<sp/>filters<sp/>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilters<sp/>==<sp/>filters<sp/>)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>mFilters<sp/>=<sp/>filters;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classProcessingAlgorithmParametersModel_1a6150bd7765b218829bab15c290903deb" kindref="member">filtersChanged</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>invalidateFilter();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">QString<sp/>ProcessingAlgorithmParametersModel::algorithmId()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="51"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mModel-&gt;<ref refid="classProcessingAlgorithmParametersModelBase_1a654ca98bcd24535d667cbf6f51763ed9" kindref="member">algorithmId</ref>();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModel_1ac3a07f7e6ae730f31509939fd96b4af6" kindref="member">ProcessingAlgorithmParametersModel::setAlgorithmId</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>mModel-&gt;<ref refid="classProcessingAlgorithmParametersModelBase_1ad3ce4aecd1c1ebeee8ab1e889c7d7daa" kindref="member">setAlgorithmId</ref>(<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">QgsVectorLayer<sp/>*ProcessingAlgorithmParametersModel::inPlaceLayer()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="61"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mModel-&gt;<ref refid="classProcessingAlgorithmParametersModelBase_1a548e9d29f3d8c9706b5dd98e1af91429" kindref="member">inPlaceLayer</ref>();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModel_1a39305ad59715986b904a71bb9ca377b5" kindref="member">ProcessingAlgorithmParametersModel::setInPlaceLayer</ref>(<sp/>QgsVectorLayer<sp/>*layer<sp/>)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>mModel-&gt;<ref refid="classProcessingAlgorithmParametersModelBase_1aff627338ea1298e1814bcc151197a647" kindref="member">setInPlaceLayer</ref>(<sp/>layer<sp/>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ProcessingAlgorithmParametersModel::isValid()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="71"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mModel-&gt;<ref refid="classProcessingAlgorithmParametersModelBase_1a2092aaebbbde92ba6692b19271b6f556" kindref="member">isValid</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ProcessingAlgorithmParametersModel::hasParameters()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="76"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mModel-&gt;<ref refid="classProcessingAlgorithmParametersModelBase_1a8963112a7cb792a9b17bf94a3dcd3615" kindref="member">hasParameters</ref>();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ProcessingAlgorithmParametersModel::hasAdvancedParameters()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="81"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mModel-&gt;<ref refid="classProcessingAlgorithmParametersModelBase_1a2b8a2a18bfe850f1b42c80fd1237f719" kindref="member">hasAdvancedParameters</ref>();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal">QString<sp/>ProcessingAlgorithmParametersModel::algorithmDisplayName()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="86"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mModel-&gt;<ref refid="classProcessingAlgorithmParametersModelBase_1aebc236f8efb33850b080f1c0fc1df815" kindref="member">algorithmDisplayName</ref>();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">QString<sp/>ProcessingAlgorithmParametersModel::algorithmShortHelp()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="91"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mModel-&gt;<ref refid="classProcessingAlgorithmParametersModelBase_1a5526070e795422ce5797c8228b7521a7" kindref="member">algorithmShortHelp</ref>();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">QVariantMap<sp/>ProcessingAlgorithmParametersModel::parameters()</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mModel-&gt;<ref refid="classProcessingAlgorithmParametersModelBase_1a96900449e64d5ecc38c1716c3d695a5c" kindref="member">parameters</ref>();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModel_1ac85a868f0817f0051d9025427969c810" kindref="member">ProcessingAlgorithmParametersModel::setParameters</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;parameters<sp/>)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>mModel-&gt;<ref refid="classProcessingAlgorithmParametersModelBase_1ab05e01060c19c5b2e6ad591a43ca2637" kindref="member">setParameters</ref>(<sp/>parameters<sp/>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ProcessingAlgorithmParametersModel::filterAcceptsRow(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sourceRow,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;sourceParent<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="106"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>QModelIndex<sp/>sourceIndex<sp/>=<sp/>mModel-&gt;index(<sp/>sourceRow,<sp/>0,<sp/>sourceParent<sp/>);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(<sp/>mFilters<sp/>&amp;<sp/><ref refid="classProcessingAlgorithmParametersModel_1a17b74ca2a6249ce26b17af6ddaa683afa75e163b6b15a586ce1d87bb8023517d1" kindref="member">Filter::GeneralParameterFilter</ref><sp/>)<sp/>&amp;&amp;<sp/>(<sp/>mFilters<sp/>&amp;<sp/><ref refid="classProcessingAlgorithmParametersModel_1a17b74ca2a6249ce26b17af6ddaa683afac30904e23e0414af8f44fdf18338e009" kindref="member">Filter::AdvancedParameterFilter</ref><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilters<sp/>&amp;<sp/><ref refid="classProcessingAlgorithmParametersModel_1a17b74ca2a6249ce26b17af6ddaa683afa75e163b6b15a586ce1d87bb8023517d1" kindref="member">Filter::GeneralParameterFilter</ref><sp/>)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>advancedParameter<sp/>=<sp/>mModel-&gt;data(<sp/>sourceIndex,<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463a1d5f2389bddc6c0ead3fdcf53c815162" kindref="member">ProcessingAlgorithmParametersModelBase::ParameterFlagsRole</ref><sp/>).toInt()<sp/>&amp;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>Qgis::ProcessingParameterFlag::Advanced<sp/>);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>advancedParameter<sp/>)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFilters<sp/>&amp;<sp/><ref refid="classProcessingAlgorithmParametersModel_1a17b74ca2a6249ce26b17af6ddaa683afac30904e23e0414af8f44fdf18338e009" kindref="member">Filter::AdvancedParameterFilter</ref><sp/>)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>advancedParameter<sp/>=<sp/>mModel-&gt;data(<sp/>sourceIndex,<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463a1d5f2389bddc6c0ead3fdcf53c815162" kindref="member">ProcessingAlgorithmParametersModelBase::ParameterFlagsRole</ref><sp/>).toInt()<sp/>&amp;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>Qgis::ProcessingParameterFlag::Advanced<sp/>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!advancedParameter<sp/>)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal">ProcessingAlgorithmParametersModelBase::ProcessingAlgorithmParametersModelBase(<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>:<sp/>QAbstractListModel(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ProcessingAlgorithmParametersModelBase::rebuild()</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>beginResetModel();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>mHasAdvancedParameters<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>mParameters.clear();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>mValues.clear();</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mAlgorithm<sp/>)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QStringList<sp/>sSupportedParameters<sp/>=<sp/>{<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;number&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;area&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;distance&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;enum&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;boolean&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;source&quot;</highlight><highlight class="normal"><sp/>)<sp/>};</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProcessingAlgorithm<sp/>*algorithm<sp/>=<sp/>QgsApplication::instance()-&gt;processingRegistry()-&gt;algorithmById(<sp/>mAlgorithmId<sp/>);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProcessingParameterDefinition<sp/>*definition<sp/>:<sp/>algorithm-&gt;parameterDefinitions()<sp/>)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>sSupportedParameters.contains(<sp/>definition-&gt;type()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>definition-&gt;flags()<sp/>&amp;<sp/>Qgis::ProcessingParameterFlag::Advanced<sp/>)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mHasAdvancedParameters<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>definition-&gt;type()<sp/>!=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;source&quot;</highlight><highlight class="normal"><sp/>)<sp/>||<sp/>definition-&gt;name()<sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;INPUT&quot;</highlight><highlight class="normal"><sp/>)</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mParameters<sp/>&lt;&lt;<sp/>definition;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mValues<sp/>&lt;&lt;<sp/>definition-&gt;defaultValue();</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>endResetModel();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModelBase_1ad3ce4aecd1c1ebeee8ab1e889c7d7daa" kindref="member">ProcessingAlgorithmParametersModelBase::setAlgorithmId</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mAlgorithmId<sp/>==<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>)</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>mAlgorithmId<sp/>=<sp/>id;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>mAlgorithm<sp/>=<sp/>!mAlgorithmId.isEmpty()<sp/>?<sp/>QgsApplication::instance()-&gt;processingRegistry()-&gt;algorithmById(<sp/>mAlgorithmId<sp/>)<sp/>:<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>rebuild();</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aac5f4d65bc9792f9ffdb0a704d73c9a1" kindref="member">algorithmIdChanged</ref>(<sp/>mAlgorithmId<sp/>);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1a39df99d0beef6e593d2ac1076e6f8fce" kindref="member">parametersChanged</ref>();</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aff627338ea1298e1814bcc151197a647" kindref="member">ProcessingAlgorithmParametersModelBase::setInPlaceLayer</ref>(<sp/>QgsVectorLayer<sp/>*layer<sp/>)</highlight></codeline>
+<codeline lineno="183"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mInPlaceLayer<sp/>==<sp/>layer<sp/>)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>mInPlaceLayer<sp/>=<sp/>layer;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>rebuild();</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aa710d19e7e0642e2a2e80b9321895cc7" kindref="member">inPlaceLayerChanged</ref>();</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1a39df99d0beef6e593d2ac1076e6f8fce" kindref="member">parametersChanged</ref>();</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal">QString<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aebc236f8efb33850b080f1c0fc1df815" kindref="member">ProcessingAlgorithmParametersModelBase::algorithmDisplayName</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="198"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mAlgorithm<sp/>?<sp/>mAlgorithm-&gt;displayName()<sp/>:<sp/>QString();</highlight></codeline>
+<codeline lineno="200"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal">QString<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1a5526070e795422ce5797c8228b7521a7" kindref="member">ProcessingAlgorithmParametersModelBase::algorithmShortHelp</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="203"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mAlgorithm<sp/>?<sp/>mAlgorithm-&gt;shortHelpString()<sp/>:<sp/>QString();</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">QVariantMap<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1a96900449e64d5ecc38c1716c3d695a5c" kindref="member">ProcessingAlgorithmParametersModelBase::parameters</ref>()</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/>QVariantMap<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1a96900449e64d5ecc38c1716c3d695a5c" kindref="member">parameters</ref>;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>mParameters.size();<sp/>i++<sp/>)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classProcessingAlgorithmParametersModelBase_1a96900449e64d5ecc38c1716c3d695a5c" kindref="member">parameters</ref>[mParameters.at(<sp/>i<sp/>)-&gt;name()]<sp/>=<sp/>mValues.at(<sp/>i<sp/>);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModelBase_1a96900449e64d5ecc38c1716c3d695a5c" kindref="member">parameters</ref>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModelBase_1ab05e01060c19c5b2e6ad591a43ca2637" kindref="member">ProcessingAlgorithmParametersModelBase::setParameters</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;parameters<sp/>)</highlight></codeline>
+<codeline lineno="218"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>mParameters.size();<sp/>i++<sp/>)</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1a96900449e64d5ecc38c1716c3d695a5c" kindref="member">parameters</ref>.contains(<sp/>mParameters.at(<sp/>i<sp/>)-&gt;name()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mValues[i]<sp/>=<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1a96900449e64d5ecc38c1716c3d695a5c" kindref="member">parameters</ref>.value(<sp/>mParameters.at(<sp/>i<sp/>)-&gt;name()<sp/>);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1a39df99d0beef6e593d2ac1076e6f8fce" kindref="member">parametersChanged</ref>();</highlight></codeline>
+<codeline lineno="228"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal">QHash&lt;int,<sp/>QByteArray&gt;<sp/>ProcessingAlgorithmParametersModelBase::roleNames()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="231"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/>QHash&lt;int,<sp/>QByteArray&gt;<sp/>roles<sp/>=<sp/>QAbstractListModel::roleNames();</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/>roles[ParameterTypeRole]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ParameterType&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>roles[<ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463a92d36bc5d731997bc065622258ef1298" kindref="member">ParameterDescriptionRole</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ParameterDescription&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/>roles[<ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463a1d5f2389bddc6c0ead3fdcf53c815162" kindref="member">ParameterFlagsRole</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ParameterFlags&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/>roles[<ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463aa64384155b79de0e1a680f36045ce47a" kindref="member">ParameterDefaultValueRole</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ParameterDefaultValue&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/>roles[<ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463aa20f3d9520ae500c60daf6f8dc2585d5" kindref="member">ParameterValueRole</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ParameterValue&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>roles[<ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463a7b124b9bccf70073738f09afda6cdafb" kindref="member">ParameterConfigurationRole</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ParameterConfiguration&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>roles;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ProcessingAlgorithmParametersModelBase::rowCount(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;parent<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="244"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!parent.isValid()<sp/>?<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>mParameters.size()<sp/>)<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal">QVariant<sp/>ProcessingAlgorithmParametersModelBase::data(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;index,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="249"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>index.row()<sp/>&gt;=<sp/>mParameters.size()<sp/>||<sp/>index.row()<sp/>&lt;<sp/>0<sp/>||<sp/>!mParameters.at(<sp/>index.row()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QVariant();</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<sp/>role<sp/>)</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>ParameterTypeRole:</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mParameters.at(<sp/>index.row()<sp/>)-&gt;type();</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463a92d36bc5d731997bc065622258ef1298" kindref="member">ParameterDescriptionRole</ref>:</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mParameters.at(<sp/>index.row()<sp/>)-&gt;description();</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463a1d5f2389bddc6c0ead3fdcf53c815162" kindref="member">ParameterFlagsRole</ref>:</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>mParameters.at(<sp/>index.row()<sp/>)-&gt;flags()<sp/>);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463aa64384155b79de0e1a680f36045ce47a" kindref="member">ParameterDefaultValueRole</ref>:</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mParameters.at(<sp/>index.row()<sp/>)-&gt;defaultValue();</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463aa20f3d9520ae500c60daf6f8dc2585d5" kindref="member">ParameterValueRole</ref>:</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mValues.at(<sp/>index.row()<sp/>);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463a7b124b9bccf70073738f09afda6cdafb" kindref="member">ParameterConfigurationRole</ref>:</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QVariantMap<sp/>configuration;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mParameters.at(<sp/>index.row()<sp/>)-&gt;type()<sp/>==<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;area&quot;</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProcessingParameterArea<sp/>*parameterArea<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">QgsProcessingParameterArea<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>mParameters.at(<sp/>index.row()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;minimum&quot;</highlight><highlight class="normal">]<sp/>=<sp/>parameterArea-&gt;minimum();</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;maximum&quot;</highlight><highlight class="normal">]<sp/>=<sp/>parameterArea-&gt;maximum();</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;areaUnit&quot;</highlight><highlight class="normal">]<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>(<sp/>mInPlaceLayer<sp/>?<sp/>QgsUnitTypes::distanceToAreaUnit(<sp/>mInPlaceLayer-&gt;crs().mapUnits()<sp/>)<sp/>:<sp/>Qgis::AreaUnit::Unknown<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mParameters.at(<sp/>index.row()<sp/>)-&gt;type()<sp/>==<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;distance&quot;</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProcessingParameterDistance<sp/>*parameterDistance<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">QgsProcessingParameterDistance<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>mParameters.at(<sp/>index.row()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;minimum&quot;</highlight><highlight class="normal">]<sp/>=<sp/>parameterDistance-&gt;minimum();</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;maximum&quot;</highlight><highlight class="normal">]<sp/>=<sp/>parameterDistance-&gt;maximum();</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;distanceUnit&quot;</highlight><highlight class="normal">]<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>(<sp/>mInPlaceLayer<sp/>?<sp/>mInPlaceLayer-&gt;crs().mapUnits()<sp/>:<sp/>Qgis::DistanceUnit::Unknown<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mParameters.at(<sp/>index.row()<sp/>)-&gt;type()<sp/>==<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;number&quot;</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProcessingParameterNumber<sp/>*parameterNumber<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">QgsProcessingParameterNumber<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>mParameters.at(<sp/>index.row()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;minimum&quot;</highlight><highlight class="normal">]<sp/>=<sp/>parameterNumber-&gt;minimum();</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;maximum&quot;</highlight><highlight class="normal">]<sp/>=<sp/>parameterNumber-&gt;maximum();</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;dataType&quot;</highlight><highlight class="normal">]<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>parameterNumber-&gt;dataType()<sp/>);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mParameters.at(<sp/>index.row()<sp/>)-&gt;type()<sp/>==<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;enum&quot;</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProcessingParameterEnum<sp/>*parameterEnum<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">QgsProcessingParameterEnum<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>mParameters.at(<sp/>index.row()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;options&quot;</highlight><highlight class="normal">]<sp/>=<sp/>parameterEnum-&gt;options();</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mParameters.at(<sp/>index.row()<sp/>)-&gt;type()<sp/>==<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;source&quot;</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProcessingParameterFeatureSource<sp/>*parameterFeatureSource<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">QgsProcessingParameterFeatureSource<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>mParameters.at(<sp/>index.row()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QMap&lt;QString,<sp/>QgsMapLayer<sp/>*&gt;<sp/>mapLayers<sp/>=<sp/>QgsProject::instance()-&gt;mapLayers();</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QVariantList<sp/>supportedLayers;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QVariantMap<sp/>supportedLayer;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>supportedLayer[</highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QString();</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>supportedLayer[</highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal">]<sp/>=<sp/>QString();</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>supportedLayers<sp/>&lt;&lt;<sp/>supportedLayer;</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>mapLayers.begin();<sp/>it<sp/>!=<sp/>mapLayers.end();<sp/>++it<sp/>)</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QgsVectorLayer<sp/>*vectorLayer<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal">QgsVectorLayer<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>it.value()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>parameterFeatureSource-&gt;dataTypes().isEmpty()<sp/>||<sp/>parameterFeatureSource-&gt;dataTypes().contains(<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>vectorLayer-&gt;geometryType()<sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>supportedLayer[</highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">]<sp/>=<sp/>vectorLayer-&gt;id();</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>supportedLayer[</highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal">]<sp/>=<sp/>vectorLayer-&gt;name();</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>supportedLayers<sp/>&lt;&lt;<sp/>supportedLayer;</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configuration[</highlight><highlight class="stringliteral">&quot;layers&quot;</highlight><highlight class="normal">]<sp/>=<sp/>supportedLayers;</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>configuration;</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QVariant();</highlight></codeline>
+<codeline lineno="320"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ProcessingAlgorithmParametersModelBase::setData(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;index,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;value,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role<sp/>)</highlight></codeline>
+<codeline lineno="323"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>index.row()<sp/>&gt;=<sp/>mParameters.size()<sp/>||<sp/>index.row()<sp/>&lt;<sp/>0<sp/>||<sp/>!mParameters.at(<sp/>index.row()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<sp/>role<sp/>)</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463aa20f3d9520ae500c60daf6f8dc2585d5" kindref="member">ParameterValueRole</ref>:</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mValues[index.row()]<sp/>!=<sp/>value<sp/>)</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mValues[index.row()]<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dataChanged(<sp/>index,<sp/>index,<sp/>QList&lt;int&gt;()<sp/>&lt;&lt;<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1aa4a3cd24d9ead8488392f8595ef58463aa20f3d9520ae500c60daf6f8dc2585d5" kindref="member">ParameterValueRole</ref><sp/>);</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classProcessingAlgorithmParametersModelBase_1a39df99d0beef6e593d2ac1076e6f8fce" kindref="member">parametersChanged</ref>();</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="340"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/processing/processingalgorithmparametersmodel.cpp"/>
+  </compounddef>
+</doxygen>

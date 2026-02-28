@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureListExtentController" kind="class" language="C++" prot="public">
+    <compoundname>FeatureListExtentController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classFeatureListExtentController_1af8a8ccd004aacc862d90b71e0c5d1fab" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref> *</type>
+        <definition>MultiFeatureListModel * FeatureListExtentController::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>FeatureListExtentController::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="33" column="5" bodyfile="src/core/featurelistextentcontroller.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListExtentController_1a36cca4b20d7b898bdd45815e19b60ff1" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classFeatureListModelSelection" kindref="compound">FeatureListModelSelection</ref> *</type>
+        <definition>FeatureListModelSelection * FeatureListExtentController::selection</definition>
+        <argsstring></argsstring>
+        <name>selection</name>
+        <qualifiedname>FeatureListExtentController::selection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="34" column="5" bodyfile="src/core/featurelistextentcontroller.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListExtentController_1a5691c93ac517f9368a89bf2c55ec3bb9" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureListExtentController::autoZoom</definition>
+        <argsstring></argsstring>
+        <name>autoZoom</name>
+        <qualifiedname>FeatureListExtentController::autoZoom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="35" column="5" bodyfile="src/core/featurelistextentcontroller.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListExtentController_1aa7b34ba49b0d653d86c1a55cd8a2284e" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureListExtentController::keepScale</definition>
+        <argsstring></argsstring>
+        <name>keepScale</name>
+        <qualifiedname>FeatureListExtentController::keepScale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="36" column="5" bodyfile="src/core/featurelistextentcontroller.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListExtentController_1afb51e99a02b694d69d70b3f3aede9a2c" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * FeatureListExtentController::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>FeatureListExtentController::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="37" column="5" bodyfile="src/core/featurelistextentcontroller.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFeatureListExtentController_1a52576c8a7c9c137bb3aef96b2c74fd8f" prot="private" static="no" mutable="no">
+        <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref> *</type>
+        <definition>MultiFeatureListModel* FeatureListExtentController::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>FeatureListExtentController::mModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="76" column="27" bodyfile="src/core/featurelistextentcontroller.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListExtentController_1a2948d1b57ab1c2f5238fa678abf911f6" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureListModelSelection" kindref="compound">FeatureListModelSelection</ref> *</type>
+        <definition>FeatureListModelSelection* FeatureListExtentController::mSelection</definition>
+        <argsstring></argsstring>
+        <name>mSelection</name>
+        <qualifiedname>FeatureListExtentController::mSelection</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="77" column="31" bodyfile="src/core/featurelistextentcontroller.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListExtentController_1a8b7c44a781ec5cdad8f5e0c839e86003" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* FeatureListExtentController::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>FeatureListExtentController::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="78" column="25" bodyfile="src/core/featurelistextentcontroller.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListExtentController_1a1d73888e9f48afa10c65f840b68c9ec9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureListExtentController::mAutoZoom</definition>
+        <argsstring></argsstring>
+        <name>mAutoZoom</name>
+        <qualifiedname>FeatureListExtentController::mAutoZoom</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="79" column="10" bodyfile="src/core/featurelistextentcontroller.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListExtentController_1a4c5a5235addbd55f8618c9d4aa916dcc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureListExtentController::mKeepScale</definition>
+        <argsstring></argsstring>
+        <name>mKeepScale</name>
+        <qualifiedname>FeatureListExtentController::mKeepScale</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="80" column="10" bodyfile="src/core/featurelistextentcontroller.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFeatureListExtentController_1ace2d985d2e0fbf2010b1a424bf6e0736" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FeatureListExtentController::FeatureListExtentController</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>FeatureListExtentController</name>
+        <qualifiedname>FeatureListExtentController::FeatureListExtentController</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="40" column="14" bodyfile="src/core/featurelistextentcontroller.cpp" bodystart="23" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListExtentController_1aeb9dc643a4937ff8fa01aa8bc091d027" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FeatureListExtentController::~FeatureListExtentController</definition>
+        <argsstring>()</argsstring>
+        <name>~FeatureListExtentController</name>
+        <qualifiedname>FeatureListExtentController::~FeatureListExtentController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="41" column="5" bodyfile="src/core/featurelistextentcontroller.cpp" bodystart="31" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListExtentController_1a4d4464d45f321b32aed5afdc71919d64" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classFeatureListModelSelection" kindref="compound">FeatureListModelSelection</ref> *</type>
+        <definition>FeatureListModelSelection * FeatureListExtentController::selection</definition>
+        <argsstring>() const</argsstring>
+        <name>selection</name>
+        <qualifiedname>FeatureListExtentController::selection</qualifiedname>
+        <briefdescription>
+<para>Returns the selection of the feature list model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="44" column="31" bodyfile="src/core/featurelistextentcontroller.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListExtentController_1a6cb5d1c589a989de99f519e06f7112b4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref> *</type>
+        <definition>MultiFeatureListModel * FeatureListExtentController::model</definition>
+        <argsstring>() const</argsstring>
+        <name>model</name>
+        <qualifiedname>FeatureListExtentController::model</qualifiedname>
+        <briefdescription>
+<para>Returns the feature list model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="47" column="27" bodyfile="src/core/featurelistextentcontroller.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListExtentController_1ab9161c586b640b2ce0582ee6d41141f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::requestFeatureFormState</definition>
+        <argsstring>()</argsstring>
+        <name>requestFeatureFormState</name>
+        <qualifiedname>FeatureListExtentController::requestFeatureFormState</qualifiedname>
+        <briefdescription>
+<para>This will emit a signal to request a state change in the feature form. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="50" column="10" bodyfile="src/core/featurelistextentcontroller.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classFeatureListExtentController_1aeb50a2059646d63055f3cab5583da65f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::zoomToSelected</definition>
+        <argsstring>(bool skipIfIntersects=false) const</argsstring>
+        <name>zoomToSelected</name>
+        <qualifiedname>FeatureListExtentController::zoomToSelected</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>skipIfIntersects</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>zoom to the selected features. If <emphasis>skipIfIntersects</emphasis> is true, no change will be applied if bounding box intersects with canvas extent </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="55" column="10" bodyfile="src/core/featurelistextentcontroller.cpp" bodystart="50" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureListExtentController_1ad306df27f41378cb7b824c6d465ba8ff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::zoomToAllFeatures</definition>
+        <argsstring>() const</argsstring>
+        <name>zoomToAllFeatures</name>
+        <qualifiedname>FeatureListExtentController::zoomToAllFeatures</qualifiedname>
+        <briefdescription>
+<para>Zoom to the combined extent of all features in the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="58" column="10" bodyfile="src/core/featurelistextentcontroller.cpp" bodystart="97" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureListExtentController_1a33ebd9cee9938842b49169a75454e5a0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint FeatureListExtentController::getCentroidFromSelected</definition>
+        <argsstring>() const</argsstring>
+        <name>getCentroidFromSelected</name>
+        <qualifiedname>FeatureListExtentController::getCentroidFromSelected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="60" column="14" bodyfile="src/core/featurelistextentcontroller.cpp" bodystart="161" bodyend="185"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classFeatureListExtentController_1a09858d6828b175b30066aac632a122ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::autoZoomChanged</definition>
+        <argsstring>()</argsstring>
+        <name>autoZoomChanged</name>
+        <qualifiedname>FeatureListExtentController::autoZoomChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="63" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListExtentController_1a051f9439f147ff51440cf4893930a4da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::keepScaleChanged</definition>
+        <argsstring>()</argsstring>
+        <name>keepScaleChanged</name>
+        <qualifiedname>FeatureListExtentController::keepScaleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="64" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListExtentController_1af11cfbba20b3f0eebd4b9734291f1221" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::selectionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>selectionChanged</name>
+        <qualifiedname>FeatureListExtentController::selectionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="65" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListExtentController_1a19ea98bac97d37994727f603c7953e9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::modelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelChanged</name>
+        <qualifiedname>FeatureListExtentController::modelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="66" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListExtentController_1aa3ddebf595f24610b775a9b9d3cec286" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>FeatureListExtentController::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="67" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListExtentController_1accceff958354a6427d20556066121290" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::featureFormStateRequested</definition>
+        <argsstring>()</argsstring>
+        <name>featureFormStateRequested</name>
+        <qualifiedname>FeatureListExtentController::featureFormStateRequested</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListExtentController_1a18c78fbb8ac335d9322ede27c56a6db1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::requestJumpToPoint</definition>
+        <argsstring>(const QgsPoint &amp;center, const double &amp;scale=-1.0, bool handleMargins=false) const</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>FeatureListExtentController::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>scale</declname>
+          <defval>-1.0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="69" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classFeatureListExtentController_1a68c690c6cd34f034d766ce945a8ead94" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::onModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onModelChanged</name>
+        <qualifiedname>FeatureListExtentController::onModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="72" column="10" bodyfile="src/core/featurelistextentcontroller.cpp" bodystart="187" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureListExtentController_1ae98a3786595c57a9bd590148e5c54fb1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListExtentController::onCurrentSelectionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onCurrentSelectionChanged</name>
+        <qualifiedname>FeatureListExtentController::onCurrentSelectionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistextentcontroller.h" line="73" column="10" bodyfile="src/core/featurelistextentcontroller.cpp" bodystart="195" bodyend="201"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureListExtentController</label>
+        <link refid="classFeatureListExtentController"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureListExtentController</label>
+        <link refid="classFeatureListExtentController"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/featurelistextentcontroller.h" line="29" column="1" bodyfile="src/core/featurelistextentcontroller.h" bodystart="30" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classFeatureListExtentController_1a5691c93ac517f9368a89bf2c55ec3bb9" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>autoZoom</name></member>
+      <member refid="classFeatureListExtentController_1a09858d6828b175b30066aac632a122ef" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>autoZoomChanged</name></member>
+      <member refid="classFeatureListExtentController_1accceff958354a6427d20556066121290" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>featureFormStateRequested</name></member>
+      <member refid="classFeatureListExtentController_1ace2d985d2e0fbf2010b1a424bf6e0736" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>FeatureListExtentController</name></member>
+      <member refid="classFeatureListExtentController_1a33ebd9cee9938842b49169a75454e5a0" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>getCentroidFromSelected</name></member>
+      <member refid="classFeatureListExtentController_1aa7b34ba49b0d653d86c1a55cd8a2284e" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>keepScale</name></member>
+      <member refid="classFeatureListExtentController_1a051f9439f147ff51440cf4893930a4da" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>keepScaleChanged</name></member>
+      <member refid="classFeatureListExtentController_1afb51e99a02b694d69d70b3f3aede9a2c" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>mapSettings</name></member>
+      <member refid="classFeatureListExtentController_1aa3ddebf595f24610b775a9b9d3cec286" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>mapSettingsChanged</name></member>
+      <member refid="classFeatureListExtentController_1a1d73888e9f48afa10c65f840b68c9ec9" prot="private" virt="non-virtual"><scope>FeatureListExtentController</scope><name>mAutoZoom</name></member>
+      <member refid="classFeatureListExtentController_1a4c5a5235addbd55f8618c9d4aa916dcc" prot="private" virt="non-virtual"><scope>FeatureListExtentController</scope><name>mKeepScale</name></member>
+      <member refid="classFeatureListExtentController_1a8b7c44a781ec5cdad8f5e0c839e86003" prot="private" virt="non-virtual"><scope>FeatureListExtentController</scope><name>mMapSettings</name></member>
+      <member refid="classFeatureListExtentController_1a52576c8a7c9c137bb3aef96b2c74fd8f" prot="private" virt="non-virtual"><scope>FeatureListExtentController</scope><name>mModel</name></member>
+      <member refid="classFeatureListExtentController_1af8a8ccd004aacc862d90b71e0c5d1fab" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>model</name></member>
+      <member refid="classFeatureListExtentController_1a6cb5d1c589a989de99f519e06f7112b4" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>model</name></member>
+      <member refid="classFeatureListExtentController_1a19ea98bac97d37994727f603c7953e9e" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>modelChanged</name></member>
+      <member refid="classFeatureListExtentController_1a2948d1b57ab1c2f5238fa678abf911f6" prot="private" virt="non-virtual"><scope>FeatureListExtentController</scope><name>mSelection</name></member>
+      <member refid="classFeatureListExtentController_1ae98a3786595c57a9bd590148e5c54fb1" prot="private" virt="non-virtual"><scope>FeatureListExtentController</scope><name>onCurrentSelectionChanged</name></member>
+      <member refid="classFeatureListExtentController_1a68c690c6cd34f034d766ce945a8ead94" prot="private" virt="non-virtual"><scope>FeatureListExtentController</scope><name>onModelChanged</name></member>
+      <member refid="classFeatureListExtentController_1ab9161c586b640b2ce0582ee6d41141f8" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>requestFeatureFormState</name></member>
+      <member refid="classFeatureListExtentController_1a18c78fbb8ac335d9322ede27c56a6db1" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>requestJumpToPoint</name></member>
+      <member refid="classFeatureListExtentController_1a36cca4b20d7b898bdd45815e19b60ff1" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>selection</name></member>
+      <member refid="classFeatureListExtentController_1a4d4464d45f321b32aed5afdc71919d64" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>selection</name></member>
+      <member refid="classFeatureListExtentController_1af11cfbba20b3f0eebd4b9734291f1221" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>selectionChanged</name></member>
+      <member refid="classFeatureListExtentController_1ad306df27f41378cb7b824c6d465ba8ff" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>zoomToAllFeatures</name></member>
+      <member refid="classFeatureListExtentController_1aeb50a2059646d63055f3cab5583da65f" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>zoomToSelected</name></member>
+      <member refid="classFeatureListExtentController_1aeb9dc643a4937ff8fa01aa8bc091d027" prot="public" virt="non-virtual"><scope>FeatureListExtentController</scope><name>~FeatureListExtentController</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1672 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class Navigation - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-navigation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class Navigation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-bearing-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property bearing [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-destination-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property destination [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-destinationfeaturecurrentvertex-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property destinationFeatureCurrentVertex [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-destinationfeaturevertexcount-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property destinationFeatureVertexCount [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-destinationname-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property destinationName [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-distance-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property distance [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-distanceunits-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property distanceUnits [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isactive-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isActive [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-location-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property location [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-mapsettings-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mapSettings [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-model-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property model [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-path-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property path [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-proximityalarm-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property proximityAlarm [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-proximityalarmthreshold-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property proximityAlarmThreshold [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-verticaldistance-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property verticalDistance [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-destinationchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal destinationChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-destinationfeaturecurrentvertexchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal destinationFeatureCurrentVertexChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-destinationfeaturevertexcountchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal destinationFeatureVertexCountChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-destinationnamechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal destinationNameChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-detailschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal detailsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isactivechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isActiveChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-locationchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal locationChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-mapsettingschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal mapSettingsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-modelchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal modelChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-proximityalarmchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal proximityAlarmChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-proximityalarmthresholdchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal proximityAlarmThresholdChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function Navigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-bearing-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function bearing [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-cleardestinationfeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function clearDestinationFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-destination-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function destination [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-destinationfeaturecurrentvertex-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function destinationFeatureCurrentVertex [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-destinationfeaturevertexcount-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function destinationFeatureVertexCount [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-destinationname-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function destinationName [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-distance-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function distance [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-distanceunits-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function distanceUnits [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isactive-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isActive [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-location-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function location [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-mapsettings-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function mapSettings [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-model-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function model [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-nextdestinationvertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function nextDestinationVertex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-path-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function path [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-previousdestinationvertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function previousDestinationVertex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-proximityalarm-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function proximityAlarm [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-proximityalarmthreshold-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function proximityAlarmThreshold [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdestination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDestination
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdestinationfeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDestinationFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLocation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmapsettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setMapSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setproximityalarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setProximityAlarm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setproximityalarmthreshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setProximityAlarmThreshold
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-verticaldistance-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function verticalDistance [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-navigation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~Navigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-navigation">Class Navigation</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>Navigation</strong></a></p>
+<p>Inherits the following classes: QObject</p>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-bearing-12"><strong>bearing</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsPoint</td>
+<td style="text-align: left;"><a href="./#property-destination-12"><strong>destination</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-destinationfeaturecurrentvertex-12"><strong>destinationFeatureCurrentVertex</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-destinationfeaturevertexcount-12"><strong>destinationFeatureVertexCount</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-destinationname-12"><strong>destinationName</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-distance-12"><strong>distance</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property Qgis::DistanceUnit</td>
+<td style="text-align: left;"><a href="./#property-distanceunits-12"><strong>distanceUnits</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isactive-12"><strong>isActive</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property modelChanged QgsPoint</td>
+<td style="text-align: left;"><a href="./#property-location-12"><strong>location</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-mapsettings-12"><strong>mapSettings</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classNavigationModel/"><strong>NavigationModel</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-model-12"><strong>model</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsGeometry</td>
+<td style="text-align: left;"><a href="./#property-path-12"><strong>path</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-proximityalarm-12"><strong>proximityAlarm</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-proximityalarmthreshold-12"><strong>proximityAlarmThreshold</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-verticaldistance-12"><strong>verticalDistance</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-destinationchanged"><strong>destinationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-destinationfeaturecurrentvertexchanged"><strong>destinationFeatureCurrentVertexChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-destinationfeaturevertexcountchanged"><strong>destinationFeatureVertexCountChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-destinationnamechanged"><strong>destinationNameChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-detailschanged"><strong>detailsChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isactivechanged"><strong>isActiveChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-locationchanged"><strong>locationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-mapsettingschanged"><strong>mapSettingsChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-modelchanged"><strong>modelChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-proximityalarmchanged"><strong>proximityAlarmChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-proximityalarmthresholdchanged"><strong>proximityAlarmThresholdChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-navigation"><strong>Navigation</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-bearing-22"><strong>bearing</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-clear"><strong>clear</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-cleardestinationfeature"><strong>clearDestinationFeature</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-destination-22"><strong>destination</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-destinationfeaturecurrentvertex-22"><strong>destinationFeatureCurrentVertex</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-destinationfeaturevertexcount-22"><strong>destinationFeatureVertexCount</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-destinationname-22"><strong>destinationName</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-distance-22"><strong>distance</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Qgis::DistanceUnit</td>
+<td style="text-align: left;"><a href="#function-distanceunits-22"><strong>distanceUnits</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isactive-22"><strong>isActive</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-location-22"><strong>location</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-mapsettings-22"><strong>mapSettings</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classNavigationModel/"><strong>NavigationModel</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-model-22"><strong>model</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-nextdestinationvertex"><strong>nextDestinationVertex</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsGeometry</td>
+<td style="text-align: left;"><a href="#function-path-22"><strong>path</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-previousdestinationvertex"><strong>previousDestinationVertex</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-proximityalarm-22"><strong>proximityAlarm</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-proximityalarmthreshold-22"><strong>proximityAlarmThreshold</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdestination"><strong>setDestination</strong></a> (const QgsPoint &amp; point) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-setdestinationfeature"><strong>setDestinationFeature</strong></a> (const QgsFeature &amp; feature, QgsVectorLayer * layer) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlocation"><strong>setLocation</strong></a> (const QgsPoint &amp; point) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setmapsettings"><strong>setMapSettings</strong></a> (<a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> * mapSettings) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setproximityalarm"><strong>setProximityAlarm</strong></a> (const bool enabled) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setproximityalarmthreshold"><strong>setProximityAlarmThreshold</strong></a> (const double &amp; threshold) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-verticaldistance-22"><strong>verticalDistance</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-navigation"><strong>~Navigation</strong></a> () <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-bearing-12">property bearing [1/2]</h3>
+<pre><code class="language-C++">double Navigation::bearing;
+</code></pre>
+<hr>
+
+<h3 id="property-destination-12">property destination [1/2]</h3>
+<pre><code class="language-C++">QgsPoint Navigation::destination;
+</code></pre>
+<hr>
+
+<h3 id="property-destinationfeaturecurrentvertex-12">property destinationFeatureCurrentVertex [1/2]</h3>
+<pre><code class="language-C++">int Navigation::destinationFeatureCurrentVertex;
+</code></pre>
+<hr>
+
+<h3 id="property-destinationfeaturevertexcount-12">property destinationFeatureVertexCount [1/2]</h3>
+<pre><code class="language-C++">int Navigation::destinationFeatureVertexCount;
+</code></pre>
+<hr>
+
+<h3 id="property-destinationname-12">property destinationName [1/2]</h3>
+<pre><code class="language-C++">QString Navigation::destinationName;
+</code></pre>
+<hr>
+
+<h3 id="property-distance-12">property distance [1/2]</h3>
+<pre><code class="language-C++">double Navigation::distance;
+</code></pre>
+<hr>
+
+<h3 id="property-distanceunits-12">property distanceUnits [1/2]</h3>
+<pre><code class="language-C++">Qgis::DistanceUnit Navigation::distanceUnits;
+</code></pre>
+<hr>
+
+<h3 id="property-isactive-12">property isActive [1/2]</h3>
+<pre><code class="language-C++">bool Navigation::isActive;
+</code></pre>
+<hr>
+
+<h3 id="property-location-12">property location [1/2]</h3>
+<pre><code class="language-C++">modelChanged QgsPoint Navigation::location;
+</code></pre>
+<hr>
+
+<h3 id="property-mapsettings-12">property mapSettings [1/2]</h3>
+<pre><code class="language-C++">QgsQuickMapSettings * Navigation::mapSettings;
+</code></pre>
+<hr>
+
+<h3 id="property-model-12">property model [1/2]</h3>
+<pre><code class="language-C++">NavigationModel * Navigation::model;
+</code></pre>
+<hr>
+
+<h3 id="property-path-12">property path [1/2]</h3>
+<pre><code class="language-C++">QgsGeometry Navigation::path;
+</code></pre>
+<hr>
+
+<h3 id="property-proximityalarm-12">property proximityAlarm [1/2]</h3>
+<pre><code class="language-C++">bool Navigation::proximityAlarm;
+</code></pre>
+<hr>
+
+<h3 id="property-proximityalarmthreshold-12">property proximityAlarmThreshold [1/2]</h3>
+<pre><code class="language-C++">double Navigation::proximityAlarmThreshold;
+</code></pre>
+<hr>
+
+<h3 id="property-verticaldistance-12">property verticalDistance [1/2]</h3>
+<pre><code class="language-C++">double Navigation::verticalDistance;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-destinationchanged">signal destinationChanged</h3>
+<pre><code class="language-C++">void Navigation::destinationChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-destinationfeaturecurrentvertexchanged">signal destinationFeatureCurrentVertexChanged</h3>
+<pre><code class="language-C++">void Navigation::destinationFeatureCurrentVertexChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-destinationfeaturevertexcountchanged">signal destinationFeatureVertexCountChanged</h3>
+<pre><code class="language-C++">void Navigation::destinationFeatureVertexCountChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-destinationnamechanged">signal destinationNameChanged</h3>
+<pre><code class="language-C++">void Navigation::destinationNameChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-detailschanged">signal detailsChanged</h3>
+<pre><code class="language-C++">void Navigation::detailsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-isactivechanged">signal isActiveChanged</h3>
+<pre><code class="language-C++">void Navigation::isActiveChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-locationchanged">signal locationChanged</h3>
+<pre><code class="language-C++">void Navigation::locationChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-mapsettingschanged">signal mapSettingsChanged</h3>
+<pre><code class="language-C++">void Navigation::mapSettingsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-modelchanged">signal modelChanged</h3>
+<pre><code class="language-C++">void Navigation::modelChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-proximityalarmchanged">signal proximityAlarmChanged</h3>
+<pre><code class="language-C++">void Navigation::proximityAlarmChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-proximityalarmthresholdchanged">signal proximityAlarmThresholdChanged</h3>
+<pre><code class="language-C++">void Navigation::proximityAlarmThresholdChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-navigation">function Navigation</h3>
+<pre><code class="language-C++">Navigation::Navigation () 
+</code></pre>
+<hr>
+
+<h3 id="function-bearing-22">function bearing [2/2]</h3>
+<pre><code class="language-C++">inline double Navigation::bearing () const
+</code></pre>
+<p>Returns the bearing between the current location and the destination points </p>
+<hr>
+
+<h3 id="function-clear">function clear</h3>
+<pre><code class="language-C++">Q_INVOKABLE void Navigation::clear () 
+</code></pre>
+<p>Clears any existing destination point and feature. </p>
+<hr>
+
+<h3 id="function-cleardestinationfeature">function clearDestinationFeature</h3>
+<pre><code class="language-C++">Q_INVOKABLE void Navigation::clearDestinationFeature () 
+</code></pre>
+<p>Clears the current destination feature, as well as the current destination point. </p>
+<hr>
+
+<h3 id="function-destination-22">function destination [2/2]</h3>
+<pre><code class="language-C++">QgsPoint Navigation::destination () const
+</code></pre>
+<p>Returns the current destination point. </p>
+<hr>
+
+<h3 id="function-destinationfeaturecurrentvertex-22">function destinationFeatureCurrentVertex [2/2]</h3>
+<pre><code class="language-C++">int Navigation::destinationFeatureCurrentVertex () const
+</code></pre>
+<p>Returns the current focused vertex serving as destination point when a feature is used as destination. </p>
+<p><strong>Note:</strong></p>
+<p>for line and polygon geometries, vertex '0' represents the centroid of the geometry while it presents the first (or only) vertex in point geometries </p>
+<hr>
+
+<h3 id="function-destinationfeaturevertexcount-22">function destinationFeatureVertexCount [2/2]</h3>
+<pre><code class="language-C++">int Navigation::destinationFeatureVertexCount () const
+</code></pre>
+<p>Returns the vertex count available to cycle through as destination points when a feature is used as destination. </p>
+<hr>
+
+<h3 id="function-destinationname-22">function destinationName [2/2]</h3>
+<pre><code class="language-C++">QString Navigation::destinationName () const
+</code></pre>
+<p>Returns the current destination name. </p>
+<p><strong>See also:</strong> <a href="./#function-setdestinationfeature"><strong>setDestinationFeature</strong></a> </p>
+<hr>
+
+<h3 id="function-distance-22">function distance [2/2]</h3>
+<pre><code class="language-C++">inline double Navigation::distance () const
+</code></pre>
+<p>Returns the 2D distance between the current location and the destination points </p>
+<hr>
+
+<h3 id="function-distanceunits-22">function distanceUnits [2/2]</h3>
+<pre><code class="language-C++">inline Qgis::DistanceUnit Navigation::distanceUnits () const
+</code></pre>
+<p>Returns the distance unit used </p>
+<hr>
+
+<h3 id="function-isactive-22">function isActive [2/2]</h3>
+<pre><code class="language-C++">bool Navigation::isActive () const
+</code></pre>
+<p>Returns TRUE when navigation is active. </p>
+<hr>
+
+<h3 id="function-location-22">function location [2/2]</h3>
+<pre><code class="language-C++">QgsPoint Navigation::location () const
+</code></pre>
+<p>Returns the current location point. </p>
+<hr>
+
+<h3 id="function-mapsettings-22">function mapSettings [2/2]</h3>
+<pre><code class="language-C++">inline QgsQuickMapSettings * Navigation::mapSettings () const
+</code></pre>
+<p>Returns the map settings object used to project points and calculate navigation details. </p>
+<hr>
+
+<h3 id="function-model-22">function model [2/2]</h3>
+<pre><code class="language-C++">inline NavigationModel * Navigation::model () const
+</code></pre>
+<p>Returns the navigation model containing the destination point. </p>
+<p><strong>Note:</strong></p>
+<p>In the future, the model could contain intermediary stops </p>
+<hr>
+
+<h3 id="function-nextdestinationvertex">function nextDestinationVertex</h3>
+<pre><code class="language-C++">Q_INVOKABLE void Navigation::nextDestinationVertex () 
+</code></pre>
+<p>Sets the destination point to the next vertex or centroid of the current destination feature. </p>
+<p><strong>Note:</strong></p>
+<p>if a destination feature has not been provided, calling this function does nothing </p>
+<hr>
+
+<h3 id="function-path-22">function path [2/2]</h3>
+<pre><code class="language-C++">inline QgsGeometry Navigation::path () const
+</code></pre>
+<p>Returns the path between the current location and the destination points </p>
+<hr>
+
+<h3 id="function-previousdestinationvertex">function previousDestinationVertex</h3>
+<pre><code class="language-C++">Q_INVOKABLE void Navigation::previousDestinationVertex () 
+</code></pre>
+<p>Sets the destination point to the previous vertex or centroid of the current destination feature. </p>
+<p><strong>Note:</strong></p>
+<p>if a destination feature has not been provided, calling this function does nothing </p>
+<hr>
+
+<h3 id="function-proximityalarm-22">function proximityAlarm [2/2]</h3>
+<pre><code class="language-C++">inline bool Navigation::proximityAlarm () const
+</code></pre>
+<p>Returns TRUE if the proximity alarm is enabled. </p>
+<hr>
+
+<h3 id="function-proximityalarmthreshold-22">function proximityAlarmThreshold [2/2]</h3>
+<pre><code class="language-C++">inline double Navigation::proximityAlarmThreshold () const
+</code></pre>
+<p>Returns the current distance threshold below which the proximity alarm will turn on when enabled. </p>
+<hr>
+
+<h3 id="function-setdestination">function setDestination</h3>
+<pre><code class="language-C++">void Navigation::setDestination (
+    const QgsPoint &amp; point
+) 
+</code></pre>
+<p>Sets the current destination <em>point</em>. </p>
+<hr>
+
+<h3 id="function-setdestinationfeature">function setDestinationFeature</h3>
+<pre><code class="language-C++">Q_INVOKABLE void Navigation::setDestinationFeature (
+    const QgsFeature &amp; feature,
+    QgsVectorLayer * layer
+) 
+</code></pre>
+<p>Sets a provided feature as navigation destination, which allows for users to cycle through the feature centroid and its individual vertices as destination point. </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>feature</code> the feature used as destination </li>
+<li><code>layer</code> the vector layer associated to the feature </li>
+</ul>
+<hr>
+
+<h3 id="function-setlocation">function setLocation</h3>
+<pre><code class="language-C++">void Navigation::setLocation (
+    const QgsPoint &amp; point
+) 
+</code></pre>
+<p>Sets the current location <em>point</em>. </p>
+<p><strong>Note:</strong></p>
+<p>A null/empty geometry will be threated as a lack of available location information </p>
+<hr>
+
+<h3 id="function-setmapsettings">function setMapSettings</h3>
+<pre><code class="language-C++">void Navigation::setMapSettings (
+    QgsQuickMapSettings * mapSettings
+) 
+</code></pre>
+<p>Sets the map settings object used to project points and calculate navigation details. </p>
+<hr>
+
+<h3 id="function-setproximityalarm">function setProximityAlarm</h3>
+<pre><code class="language-C++">void Navigation::setProximityAlarm (
+    const bool enabled
+) 
+</code></pre>
+<p>Sets whether the proximity alarm is <em>enabled</em>. </p>
+<hr>
+
+<h3 id="function-setproximityalarmthreshold">function setProximityAlarmThreshold</h3>
+<pre><code class="language-C++">void Navigation::setProximityAlarmThreshold (
+    const double &amp; threshold
+) 
+</code></pre>
+<p>Sets the distance <em>threshold</em> below which the proximity alarm will turn on when enabled. Once the distance threshold is met, the alarm sound will loop at a varying interval based on the distance between the device's current location and the destination. The closer to the destination, the shorter the interval. </p>
+<hr>
+
+<h3 id="function-verticaldistance-22">function verticalDistance [2/2]</h3>
+<pre><code class="language-C++">inline double Navigation::verticalDistance () const
+</code></pre>
+<p>Retuens the vertical distance between the current location and the destination points </p>
+<p><strong>Note:</strong></p>
+<p>if either points miss a Z value, the returned vertical distance value will be NaN </p>
+<hr>
+
+<h3 id="function-navigation_1">function ~Navigation</h3>
+<pre><code class="language-C++">Navigation::~Navigation () 
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/navigation.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

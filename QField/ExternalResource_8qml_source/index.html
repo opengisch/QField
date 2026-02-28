@@ -1,0 +1,1316 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File ExternalResource.qml - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-externalresourceqml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File ExternalResource.qml
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-externalresourceqml">File ExternalResource.qml</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_7621275d8427768f32eeef555af1c8d1/"><strong>editorwidgets</strong></a> <strong>&gt;</strong> <a href="../ExternalResource_8qml/"><strong>ExternalResource.qml</strong></a></p>
+<p><a href="../ExternalResource_8qml/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Window
+import QtMultimedia
+import org.qgis
+import org.qfield
+import Theme
+import &quot;..&quot;
+
+EditorWidgetBase {
+  anchors.left: parent.left
+  anchors.right: parent.right
+
+  height: childrenRect.height + 4
+
+  ExpressionEvaluator {
+    id: rootPathEvaluator
+    project: qgisProject
+    appExpressionContextScopesGenerator: appScopesGenerator
+  }
+
+  property string prefixToRelativePath: {
+    if (qgisProject == undefined)
+      return &quot;&quot;;
+    var path = &quot;&quot;;
+    if (config[&quot;RelativeStorage&quot;] === 1 || externalStorage.type != &quot;&quot;) {
+      path = qgisProject.homePath;
+      if (!path.endsWith(&quot;/&quot;))
+        path = path + &quot;/&quot;;
+    } else if (config[&quot;RelativeStorage&quot;] === 2) {
+      var collection = config[&quot;PropertyCollection&quot;];
+      var props = collection[&quot;properties&quot;];
+      if (props) {
+        if (props[&quot;propertyRootPath&quot;]) {
+          var rootPathProps = props[&quot;propertyRootPath&quot;];
+          rootPathEvaluator.expressionText = rootPathProps[&quot;expression&quot;];
+        }
+      }
+      rootPathEvaluator.feature = currentFeature;
+      rootPathEvaluator.layer = currentLayer;
+      var evaluatedFilepath = rootPathEvaluator.evaluate().replace(&quot;\\&quot;, &quot;/&quot;);
+      if (evaluatedFilepath) {
+        path = evaluatedFilepath;
+      } else {
+        path = config[&quot;DefaultRoot&quot;] ? config[&quot;DefaultRoot&quot;] : qgisProject.homePath;
+        if (!path.endsWith(&quot;/&quot;))
+          path = path + &quot;/&quot;;
+      }
+    }
+
+    // since we've hardcoded the project path by default so far, let's maintain that until we improve things in qfieldsync
+    if (path == &quot;&quot;) {
+      path = qgisProject.homePath;
+      if (!path.endsWith(&quot;/&quot;))
+        path = path + &quot;/&quot;;
+    }
+    return path;
+  }
+
+  property ResourceSource __resourceSource
+  property ViewStatus __viewStatus
+
+  // DocumentViewer values
+  readonly property int document_FILE: 0
+  readonly property int document_IMAGE: 1
+  readonly property int document_WEB: 2 // TODO: implement
+  readonly property int document_AUDIO: 3
+  readonly property int document_VIDEO: 4
+  property int documentViewer: config.DocumentViewer
+
+  property bool isImage: false
+  property bool isAudio: false
+  property bool isVideo: false
+
+  //to not break any binding of image.source
+  property var currentValue: value
+  onCurrentValueChanged: {
+    if (currentValue != undefined &amp;&amp; currentValue !== '') {
+      const isHttp = value.startsWith('http://') || value.startsWith('https://');
+      var fullValue = isHttp ? value : prefixToRelativePath + value;
+      const fullValueExists = FileUtils.fileExists(fullValue);
+      if (!fullValueExists) {
+        prepareValue(&quot;&quot;);
+        if (externalStorage.type != &quot;&quot;) {
+          if (config[&quot;StorageAuthConfigId&quot;] !== &quot;&quot; &amp;&amp; !iface.isAuthenticationConfigurationAvailable(config[&quot;StorageAuthConfigId&quot;])) {
+            mainWindow.displayToast(qsTr(&quot;The external storage's authentication configuration ID is missing, please insure it is imported into %1&quot;).arg(appName), &quot;error&quot;, qsTr(&quot;Learn more&quot;), function () {
+              Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/authentication/');
+            });
+          } else {
+            externalStorage.fetch(value, config[&quot;StorageAuthConfigId&quot;]);
+            fetchingIndicator.running = true;
+          }
+        } else if (cloudProjectsModel.currentProject &amp;&amp; cloudProjectsModel.currentProject.attachmentsOnDemandEnabled) {
+          cloudProjectConnection.target = cloudProjectsModel.currentProject;
+          cloudProjectConnection.downloadAttachmentFileName = value;
+          cloudProjectsModel.currentProject.downloadAttachment(value);
+          fetchingIndicator.running = true;
+        }
+      } else {
+        prepareValue(fullValue);
+      }
+    } else {
+      prepareValue(&quot;&quot;);
+    }
+  }
+
+  function prepareValue(fullValue) {
+    if (fullValue !== &quot;&quot;) {
+      var mimeType = FileUtils.mimeTypeName(fullValue);
+      isImage = !config.UseLink &amp;&amp; mimeType.startsWith(&quot;image/&quot;) &amp;&amp; FileUtils.isImageMimeTypeSupported(mimeType);
+      isAudio = !config.UseLink &amp;&amp; mimeType.startsWith(&quot;audio/&quot;);
+      isVideo = !config.UseLink &amp;&amp; mimeType.startsWith(&quot;video/&quot;);
+      image.visible = isImage;
+      geoTagBadge.visible = isImage;
+      if (isImage) {
+        mediaFrame.height = 200;
+        image.visible = true;
+        image.hasImage = true;
+        image.opacity = 1;
+        image.anchors.topMargin = 0;
+        image.source = UrlUtils.fromString(fullValue);
+        geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(fullValue);
+      } else if (isAudio || isVideo) {
+        mediaFrame.height = 48;
+        image.visible = false;
+        image.opacity = 0.5;
+        image.source = '';
+        player.firstFrameDrawn = false;
+        player.sourceUrl = UrlUtils.fromString(fullValue);
+      }
+    } else {
+      image.source = '';
+      image.visible = documentViewer == document_IMAGE;
+      image.opacity = 0.15;
+      geoTagBadge.visible = false;
+      player.sourceUrl = '';
+    }
+  }
+
+  ExternalStorage {
+    id: externalStorage
+    type: config[&quot;StorageType&quot;] !== undefined ? config[&quot;StorageType&quot;] : &quot;&quot;
+
+    onFetchedContentChanged: {
+      fetchingIndicator.running = false;
+      prepareValue(fetchedContent);
+    }
+
+    onLastErrorChanged: {
+      fetchingIndicator.running = false;
+      mainWindow.displayToast(lastError, &quot;error&quot;);
+    }
+  }
+
+  ExpressionEvaluator {
+    id: expressionEvaluator
+    feature: currentFeature
+    layer: currentLayer
+    project: qgisProject
+    appExpressionContextScopesGenerator: appScopesGenerator
+    expressionText: {
+      var value;
+      if (currentLayer &amp;&amp; currentLayer.customProperty('QFieldSync/attachment_naming') !== undefined) {
+        value = JSON.parse(currentLayer.customProperty('QFieldSync/attachment_naming'))[field.name];
+        return value !== undefined ? value : '';
+      } else if (currentLayer &amp;&amp; currentLayer.customProperty('QFieldSync/photo_naming') !== undefined) {
+        // Fallback to old configuration key
+        value = JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name];
+        return value !== undefined ? value : '';
+      }
+      return '';
+    }
+  }
+
+  function getResourceFilePath() {
+    const evaluatedFilepath = expressionEvaluator.evaluate();
+    let filepath = FileUtils.sanitizeFilePath(evaluatedFilepath);
+
+    // assume that lack of file suffix means problem with the filepath evaluation, so last resort to fallback filepaths.
+    // the fallback filepaths are assumed to be always correct and are not passed through `FileUtils.sanitizeFilePath`.
+    if (FileUtils.fileSuffix(filepath) === '' &amp;&amp; !filepath.endsWith(&quot;{extension}&quot;) &amp;&amp; !filepath.endsWith(&quot;{filename}&quot;)) {
+      // the `nosStr` stores the current datetime as single numeric string, e.g. 20250101234589
+      const nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
+
+      // we need an extension for media types (image, audio, video), fallback to hardcoded values, the `{extension} and `{filename} are placeholders that should be replaced by the caller. See `StringUtils::replaceFilenameTags()`.
+      if (documentViewer == document_IMAGE) {
+        filepath = `DCIM/JPEG_${nowStr}.{extension}`;
+      } else if (documentViewer == document_AUDIO) {
+        filepath = `audio/AUDIO_${nowStr}.{extension}`;
+      } else if (documentViewer == document_VIDEO) {
+        filepath = `video/VIDEO_${nowStr}.{extension}`;
+      } else {
+        filepath = `files/${nowStr}_{filename}`;
+      }
+    }
+
+    // while `FileUtils.sanitizeFilePath` should have fixed the slashes, we redo it just in case the fallback filepaths are wrong. Note that `QFile` always expects UNIX style slashes.
+    filepath = filepath.replace('\\', '/');
+    return filepath;
+  }
+
+  Label {
+    id: linkField
+
+    property bool hasValue: currentValue !== undefined &amp;&amp; currentValue != &quot;&quot;
+    property bool isVisible: hasValue &amp;&amp; !isImage &amp;&amp; !isAudio &amp;&amp; !isVideo &amp;&amp; !fetchingIndicator.running
+
+    topPadding: 10
+    bottomPadding: 10
+    height: fontMetrics.height + 30
+    visible: isVisible
+
+    anchors.left: parent.left
+    anchors.right: cameraButton.left
+    color: {
+      if ((!isEditable &amp;&amp; isEditing) || isNull || isEmpty) {
+        return Theme.mainTextDisabledColor;
+      }
+      return FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : Theme.secondaryTextColor;
+    }
+
+    text: {
+      if (isEmpty) {
+        return qsTr(&quot;Empty&quot;);
+      } else if (isNull) {
+        return qsTr(&quot;NULL&quot;);
+      }
+      let fieldValue = qsTr('No Value');
+      if (hasValue) {
+        fieldValue = prefixToRelativePath + currentValue;
+        if (UrlUtils.isRelativeOrFileUrl(fieldValue)) {
+          fieldValue = config.FullUrl ? fieldValue : FileUtils.fileName(fieldValue);
+        }
+        fieldValue = StringUtils.insertLinks(fieldValue);
+      }
+      return fieldValue;
+    }
+
+    font.pointSize: Theme.defaultFont.pointSize
+    font.italic: !hasValue
+    font.underline: FileUtils.fileExists(prefixToRelativePath + value) || FileUtils.fileExists(value)
+    verticalAlignment: Text.AlignVCenter
+    elide: Text.ElideMiddle
+
+    MouseArea {
+      anchors.fill: parent
+
+      onClicked: {
+        if (!value)
+          return;
+        if (!UrlUtils.isRelativeOrFileUrl(value)) {
+          // matches `http://...` but not `file://...` paths
+          Qt.openUrlExternally(value);
+        } else if (FileUtils.fileExists(prefixToRelativePath + value)) {
+          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this);
+        }
+      }
+    }
+  }
+
+  FontMetrics {
+    id: fontMetrics
+    font: linkField.font
+  }
+
+  Rectangle {
+    id: mediaFrame
+    width: parent.width - fileButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
+    height: 48
+    visible: !linkField.isVisible
+    color: Theme.controlBorderColor
+    radius: 5
+    clip: true
+
+    Rectangle {
+      id: roundMask
+      anchors.fill: parent
+      anchors.margins: 1
+      radius: mediaFrame.radius
+      color: &quot;white&quot;
+      visible: false
+      layer.enabled: true
+    }
+
+    BusyIndicator {
+      id: fetchingIndicator
+      anchors.centerIn: parent
+      anchors.margins: 5
+      width: parent.height
+      height: parent.height
+      running: false
+      visible: running
+    }
+
+    Image {
+      id: image
+
+      property bool hasImage: false
+
+      visible: isImage
+      enabled: isImage
+      anchors.centerIn: parent
+      width: hasImage ? parent.width : 24
+      height: hasImage ? parent.height : 24
+      opacity: 0.25
+      autoTransform: true
+      fillMode: Image.PreserveAspectFit
+      horizontalAlignment: Image.AlignHCenter
+      verticalAlignment: Image.AlignVCenter
+
+      source: Theme.getThemeVectorIcon(&quot;ic_photo_notavailable_black_24dp&quot;)
+      cache: false
+
+      layer.enabled: true
+      layer.effect: QfOpacityMask {
+        maskSource: roundMask
+      }
+
+      Image {
+        id: geoTagBadge
+        property bool hasGeoTag: false
+        visible: false
+        anchors.bottom: image.bottom
+        anchors.right: image.right
+        anchors.rightMargin: 10
+        anchors.bottomMargin: 12
+        fillMode: Image.PreserveAspectFit
+        width: 24
+        height: 24
+        source: hasGeoTag ? Theme.getThemeVectorIcon(&quot;ic_geotag_white_24dp&quot;) : Theme.getThemeVectorIcon(&quot;ic_geotag_missing_white_24dp&quot;)
+        sourceSize.width: 24 * Screen.devicePixelRatio
+        sourceSize.height: 24 * Screen.devicePixelRatio
+      }
+
+      QfDropShadow {
+        anchors.fill: geoTagBadge
+        visible: geoTagBadge.visible
+        horizontalOffset: 0
+        verticalOffset: 0
+        radius: 6.0
+        color: &quot;#DD000000&quot;
+        source: geoTagBadge
+      }
+    }
+
+    Loader {
+      id: player
+      active: isAudio || isVideo
+
+      property url sourceUrl: ''
+      property bool firstFrameDrawn: false
+
+      anchors.left: parent.left
+      anchors.top: parent.top
+
+      width: parent.width
+      height: parent.height - 54
+
+      sourceComponent: Component {
+        Video {
+          visible: isVideo
+          anchors.fill: parent
+
+          muted: false
+          volume: 1.0
+          source: player.sourceUrl
+
+          onHasVideoChanged: {
+            mediaFrame.height = hasVideo ? 254 : 48;
+            if (!player.firstFrameDrawn &amp;&amp; hasVideo) {
+              play();
+            }
+          }
+
+          onDurationChanged: {
+            positionSlider.to = duration / 1000;
+            positionSlider.value = 0;
+            if (!player.firstFrameDrawn &amp;&amp; hasVideo) {
+              play();
+            }
+          }
+
+          onPositionChanged: {
+            if (!player.firstFrameDrawn &amp;&amp; playbackState === MediaPlayer.PlayingState) {
+              player.firstFrameDrawn = true;
+              if (hasVideo) {
+                pause();
+              }
+            }
+            positionSlider.value = position / 1000;
+          }
+        }
+      }
+    }
+
+    MouseArea {
+      enabled: mediaFrame.visible
+      width: parent.width
+      height: playerControls.visible ? player.height - 54 : image.height
+
+      onClicked: {
+        if (FileUtils.fileExists(prefixToRelativePath + value)) {
+          platformUtilities.requestStoragePermission();
+          __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this);
+        }
+      }
+    }
+
+    QfToolButton {
+      id: sketchButton
+      anchors.top: image.top
+      anchors.right: image.right
+      visible: image.source != '' &amp;&amp; image.status === Image.Ready &amp;&amp; isEnabled
+
+      round: true
+      iconSource: Theme.getThemeVectorIcon(&quot;ic_freehand_white_24dp&quot;)
+      iconColor: Theme.toolButtonColor
+      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+
+      onClicked: {
+        sketcherConnection.enabled = true;
+        sketcher.loadImage(image.source);
+        sketcher.open();
+      }
+    }
+
+    Connections {
+      id: sketcherConnection
+      target: sketcher
+      enabled: false
+
+      function onFinished(path) {
+        const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath);
+
+        // In order to insure an edited image gets refreshed in the feature form, reset the source
+        image.source = '';
+        image.source = UrlUtils.fromString(prefixToRelativePath + filepath);
+        valueChangeRequested(filepath, false);
+        enabled = false;
+      }
+
+      function onCancelled() {
+        enabled = false;
+      }
+    }
+
+    RowLayout {
+      id: playerControls
+
+      visible: player.active &amp;&amp; player.item.duration &gt; 0
+
+      anchors.left: parent.left
+      anchors.bottom: parent.bottom
+      anchors.leftMargin: 5
+      anchors.rightMargin: 5
+      width: parent.width - 10
+
+      QfToolButton {
+        id: playButton
+
+        iconSource: player.active &amp;&amp; player.item.playbackState === MediaPlayer.PlayingState ? Theme.getThemeVectorIcon('ic_pause_black_24dp') : Theme.getThemeVectorIcon('ic_play_black_24dp')
+        iconColor: Theme.mainTextColor
+        bgcolor: &quot;transparent&quot;
+
+        onClicked: {
+          if (player.item.playbackState === MediaPlayer.PlayingState) {
+            player.item.pause();
+          } else {
+            player.item.play();
+          }
+        }
+      }
+
+      Slider {
+        id: positionSlider
+        Layout.fillWidth: true
+
+        from: 0
+        to: 0
+
+        enabled: to &gt; 0
+
+        onMoved: {
+          player.item.seek(value * 1000);
+        }
+      }
+
+      Label {
+        id: durationLabel
+        Layout.preferredWidth: durationLabelMetrics.boundingRect('00:00:00').width
+        Layout.rightMargin: 14
+
+        color: player.active &amp;&amp; player.item.playbackState === MediaPlayer.PlayingState ? Theme.mainTextColor : Theme.mainTextDisabledColor
+        font: Theme.tipFont
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+
+        text: {
+          if (player.active &amp;&amp; player.item.duration &gt; 0) {
+            var seconds = Math.ceil(player.item.duration / 1000);
+            var hours = Math.floor(seconds / 60 / 60) + '';
+            seconds -= hours * 60 * 60;
+            var minutes = Math.floor(seconds / 60) + '';
+            seconds = (seconds - minutes * 60) + '';
+            return hours.padStart(2, '0') + ':' + minutes.padStart(2, '0') + ':' + seconds.padStart(2, '0');
+          } else {
+            return '-';
+          }
+        }
+      }
+
+      FontMetrics {
+        id: durationLabelMetrics
+        font: durationLabel.font
+      }
+    }
+  }
+
+  QfToolButton {
+    id: cameraButton
+    width: visible ? 48 : 0
+    height: 48
+
+    // QField has historically handled no viewer type as image, let's carry that on
+    visible: documentViewer == document_IMAGE &amp;&amp; isEnabled
+
+    anchors.right: cameraVideoButton.left
+    anchors.top: parent.top
+
+    iconSource: Theme.getThemeVectorIcon(&quot;ic_camera_photo_black_24dp&quot;)
+    iconColor: Theme.mainTextColor
+    bgcolor: &quot;transparent&quot;
+
+    onClicked: capturePhoto()
+  }
+
+  QfToolButton {
+    id: cameraVideoButton
+    width: visible ? 48 : 0
+    height: 48
+
+    visible: documentViewer == document_VIDEO &amp;&amp; isEnabled
+
+    anchors.right: microphoneButton.left
+    anchors.top: parent.top
+
+    iconSource: Theme.getThemeVectorIcon(&quot;ic_camera_video_black_24dp&quot;)
+    iconColor: Theme.mainTextColor
+    bgcolor: &quot;transparent&quot;
+
+    onClicked: captureVideo()
+  }
+
+  QfToolButton {
+    id: microphoneButton
+    width: visible ? 48 : 0
+    height: 48
+
+    visible: documentViewer == document_AUDIO &amp;&amp; isEnabled
+
+    anchors.right: fileButton.left
+    anchors.top: parent.top
+
+    iconSource: Theme.getThemeVectorIcon(&quot;ic_microphone_black_24dp&quot;)
+    iconColor: Theme.mainTextColor
+    bgcolor: &quot;transparent&quot;
+
+    onClicked: captureAudio()
+  }
+
+  QfToolButton {
+    id: fileButton
+    width: visible ? 48 : 0
+    height: 48
+
+    visible: platformUtilities.capabilities &amp; PlatformUtilities.FilePicker &amp;&amp; documentViewer == document_FILE &amp;&amp; isEnabled
+
+    anchors.right: parent.right
+    anchors.top: parent.top
+
+    iconSource: Theme.getThemeVectorIcon(&quot;ic_file_black_24dp&quot;)
+    iconColor: Theme.mainTextColor
+    bgcolor: &quot;transparent&quot;
+
+    onClicked: attachFile()
+  }
+
+  Loader {
+    id: audioRecorderLoader
+    sourceComponent: audioRecorderComponent
+    active: false
+  }
+
+  Loader {
+    id: cameraLoader
+    property bool isVideo: false
+    sourceComponent: cameraComponent
+    active: false
+  }
+
+  Component {
+    id: audioRecorderComponent
+
+    QFieldAudioRecorder {
+      z: 10000
+      visible: false
+
+      Component.onCompleted: {
+        open();
+      }
+
+      onFinished: path =&gt; {
+        const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
+        console.log(&quot;path &quot; + path);
+        console.log(&quot;filepath &quot; + filepath);
+        console.log(&quot;prefixToRelativePath + filepath &quot; + prefixToRelativePath + filepath);
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath);
+        valueChangeRequested(filepath, false);
+        close();
+      }
+
+      onCanceled: {
+        close();
+      }
+
+      onClosed: {
+        audioRecorderLoader.active = false;
+      }
+    }
+  }
+
+  Component {
+    id: cameraComponent
+
+    QFieldCamera {
+      id: qfieldCamera
+      visible: false
+
+      Component.onCompleted: {
+        if (isVideo) {
+          qfieldCamera.state = 'VideoCapture';
+          open();
+        } else {
+          qfieldCamera.state = 'PhotoCapture';
+          open();
+        }
+      }
+
+      onFinished: path =&gt; {
+        const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
+        platformUtilities.renameFile(path, prefixToRelativePath + filepath);
+        if (!cameraLoader.isVideo) {
+          const maximumWidhtHeight = iface.readProjectNumEntry(&quot;qfieldsync&quot;, &quot;maximumImageWidthHeight&quot;, 0);
+          if (maximumWidhtHeight &gt; 0) {
+            FileUtils.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight);
+          }
+        }
+        valueChangeRequested(filepath, false);
+        close();
+      }
+
+      onCanceled: {
+        close();
+      }
+
+      onClosed: {
+        cameraLoader.active = false;
+      }
+    }
+  }
+
+  Connections {
+    target: __resourceSource
+    function onResourceReceived(path) {
+      if (path) {
+        var maximumWidhtHeight = iface.readProjectNumEntry(&quot;qfieldsync&quot;, &quot;maximumImageWidthHeight&quot;, 0);
+        if (maximumWidhtHeight &gt; 0) {
+          FileUtils.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight);
+        }
+        valueChangeRequested(path, false);
+      }
+    }
+  }
+
+  Connections {
+    target: __viewStatus
+
+    function onFinished() {
+      if (isImage) {
+        // In order to make sure the image shown reflects edits, reset the source
+        var imageSource = image.source;
+        image.source = '';
+        image.source = imageSource;
+      }
+    }
+
+    function onStatusReceived(statusText) {
+      if (statusText !== &quot;&quot;) {
+        displayToast(qsTr(&quot;Cannot handle this file type&quot;), 'error');
+      }
+    }
+  }
+
+  QtObject {
+    id: dummyTarget
+  }
+  Connections {
+    id: cloudProjectConnection
+    ignoreUnknownSignals: true
+    target: dummyTarget
+
+    property string downloadAttachmentFileName: &quot;&quot;
+
+    function onDownloadAttachmentFinished(fileName, errorString) {
+      if (downloadAttachmentFileName === fileName) {
+        if (errorString !== &quot;&quot;) {
+          displayToast(qsTr(&quot;QFieldCloud on-demand attachment error: &quot;) + errorString, 'error');
+        } else {
+          prepareValue(prefixToRelativePath + fileName);
+        }
+        cloudProjectConnection.target = dummyTarget;
+        fetchingIndicator.running = false;
+      }
+    }
+  }
+
+  function attachFile() {
+    Qt.inputMethod.hide();
+    platformUtilities.requestStoragePermission();
+    var filepath = getResourceFilePath();
+    if (documentViewer == document_AUDIO) {
+      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, PlatformUtilities.AudioFiles, this);
+    } else {
+      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, this);
+    }
+  }
+
+  function attachGallery() {
+    Qt.inputMethod.hide();
+    platformUtilities.requestStoragePermission();
+    var filepath = getResourceFilePath();
+    if (documentViewer == document_VIDEO) {
+      __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath + '/', filepath, this);
+    } else {
+      __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/', filepath, this);
+    }
+  }
+
+  function capturePhoto() {
+    Qt.inputMethod.hide();
+    if (platformUtilities.capabilities &amp; PlatformUtilities.NativeCamera &amp;&amp; settings.valueBool(&quot;nativeCamera2&quot;, true)) {
+      var filepath = getResourceFilePath();
+      // Pictures taken by cameras will always be JPG
+      filepath = filepath.replace('{extension}', 'JPG');
+      __resourceSource = platformUtilities.getCameraPicture(qgisProject.homePath + '/', filepath, FileUtils.fileSuffix(filepath), this);
+    } else {
+      platformUtilities.createDir(qgisProject.homePath, 'DCIM');
+      cameraLoader.isVideo = false;
+      cameraLoader.active = true;
+    }
+  }
+
+  function captureVideo() {
+    Qt.inputMethod.hide();
+    if (platformUtilities.capabilities &amp; PlatformUtilities.NativeCamera &amp;&amp; settings.valueBool(&quot;nativeCamera2&quot;, true)) {
+      var filepath = getResourceFilePath();
+      // Video taken by cameras will always be MP4
+      filepath = filepath.replace('{extension}', 'MP4');
+      __resourceSource = platformUtilities.getCameraVideo(qgisProject.homePath + '/', filepath, FileUtils.fileSuffix(filepath), this);
+    } else {
+      platformUtilities.createDir(qgisProject.homePath, 'DCIM');
+      cameraLoader.isVideo = true;
+      cameraLoader.active = true;
+    }
+  }
+
+  function captureAudio() {
+    Qt.inputMethod.hide();
+    audioRecorderLoader.active = true;
+  }
+
+  Component.onCompleted: {
+    menu.addItem(capturePhotoMenuItem);
+    menu.addItem(captureVideoMenuItem);
+    menu.addItem(captureAudioMenuItem);
+    menu.addItem(separatorGalleryItem);
+    if (platformUtilities.capabilities &amp; PlatformUtilities.FilePicker) {
+      menu.addItem(attachFileMenuItem);
+    }
+    menu.addItem(attachGalleryMenuItem);
+    menu.addItem(separatorDrawingItem);
+    menu.addItem(attachDrawingMenuItem);
+    hasMenu = true;
+  }
+
+  Item {
+    visible: false
+
+    MenuItem {
+      id: capturePhotoMenuItem
+      text: qsTr('Take a photo')
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon(&quot;ic_camera_photo_black_24dp&quot;)
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: capturePhoto()
+    }
+
+    MenuItem {
+      id: captureVideoMenuItem
+      text: qsTr('Take a video')
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon(&quot;ic_camera_video_black_24dp&quot;)
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: captureVideo()
+    }
+
+    MenuItem {
+      id: captureAudioMenuItem
+      text: qsTr('Record an audio clip')
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon(&quot;ic_microphone_black_24dp&quot;)
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: captureAudio()
+    }
+
+    MenuSeparator {
+      id: separatorGalleryItem
+      width: parent.width
+    }
+
+    MenuItem {
+      id: attachGalleryMenuItem
+      text: qsTr('Attach a gallery item')
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon(&quot;ic_gallery_black_24dp&quot;)
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: attachGallery()
+    }
+
+    MenuItem {
+      id: attachFileMenuItem
+      text: qsTr('Attach a file')
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon(&quot;ic_file_black_24dp&quot;)
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: attachFile()
+    }
+
+    MenuSeparator {
+      id: separatorDrawingItem
+      width: parent.width
+    }
+
+    MenuItem {
+      id: attachDrawingMenuItem
+      text: qsTr('Draw a sketch')
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon(&quot;ic_freehand_white_24dp&quot;)
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        sketcherConnection.enabled = true;
+        sketcher.clear();
+        sketcher.open();
+      }
+    }
+  }
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

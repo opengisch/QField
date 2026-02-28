@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classImageDial" kind="class" language="C++" prot="public">
+    <compoundname>ImageDial</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Dial</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classImageDial_1af5ba49dab5ec74418dfd79c3b907c757" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string ImageDial::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <qualifiedname>ImageDial::source</qualifiedname>
+        <read>dummyGetter_source_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ImageDial.qml" line="9" column="1" bodyfile="src/qml/ImageDial.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classImageDial_1aef169e2163347364ed413b7f58c5259b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int ImageDial::rotationOffset</definition>
+        <argsstring></argsstring>
+        <name>rotationOffset</name>
+        <qualifiedname>ImageDial::rotationOffset</qualifiedname>
+        <read>dummyGetter_rotationOffset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ImageDial.qml" line="11" column="1" bodyfile="src/qml/ImageDial.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classImageDial_1a8176808c8bee280bf082bc5b9401d83c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ImageDial::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>ImageDial::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ImageDial.qml" line="13" column="5" bodyfile="src/qml/ImageDial.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImageDial_1a2da50bdbef5f1bc8f4445a8f55bd7116" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ImageDial::handle</definition>
+        <argsstring></argsstring>
+        <name>handle</name>
+        <qualifiedname>ImageDial::handle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ImageDial.qml" line="14" column="5" bodyfile="src/qml/ImageDial.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Dial</label>
+      </node>
+      <node id="1">
+        <label>ImageDial</label>
+        <link refid="classImageDial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Dial</label>
+      </node>
+      <node id="1">
+        <label>ImageDial</label>
+        <link refid="classImageDial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/ImageDial.qml" line="6" column="1" bodyfile="src/qml/ImageDial.qml" bodystart="6" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classImageDial_1a8176808c8bee280bf082bc5b9401d83c" prot="private" virt="non-virtual"><scope>ImageDial</scope><name>background</name></member>
+      <member refid="classImageDial_1a2da50bdbef5f1bc8f4445a8f55bd7116" prot="private" virt="non-virtual"><scope>ImageDial</scope><name>handle</name></member>
+      <member refid="classImageDial_1aef169e2163347364ed413b7f58c5259b" prot="public" virt="non-virtual"><scope>ImageDial</scope><name>rotationOffset</name></member>
+      <member refid="classImageDial_1af5ba49dab5ec74418dfd79c3b907c757" prot="public" virt="non-virtual"><scope>ImageDial</scope><name>source</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

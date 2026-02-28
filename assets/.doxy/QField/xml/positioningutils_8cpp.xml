@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="positioningutils_8cpp" kind="file" language="C++">
+    <compoundname>positioningutils.cpp</compoundname>
+    <includes refid="gnsspositioninformation_8h" local="yes">gnsspositioninformation.h</includes>
+    <includes refid="platformutilities_8h" local="yes">platformutilities.h</includes>
+    <includes refid="positioningutils_8h" local="yes">positioningutils.h</includes>
+    <includes local="no">qgsbearingutils.h</includes>
+    <includes local="no">qgscoordinatetransformcontext.h</includes>
+    <includes local="no">qgsproject.h</includes>
+    <includes local="no">qgsvectorlayer.h</includes>
+    <includes local="no">mutex</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>platformutilities.h</label>
+        <link refid="platformutilities_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gnsspositioninformation.h</label>
+        <link refid="gnsspositioninformation_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/utils/positioningutils.cpp</label>
+        <link refid="positioningutils_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>positioningutils.h</label>
+        <link refid="positioningutils_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>viewstatus.h</label>
+        <link refid="viewstatus_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QDateTime</label>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="11">
+        <label>QPermission</label>
+      </node>
+      <node id="5">
+        <label>QString</label>
+      </node>
+      <node id="20">
+        <label>mutex</label>
+      </node>
+      <node id="9">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="6">
+        <label>qgis.h</label>
+      </node>
+      <node id="16">
+        <label>qgsbearingutils.h</label>
+      </node>
+      <node id="14">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="17">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="12">
+        <label>qgsfield.h</label>
+      </node>
+      <node id="15">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="18">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="7">
+        <label>qgssatelliteinformation.h</label>
+      </node>
+      <node id="19">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="positioningutils_8cpp_1a4817c457e4e3f3a2402fe79f1cc5a9f0" prot="public" static="no">
+        <type>QMap&lt; int, QgsRectangle &gt;</type>
+        <definition>typedef QMap&lt;int, QgsRectangle&gt; TimeZoneBounds</definition>
+        <argsstring></argsstring>
+        <name>TimeZoneBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/positioningutils.cpp" line="28" column="14" bodyfile="src/core/utils/positioningutils.cpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>positioningutils.cpp<sp/>-<sp/>PositioningUtils</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>20.05.2022</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2022<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu<sp/>at<sp/>opengis<sp/>dot<sp/>ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gnsspositioninformation.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;platformutilities.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioningutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsbearingutils.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgscoordinatetransformcontext.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsproject.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsvectorlayer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mutex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>QMap&lt;int,<sp/>QgsRectangle&gt;<sp/>TimeZoneBounds;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">Q_GLOBAL_STATIC(<sp/>TimeZoneBounds,<sp/>sTimeZones<sp/>)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">PositioningUtils::PositioningUtils(<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>:<sp/>QObject(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref><sp/><ref refid="classPositioningUtils_1a59808a3be843fa5394aec3d937bbd9e4" kindref="member">PositioningUtils::createGnssPositionInformation</ref>(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>latitude,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>longitude,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>altitude,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>speed,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>direction,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>horizontalAccuracy,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>verticalAcurracy,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>verticalSpeed,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>magneticVariation,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QDateTime<sp/>&amp;timestamp,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;sourceName<sp/>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>(<sp/>latitude,<sp/>longitude,<sp/>altitude,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>speed,<sp/>direction,<sp/>QList&lt;QgsSatelliteInfo&gt;(),<sp/>0,<sp/>0,<sp/>0,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>horizontalAccuracy,<sp/>verticalAcurracy,<sp/>timestamp,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QChar(),<sp/>0,<sp/>-1,<sp/>0,<sp/>QChar(<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>),<sp/>QList&lt;int&gt;(),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verticalSpeed,<sp/>magneticVariation,<sp/>0,<sp/>sourceName<sp/>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref><sp/><ref refid="classPositioningUtils_1aa60e046dd1b6b02b67be125255c12b22" kindref="member">PositioningUtils::createEmptyGnssPositionInformation</ref>()</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref><sp/><ref refid="classPositioningUtils_1a00edb14b4cf9c406fddf1d76e28b3a91" kindref="member">PositioningUtils::averagedPositionInformation</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QVariant&gt;<sp/>&amp;positionsInformation<sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>QList&lt;GnssPositionInformation&gt;<sp/>convertedList;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;pi<sp/>:<sp/>positionsInformation<sp/>)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>pi.canConvert&lt;<ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>&gt;()<sp/>)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>convertedList<sp/>&lt;&lt;<sp/>pi.value&lt;<ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>&gt;();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classPositioningUtils_1a00edb14b4cf9c406fddf1d76e28b3a91" kindref="member">averagedPositionInformation</ref>(<sp/>convertedList<sp/>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref><sp/><ref refid="classPositioningUtils_1a00edb14b4cf9c406fddf1d76e28b3a91" kindref="member">PositioningUtils::averagedPositionInformation</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;GnssPositionInformation&gt;<sp/>&amp;positionsInformation<sp/>)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>positionsInformation.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>latitude;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>longitude;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classelevation" kindref="compound">elevation</ref>;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>speed;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>direction;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>pdop;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>hdop;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>vdop;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>hacc;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>vacc;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>hvacc;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>verticalSpeed;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>magneticVariation;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>orientation;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>imuRoll;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>imuPitch;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>imuHeading;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>imuSteering;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>QDateTime<sp/>utcDateTime<sp/>=<sp/>positionsInformation.last().utcDateTime();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>QList&lt;QgsSatelliteInfo&gt;<sp/>satellitesInView<sp/>=<sp/>positionsInformation.at(<sp/>0<sp/>).satellitesInView();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>satellitesUsed<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>satellitesInView.size()<sp/>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>satInfoComplete<sp/>=<sp/>positionsInformation.at(<sp/>0<sp/>).satInfoComplete();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>QList&lt;int&gt;<sp/>satPrn<sp/>=<sp/>positionsInformation.at(<sp/>0<sp/>).satPrn();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>QChar<sp/>status<sp/>=<sp/>positionsInformation.at(<sp/>0<sp/>).status();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>QChar<sp/>fixMode<sp/>=<sp/>positionsInformation.at(<sp/>0<sp/>).fixMode();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fixType<sp/>=<sp/>positionsInformation.at(<sp/>0<sp/>).fixType();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>quality<sp/>=<sp/>positionsInformation.at(<sp/>0<sp/>).quality();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>QString<sp/>sourceName<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1<sp/>(%2)&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>positionsInformation.at(<sp/>0<sp/>).sourceName(),<sp/>QObject::tr(<sp/></highlight><highlight class="stringliteral">&quot;averaged&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref><sp/>&amp;pi<sp/>:<sp/>positionsInformation<sp/>)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>std::isnan(<sp/>pi.latitude()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.latitude()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>latitude.push_back(<sp/>pi.latitude()<sp/>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.longitude()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>longitude.push_back(<sp/>pi.longitude()<sp/>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.elevation()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classelevation" kindref="compound">elevation</ref>.push_back(<sp/>pi.elevation()<sp/>);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.speed()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>speed.push_back(<sp/>pi.speed()<sp/>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.direction()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>direction.push_back(<sp/>pi.direction()<sp/>);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>pdop.push_back(<sp/>pi.pdop()<sp/>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>hdop.push_back(<sp/>pi.hdop()<sp/>);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>vdop.push_back(<sp/>pi.vdop()<sp/>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.hacc()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hacc.push_back(<sp/>pi.hacc()<sp/>);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.vacc()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vacc.push_back(<sp/>pi.vacc()<sp/>);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.hvacc()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hvacc.push_back(<sp/>pi.hvacc()<sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.verticalSpeed()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>verticalSpeed.push_back(<sp/>pi.verticalSpeed()<sp/>);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.magneticVariation()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>magneticVariation.push_back(<sp/>pi.magneticVariation()<sp/>);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.orientation()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>orientation.push_back(<sp/>pi.orientation()<sp/>);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>pi.imuCorrection()<sp/>)</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.imuRoll()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>imuRoll.push_back(<sp/>pi.imuRoll()<sp/>);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.imuPitch()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>imuPitch.push_back(<sp/>pi.imuPitch()<sp/>);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.imuHeading()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>imuHeading.push_back(<sp/>pi.imuHeading()<sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!std::isnan(<sp/>pi.imuSteering()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>imuSteering.push_back(<sp/>pi.imuSteering()<sp/>);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>latitude.empty()<sp/>)</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>();<sp/></highlight><highlight class="comment">//<sp/>No<sp/>valid<sp/>data<sp/>to<sp/>average</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>nan<sp/>=<sp/>std::numeric_limits&lt;double&gt;::quiet_NaN();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>(<sp/>std::accumulate(<sp/>latitude.begin(),<sp/>latitude.end(),<sp/>0.0<sp/>)<sp/>/<sp/>latitude.size(),</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::accumulate(<sp/>longitude.begin(),<sp/>longitude.end(),<sp/>0.0<sp/>)<sp/>/<sp/>longitude.size(),</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classelevation" kindref="compound">elevation</ref>.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/><ref refid="classelevation" kindref="compound">elevation</ref>.begin(),<sp/><ref refid="classelevation" kindref="compound">elevation</ref>.end(),<sp/>0.0<sp/>)<sp/>/<sp/><ref refid="classelevation" kindref="compound">elevation</ref>.size(),</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>speed.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/>speed.begin(),<sp/>speed.end(),<sp/>0.0<sp/>)<sp/>/<sp/>speed.size(),</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>direction.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/>direction.begin(),<sp/>direction.end(),<sp/>0.0<sp/>)<sp/>/<sp/>direction.size(),</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>satellitesInView,</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pdop.empty()<sp/>?<sp/>0.0<sp/>:<sp/>std::accumulate(<sp/>pdop.begin(),<sp/>pdop.end(),<sp/>0.0<sp/>)<sp/>/<sp/>pdop.size(),</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hdop.empty()<sp/>?<sp/>0.0<sp/>:<sp/>std::accumulate(<sp/>hdop.begin(),<sp/>hdop.end(),<sp/>0.0<sp/>)<sp/>/<sp/>hdop.size(),</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vdop.empty()<sp/>?<sp/>0.0<sp/>:<sp/>std::accumulate(<sp/>vdop.begin(),<sp/>vdop.end(),<sp/>0.0<sp/>)<sp/>/<sp/>vdop.size(),</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hacc.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/>hacc.begin(),<sp/>hacc.end(),<sp/>0.0<sp/>)<sp/>/<sp/>hacc.size(),</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vacc.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/>vacc.begin(),<sp/>vacc.end(),<sp/>0.0<sp/>)<sp/>/<sp/>vacc.size(),</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>utcDateTime,<sp/>fixMode,<sp/>fixType,<sp/>quality,<sp/>satellitesUsed,<sp/>status,<sp/>satPrn,<sp/>satInfoComplete,</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>verticalSpeed.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/>verticalSpeed.begin(),<sp/>verticalSpeed.end(),<sp/>0.0<sp/>)<sp/>/<sp/>verticalSpeed.size(),</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>magneticVariation.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/>magneticVariation.begin(),<sp/>magneticVariation.end(),<sp/>0.0<sp/>)<sp/>/<sp/>magneticVariation.size(),</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>latitude.size(),<sp/>sourceName,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>!imuRoll.empty(),</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>imuRoll.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/>imuRoll.begin(),<sp/>imuRoll.end(),<sp/>0.0<sp/>)<sp/>/<sp/>imuRoll.size(),</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>imuPitch.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/>imuPitch.begin(),<sp/>imuPitch.end(),<sp/>0.0<sp/>)<sp/>/<sp/>imuPitch.size(),</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>imuHeading.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/>imuHeading.begin(),<sp/>imuHeading.end(),<sp/>0.0<sp/>)<sp/>/<sp/>imuHeading.size(),</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>imuSteering.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/>imuSteering.begin(),<sp/>imuSteering.end(),<sp/>0.0<sp/>)<sp/>/<sp/>imuSteering.size(),</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>orientation.empty()<sp/>?<sp/>nan<sp/>:<sp/>std::accumulate(<sp/>orientation.begin(),<sp/>orientation.end(),<sp/>0.0<sp/>)<sp/>/<sp/>orientation.size()<sp/>);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPositioningUtils_1a9847d79c5651b7a8052c281e8a445fb5" kindref="member">PositioningUtils::bearingTrueNorth</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPoint<sp/>&amp;position,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;crs<sp/>)</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateTransformContext<sp/>transformContext<sp/>=<sp/>QgsProject::instance()-&gt;transformContext();</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bearing<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>bearing<sp/>=<sp/>QgsBearingUtils::bearingTrueNorth(<sp/>crs,<sp/>transformContext,<sp/>position<sp/>);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<sp/>QgsException<sp/>&amp;e<sp/>)</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_UNUSED(<sp/>e<sp/>)</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsDebugMsgLevel(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;Caught<sp/>exception<sp/>%1&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>e.what()<sp/>),<sp/>2<sp/>);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bearing;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal">QgsRectangle<sp/><ref refid="classPositioningUtils_1a4091070ae1d8eb66e477110fd9053a69" kindref="member">PositioningUtils::createExtentForDevice</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref><sp/>&amp;positionInformation,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;crs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsRectangle<sp/>&amp;withinRectangle<sp/>)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/>QgsRectangle<sp/>extent;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>positionInformation.latitudeValid()<sp/>&amp;&amp;<sp/>positionInformation.longitudeValid()<sp/>&amp;&amp;<sp/>positionInformation.hvaccValid()<sp/>)</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>extent<sp/>=<sp/>QgsRectangle(<sp/>positionInformation.longitude()<sp/>-<sp/>1.0,<sp/>positionInformation.latitude()<sp/>-<sp/>1.0,<sp/>positionInformation.longitude()<sp/>+<sp/>1.0,<sp/>positionInformation.latitude()<sp/>+<sp/>1.0<sp/>);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>PositioningUtils::initTimeZones();</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimeZone<sp/>tz<sp/>=<sp/>QTimeZone::systemTimeZone();</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>tz.offsetFromUtc(<sp/>QDateTime(<sp/>QDate(<sp/>2026,<sp/>1,<sp/>1<sp/>),<sp/>QTime(<sp/>0,<sp/>0<sp/>),<sp/>QTimeZone::utc()<sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>sTimeZones-&gt;contains(<sp/>offset<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>extent<sp/>=<sp/>sTimeZones-&gt;value(<sp/>offset<sp/>);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>extent.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>extent<sp/>=<sp/>crs.bounds();</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!extent.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>wgs84Crs<sp/>=<sp/>QgsCoordinateReferenceSystem::fromEpsgId(<sp/>4326<sp/>);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsCoordinateTransform<sp/>transform(<sp/>wgs84Crs,<sp/>crs,<sp/>QgsProject::instance()-&gt;transformContext()<sp/>);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>extent<sp/>=<sp/>transform.transform(<sp/>extent<sp/>);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsException<sp/>&amp;e<sp/>)</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>extent<sp/>=<sp/>QgsRectangle();</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!withinRectangle.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>extent<sp/>=<sp/>extent.intersect(<sp/>withinRectangle<sp/>);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>extent.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>extent<sp/>=<sp/>withinRectangle;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsRectangle<sp/>crsBounds<sp/>=<sp/>crs.bounds();</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>crsBounds<sp/>=<sp/>transform.transform(<sp/>crsBounds<sp/>);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsException<sp/>&amp;e<sp/>)</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>crsBounds<sp/>=<sp/>QgsRectangle();</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!crsBounds.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>extent<sp/>=<sp/>extent.intersect(<sp/>crsBounds<sp/>);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>extent.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>extent<sp/>=<sp/>crsBounds;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>extent;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PositioningUtils::initTimeZones()</highlight></codeline>
+<codeline lineno="293"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::once_flag<sp/>initialized;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/>std::call_once(<sp/>initialized,<sp/>buildTimeZones<sp/>);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PositioningUtils::buildTimeZones()</highlight></codeline>
+<codeline lineno="299"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>0,<sp/>QgsRectangle(<sp/>-25.013,<sp/>-61.709,<sp/>7.670,<sp/>82.999<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>3600,<sp/>QgsRectangle(<sp/>-17.319,<sp/>-61.664,<sp/>34.688,<sp/>82.984<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>7200,<sp/>QgsRectangle(<sp/>-5.499,<sp/>-61.703,<sp/>41.054,<sp/>82.969<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>10800,<sp/>QgsRectangle(<sp/>37.499,<sp/>-61.574,<sp/>52.500,<sp/>82.954<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>12600,<sp/>QgsRectangle(<sp/>44.031,<sp/>24.835,<sp/>63.333,<sp/>39.782<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>14400,<sp/>QgsRectangle(<sp/>39.884,<sp/>-61.529,<sp/>67.500,<sp/>82.940<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>16200,<sp/>QgsRectangle(<sp/>60.517,<sp/>29.377,<sp/>74.889,<sp/>38.491<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>18000,<sp/>QgsRectangle(<sp/>67.500,<sp/>-61.484,<sp/>82.499,<sp/>82.925<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>19800,<sp/>QgsRectangle(<sp/>67.954,<sp/>5.7189,<sp/>97.395,<sp/>35.6745<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>20700,<sp/>QgsRectangle(<sp/>80.057,<sp/>26.347,<sp/>88.201,<sp/>30.471<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>21600,<sp/>QgsRectangle(<sp/>69.264,<sp/>-61.439,<sp/>97.500,<sp/>82.910<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>23400,<sp/>QgsRectangle(<sp/>92.172,<sp/>-12.411,<sp/>101.170,<sp/>28.547<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>25200,<sp/>QgsRectangle(<sp/>97.500,<sp/>-61.393,<sp/>112.500,<sp/>82.895<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>28800,<sp/>QgsRectangle(<sp/>112.500,<sp/>-61.348,<sp/>127.499,<sp/>82.881<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>31500,<sp/>QgsRectangle(<sp/>125.500,<sp/>-32.777,<sp/>129.031,<sp/>-31.299<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>32400,<sp/>QgsRectangle(<sp/>127.499,<sp/>-61.303,<sp/>142.500,<sp/>82.866<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>34200,<sp/>QgsRectangle(<sp/>129.000,<sp/>-38.274,<sp/>142.000,<sp/>-10.701<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>36000,<sp/>QgsRectangle(<sp/>120.000,<sp/>-61.326,<sp/>159.999,<sp/>73.113<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>37800,<sp/>QgsRectangle(<sp/>158.801,<sp/>-31.988,<sp/>159.515,<sp/>-31.285<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>39600,<sp/>QgsRectangle(<sp/>138.675,<sp/>-61.213,<sp/>172.499,<sp/>82.836<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>43200,<sp/>QgsRectangle(<sp/>172.499,<sp/>-61.168,<sp/>180.000,<sp/>82.822<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>45900,<sp/>QgsRectangle(<sp/>-177.244,<sp/>-44.634,<sp/>-175.541,<sp/>-43.310<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>46800,<sp/>QgsRectangle(<sp/>-179.395,<sp/>-24.163,<sp/>-170.507,<sp/>-2.565<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>50400,<sp/>QgsRectangle(<sp/>-160.609,<sp/>-11.645,<sp/>-149.992,<sp/>4.900<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-3600,<sp/>QgsRectangle(<sp/>-31.557,<sp/>-61.754,<sp/>-7.500,<sp/>83.014<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-7200,<sp/>QgsRectangle(<sp/>-69.107,<sp/>-63.093,<sp/>-10.028,<sp/>83.059<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-10800,<sp/>QgsRectangle(<sp/>-80.000,<sp/>-64.250,<sp/>-17.000,<sp/>83.043<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-12600,<sp/>QgsRectangle(<sp/>-60.476,<sp/>46.410,<sp/>-52.323,<sp/>53.701<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-14400,<sp/>QgsRectangle(<sp/>-81.078,<sp/>-61.547,<sp/>-50.207,<sp/>83.058<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-18000,<sp/>QgsRectangle(<sp/>-92.268,<sp/>-58.399,<sp/>-59.613,<sp/>83.081<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-21600,<sp/>QgsRectangle(<sp/>-110.006,<sp/>-58.345,<sp/>-82.181,<sp/>83.087<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-25200,<sp/>QgsRectangle(<sp/>-141.002,<sp/>-58.292,<sp/>-89.000,<sp/>83.102<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-28800,<sp/>QgsRectangle(<sp/>-139.061,<sp/>-58.239,<sp/>-112.499,<sp/>83.117<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-32400,<sp/>QgsRectangle(<sp/>-173.521,<sp/>-58.185,<sp/>-127.499,<sp/>83.132<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-34200,<sp/>QgsRectangle(<sp/>-140.925,<sp/>-10.754,<sp/>-138.210,<sp/>-7.659<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-36000,<sp/>QgsRectangle(<sp/>-176.216,<sp/>-58.132,<sp/>-136.083,<sp/>83.147<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-39600,<sp/>QgsRectangle(<sp/>-178.601,<sp/>-58.079,<sp/>-157.499,<sp/>83.161<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/>sTimeZones-&gt;insert(<sp/>-43200,<sp/>QgsRectangle(<sp/>-179.999,<sp/>-58.025,<sp/>-172.499,<sp/>83.169<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="338"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/utils/positioningutils.cpp"/>
+  </compounddef>
+</doxygen>

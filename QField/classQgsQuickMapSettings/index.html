@@ -1,0 +1,2377 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class QgsQuickMapSettings - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-qgsquickmapsettings" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class QgsQuickMapSettings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-backgroundcolor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property backgroundColor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-bottommargin-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property bottomMargin [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property center
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-destinationcrs-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property destinationCrs [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-extent-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property extent [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-istemporal-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isTemporal [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-layers-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property layers [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-mapunitsperpoint-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mapUnitsPerPoint [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-outputdpi-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property outputDpi [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-outputsize-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property outputSize [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-project-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property project [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-rightmargin-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property rightMargin [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-rotation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property rotation [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-scale-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property scale [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-temporalbegin-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property temporalBegin [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-temporalend-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property temporalEnd [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-visibleextent-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property visibleExtent [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-zrangelower-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property zRangeLower [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-zrangeupper-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property zRangeUpper [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-backgroundcolorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal backgroundColorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-bottommarginchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal bottomMarginChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-destinationcrschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal destinationCrsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-extentchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal extentChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-layerschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal layersChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-mapunitsperpointchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal mapUnitsPerPointChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-outputdpichanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal outputDpiChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-outputsizechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal outputSizeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-projectchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal projectChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-rightmarginchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal rightMarginChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-rotationchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal rotationChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-temporalstatechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal temporalStateChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-visibleextentchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal visibleExtentChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-zrangechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal zRangeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-qgsquickmapsettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function QgsQuickMapSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-backgroundcolor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function backgroundColor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-bottommargin-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function bottomMargin [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-computescaleforextent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function computeScaleForExtent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-coordinatetoscreen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function coordinateToScreen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-destinationcrs-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function destinationCrs [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-devicepixelratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function devicePixelRatio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-extent-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function extent [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCenter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-istemporal-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isTemporal [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-layers-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function layers [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-mapsettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function mapSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-mapunitsperpoint-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function mapUnitsPerPoint [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-outputdpi-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function outputDpi [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-outputsize-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function outputSize [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-project-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function project [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-rightmargin-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function rightMargin [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-rotation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function rotation [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-scale-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function scale [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-screentocoordinate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function screenToCoordinate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setbackgroundcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setBackgroundColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setbottommargin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setBottomMargin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcenter-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCenter [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcenter-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCenter [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcentertolayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCenterToLayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdestinationcrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDestinationCrs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdevicepixelratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDevicePixelRatio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setextent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setExtent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setextentfrompoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setExtentFromPoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setistemporal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIsTemporal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlayers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLayers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setoutputdpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOutputDpi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setoutputsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setOutputSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setrightmargin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setRightMargin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setrotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setRotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-settemporalbegin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setTemporalBegin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-settemporalend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setTemporalEnd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-settransformcontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setTransformContext
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setzrangelower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setZRangeLower
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setzrangeupper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setZRangeUpper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-temporalbegin-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function temporalBegin [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-temporalend-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function temporalEnd [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-transformcontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function transformContext
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-visibleextent-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function visibleExtent [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-zrangelower-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function zRangeLower [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-zrangeupper-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function zRangeUpper [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-qgsquickmapsettings_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~QgsQuickMapSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-qgsquickmapsettings">Class QgsQuickMapSettings</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>QgsQuickMapSettings</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;qgsquickmapsettings.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QObject</p>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property QColor</td>
+<td style="text-align: left;"><a href="./#property-backgroundcolor-12"><strong>backgroundColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-bottommargin-12"><strong>bottomMargin</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsPoint</td>
+<td style="text-align: left;"><a href="./#property-center"><strong>center</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsCoordinateReferenceSystem</td>
+<td style="text-align: left;"><a href="./#property-destinationcrs-12"><strong>destinationCrs</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsRectangle</td>
+<td style="text-align: left;"><a href="./#property-extent-12"><strong>extent</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-istemporal-12"><strong>isTemporal</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QList&lt; QgsMapLayer * &gt;</td>
+<td style="text-align: left;"><a href="./#property-layers-12"><strong>layers</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-mapunitsperpoint-12"><strong>mapUnitsPerPoint</strong></a>  <br><em>Returns the distance in geographical coordinates that equals to one point unit in the map.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-outputdpi-12"><strong>outputDpi</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QSize</td>
+<td style="text-align: left;"><a href="./#property-outputsize-12"><strong>outputSize</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsProject *</td>
+<td style="text-align: left;"><a href="./#property-project-12"><strong>project</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-rightmargin-12"><strong>rightMargin</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-rotation-12"><strong>rotation</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-scale-12"><strong>scale</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QDateTime</td>
+<td style="text-align: left;"><a href="./#property-temporalbegin-12"><strong>temporalBegin</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QDateTime</td>
+<td style="text-align: left;"><a href="./#property-temporalend-12"><strong>temporalEnd</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsRectangle</td>
+<td style="text-align: left;"><a href="./#property-visibleextent-12"><strong>visibleExtent</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-zrangelower-12"><strong>zRangeLower</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-zrangeupper-12"><strong>zRangeUpper</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-backgroundcolorchanged"><strong>backgroundColorChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-bottommarginchanged"><strong>bottomMarginChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-destinationcrschanged"><strong>destinationCrsChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-extentchanged"><strong>extentChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-layerschanged"><strong>layersChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-mapunitsperpointchanged"><strong>mapUnitsPerPointChanged</strong></a>  <br><em>Returns the distance in geographical coordinates that equals to one point unit in the map.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-outputdpichanged"><strong>outputDpiChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-outputsizechanged"><strong>outputSizeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-projectchanged"><strong>projectChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-rightmarginchanged"><strong>rightMarginChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-rotationchanged"><strong>rotationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-temporalstatechanged"><strong>temporalStateChanged</strong></a>  <br><em>Emitted when temporal properties are modified.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-visibleextentchanged"><strong>visibleExtentChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-zrangechanged"><strong>zRangeChanged</strong></a>  <br><em>Emitted when the Z range's lower and upper values are modified.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qgsquickmapsettings"><strong>QgsQuickMapSettings</strong></a> (QObject * parent=nullptr) <br><em>Create new map settings.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QColor</td>
+<td style="text-align: left;"><a href="#function-backgroundcolor-22"><strong>backgroundColor</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-bottommargin-22"><strong>bottomMargin</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE double</td>
+<td style="text-align: left;"><a href="#function-computescaleforextent"><strong>computeScaleForExtent</strong></a> (const QgsRectangle &amp; extent, bool handleMargins=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QPointF</td>
+<td style="text-align: left;"><a href="#function-coordinatetoscreen"><strong>coordinateToScreen</strong></a> (const QgsPoint &amp; point) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsCoordinateReferenceSystem</td>
+<td style="text-align: left;"><a href="#function-destinationcrs-22"><strong>destinationCrs</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">qreal</td>
+<td style="text-align: left;"><a href="#function-devicepixelratio"><strong>devicePixelRatio</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsRectangle</td>
+<td style="text-align: left;"><a href="#function-extent-22"><strong>extent</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsPoint</td>
+<td style="text-align: left;"><a href="#function-getcenter"><strong>getCenter</strong></a> (bool handleMargins=false) const<br><em>Returns the center point of the current map extent.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-istemporal-22"><strong>isTemporal</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; QgsMapLayer * &gt;</td>
+<td style="text-align: left;"><a href="#function-layers-22"><strong>layers</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsMapSettings</td>
+<td style="text-align: left;"><a href="#function-mapsettings"><strong>mapSettings</strong></a> () const<br><em>Clone map settings.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-mapunitsperpoint-22"><strong>mapUnitsPerPoint</strong></a> () const<br><em>Returns the distance in geographical coordinates that equals to one point unit in the map.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-outputdpi-22"><strong>outputDpi</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QSize</td>
+<td style="text-align: left;"><a href="#function-outputsize-22"><strong>outputSize</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsProject *</td>
+<td style="text-align: left;"><a href="#function-project-22"><strong>project</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-rightmargin-22"><strong>rightMargin</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-rotation-22"><strong>rotation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-scale-22"><strong>scale</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsPoint</td>
+<td style="text-align: left;"><a href="#function-screentocoordinate"><strong>screenToCoordinate</strong></a> (const QPointF &amp; point) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setbackgroundcolor"><strong>setBackgroundColor</strong></a> (const QColor &amp; color) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setbottommargin"><strong>setBottomMargin</strong></a> (double bottomMargin) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-setcenter-12"><strong>setCenter</strong></a> (const QgsPoint &amp; center, bool handleMargins=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-setcenter-22"><strong>setCenter</strong></a> (const QPointF &amp; center, bool handleMargins=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-setcentertolayer"><strong>setCenterToLayer</strong></a> (QgsMapLayer * layer, bool shouldZoom=true) <br><em>Move current map extent to have center point defined by</em> <em>layer</em> <em>. Optionally only pan to the layer if__shouldZoom</em> <em>is false.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdestinationcrs"><strong>setDestinationCrs</strong></a> (const QgsCoordinateReferenceSystem &amp; destinationCrs) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdevicepixelratio"><strong>setDevicePixelRatio</strong></a> (const qreal &amp; devicePixelRatio) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-setextent"><strong>setExtent</strong></a> (const QgsRectangle &amp; extent, bool handleMargins=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-setextentfrompoints"><strong>setExtentFromPoints</strong></a> (const QVariantList &amp; points, const double &amp; minimumScale=0, bool handleMargins=false) <br><em>Move current map extent to center around the list of</em> <em>points</em> <em>provided.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setistemporal"><strong>setIsTemporal</strong></a> (bool temporal) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlayers"><strong>setLayers</strong></a> (const QList&lt; QgsMapLayer * &gt; &amp; layers) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setoutputdpi"><strong>setOutputDpi</strong></a> (double outputDpi) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setoutputsize"><strong>setOutputSize</strong></a> (QSize outputSize) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setproject"><strong>setProject</strong></a> (QgsProject * project) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setrightmargin"><strong>setRightMargin</strong></a> (double rightMargin) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setrotation"><strong>setRotation</strong></a> (double rotation) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-settemporalbegin"><strong>setTemporalBegin</strong></a> (const QDateTime &amp; begin) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-settemporalend"><strong>setTemporalEnd</strong></a> (const QDateTime &amp; end) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-settransformcontext"><strong>setTransformContext</strong></a> (const QgsCoordinateTransformContext &amp; context) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setzrangelower"><strong>setZRangeLower</strong></a> (double lower) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setzrangeupper"><strong>setZRangeUpper</strong></a> (double upper) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QDateTime</td>
+<td style="text-align: left;"><a href="#function-temporalbegin-22"><strong>temporalBegin</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QDateTime</td>
+<td style="text-align: left;"><a href="#function-temporalend-22"><strong>temporalEnd</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsCoordinateTransformContext</td>
+<td style="text-align: left;"><a href="#function-transformcontext"><strong>transformContext</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsRectangle</td>
+<td style="text-align: left;"><a href="#function-visibleextent-22"><strong>visibleExtent</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-zrangelower-22"><strong>zRangeLower</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-zrangeupper-22"><strong>zRangeUpper</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qgsquickmapsettings"><strong>~QgsQuickMapSettings</strong></a> () = default<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>The <a href="./"><strong>QgsQuickMapSettings</strong></a> class encapsulates QgsMapSettings class to offer settings of configuration of map rendering via QML properties.</p>
+<p>On top of QgsMapSettings functionality, when QgsProject is attached, it automatically loads its default settings from the project. QgsProject should be attached before it is read.</p>
+<p><strong>Note:</strong></p>
+<p>QML Type: MapSettings</p>
+<p><strong>See also:</strong> QgsQuickMapCanvas </p>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-backgroundcolor-12">property backgroundColor [1/2]</h3>
+<pre><code class="language-C++">QColor QgsQuickMapSettings::backgroundColor;
+</code></pre>
+<p>The background color used to render the map</p>
+<p>The value is set to the project's bacckground color setting on QgsProject::readProject </p>
+<hr>
+
+<h3 id="property-bottommargin-12">property bottomMargin [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::bottomMargin;
+</code></pre>
+<p>The bottom margin used by the map settings when calculating map extent or center. </p>
+<hr>
+
+<h3 id="property-center">property center</h3>
+<pre><code class="language-C++">QgsPoint QgsQuickMapSettings::center;
+</code></pre>
+<p>Geographical coordinate representing the center point of the current extent </p>
+<hr>
+
+<h3 id="property-destinationcrs-12">property destinationCrs [1/2]</h3>
+<pre><code class="language-C++">QgsCoordinateReferenceSystem QgsQuickMapSettings::destinationCrs;
+</code></pre>
+<p>CRS of destination coordinate reference system.</p>
+<p>Automatically loaded from project on QgsProject::readProject </p>
+<hr>
+
+<h3 id="property-extent-12">property extent [1/2]</h3>
+<pre><code class="language-C++">QgsRectangle QgsQuickMapSettings::extent;
+</code></pre>
+<p>Geographical coordinates of the rectangle that should be rendered. The actual visible extent used for rendering could be slightly different since the given extent may be expanded in order to fit the aspect ratio of output size. Use <a href="./#property-visibleextent-12"><strong>QgsQuickMapSettings::visibleExtent</strong></a> to get the resulting extent.</p>
+<p>Automatically loaded from project on QgsProject::readProject </p>
+<hr>
+
+<h3 id="property-istemporal-12">property isTemporal [1/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapSettings::isTemporal;
+</code></pre>
+<p>Returns TRUE if a temporal filtering is enabled </p>
+<hr>
+
+<h3 id="property-layers-12">property layers [1/2]</h3>
+<pre><code class="language-C++">QList&lt;QgsMapLayer *&gt; QgsQuickMapSettings::layers;
+</code></pre>
+<p>Set list of layers for map rendering. The layers must be registered in QgsProject. The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)</p>
+<p><strong>Note:</strong></p>
+<p>Any non-spatial layers will be automatically stripped from the list (since they cannot be rendered!).</p>
+<p>Not loaded automatically from the associated project </p>
+<hr>
+
+<h3 id="property-mapunitsperpoint-12">property mapUnitsPerPoint [1/2]</h3>
+<p><em>Returns the distance in geographical coordinates that equals to one point unit in the map.</em> </p>
+<pre><code class="language-C++">double QgsQuickMapSettings::mapUnitsPerPoint;
+</code></pre>
+<hr>
+
+<h3 id="property-outputdpi-12">property outputDpi [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::outputDpi;
+</code></pre>
+<p>Output DPI used for conversion between real world units (e.g. mm) and pixels</p>
+<p>Automatically loaded from project on QgsProject::readProject </p>
+<hr>
+
+<h3 id="property-outputsize-12">property outputSize [1/2]</h3>
+<pre><code class="language-C++">QSize QgsQuickMapSettings::outputSize;
+</code></pre>
+<p>The size of the resulting map image</p>
+<p>Automatically loaded from project on QgsProject::readProject </p>
+<hr>
+
+<h3 id="property-project-12">property project [1/2]</h3>
+<pre><code class="language-C++">QgsProject * QgsQuickMapSettings::project;
+</code></pre>
+<p>A project property should be used as a primary source of project all other components in the application. QgsProject should be attached to <a href="./"><strong>QgsQuickMapSettings</strong></a> before it is read (QgsProject::read)</p>
+<p>When project is read, map settings (CRS, extent, ...) are automatically set from its DOM. </p>
+<hr>
+
+<h3 id="property-rightmargin-12">property rightMargin [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::rightMargin;
+</code></pre>
+<p>The right margin used by the map settings when calculating map extent or center. </p>
+<hr>
+
+<h3 id="property-rotation-12">property rotation [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::rotation;
+</code></pre>
+<p>The rotation of the resulting map image, in degrees clockwise. </p>
+<hr>
+
+<h3 id="property-scale-12">property scale [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::scale;
+</code></pre>
+<hr>
+
+<h3 id="property-temporalbegin-12">property temporalBegin [1/2]</h3>
+<pre><code class="language-C++">QDateTime QgsQuickMapSettings::temporalBegin;
+</code></pre>
+<p>The temporal range's begin (i.e. lower) value </p>
+<hr>
+
+<h3 id="property-temporalend-12">property temporalEnd [1/2]</h3>
+<pre><code class="language-C++">QDateTime QgsQuickMapSettings::temporalEnd;
+</code></pre>
+<p>The temporal range's end (i.e. higher) value </p>
+<hr>
+
+<h3 id="property-visibleextent-12">property visibleExtent [1/2]</h3>
+<pre><code class="language-C++">QgsRectangle QgsQuickMapSettings::visibleExtent;
+</code></pre>
+<hr>
+
+<h3 id="property-zrangelower-12">property zRangeLower [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::zRangeLower;
+</code></pre>
+<p>The Z range's lower value; if both the lower and upper value are finite, Z range filtering will occur. </p>
+<hr>
+
+<h3 id="property-zrangeupper-12">property zRangeUpper [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::zRangeUpper;
+</code></pre>
+<p>The Z range's upper value; if both the lower and upper value are finite, Z range filtering will occur. </p>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-backgroundcolorchanged">signal backgroundColorChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::backgroundColorChanged;
+</code></pre>
+<p>The background color used to render the map</p>
+<p>The value is set to the project's bacckground color setting on QgsProject::readProject   </p>
+<hr>
+
+<h3 id="signal-bottommarginchanged">signal bottomMarginChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::bottomMarginChanged;
+</code></pre>
+<p>The bottom margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="signal-destinationcrschanged">signal destinationCrsChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::destinationCrsChanged;
+</code></pre>
+<p>CRS of destination coordinate reference system.</p>
+<p>Automatically loaded from project on QgsProject::readProject   </p>
+<hr>
+
+<h3 id="signal-extentchanged">signal extentChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::extentChanged;
+</code></pre>
+<p>Geographical coordinates of the rectangle that should be rendered. The actual visible extent used for rendering could be slightly different since the given extent may be expanded in order to fit the aspect ratio of output size. Use <a href="./#property-visibleextent-12"><strong>QgsQuickMapSettings::visibleExtent</strong></a> to get the resulting extent.</p>
+<p>Automatically loaded from project on QgsProject::readProject   </p>
+<hr>
+
+<h3 id="signal-layerschanged">signal layersChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::layersChanged;
+</code></pre>
+<p>Set list of layers for map rendering. The layers must be registered in QgsProject. The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)</p>
+<p><strong>Note:</strong></p>
+<p>Any non-spatial layers will be automatically stripped from the list (since they cannot be rendered!).</p>
+<p>Not loaded automatically from the associated project   </p>
+<hr>
+
+<h3 id="signal-mapunitsperpointchanged">signal mapUnitsPerPointChanged</h3>
+<p><em>Returns the distance in geographical coordinates that equals to one point unit in the map.</em> </p>
+<pre><code class="language-C++">void QgsQuickMapSettings::mapUnitsPerPointChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-outputdpichanged">signal outputDpiChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::outputDpiChanged;
+</code></pre>
+<p>Output DPI used for conversion between real world units (e.g. mm) and pixels</p>
+<p>Automatically loaded from project on QgsProject::readProject   </p>
+<hr>
+
+<h3 id="signal-outputsizechanged">signal outputSizeChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::outputSizeChanged;
+</code></pre>
+<p>The size of the resulting map image</p>
+<p>Automatically loaded from project on QgsProject::readProject   </p>
+<hr>
+
+<h3 id="signal-projectchanged">signal projectChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::projectChanged;
+</code></pre>
+<p>A project property should be used as a primary source of project all other components in the application. QgsProject should be attached to <a href="./"><strong>QgsQuickMapSettings</strong></a> before it is read (QgsProject::read)</p>
+<p>When project is read, map settings (CRS, extent, ...) are automatically set from its DOM.   </p>
+<hr>
+
+<h3 id="signal-rightmarginchanged">signal rightMarginChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::rightMarginChanged;
+</code></pre>
+<p>The right margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="signal-rotationchanged">signal rotationChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::rotationChanged;
+</code></pre>
+<p>The rotation of the resulting map image, in degrees clockwise.   </p>
+<hr>
+
+<h3 id="signal-temporalstatechanged">signal temporalStateChanged</h3>
+<p><em>Emitted when temporal properties are modified.</em> </p>
+<pre><code class="language-C++">void QgsQuickMapSettings::temporalStateChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-visibleextentchanged">signal visibleExtentChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::visibleExtentChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-zrangechanged">signal zRangeChanged</h3>
+<p><em>Emitted when the Z range's lower and upper values are modified.</em> </p>
+<pre><code class="language-C++">void QgsQuickMapSettings::zRangeChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-qgsquickmapsettings">function QgsQuickMapSettings</h3>
+<p><em>Create new map settings.</em> </p>
+<pre><code class="language-C++">explicit QgsQuickMapSettings::QgsQuickMapSettings (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-backgroundcolor-22">function backgroundColor [2/2]</h3>
+<pre><code class="language-C++">QColor QgsQuickMapSettings::backgroundColor () const
+</code></pre>
+<p>The background color used to render the map</p>
+<p>The value is set to the project's bacckground color setting on QgsProject::readProject   </p>
+<hr>
+
+<h3 id="function-bottommargin-22">function bottomMargin [2/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::bottomMargin () const
+</code></pre>
+<p>The bottom margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="function-computescaleforextent">function computeScaleForExtent</h3>
+<pre><code class="language-C++">Q_INVOKABLE double QgsQuickMapSettings::computeScaleForExtent (
+    const QgsRectangle &amp; extent,
+    bool handleMargins=false
+) 
+</code></pre>
+<p>Compute the scale that corresponds to the specified <em>extent</em>.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>point</code> A coordinate in pixel / screen coordinates</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>A scale value </p>
+<hr>
+
+<h3 id="function-coordinatetoscreen">function coordinateToScreen</h3>
+<pre><code class="language-C++">Q_INVOKABLE QPointF QgsQuickMapSettings::coordinateToScreen (
+    const QgsPoint &amp; point
+) const
+</code></pre>
+<p>Convert a map coordinate to screen pixel coordinates</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>point</code> A coordinate in map coordinates</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>A coordinate in pixel / screen space </p>
+<hr>
+
+<h3 id="function-destinationcrs-22">function destinationCrs [2/2]</h3>
+<pre><code class="language-C++">QgsCoordinateReferenceSystem QgsQuickMapSettings::destinationCrs () const
+</code></pre>
+<hr>
+
+<h3 id="function-devicepixelratio">function devicePixelRatio</h3>
+<pre><code class="language-C++">qreal QgsQuickMapSettings::devicePixelRatio () const
+</code></pre>
+<p>Returns the ratio between physical pixels and device-independent pixels. This value is dependent on the screen the window is on, and may change when the window is moved. Common values are 1.0 on normal displays and 2.0 on Apple "retina" displays. </p>
+<hr>
+
+<h3 id="function-extent-22">function extent [2/2]</h3>
+<pre><code class="language-C++">QgsRectangle QgsQuickMapSettings::extent () const
+</code></pre>
+<hr>
+
+<h3 id="function-getcenter">function getCenter</h3>
+<p><em>Returns the center point of the current map extent.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE QgsPoint QgsQuickMapSettings::getCenter (
+    bool handleMargins=false
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-istemporal-22">function isTemporal [2/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapSettings::isTemporal () const
+</code></pre>
+<p>Returns TRUE if a temporal filtering is enabled   </p>
+<hr>
+
+<h3 id="function-layers-22">function layers [2/2]</h3>
+<pre><code class="language-C++">QList&lt; QgsMapLayer * &gt; QgsQuickMapSettings::layers () const
+</code></pre>
+<p>Returns the list of layers which will be rendered in the map.</p>
+<p>The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)</p>
+<p><strong>See also:</strong> <a href="./#function-setlayers"><strong>setLayers()</strong></a> </p>
+<hr>
+
+<h3 id="function-mapsettings">function mapSettings</h3>
+<p><em>Clone map settings.</em> </p>
+<pre><code class="language-C++">QgsMapSettings QgsQuickMapSettings::mapSettings () const
+</code></pre>
+<hr>
+
+<h3 id="function-mapunitsperpoint-22">function mapUnitsPerPoint [2/2]</h3>
+<p><em>Returns the distance in geographical coordinates that equals to one point unit in the map.</em> </p>
+<pre><code class="language-C++">double QgsQuickMapSettings::mapUnitsPerPoint () const
+</code></pre>
+<hr>
+
+<h3 id="function-outputdpi-22">function outputDpi [2/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::outputDpi () const
+</code></pre>
+<hr>
+
+<h3 id="function-outputsize-22">function outputSize [2/2]</h3>
+<pre><code class="language-C++">QSize QgsQuickMapSettings::outputSize () const
+</code></pre>
+<hr>
+
+<h3 id="function-project-22">function project [2/2]</h3>
+<pre><code class="language-C++">QgsProject * QgsQuickMapSettings::project () const
+</code></pre>
+<p>A project property should be used as a primary source of project all other components in the application. QgsProject should be attached to <a href="./"><strong>QgsQuickMapSettings</strong></a> before it is read (QgsProject::read)</p>
+<p>When project is read, map settings (CRS, extent, ...) are automatically set from its DOM.   </p>
+<hr>
+
+<h3 id="function-rightmargin-22">function rightMargin [2/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::rightMargin () const
+</code></pre>
+<p>The right margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="function-rotation-22">function rotation [2/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::rotation () const
+</code></pre>
+<p>The rotation of the resulting map image, in degrees clockwise.   </p>
+<hr>
+
+<h3 id="function-scale-22">function scale [2/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::scale () const
+</code></pre>
+<hr>
+
+<h3 id="function-screentocoordinate">function screenToCoordinate</h3>
+<pre><code class="language-C++">Q_INVOKABLE QgsPoint QgsQuickMapSettings::screenToCoordinate (
+    const QPointF &amp; point
+) const
+</code></pre>
+<p>Convert a screen coordinate to a map coordinate</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>point</code> A coordinate in pixel / screen coordinates</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>A coordinate in map coordinates </p>
+<hr>
+
+<h3 id="function-setbackgroundcolor">function setBackgroundColor</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setBackgroundColor (
+    const QColor &amp; color
+) 
+</code></pre>
+<p>The background color used to render the map</p>
+<p>The value is set to the project's bacckground color setting on QgsProject::readProject   </p>
+<hr>
+
+<h3 id="function-setbottommargin">function setBottomMargin</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setBottomMargin (
+    double bottomMargin
+) 
+</code></pre>
+<p>The bottom margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="function-setcenter-12">function setCenter [1/2]</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QgsQuickMapSettings::setCenter (
+    const QgsPoint &amp; center,
+    bool handleMargins=false
+) 
+</code></pre>
+<p>Move current map extent to have center point defined by center </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>center</code> a QgsPoint center point </li>
+<li><code>handleMargins</code> set to TRUE for margins to be considered when recentering </li>
+</ul>
+<hr>
+
+<h3 id="function-setcenter-22">function setCenter [2/2]</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QgsQuickMapSettings::setCenter (
+    const QPointF &amp; center,
+    bool handleMargins=false
+) 
+</code></pre>
+<p>Move current map extent to have center point defined by center </p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>center</code> a QPointF center point </li>
+<li><code>handleMargins</code> set to TRUE for margins to be considered when recentering </li>
+</ul>
+<hr>
+
+<h3 id="function-setcentertolayer">function setCenterToLayer</h3>
+<p><em>Move current map extent to have center point defined by</em> <em>layer</em> <em>. Optionally only pan to the layer if__shouldZoom</em> <em>is false.</em></p>
+<pre><code class="language-C++">Q_INVOKABLE void QgsQuickMapSettings::setCenterToLayer (
+    QgsMapLayer * layer,
+    bool shouldZoom=true
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdestinationcrs">function setDestinationCrs</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setDestinationCrs (
+    const QgsCoordinateReferenceSystem &amp; destinationCrs
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdevicepixelratio">function setDevicePixelRatio</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setDevicePixelRatio (
+    const qreal &amp; devicePixelRatio
+) 
+</code></pre>
+<p>Sets the ratio between physical pixels and device-independent pixels. This value is dependent on the screen the window is on, and may change when the window is moved. Common values are 1.0 on normal displays and 2.0 on Apple "retina" displays. </p>
+<hr>
+
+<h3 id="function-setextent">function setExtent</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QgsQuickMapSettings::setExtent (
+    const QgsRectangle &amp; extent,
+    bool handleMargins=false
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setextentfrompoints">function setExtentFromPoints</h3>
+<p><em>Move current map extent to center around the list of</em> <em>points</em> <em>provided.</em></p>
+<pre><code class="language-C++">Q_INVOKABLE void QgsQuickMapSettings::setExtentFromPoints (
+    const QVariantList &amp; points,
+    const double &amp; minimumScale=0,
+    bool handleMargins=false
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setistemporal">function setIsTemporal</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setIsTemporal (
+    bool temporal
+) 
+</code></pre>
+<p>Returns TRUE if a temporal filtering is enabled   </p>
+<hr>
+
+<h3 id="function-setlayers">function setLayers</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setLayers (
+    const QList&lt; QgsMapLayer * &gt; &amp; layers
+) 
+</code></pre>
+<p>Sets the list of <em>layers</em> to render in the map.</p>
+<p>The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)</p>
+<p><strong>Note:</strong></p>
+<p>Any non-spatial layers will be automatically stripped from the list (since they cannot be rendered!).</p>
+<p><strong>See also:</strong> <a href="./#property-layers-12"><strong>layers()</strong></a> </p>
+<hr>
+
+<h3 id="function-setoutputdpi">function setOutputDpi</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setOutputDpi (
+    double outputDpi
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setoutputsize">function setOutputSize</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setOutputSize (
+    QSize outputSize
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setproject">function setProject</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setProject (
+    QgsProject * project
+) 
+</code></pre>
+<p>A project property should be used as a primary source of project all other components in the application. QgsProject should be attached to <a href="./"><strong>QgsQuickMapSettings</strong></a> before it is read (QgsProject::read)</p>
+<p>When project is read, map settings (CRS, extent, ...) are automatically set from its DOM.   </p>
+<hr>
+
+<h3 id="function-setrightmargin">function setRightMargin</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setRightMargin (
+    double rightMargin
+) 
+</code></pre>
+<p>The right margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="function-setrotation">function setRotation</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setRotation (
+    double rotation
+) 
+</code></pre>
+<p>The rotation of the resulting map image, in degrees clockwise.   </p>
+<hr>
+
+<h3 id="function-settemporalbegin">function setTemporalBegin</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setTemporalBegin (
+    const QDateTime &amp; begin
+) 
+</code></pre>
+<p>The temporal range's begin (i.e. lower) value   </p>
+<hr>
+
+<h3 id="function-settemporalend">function setTemporalEnd</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setTemporalEnd (
+    const QDateTime &amp; end
+) 
+</code></pre>
+<p>The temporal range's end (i.e. higher) value   </p>
+<hr>
+
+<h3 id="function-settransformcontext">function setTransformContext</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setTransformContext (
+    const QgsCoordinateTransformContext &amp; context
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setzrangelower">function setZRangeLower</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setZRangeLower (
+    double lower
+) 
+</code></pre>
+<p>The Z range's lower value; if both the lower and upper value are finite, Z range filtering will occur.   </p>
+<hr>
+
+<h3 id="function-setzrangeupper">function setZRangeUpper</h3>
+<pre><code class="language-C++">void QgsQuickMapSettings::setZRangeUpper (
+    double upper
+) 
+</code></pre>
+<p>The Z range's upper value; if both the lower and upper value are finite, Z range filtering will occur.   </p>
+<hr>
+
+<h3 id="function-temporalbegin-22">function temporalBegin [2/2]</h3>
+<pre><code class="language-C++">QDateTime QgsQuickMapSettings::temporalBegin () const
+</code></pre>
+<p>The temporal range's begin (i.e. lower) value   </p>
+<hr>
+
+<h3 id="function-temporalend-22">function temporalEnd [2/2]</h3>
+<pre><code class="language-C++">QDateTime QgsQuickMapSettings::temporalEnd () const
+</code></pre>
+<p>The temporal range's end (i.e. higher) value   </p>
+<hr>
+
+<h3 id="function-transformcontext">function transformContext</h3>
+<pre><code class="language-C++">Q_INVOKABLE QgsCoordinateTransformContext QgsQuickMapSettings::transformContext () const
+</code></pre>
+<hr>
+
+<h3 id="function-visibleextent-22">function visibleExtent [2/2]</h3>
+<pre><code class="language-C++">QgsRectangle QgsQuickMapSettings::visibleExtent () const
+</code></pre>
+<hr>
+
+<h3 id="function-zrangelower-22">function zRangeLower [2/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::zRangeLower () const
+</code></pre>
+<p>The Z range's lower value; if both the lower and upper value are finite, Z range filtering will occur.   </p>
+<hr>
+
+<h3 id="function-zrangeupper-22">function zRangeUpper [2/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapSettings::zRangeUpper () const
+</code></pre>
+<p>The Z range's upper value; if both the lower and upper value are finite, Z range filtering will occur.   </p>
+<hr>
+
+<h3 id="function-qgsquickmapsettings_1">function ~QgsQuickMapSettings</h3>
+<pre><code class="language-C++">QgsQuickMapSettings::~QgsQuickMapSettings () = default
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/qgsquick/qgsquickmapsettings.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

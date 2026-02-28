@@ -1,0 +1,1925 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class PositioningSource - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-positioningsource" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class PositioningSource
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Attributes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-elevationcorrectionmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum ElevationCorrectionMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-static-attributes-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Static Attributes Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Static Attributes Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-backgroundfilepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable backgroundFilePath
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-active-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property active [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-antennaheight-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property antennaHeight [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-backgroundmode-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property backgroundMode [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-devicedetails-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deviceDetails [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-deviceid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deviceId [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-devicelasterror-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deviceLastError [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-devicesocketstate-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deviceSocketState [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-devicesocketstatestring-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property deviceSocketStateString [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-elevationcorrectionmode-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property elevationCorrectionMode [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-logging-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property logging [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-loggingpath-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property loggingPath [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-orientation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property orientation [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-positioninformation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property positionInformation [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-valid-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property valid [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-slots-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Slots Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Slots Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slot-triggerconnectdevice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot triggerConnectDevice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-triggerdisconnectdevice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot triggerDisconnectDevice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-activechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal activeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-antennaheightchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal antennaHeightChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-backgroundmodechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal backgroundModeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-devicechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deviceChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-deviceidchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deviceIdChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-devicelasterrorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deviceLastErrorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-devicesocketstatechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deviceSocketStateChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-devicesocketstatestringchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal deviceSocketStateStringChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-elevationcorrectionmodechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal elevationCorrectionModeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-loggingchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal loggingChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-loggingpathchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal loggingPathChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-orientationchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal orientationChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-positioninformationchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal positionInformationChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-validchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal validChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-positioningsource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function PositioningSource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-active-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function active [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-antennaheight-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function antennaHeight [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-backgroundmode-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function backgroundMode [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function device
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-devicedetails-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deviceDetails [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-deviceid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deviceId [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-devicelasterror-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deviceLastError [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-devicesocketstate-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deviceSocketState [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-devicesocketstatestring-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function deviceSocketStateString [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-elevationcorrectionmode-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function elevationCorrectionMode [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getbackgroundpositioninformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getBackgroundPositionInformation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-logging-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function logging [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-loggingpath-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function loggingPath [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-orientation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function orientation [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-positioninformation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function positionInformation [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setactive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setActive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setantennaheight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAntennaHeight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setbackgroundmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setBackgroundMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdeviceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDeviceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setelevationcorrectionmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setElevationCorrectionMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlogging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLogging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setloggingpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLoggingPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setvalid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setValid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-valid-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function valid [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-positioningsource_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~PositioningSource
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-positioningsource">Class PositioningSource</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>PositioningSource</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;positioningsource.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QObject</p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-elevationcorrectionmode"><strong>ElevationCorrectionMode</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-attributes">Public Static Attributes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#variable-backgroundfilepath"><strong>backgroundFilePath</strong></a>   = <code>QStringLiteral( "%1/positioning.background" ).arg( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) )</code><br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-slots">Public Slots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-triggerconnectdevice"><strong>triggerConnectDevice</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-triggerdisconnectdevice"><strong>triggerDisconnectDevice</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-active-12"><strong>active</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-antennaheight-12"><strong>antennaHeight</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-backgroundmode-12"><strong>backgroundMode</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classGnssPositionDetails/"><strong>GnssPositionDetails</strong></a></td>
+<td style="text-align: left;"><a href="./#property-devicedetails-12"><strong>deviceDetails</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-deviceid-12"><strong>deviceId</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-devicelasterror-12"><strong>deviceLastError</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QAbstractSocket::SocketState</td>
+<td style="text-align: left;"><a href="./#property-devicesocketstate-12"><strong>deviceSocketState</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-devicesocketstatestring-12"><strong>deviceSocketStateString</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="./#enum-elevationcorrectionmode"><strong>ElevationCorrectionMode</strong></a></td>
+<td style="text-align: left;"><a href="./#property-elevationcorrectionmode-12"><strong>elevationCorrectionMode</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-logging-12"><strong>logging</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-loggingpath-12"><strong>loggingPath</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-orientation-12"><strong>orientation</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classGnssPositionInformation/"><strong>GnssPositionInformation</strong></a></td>
+<td style="text-align: left;"><a href="./#property-positioninformation-12"><strong>positionInformation</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-valid-12"><strong>valid</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-activechanged"><strong>activeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-antennaheightchanged"><strong>antennaHeightChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-backgroundmodechanged"><strong>backgroundModeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-devicechanged"><strong>deviceChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-deviceidchanged"><strong>deviceIdChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-devicelasterrorchanged"><strong>deviceLastErrorChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-devicesocketstatechanged"><strong>deviceSocketStateChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-devicesocketstatestringchanged"><strong>deviceSocketStateStringChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-elevationcorrectionmodechanged"><strong>elevationCorrectionModeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-loggingchanged"><strong>loggingChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-loggingpathchanged"><strong>loggingPathChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-orientationchanged"><strong>orientationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-positioninformationchanged"><strong>positionInformationChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-validchanged"><strong>validChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-positioningsource"><strong>PositioningSource</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-active-22"><strong>active</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-antennaheight-22"><strong>antennaHeight</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-backgroundmode-22"><strong>backgroundMode</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classAbstractGnssReceiver/"><strong>AbstractGnssReceiver</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-device"><strong>device</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classGnssPositionDetails/"><strong>GnssPositionDetails</strong></a></td>
+<td style="text-align: left;"><a href="#function-devicedetails-22"><strong>deviceDetails</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QString</td>
+<td style="text-align: left;"><a href="#function-deviceid-22"><strong>deviceId</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-devicelasterror-22"><strong>deviceLastError</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QAbstractSocket::SocketState</td>
+<td style="text-align: left;"><a href="#function-devicesocketstate-22"><strong>deviceSocketState</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-devicesocketstatestring-22"><strong>deviceSocketStateString</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="./#enum-elevationcorrectionmode"><strong>ElevationCorrectionMode</strong></a></td>
+<td style="text-align: left;"><a href="#function-elevationcorrectionmode-22"><strong>elevationCorrectionMode</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QList&lt; <a href="../classGnssPositionInformation/"><strong>GnssPositionInformation</strong></a> &gt;</td>
+<td style="text-align: left;"><a href="#function-getbackgroundpositioninformation"><strong>getBackgroundPositionInformation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-logging-22"><strong>logging</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-loggingpath-22"><strong>loggingPath</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-orientation-22"><strong>orientation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classGnssPositionInformation/"><strong>GnssPositionInformation</strong></a></td>
+<td style="text-align: left;"><a href="#function-positioninformation-22"><strong>positionInformation</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setactive"><strong>setActive</strong></a> (bool active) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setantennaheight"><strong>setAntennaHeight</strong></a> (double antennaHeight) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setbackgroundmode"><strong>setBackgroundMode</strong></a> (bool backgroundMode) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdeviceid"><strong>setDeviceId</strong></a> (const QString &amp; id) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setelevationcorrectionmode"><strong>setElevationCorrectionMode</strong></a> (<a href="./#enum-elevationcorrectionmode"><strong>ElevationCorrectionMode</strong></a> elevationCorrectionMode) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlogging"><strong>setLogging</strong></a> (bool logging) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setloggingpath"><strong>setLoggingPath</strong></a> (const QString &amp; path) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setvalid"><strong>setValid</strong></a> (bool valid) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-valid-22"><strong>valid</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual</td>
+<td style="text-align: left;"><a href="#function-positioningsource"><strong>~PositioningSource</strong></a> () = default<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>This class connects to GNSS devices (internal or bluetooth NMEA) and provides positioning details. </p>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-elevationcorrectionmode">enum ElevationCorrectionMode</h3>
+<pre><code class="language-C++">enum PositioningSource::ElevationCorrectionMode {
+    None,
+    OrthometricFromDevice,
+    OrthometricFromGeoidFile
+};
+</code></pre>
+<p>Elevation correction modes </p>
+<hr>
+<h2 id="public-static-attributes-documentation">Public Static Attributes Documentation</h2>
+<h3 id="variable-backgroundfilepath">variable backgroundFilePath</h3>
+<pre><code class="language-C++">QString PositioningSource::backgroundFilePath;
+</code></pre>
+<hr>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-active-12">property active [1/2]</h3>
+<pre><code class="language-C++">bool PositioningSource::active;
+</code></pre>
+<hr>
+
+<h3 id="property-antennaheight-12">property antennaHeight [1/2]</h3>
+<pre><code class="language-C++">double PositioningSource::antennaHeight;
+</code></pre>
+<hr>
+
+<h3 id="property-backgroundmode-12">property backgroundMode [1/2]</h3>
+<pre><code class="language-C++">bool PositioningSource::backgroundMode;
+</code></pre>
+<hr>
+
+<h3 id="property-devicedetails-12">property deviceDetails [1/2]</h3>
+<pre><code class="language-C++">GnssPositionDetails PositioningSource::deviceDetails;
+</code></pre>
+<hr>
+
+<h3 id="property-deviceid-12">property deviceId [1/2]</h3>
+<pre><code class="language-C++">QString PositioningSource::deviceId;
+</code></pre>
+<hr>
+
+<h3 id="property-devicelasterror-12">property deviceLastError [1/2]</h3>
+<pre><code class="language-C++">QString PositioningSource::deviceLastError;
+</code></pre>
+<hr>
+
+<h3 id="property-devicesocketstate-12">property deviceSocketState [1/2]</h3>
+<pre><code class="language-C++">QAbstractSocket::SocketState PositioningSource::deviceSocketState;
+</code></pre>
+<hr>
+
+<h3 id="property-devicesocketstatestring-12">property deviceSocketStateString [1/2]</h3>
+<pre><code class="language-C++">QString PositioningSource::deviceSocketStateString;
+</code></pre>
+<hr>
+
+<h3 id="property-elevationcorrectionmode-12">property elevationCorrectionMode [1/2]</h3>
+<pre><code class="language-C++">ElevationCorrectionMode PositioningSource::elevationCorrectionMode;
+</code></pre>
+<hr>
+
+<h3 id="property-logging-12">property logging [1/2]</h3>
+<pre><code class="language-C++">bool PositioningSource::logging;
+</code></pre>
+<hr>
+
+<h3 id="property-loggingpath-12">property loggingPath [1/2]</h3>
+<pre><code class="language-C++">QString PositioningSource::loggingPath;
+</code></pre>
+<hr>
+
+<h3 id="property-orientation-12">property orientation [1/2]</h3>
+<pre><code class="language-C++">double PositioningSource::orientation;
+</code></pre>
+<hr>
+
+<h3 id="property-positioninformation-12">property positionInformation [1/2]</h3>
+<pre><code class="language-C++">GnssPositionInformation PositioningSource::positionInformation;
+</code></pre>
+<hr>
+
+<h3 id="property-valid-12">property valid [1/2]</h3>
+<pre><code class="language-C++">bool PositioningSource::valid;
+</code></pre>
+<hr>
+<h2 id="public-slots-documentation">Public Slots Documentation</h2>
+<h3 id="slot-triggerconnectdevice">slot triggerConnectDevice</h3>
+<pre><code class="language-C++">void PositioningSource::triggerConnectDevice;
+</code></pre>
+<hr>
+
+<h3 id="slot-triggerdisconnectdevice">slot triggerDisconnectDevice</h3>
+<pre><code class="language-C++">void PositioningSource::triggerDisconnectDevice;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-activechanged">signal activeChanged</h3>
+<pre><code class="language-C++">void PositioningSource::activeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-antennaheightchanged">signal antennaHeightChanged</h3>
+<pre><code class="language-C++">void PositioningSource::antennaHeightChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-backgroundmodechanged">signal backgroundModeChanged</h3>
+<pre><code class="language-C++">void PositioningSource::backgroundModeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-devicechanged">signal deviceChanged</h3>
+<pre><code class="language-C++">void PositioningSource::deviceChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-deviceidchanged">signal deviceIdChanged</h3>
+<pre><code class="language-C++">void PositioningSource::deviceIdChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-devicelasterrorchanged">signal deviceLastErrorChanged</h3>
+<pre><code class="language-C++">void PositioningSource::deviceLastErrorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-devicesocketstatechanged">signal deviceSocketStateChanged</h3>
+<pre><code class="language-C++">void PositioningSource::deviceSocketStateChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-devicesocketstatestringchanged">signal deviceSocketStateStringChanged</h3>
+<pre><code class="language-C++">void PositioningSource::deviceSocketStateStringChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-elevationcorrectionmodechanged">signal elevationCorrectionModeChanged</h3>
+<pre><code class="language-C++">void PositioningSource::elevationCorrectionModeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-loggingchanged">signal loggingChanged</h3>
+<pre><code class="language-C++">void PositioningSource::loggingChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-loggingpathchanged">signal loggingPathChanged</h3>
+<pre><code class="language-C++">void PositioningSource::loggingPathChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-orientationchanged">signal orientationChanged</h3>
+<pre><code class="language-C++">void PositioningSource::orientationChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-positioninformationchanged">signal positionInformationChanged</h3>
+<pre><code class="language-C++">void PositioningSource::positionInformationChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-validchanged">signal validChanged</h3>
+<pre><code class="language-C++">void PositioningSource::validChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-positioningsource">function PositioningSource</h3>
+<pre><code class="language-C++">explicit PositioningSource::PositioningSource (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-active-22">function active [2/2]</h3>
+<pre><code class="language-C++">inline bool PositioningSource::active () const
+</code></pre>
+<p>Returns TRUE when positioning is active. </p>
+<p><strong>See also:</strong> <a href="./#function-setactive"><strong>setActive</strong></a> </p>
+<hr>
+
+<h3 id="function-antennaheight-22">function antennaHeight [2/2]</h3>
+<pre><code class="language-C++">inline double PositioningSource::antennaHeight () const
+</code></pre>
+<p>Sets the GNSS device antenna height. This should be the pole height + sensore phase height. </p>
+<p><strong>Note:</strong></p>
+<p>When IMU is active this value is ignored as the device does the correction internally. </p>
+<hr>
+
+<h3 id="function-backgroundmode-22">function backgroundMode [2/2]</h3>
+<pre><code class="language-C++">inline bool PositioningSource::backgroundMode () const
+</code></pre>
+<p>Returns TRUE if the background mode is active. When activated, position information details will not be signaled but instead saved to disk until deactivated. </p>
+<p><strong>See also:</strong> <a href="./#function-getbackgroundpositioninformation"><strong>getBackgroundPositionInformation()</strong></a> </p>
+<hr>
+
+<h3 id="function-device">function device</h3>
+<pre><code class="language-C++">inline AbstractGnssReceiver * PositioningSource::device () const
+</code></pre>
+<p>Returns the current positioning device. </p>
+<p><strong>See also:</strong> deviceId </p>
+<hr>
+
+<h3 id="function-devicedetails-22">function deviceDetails [2/2]</h3>
+<pre><code class="language-C++">inline GnssPositionDetails PositioningSource::deviceDetails () const
+</code></pre>
+<p>Returns extra details (such as hdop, vdop, pdop) provided by the positioning device. </p>
+<hr>
+
+<h3 id="function-deviceid-22">function deviceId [2/2]</h3>
+<pre><code class="language-C++">inline Q_INVOKABLE QString PositioningSource::deviceId () const
+</code></pre>
+<p>Returns the current positioning device <em>id</em> used to fetch position information. </p>
+<p><strong>See also:</strong> setDevice </p>
+<hr>
+
+<h3 id="function-devicelasterror-22">function deviceLastError [2/2]</h3>
+<pre><code class="language-C++">inline QString PositioningSource::deviceLastError () const
+</code></pre>
+<p>Returns positioning device's last error string. </p>
+<hr>
+
+<h3 id="function-devicesocketstate-22">function deviceSocketState [2/2]</h3>
+<pre><code class="language-C++">inline QAbstractSocket::SocketState PositioningSource::deviceSocketState () const
+</code></pre>
+<p>Returns positioning device's socket state. </p>
+<p><strong>See also:</strong> deviceSocketStateString </p>
+<hr>
+
+<h3 id="function-devicesocketstatestring-22">function deviceSocketStateString [2/2]</h3>
+<pre><code class="language-C++">inline QString PositioningSource::deviceSocketStateString () const
+</code></pre>
+<p>Returns a string representation of the positioning device's socket state. </p>
+<p><strong>See also:</strong> deviceSocketState </p>
+<hr>
+
+<h3 id="function-elevationcorrectionmode-22">function elevationCorrectionMode [2/2]</h3>
+<pre><code class="language-C++">inline ElevationCorrectionMode PositioningSource::elevationCorrectionMode () const
+</code></pre>
+<p>Returns the current elevation correction mode. </p>
+<p><strong>Note:</strong></p>
+<p>Some modes depends on device capabilities. </p>
+<hr>
+
+<h3 id="function-getbackgroundpositioninformation">function getBackgroundPositionInformation</h3>
+<pre><code class="language-C++">Q_INVOKABLE QList&lt; GnssPositionInformation &gt; PositioningSource::getBackgroundPositionInformation () const
+</code></pre>
+<p>Returns a list of position information collected while background mode is active. </p>
+<p><strong>See also:</strong> backgroundMode() </p>
+<p><strong>See also:</strong> <a href="./#function-setbackgroundmode"><strong>setBackgroundMode()</strong></a> </p>
+<hr>
+
+<h3 id="function-logging-22">function logging [2/2]</h3>
+<pre><code class="language-C++">inline bool PositioningSource::logging () const
+</code></pre>
+<p>Returns whether GNSS devices will log their incoming position stream into a logfile. </p>
+<p><strong>Note:</strong></p>
+<p>Requires a device type with logging capability </p>
+<hr>
+
+<h3 id="function-loggingpath-22">function loggingPath [2/2]</h3>
+<pre><code class="language-C++">inline QString PositioningSource::loggingPath () const
+</code></pre>
+<p>Returns the path where GNSS devices will log their incoming position stream into logfiles. </p>
+<p><strong>Note:</strong></p>
+<p>Requires a device type with logging capability </p>
+<hr>
+
+<h3 id="function-orientation-22">function orientation [2/2]</h3>
+<pre><code class="language-C++">inline double PositioningSource::orientation () const
+</code></pre>
+<p>Returns the current device orientation </p>
+<hr>
+
+<h3 id="function-positioninformation-22">function positionInformation [2/2]</h3>
+<pre><code class="language-C++">inline GnssPositionInformation PositioningSource::positionInformation () const
+</code></pre>
+<p>Returns a <a href="../classGnssPositionInformation/"><strong>GnssPositionInformation</strong></a> position information object. </p>
+<hr>
+
+<h3 id="function-setactive">function setActive</h3>
+<pre><code class="language-C++">void PositioningSource::setActive (
+    bool active
+) 
+</code></pre>
+<p>Sets the positioning <em>active</em> status. </p>
+<p><strong>See also:</strong> active </p>
+<hr>
+
+<h3 id="function-setantennaheight">function setAntennaHeight</h3>
+<pre><code class="language-C++">void PositioningSource::setAntennaHeight (
+    double antennaHeight
+) 
+</code></pre>
+<p>Returns the GNSS device antenna height. This should be the pole height + sensore phase height. </p>
+<p><strong>Note:</strong></p>
+<p>When IMU is active this value is ignored as the device does the correction internally. </p>
+<hr>
+
+<h3 id="function-setbackgroundmode">function setBackgroundMode</h3>
+<pre><code class="language-C++">void PositioningSource::setBackgroundMode (
+    bool backgroundMode
+) 
+</code></pre>
+<p>Sets whether the background mode is active. When activated, position information details will not be signaled but instead saved to disk until deactivated. </p>
+<p><strong>See also:</strong> <a href="./#function-getbackgroundpositioninformation"><strong>getBackgroundPositionInformation()</strong></a> </p>
+<hr>
+
+<h3 id="function-setdeviceid">function setDeviceId</h3>
+<pre><code class="language-C++">void PositioningSource::setDeviceId (
+    const QString &amp; id
+) 
+</code></pre>
+<p>Sets the positioning device <em>id</em> used to fetch position information. </p>
+<p><strong>Note:</strong></p>
+<p>A blank string will connect the internal positioning device; bluetooth addresses will trigger an NMEA connection to external devices. </p>
+<hr>
+
+<h3 id="function-setelevationcorrectionmode">function setElevationCorrectionMode</h3>
+<pre><code class="language-C++">void PositioningSource::setElevationCorrectionMode (
+    ElevationCorrectionMode elevationCorrectionMode
+) 
+</code></pre>
+<p>Sets the current elevation correction mode. </p>
+<p><strong>Note:</strong></p>
+<p>Some modes depends on device capabilities. </p>
+<hr>
+
+<h3 id="function-setlogging">function setLogging</h3>
+<pre><code class="language-C++">void PositioningSource::setLogging (
+    bool logging
+) 
+</code></pre>
+<p>Sets whether GNSS devices will log their incoming position stream into a logfile. </p>
+<p><strong>Note:</strong></p>
+<p>Requires a device type with logging capability </p>
+<hr>
+
+<h3 id="function-setloggingpath">function setLoggingPath</h3>
+<pre><code class="language-C++">void PositioningSource::setLoggingPath (
+    const QString &amp; path
+) 
+</code></pre>
+<p>Sets the path where GNSS devices will log their incoming position stream into logfiles. </p>
+<p><strong>Note:</strong></p>
+<p>Requires a device type with logging capability </p>
+<hr>
+
+<h3 id="function-setvalid">function setValid</h3>
+<pre><code class="language-C++">void PositioningSource::setValid (
+    bool valid
+) 
+</code></pre>
+<p>Sets whether the positioning device is valid. </p>
+<hr>
+
+<h3 id="function-valid-22">function valid [2/2]</h3>
+<pre><code class="language-C++">inline bool PositioningSource::valid () const
+</code></pre>
+<p>Returns TRUE when the positioning device is valid. </p>
+<hr>
+
+<h3 id="function-positioningsource_1">function ~PositioningSource</h3>
+<pre><code class="language-C++">virtual PositioningSource::~PositioningSource () = default
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/positioning/positioningsource.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

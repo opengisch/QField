@@ -1,0 +1,1502 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQgsQuickElevationProfileCanvas" kind="class" language="C++" prot="public">
+    <compoundname>QgsQuickElevationProfileCanvas</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickItem</basecompoundref>
+    <includes refid="qgsquickelevationprofilecanvas_8h" local="no">qgsquickelevationprofilecanvas.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQgsQuickElevationProfileCanvas_1abef6dc590b0408e3e34247b221795c23" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QgsQuickElevationProfileCanvas::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="40" column="5" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickElevationProfileCanvas_1a4c95924deaf1b627aefc488f978fdefd" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QgsQuickElevationProfileCanvas::crs</definition>
+        <argsstring></argsstring>
+        <name>crs</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::crs</qualifiedname>
+        <read>crs</read>
+        <write>setCrs</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="42" column="5" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickElevationProfileCanvas_1a71664cfc3cd8b7fd3694196ad578322d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QgsQuickElevationProfileCanvas::profileCurve</definition>
+        <argsstring></argsstring>
+        <name>profileCurve</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::profileCurve</qualifiedname>
+        <read>profileCurve</read>
+        <write>setProfileCurve</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="43" column="5" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickElevationProfileCanvas_1a59564bf9634a06cb2b8fadae9659d228" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickElevationProfileCanvas::tolerance</definition>
+        <argsstring></argsstring>
+        <name>tolerance</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::tolerance</qualifiedname>
+        <read>tolerance</read>
+        <write>setTolerance</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="44" column="5" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickElevationProfileCanvas_1a6e0e060a8a654a200d4a1825510d1080" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QgsQuickElevationProfileCanvas::backgroundColor</definition>
+        <argsstring></argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::backgroundColor</qualifiedname>
+        <read>backgroundColor</read>
+        <write>setBackgroundColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="46" column="5" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickElevationProfileCanvas_1aea21e7dd3123ecaf0324bf1df328d95c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QgsQuickElevationProfileCanvas::borderColor</definition>
+        <argsstring></argsstring>
+        <name>borderColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::borderColor</qualifiedname>
+        <read>borderColor</read>
+        <write>setBorderColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="47" column="5" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickElevationProfileCanvas_1a5c491d0cacbe8e2e26f77dc226de70a7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QgsQuickElevationProfileCanvas::axisLabelColor</definition>
+        <argsstring></argsstring>
+        <name>axisLabelColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::axisLabelColor</qualifiedname>
+        <read>axisLabelColor</read>
+        <write>setAxisLabelColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="48" column="5" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickElevationProfileCanvas_1a14437a21c622fec860e6cb28f5a21e66" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickElevationProfileCanvas::axisLabelSize</definition>
+        <argsstring></argsstring>
+        <name>axisLabelSize</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::axisLabelSize</qualifiedname>
+        <read>axisLabelSize</read>
+        <write>setAxisLabelSize</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="49" column="5" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickElevationProfileCanvas_1a53030d4c1cdce9a80bb80d6a8d24704b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickElevationProfileCanvas::isRendering</definition>
+        <argsstring></argsstring>
+        <name>isRendering</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::isRendering</qualifiedname>
+        <read>isRendering</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The isRendering property is set to true while a rendering job is pending for this elevation profile canvas. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="57" column="5" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a4c783558e5cc6a0653ea9453e688a912" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QgsQuickElevationProfileCanvas::mCrs</definition>
+        <argsstring></argsstring>
+        <name>mCrs</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="305" column="34" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1ab97be09eb232158e86d84e07a941785d" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QgsQuickElevationProfileCanvas::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="306" column="16" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="306" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a1f8e0979cbd988d2004089026ca03ff3" prot="private" static="no" mutable="no">
+        <type>QgsWeakMapLayerPointerList</type>
+        <definition>QgsWeakMapLayerPointerList QgsQuickElevationProfileCanvas::mLayers</definition>
+        <argsstring></argsstring>
+        <name>mLayers</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mLayers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="308" column="32" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a06249930ac295f557ad98f5de596e048" prot="private" static="no" mutable="no">
+        <type>QImage</type>
+        <definition>QImage QgsQuickElevationProfileCanvas::mImage</definition>
+        <argsstring></argsstring>
+        <name>mImage</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="310" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a668992bab2e25015123ae2114f87872a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsElevationProfilePlotItem" kindref="compound">QgsElevationProfilePlotItem</ref> *</type>
+        <definition>QgsElevationProfilePlotItem* QgsQuickElevationProfileCanvas::mPlotItem</definition>
+        <argsstring></argsstring>
+        <name>mPlotItem</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mPlotItem</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="312" column="33" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a36d4238d8d2b50435cc9fd1e2f657d8f" prot="private" static="no" mutable="no">
+        <type>QgsProfilePlotRenderer *</type>
+        <definition>QgsProfilePlotRenderer* QgsQuickElevationProfileCanvas::mCurrentJob</definition>
+        <argsstring></argsstring>
+        <name>mCurrentJob</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mCurrentJob</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="313" column="28" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1aa7deb3e1bbf6201cf3623df7a8ed7b35" prot="private" static="no" mutable="no">
+        <type>QTimer *</type>
+        <definition>QTimer* QgsQuickElevationProfileCanvas::mDeferredRegenerationTimer</definition>
+        <argsstring></argsstring>
+        <name>mDeferredRegenerationTimer</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mDeferredRegenerationTimer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="315" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1ade5e6fc85b930d736d4df1b9b7440c0d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickElevationProfileCanvas::mDeferredRegenerationScheduled</definition>
+        <argsstring></argsstring>
+        <name>mDeferredRegenerationScheduled</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mDeferredRegenerationScheduled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="316" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a486d6b1c1b66c7d0709ce50d52642ebd" prot="private" static="no" mutable="no">
+        <type>QTimer *</type>
+        <definition>QTimer* QgsQuickElevationProfileCanvas::mDeferredRedrawTimer</definition>
+        <argsstring></argsstring>
+        <name>mDeferredRedrawTimer</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mDeferredRedrawTimer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="317" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="317" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a0dbc666e51931012a31a042d5f74bf41" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickElevationProfileCanvas::mDeferredRedrawScheduled</definition>
+        <argsstring></argsstring>
+        <name>mDeferredRedrawScheduled</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mDeferredRedrawScheduled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="318" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a8f6f48610bd1042bba12a7a92b36016f" prot="private" static="no" mutable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QgsQuickElevationProfileCanvas::mProfileCurve</definition>
+        <argsstring></argsstring>
+        <name>mProfileCurve</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mProfileCurve</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="320" column="17" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a2d81acb2e5e271ee288dbfbebef7adbd" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QgsQuickElevationProfileCanvas::mTolerance</definition>
+        <argsstring></argsstring>
+        <name>mTolerance</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mTolerance</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="321" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a573fde638f186fee86a22d60c5f41555" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickElevationProfileCanvas::mFirstDrawOccurred</definition>
+        <argsstring></argsstring>
+        <name>mFirstDrawOccurred</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mFirstDrawOccurred</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="323" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a6ca2bab19c85163bcf1e0f57a47687f5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickElevationProfileCanvas::mZoomFullWhenJobFinished</definition>
+        <argsstring></argsstring>
+        <name>mZoomFullWhenJobFinished</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mZoomFullWhenJobFinished</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="325" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="325" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a0a018833ed02e7e37c465eee999efc98" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickElevationProfileCanvas::mForceRegenerationAfterCurrentJobCompletes</definition>
+        <argsstring></argsstring>
+        <name>mForceRegenerationAfterCurrentJobCompletes</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mForceRegenerationAfterCurrentJobCompletes</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="327" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a2354043fa35ea5b110ab411561d55ec2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickElevationProfileCanvas::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mDirty</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="331" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a5ba57513f7547845ac981229b4e2f4dd" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QgsQuickElevationProfileCanvas::mBackgroundColor</definition>
+        <argsstring></argsstring>
+        <name>mBackgroundColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mBackgroundColor</qualifiedname>
+        <initializer>= QColor( 255, 255, 255 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="333" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="333" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a9b646f6d0d37bc4eacb65479f8a2c9e2" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QgsQuickElevationProfileCanvas::mBorderColor</definition>
+        <argsstring></argsstring>
+        <name>mBorderColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mBorderColor</qualifiedname>
+        <initializer>= QColor( 0, 0, 0 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="334" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1aeaa10992f378c53883c2c0daaef48912" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QgsQuickElevationProfileCanvas::mAxisLabelColor</definition>
+        <argsstring></argsstring>
+        <name>mAxisLabelColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mAxisLabelColor</qualifiedname>
+        <initializer>= QColor( 0, 0, 0 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="335" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="335" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1a9966f7a8cce66a514eb662937528ede9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QgsQuickElevationProfileCanvas::mAxisLabelSize</definition>
+        <argsstring></argsstring>
+        <name>mAxisLabelSize</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::mAxisLabelSize</qualifiedname>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="336" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classQgsQuickElevationProfileCanvas_1aedae44c543110316a349798970a5e2d2" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double QgsQuickElevationProfileCanvas::MAX_ERROR_PIXELS</definition>
+        <argsstring></argsstring>
+        <name>MAX_ERROR_PIXELS</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::MAX_ERROR_PIXELS</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="329" column="29" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a105c6fffe7e18e4979a386ee3c55484d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgsQuickElevationProfileCanvas::QgsQuickElevationProfileCanvas</definition>
+        <argsstring>(QQuickItem *parent=nullptr)</argsstring>
+        <name>QgsQuickElevationProfileCanvas</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::QgsQuickElevationProfileCanvas</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for QgsElevationProfileCanvas, with the specified <emphasis>parent</emphasis> widget. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="63" column="14" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="164" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a17e2924c03dc3613f22e53ba2cee81db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgsQuickElevationProfileCanvas::~QgsQuickElevationProfileCanvas</definition>
+        <argsstring>()</argsstring>
+        <name>~QgsQuickElevationProfileCanvas</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::~QgsQuickElevationProfileCanvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="64" column="5" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="185" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1aa90fef968a19334ec1a0058ce7e785be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QSGNode *</type>
+        <definition>QSGNode * QgsQuickElevationProfileCanvas::updatePaintNode</definition>
+        <argsstring>(QSGNode *oldNode, QQuickItem::UpdatePaintNodeData *) override</argsstring>
+        <name>updatePaintNode</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::updatePaintNode</qualifiedname>
+        <param>
+          <type>QSGNode *</type>
+          <declname>oldNode</declname>
+        </param>
+        <param>
+          <type>QQuickItem::UpdatePaintNodeData *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="66" column="13" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="578" bodyend="632"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a0c912a60a3e28a9a1cd7a1aa49561ee1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::cancelJobs</definition>
+        <argsstring>()</argsstring>
+        <name>cancelJobs</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::cancelJobs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="68" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="195" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a84cd84383cf2fadb7753a1bb4e6d64ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsQuickElevationProfileCanvas::isRendering</definition>
+        <argsstring>() const</argsstring>
+        <name>isRendering</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::isRendering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The isRendering property is set to true while a rendering job is pending for this elevation profile canvas. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="71" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="258" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a82711c163a1443e5505d2287e9e17856" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QgsQuickElevationProfileCanvas::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::refresh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Triggers a complete regeneration of the profile, causing the profile extraction to perform in the background. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="77" column="22" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="263" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1ad4bd89cf468238da819fba1379f0922b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QgsQuickElevationProfileCanvas::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::project</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the project associated with the profile. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="82" column="16" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a56e0fc5ee4fe0522f00ffe328baf009a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <emphasis>project</emphasis> associated with the profile.</para>
+<para>This must be set before any layers which utilize terrain based elevation settings can be included in the canvas. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="90" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="487" bodyend="495"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1aaae1acf2a1f438a54d82bbacde580fec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QgsQuickElevationProfileCanvas::populateLayersFromProject</definition>
+        <argsstring>()</argsstring>
+        <name>populateLayersFromProject</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::populateLayersFromProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Populates the current profile with elevation-enabled layers from the associated project. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="95" column="22" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="527" bodyend="563"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a7d295a38c91936f1a4512629b92b71ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; QgsMapLayer * &gt;</type>
+        <definition>QList&lt; QgsMapLayer * &gt; QgsQuickElevationProfileCanvas::layers</definition>
+        <argsstring>() const</argsstring>
+        <name>layers</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::layers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of layers included in the profile.</para>
+<para><simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1a7d295a38c91936f1a4512629b92b71ea" kindref="member">layers()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="102" column="11" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="565" bodyend="568"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a41f61f6f9f5fb869e196aa5b7e703b55" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QgsQuickElevationProfileCanvas::crs</definition>
+        <argsstring>() const</argsstring>
+        <name>crs</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::crs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the crs associated with map coordinates </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="107" column="34" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1ac1582d888c4bd9ea23971f56411feacf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::setCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>setCrs</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::setCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <emphasis>crs</emphasis> associated with the map coordinates.</para>
+<para><simplesect kind="see"><para>crs() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="114" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="497" bodyend="505"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a3f3197ce541fd957cc9725dfc7e14903" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::setProfileCurve</definition>
+        <argsstring>(QgsGeometry curve)</argsstring>
+        <name>setProfileCurve</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::setProfileCurve</qualifiedname>
+        <param>
+          <type>QgsGeometry</type>
+          <declname>curve</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the profile <emphasis>curve</emphasis> geometry.</para>
+<para>The CRS associated with <emphasis>curve</emphasis> is set via <ref refid="classQgsQuickElevationProfileCanvas_1ac1582d888c4bd9ea23971f56411feacf" kindref="member">setCrs()</ref>.</para>
+<para><simplesect kind="see"><para>profileCurve() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="123" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="507" bodyend="515"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a0b5e53552fca86383b82a7c004139843" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QgsQuickElevationProfileCanvas::profileCurve</definition>
+        <argsstring>() const</argsstring>
+        <name>profileCurve</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::profileCurve</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the profile curve geometry.</para>
+<para>The CRS associated with the curve is retrieved via crs().</para>
+<para><simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1a3f3197ce541fd957cc9725dfc7e14903" kindref="member">setProfileCurve()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="132" column="17" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a0d20d9835916b78e498fd37dc1d6b771" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::setTolerance</definition>
+        <argsstring>(double tolerance)</argsstring>
+        <name>setTolerance</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::setTolerance</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>tolerance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the profile tolerance (in crs() units).</para>
+<para>This value determines how far from the profileCurve() is appropriate for inclusion of results. For instance, when a profile is generated for a point vector layer this tolerance distance will dictate how far from the actual profile curve a point can reside within to be included in the results.</para>
+<para><simplesect kind="see"><para>tolerance() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="143" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="517" bodyend="525"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1ad321428f87c96187178b560a60e74e13" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickElevationProfileCanvas::tolerance</definition>
+        <argsstring>() const</argsstring>
+        <name>tolerance</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::tolerance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the tolerance of the profile (in crs() units).</para>
+<para>This value determines how far from the profileCurve() is appropriate for inclusion of results. For instance, when a profile is generated for a point vector layer this tolerance distance will dictate how far from the actual profile curve a point can reside within to be included in the results.</para>
+<para><simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1a0d20d9835916b78e498fd37dc1d6b771" kindref="member">setTolerance()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="154" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="154" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a43141aaf84341010e8ec584723740319" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::setVisiblePlotRange</definition>
+        <argsstring>(double minimumDistance, double maximumDistance, double minimumElevation, double maximumElevation)</argsstring>
+        <name>setVisiblePlotRange</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::setVisiblePlotRange</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>minimumDistance</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>maximumDistance</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>minimumElevation</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>maximumElevation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the visible area of the plot.</para>
+<para><simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1a80e67124d9db449665bd564daff66ed1" kindref="member">visibleDistanceRange()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1aaa43cd7bf478364bd4b7f0bec4a1a658" kindref="member">visibleElevationRange()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="162" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="715" bodyend="722"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a80e67124d9db449665bd564daff66ed1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsDoubleRange</type>
+        <definition>QgsDoubleRange QgsQuickElevationProfileCanvas::visibleDistanceRange</definition>
+        <argsstring>() const</argsstring>
+        <name>visibleDistanceRange</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::visibleDistanceRange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the distance range currently visible in the plot.</para>
+<para><simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1aaa43cd7bf478364bd4b7f0bec4a1a658" kindref="member">visibleElevationRange()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1a43141aaf84341010e8ec584723740319" kindref="member">setVisiblePlotRange()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="170" column="20" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="819" bodyend="822"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1aaa43cd7bf478364bd4b7f0bec4a1a658" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsDoubleRange</type>
+        <definition>QgsDoubleRange QgsQuickElevationProfileCanvas::visibleElevationRange</definition>
+        <argsstring>() const</argsstring>
+        <name>visibleElevationRange</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::visibleElevationRange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the elevation range currently visible in the plot.</para>
+<para><simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1a80e67124d9db449665bd564daff66ed1" kindref="member">visibleDistanceRange()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1a43141aaf84341010e8ec584723740319" kindref="member">setVisiblePlotRange()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="178" column="20" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="824" bodyend="827"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a186c727fe240b6189111cecde616f60b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QgsQuickElevationProfileCanvas::backgroundColor</definition>
+        <argsstring>() const</argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::backgroundColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the background color used when rendering the elevation profile.</para>
+<para><simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1a8704597c53bb844dd812772b1d8e77d7" kindref="member">setBackgroundColor</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="185" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="724" bodyend="727"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a8704597c53bb844dd812772b1d8e77d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::setBackgroundColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setBackgroundColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::setBackgroundColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the background color used when rendering the elevation profile.</para>
+<para><simplesect kind="see"><para>backgroundColor </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="192" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="729" bodyend="738"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a501a762b0957a9cbe6ae72c69fae0322" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QgsQuickElevationProfileCanvas::borderColor</definition>
+        <argsstring>() const</argsstring>
+        <name>borderColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::borderColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the border color used when rendering the elevation profile.</para>
+<para><simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1a6bc06d52c50899f6e5276df62607128b" kindref="member">setBorderColor</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="199" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="740" bodyend="743"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a6bc06d52c50899f6e5276df62607128b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::setBorderColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setBorderColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::setBorderColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the border color used when rendering the elevation profile.</para>
+<para><simplesect kind="see"><para>borderColor </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="206" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="745" bodyend="754"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a4199c144077ef5aa14b479123ee66728" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QgsQuickElevationProfileCanvas::axisLabelColor</definition>
+        <argsstring>() const</argsstring>
+        <name>axisLabelColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::axisLabelColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the axis label color used when rendering the elevation profile.</para>
+<para><simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1adc9edee032c9f4c77f56253eb17e26e5" kindref="member">setAxisLabelColor</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="213" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="756" bodyend="759"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1adc9edee032c9f4c77f56253eb17e26e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::setAxisLabelColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setAxisLabelColor</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::setAxisLabelColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the axis label color used when rendering the elevation profile.</para>
+<para><simplesect kind="see"><para>axisLabelColor </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="220" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="761" bodyend="770"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1ac4aa81a501479ea59b1f9309115a7c95" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickElevationProfileCanvas::axisLabelSize</definition>
+        <argsstring>() const</argsstring>
+        <name>axisLabelSize</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::axisLabelSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the axis label size (in point) used when rendering the elevation profile.</para>
+<para><simplesect kind="see"><para><ref refid="classQgsQuickElevationProfileCanvas_1ab0e682899ff74d431eab6bc19669fd47" kindref="member">setAxisLabelSize</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="227" column="12" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="772" bodyend="775"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1ab0e682899ff74d431eab6bc19669fd47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::setAxisLabelSize</definition>
+        <argsstring>(double size)</argsstring>
+        <name>setAxisLabelSize</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::setAxisLabelSize</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the axis label size (in point) used when rendering the elevation profile.</para>
+<para><simplesect kind="see"><para>axisLabelSize </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="234" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="777" bodyend="786"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQgsQuickElevationProfileCanvas_1a3d6a2e694f34361bc5d6d97009804ef6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::activeJobCountChanged</definition>
+        <argsstring>(int count)</argsstring>
+        <name>activeJobCountChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::activeJobCountChanged</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when the number of active background jobs changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="239" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickElevationProfileCanvas_1acbc5c46fa7979f8bb33de591710f89b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::projectChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the associated project changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="242" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickElevationProfileCanvas_1a41912b313ed07714c46880b15ef4bade" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::crsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>crsChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::crsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the CRS linked to the profile curve geometry changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="245" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickElevationProfileCanvas_1a64851cb282a67fff5d4177bb6961a9d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::profileCurveChanged</definition>
+        <argsstring>()</argsstring>
+        <name>profileCurveChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::profileCurveChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the profile curve geometry changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="248" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickElevationProfileCanvas_1ad84831e105cde727e5c2981d51fd8a81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::toleranceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>toleranceChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::toleranceChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the tolerance changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="251" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickElevationProfileCanvas_1ae3f79b0a35aa8ed2a5854bba5f2ca0e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::isRenderingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isRenderingChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::isRenderingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The isRendering property is set to true while a rendering job is pending for this map canvas map. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="254" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickElevationProfileCanvas_1ad569416f52f059847b51bbaa57767a49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::backgroundColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>backgroundColorChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::backgroundColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the background color changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="257" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickElevationProfileCanvas_1a6f6fe96e5a415fb8d06fea2198c53f9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::borderColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>borderColorChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::borderColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the border color changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="260" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickElevationProfileCanvas_1a64eaa19e737cb32d965aab8d94107376" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::axisLabelColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>axisLabelColorChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::axisLabelColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the axis label color changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="263" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickElevationProfileCanvas_1a293f89bb3e856e8301cea1448d1dd84a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::axisLabelSizeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>axisLabelSizeChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::axisLabelSizeChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the axis label size (in point) changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="266" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1a004a6ee39e878858b45646f6cd1638fb" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::geometryChange</definition>
+        <argsstring>(const QRectF &amp;newGeometry, const QRectF &amp;oldGeometry) override</argsstring>
+        <name>geometryChange</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::geometryChange</qualifiedname>
+        <param>
+          <type>const QRectF &amp;</type>
+          <declname>newGeometry</declname>
+        </param>
+        <param>
+          <type>const QRectF &amp;</type>
+          <declname>oldGeometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="269" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="570" bodyend="576"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1ae05aa9f78ea1a8938e8cc7fc28761301" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QgsQuickElevationProfileCanvas::zoomFull</definition>
+        <argsstring>()</argsstring>
+        <name>zoomFull</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::zoomFull</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Zooms to the full extent of the profile. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="276" column="22" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="634" bodyend="667"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1af93f7fb9e25c71272eb557641db4a450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QgsQuickElevationProfileCanvas::zoomFullInRatio</definition>
+        <argsstring>()</argsstring>
+        <name>zoomFullInRatio</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::zoomFullInRatio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Zooms to the full extent of the profile while maintaining X and Y axes&apos; length ratio. <simplesect kind="note"><para>This method only makes sense with CRSes having matching map units and elevation units types. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="282" column="22" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="669" bodyend="713"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1ac936796147c1630aeda6ef13d0710d77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QgsQuickElevationProfileCanvas::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the current profile. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="287" column="22" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="829" bodyend="845"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1a68ff354be3681e91fa3e03719f58d92b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::generationFinished</definition>
+        <argsstring>()</argsstring>
+        <name>generationFinished</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::generationFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="291" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="315" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1a1cb63b155bf0a13c6753f8fd27a6b2ab" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::onLayerProfileGenerationPropertyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onLayerProfileGenerationPropertyChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::onLayerProfileGenerationPropertyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="292" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="361" bodyend="379"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1ab2eb983820b48c6a1fb03ede95d5fbad" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::onLayerProfileRendererPropertyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onLayerProfileRendererPropertyChanged</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::onLayerProfileRendererPropertyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="293" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="381" bodyend="400"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1a71a1df7def36ce52162c1b69b93b4dc8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::regenerateResultsForLayer</definition>
+        <argsstring>()</argsstring>
+        <name>regenerateResultsForLayer</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::regenerateResultsForLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="294" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="402" bodyend="415"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1adf07a9ba9a17e623d12f29070c47dfc8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::scheduleDeferredRegeneration</definition>
+        <argsstring>()</argsstring>
+        <name>scheduleDeferredRegeneration</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::scheduleDeferredRegeneration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="295" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="417" bodyend="424"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1a8ea09d17ea88804b281d089a06207964" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::scheduleDeferredRedraw</definition>
+        <argsstring>()</argsstring>
+        <name>scheduleDeferredRedraw</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::scheduleDeferredRedraw</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="296" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="426" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1a079604159eed9b7df515ed20161471eb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::startDeferredRegeneration</definition>
+        <argsstring>()</argsstring>
+        <name>startDeferredRegeneration</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::startDeferredRegeneration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="297" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="435" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1a4629ed379b03b6e59fac719ce6e8336c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::startDeferredRedraw</definition>
+        <argsstring>()</argsstring>
+        <name>startDeferredRedraw</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::startDeferredRedraw</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="298" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="450" bodyend="454"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickElevationProfileCanvas_1a80972aff46b87341dace896901642ae3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::refineResults</definition>
+        <argsstring>()</argsstring>
+        <name>refineResults</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::refineResults</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="299" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="456" bodyend="485"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1ad18af9ca43738bd923b2b4501d9e5327" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::setupLayerConnections</definition>
+        <argsstring>(QgsMapLayer *layer, bool isDisconnect)</argsstring>
+        <name>setupLayerConnections</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::setupLayerConnections</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isDisconnect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="302" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="207" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickElevationProfileCanvas_1aa1f18633904de367e95b774bcf7bf0ee" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickElevationProfileCanvas::updateStyle</definition>
+        <argsstring>()</argsstring>
+        <name>updateStyle</name>
+        <qualifiedname>QgsQuickElevationProfileCanvas::updateStyle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="303" column="10" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.cpp" bodystart="788" bodyend="817"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Implements a visual Qt Quick Item that does elevation profile rendering according to the current project settings and a profile curve geometry. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>QgsQuickElevationProfileCanvas</label>
+        <link refid="classQgsQuickElevationProfileCanvas"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>QgsQuickElevationProfileCanvas</label>
+        <link refid="classQgsQuickElevationProfileCanvas"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qgsquick/qgsquickelevationprofilecanvas.h" line="36" column="1" bodyfile="src/core/qgsquick/qgsquickelevationprofilecanvas.h" bodystart="37" bodyend="337"/>
+    <listofallmembers>
+      <member refid="classQgsQuickElevationProfileCanvas_1a3d6a2e694f34361bc5d6d97009804ef6" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>activeJobCountChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a5c491d0cacbe8e2e26f77dc226de70a7" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>axisLabelColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a4199c144077ef5aa14b479123ee66728" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>axisLabelColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a64eaa19e737cb32d965aab8d94107376" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>axisLabelColorChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a14437a21c622fec860e6cb28f5a21e66" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>axisLabelSize</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ac4aa81a501479ea59b1f9309115a7c95" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>axisLabelSize</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a293f89bb3e856e8301cea1448d1dd84a" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>axisLabelSizeChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a6e0e060a8a654a200d4a1825510d1080" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>backgroundColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a186c727fe240b6189111cecde616f60b" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>backgroundColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ad569416f52f059847b51bbaa57767a49" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>backgroundColorChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1aea21e7dd3123ecaf0324bf1df328d95c" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>borderColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a501a762b0957a9cbe6ae72c69fae0322" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>borderColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a6f6fe96e5a415fb8d06fea2198c53f9a" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>borderColorChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a0c912a60a3e28a9a1cd7a1aa49561ee1" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>cancelJobs</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ac936796147c1630aeda6ef13d0710d77" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>clear</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a4c95924deaf1b627aefc488f978fdefd" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>crs</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a41f61f6f9f5fb869e196aa5b7e703b55" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>crs</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a41912b313ed07714c46880b15ef4bade" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>crsChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a68ff354be3681e91fa3e03719f58d92b" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>generationFinished</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a004a6ee39e878858b45646f6cd1638fb" prot="protected" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>geometryChange</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a53030d4c1cdce9a80bb80d6a8d24704b" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>isRendering</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a84cd84383cf2fadb7753a1bb4e6d64ef" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>isRendering</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ae3f79b0a35aa8ed2a5854bba5f2ca0e3" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>isRenderingChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a7d295a38c91936f1a4512629b92b71ea" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>layers</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1aedae44c543110316a349798970a5e2d2" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>MAX_ERROR_PIXELS</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1aeaa10992f378c53883c2c0daaef48912" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mAxisLabelColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a9966f7a8cce66a514eb662937528ede9" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mAxisLabelSize</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a5ba57513f7547845ac981229b4e2f4dd" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mBackgroundColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a9b646f6d0d37bc4eacb65479f8a2c9e2" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mBorderColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a4c783558e5cc6a0653ea9453e688a912" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mCrs</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a36d4238d8d2b50435cc9fd1e2f657d8f" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mCurrentJob</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a0dbc666e51931012a31a042d5f74bf41" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mDeferredRedrawScheduled</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a486d6b1c1b66c7d0709ce50d52642ebd" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mDeferredRedrawTimer</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ade5e6fc85b930d736d4df1b9b7440c0d" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mDeferredRegenerationScheduled</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1aa7deb3e1bbf6201cf3623df7a8ed7b35" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mDeferredRegenerationTimer</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a2354043fa35ea5b110ab411561d55ec2" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mDirty</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a573fde638f186fee86a22d60c5f41555" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mFirstDrawOccurred</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a0a018833ed02e7e37c465eee999efc98" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mForceRegenerationAfterCurrentJobCompletes</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a06249930ac295f557ad98f5de596e048" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mImage</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a1f8e0979cbd988d2004089026ca03ff3" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mLayers</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a668992bab2e25015123ae2114f87872a" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mPlotItem</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a8f6f48610bd1042bba12a7a92b36016f" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mProfileCurve</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ab97be09eb232158e86d84e07a941785d" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mProject</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a2d81acb2e5e271ee288dbfbebef7adbd" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mTolerance</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a6ca2bab19c85163bcf1e0f57a47687f5" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>mZoomFullWhenJobFinished</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a1cb63b155bf0a13c6753f8fd27a6b2ab" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>onLayerProfileGenerationPropertyChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ab2eb983820b48c6a1fb03ede95d5fbad" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>onLayerProfileRendererPropertyChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1aaae1acf2a1f438a54d82bbacde580fec" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>populateLayersFromProject</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a71664cfc3cd8b7fd3694196ad578322d" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>profileCurve</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a0b5e53552fca86383b82a7c004139843" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>profileCurve</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a64851cb282a67fff5d4177bb6961a9d9" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>profileCurveChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1abef6dc590b0408e3e34247b221795c23" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>project</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ad4bd89cf468238da819fba1379f0922b" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>project</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1acbc5c46fa7979f8bb33de591710f89b4" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>projectChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a105c6fffe7e18e4979a386ee3c55484d" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>QgsQuickElevationProfileCanvas</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a80972aff46b87341dace896901642ae3" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>refineResults</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a82711c163a1443e5505d2287e9e17856" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>refresh</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a71a1df7def36ce52162c1b69b93b4dc8" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>regenerateResultsForLayer</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a8ea09d17ea88804b281d089a06207964" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>scheduleDeferredRedraw</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1adf07a9ba9a17e623d12f29070c47dfc8" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>scheduleDeferredRegeneration</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1adc9edee032c9f4c77f56253eb17e26e5" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>setAxisLabelColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ab0e682899ff74d431eab6bc19669fd47" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>setAxisLabelSize</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a8704597c53bb844dd812772b1d8e77d7" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>setBackgroundColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a6bc06d52c50899f6e5276df62607128b" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>setBorderColor</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ac1582d888c4bd9ea23971f56411feacf" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>setCrs</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a3f3197ce541fd957cc9725dfc7e14903" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>setProfileCurve</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a56e0fc5ee4fe0522f00ffe328baf009a" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>setProject</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a0d20d9835916b78e498fd37dc1d6b771" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>setTolerance</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ad18af9ca43738bd923b2b4501d9e5327" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>setupLayerConnections</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a43141aaf84341010e8ec584723740319" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>setVisiblePlotRange</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a4629ed379b03b6e59fac719ce6e8336c" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>startDeferredRedraw</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a079604159eed9b7df515ed20161471eb" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>startDeferredRegeneration</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a59564bf9634a06cb2b8fadae9659d228" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>tolerance</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ad321428f87c96187178b560a60e74e13" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>tolerance</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ad84831e105cde727e5c2981d51fd8a81" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>toleranceChanged</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1aa90fef968a19334ec1a0058ce7e785be" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>updatePaintNode</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1aa1f18633904de367e95b774bcf7bf0ee" prot="private" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>updateStyle</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a80e67124d9db449665bd564daff66ed1" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>visibleDistanceRange</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1aaa43cd7bf478364bd4b7f0bec4a1a658" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>visibleElevationRange</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1ae05aa9f78ea1a8938e8cc7fc28761301" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>zoomFull</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1af93f7fb9e25c71272eb557641db4a450" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>zoomFullInRatio</name></member>
+      <member refid="classQgsQuickElevationProfileCanvas_1a17e2924c03dc3613f22e53ba2cee81db" prot="public" virt="non-virtual"><scope>QgsQuickElevationProfileCanvas</scope><name>~QgsQuickElevationProfileCanvas</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1745 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class QgsQuickElevationProfileCanvas - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-qgsquickelevationprofilecanvas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class QgsQuickElevationProfileCanvas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protected-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-axislabelcolor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property axisLabelColor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-axislabelsize-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property axisLabelSize [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-backgroundcolor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property backgroundColor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-bordercolor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property borderColor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-crs-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property crs [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isrendering-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isRendering [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-profilecurve-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property profileCurve [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-project-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property project [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-tolerance-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property tolerance [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-slots-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Slots Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Slots Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slot-clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-zoomfull" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot zoomFull
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-zoomfullinratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot zoomFullInRatio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-activejobcountchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal activeJobCountChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-axislabelcolorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal axisLabelColorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-axislabelsizechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal axisLabelSizeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-backgroundcolorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal backgroundColorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-bordercolorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal borderColorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-crschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal crsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isrenderingchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isRenderingChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-profilecurvechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal profileCurveChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-projectchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal projectChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-tolerancechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal toleranceChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-qgsquickelevationprofilecanvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function QgsQuickElevationProfileCanvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-axislabelcolor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function axisLabelColor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-axislabelsize-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function axisLabelSize [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-backgroundcolor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function backgroundColor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-bordercolor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function borderColor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-canceljobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function cancelJobs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-crs-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function crs [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isrendering-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isRendering [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function layers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-populatelayersfromproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function populateLayersFromProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-profilecurve-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function profileCurve [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-project-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function project [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function refresh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setaxislabelcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAxisLabelColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setaxislabelsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAxisLabelSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setbackgroundcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setBackgroundColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setbordercolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setBorderColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCrs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setprofilecurve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setProfileCurve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setproject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setProject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-settolerance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setTolerance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setvisibleplotrange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setVisiblePlotRange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-tolerance-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function tolerance [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-updatepaintnode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function updatePaintNode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-visibledistancerange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function visibleDistanceRange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-visibleelevationrange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function visibleElevationRange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-qgsquickelevationprofilecanvas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~QgsQuickElevationProfileCanvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protected-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protected Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-geometrychange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function geometryChange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-qgsquickelevationprofilecanvas">Class QgsQuickElevationProfileCanvas</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>QgsQuickElevationProfileCanvas</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;qgsquickelevationprofilecanvas.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QQuickItem</p>
+<h2 id="public-slots">Public Slots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">slot Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="./#slot-clear"><strong>clear</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">slot Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="./#slot-zoomfull"><strong>zoomFull</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">slot Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="./#slot-zoomfullinratio"><strong>zoomFullInRatio</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property QColor</td>
+<td style="text-align: left;"><a href="./#property-axislabelcolor-12"><strong>axisLabelColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-axislabelsize-12"><strong>axisLabelSize</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QColor</td>
+<td style="text-align: left;"><a href="./#property-backgroundcolor-12"><strong>backgroundColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QColor</td>
+<td style="text-align: left;"><a href="./#property-bordercolor-12"><strong>borderColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsCoordinateReferenceSystem</td>
+<td style="text-align: left;"><a href="./#property-crs-12"><strong>crs</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isrendering-12"><strong>isRendering</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsGeometry</td>
+<td style="text-align: left;"><a href="./#property-profilecurve-12"><strong>profileCurve</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsProject *</td>
+<td style="text-align: left;"><a href="./#property-project-12"><strong>project</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-tolerance-12"><strong>tolerance</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-activejobcountchanged"><strong>activeJobCountChanged</strong></a> (int count) <br><em>Emitted when the number of active background jobs changes.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-axislabelcolorchanged"><strong>axisLabelColorChanged</strong></a>  <br><em>Emitted when the axis label color changes.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-axislabelsizechanged"><strong>axisLabelSizeChanged</strong></a>  <br><em>Emitted when the axis label size (in point) changes.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-backgroundcolorchanged"><strong>backgroundColorChanged</strong></a>  <br><em>Emitted when the background color changes.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-bordercolorchanged"><strong>borderColorChanged</strong></a>  <br><em>Emitted when the border color changes.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-crschanged"><strong>crsChanged</strong></a>  <br><em>Emitted when the CRS linked to the profile curve geometry changes.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isrenderingchanged"><strong>isRenderingChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-profilecurvechanged"><strong>profileCurveChanged</strong></a>  <br><em>Emitted when the profile curve geometry changes.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-projectchanged"><strong>projectChanged</strong></a>  <br><em>Emitted when the associated project changes.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-tolerancechanged"><strong>toleranceChanged</strong></a>  <br><em>Emitted when the tolerance changes.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qgsquickelevationprofilecanvas"><strong>QgsQuickElevationProfileCanvas</strong></a> (QQuickItem * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QColor</td>
+<td style="text-align: left;"><a href="#function-axislabelcolor-22"><strong>axisLabelColor</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-axislabelsize-22"><strong>axisLabelSize</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QColor</td>
+<td style="text-align: left;"><a href="#function-backgroundcolor-22"><strong>backgroundColor</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QColor</td>
+<td style="text-align: left;"><a href="#function-bordercolor-22"><strong>borderColor</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-canceljobs"><strong>cancelJobs</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsCoordinateReferenceSystem</td>
+<td style="text-align: left;"><a href="#function-crs-22"><strong>crs</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isrendering-22"><strong>isRendering</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; QgsMapLayer * &gt;</td>
+<td style="text-align: left;"><a href="#function-layers"><strong>layers</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-populatelayersfromproject"><strong>populateLayersFromProject</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsGeometry</td>
+<td style="text-align: left;"><a href="#function-profilecurve-22"><strong>profileCurve</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsProject *</td>
+<td style="text-align: left;"><a href="#function-project-22"><strong>project</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-refresh"><strong>refresh</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setaxislabelcolor"><strong>setAxisLabelColor</strong></a> (const QColor &amp; color) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setaxislabelsize"><strong>setAxisLabelSize</strong></a> (double size) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setbackgroundcolor"><strong>setBackgroundColor</strong></a> (const QColor &amp; color) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setbordercolor"><strong>setBorderColor</strong></a> (const QColor &amp; color) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcrs"><strong>setCrs</strong></a> (const QgsCoordinateReferenceSystem &amp; crs) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setprofilecurve"><strong>setProfileCurve</strong></a> (QgsGeometry curve) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setproject"><strong>setProject</strong></a> (QgsProject * project) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-settolerance"><strong>setTolerance</strong></a> (double tolerance) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setvisibleplotrange"><strong>setVisiblePlotRange</strong></a> (double minimumDistance, double maximumDistance, double minimumElevation, double maximumElevation) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-tolerance-22"><strong>tolerance</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QSGNode *</td>
+<td style="text-align: left;"><a href="#function-updatepaintnode"><strong>updatePaintNode</strong></a> (QSGNode * oldNode, QQuickItem::UpdatePaintNodeData *) override<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsDoubleRange</td>
+<td style="text-align: left;"><a href="#function-visibledistancerange"><strong>visibleDistanceRange</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsDoubleRange</td>
+<td style="text-align: left;"><a href="#function-visibleelevationrange"><strong>visibleElevationRange</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qgsquickelevationprofilecanvas"><strong>~QgsQuickElevationProfileCanvas</strong></a> () <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="protected-functions">Protected Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-geometrychange"><strong>geometryChange</strong></a> (const QRectF &amp; newGeometry, const QRectF &amp; oldGeometry) override<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>Implements a visual Qt Quick Item that does elevation profile rendering according to the current project settings and a profile curve geometry. </p>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-axislabelcolor-12">property axisLabelColor [1/2]</h3>
+<pre><code class="language-C++">QColor QgsQuickElevationProfileCanvas::axisLabelColor;
+</code></pre>
+<hr>
+
+<h3 id="property-axislabelsize-12">property axisLabelSize [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickElevationProfileCanvas::axisLabelSize;
+</code></pre>
+<hr>
+
+<h3 id="property-backgroundcolor-12">property backgroundColor [1/2]</h3>
+<pre><code class="language-C++">QColor QgsQuickElevationProfileCanvas::backgroundColor;
+</code></pre>
+<hr>
+
+<h3 id="property-bordercolor-12">property borderColor [1/2]</h3>
+<pre><code class="language-C++">QColor QgsQuickElevationProfileCanvas::borderColor;
+</code></pre>
+<hr>
+
+<h3 id="property-crs-12">property crs [1/2]</h3>
+<pre><code class="language-C++">QgsCoordinateReferenceSystem QgsQuickElevationProfileCanvas::crs;
+</code></pre>
+<hr>
+
+<h3 id="property-isrendering-12">property isRendering [1/2]</h3>
+<pre><code class="language-C++">bool QgsQuickElevationProfileCanvas::isRendering;
+</code></pre>
+<p>The isRendering property is set to true while a rendering job is pending for this elevation profile canvas. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property. </p>
+<hr>
+
+<h3 id="property-profilecurve-12">property profileCurve [1/2]</h3>
+<pre><code class="language-C++">QgsGeometry QgsQuickElevationProfileCanvas::profileCurve;
+</code></pre>
+<hr>
+
+<h3 id="property-project-12">property project [1/2]</h3>
+<pre><code class="language-C++">QgsProject * QgsQuickElevationProfileCanvas::project;
+</code></pre>
+<hr>
+
+<h3 id="property-tolerance-12">property tolerance [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickElevationProfileCanvas::tolerance;
+</code></pre>
+<hr>
+<h2 id="public-slots-documentation">Public Slots Documentation</h2>
+<h3 id="slot-clear">slot clear</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::clear;
+</code></pre>
+<p>Clears the current profile. </p>
+<hr>
+
+<h3 id="slot-zoomfull">slot zoomFull</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::zoomFull;
+</code></pre>
+<p>Zooms to the full extent of the profile. </p>
+<hr>
+
+<h3 id="slot-zoomfullinratio">slot zoomFullInRatio</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::zoomFullInRatio;
+</code></pre>
+<p>Zooms to the full extent of the profile while maintaining X and Y axes' length ratio. </p>
+<p><strong>Note:</strong></p>
+<p>This method only makes sense with CRSes having matching map units and elevation units types. </p>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-activejobcountchanged">signal activeJobCountChanged</h3>
+<p><em>Emitted when the number of active background jobs changes.</em> </p>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::activeJobCountChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-axislabelcolorchanged">signal axisLabelColorChanged</h3>
+<p><em>Emitted when the axis label color changes.</em> </p>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::axisLabelColorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-axislabelsizechanged">signal axisLabelSizeChanged</h3>
+<p><em>Emitted when the axis label size (in point) changes.</em> </p>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::axisLabelSizeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-backgroundcolorchanged">signal backgroundColorChanged</h3>
+<p><em>Emitted when the background color changes.</em> </p>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::backgroundColorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-bordercolorchanged">signal borderColorChanged</h3>
+<p><em>Emitted when the border color changes.</em> </p>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::borderColorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-crschanged">signal crsChanged</h3>
+<p><em>Emitted when the CRS linked to the profile curve geometry changes.</em> </p>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::crsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-isrenderingchanged">signal isRenderingChanged</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::isRenderingChanged;
+</code></pre>
+<p>The isRendering property is set to true while a rendering job is pending for this map canvas map. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property.   </p>
+<hr>
+
+<h3 id="signal-profilecurvechanged">signal profileCurveChanged</h3>
+<p><em>Emitted when the profile curve geometry changes.</em> </p>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::profileCurveChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-projectchanged">signal projectChanged</h3>
+<p><em>Emitted when the associated project changes.</em> </p>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::projectChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-tolerancechanged">signal toleranceChanged</h3>
+<p><em>Emitted when the tolerance changes.</em> </p>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::toleranceChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-qgsquickelevationprofilecanvas">function QgsQuickElevationProfileCanvas</h3>
+<pre><code class="language-C++">explicit QgsQuickElevationProfileCanvas::QgsQuickElevationProfileCanvas (
+    QQuickItem * parent=nullptr
+) 
+</code></pre>
+<p>Constructor for QgsElevationProfileCanvas, with the specified <em>parent</em> widget. </p>
+<hr>
+
+<h3 id="function-axislabelcolor-22">function axisLabelColor [2/2]</h3>
+<pre><code class="language-C++">QColor QgsQuickElevationProfileCanvas::axisLabelColor () const
+</code></pre>
+<p>Returns the axis label color used when rendering the elevation profile.</p>
+<p><strong>See also:</strong> <a href="./#function-setaxislabelcolor"><strong>setAxisLabelColor</strong></a> </p>
+<hr>
+
+<h3 id="function-axislabelsize-22">function axisLabelSize [2/2]</h3>
+<pre><code class="language-C++">double QgsQuickElevationProfileCanvas::axisLabelSize () const
+</code></pre>
+<p>Returns the axis label size (in point) used when rendering the elevation profile.</p>
+<p><strong>See also:</strong> <a href="./#function-setaxislabelsize"><strong>setAxisLabelSize</strong></a> </p>
+<hr>
+
+<h3 id="function-backgroundcolor-22">function backgroundColor [2/2]</h3>
+<pre><code class="language-C++">QColor QgsQuickElevationProfileCanvas::backgroundColor () const
+</code></pre>
+<p>Returns the background color used when rendering the elevation profile.</p>
+<p><strong>See also:</strong> <a href="./#function-setbackgroundcolor"><strong>setBackgroundColor</strong></a> </p>
+<hr>
+
+<h3 id="function-bordercolor-22">function borderColor [2/2]</h3>
+<pre><code class="language-C++">QColor QgsQuickElevationProfileCanvas::borderColor () const
+</code></pre>
+<p>Returns the border color used when rendering the elevation profile.</p>
+<p><strong>See also:</strong> <a href="./#function-setbordercolor"><strong>setBorderColor</strong></a> </p>
+<hr>
+
+<h3 id="function-canceljobs">function cancelJobs</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::cancelJobs () 
+</code></pre>
+<hr>
+
+<h3 id="function-crs-22">function crs [2/2]</h3>
+<pre><code class="language-C++">inline QgsCoordinateReferenceSystem QgsQuickElevationProfileCanvas::crs () const
+</code></pre>
+<p>Returns the crs associated with map coordinates </p>
+<hr>
+
+<h3 id="function-isrendering-22">function isRendering [2/2]</h3>
+<pre><code class="language-C++">bool QgsQuickElevationProfileCanvas::isRendering () const
+</code></pre>
+<p>The isRendering property is set to true while a rendering job is pending for this elevation profile canvas. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property.   </p>
+<hr>
+
+<h3 id="function-layers">function layers</h3>
+<pre><code class="language-C++">QList&lt; QgsMapLayer * &gt; QgsQuickElevationProfileCanvas::layers () const
+</code></pre>
+<p>Returns the list of layers included in the profile.</p>
+<p><strong>See also:</strong> <a href="./#function-layers"><strong>layers()</strong></a> </p>
+<hr>
+
+<h3 id="function-populatelayersfromproject">function populateLayersFromProject</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QgsQuickElevationProfileCanvas::populateLayersFromProject () 
+</code></pre>
+<p>Populates the current profile with elevation-enabled layers from the associated project. </p>
+<hr>
+
+<h3 id="function-profilecurve-22">function profileCurve [2/2]</h3>
+<pre><code class="language-C++">inline QgsGeometry QgsQuickElevationProfileCanvas::profileCurve () const
+</code></pre>
+<p>Returns the profile curve geometry.</p>
+<p>The CRS associated with the curve is retrieved via crs().</p>
+<p><strong>See also:</strong> <a href="./#function-setprofilecurve"><strong>setProfileCurve()</strong></a> </p>
+<hr>
+
+<h3 id="function-project-22">function project [2/2]</h3>
+<pre><code class="language-C++">inline QgsProject * QgsQuickElevationProfileCanvas::project () const
+</code></pre>
+<p>Returns the project associated with the profile. </p>
+<hr>
+
+<h3 id="function-refresh">function refresh</h3>
+<pre><code class="language-C++">Q_INVOKABLE void QgsQuickElevationProfileCanvas::refresh () 
+</code></pre>
+<p>Triggers a complete regeneration of the profile, causing the profile extraction to perform in the background. </p>
+<hr>
+
+<h3 id="function-setaxislabelcolor">function setAxisLabelColor</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::setAxisLabelColor (
+    const QColor &amp; color
+) 
+</code></pre>
+<p>Sets the axis label color used when rendering the elevation profile.</p>
+<p><strong>See also:</strong> axisLabelColor </p>
+<hr>
+
+<h3 id="function-setaxislabelsize">function setAxisLabelSize</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::setAxisLabelSize (
+    double size
+) 
+</code></pre>
+<p>Sets the axis label size (in point) used when rendering the elevation profile.</p>
+<p><strong>See also:</strong> axisLabelSize </p>
+<hr>
+
+<h3 id="function-setbackgroundcolor">function setBackgroundColor</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::setBackgroundColor (
+    const QColor &amp; color
+) 
+</code></pre>
+<p>Sets the background color used when rendering the elevation profile.</p>
+<p><strong>See also:</strong> backgroundColor </p>
+<hr>
+
+<h3 id="function-setbordercolor">function setBorderColor</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::setBorderColor (
+    const QColor &amp; color
+) 
+</code></pre>
+<p>Sets the border color used when rendering the elevation profile.</p>
+<p><strong>See also:</strong> borderColor </p>
+<hr>
+
+<h3 id="function-setcrs">function setCrs</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::setCrs (
+    const QgsCoordinateReferenceSystem &amp; crs
+) 
+</code></pre>
+<p>Sets the <em>crs</em> associated with the map coordinates.</p>
+<p><strong>See also:</strong> crs() </p>
+<hr>
+
+<h3 id="function-setprofilecurve">function setProfileCurve</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::setProfileCurve (
+    QgsGeometry curve
+) 
+</code></pre>
+<p>Sets the profile <em>curve</em> geometry.</p>
+<p>The CRS associated with <em>curve</em> is set via <a href="./#function-setcrs"><strong>setCrs()</strong></a>.</p>
+<p><strong>See also:</strong> profileCurve() </p>
+<hr>
+
+<h3 id="function-setproject">function setProject</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::setProject (
+    QgsProject * project
+) 
+</code></pre>
+<p>Sets the <em>project</em> associated with the profile.</p>
+<p>This must be set before any layers which utilize terrain based elevation settings can be included in the canvas. </p>
+<hr>
+
+<h3 id="function-settolerance">function setTolerance</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::setTolerance (
+    double tolerance
+) 
+</code></pre>
+<p>Sets the profile tolerance (in crs() units).</p>
+<p>This value determines how far from the profileCurve() is appropriate for inclusion of results. For instance, when a profile is generated for a point vector layer this tolerance distance will dictate how far from the actual profile curve a point can reside within to be included in the results.</p>
+<p><strong>See also:</strong> tolerance() </p>
+<hr>
+
+<h3 id="function-setvisibleplotrange">function setVisiblePlotRange</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::setVisiblePlotRange (
+    double minimumDistance,
+    double maximumDistance,
+    double minimumElevation,
+    double maximumElevation
+) 
+</code></pre>
+<p>Sets the visible area of the plot.</p>
+<p><strong>See also:</strong> <a href="./#function-visibledistancerange"><strong>visibleDistanceRange()</strong></a> </p>
+<p><strong>See also:</strong> <a href="./#function-visibleelevationrange"><strong>visibleElevationRange()</strong></a> </p>
+<hr>
+
+<h3 id="function-tolerance-22">function tolerance [2/2]</h3>
+<pre><code class="language-C++">inline double QgsQuickElevationProfileCanvas::tolerance () const
+</code></pre>
+<p>Returns the tolerance of the profile (in crs() units).</p>
+<p>This value determines how far from the profileCurve() is appropriate for inclusion of results. For instance, when a profile is generated for a point vector layer this tolerance distance will dictate how far from the actual profile curve a point can reside within to be included in the results.</p>
+<p><strong>See also:</strong> <a href="./#function-settolerance"><strong>setTolerance()</strong></a> </p>
+<hr>
+
+<h3 id="function-updatepaintnode">function updatePaintNode</h3>
+<pre><code class="language-C++">QSGNode * QgsQuickElevationProfileCanvas::updatePaintNode (
+    QSGNode * oldNode,
+    QQuickItem::UpdatePaintNodeData *
+) override
+</code></pre>
+<hr>
+
+<h3 id="function-visibledistancerange">function visibleDistanceRange</h3>
+<pre><code class="language-C++">QgsDoubleRange QgsQuickElevationProfileCanvas::visibleDistanceRange () const
+</code></pre>
+<p>Returns the distance range currently visible in the plot.</p>
+<p><strong>See also:</strong> <a href="./#function-visibleelevationrange"><strong>visibleElevationRange()</strong></a> </p>
+<p><strong>See also:</strong> <a href="./#function-setvisibleplotrange"><strong>setVisiblePlotRange()</strong></a> </p>
+<hr>
+
+<h3 id="function-visibleelevationrange">function visibleElevationRange</h3>
+<pre><code class="language-C++">QgsDoubleRange QgsQuickElevationProfileCanvas::visibleElevationRange () const
+</code></pre>
+<p>Returns the elevation range currently visible in the plot.</p>
+<p><strong>See also:</strong> <a href="./#function-visibledistancerange"><strong>visibleDistanceRange()</strong></a> </p>
+<p><strong>See also:</strong> <a href="./#function-setvisibleplotrange"><strong>setVisiblePlotRange()</strong></a> </p>
+<hr>
+
+<h3 id="function-qgsquickelevationprofilecanvas_1">function ~QgsQuickElevationProfileCanvas</h3>
+<pre><code class="language-C++">QgsQuickElevationProfileCanvas::~QgsQuickElevationProfileCanvas () 
+</code></pre>
+<hr>
+<h2 id="protected-functions-documentation">Protected Functions Documentation</h2>
+<h3 id="function-geometrychange">function geometryChange</h3>
+<pre><code class="language-C++">void QgsQuickElevationProfileCanvas::geometryChange (
+    const QRectF &amp; newGeometry,
+    const QRectF &amp; oldGeometry
+) override
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/qgsquick/qgsquickelevationprofilecanvas.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

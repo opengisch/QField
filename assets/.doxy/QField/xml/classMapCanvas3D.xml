@@ -1,0 +1,502 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMapCanvas3D" kind="class" language="C++" prot="public">
+    <compoundname>MapCanvas3D</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMapCanvas3D_1af3e508ed5548ce3c89cd10da1a7cf2f3" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var MapCanvas3D::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>MapCanvas3D::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="8" column="5" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1a5d40c4b8477b9751c923983d2f70cd4a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var MapCanvas3D::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>MapCanvas3D::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="9" column="5" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1a7aefcccbbde92d48a400434830410b41" prot="private" static="no" mutable="no">
+        <type><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref></type>
+        <definition>Quick3DTerrainProvider MapCanvas3D::mapTerrainProvider</definition>
+        <argsstring></argsstring>
+        <name>mapTerrainProvider</name>
+        <qualifiedname>MapCanvas3D::mapTerrainProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="30" column="24" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1aa636e9ed41c5009214d4ca7ba1af74a6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQuick3DMapTextureData" kindref="compound">Quick3DMapTextureData</ref></type>
+        <definition>Quick3DMapTextureData MapCanvas3D::mapTextureData</definition>
+        <argsstring></argsstring>
+        <name>mapTextureData</name>
+        <qualifiedname>MapCanvas3D::mapTextureData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="31" column="23" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1ad747d44ac2e27069502e98eb12b6ebd5" prot="private" static="no" mutable="no">
+        <type>Texture</type>
+        <definition>Texture MapCanvas3D::mapTexture</definition>
+        <argsstring></argsstring>
+        <name>mapTexture</name>
+        <qualifiedname>MapCanvas3D::mapTexture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="32" column="9" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1ad90b51e6b4775d88b28a13939e702ef0" prot="private" static="no" mutable="no">
+        <type>View3D</type>
+        <definition>View3D MapCanvas3D::view3d</definition>
+        <argsstring></argsstring>
+        <name>view3d</name>
+        <qualifiedname>MapCanvas3D::view3d</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="33" column="8" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1a0a4be8d94a5ff3f4b0786f26e18e2ea3" prot="private" static="no" mutable="no">
+        <type>PerspectiveCamera</type>
+        <definition>PerspectiveCamera MapCanvas3D::camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <qualifiedname>MapCanvas3D::camera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="34" column="19" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1a7cd6fafc62136354eb8754a7c7151293" prot="private" static="no" mutable="no">
+        <type><ref refid="classTerrainMesh" kindref="compound">TerrainMesh</ref></type>
+        <definition>TerrainMesh MapCanvas3D::terrainMesh</definition>
+        <argsstring></argsstring>
+        <name>terrainMesh</name>
+        <qualifiedname>MapCanvas3D::terrainMesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="35" column="13" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1aeb41f98b8ece3894235966c1c3e07d78" prot="private" static="no" mutable="no">
+        <type>Node</type>
+        <definition>Node MapCanvas3D::gnssMarker</definition>
+        <argsstring></argsstring>
+        <name>gnssMarker</name>
+        <qualifiedname>MapCanvas3D::gnssMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="36" column="6" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1a78a15e428b8a7db8273c8cbc2abb49d8" prot="private" static="no" mutable="no">
+        <type>Repeater3D</type>
+        <definition>Repeater3D MapCanvas3D::trackingRubberbands</definition>
+        <argsstring></argsstring>
+        <name>trackingRubberbands</name>
+        <qualifiedname>MapCanvas3D::trackingRubberbands</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="37" column="12" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1a6ddb8957bfb2ae35b5d526d6efc0a36e" prot="private" static="no" mutable="no">
+        <type><ref refid="classTouchCameraController" kindref="compound">TouchCameraController</ref></type>
+        <definition>TouchCameraController MapCanvas3D::cameraController</definition>
+        <argsstring></argsstring>
+        <name>cameraController</name>
+        <qualifiedname>MapCanvas3D::cameraController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="38" column="23" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1abbb7df811edfaea7ffe1420f2b8be7a2" prot="private" static="no" mutable="no">
+        <type>NumberAnimation</type>
+        <definition>NumberAnimation MapCanvas3D::openingAnimation</definition>
+        <argsstring></argsstring>
+        <name>openingAnimation</name>
+        <qualifiedname>MapCanvas3D::openingAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="39" column="17" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapCanvas3D_1a574437658f6e8ff2fe6efde4102f46e1" prot="private" static="no" mutable="no">
+        <type>SequentialAnimation</type>
+        <definition>SequentialAnimation MapCanvas3D::closingAnimation</definition>
+        <argsstring></argsstring>
+        <name>closingAnimation</name>
+        <qualifiedname>MapCanvas3D::closingAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="40" column="21" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classMapCanvas3D_1abd6d22f42a69bbb72408b58386370cb6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias MapCanvas3D::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>MapCanvas3D::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="12" column="1" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas3D_1a4ec2fbbe435d78c8045d7350e7804afd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas3D::isLoading</definition>
+        <argsstring></argsstring>
+        <name>isLoading</name>
+        <qualifiedname>MapCanvas3D::isLoading</qualifiedname>
+        <read>dummyGetter_isLoading_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="14" column="1" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas3D_1a8ac5f7ca4f5f8fa7588603c120a9d140" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas3D::wireframeMode</definition>
+        <argsstring></argsstring>
+        <name>wireframeMode</name>
+        <qualifiedname>MapCanvas3D::wireframeMode</qualifiedname>
+        <read>dummyGetter_wireframeMode_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="16" column="1" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas3D_1a58819959851e4412f6de403600f5e613" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool MapCanvas3D::gnssActive</definition>
+        <argsstring></argsstring>
+        <name>gnssActive</name>
+        <qualifiedname>MapCanvas3D::gnssActive</qualifiedname>
+        <read>dummyGetter_gnssActive_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="18" column="1" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas3D_1a1571ad156539e926f953460f1c6df93f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var MapCanvas3D::gnssPosition</definition>
+        <argsstring></argsstring>
+        <name>gnssPosition</name>
+        <qualifiedname>MapCanvas3D::gnssPosition</qualifiedname>
+        <read>dummyGetter_gnssPosition_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="20" column="1" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas3D_1ac0de941a87d63f3a597da3fa6861c903" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real MapCanvas3D::gnssSpeed</definition>
+        <argsstring></argsstring>
+        <name>gnssSpeed</name>
+        <qualifiedname>MapCanvas3D::gnssSpeed</qualifiedname>
+        <read>dummyGetter_gnssSpeed_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="22" column="1" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas3D_1af36d23a8fa874f5419704877d17b8e8b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real MapCanvas3D::gnssDirection</definition>
+        <argsstring></argsstring>
+        <name>gnssDirection</name>
+        <qualifiedname>MapCanvas3D::gnssDirection</qualifiedname>
+        <read>dummyGetter_gnssDirection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="24" column="1" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapCanvas3D_1ab165488709ea1699fe925977a6ff98f4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classTrackingModel" kindref="compound">TrackingModel</ref></type>
+        <definition>TrackingModel MapCanvas3D::trackingModel</definition>
+        <argsstring></argsstring>
+        <name>trackingModel</name>
+        <qualifiedname>MapCanvas3D::trackingModel</qualifiedname>
+        <read>dummyGetter_trackingModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="26" column="1" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classMapCanvas3D_1aadd359f78a57e248a1aaa9431a5bc315" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas3D::cameraInteractionDetected</definition>
+        <argsstring>()</argsstring>
+        <name>cameraInteractionDetected</name>
+        <qualifiedname>MapCanvas3D::cameraInteractionDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="28" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMapCanvas3D_1a6ae5ecdbc2364079579639b09a520b60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas3D::playOpeningAnimation</definition>
+        <argsstring>()</argsstring>
+        <name>playOpeningAnimation</name>
+        <qualifiedname>MapCanvas3D::playOpeningAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="43" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas3D_1a54df92ae2821b9473e74cf7605924d2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas3D::playClosingAnimation</definition>
+        <argsstring>(callback)</argsstring>
+        <name>playClosingAnimation</name>
+        <qualifiedname>MapCanvas3D::playClosingAnimation</qualifiedname>
+        <param>
+          <type>callback</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="45" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas3D_1a2787c8c08d7c9eabb5c103a50b4b9f62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas3D::positionCameraForTerrain</definition>
+        <argsstring>()</argsstring>
+        <name>positionCameraForTerrain</name>
+        <qualifiedname>MapCanvas3D::positionCameraForTerrain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="47" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas3D_1ab3fd903fdf36ce600f5cd31a615203ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas3D::geoTo3D</definition>
+        <argsstring>(geoX, geoY)</argsstring>
+        <name>geoTo3D</name>
+        <qualifiedname>MapCanvas3D::geoTo3D</qualifiedname>
+        <param>
+          <type>geoX</type>
+        </param>
+        <param>
+          <type>geoY</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="49" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas3D_1a893b01f136e95e3492653f3cff31e5a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas3D::lookAtPoint</definition>
+        <argsstring>(pos3d, distance)</argsstring>
+        <name>lookAtPoint</name>
+        <qualifiedname>MapCanvas3D::lookAtPoint</qualifiedname>
+        <param>
+          <type>pos3d</type>
+        </param>
+        <param>
+          <type><ref refid="classdistance" kindref="compound">distance</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="51" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas3D_1adb217209a166573defa723c92d1849ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas3D::zoomIn</definition>
+        <argsstring>()</argsstring>
+        <name>zoomIn</name>
+        <qualifiedname>MapCanvas3D::zoomIn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="53" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapCanvas3D_1a6fb017190d62db9f85a20498d601396e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapCanvas3D::zoomOut</definition>
+        <argsstring>()</argsstring>
+        <name>zoomOut</name>
+        <qualifiedname>MapCanvas3D::zoomOut</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/MapCanvas3D.qml" line="55" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MapCanvas3D</label>
+        <link refid="classMapCanvas3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MapCanvas3D</label>
+        <link refid="classMapCanvas3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/3d/MapCanvas3D.qml" line="7" column="1" bodyfile="src/qml/3d/MapCanvas3D.qml" bodystart="7" bodyend="56"/>
+    <listofallmembers>
+      <member refid="classMapCanvas3D_1a0a4be8d94a5ff3f4b0786f26e18e2ea3" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>camera</name></member>
+      <member refid="classMapCanvas3D_1a6ddb8957bfb2ae35b5d526d6efc0a36e" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>cameraController</name></member>
+      <member refid="classMapCanvas3D_1aadd359f78a57e248a1aaa9431a5bc315" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>cameraInteractionDetected</name></member>
+      <member refid="classMapCanvas3D_1a574437658f6e8ff2fe6efde4102f46e1" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>closingAnimation</name></member>
+      <member refid="classMapCanvas3D_1af3e508ed5548ce3c89cd10da1a7cf2f3" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>focus</name></member>
+      <member refid="classMapCanvas3D_1ab3fd903fdf36ce600f5cd31a615203ee" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>geoTo3D</name></member>
+      <member refid="classMapCanvas3D_1a58819959851e4412f6de403600f5e613" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>gnssActive</name></member>
+      <member refid="classMapCanvas3D_1af36d23a8fa874f5419704877d17b8e8b" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>gnssDirection</name></member>
+      <member refid="classMapCanvas3D_1aeb41f98b8ece3894235966c1c3e07d78" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>gnssMarker</name></member>
+      <member refid="classMapCanvas3D_1a1571ad156539e926f953460f1c6df93f" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>gnssPosition</name></member>
+      <member refid="classMapCanvas3D_1ac0de941a87d63f3a597da3fa6861c903" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>gnssSpeed</name></member>
+      <member refid="classMapCanvas3D_1a4ec2fbbe435d78c8045d7350e7804afd" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>isLoading</name></member>
+      <member refid="classMapCanvas3D_1a893b01f136e95e3492653f3cff31e5a2" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>lookAtPoint</name></member>
+      <member refid="classMapCanvas3D_1abd6d22f42a69bbb72408b58386370cb6" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>mapSettings</name></member>
+      <member refid="classMapCanvas3D_1a7aefcccbbde92d48a400434830410b41" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>mapTerrainProvider</name></member>
+      <member refid="classMapCanvas3D_1ad747d44ac2e27069502e98eb12b6ebd5" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>mapTexture</name></member>
+      <member refid="classMapCanvas3D_1aa636e9ed41c5009214d4ca7ba1af74a6" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>mapTextureData</name></member>
+      <member refid="classMapCanvas3D_1abbb7df811edfaea7ffe1420f2b8be7a2" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>openingAnimation</name></member>
+      <member refid="classMapCanvas3D_1a54df92ae2821b9473e74cf7605924d2f" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>playClosingAnimation</name></member>
+      <member refid="classMapCanvas3D_1a6ae5ecdbc2364079579639b09a520b60" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>playOpeningAnimation</name></member>
+      <member refid="classMapCanvas3D_1a2787c8c08d7c9eabb5c103a50b4b9f62" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>positionCameraForTerrain</name></member>
+      <member refid="classMapCanvas3D_1a7cd6fafc62136354eb8754a7c7151293" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>terrainMesh</name></member>
+      <member refid="classMapCanvas3D_1ab165488709ea1699fe925977a6ff98f4" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>trackingModel</name></member>
+      <member refid="classMapCanvas3D_1a78a15e428b8a7db8273c8cbc2abb49d8" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>trackingRubberbands</name></member>
+      <member refid="classMapCanvas3D_1ad90b51e6b4775d88b28a13939e702ef0" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>view3d</name></member>
+      <member refid="classMapCanvas3D_1a5d40c4b8477b9751c923983d2f70cd4a" prot="private" virt="non-virtual"><scope>MapCanvas3D</scope><name>visible</name></member>
+      <member refid="classMapCanvas3D_1a8ac5f7ca4f5f8fa7588603c120a9d140" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>wireframeMode</name></member>
+      <member refid="classMapCanvas3D_1adb217209a166573defa723c92d1849ee" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>zoomIn</name></member>
+      <member refid="classMapCanvas3D_1a6fb017190d62db9f85a20498d601396e" prot="public" virt="non-virtual"><scope>MapCanvas3D</scope><name>zoomOut</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

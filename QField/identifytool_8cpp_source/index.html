@@ -1,0 +1,869 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File identifytool.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-identifytoolcpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File identifytool.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-identifytoolcpp">File identifytool.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../identifytool_8cpp/"><strong>identifytool.cpp</strong></a></p>
+<p><a href="../identifytool_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+  identifytool.cpp - IdentifyTool
+
+ ---------------------
+ begin                : 30.8.2016
+ copyright            : (C) 2016 by Matthias Kuhn
+ email                : matthias@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+#include &quot;identifytool.h&quot;
+#include &quot;multifeaturelistmodel.h&quot;
+#include &quot;qgsquickmapsettings.h&quot;
+
+#include &lt;qgsexpressioncontextutils.h&gt;
+#include &lt;qgsfeaturestore.h&gt;
+#include &lt;qgsproject.h&gt;
+#include &lt;qgsrasteridentifyresult.h&gt;
+#include &lt;qgsrasterlayer.h&gt;
+#include &lt;qgsrenderer.h&gt;
+#include &lt;qgsvectorlayer.h&gt;
+#include &lt;qgsvectorlayertemporalproperties.h&gt;
+#include &lt;qgsvectortilelayer.h&gt;
+#include &lt;qgsvectortileloader.h&gt;
+#include &lt;qgsvectortilemvtdecoder.h&gt;
+#include &lt;qgsvectortileutils.h&gt;
+
+IdentifyTool::IdentifyTool( QObject *parent )
+  : QObject( parent )
+  , mMapSettings( nullptr )
+  , mSearchRadiusMm( 5 )
+{
+}
+
+QgsQuickMapSettings *IdentifyTool::mapSettings() const
+{
+  return mMapSettings;
+}
+
+void IdentifyTool::setMapSettings( QgsQuickMapSettings *mapSettings )
+{
+  if ( mapSettings == mMapSettings )
+    return;
+
+  mMapSettings = mapSettings;
+  emit mapSettingsChanged();
+}
+
+void IdentifyTool::identify( const QPointF &amp;point ) const
+{
+  if ( mDeactivated )
+    return;
+
+  if ( !mModel || !mMapSettings )
+  {
+    qWarning() &lt;&lt; &quot;Unable to use IdentifyTool without mapSettings or model property set.&quot;;
+    return;
+  }
+
+  mModel-&gt;clear( true );
+
+  QgsPointXY mapPoint = mMapSettings-&gt;screenToCoordinate( point );
+
+  const QList&lt;QgsMapLayer *&gt; layers = mModel-&gt;selectedLayer() ? QList&lt;QgsMapLayer *&gt;() &lt;&lt; mModel-&gt;selectedLayer() : mMapSettings-&gt;mapSettings().layers();
+  for ( QgsMapLayer *layer : layers )
+  {
+    if ( !layer-&gt;flags().testFlag( QgsMapLayer::Identifiable ) )
+      continue;
+
+    if ( QgsVectorLayer *vl = qobject_cast&lt;QgsVectorLayer *&gt;( layer ) )
+    {
+      QList&lt;IdentifyResult&gt; results = identifyVectorLayer( vl, mapPoint );
+      mModel-&gt;appendFeatures( results );
+    }
+    else if ( QgsRasterLayer *rl = qobject_cast&lt;QgsRasterLayer *&gt;( layer ) )
+    {
+      QList&lt;IdentifyResult&gt; results = identifyRasterLayer( rl, mapPoint );
+      mModel-&gt;appendFeatures( results );
+    }
+    else if ( QgsVectorTileLayer *vtl = qobject_cast&lt;QgsVectorTileLayer *&gt;( layer ) )
+    {
+      QList&lt;IdentifyResult&gt; results = identifyVectorTileLayer( vtl, mapPoint );
+      mModel-&gt;appendFeatures( results );
+    }
+  }
+
+  emit identifyFinished();
+}
+
+QList&lt;IdentifyTool::IdentifyResult&gt; IdentifyTool::identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &amp;point ) const
+{
+  QList&lt;IdentifyResult&gt; results;
+
+  if ( !layer || !layer-&gt;isSpatial() )
+    return results;
+
+  if ( !layer-&gt;isInScaleRange( mMapSettings-&gt;mapSettings().scale() ) )
+    return results;
+
+  QString temporalFilter;
+  if ( mMapSettings-&gt;isTemporal() )
+  {
+    if ( !layer-&gt;temporalProperties()-&gt;isVisibleInTemporalRange( mMapSettings-&gt;mapSettings().temporalRange() ) )
+      return results;
+
+    QgsVectorLayerTemporalContext temporalContext;
+    temporalContext.setLayer( layer );
+    temporalFilter = qobject_cast&lt;const QgsVectorLayerTemporalProperties *&gt;( layer-&gt;temporalProperties() )-&gt;createFilterString( temporalContext, mMapSettings-&gt;mapSettings().temporalRange() );
+  }
+
+  QgsFeatureList featureList;
+
+  // toLayerCoordinates will throw an exception for an 'invalid' point.
+  // For example, if you project a world map onto a globe using EPSG 2163
+  // and then click somewhere off the globe, an exception will be thrown.
+  try
+  {
+    // create the search rectangle
+    double searchRadius = searchRadiusMU();
+
+    QgsRectangle r;
+    r.setXMinimum( point.x() - searchRadius );
+    r.setXMaximum( point.x() + searchRadius );
+    r.setYMinimum( point.y() - searchRadius );
+    r.setYMaximum( point.y() + searchRadius );
+
+    r = toLayerCoordinates( layer, r );
+
+    QgsFeatureRequest req;
+    req.setFilterRect( r );
+    if ( !temporalFilter.isEmpty() )
+    {
+      req.setFilterExpression( temporalFilter );
+    }
+    req.setLimit( QSettings().value( &quot;/QField/identify/limit&quot;, 200 ).toInt() );
+    req.setFlags( Qgis::FeatureRequestFlag::ExactIntersect );
+
+    QgsAttributeTableConfig config = layer-&gt;attributeTableConfig();
+    if ( !config.sortExpression().isEmpty() )
+    {
+      req.addOrderBy( config.sortExpression(), config.sortOrder() == Qt::AscendingOrder );
+    }
+    else if ( !layer-&gt;displayExpression().isEmpty() )
+    {
+      req.addOrderBy( layer-&gt;displayExpression() );
+    }
+
+    QgsFeatureIterator fit = layer-&gt;getFeatures( req );
+    QgsFeature f;
+    while ( fit.nextFeature( f ) )
+      featureList &lt;&lt; QgsFeature( f );
+  }
+  catch ( const QgsCsException &amp;cse )
+  {
+    Q_UNUSED( cse );
+    // catch exception for 'invalid' point and proceed with no features found
+  }
+
+  QgsRenderContext context( QgsRenderContext::fromMapSettings( mMapSettings-&gt;mapSettings() ) );
+  context.setExpressionContext( QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( layer ) ) );
+  context.expressionContext() &lt;&lt; QgsExpressionContextUtils::mapSettingsScope( mMapSettings-&gt;mapSettings() );
+  QgsFeatureRenderer *renderer = layer-&gt;renderer();
+
+  if ( renderer )
+  {
+    renderer-&gt;startRender( context, layer-&gt;fields() );
+  }
+
+  for ( const QgsFeature &amp;feature : std::as_const( featureList ) )
+  {
+    context.expressionContext().setFeature( feature );
+    if ( renderer &amp;&amp; !renderer-&gt;willRenderFeature( const_cast&lt;QgsFeature &amp;&gt;( feature ), context ) )
+      continue;
+
+    results.append( IdentifyResult( layer, feature ) );
+  }
+
+  if ( renderer )
+  {
+    renderer-&gt;stopRender( context );
+  }
+
+  return results;
+}
+
+QList&lt;IdentifyTool::IdentifyResult&gt; IdentifyTool::identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &amp;point ) const
+{
+  QList&lt;IdentifyTool::IdentifyResult&gt; results;
+  if ( !layer-&gt;dataProvider() || !layer-&gt;isValid() )
+    return results;
+
+  std::unique_ptr&lt;QgsRasterDataProvider&gt; dataProvider( layer-&gt;dataProvider()-&gt;clone() );
+  const Qgis::RasterInterfaceCapabilities capabilities = dataProvider-&gt;capabilities();
+
+  if ( !( capabilities &amp; Qgis::RasterInterfaceCapability::Identify ) )
+    return results;
+
+  if ( !( capabilities &amp; Qgis::RasterInterfaceCapability::IdentifyFeature ) )
+    return results;
+
+  const QgsPointXY pointInLayerCoordinates = toLayerCoordinates( layer, point );
+  const double mapUnitsPerPixel = mMapSettings-&gt;mapSettings().mapUnitsPerPixel();
+  QgsRasterIdentifyResult identifyResult;
+  // We can only use current map canvas context (extent, width, height) if layer is not reprojected,
+  if ( dataProvider-&gt;crs() != mMapSettings-&gt;mapSettings().destinationCrs() )
+  {
+    // To get some reasonable response for point/line WMS vector layers we must
+    // use a context with approximately a resolution in layer CRS units
+    // corresponding to current map canvas resolution (for examplei UMN Mapserver
+    // in msWMSFeatureInfo() -&gt; msQueryByRect() is using requested pixel
+    // + TOLERANCE (layer param) for feature selection)
+    QgsRectangle r;
+    r.setXMinimum( point.x() - mapUnitsPerPixel / 2. );
+    r.setXMaximum( point.x() + mapUnitsPerPixel / 2. );
+    r.setYMaximum( point.y() + mapUnitsPerPixel / 2. );
+    r.setYMinimum( point.y() - mapUnitsPerPixel / 2. );
+    r = toLayerCoordinates( layer, r ); // will be a bit larger
+    // Mapserver (6.0.3, for example) does not work with 1x1 pixel box
+    // but that is fixed (the rect is enlarged) in the WMS provider
+
+    identifyResult = dataProvider-&gt;identify( pointInLayerCoordinates, Qgis::RasterIdentifyFormat::Feature, r, 1, 1 );
+  }
+  else
+  {
+    // It would be nice to use the same extent and size which was used for drawing,
+    // so that WCS can use cache from last draw, unfortunately QgsRasterLayer::draw()
+    // is doing some tricks with extent and size to align raster to output which
+    // would be difficult to replicate here.
+    // Note: cutting the extent may result in slightly different x and y resolutions
+    // and thus shifted point calculated back in QGIS WMS (using average resolution)
+    //viewExtent = dprovider-&gt;extent().intersect( &amp;viewExtent );
+
+    // Width and height are calculated from not projected extent and we hope that
+    // are similar to source width and height used to reproject layer for drawing.
+    // TODO: may be very dangerous, because it may result in different resolutions
+    // in source CRS, and WMS server (QGIS server) calcs wrong coor using average resolution.
+    const QgsRectangle extent = mMapSettings-&gt;mapSettings().extent();
+    const int width = static_cast&lt;int&gt;( std::round( extent.width() / mapUnitsPerPixel ) );
+    const int height = static_cast&lt;int&gt;( std::round( extent.height() / mapUnitsPerPixel ) );
+
+    identifyResult = dataProvider-&gt;identify( point, Qgis::RasterIdentifyFormat::Feature, extent, width, height );
+  }
+
+  QMap&lt;int, QVariant&gt; identifyResults = identifyResult.results();
+  for ( auto it = identifyResults.constBegin(); it != identifyResults.constEnd(); ++it )
+  {
+    const QVariant &amp;result = it.value();
+    if ( result.userType() == QMetaType::Type::Bool &amp;&amp; !result.toBool() )
+    {
+      // sublayer not visible or not queryable
+      continue;
+    }
+
+    if ( result.userType() == QMetaType::Type::QString )
+    {
+      // error
+      // TODO: better error reporting
+      continue;
+    }
+
+    // list of feature stores for a single sublayer
+    const QgsFeatureStoreList featureStoreList = result.value&lt;QgsFeatureStoreList&gt;();
+    for ( const QgsFeatureStore &amp;featureStore : featureStoreList )
+    {
+      const QgsFeatureList storeFeatures = featureStore.features();
+      for ( const QgsFeature &amp;feature : storeFeatures )
+      {
+        // WMS sublayer and feature type, a sublayer may contain multiple feature types.
+        // Sublayer name may be the same as layer name and feature type name
+        // may be the same as sublayer. We try to avoid duplicities in label.
+        QString sublayer = featureStore.params().value( QStringLiteral( &quot;sublayer&quot; ) ).toString();
+        QString featureType = featureStore.params().value( QStringLiteral( &quot;featureType&quot; ) ).toString();
+        // Strip UMN MapServer '_feature'
+        featureType.remove( QStringLiteral( &quot;_feature&quot; ) );
+
+        QStringList labels;
+        if ( sublayer.compare( layer-&gt;name(), Qt::CaseInsensitive ) != 0 &amp;&amp; sublayer.compare( QStringLiteral( &quot;Null&quot; ), Qt::CaseInsensitive ) != 0 )
+        {
+          labels &lt;&lt; sublayer;
+        }
+        if ( ( featureType.compare( sublayer, Qt::CaseInsensitive ) != 0 || labels.isEmpty() ) &amp;&amp; featureType.compare( QStringLiteral( &quot;Null&quot; ), Qt::CaseInsensitive ) != 0 )
+        {
+          labels &lt;&lt; featureType;
+        }
+
+
+        results.append( IdentifyResult( layer, feature, !labels.isEmpty() ? QStringLiteral( &quot;%1 - %2&quot; ).arg( labels.join( QStringLiteral( &quot; - &quot; ) ), layer-&gt;name() ) : layer-&gt;name() ) );
+      }
+    }
+  }
+
+  return results;
+}
+
+QList&lt;IdentifyTool::IdentifyResult&gt; IdentifyTool::identifyVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &amp;point ) const
+{
+  QList&lt;IdentifyTool::IdentifyResult&gt; results;
+  if ( !layer || !layer-&gt;isSpatial() )
+    return results;
+
+  if ( !layer-&gt;isInScaleRange( mMapSettings-&gt;mapSettings().scale() ) )
+  {
+    return results;
+  }
+
+  try
+  {
+    // create the search rectangle
+    double searchRadius = searchRadiusMU();
+
+    QgsRectangle r;
+    r.setXMinimum( point.x() - searchRadius );
+    r.setXMaximum( point.x() + searchRadius );
+    r.setYMinimum( point.y() - searchRadius );
+    r.setYMaximum( point.y() + searchRadius );
+    r = toLayerCoordinates( layer, r );
+
+    const double tileScale = layer-&gt;tileMatrixSet().calculateTileScaleForMap(
+      mMapSettings-&gt;mapSettings().scale(),
+      mMapSettings-&gt;mapSettings().destinationCrs(),
+      mMapSettings-&gt;mapSettings().extent(),
+      mMapSettings-&gt;outputSize(),
+      mMapSettings-&gt;outputDpi() );
+
+    const int tileZoom = layer-&gt;tileMatrixSet().scaleToZoomLevel( tileScale );
+    const QgsTileMatrix tileMatrix = layer-&gt;tileMatrixSet().tileMatrix( tileZoom );
+    const QgsTileRange tileRange = tileMatrix.tileRangeFromExtent( r );
+
+    const QVector&lt;QgsTileXYZ&gt; tiles = layer-&gt;tileMatrixSet().tilesInRange( tileRange, tileZoom );
+    for ( const QgsTileXYZ &amp;tileID : tiles )
+    {
+      const QgsVectorTileRawData data = layer-&gt;getRawTile( tileID );
+      if ( data.data.isEmpty() )
+        continue; // failed to get data
+
+      QgsVectorTileMVTDecoder decoder( layer-&gt;tileMatrixSet() );
+      if ( !decoder.decode( data ) )
+        continue; // failed to decode
+
+      QMap&lt;QString, QgsFields&gt; perLayerFields;
+      const QStringList layerNames = decoder.layers();
+      for ( const QString &amp;layerName : layerNames )
+      {
+        QSet&lt;QString&gt; fieldNames = qgis::listToSet( decoder.layerFieldNames( layerName ) );
+        perLayerFields[layerName] = QgsVectorTileUtils::makeQgisFields( fieldNames );
+      }
+
+      const QgsVectorTileFeatures features = decoder.layerFeatures( perLayerFields, QgsCoordinateTransform() );
+      const QStringList featuresLayerNames = features.keys();
+      for ( const QString &amp;layerName : featuresLayerNames )
+      {
+        const QgsFields fFields = perLayerFields[layerName];
+        const QVector&lt;QgsFeature&gt; &amp;layerFeatures = features[layerName];
+        for ( const QgsFeature &amp;f : layerFeatures )
+        {
+          if ( f.fields().isEmpty() )
+            continue;
+
+          if ( f.geometry().intersects( r ) )
+          {
+            results.append( IdentifyResult( layer, f, QStringLiteral( &quot;%1 - %2&quot; ).arg( layer-&gt;name(), layerName ) ) );
+          }
+        }
+      }
+    }
+  }
+  catch ( QgsCsException &amp;cse )
+  {
+    Q_UNUSED( cse )
+    // catch exception for 'invalid' point and proceed with no features found
+    QgsDebugError( QStringLiteral( &quot;Caught CRS exception %1&quot; ).arg( cse.what() ) );
+  }
+
+  return results;
+}
+
+MultiFeatureListModel *IdentifyTool::model() const
+{
+  return mModel;
+}
+
+void IdentifyTool::setModel( MultiFeatureListModel *model )
+{
+  if ( model == mModel )
+    return;
+
+  mModel = model;
+  emit modelChanged();
+}
+
+void IdentifyTool::setDeactivated( bool deactivated )
+{
+  if ( mDeactivated == deactivated )
+    return;
+
+  if ( deactivated &amp;&amp; mModel )
+    mModel-&gt;clear();
+
+  mDeactivated = deactivated;
+}
+
+double IdentifyTool::searchRadiusMU( const QgsRenderContext &amp;context ) const
+{
+  return mSearchRadiusMm * context.scaleFactor() * context.mapToPixel().mapUnitsPerPixel();
+}
+
+double IdentifyTool::searchRadiusMU() const
+{
+  QgsRenderContext context = QgsRenderContext::fromMapSettings( mMapSettings-&gt;mapSettings() );
+  return searchRadiusMU( context );
+}
+
+QgsRectangle IdentifyTool::toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &amp;rect ) const
+{
+  return mMapSettings-&gt;mapSettings().mapToLayerCoordinates( layer, rect );
+}
+
+QgsPointXY IdentifyTool::toLayerCoordinates( QgsMapLayer *layer, const QgsPointXY &amp;point ) const
+{
+  return mMapSettings-&gt;mapSettings().mapToLayerCoordinates( layer, point );
+}
+
+double IdentifyTool::searchRadiusMm() const
+{
+  return mSearchRadiusMm;
+}
+
+void IdentifyTool::setSearchRadiusMm( double searchRadiusMm )
+{
+  if ( mSearchRadiusMm == searchRadiusMm )
+    return;
+
+  mSearchRadiusMm = searchRadiusMm;
+  emit searchRadiusMmChanged();
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

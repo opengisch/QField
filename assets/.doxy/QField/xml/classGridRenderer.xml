@@ -1,0 +1,508 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGridRenderer" kind="class" language="C++" prot="public">
+    <compoundname>GridRenderer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classGridRenderer_1a0e518d63f387680876c8ff7d45f52361" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>GridRenderer::enabled</qualifiedname>
+        <read>dummyGetter_enabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="10" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1a7f278fe9b990ea8b743f0532e08ed81c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings GridRenderer::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>GridRenderer::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="12" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1a78bf11e9c80932c25d31b17383d745f1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::indeterminate</definition>
+        <argsstring></argsstring>
+        <name>indeterminate</name>
+        <qualifiedname>GridRenderer::indeterminate</qualifiedname>
+        <read>dummyGetter_indeterminate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="14" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1ad011f2312034a464065baf2c805fdccf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::xInterval</definition>
+        <argsstring></argsstring>
+        <name>xInterval</name>
+        <qualifiedname>GridRenderer::xInterval</qualifiedname>
+        <read>dummyGetter_xInterval_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="16" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1ac24b3f5865dc0cf136f75df7075bfcce" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::yInterval</definition>
+        <argsstring></argsstring>
+        <name>yInterval</name>
+        <qualifiedname>GridRenderer::yInterval</qualifiedname>
+        <read>dummyGetter_yInterval_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="18" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1a7b359f1d64511a88ab1e4aa5c855ab56" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::xOffset</definition>
+        <argsstring></argsstring>
+        <name>xOffset</name>
+        <qualifiedname>GridRenderer::xOffset</qualifiedname>
+        <read>dummyGetter_xOffset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="20" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1a07c95f2103fe1d32f5aba16dd3e74914" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::yOffset</definition>
+        <argsstring></argsstring>
+        <name>yOffset</name>
+        <qualifiedname>GridRenderer::yOffset</qualifiedname>
+        <read>dummyGetter_yOffset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="22" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1aac470b046881ca94f955e98770f6ec11" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::autoColor</definition>
+        <argsstring></argsstring>
+        <name>autoColor</name>
+        <qualifiedname>GridRenderer::autoColor</qualifiedname>
+        <read>dummyGetter_autoColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="24" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1a1419dbf0c0e027c8357f2eaf6f994b1d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::majorLineColor</definition>
+        <argsstring></argsstring>
+        <name>majorLineColor</name>
+        <qualifiedname>GridRenderer::majorLineColor</qualifiedname>
+        <read>dummyGetter_majorLineColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="26" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1a946d9d27a40937dbfe325eb37d285db2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::minorLineColor</definition>
+        <argsstring></argsstring>
+        <name>minorLineColor</name>
+        <qualifiedname>GridRenderer::minorLineColor</qualifiedname>
+        <read>dummyGetter_minorLineColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="28" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1aa88f102b41f3f5db4eca76f99e070155" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::markerColor</definition>
+        <argsstring></argsstring>
+        <name>markerColor</name>
+        <qualifiedname>GridRenderer::markerColor</qualifiedname>
+        <read>dummyGetter_markerColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="30" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1a0d92250dd0be5e9c94696b2e5a11ad0a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::annotationColor</definition>
+        <argsstring></argsstring>
+        <name>annotationColor</name>
+        <qualifiedname>GridRenderer::annotationColor</qualifiedname>
+        <read>dummyGetter_annotationColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="32" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1a92eecdf1573b516f4bf147adfd2a74fa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::annotationOutlineColor</definition>
+        <argsstring></argsstring>
+        <name>annotationOutlineColor</name>
+        <qualifiedname>GridRenderer::annotationOutlineColor</qualifiedname>
+        <read>dummyGetter_annotationOutlineColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="34" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1a0cb3010ba5da1805424d7cbb53c178e2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::annotationHasOutline</definition>
+        <argsstring></argsstring>
+        <name>annotationHasOutline</name>
+        <qualifiedname>GridRenderer::annotationHasOutline</qualifiedname>
+        <read>dummyGetter_annotationHasOutline_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="36" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1ab52095de465a1f645114efb737635153" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::annotationPrecision</definition>
+        <argsstring></argsstring>
+        <name>annotationPrecision</name>
+        <qualifiedname>GridRenderer::annotationPrecision</qualifiedname>
+        <read>dummyGetter_annotationPrecision_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="38" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1a14a974a1bb51ca93b8c62556ce56df94" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::prepareLines</definition>
+        <argsstring></argsstring>
+        <name>prepareLines</name>
+        <qualifiedname>GridRenderer::prepareLines</qualifiedname>
+        <read>dummyGetter_prepareLines_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="40" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1af4be517e807e2e875dbbf8ad4f0ce9db" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::prepareMarkers</definition>
+        <argsstring></argsstring>
+        <name>prepareMarkers</name>
+        <qualifiedname>GridRenderer::prepareMarkers</qualifiedname>
+        <read>dummyGetter_prepareMarkers_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="42" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGridRenderer_1a553933dd206df10c1dcb72c954bbeee3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias GridRenderer::prepareAnnotations</definition>
+        <argsstring></argsstring>
+        <name>prepareAnnotations</name>
+        <qualifiedname>GridRenderer::prepareAnnotations</qualifiedname>
+        <read>dummyGetter_prepareAnnotations_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="44" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGridRenderer_1aee7d6a82d8c7b65daa56fda3d9ead2ac" prot="private" static="no" mutable="no">
+        <type><ref refid="classGridModel" kindref="compound">GridModel</ref></type>
+        <definition>GridModel GridRenderer::gridModel</definition>
+        <argsstring></argsstring>
+        <name>gridModel</name>
+        <qualifiedname>GridRenderer::gridModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="46" column="11" bodyfile="src/qml/GridRenderer.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridRenderer_1a8f3b8e76be27e5343de8708a90c0f1e5" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape GridRenderer::minorLinesContainer</definition>
+        <argsstring></argsstring>
+        <name>minorLinesContainer</name>
+        <qualifiedname>GridRenderer::minorLinesContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="47" column="7" bodyfile="src/qml/GridRenderer.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridRenderer_1a878aa3966e4d48ab19f9e562ad5b51d1" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath GridRenderer::minorLinesPath</definition>
+        <argsstring></argsstring>
+        <name>minorLinesPath</name>
+        <qualifiedname>GridRenderer::minorLinesPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="48" column="11" bodyfile="src/qml/GridRenderer.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridRenderer_1aa8fe8b6427eada55d084c94b021349d1" prot="private" static="no" mutable="no">
+        <type>PathSvg</type>
+        <definition>PathSvg GridRenderer::minorLineSvgPath</definition>
+        <argsstring></argsstring>
+        <name>minorLineSvgPath</name>
+        <qualifiedname>GridRenderer::minorLineSvgPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="49" column="9" bodyfile="src/qml/GridRenderer.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridRenderer_1a010af5c70389bb2fa4d275d4ca83f8a5" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape GridRenderer::majorLinesContainer</definition>
+        <argsstring></argsstring>
+        <name>majorLinesContainer</name>
+        <qualifiedname>GridRenderer::majorLinesContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="50" column="7" bodyfile="src/qml/GridRenderer.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridRenderer_1a364095583092b6868b53e57e2f1dc7cf" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath GridRenderer::majorLinesPath</definition>
+        <argsstring></argsstring>
+        <name>majorLinesPath</name>
+        <qualifiedname>GridRenderer::majorLinesPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="51" column="11" bodyfile="src/qml/GridRenderer.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridRenderer_1a023f4843e991a585ed076477e4a8a8ba" prot="private" static="no" mutable="no">
+        <type>PathSvg</type>
+        <definition>PathSvg GridRenderer::majorLineSvgPath</definition>
+        <argsstring></argsstring>
+        <name>majorLineSvgPath</name>
+        <qualifiedname>GridRenderer::majorLineSvgPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="52" column="9" bodyfile="src/qml/GridRenderer.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridRenderer_1afa8262d67b8354e8924b8d675026fbdf" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape GridRenderer::markersContainer</definition>
+        <argsstring></argsstring>
+        <name>markersContainer</name>
+        <qualifiedname>GridRenderer::markersContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="53" column="7" bodyfile="src/qml/GridRenderer.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridRenderer_1a2b559188e3346eca1c58ce37d6e6e533" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath GridRenderer::markerPath</definition>
+        <argsstring></argsstring>
+        <name>markerPath</name>
+        <qualifiedname>GridRenderer::markerPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="54" column="11" bodyfile="src/qml/GridRenderer.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridRenderer_1a68e4f1fe3b977e6f157452dc21ebfb12" prot="private" static="no" mutable="no">
+        <type>PathSvg</type>
+        <definition>PathSvg GridRenderer::markerSvgPath</definition>
+        <argsstring></argsstring>
+        <name>markerSvgPath</name>
+        <qualifiedname>GridRenderer::markerSvgPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="55" column="9" bodyfile="src/qml/GridRenderer.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridRenderer_1a48df8396aabe186514a6ad0dad04e99c" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater GridRenderer::annotationsContainer</definition>
+        <argsstring></argsstring>
+        <name>annotationsContainer</name>
+        <qualifiedname>GridRenderer::annotationsContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="56" column="10" bodyfile="src/qml/GridRenderer.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGridRenderer_1a75aba51ee5ed9085ebf1f02cadbbb9de" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text GridRenderer::annotation</definition>
+        <argsstring></argsstring>
+        <name>annotation</name>
+        <qualifiedname>GridRenderer::annotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GridRenderer.qml" line="57" column="6" bodyfile="src/qml/GridRenderer.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GridRenderer</label>
+        <link refid="classGridRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GridRenderer</label>
+        <link refid="classGridRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/GridRenderer.qml" line="7" column="1" bodyfile="src/qml/GridRenderer.qml" bodystart="7" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classGridRenderer_1a75aba51ee5ed9085ebf1f02cadbbb9de" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>annotation</name></member>
+      <member refid="classGridRenderer_1a0d92250dd0be5e9c94696b2e5a11ad0a" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>annotationColor</name></member>
+      <member refid="classGridRenderer_1a0cb3010ba5da1805424d7cbb53c178e2" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>annotationHasOutline</name></member>
+      <member refid="classGridRenderer_1a92eecdf1573b516f4bf147adfd2a74fa" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>annotationOutlineColor</name></member>
+      <member refid="classGridRenderer_1ab52095de465a1f645114efb737635153" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>annotationPrecision</name></member>
+      <member refid="classGridRenderer_1a48df8396aabe186514a6ad0dad04e99c" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>annotationsContainer</name></member>
+      <member refid="classGridRenderer_1aac470b046881ca94f955e98770f6ec11" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>autoColor</name></member>
+      <member refid="classGridRenderer_1a0e518d63f387680876c8ff7d45f52361" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>enabled</name></member>
+      <member refid="classGridRenderer_1aee7d6a82d8c7b65daa56fda3d9ead2ac" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>gridModel</name></member>
+      <member refid="classGridRenderer_1a78bf11e9c80932c25d31b17383d745f1" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>indeterminate</name></member>
+      <member refid="classGridRenderer_1a1419dbf0c0e027c8357f2eaf6f994b1d" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>majorLineColor</name></member>
+      <member refid="classGridRenderer_1a010af5c70389bb2fa4d275d4ca83f8a5" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>majorLinesContainer</name></member>
+      <member refid="classGridRenderer_1a364095583092b6868b53e57e2f1dc7cf" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>majorLinesPath</name></member>
+      <member refid="classGridRenderer_1a023f4843e991a585ed076477e4a8a8ba" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>majorLineSvgPath</name></member>
+      <member refid="classGridRenderer_1a7f278fe9b990ea8b743f0532e08ed81c" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>mapSettings</name></member>
+      <member refid="classGridRenderer_1aa88f102b41f3f5db4eca76f99e070155" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>markerColor</name></member>
+      <member refid="classGridRenderer_1a2b559188e3346eca1c58ce37d6e6e533" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>markerPath</name></member>
+      <member refid="classGridRenderer_1afa8262d67b8354e8924b8d675026fbdf" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>markersContainer</name></member>
+      <member refid="classGridRenderer_1a68e4f1fe3b977e6f157452dc21ebfb12" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>markerSvgPath</name></member>
+      <member refid="classGridRenderer_1a946d9d27a40937dbfe325eb37d285db2" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>minorLineColor</name></member>
+      <member refid="classGridRenderer_1a8f3b8e76be27e5343de8708a90c0f1e5" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>minorLinesContainer</name></member>
+      <member refid="classGridRenderer_1a878aa3966e4d48ab19f9e562ad5b51d1" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>minorLinesPath</name></member>
+      <member refid="classGridRenderer_1aa8fe8b6427eada55d084c94b021349d1" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>minorLineSvgPath</name></member>
+      <member refid="classGridRenderer_1a553933dd206df10c1dcb72c954bbeee3" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>prepareAnnotations</name></member>
+      <member refid="classGridRenderer_1a14a974a1bb51ca93b8c62556ce56df94" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>prepareLines</name></member>
+      <member refid="classGridRenderer_1af4be517e807e2e875dbbf8ad4f0ce9db" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>prepareMarkers</name></member>
+      <member refid="classGridRenderer_1ad011f2312034a464065baf2c805fdccf" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>xInterval</name></member>
+      <member refid="classGridRenderer_1a7b359f1d64511a88ab1e4aa5c855ab56" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>xOffset</name></member>
+      <member refid="classGridRenderer_1ac24b3f5865dc0cf136f75df7075bfcce" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>yInterval</name></member>
+      <member refid="classGridRenderer_1a07c95f2103fe1d32f5aba16dd3e74914" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>yOffset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

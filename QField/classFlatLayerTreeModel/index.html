@@ -1,0 +1,1367 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class FlatLayerTreeModel - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-flatlayertreemodel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class FlatLayerTreeModel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protected-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Types Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enum Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-hascollapsibleitems-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property hasCollapsibleItems [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-iscollapsed-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isCollapsed [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isfrozen-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isFrozen [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-istemporal-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isTemporal [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-maptheme-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mapTheme [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-hascollapsibleitemschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal hasCollapsibleItemsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-iscollapsedchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isCollapsedChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isfrozenchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isFrozenChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-istemporalchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isTemporalChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-layersadded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal layersAdded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-layersremoved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal layersRemoved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-mapthemechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal mapThemeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-flatlayertreemodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function FlatLayerTreeModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-freeze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function freeze
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-hascollapsibleitems-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function hasCollapsibleItems [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-iscollapsed-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isCollapsed [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isfrozen-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isFrozen [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-istemporal-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isTemporal [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-layertree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function layerTree
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-layertreemodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function layerTreeModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-maptheme-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function mapTheme [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-nodeextent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function nodeExtent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setallcollapsed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAllCollapsed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setData
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setlayerintracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setLayerInTracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmaptheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setMapTheme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-unfreeze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function unfreeze
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-updatecurrentmaptheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function updateCurrentMapTheme
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protected-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protected Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-filteracceptsrow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function filterAcceptsRow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-flatlayertreemodel">Class FlatLayerTreeModel</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>FlatLayerTreeModel</strong></a></p>
+<p>Inherits the following classes: QSortFilterProxyModel</p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-roles"><strong>Roles</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-types"><strong>Types</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-hascollapsibleitems-12"><strong>hasCollapsibleItems</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-iscollapsed-12"><strong>isCollapsed</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isfrozen-12"><strong>isFrozen</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-istemporal-12"><strong>isTemporal</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QString</td>
+<td style="text-align: left;"><a href="./#property-maptheme-12"><strong>mapTheme</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-hascollapsibleitemschanged"><strong>hasCollapsibleItemsChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-iscollapsedchanged"><strong>isCollapsedChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isfrozenchanged"><strong>isFrozenChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-istemporalchanged"><strong>isTemporalChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-layersadded"><strong>layersAdded</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-layersremoved"><strong>layersRemoved</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-mapthemechanged"><strong>mapThemeChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-flatlayertreemodel"><strong>FlatLayerTreeModel</strong></a> (QgsLayerTree * layerTree, QgsProject * project, QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QVariant</td>
+<td style="text-align: left;"><a href="#function-data"><strong>data</strong></a> (const QModelIndex &amp; index, int role) override const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-freeze"><strong>freeze</strong></a> () <br><em>Freezes the model as is, with any source model signals ignored.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-hascollapsibleitems-22"><strong>hasCollapsibleItems</strong></a> () const<br><em>Returns TRUE if the layer tree has at least one collapsible item.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-iscollapsed-22"><strong>isCollapsed</strong></a> () const<br><em>Returns TRUE if all collapsible items are currently collapsed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isfrozen-22"><strong>isFrozen</strong></a> () const<br><em>Returns TRUE if the model is frozen.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-istemporal-22"><strong>isTemporal</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsLayerTree *</td>
+<td style="text-align: left;"><a href="#function-layertree"><strong>layerTree</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsLayerTreeModel *</td>
+<td style="text-align: left;"><a href="#function-layertreemodel"><strong>layerTreeModel</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QString</td>
+<td style="text-align: left;"><a href="#function-maptheme-22"><strong>mapTheme</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsRectangle</td>
+<td style="text-align: left;"><a href="#function-nodeextent"><strong>nodeExtent</strong></a> (const QModelIndex &amp; index, <a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> * mapSettings, const float buffer=0.02) <br><em>Calculate layer tree node extent.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsProject *</td>
+<td style="text-align: left;"><a href="#function-project"><strong>project</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-setallcollapsed"><strong>setAllCollapsed</strong></a> (bool collapsed) <br><em>Collapses or expands all collapsible items in the layer tree.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE bool</td>
+<td style="text-align: left;"><a href="#function-setdata"><strong>setData</strong></a> (const QModelIndex &amp; index, const QVariant &amp; value, int role) override<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setlayerintracking"><strong>setLayerInTracking</strong></a> (QgsLayerTreeLayer * nodeLayer, bool tracking) <br><em>Sets the information if the</em> <em>nodeLayer</em> <em>is currently in__tracking</em> <em>state.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setmaptheme"><strong>setMapTheme</strong></a> (const QString &amp; mapTheme) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-unfreeze"><strong>unfreeze</strong></a> (bool resetModel=false) <br><em>Unfreezes the model and resume listening to source model signals.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-updatecurrentmaptheme"><strong>updateCurrentMapTheme</strong></a> () <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="protected-functions">Protected Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">virtual bool</td>
+<td style="text-align: left;"><a href="#function-filteracceptsrow"><strong>filterAcceptsRow</strong></a> (int source_row, const QModelIndex &amp; source_parent) override const<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-roles">enum Roles</h3>
+<pre><code class="language-C++">enum FlatLayerTreeModel::Roles {
+    VectorLayerPointer = Qt::UserRole + 1,
+    MapLayerPointer,
+    HasSpatialExtent,
+    LegendImage,
+    Type,
+    Name,
+    Visible,
+    Trackable,
+    InTracking,
+    ReadOnly,
+    FeatureAdditionLocked,
+    AttributeEditingLocked,
+    GeometryEditingLocked,
+    FeatureDeletionLocked,
+    TreeLevel,
+    LayerType,
+    IsValid,
+    FeatureCount,
+    IsCollapsed,
+    IsParentCollapsed,
+    HasChildren,
+    CanReloadData,
+    HasLabels,
+    LabelsVisible,
+    Opacity,
+    FilterExpression,
+    Credits,
+    SnappingEnabled,
+    HasNotes,
+    Notes,
+    Checkable
+};
+</code></pre>
+<hr>
+
+<h3 id="enum-types">enum Types</h3>
+<pre><code class="language-C++">enum FlatLayerTreeModel::Types {
+    Layer,
+    Group,
+    Image,
+    Legend
+};
+</code></pre>
+<hr>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-hascollapsibleitems-12">property hasCollapsibleItems [1/2]</h3>
+<pre><code class="language-C++">bool FlatLayerTreeModel::hasCollapsibleItems;
+</code></pre>
+<hr>
+
+<h3 id="property-iscollapsed-12">property isCollapsed [1/2]</h3>
+<pre><code class="language-C++">bool FlatLayerTreeModel::isCollapsed;
+</code></pre>
+<hr>
+
+<h3 id="property-isfrozen-12">property isFrozen [1/2]</h3>
+<pre><code class="language-C++">bool FlatLayerTreeModel::isFrozen;
+</code></pre>
+<hr>
+
+<h3 id="property-istemporal-12">property isTemporal [1/2]</h3>
+<pre><code class="language-C++">bool FlatLayerTreeModel::isTemporal;
+</code></pre>
+<hr>
+
+<h3 id="property-maptheme-12">property mapTheme [1/2]</h3>
+<pre><code class="language-C++">QString FlatLayerTreeModel::mapTheme;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-hascollapsibleitemschanged">signal hasCollapsibleItemsChanged</h3>
+<pre><code class="language-C++">void FlatLayerTreeModel::hasCollapsibleItemsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-iscollapsedchanged">signal isCollapsedChanged</h3>
+<pre><code class="language-C++">void FlatLayerTreeModel::isCollapsedChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-isfrozenchanged">signal isFrozenChanged</h3>
+<pre><code class="language-C++">void FlatLayerTreeModel::isFrozenChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-istemporalchanged">signal isTemporalChanged</h3>
+<pre><code class="language-C++">void FlatLayerTreeModel::isTemporalChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-layersadded">signal layersAdded</h3>
+<pre><code class="language-C++">void FlatLayerTreeModel::layersAdded;
+</code></pre>
+<hr>
+
+<h3 id="signal-layersremoved">signal layersRemoved</h3>
+<pre><code class="language-C++">void FlatLayerTreeModel::layersRemoved;
+</code></pre>
+<hr>
+
+<h3 id="signal-mapthemechanged">signal mapThemeChanged</h3>
+<pre><code class="language-C++">void FlatLayerTreeModel::mapThemeChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-flatlayertreemodel">function FlatLayerTreeModel</h3>
+<pre><code class="language-C++">explicit FlatLayerTreeModel::FlatLayerTreeModel (
+    QgsLayerTree * layerTree,
+    QgsProject * project,
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-data">function data</h3>
+<pre><code class="language-C++">Q_INVOKABLE QVariant FlatLayerTreeModel::data (
+    const QModelIndex &amp; index,
+    int role
+) override const
+</code></pre>
+<hr>
+
+<h3 id="function-freeze">function freeze</h3>
+<p><em>Freezes the model as is, with any source model signals ignored.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void FlatLayerTreeModel::freeze () 
+</code></pre>
+<hr>
+
+<h3 id="function-hascollapsibleitems-22">function hasCollapsibleItems [2/2]</h3>
+<p><em>Returns TRUE if the layer tree has at least one collapsible item.</em> </p>
+<pre><code class="language-C++">bool FlatLayerTreeModel::hasCollapsibleItems () const
+</code></pre>
+<hr>
+
+<h3 id="function-iscollapsed-22">function isCollapsed [2/2]</h3>
+<p><em>Returns TRUE if all collapsible items are currently collapsed.</em> </p>
+<pre><code class="language-C++">bool FlatLayerTreeModel::isCollapsed () const
+</code></pre>
+<hr>
+
+<h3 id="function-isfrozen-22">function isFrozen [2/2]</h3>
+<p><em>Returns TRUE if the model is frozen.</em> </p>
+<pre><code class="language-C++">bool FlatLayerTreeModel::isFrozen () const
+</code></pre>
+<hr>
+
+<h3 id="function-istemporal-22">function isTemporal [2/2]</h3>
+<pre><code class="language-C++">bool FlatLayerTreeModel::isTemporal () const
+</code></pre>
+<hr>
+
+<h3 id="function-layertree">function layerTree</h3>
+<pre><code class="language-C++">QgsLayerTree * FlatLayerTreeModel::layerTree () const
+</code></pre>
+<hr>
+
+<h3 id="function-layertreemodel">function layerTreeModel</h3>
+<pre><code class="language-C++">QgsLayerTreeModel * FlatLayerTreeModel::layerTreeModel () const
+</code></pre>
+<hr>
+
+<h3 id="function-maptheme-22">function mapTheme [2/2]</h3>
+<pre><code class="language-C++">QString FlatLayerTreeModel::mapTheme () const
+</code></pre>
+<hr>
+
+<h3 id="function-nodeextent">function nodeExtent</h3>
+<p><em>Calculate layer tree node extent.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE QgsRectangle FlatLayerTreeModel::nodeExtent (
+    const QModelIndex &amp; index,
+    QgsQuickMapSettings * mapSettings,
+    const float buffer=0.02
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-project">function project</h3>
+<pre><code class="language-C++">QgsProject * FlatLayerTreeModel::project () const
+</code></pre>
+<hr>
+
+<h3 id="function-setallcollapsed">function setAllCollapsed</h3>
+<p><em>Collapses or expands all collapsible items in the layer tree.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void FlatLayerTreeModel::setAllCollapsed (
+    bool collapsed
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdata">function setData</h3>
+<pre><code class="language-C++">Q_INVOKABLE bool FlatLayerTreeModel::setData (
+    const QModelIndex &amp; index,
+    const QVariant &amp; value,
+    int role
+) override
+</code></pre>
+<hr>
+
+<h3 id="function-setlayerintracking">function setLayerInTracking</h3>
+<p><em>Sets the information if the</em> <em>nodeLayer</em> <em>is currently in__tracking</em> <em>state.</em></p>
+<pre><code class="language-C++">void FlatLayerTreeModel::setLayerInTracking (
+    QgsLayerTreeLayer * nodeLayer,
+    bool tracking
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setmaptheme">function setMapTheme</h3>
+<pre><code class="language-C++">void FlatLayerTreeModel::setMapTheme (
+    const QString &amp; mapTheme
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-unfreeze">function unfreeze</h3>
+<p><em>Unfreezes the model and resume listening to source model signals.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void FlatLayerTreeModel::unfreeze (
+    bool resetModel=false
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-updatecurrentmaptheme">function updateCurrentMapTheme</h3>
+<pre><code class="language-C++">Q_INVOKABLE void FlatLayerTreeModel::updateCurrentMapTheme () 
+</code></pre>
+<p>Update map theme as currently used by the model This should be triggered after a project has been loaded </p>
+<hr>
+<h2 id="protected-functions-documentation">Protected Functions Documentation</h2>
+<h3 id="function-filteracceptsrow">function filterAcceptsRow</h3>
+<pre><code class="language-C++">virtual bool FlatLayerTreeModel::filterAcceptsRow (
+    int source_row,
+    const QModelIndex &amp; source_parent
+) override const
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/layertreemodel.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

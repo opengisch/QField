@@ -1,0 +1,409 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningDeviceSettings" kind="class" language="C++" prot="public">
+    <compoundname>PositioningDeviceSettings</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPopup" prot="public" virt="non-virtual">Theme::QfPopup</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1a72d9f6367c3b84973926b845428d27c6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningDeviceSettings::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>PositioningDeviceSettings::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="11" column="5" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1aeafc7fb67ae9d2dfc29e28f85d5c7679" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningDeviceSettings::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>PositioningDeviceSettings::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="16" column="5" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1a7775d01894251b993aa17f50c62c2698" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningDeviceSettings::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>PositioningDeviceSettings::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="17" column="5" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1ad1ac88cdb7185eae73cd0d3a669c1d5a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningDeviceSettings::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>PositioningDeviceSettings::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="18" column="5" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1a8beaa73a90b0c58d5993db5cedb6818d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningDeviceSettings::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>PositioningDeviceSettings::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="19" column="5" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1a9b430c3d269194954708fe67ed01780b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningDeviceSettings::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>PositioningDeviceSettings::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="20" column="5" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1a927e11c15f14e7629af1d9b8bed98a4c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningDeviceSettings::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>PositioningDeviceSettings::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="21" column="5" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1a49a50fa3b0cac2deb3569f7a398b113d" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component PositioningDeviceSettings::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>PositioningDeviceSettings::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="38" column="14" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1a1dbc97c7a81100e8bb57667d8e75d2ce" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningDeviceSettings::onAboutToHide</definition>
+        <argsstring></argsstring>
+        <name>onAboutToHide</name>
+        <qualifiedname>PositioningDeviceSettings::onAboutToHide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="39" column="5" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1a62939026fd039d6c1e6ae063b17801b8" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page PositioningDeviceSettings::page</definition>
+        <argsstring></argsstring>
+        <name>page</name>
+        <qualifiedname>PositioningDeviceSettings::page</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="40" column="6" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1aa4ce97b6c2c90142b3f2c6639d1dd61b" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout PositioningDeviceSettings::settingsLayout</definition>
+        <argsstring></argsstring>
+        <name>settingsLayout</name>
+        <qualifiedname>PositioningDeviceSettings::settingsLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="41" column="14" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1a1e7712193cf2e7e1c0bce8173c90b778" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox PositioningDeviceSettings::positioningDeviceType</definition>
+        <argsstring></argsstring>
+        <name>positioningDeviceType</name>
+        <qualifiedname>PositioningDeviceSettings::positioningDeviceType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="42" column="12" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1aef81b0ce9a561351dd3e37f102b25812" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField PositioningDeviceSettings::positioningDeviceName</definition>
+        <argsstring></argsstring>
+        <name>positioningDeviceName</name>
+        <qualifiedname>PositioningDeviceSettings::positioningDeviceName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="43" column="11" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1a91ba27e234de0f4d2f7adacfd2cf7954" prot="private" static="no" mutable="no">
+        <type>ListModel</type>
+        <definition>ListModel PositioningDeviceSettings::positioningDeviceTypeModel</definition>
+        <argsstring></argsstring>
+        <name>positioningDeviceTypeModel</name>
+        <qualifiedname>PositioningDeviceSettings::positioningDeviceTypeModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="44" column="11" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningDeviceSettings_1a63cca9c06977f750d17b04c49f09b0f6" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader PositioningDeviceSettings::positioningDeviceItem</definition>
+        <argsstring></argsstring>
+        <name>positioningDeviceItem</name>
+        <qualifiedname>PositioningDeviceSettings::positioningDeviceItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="45" column="8" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPositioningDeviceSettings_1a94edf0cdd25e4be84008943a6ce309bd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias PositioningDeviceSettings::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>PositioningDeviceSettings::name</qualifiedname>
+        <read>dummyGetter_name_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="24" column="1" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningDeviceSettings_1a5c1ac17c72bce2c6c4045b2251a6b8fc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias PositioningDeviceSettings::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>PositioningDeviceSettings::type</qualifiedname>
+        <read>dummyGetter_type_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="26" column="1" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classPositioningDeviceSettings_1abd64f5752c5193568792a615a103faf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningDeviceSettings::apply</definition>
+        <argsstring>()</argsstring>
+        <name>apply</name>
+        <qualifiedname>PositioningDeviceSettings::apply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="14" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPositioningDeviceSettings_1a4467193890b40cf6bfd554b443aee5f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningDeviceSettings::generateName</definition>
+        <argsstring>()</argsstring>
+        <name>generateName</name>
+        <qualifiedname>PositioningDeviceSettings::generateName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="28" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceSettings_1a0971b9f8500e2bcbffa1971a6f12fd22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningDeviceSettings::setType</definition>
+        <argsstring>(type)</argsstring>
+        <name>setType</name>
+        <qualifiedname>PositioningDeviceSettings::setType</qualifiedname>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceSettings_1a6e24a4e4c1baa6495485ca225f06d4ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningDeviceSettings::setSettings</definition>
+        <argsstring>(settings)</argsstring>
+        <name>setSettings</name>
+        <qualifiedname>PositioningDeviceSettings::setSettings</qualifiedname>
+        <param>
+          <type>settings</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceSettings_1a9217f95cf825c65cacbf6032fda4f243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningDeviceSettings::getSettings</definition>
+        <argsstring>()</argsstring>
+        <name>getSettings</name>
+        <qualifiedname>PositioningDeviceSettings::getSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="34" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceSettings_1af7b2c72c58da0539f03c937321e2ca46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningDeviceSettings::handleEgenioussChange</definition>
+        <argsstring>()</argsstring>
+        <name>handleEgenioussChange</name>
+        <qualifiedname>PositioningDeviceSettings::handleEgenioussChange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningDeviceSettings.qml" line="36" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>PositioningDeviceSettings</label>
+        <link refid="classPositioningDeviceSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>PositioningDeviceSettings</label>
+        <link refid="classPositioningDeviceSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/PositioningDeviceSettings.qml" line="10" column="1" bodyfile="src/qml/PositioningDeviceSettings.qml" bodystart="10" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classPositioningDeviceSettings_1abd64f5752c5193568792a615a103faf0" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>apply</name></member>
+      <member refid="classPositioningDeviceSettings_1a927e11c15f14e7629af1d9b8bed98a4c" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>closePolicy</name></member>
+      <member refid="classPositioningDeviceSettings_1a9b430c3d269194954708fe67ed01780b" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>focus</name></member>
+      <member refid="classPositioningDeviceSettings_1a4467193890b40cf6bfd554b443aee5f9" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>generateName</name></member>
+      <member refid="classPositioningDeviceSettings_1a9217f95cf825c65cacbf6032fda4f243" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>getSettings</name></member>
+      <member refid="classPositioningDeviceSettings_1af7b2c72c58da0539f03c937321e2ca46" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>handleEgenioussChange</name></member>
+      <member refid="classPositioningDeviceSettings_1a7775d01894251b993aa17f50c62c2698" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>height</name></member>
+      <member refid="classPositioningDeviceSettings_1a94edf0cdd25e4be84008943a6ce309bd" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>name</name></member>
+      <member refid="classPositioningDeviceSettings_1a1dbc97c7a81100e8bb57667d8e75d2ce" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>onAboutToHide</name></member>
+      <member refid="classPositioningDeviceSettings_1a49a50fa3b0cac2deb3569f7a398b113d" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>onCompleted</name></member>
+      <member refid="classPositioningDeviceSettings_1a62939026fd039d6c1e6ae063b17801b8" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>page</name></member>
+      <member refid="classPositioningDeviceSettings_1a72d9f6367c3b84973926b845428d27c6" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>parent</name></member>
+      <member refid="classPositioningDeviceSettings_1a63cca9c06977f750d17b04c49f09b0f6" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>positioningDeviceItem</name></member>
+      <member refid="classPositioningDeviceSettings_1aef81b0ce9a561351dd3e37f102b25812" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>positioningDeviceName</name></member>
+      <member refid="classPositioningDeviceSettings_1a1e7712193cf2e7e1c0bce8173c90b778" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>positioningDeviceType</name></member>
+      <member refid="classPositioningDeviceSettings_1a91ba27e234de0f4d2f7adacfd2cf7954" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>positioningDeviceTypeModel</name></member>
+      <member refid="classPositioningDeviceSettings_1a6e24a4e4c1baa6495485ca225f06d4ed" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>setSettings</name></member>
+      <member refid="classPositioningDeviceSettings_1aa4ce97b6c2c90142b3f2c6639d1dd61b" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>settingsLayout</name></member>
+      <member refid="classPositioningDeviceSettings_1a0971b9f8500e2bcbffa1971a6f12fd22" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>setType</name></member>
+      <member refid="classPositioningDeviceSettings_1a5c1ac17c72bce2c6c4045b2251a6b8fc" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>type</name></member>
+      <member refid="classPositioningDeviceSettings_1aeafc7fb67ae9d2dfc29e28f85d5c7679" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>width</name></member>
+      <member refid="classPositioningDeviceSettings_1ad1ac88cdb7185eae73cd0d3a669c1d5a" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>x</name></member>
+      <member refid="classPositioningDeviceSettings_1a8beaa73a90b0c58d5993db5cedb6818d" prot="private" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

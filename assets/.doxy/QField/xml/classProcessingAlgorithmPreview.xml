@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProcessingAlgorithmPreview" kind="class" language="C++" prot="public">
+    <compoundname>ProcessingAlgorithmPreview</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Repeater</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classProcessingAlgorithmPreview_1a6e5c69927ede6dc787bdd30cb6519bf4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classProcessingAlgorithm" kindref="compound">ProcessingAlgorithm</ref></type>
+        <definition>ProcessingAlgorithm ProcessingAlgorithmPreview::algorithm</definition>
+        <argsstring></argsstring>
+        <name>algorithm</name>
+        <qualifiedname>ProcessingAlgorithmPreview::algorithm</qualifiedname>
+        <read>dummyGetter_algorithm_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmPreview.qml" line="11" column="1" bodyfile="src/qml/ProcessingAlgorithmPreview.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classProcessingAlgorithmPreview_1a3b087f5cbf10e25bed4bd3e4b52f5798" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings ProcessingAlgorithmPreview::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>ProcessingAlgorithmPreview::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmPreview.qml" line="13" column="1" bodyfile="src/qml/ProcessingAlgorithmPreview.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classProcessingAlgorithmPreview_1a6ee00bcbbc3213871834eea280cb807c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color ProcessingAlgorithmPreview::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>ProcessingAlgorithmPreview::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmPreview.qml" line="15" column="1" bodyfile="src/qml/ProcessingAlgorithmPreview.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classProcessingAlgorithmPreview_1a0d6e9e87c59d2f88eddd406c9c8dc2c8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ProcessingAlgorithmPreview::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>ProcessingAlgorithmPreview::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmPreview.qml" line="17" column="5" bodyfile="src/qml/ProcessingAlgorithmPreview.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmPreview_1a31eb6b1d5a7374474ef1db96f20ac63e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ProcessingAlgorithmPreview::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <qualifiedname>ProcessingAlgorithmPreview::delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmPreview.qml" line="18" column="5" bodyfile="src/qml/ProcessingAlgorithmPreview.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ProcessingAlgorithmPreview</label>
+        <link refid="classProcessingAlgorithmPreview"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProcessingAlgorithmPreview</label>
+        <link refid="classProcessingAlgorithmPreview"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/ProcessingAlgorithmPreview.qml" line="8" column="1" bodyfile="src/qml/ProcessingAlgorithmPreview.qml" bodystart="8" bodyend="19"/>
+    <listofallmembers>
+      <member refid="classProcessingAlgorithmPreview_1a6e5c69927ede6dc787bdd30cb6519bf4" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmPreview</scope><name>algorithm</name></member>
+      <member refid="classProcessingAlgorithmPreview_1a6ee00bcbbc3213871834eea280cb807c" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmPreview</scope><name>color</name></member>
+      <member refid="classProcessingAlgorithmPreview_1a31eb6b1d5a7374474ef1db96f20ac63e" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmPreview</scope><name>delegate</name></member>
+      <member refid="classProcessingAlgorithmPreview_1a3b087f5cbf10e25bed4bd3e4b52f5798" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmPreview</scope><name>mapSettings</name></member>
+      <member refid="classProcessingAlgorithmPreview_1a0d6e9e87c59d2f88eddd406c9c8dc2c8" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmPreview</scope><name>model</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

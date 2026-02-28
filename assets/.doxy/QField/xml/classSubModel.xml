@@ -1,0 +1,651 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSubModel" kind="class" language="C++" prot="public">
+    <compoundname>SubModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractItemModel</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classSubModel_1a96da46d01d873f4d8c33f565334a8297" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool SubModel::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>SubModel::enabled</qualifiedname>
+        <read>enabled</read>
+        <write>setEnabled</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="30" column="5" bodyfile="src/core/submodel.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSubModel_1a2497f7e93ae642bf8888a55881b9d2de" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QAbstractItemModel *</type>
+        <definition>QAbstractItemModel * SubModel::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>SubModel::model</qualifiedname>
+        <read>model</read>
+        <write>setModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="31" column="5" bodyfile="src/core/submodel.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSubModel_1ab5e1e6dc4354fca5331704d8ead9f1ef" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QModelIndex</type>
+        <definition>QModelIndex SubModel::rootIndex</definition>
+        <argsstring></argsstring>
+        <name>rootIndex</name>
+        <qualifiedname>SubModel::rootIndex</qualifiedname>
+        <read>rootIndex</read>
+        <write>setRootIndex</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="32" column="5" bodyfile="src/core/submodel.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSubModel_1a8c6ee8f8aa515f8937fd84110732875b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SubModel::mEnabled</definition>
+        <argsstring></argsstring>
+        <name>mEnabled</name>
+        <qualifiedname>SubModel::mEnabled</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="71" column="10" bodyfile="src/core/submodel.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubModel_1a85ac6fdbe5cd191006d905761093b758" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QAbstractItemModel &gt;</type>
+        <definition>QPointer&lt;QAbstractItemModel&gt; SubModel::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>SubModel::mModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="72" column="14" bodyfile="src/core/submodel.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubModel_1a21192523714bb7c231e0e130e5d1496e" prot="private" static="no" mutable="no">
+        <type>QPersistentModelIndex</type>
+        <definition>QPersistentModelIndex SubModel::mRootIndex</definition>
+        <argsstring></argsstring>
+        <name>mRootIndex</name>
+        <qualifiedname>SubModel::mRootIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="73" column="27" bodyfile="src/core/submodel.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubModel_1a08b789e53b47af92518c8c8b05907372" prot="private" static="no" mutable="yes">
+        <type>QHash&lt; qintptr, QModelIndex &gt;</type>
+        <definition>QHash&lt;qintptr, QModelIndex&gt; SubModel::mMappings</definition>
+        <argsstring></argsstring>
+        <name>mMappings</name>
+        <qualifiedname>SubModel::mMappings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="76" column="19" bodyfile="src/core/submodel.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSubModel_1a261f1f62216385f45703e1f0839a9f3d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SubModel::SubModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>SubModel</name>
+        <qualifiedname>SubModel::SubModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="35" column="14" bodyfile="src/core/submodel.cpp" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1a6ef046f41f30b7628dec787fae1976db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex SubModel::index</definition>
+        <argsstring>(int row, int column, const QModelIndex &amp;parent) const override</argsstring>
+        <name>index</name>
+        <qualifiedname>SubModel::index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="36" column="17" bodyfile="src/core/submodel.cpp" bodystart="25" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1ad77fef0e423f75e37b9067351a274311" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex SubModel::parent</definition>
+        <argsstring>(const QModelIndex &amp;child) const override</argsstring>
+        <name>parent</name>
+        <qualifiedname>SubModel::parent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="37" column="17" bodyfile="src/core/submodel.cpp" bodystart="34" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1ab896bd98946ab3b94dcd59406b20908e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SubModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>SubModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="38" column="9" bodyfile="src/core/submodel.cpp" bodystart="39" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1a09785dd1a900410b3acd47e6a8a180d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SubModel::columnCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>columnCount</name>
+        <qualifiedname>SubModel::columnCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="39" column="9" bodyfile="src/core/submodel.cpp" bodystart="47" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1ad1844fcec8127fb434b1cc79bad81355" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant SubModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>SubModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="40" column="14" bodyfile="src/core/submodel.cpp" bodystart="55" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1a9971bb05dcec074df83841fd80857f97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SubModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>SubModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::EditRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="41" column="10" bodyfile="src/core/submodel.cpp" bodystart="63" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1a7435e9de1ee8ec6ff0fe08dd39d8fdec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; SubModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>SubModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="42" column="11" bodyfile="src/core/submodel.cpp" bodystart="71" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1a128fd9d8f153367ae2cb51e678ecc2fd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex SubModel::rootIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>rootIndex</name>
+        <qualifiedname>SubModel::rootIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="44" column="17" bodyfile="src/core/submodel.cpp" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1a589e3ac0afa1370c18ed933c5cd70e35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SubModel::setRootIndex</definition>
+        <argsstring>(const QModelIndex &amp;rootIndex)</argsstring>
+        <name>setRootIndex</name>
+        <qualifiedname>SubModel::setRootIndex</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>rootIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="45" column="10" bodyfile="src/core/submodel.cpp" bodystart="84" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1a903ca388cff5f512d794014aaf156457" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QAbstractItemModel *</type>
+        <definition>QAbstractItemModel * SubModel::model</definition>
+        <argsstring>() const</argsstring>
+        <name>model</name>
+        <qualifiedname>SubModel::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="47" column="24" bodyfile="src/core/submodel.cpp" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1a91ea9a38d6b0ec7c6ccc71032009cde6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SubModel::setModel</definition>
+        <argsstring>(QAbstractItemModel *model)</argsstring>
+        <name>setModel</name>
+        <qualifiedname>SubModel::setModel</qualifiedname>
+        <param>
+          <type>QAbstractItemModel *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="48" column="10" bodyfile="src/core/submodel.cpp" bodystart="123" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1ae63a9fab58dfe62cb2874c5f2baae779" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SubModel::enabled</definition>
+        <argsstring>() const</argsstring>
+        <name>enabled</name>
+        <qualifiedname>SubModel::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="50" column="10" bodyfile="src/core/submodel.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1acca59d37b25d0a1355d6fbab56b60af6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SubModel::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <qualifiedname>SubModel::setEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="51" column="10" bodyfile="src/core/submodel.cpp" bodystart="140" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1ab8e6f7a3ce7e5d5128f6791428be4b78" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SubModel::isInSubModel</definition>
+        <argsstring>(const QModelIndex &amp;sourceIndex) const</argsstring>
+        <name>isInSubModel</name>
+        <qualifiedname>SubModel::isInSubModel</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="53" column="10" bodyfile="src/core/submodel.cpp" bodystart="187" bodyend="193"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classSubModel_1a8f48c4be39abd69aefe1ecc5de4ed81e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SubModel::modelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelChanged</name>
+        <qualifiedname>SubModel::modelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="56" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classSubModel_1aaedc84d97a777c8460d33eb3fe95bee4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SubModel::enabledChanged</definition>
+        <argsstring>()</argsstring>
+        <name>enabledChanged</name>
+        <qualifiedname>SubModel::enabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="57" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classSubModel_1a314bc74662d1b0c5c45157a69eeb6bb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SubModel::rootIndexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rootIndexChanged</name>
+        <qualifiedname>SubModel::rootIndexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="58" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classSubModel_1aa684843f7140fa90147d76a33fcbdfeb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SubModel::onRowsInserted</definition>
+        <argsstring>(const QModelIndex &amp;parent, int first, int last)</argsstring>
+        <name>onRowsInserted</name>
+        <qualifiedname>SubModel::onRowsInserted</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="61" column="10" bodyfile="src/core/submodel.cpp" bodystart="154" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="slot" id="classSubModel_1a2034b4aa421e1aebff7ac30a9be515de" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SubModel::onRowsAboutToBeRemoved</definition>
+        <argsstring>(const QModelIndex &amp;parent, int first, int last)</argsstring>
+        <name>onRowsAboutToBeRemoved</name>
+        <qualifiedname>SubModel::onRowsAboutToBeRemoved</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="62" column="10" bodyfile="src/core/submodel.cpp" bodystart="164" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="slot" id="classSubModel_1af0f692c404265ec174f8b5a635fd0e74" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SubModel::onModelReset</definition>
+        <argsstring>()</argsstring>
+        <name>onModelReset</name>
+        <qualifiedname>SubModel::onModelReset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="63" column="10" bodyfile="src/core/submodel.cpp" bodystart="174" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="slot" id="classSubModel_1aa91597ac117346bdca67d54f21edda21" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SubModel::onDataChanged</definition>
+        <argsstring>(const QModelIndex &amp;topLeft, const QModelIndex &amp;bottomRight, const QVector&lt; int &gt; &amp;roles=QVector&lt; int &gt;())</argsstring>
+        <name>onDataChanged</name>
+        <qualifiedname>SubModel::onDataChanged</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>topLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>bottomRight</declname>
+        </param>
+        <param>
+          <type>const QVector&lt; int &gt; &amp;</type>
+          <declname>roles</declname>
+          <defval>QVector&lt; int &gt;()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="64" column="10" bodyfile="src/core/submodel.cpp" bodystart="181" bodyend="185"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classSubModel_1a5c9e077c4ab03fe4d4cdb4bba3c782b1" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex SubModel::mapFromSource</definition>
+        <argsstring>(const QModelIndex &amp;sourceIndex) const</argsstring>
+        <name>mapFromSource</name>
+        <qualifiedname>SubModel::mapFromSource</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="67" column="17" bodyfile="src/core/submodel.cpp" bodystart="195" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1a1f464f46ed071a0fb5fd6c7f26df2302" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex SubModel::mapToSource</definition>
+        <argsstring>(const QModelIndex &amp;index) const</argsstring>
+        <name>mapToSource</name>
+        <qualifiedname>SubModel::mapToSource</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="68" column="17" bodyfile="src/core/submodel.cpp" bodystart="203" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubModel_1a0e49def4ef34f41bd709d99c02187ea7" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SubModel::handleModelConnection</definition>
+        <argsstring>(bool disconnecting=false) const</argsstring>
+        <name>handleModelConnection</name>
+        <qualifiedname>SubModel::handleModelConnection</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>disconnecting</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/submodel.h" line="69" column="10" bodyfile="src/core/submodel.cpp" bodystart="102" bodyend="121"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>SubModel</label>
+        <link refid="classSubModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>SubModel</label>
+        <link refid="classSubModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/submodel.h" line="26" column="1" bodyfile="src/core/submodel.h" bodystart="27" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classSubModel_1a09785dd1a900410b3acd47e6a8a180d4" prot="public" virt="non-virtual"><scope>SubModel</scope><name>columnCount</name></member>
+      <member refid="classSubModel_1ad1844fcec8127fb434b1cc79bad81355" prot="public" virt="non-virtual"><scope>SubModel</scope><name>data</name></member>
+      <member refid="classSubModel_1a96da46d01d873f4d8c33f565334a8297" prot="public" virt="non-virtual"><scope>SubModel</scope><name>enabled</name></member>
+      <member refid="classSubModel_1ae63a9fab58dfe62cb2874c5f2baae779" prot="public" virt="non-virtual"><scope>SubModel</scope><name>enabled</name></member>
+      <member refid="classSubModel_1aaedc84d97a777c8460d33eb3fe95bee4" prot="public" virt="non-virtual"><scope>SubModel</scope><name>enabledChanged</name></member>
+      <member refid="classSubModel_1a0e49def4ef34f41bd709d99c02187ea7" prot="private" virt="non-virtual"><scope>SubModel</scope><name>handleModelConnection</name></member>
+      <member refid="classSubModel_1a6ef046f41f30b7628dec787fae1976db" prot="public" virt="non-virtual"><scope>SubModel</scope><name>index</name></member>
+      <member refid="classSubModel_1ab8e6f7a3ce7e5d5128f6791428be4b78" prot="public" virt="non-virtual"><scope>SubModel</scope><name>isInSubModel</name></member>
+      <member refid="classSubModel_1a5c9e077c4ab03fe4d4cdb4bba3c782b1" prot="private" virt="non-virtual"><scope>SubModel</scope><name>mapFromSource</name></member>
+      <member refid="classSubModel_1a1f464f46ed071a0fb5fd6c7f26df2302" prot="private" virt="non-virtual"><scope>SubModel</scope><name>mapToSource</name></member>
+      <member refid="classSubModel_1a8c6ee8f8aa515f8937fd84110732875b" prot="private" virt="non-virtual"><scope>SubModel</scope><name>mEnabled</name></member>
+      <member refid="classSubModel_1a08b789e53b47af92518c8c8b05907372" prot="private" virt="non-virtual"><scope>SubModel</scope><name>mMappings</name></member>
+      <member refid="classSubModel_1a85ac6fdbe5cd191006d905761093b758" prot="private" virt="non-virtual"><scope>SubModel</scope><name>mModel</name></member>
+      <member refid="classSubModel_1a2497f7e93ae642bf8888a55881b9d2de" prot="public" virt="non-virtual"><scope>SubModel</scope><name>model</name></member>
+      <member refid="classSubModel_1a903ca388cff5f512d794014aaf156457" prot="public" virt="non-virtual"><scope>SubModel</scope><name>model</name></member>
+      <member refid="classSubModel_1a8f48c4be39abd69aefe1ecc5de4ed81e" prot="public" virt="non-virtual"><scope>SubModel</scope><name>modelChanged</name></member>
+      <member refid="classSubModel_1a21192523714bb7c231e0e130e5d1496e" prot="private" virt="non-virtual"><scope>SubModel</scope><name>mRootIndex</name></member>
+      <member refid="classSubModel_1aa91597ac117346bdca67d54f21edda21" prot="private" virt="non-virtual"><scope>SubModel</scope><name>onDataChanged</name></member>
+      <member refid="classSubModel_1af0f692c404265ec174f8b5a635fd0e74" prot="private" virt="non-virtual"><scope>SubModel</scope><name>onModelReset</name></member>
+      <member refid="classSubModel_1a2034b4aa421e1aebff7ac30a9be515de" prot="private" virt="non-virtual"><scope>SubModel</scope><name>onRowsAboutToBeRemoved</name></member>
+      <member refid="classSubModel_1aa684843f7140fa90147d76a33fcbdfeb" prot="private" virt="non-virtual"><scope>SubModel</scope><name>onRowsInserted</name></member>
+      <member refid="classSubModel_1ad77fef0e423f75e37b9067351a274311" prot="public" virt="non-virtual"><scope>SubModel</scope><name>parent</name></member>
+      <member refid="classSubModel_1a7435e9de1ee8ec6ff0fe08dd39d8fdec" prot="public" virt="non-virtual"><scope>SubModel</scope><name>roleNames</name></member>
+      <member refid="classSubModel_1ab5e1e6dc4354fca5331704d8ead9f1ef" prot="public" virt="non-virtual"><scope>SubModel</scope><name>rootIndex</name></member>
+      <member refid="classSubModel_1a128fd9d8f153367ae2cb51e678ecc2fd" prot="public" virt="non-virtual"><scope>SubModel</scope><name>rootIndex</name></member>
+      <member refid="classSubModel_1a314bc74662d1b0c5c45157a69eeb6bb8" prot="public" virt="non-virtual"><scope>SubModel</scope><name>rootIndexChanged</name></member>
+      <member refid="classSubModel_1ab896bd98946ab3b94dcd59406b20908e" prot="public" virt="non-virtual"><scope>SubModel</scope><name>rowCount</name></member>
+      <member refid="classSubModel_1a9971bb05dcec074df83841fd80857f97" prot="public" virt="non-virtual"><scope>SubModel</scope><name>setData</name></member>
+      <member refid="classSubModel_1acca59d37b25d0a1355d6fbab56b60af6" prot="public" virt="non-virtual"><scope>SubModel</scope><name>setEnabled</name></member>
+      <member refid="classSubModel_1a91ea9a38d6b0ec7c6ccc71032009cde6" prot="public" virt="non-virtual"><scope>SubModel</scope><name>setModel</name></member>
+      <member refid="classSubModel_1a589e3ac0afa1370c18ed933c5cd70e35" prot="public" virt="non-virtual"><scope>SubModel</scope><name>setRootIndex</name></member>
+      <member refid="classSubModel_1a261f1f62216385f45703e1f0839a9f3d" prot="public" virt="non-virtual"><scope>SubModel</scope><name>SubModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,911 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File PositioningPreciseView.qml - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-positioningpreciseviewqml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File PositioningPreciseView.qml
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-positioningpreciseviewqml">File PositioningPreciseView.qml</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_1d81f7f4362e4398c0a695c4e466fcb0/"><strong>qml</strong></a> <strong>&gt;</strong> <a href="../PositioningPreciseView_8qml/"><strong>PositioningPreciseView.qml</strong></a></p>
+<p><a href="../PositioningPreciseView_8qml/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Shapes
+import org.qfield
+import Theme
+
+Item {
+  id: positioningPreciseView
+
+  property double precision: 1
+  property double projectDistance: navigation.distance * UnitTypes.fromUnitToUnitFactor(navigation.distanceUnits, projectInfo.distanceUnits)
+  property double projectVerticalDistance: navigation.verticalDistance * UnitTypes.fromUnitToUnitFactor(navigation.distanceUnits, projectInfo.distanceUnits)
+
+  property bool hasZ: !isNaN(projectVerticalDistance)
+  property bool hasAcceptableAccuracy: positionSource.positionInformation.haccValid &amp;&amp; positionSource.positionInformation.hacc &lt; precision / 2.5
+  property bool hasReachedTarget: hasAcceptableAccuracy &amp;&amp; projectDistance - positionSource.positionInformation.hacc - (precision / 10) &lt;= 0
+  property bool hasAlarmSnoozed: false
+
+  property double positionX: Math.min(precision, projectDistance) * Math.cos((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionY: Math.min(precision, projectDistance) * Math.sin((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, -projectVerticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
+  property point positionCenter: Qt.point(preciseTarget.width / 2 + preciseTarget.x + preciseTarget.parent.x, preciseTarget.height / 2 + preciseTarget.y + preciseTarget.parent.y)
+
+  property string negativeLabel: UnitTypes.formatDistance(-precision, 2, projectInfo.distanceUnits)
+  property string positiveLabel: UnitTypes.formatDistance(precision, 2, projectInfo.distanceUnits)
+
+  Rectangle {
+    anchors.fill: parent
+    color: Theme.mainBackgroundColorSemiOpaque
+  }
+
+  Row {
+    anchors.centerIn: parent
+    anchors.margins: 10
+    spacing: 5
+
+    Rectangle {
+      width: labelTarget.contentWidth
+      height: preciseElevation.height
+      color: &quot;transparent&quot;
+      Text {
+        id: labelTarget
+        anchors.centerIn: parent
+        font: Theme.tinyFont
+        color: Theme.navigationColor
+        text: positiveLabel
+      }
+    }
+
+    Shape {
+      id: preciseTarget
+      width: Math.min(positioningPreciseView.height - 10, positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 20)
+      height: width
+      rotation: !isNaN(positionSource.orientation) ? -positionSource.orientation + positionSource.bearingTrueNorth : 0
+
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Theme.navigationColorSemiOpaque
+        strokeStyle: ShapePath.SolidLine
+        fillColor: &quot;transparent&quot;
+        startX: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.cos(5.49779)
+        startY: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.sin(5.49779)
+        PathLine {
+          x: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.cos(2.35619)
+          y: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.sin(2.35619)
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Theme.navigationColorSemiOpaque
+        strokeStyle: ShapePath.SolidLine
+        fillColor: &quot;transparent&quot;
+        startX: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.cos(0.78539)
+        startY: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.sin(0.78539)
+        PathLine {
+          x: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.cos(3.92699)
+          y: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.sin(3.92699)
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Theme.navigationColorSemiOpaque
+        strokeStyle: ShapePath.SolidLine
+        fillColor: &quot;transparent&quot;
+        startX: preciseTarget.width / 2
+        startY: 0
+        PathLine {
+          x: preciseTarget.width / 2
+          y: preciseTarget.height
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Theme.navigationColorSemiOpaque
+        strokeStyle: ShapePath.SolidLine
+        fillColor: &quot;transparent&quot;
+        startX: 0
+        startY: preciseTarget.height / 2
+        PathLine {
+          x: preciseTarget.width
+          y: preciseTarget.height / 2
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Theme.navigationBackgroundColor
+        strokeStyle: ShapePath.SolidLine
+        fillColor: &quot;transparent&quot;
+        startX: 0
+        startY: 0
+        PathAngleArc {
+          centerX: preciseTarget.width / 2
+          centerY: centerX
+          radiusX: preciseTarget.width / 8
+          radiusY: radiusX
+          startAngle: 0
+          sweepAngle: 360
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Theme.navigationBackgroundColor
+        strokeStyle: ShapePath.SolidLine
+        fillColor: &quot;transparent&quot;
+        startX: 0
+        startY: 0
+        PathAngleArc {
+          centerX: preciseTarget.width / 2
+          centerY: centerX
+          radiusX: preciseTarget.width / 4
+          radiusY: radiusX
+          startAngle: 0
+          sweepAngle: 360
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Theme.navigationBackgroundColor
+        strokeStyle: ShapePath.SolidLine
+        fillColor: &quot;transparent&quot;
+        startX: 0
+        startY: 0
+        PathAngleArc {
+          centerX: preciseTarget.width / 2
+          centerY: centerX
+          radiusX: preciseTarget.width / 2.66
+          radiusY: radiusX
+          startAngle: 0
+          sweepAngle: 360
+        }
+      }
+      ShapePath {
+        strokeWidth: hasReachedTarget ? 3 : 1
+        strokeColor: hasReachedTarget ? Theme.mainColor : Theme.mainTextColor
+        strokeStyle: ShapePath.SolidLine
+        fillColor: &quot;transparent&quot;
+        startX: 0
+        startY: 0
+        PathAngleArc {
+          centerX: preciseTarget.width / 2
+          centerY: centerX
+          radiusX: preciseTarget.width / 2
+          radiusY: radiusX
+          startAngle: 0
+          sweepAngle: 360
+        }
+      }
+
+      Text {
+        anchors.top: parent.top
+        anchors.topMargin: 2
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: Theme.navigationColor
+        font: Theme.tinyFont
+        style: Text.Outline
+        styleColor: Theme.mainBackgroundColor
+        text: '0'
+      }
+      Text {
+        anchors.right: parent.right
+        anchors.rightMargin: 2
+        anchors.verticalCenter: parent.verticalCenter
+        color: Theme.navigationColor
+        font: Theme.tinyFont
+        style: Text.Outline
+        styleColor: Theme.mainBackgroundColor
+        text: '90'
+      }
+      Text {
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 2
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: Theme.navigationColor
+        font: Theme.tinyFont
+        style: Text.Outline
+        styleColor: Theme.mainBackgroundColor
+        text: '180'
+      }
+      Text {
+        anchors.left: parent.left
+        anchors.leftMargin: 2
+        anchors.verticalCenter: parent.verticalCenter
+        color: Theme.navigationColor
+        font: Theme.tinyFont
+        style: Text.Outline
+        styleColor: Theme.mainBackgroundColor
+        text: '270'
+      }
+    }
+
+    Rectangle {
+      id: labelElevation
+      width: Math.max(labelElevationTop.contentWidth, labelElevationBottom.contentWidth)
+      height: preciseElevation.height
+      opacity: hasZ ? 1 : 0.25
+      color: &quot;transparent&quot;
+
+      Text {
+        id: labelElevationTop
+        anchors.top: parent.top
+        anchors.right: parent.right
+        font: Theme.tinyFont
+        color: hasZ ? Theme.navigationColor : Theme.secondaryTextColor
+        text: positiveLabel
+      }
+      Text {
+        id: labelElevationBottom
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        font: Theme.tinyFont
+        color: hasZ ? Theme.navigationColor : Theme.secondaryTextColor
+        text: negativeLabel
+      }
+    }
+
+    Rectangle {
+      id: preciseElevation
+      width: 14
+      height: preciseTarget.height
+      radius: 7
+      opacity: hasZ ? 1 : 0.25
+      color: &quot;transparent&quot;
+      border.color: Theme.mainTextColor
+      border.width: 1
+
+      Rectangle {
+        x: 1
+        y: parent.height / 2
+        width: parent.width - 2
+        height: 1
+        color: hasZ ? Theme.navigationColorSemiOpaque : Theme.mainTextColor
+      }
+
+      Shape {
+        id: preciseVerticalPosition
+        x: -1
+        y: (preciseElevation.height - height) / 2 + positionZ
+        width: preciseElevation.width + 2
+        height: width
+        visible: hasZ
+        rotation: projectVerticalDistance &lt; 0 ? 180 : 0
+
+        ShapePath {
+          strokeWidth: 0
+          strokeColor: &quot;transparent&quot;
+          strokeStyle: ShapePath.SolidLine
+          fillColor: Theme.positionColor
+          fillRule: ShapePath.WindingFill
+          joinStyle: ShapePath.MiterJoin
+          startX: preciseVerticalPosition.width / 2
+          startY: startX
+          scale: Math.abs(projectVerticalDistance) &lt;= precision ? Qt.size(1, 1) : Qt.size(0, 0)
+          PathAngleArc {
+            centerX: preciseVerticalPosition.width / 2
+            centerY: centerX
+            radiusX: preciseVerticalPosition.width / 2
+            radiusY: radiusX
+            startAngle: 0
+            sweepAngle: 360
+          }
+        }
+
+        ShapePath {
+          strokeWidth: 0
+          strokeColor: &quot;transparent&quot;
+          strokeStyle: ShapePath.SolidLine
+          fillColor: Theme.positionColor
+          fillRule: ShapePath.WindingFill
+          joinStyle: ShapePath.MiterJoin
+          startX: preciseVerticalPosition.width / 2
+          startY: 0
+          scale: Math.abs(projectVerticalDistance) &gt; precision ? Qt.size(1, 1) : Qt.size(0, 0)
+          PathLine {
+            x: preciseVerticalPosition.width - 2
+            y: preciseVerticalPosition.width
+          }
+          PathLine {
+            x: 2
+            y: preciseVerticalPosition.width
+          }
+          PathLine {
+            x: preciseVerticalPosition.width / 2
+            y: 0
+          }
+        }
+      }
+
+      Text {
+        id: preciseVerticalPositionInfo
+        x: -contentWidth - 10
+        y: (preciseElevation.height - height) / 2 + positionZ
+        visible: hasZ
+        color: Theme.mainTextColor
+        font: Theme.strongTipFont
+        style: Text.Outline
+        styleColor: Theme.mainBackgroundColor
+
+        property int decimals: projectVerticalDistance &gt;= 1000 ? 3 : projectVerticalDistance &gt;= 0.1 ? 2 : 1
+        text: projectVerticalDistance != 0.0 ? UnitTypes.formatDistance(projectVerticalDistance, decimals, projectInfo.distanceUnits) : 0
+      }
+    }
+  }
+
+  Shape {
+    id: preciseHorizontalPosition
+
+    x: positionCenter.x + positionX - width / 2
+    y: positionCenter.y + positionY - width / 2
+    width: 28
+    height: width
+    rotation: navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0)
+
+    ShapePath {
+      strokeWidth: 1
+      strokeColor: &quot;transparent&quot;
+      strokeStyle: ShapePath.SolidLine
+      fillColor: hasReachedTarget ? Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.4) : Theme.positionColor
+      fillRule: ShapePath.WindingFill
+      startX: preciseHorizontalPosition.width / 2
+      startY: startX
+      scale: projectDistance &lt;= precision ? Qt.size(1, 1) : Qt.size(0, 0)
+      PathAngleArc {
+        centerX: preciseHorizontalPosition.width / 2
+        centerY: centerX
+        radiusX: preciseHorizontalPosition.width / 2
+        radiusY: radiusX
+        startAngle: 0
+        sweepAngle: 360
+      }
+    }
+
+    ShapePath {
+      strokeWidth: 1
+      strokeColor: &quot;transparent&quot;
+      strokeStyle: ShapePath.SolidLine
+      fillColor: Theme.positionColor
+      fillRule: ShapePath.WindingFill
+      joinStyle: ShapePath.MiterJoin
+      startX: preciseHorizontalPosition.width / 2
+      startY: 0
+      scale: projectDistance &gt; precision ? Qt.size(1, 1) : Qt.size(0, 0)
+      PathLine {
+        x: preciseHorizontalPosition.width - 2
+        y: preciseHorizontalPosition.width
+      }
+      PathLine {
+        x: 2
+        y: preciseHorizontalPosition.width
+      }
+      PathLine {
+        x: preciseHorizontalPosition.width / 2
+        y: 0
+      }
+    }
+  }
+
+  Shape {
+    id: preciseHorizontalPositionCross
+
+    anchors.centerIn: preciseHorizontalPosition
+
+    width: 28
+    height: width
+
+    ShapePath {
+      strokeWidth: 2
+      strokeColor: Theme.mainTextColor
+      strokeStyle: ShapePath.SolidLine
+      fillColor: &quot;transparent&quot;
+      startX: preciseHorizontalPosition.width / 2
+      startY: 0
+      scale: hasReachedTarget ? Qt.size(1, 1) : Qt.size(0, 0)
+
+      PathLine {
+        x: preciseHorizontalPosition.width / 2
+        y: preciseHorizontalPosition.height
+      }
+      PathMove {
+        x: 0
+        y: preciseHorizontalPosition.height / 2
+      }
+      PathLine {
+        x: preciseHorizontalPosition.width
+        y: preciseHorizontalPosition.height / 2
+      }
+    }
+  }
+
+  Text {
+    id: preciseHorizontalPositionInfo
+
+    property bool leftOfPoint: !isNaN(positionSource.orientation) &amp;&amp; positionX &gt;= 0
+    x: positionCenter.x + positionX + (positionX &gt;= 0 ? -contentWidth - 10 : preciseHorizontalPosition.width / 2)
+    y: positionCenter.y + positionY + (positionY &gt;= 0 ? -preciseHorizontalPosition.height : preciseHorizontalPosition.height / 2)
+
+    color: Theme.mainTextColor
+    font: Theme.strongTipFont
+    style: Text.Outline
+    styleColor: Theme.mainBackgroundColor
+
+    property int decimals: projectDistance &gt;= 1000 ? 3 : projectDistance &gt;= 0.10 ? 2 : 1
+    text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance(projectDistance, decimals, projectInfo.distanceUnits)
+  }
+
+  Rectangle {
+    id: accuracyWarning
+
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.bottom: parent.bottom
+    anchors.bottomMargin: 20
+
+    visible: !hasAcceptableAccuracy
+    width: parent.width - 20
+    height: accuracyWarningLabel.contentHeight + 4
+    color: &quot;#22000000&quot;
+    radius: 3
+
+    Text {
+      id: accuracyWarningLabel
+      anchors.centerIn: parent
+      width: parent.width
+      color: Theme.warningColor
+      font: Theme.tinyFont
+      horizontalAlignment: Text.AlignHCenter
+      wrapMode: Text.WordWrap
+      text: qsTr('Positioning accuracy too low for this precision level')
+      style: Text.Outline
+      styleColor: Theme.mainBackgroundColor
+    }
+  }
+
+  QfToolButton {
+    id: alarmSnoozeButton
+
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.margins: 5
+
+    visible: (navigation.proximityAlarm || positioningPreciseView.hasAlarmSnoozed) &amp;&amp; projectDistance &lt;= positioningPreciseView.precision
+    enabled: visible
+
+    round: true
+    bgcolor: positioningPreciseView.hasAlarmSnoozed ? &quot;transparent&quot; : Theme.navigationColor
+    iconSource: positioningPreciseView.hasAlarmSnoozed ? Theme.getThemeVectorIcon('ic_alarm_purple_24dp') : Theme.getThemeVectorIcon('ic_alarm_white_24dp')
+
+    onClicked: {
+      positioningPreciseView.hasAlarmSnoozed = !positioningPreciseView.hasAlarmSnoozed;
+    }
+  }
+
+  Connections {
+    target: navigation
+    enabled: positioningPreciseView.hasAlarmSnoozed
+
+    function onDistanceChanged() {
+      if (projectDistance &gt; precision) {
+        positioningPreciseView.hasAlarmSnoozed = false;
+      }
+    }
+  }
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

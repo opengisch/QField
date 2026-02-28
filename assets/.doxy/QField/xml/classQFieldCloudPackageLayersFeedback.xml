@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldCloudPackageLayersFeedback" kind="class" language="C++" prot="public">
+    <compoundname>QFieldCloudPackageLayersFeedback</compoundname>
+    <basecompoundref refid="classTheme_1_1QfDialog" prot="public" virt="non-virtual">Theme::QfDialog</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldCloudPackageLayersFeedback_1ac2b7e86cfe5fe6a43211c3e4df874294" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QFieldCloudPackageLayersFeedback::selectedCount</definition>
+        <argsstring></argsstring>
+        <name>selectedCount</name>
+        <qualifiedname>QFieldCloudPackageLayersFeedback::selectedCount</qualifiedname>
+        <read>dummyGetter_selectedCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudPackageLayersFeedback.qml" line="12" column="1" bodyfile="src/qml/QFieldCloudPackageLayersFeedback.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudPackageLayersFeedback_1ad057139cefc055e475f272ed902b68b4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudPackageLayersFeedback::isDeleted</definition>
+        <argsstring></argsstring>
+        <name>isDeleted</name>
+        <qualifiedname>QFieldCloudPackageLayersFeedback::isDeleted</qualifiedname>
+        <read>dummyGetter_isDeleted_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudPackageLayersFeedback.qml" line="14" column="1" bodyfile="src/qml/QFieldCloudPackageLayersFeedback.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudPackageLayersFeedback_1a460b91d621d4269345abed0f8620c04c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QFieldCloudPackageLayersFeedback::packagedLayersListViewModel</definition>
+        <argsstring></argsstring>
+        <name>packagedLayersListViewModel</name>
+        <qualifiedname>QFieldCloudPackageLayersFeedback::packagedLayersListViewModel</qualifiedname>
+        <read>dummyGetter_packagedLayersListViewModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudPackageLayersFeedback.qml" line="16" column="1" bodyfile="src/qml/QFieldCloudPackageLayersFeedback.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldCloudPackageLayersFeedback_1a28531322cda03ca37479c7707484d668" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudPackageLayersFeedback::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QFieldCloudPackageLayersFeedback::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudPackageLayersFeedback.qml" line="18" column="5" bodyfile="src/qml/QFieldCloudPackageLayersFeedback.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudPackageLayersFeedback_1a917cd6bac89444968aec5fa583dfbd86" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudPackageLayersFeedback::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QFieldCloudPackageLayersFeedback::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudPackageLayersFeedback.qml" line="19" column="5" bodyfile="src/qml/QFieldCloudPackageLayersFeedback.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudPackageLayersFeedback_1a37ff85131a79ebb13473d59545064e2a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudPackageLayersFeedback::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QFieldCloudPackageLayersFeedback::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudPackageLayersFeedback.qml" line="20" column="5" bodyfile="src/qml/QFieldCloudPackageLayersFeedback.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudPackageLayersFeedback_1a253c0d5e5c198f566673b1e2554596a0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudPackageLayersFeedback::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QFieldCloudPackageLayersFeedback::title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudPackageLayersFeedback.qml" line="21" column="5" bodyfile="src/qml/QFieldCloudPackageLayersFeedback.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudPackageLayersFeedback_1a52195af221ca1afd2f1ef77f91428670" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QFieldCloudPackageLayersFeedback::layout</definition>
+        <argsstring></argsstring>
+        <name>layout</name>
+        <qualifiedname>QFieldCloudPackageLayersFeedback::layout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudPackageLayersFeedback.qml" line="22" column="14" bodyfile="src/qml/QFieldCloudPackageLayersFeedback.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudPackageLayersFeedback_1aaf3de9666c73d5fdfc42e8fe36fc3c9b" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QFieldCloudPackageLayersFeedback::packagedLayersListView</definition>
+        <argsstring></argsstring>
+        <name>packagedLayersListView</name>
+        <qualifiedname>QFieldCloudPackageLayersFeedback::packagedLayersListView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudPackageLayersFeedback.qml" line="23" column="10" bodyfile="src/qml/QFieldCloudPackageLayersFeedback.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Dialog</label>
+      </node>
+      <node id="1">
+        <label>QFieldCloudPackageLayersFeedback</label>
+        <link refid="classQFieldCloudPackageLayersFeedback"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Theme::QfDialog</label>
+        <link refid="classTheme_1_1QfDialog"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Dialog</label>
+      </node>
+      <node id="1">
+        <label>QFieldCloudPackageLayersFeedback</label>
+        <link refid="classQFieldCloudPackageLayersFeedback"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Theme::QfDialog</label>
+        <link refid="classTheme_1_1QfDialog"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/QFieldCloudPackageLayersFeedback.qml" line="9" column="1" bodyfile="src/qml/QFieldCloudPackageLayersFeedback.qml" bodystart="9" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classQFieldCloudPackageLayersFeedback_1a37ff85131a79ebb13473d59545064e2a" prot="private" virt="non-virtual"><scope>QFieldCloudPackageLayersFeedback</scope><name>height</name></member>
+      <member refid="classQFieldCloudPackageLayersFeedback_1ad057139cefc055e475f272ed902b68b4" prot="public" virt="non-virtual"><scope>QFieldCloudPackageLayersFeedback</scope><name>isDeleted</name></member>
+      <member refid="classQFieldCloudPackageLayersFeedback_1a52195af221ca1afd2f1ef77f91428670" prot="private" virt="non-virtual"><scope>QFieldCloudPackageLayersFeedback</scope><name>layout</name></member>
+      <member refid="classQFieldCloudPackageLayersFeedback_1aaf3de9666c73d5fdfc42e8fe36fc3c9b" prot="private" virt="non-virtual"><scope>QFieldCloudPackageLayersFeedback</scope><name>packagedLayersListView</name></member>
+      <member refid="classQFieldCloudPackageLayersFeedback_1a460b91d621d4269345abed0f8620c04c" prot="public" virt="non-virtual"><scope>QFieldCloudPackageLayersFeedback</scope><name>packagedLayersListViewModel</name></member>
+      <member refid="classQFieldCloudPackageLayersFeedback_1a28531322cda03ca37479c7707484d668" prot="private" virt="non-virtual"><scope>QFieldCloudPackageLayersFeedback</scope><name>parent</name></member>
+      <member refid="classQFieldCloudPackageLayersFeedback_1ac2b7e86cfe5fe6a43211c3e4df874294" prot="public" virt="non-virtual"><scope>QFieldCloudPackageLayersFeedback</scope><name>selectedCount</name></member>
+      <member refid="classQFieldCloudPackageLayersFeedback_1a253c0d5e5c198f566673b1e2554596a0" prot="private" virt="non-virtual"><scope>QFieldCloudPackageLayersFeedback</scope><name>title</name></member>
+      <member refid="classQFieldCloudPackageLayersFeedback_1a917cd6bac89444968aec5fa583dfbd86" prot="private" virt="non-virtual"><scope>QFieldCloudPackageLayersFeedback</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

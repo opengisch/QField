@@ -1,0 +1,955 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File pluginmanager.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-pluginmanagercpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File pluginmanager.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-pluginmanagercpp">File pluginmanager.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../pluginmanager_8cpp/"><strong>pluginmanager.cpp</strong></a></p>
+<p><a href="../pluginmanager_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+ pluginmanager.h - PluginManager
+
+ ---------------------
+ begin                : 14.05.2024
+ copyright            : (C) 2024 by Mathieu Pellerin
+ email                : mathieu (at) opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &quot;platformutilities.h&quot;
+#include &quot;pluginmanager.h&quot;
+#include &quot;qgsziputils.h&quot;
+
+#include &lt;QDir&gt;
+#include &lt;QFileInfo&gt;
+#include &lt;QQmlApplicationEngine&gt;
+#include &lt;QQmlComponent&gt;
+#include &lt;QQmlContext&gt;
+#include &lt;QRegularExpression&gt;
+#include &lt;QSettings&gt;
+#include &lt;qgsmessagelog.h&gt;
+#include &lt;qgsnetworkaccessmanager.h&gt;
+
+PluginManager::PluginManager( QQmlEngine *engine )
+  : QObject( engine )
+  , mEngine( engine )
+  , mPluginModel( new PluginModel( this ) )
+{
+  connect( mEngine, &amp;QQmlEngine::warnings, this, &amp;PluginManager::handleWarnings );
+
+  mPluginModel-&gt;refresh( false );
+
+  connect( mPluginModel, &amp;QAbstractItemModel::dataChanged, this, &amp;PluginManager::availableAppPluginsChanged );
+  connect( mPluginModel, &amp;QAbstractItemModel::rowsInserted, this, &amp;PluginManager::availableAppPluginsChanged );
+  connect( mPluginModel, &amp;QAbstractItemModel::rowsRemoved, this, &amp;PluginManager::availableAppPluginsChanged );
+}
+
+QList&lt;PluginInformation&gt; PluginManager::availableAppPlugins() const
+{
+  return mPluginModel-&gt;availableAppPlugins();
+}
+
+void PluginManager::loadPlugin( const QString &amp;pluginPath, const QString &amp;pluginName, bool skipPermissionCheck, bool isProjectPlugin )
+{
+  QSettings settings;
+  QString pluginKey = pluginPath;
+  pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+  settings.beginGroup( QStringLiteral( &quot;/qfield/plugins/%1&quot; ).arg( pluginKey ) );
+  const QString pluginUuid = settings.value( QStringLiteral( &quot;uuid&quot; ) ).toString();
+  if ( !skipPermissionCheck )
+  {
+    const QStringList keys = settings.childKeys();
+    if ( keys.contains( QStringLiteral( &quot;permissionGranted&quot; ) ) )
+    {
+      if ( !settings.value( QStringLiteral( &quot;permissionGranted&quot; ) ).toBool() )
+      {
+        return;
+      }
+    }
+    else
+    {
+      mPermissionRequestPluginPath = pluginPath;
+      emit pluginPermissionRequested( pluginName, isProjectPlugin );
+      return;
+    }
+  }
+  settings.endGroup();
+
+  if ( mLoadedPlugins.contains( pluginPath ) )
+  {
+    unloadPlugin( pluginPath );
+  }
+
+  // Bypass caching to insure updated QML content is loaded
+  QUrl url = QUrl::fromLocalFile( pluginPath );
+  url.setQuery( QStringLiteral( &quot;t=%1&quot; ).arg( QDateTime::currentSecsSinceEpoch() ) );
+
+  QQmlComponent component( mEngine, url, this );
+  if ( component.status() == QQmlComponent::Status::Error )
+  {
+    for ( const QQmlError &amp;error : component.errors() )
+    {
+      QgsMessageLog::logMessage( error.toString(), QStringLiteral( &quot;Plugin Manager&quot; ), Qgis::MessageLevel::Critical );
+    }
+    return;
+  }
+
+  QObject *object = component.create( mEngine-&gt;rootContext() );
+  mLoadedPlugins.insert( pluginPath, QPointer&lt;QObject&gt;( object ) );
+
+  if ( !pluginUuid.isEmpty() )
+  {
+    emit appPluginEnabled( pluginUuid );
+  }
+}
+
+void PluginManager::unloadPlugin( const QString &amp;pluginPath )
+{
+  if ( mLoadedPlugins.contains( pluginPath ) )
+  {
+    QSettings settings;
+    QString pluginKey = pluginPath;
+    pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+    settings.beginGroup( QStringLiteral( &quot;/qfield/plugins/%1&quot; ).arg( pluginKey ) );
+    const QString pluginUuid = settings.value( QStringLiteral( &quot;uuid&quot; ) ).toString();
+    settings.endGroup();
+
+    if ( mLoadedPlugins[pluginPath] )
+    {
+      mLoadedPlugins[pluginPath]-&gt;deleteLater();
+    }
+    mLoadedPlugins.remove( pluginPath );
+
+    if ( !pluginUuid.isEmpty() )
+    {
+      emit appPluginDisabled( pluginUuid );
+    }
+
+    // Clear QML components cache of dynamically loaded items
+    mEngine-&gt;clearComponentCache();
+  }
+}
+
+void PluginManager::unloadPlugins()
+{
+  const QStringList loadedPluginPaths = mLoadedPlugins.keys();
+  for ( const QString &amp;loadedPluginPath : loadedPluginPaths )
+  {
+    unloadPlugin( loadedPluginPath );
+  }
+}
+
+void PluginManager::handleWarnings( const QList&lt;QQmlError&gt; &amp;warnings )
+{
+  for ( const QQmlError &amp;warning : warnings )
+  {
+    if ( warning.url().isLocalFile() )
+    {
+      if ( mLoadedPlugins.keys().contains( warning.url().toLocalFile() ) )
+      {
+        QgsMessageLog::logMessage( warning.toString(), QStringLiteral( &quot;Plugin Manager&quot; ), Qgis::MessageLevel::Warning );
+      }
+    }
+  }
+}
+
+void PluginManager::grantRequestedPluginPermission( bool permanent )
+{
+  QSettings settings;
+  QString pluginKey = mPermissionRequestPluginPath;
+  pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+  settings.beginGroup( QStringLiteral( &quot;/qfield/plugins/%1&quot; ).arg( pluginKey ) );
+  const QString uuid = settings.value( QStringLiteral( &quot;uuid&quot; ) ).toString();
+
+  if ( permanent )
+  {
+    settings.setValue( QStringLiteral( &quot;permissionGranted&quot; ), true );
+    if ( !uuid.isEmpty() )
+    {
+      settings.setValue( QStringLiteral( &quot;userEnabled&quot; ), true );
+    }
+  }
+
+  settings.endGroup();
+  loadPlugin( mPermissionRequestPluginPath, QString(), true );
+  mPermissionRequestPluginPath.clear();
+  if ( !uuid.isEmpty() )
+  {
+    callPluginMethod( uuid, &quot;appWideEnabled&quot; );
+  }
+}
+
+void PluginManager::denyRequestedPluginPermission( bool permanent )
+{
+  QSettings settings;
+  QString pluginKey = mPermissionRequestPluginPath;
+  pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+  settings.beginGroup( QStringLiteral( &quot;/qfield/plugins/%1&quot; ).arg( pluginKey ) );
+  const QString pluginUuid = settings.value( QStringLiteral( &quot;uuid&quot; ) ).toString();
+  if ( permanent )
+  {
+    settings.setValue( QStringLiteral( &quot;permissionGranted&quot; ), false );
+  }
+  settings.endGroup();
+
+  if ( !pluginUuid.isEmpty() )
+  {
+    emit appPluginDisabled( pluginUuid );
+  }
+
+  mPermissionRequestPluginPath.clear();
+}
+
+void PluginManager::clearPluginPermissions()
+{
+  QSettings settings;
+  settings.beginGroup( QStringLiteral( &quot;/qfield/plugins/&quot; ) );
+  const QStringList pluginKeys = settings.childGroups();
+  for ( const QString &amp;pluginKey : pluginKeys )
+  {
+    if ( !settings.value( QStringLiteral( &quot;%1/userEnabled&quot; ).arg( pluginKey ), false ).toBool() )
+    {
+      settings.remove( QStringLiteral( &quot;%1/permissionGranted&quot; ).arg( pluginKey ) );
+    }
+  }
+  settings.endGroup();
+}
+
+void PluginManager::restoreAppPlugins()
+{
+  QStringList checkedPluginUUids;
+  QSettings settings;
+  settings.beginGroup( QStringLiteral( &quot;/qfield/plugins/&quot; ) );
+  const QStringList pluginKeys = settings.childGroups();
+  for ( const QString &amp;pluginKey : pluginKeys )
+  {
+    const QString uuid = settings.value( QStringLiteral( &quot;%1/uuid&quot; ).arg( pluginKey ) ).toString();
+    checkedPluginUUids &lt;&lt; uuid;
+    const PluginInformation pluginInformation = mPluginModel-&gt;pluginInformation( uuid );
+    if ( settings.value( QStringLiteral( &quot;%1/userEnabled&quot; ).arg( pluginKey ), false ).toBool() )
+    {
+      if ( mPluginModel-&gt;hasPluginInformation( uuid ) )
+      {
+        loadPlugin( mPluginModel-&gt;pluginInformation( uuid ).path, mPluginModel-&gt;pluginInformation( uuid ).name, pluginInformation.bundled || pluginInformation.remotelyAvailable );
+      }
+    }
+  }
+  settings.endGroup();
+
+  const QList&lt;PluginInformation&gt; plugins = availableAppPlugins();
+  for ( const PluginInformation &amp;plugin : plugins )
+  {
+    if ( plugin.bundled &amp;&amp; !checkedPluginUUids.contains( plugin.uuid ) )
+    {
+      loadPlugin( plugin.path, plugin.name, true );
+    }
+  }
+}
+
+void PluginManager::enableAppPlugin( const QString &amp;uuid )
+{
+  if ( mPluginModel-&gt;hasPluginInformation( uuid ) )
+  {
+    const PluginInformation pluginInformation = mPluginModel-&gt;pluginInformation( uuid );
+    if ( !mLoadedPlugins.contains( pluginInformation.path ) )
+    {
+      QSettings settings;
+      QString pluginKey = pluginInformation.path;
+      pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+      settings.beginGroup( QStringLiteral( &quot;/qfield/plugins/%1&quot; ).arg( pluginKey ) );
+      settings.setValue( QStringLiteral( &quot;uuid&quot; ), uuid );
+      if ( settings.value( QStringLiteral( &quot;permissionGranted&quot; ), false ).toBool() || pluginInformation.bundled || pluginInformation.remotelyAvailable )
+      {
+        settings.setValue( QStringLiteral( &quot;userEnabled&quot; ), true );
+      }
+      settings.endGroup();
+
+      loadPlugin( pluginInformation.path, pluginInformation.name, pluginInformation.bundled || pluginInformation.remotelyAvailable );
+
+      if ( mLoadedPlugins.contains( pluginInformation.path ) )
+      {
+        callPluginMethod( uuid, &quot;appWideEnabled&quot; );
+      }
+    }
+  }
+}
+
+void PluginManager::disableAppPlugin( const QString &amp;uuid )
+{
+  callPluginMethod( uuid, &quot;appWideDisabled&quot; );
+  if ( mPluginModel-&gt;hasPluginInformation( uuid ) )
+  {
+    if ( mLoadedPlugins.contains( mPluginModel-&gt;pluginInformation( uuid ).path ) )
+    {
+      QString pluginKey = mPluginModel-&gt;pluginInformation( uuid ).path;
+      pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+
+      QSettings settings;
+      settings.beginGroup( QStringLiteral( &quot;/qfield/plugins/%1&quot; ).arg( pluginKey ) );
+      settings.setValue( QStringLiteral( &quot;uuid&quot; ), uuid );
+      settings.setValue( QStringLiteral( &quot;userEnabled&quot; ), false );
+      settings.endGroup();
+
+      unloadPlugin( mPluginModel-&gt;pluginInformation( uuid ).path );
+    }
+  }
+}
+
+void PluginManager::configureAppPlugin( const QString &amp;uuid )
+{
+  callPluginMethod( uuid, QStringLiteral( &quot;configure&quot; ) );
+}
+
+bool PluginManager::isAppPluginEnabled( const QString &amp;uuid ) const
+{
+  return mPluginModel-&gt;hasPluginInformation( uuid ) &amp;&amp; mLoadedPlugins.contains( mPluginModel-&gt;pluginInformation( uuid ).path );
+}
+
+bool PluginManager::isAppPluginConfigurable( const QString &amp;uuid ) const
+{
+  if ( mPluginModel-&gt;hasPluginInformation( uuid ) &amp;&amp; mLoadedPlugins.contains( mPluginModel-&gt;pluginInformation( uuid ).path ) )
+  {
+    QByteArray normalizedSignature = QMetaObject::normalizedSignature( &quot;configure()&quot; );
+    const int idx = mLoadedPlugins[mPluginModel-&gt;pluginInformation( uuid ).path]-&gt;metaObject()-&gt;indexOfSlot( normalizedSignature.constData() );
+    return idx &gt;= 0;
+  }
+
+  return false;
+}
+
+void PluginManager::installFromRepository( const QString &amp;uuid )
+{
+  if ( mPluginModel-&gt;hasPluginInformation( uuid ) )
+  {
+    PluginInformation pluginInformation = mPluginModel-&gt;pluginInformation( uuid );
+    if ( pluginInformation.remotelyAvailable &amp;&amp; !pluginInformation.downloadLink.isEmpty() )
+    {
+      installFromUrl( pluginInformation.downloadLink );
+    }
+  }
+}
+
+void PluginManager::installFromUrl( const QString &amp;url )
+{
+  QString sanitizedUrl = url.trimmed();
+  if ( sanitizedUrl.isEmpty() )
+    return;
+
+  if ( !sanitizedUrl.contains( QRegularExpression( &quot;^([a-z][a-z0-9+\\-.]*):&quot; ) ) )
+  {
+    // Prepend HTTPS when the URL scheme is missing instead of assured failure
+    sanitizedUrl = QStringLiteral( &quot;https://%1&quot; ).arg( sanitizedUrl );
+  }
+
+  QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
+  QNetworkRequest request( ( QUrl( sanitizedUrl ) ) );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
+
+  emit installTriggered( request.url().fileName() );
+
+  QNetworkReply *reply = manager-&gt;get( request );
+  connect( reply, &amp;QNetworkReply::downloadProgress, this, [this]( qint64 bytesReceived, qint64 bytesTotal ) {
+    if ( bytesTotal != 0 )
+    {
+      emit installProgress( static_cast&lt;double&gt;( bytesReceived ) / bytesTotal );
+    }
+  } );
+
+  connect( reply, &amp;QNetworkReply::finished, this, [this, reply, url]() {
+    const QString dataDir = PlatformUtilities::instance()-&gt;appDataDirs().at( 0 );
+    QString error;
+    if ( !dataDir.isEmpty() &amp;&amp; reply-&gt;error() == QNetworkReply::NoError )
+    {
+      QString fileName = reply-&gt;url().fileName();
+      QString contentDisposition = reply-&gt;header( QNetworkRequest::ContentDispositionHeader ).toString();
+      if ( !contentDisposition.isEmpty() )
+      {
+        QRegularExpression rx( QStringLiteral( &quot;filename=\&quot;?([^\&quot;;]*)\&quot;?&quot; ) );
+        QRegularExpressionMatch match = rx.match( contentDisposition );
+        if ( match.hasMatch() )
+        {
+          fileName = match.captured( 1 );
+        }
+      }
+
+      QFileInfo fileInfo = QFileInfo( fileName );
+      const QString fileSuffix = fileInfo.suffix().toLower();
+      if ( fileSuffix == QLatin1String( &quot;zip&quot; ) )
+      {
+        QString filePath = QStringLiteral( &quot;%1/plugins/%2&quot; ).arg( dataDir, fileName );
+        QDir( QFileInfo( filePath ).absolutePath() ).mkpath( &quot;.&quot; );
+        QFile file( filePath );
+        if ( file.open( QIODevice::WriteOnly ) )
+        {
+          const QByteArray data = reply-&gt;readAll();
+          file.write( data );
+          file.close();
+
+          bool pluginDirectoryWithinZip = false;
+          QString pluginDirectoryName;
+          QStringList zipFiles = QgsZipUtils::files( filePath );
+          if ( !zipFiles.isEmpty() &amp;&amp; !zipFiles.contains( &quot;main.qml&quot; ) &amp;&amp; zipFiles.at( 0 ).indexOf( '/' ) &gt;= 0 )
+          {
+            pluginDirectoryName = zipFiles.at( 0 ).mid( 0, zipFiles.at( 0 ).indexOf( '/' ) );
+            pluginDirectoryWithinZip = true;
+          }
+          if ( zipFiles.contains( QStringLiteral( &quot;%1main.qml&quot; ).arg( !pluginDirectoryName.isEmpty() ? pluginDirectoryName + &quot;/&quot; : QString() ) ) )
+          {
+            // Insure no previous version is running
+            disableAppPlugin( fileInfo.completeBaseName() );
+
+            // Remove the .zip suffix as well as version information (e.g. myplugin-v1.0.zip becomes myplugin)
+            if ( !pluginDirectoryWithinZip )
+            {
+              pluginDirectoryName = fileName.replace( QRegularExpression( &quot;(-v?\\d+(\\.\\d+)*)?.zIP$&quot;, QRegularExpression::CaseInsensitiveOption ), QString() );
+            }
+
+            if ( mPluginModel-&gt;hasPluginInformation( pluginDirectoryName ) )
+            {
+              PluginInformation pluginInformation = mPluginModel-&gt;pluginInformation( pluginDirectoryName );
+              if ( pluginInformation.remotelyAvailable &amp;&amp; pluginInformation.downloadLink != url )
+              {
+                error = tr( &quot;The requested plugin URL is present in the available plugins list, please install via its download button&quot; );
+                emit installEnded( QString(), error );
+                return;
+              }
+            }
+
+            QDir pluginDirectory = QStringLiteral( &quot;%1/plugins/%2&quot; ).arg( dataDir, pluginDirectoryName );
+            if ( pluginDirectory.exists() )
+            {
+              pluginDirectory.removeRecursively();
+            }
+            pluginDirectory.mkpath( &quot;.&quot; );
+            if ( pluginDirectoryWithinZip )
+            {
+              pluginDirectory.cdUp();
+            }
+            if ( QgsZipUtils::unzip( filePath, pluginDirectory.absolutePath(), zipFiles, false ) )
+            {
+              file.remove();
+
+              mPluginModel-&gt;refresh( false );
+              emit installEnded( pluginDirectoryName );
+
+              return;
+            }
+            else
+            {
+              pluginDirectory.removeRecursively();
+              error = tr( &quot;The downloaded zip file could not be decompressed&quot; );
+            }
+          }
+          else
+          {
+            error = tr( &quot;The downloaded zip file does not contain the required main.qml plugin file&quot; );
+          }
+          file.remove();
+        }
+        else
+        {
+          error = tr( &quot;Can't save the downloaded file&quot; );
+        }
+      }
+      else
+      {
+        error = tr( &quot;Download file is not an zipped plugin&quot; );
+      }
+    }
+    else
+    {
+      error = tr( &quot;Network error&quot; );
+    }
+
+    emit installEnded( QString(), error );
+  } );
+}
+
+void PluginManager::uninstall( const QString &amp;uuid )
+{
+  if ( mPluginModel-&gt;hasPluginInformation( uuid ) )
+  {
+    disableAppPlugin( uuid );
+
+    QFileInfo fi( mPluginModel-&gt;pluginInformation( uuid ).path );
+    fi.absoluteDir().removeRecursively();
+
+    mPluginModel-&gt;refresh( false );
+  }
+}
+
+QString PluginManager::findProjectPlugin( const QString &amp;projectPath )
+{
+  const QFileInfo fi( projectPath );
+  const QString completeBaseName = fi.completeBaseName();
+  QStringList possiblePluginPaths = QStringList() &lt;&lt; QStringLiteral( &quot;%1/%2.qml&quot; ).arg( fi.absolutePath(), completeBaseName );
+  // Cloud-served projects come with a _cloud suffix, take that into account
+  if ( completeBaseName.endsWith( &quot;_qfield&quot; ) )
+  {
+    possiblePluginPaths &lt;&lt; QStringLiteral( &quot;%1/%2.qml&quot; ).arg( fi.absolutePath(), fi.completeBaseName().mid( 0, completeBaseName.size() - 7 ) );
+  }
+  for ( QString &amp;possiblePluginPath : possiblePluginPaths )
+  {
+    if ( QFileInfo::exists( possiblePluginPath ) )
+    {
+      return possiblePluginPath;
+    }
+  }
+  return QString();
+}
+
+void PluginManager::callPluginMethod( const QString &amp;uuid, const QString &amp;methodName ) const
+{
+  if ( !mPluginModel-&gt;hasPluginInformation( uuid ) )
+  {
+    return;
+  }
+
+  const QString pluginPath = mPluginModel-&gt;pluginInformation( uuid ).path;
+  if ( !mLoadedPlugins.contains( pluginPath ) )
+  {
+    return;
+  }
+
+  const QPointer&lt;QObject&gt; object = mLoadedPlugins[pluginPath];
+
+  QByteArray normalizedSignature = QMetaObject::normalizedSignature( ( methodName + &quot;()&quot; ).toStdString().c_str() );
+  const int methodIndex = object-&gt;metaObject()-&gt;indexOfSlot( normalizedSignature.constData() );
+
+  if ( methodIndex != -1 )
+  {
+    QMetaObject::invokeMethod( object.data(), methodName.toStdString().c_str() );
+  }
+}
+
+PluginModel *PluginManager::pluginModel() const
+{
+  return mPluginModel;
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

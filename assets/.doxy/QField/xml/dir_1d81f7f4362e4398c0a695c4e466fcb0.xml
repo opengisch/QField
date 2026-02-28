@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_1d81f7f4362e4398c0a695c4e466fcb0" kind="dir">
+    <compoundname>src/qml</compoundname>
+    <innerdir refid="dir_47cbdfc3401e26ec6b0f990982ff02ef">src/qml/3d</innerdir>
+    <innerdir refid="dir_a00d444b399c5bcccd8697d65fbda43e">src/qml/cogoparameterwidgets</innerdir>
+    <innerdir refid="dir_7621275d8427768f32eeef555af1c8d1">src/qml/editorwidgets</innerdir>
+    <innerdir refid="dir_a044c600d9d985eeadf51620d76e3ed0">src/qml/geometryeditors</innerdir>
+    <innerdir refid="dir_3be62dd4600925273911e91e0c7964f3">src/qml/imports</innerdir>
+    <innerdir refid="dir_845aa3fe93488bbf89a398aeca40ac68">src/qml/processingparameterwidgets</innerdir>
+    <innerfile refid="About_8qml">About.qml</innerfile>
+    <innerfile refid="BadLayerItem_8qml">BadLayerItem.qml</innerfile>
+    <innerfile refid="BluetoothDeviceChooser_8qml">BluetoothDeviceChooser.qml</innerfile>
+    <innerfile refid="BookmarkHighlight_8qml">BookmarkHighlight.qml</innerfile>
+    <innerfile refid="BookmarkProperties_8qml">BookmarkProperties.qml</innerfile>
+    <innerfile refid="BookmarkRenderer_8qml">BookmarkRenderer.qml</innerfile>
+    <innerfile refid="BrowserPanel_8qml">BrowserPanel.qml</innerfile>
+    <innerfile refid="BusyOverlay_8qml">BusyOverlay.qml</innerfile>
+    <innerfile refid="Changelog_8qml">Changelog.qml</innerfile>
+    <innerfile refid="CodeReader_8qml">CodeReader.qml</innerfile>
+    <innerfile refid="CogoOperationPreview_8qml">CogoOperationPreview.qml</innerfile>
+    <innerfile refid="CogoOperations_8qml">CogoOperations.qml</innerfile>
+    <innerfile refid="CogoOperationSettings_8qml">CogoOperationSettings.qml</innerfile>
+    <innerfile refid="ConfirmationToolbar_8qml">ConfirmationToolbar.qml</innerfile>
+    <innerfile refid="CoordinateLocator_8qml">CoordinateLocator.qml</innerfile>
+    <innerfile refid="DashBoard_8qml">DashBoard.qml</innerfile>
+    <innerfile refid="DigitizingToolbar_8qml">DigitizingToolbar.qml</innerfile>
+    <innerfile refid="Dummy_8qml">Dummy.qml</innerfile>
+    <innerfile refid="EgenioussDeviceChooser_8qml">EgenioussDeviceChooser.qml</innerfile>
+    <innerfile refid="ElevationProfile_8qml">ElevationProfile.qml</innerfile>
+    <innerfile refid="EmbeddedFeatureForm_8qml">EmbeddedFeatureForm.qml</innerfile>
+    <innerfile refid="FeatureForm_8qml">FeatureForm.qml</innerfile>
+    <innerfile refid="FeatureListForm_8qml">FeatureListForm.qml</innerfile>
+    <innerfile refid="FeatureListSelectionHighlight_8qml">FeatureListSelectionHighlight.qml</innerfile>
+    <innerfile refid="FileDeviceChooser_8qml">FileDeviceChooser.qml</innerfile>
+    <innerfile refid="GeometryEditorsToolbar_8qml">GeometryEditorsToolbar.qml</innerfile>
+    <innerfile refid="GeometryHighlighter_8qml">GeometryHighlighter.qml</innerfile>
+    <innerfile refid="GeometryRenderer_8qml">GeometryRenderer.qml</innerfile>
+    <innerfile refid="GridRenderer_8qml">GridRenderer.qml</innerfile>
+    <innerfile refid="ImageDial_8qml">ImageDial.qml</innerfile>
+    <innerfile refid="InformationDrawer_8qml">InformationDrawer.qml</innerfile>
+    <innerfile refid="LayerLoginDialog_8qml">LayerLoginDialog.qml</innerfile>
+    <innerfile refid="LayerTreeItemProperties_8qml">LayerTreeItemProperties.qml</innerfile>
+    <innerfile refid="Legend_8qml">Legend.qml</innerfile>
+    <innerfile refid="LinePolygon_8qml">LinePolygon.qml</innerfile>
+    <innerfile refid="LocationMarker_8qml">LocationMarker.qml</innerfile>
+    <innerfile refid="LocatorItem_8qml">LocatorItem.qml</innerfile>
+    <innerfile refid="LocatorSettings_8qml">LocatorSettings.qml</innerfile>
+    <innerfile refid="MapCanvas_8qml">MapCanvas.qml</innerfile>
+    <innerfile refid="MapCanvasPointHandler_8qml">MapCanvasPointHandler.qml</innerfile>
+    <innerfile refid="MeasuringTool_8qml">MeasuringTool.qml</innerfile>
+    <innerfile refid="MessageLog_8qml">MessageLog.qml</innerfile>
+    <innerfile refid="NavigationBar_8qml">NavigationBar.qml</innerfile>
+    <innerfile refid="NavigationHighlight_8qml">NavigationHighlight.qml</innerfile>
+    <innerfile refid="NavigationInformationView_8qml">NavigationInformationView.qml</innerfile>
+    <innerfile refid="NavigationRenderer_8qml">NavigationRenderer.qml</innerfile>
+    <innerfile refid="NotesItem_8qml">NotesItem.qml</innerfile>
+    <innerfile refid="Nyuki_8qml">Nyuki.qml</innerfile>
+    <innerfile refid="OverlayFeatureFormDrawer_8qml">OverlayFeatureFormDrawer.qml</innerfile>
+    <innerfile refid="PluginItem_8qml">PluginItem.qml</innerfile>
+    <innerfile refid="PluginManagerSettings_8qml">PluginManagerSettings.qml</innerfile>
+    <innerfile refid="PositioningDeviceSettings_8qml">PositioningDeviceSettings.qml</innerfile>
+    <innerfile refid="PositioningInformationView_8qml">PositioningInformationView.qml</innerfile>
+    <innerfile refid="PositioningPreciseView_8qml">PositioningPreciseView.qml</innerfile>
+    <innerfile refid="PositioningSettings_8qml">PositioningSettings.qml</innerfile>
+    <innerfile refid="ProcessingAlgorithmForm_8qml">ProcessingAlgorithmForm.qml</innerfile>
+    <innerfile refid="ProcessingAlgorithmPreview_8qml">ProcessingAlgorithmPreview.qml</innerfile>
+    <innerfile refid="ProcessingAlgorithmsList_8qml">ProcessingAlgorithmsList.qml</innerfile>
+    <innerfile refid="ProjectCreationScreen_8qml">ProjectCreationScreen.qml</innerfile>
+    <innerfile refid="QFieldAudioRecorder_8qml">QFieldAudioRecorder.qml</innerfile>
+    <innerfile refid="QFieldCamera_8qml">QFieldCamera.qml</innerfile>
+    <innerfile refid="QFieldCloudDeltaHistory_8qml">QFieldCloudDeltaHistory.qml</innerfile>
+    <innerfile refid="QFieldCloudLogin_8qml">QFieldCloudLogin.qml</innerfile>
+    <innerfile refid="QFieldCloudPackageLayersFeedback_8qml">QFieldCloudPackageLayersFeedback.qml</innerfile>
+    <innerfile refid="QFieldCloudPopup_8qml">QFieldCloudPopup.qml</innerfile>
+    <innerfile refid="QFieldCloudProjectDetails_8qml">QFieldCloudProjectDetails.qml</innerfile>
+    <innerfile refid="QFieldCloudScreen_8qml">QFieldCloudScreen.qml</innerfile>
+    <innerfile refid="QFieldGuide_8qml">QFieldGuide.qml</innerfile>
+    <innerfile refid="QFieldLocalDataPickerScreen_8qml">QFieldLocalDataPickerScreen.qml</innerfile>
+    <innerfile refid="QFieldSettings_8qml">QFieldSettings.qml</innerfile>
+    <innerfile refid="QFieldSketcher_8qml">QFieldSketcher.qml</innerfile>
+    <innerfile refid="qgismobileapp_8qml">qgismobileapp.qml</innerfile>
+    <innerfile refid="RelationCombobox_8qml">RelationCombobox.qml</innerfile>
+    <innerfile refid="Rubberband_8qml">Rubberband.qml</innerfile>
+    <innerfile refid="ScaleBar_8qml">ScaleBar.qml</innerfile>
+    <innerfile refid="ScreenLocker_8qml">ScreenLocker.qml</innerfile>
+    <innerfile refid="SensorInformationView_8qml">SensorInformationView.qml</innerfile>
+    <innerfile refid="SerialPortDeviceChooser_8qml">SerialPortDeviceChooser.qml</innerfile>
+    <innerfile refid="TcpDeviceChooser_8qml">TcpDeviceChooser.qml</innerfile>
+    <innerfile refid="TemporalProperties_8qml">TemporalProperties.qml</innerfile>
+    <innerfile refid="Toast_8qml">Toast.qml</innerfile>
+    <innerfile refid="TrackerFeatureForm_8qml">TrackerFeatureForm.qml</innerfile>
+    <innerfile refid="TrackerSettings_8qml">TrackerSettings.qml</innerfile>
+    <innerfile refid="TrackingSession_8qml">TrackingSession.qml</innerfile>
+    <innerfile refid="UdpDeviceChooser_8qml">UdpDeviceChooser.qml</innerfile>
+    <innerfile refid="VariableEditor_8qml">VariableEditor.qml</innerfile>
+    <innerfile refid="VertexRubberband_8qml">VertexRubberband.qml</innerfile>
+    <innerfile refid="WelcomeScreen_8qml">WelcomeScreen.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/qml/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1315 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQgisMobileapp" kind="class" language="C++" prot="public">
+    <compoundname>QgisMobileapp</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQmlApplicationEngine</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQgisMobileapp_1a63cdb6b7220adb28a6619b779b6b3e69" prot="private" static="no" mutable="no">
+        <type>QgsOfflineEditing *</type>
+        <definition>QgsOfflineEditing* QgisMobileapp::mOfflineEditing</definition>
+        <argsstring></argsstring>
+        <name>mOfflineEditing</name>
+        <qualifiedname>QgisMobileapp::mOfflineEditing</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="223" column="23" bodyfile="src/core/qgismobileapp.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a035690f98baa782f1bf5879081ca6876" prot="private" static="no" mutable="no">
+        <type><ref refid="classLayerTreeMapCanvasBridge" kindref="compound">LayerTreeMapCanvasBridge</ref> *</type>
+        <definition>LayerTreeMapCanvasBridge* QgisMobileapp::mLayerTreeCanvasBridge</definition>
+        <argsstring></argsstring>
+        <name>mLayerTreeCanvasBridge</name>
+        <qualifiedname>QgisMobileapp::mLayerTreeCanvasBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="224" column="30" bodyfile="src/core/qgismobileapp.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a578723528730190917b10d406379feb7" prot="private" static="no" mutable="no">
+        <type><ref refid="classFlatLayerTreeModel" kindref="compound">FlatLayerTreeModel</ref> *</type>
+        <definition>FlatLayerTreeModel* QgisMobileapp::mFlatLayerTree</definition>
+        <argsstring></argsstring>
+        <name>mFlatLayerTree</name>
+        <qualifiedname>QgisMobileapp::mFlatLayerTree</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="225" column="24" bodyfile="src/core/qgismobileapp.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a2a1d8e1b3bfafd3e5259ff072b38336b" prot="private" static="no" mutable="no">
+        <type>QgsMapLayerProxyModel *</type>
+        <definition>QgsMapLayerProxyModel* QgisMobileapp::mLayerList</definition>
+        <argsstring></argsstring>
+        <name>mLayerList</name>
+        <qualifiedname>QgisMobileapp::mLayerList</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="226" column="27" bodyfile="src/core/qgismobileapp.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a9a1582172a611f1fcbd608ec5a806969" prot="private" static="no" mutable="no">
+        <type><ref refid="classAppInterface" kindref="compound">AppInterface</ref> *</type>
+        <definition>AppInterface* QgisMobileapp::mIface</definition>
+        <argsstring></argsstring>
+        <name>mIface</name>
+        <qualifiedname>QgisMobileapp::mIface</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="227" column="18" bodyfile="src/core/qgismobileapp.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a1fb2622ac221fd5a71f9bb6ebbd1fdb6" prot="private" static="no" mutable="no">
+        <type><ref refid="classSettings" kindref="compound">Settings</ref></type>
+        <definition>Settings QgisMobileapp::mSettings</definition>
+        <argsstring></argsstring>
+        <name>mSettings</name>
+        <qualifiedname>QgisMobileapp::mSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="228" column="14" bodyfile="src/core/qgismobileapp.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a42568da70c996bcea43ea7ad5b31a903" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQgsQuickMapCanvasMap" kindref="compound">QgsQuickMapCanvasMap</ref> &gt;</type>
+        <definition>QPointer&lt;QgsQuickMapCanvasMap&gt; QgisMobileapp::mMapCanvas</definition>
+        <argsstring></argsstring>
+        <name>mMapCanvas</name>
+        <qualifiedname>QgisMobileapp::mMapCanvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="229" column="14" bodyfile="src/core/qgismobileapp.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a0dc27b3e3ec6dcf69a6b29dfaeb81e23" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgisMobileapp::mFirstRenderingFlag</definition>
+        <argsstring></argsstring>
+        <name>mFirstRenderingFlag</name>
+        <qualifiedname>QgisMobileapp::mFirstRenderingFlag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="230" column="10" bodyfile="src/core/qgismobileapp.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1ad281a151de32d3eab45000bfdfeedc85" prot="private" static="no" mutable="no">
+        <type><ref refid="classLegendImageProvider" kindref="compound">LegendImageProvider</ref> *</type>
+        <definition>LegendImageProvider* QgisMobileapp::mLegendImageProvider</definition>
+        <argsstring></argsstring>
+        <name>mLegendImageProvider</name>
+        <qualifiedname>QgisMobileapp::mLegendImageProvider</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="231" column="25" bodyfile="src/core/qgismobileapp.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a4b291590783139956857e1b24186a50a" prot="private" static="no" mutable="no">
+        <type><ref refid="classAsyncLegendImageProvider" kindref="compound">AsyncLegendImageProvider</ref> *</type>
+        <definition>AsyncLegendImageProvider* QgisMobileapp::mAsyncLegendImageProvider</definition>
+        <argsstring></argsstring>
+        <name>mAsyncLegendImageProvider</name>
+        <qualifiedname>QgisMobileapp::mAsyncLegendImageProvider</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="232" column="30" bodyfile="src/core/qgismobileapp.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a9121044c522cf59c4b990ec3fc9859ca" prot="private" static="no" mutable="no">
+        <type><ref refid="classLocalFilesImageProvider" kindref="compound">LocalFilesImageProvider</ref> *</type>
+        <definition>LocalFilesImageProvider* QgisMobileapp::mLocalFilesImageProvider</definition>
+        <argsstring></argsstring>
+        <name>mLocalFilesImageProvider</name>
+        <qualifiedname>QgisMobileapp::mLocalFilesImageProvider</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="233" column="29" bodyfile="src/core/qgismobileapp.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1ab690329cb2d96b1d2fd232452a6cc2c2" prot="private" static="no" mutable="no">
+        <type><ref refid="classProjectsImageProvider" kindref="compound">ProjectsImageProvider</ref> *</type>
+        <definition>ProjectsImageProvider* QgisMobileapp::mProjectsImageProvider</definition>
+        <argsstring></argsstring>
+        <name>mProjectsImageProvider</name>
+        <qualifiedname>QgisMobileapp::mProjectsImageProvider</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="234" column="27" bodyfile="src/core/qgismobileapp.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a668a31ac0f1e5c85e6cc5c66f45436bf" prot="private" static="no" mutable="no">
+        <type><ref refid="classBarcodeImageProvider" kindref="compound">BarcodeImageProvider</ref> *</type>
+        <definition>BarcodeImageProvider* QgisMobileapp::mBarcodeImageProvider</definition>
+        <argsstring></argsstring>
+        <name>mBarcodeImageProvider</name>
+        <qualifiedname>QgisMobileapp::mBarcodeImageProvider</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="235" column="26" bodyfile="src/core/qgismobileapp.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1ada79618f8ed36a74515fa86d5207fe3b" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QgisMobileapp::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QgisMobileapp::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="237" column="16" bodyfile="src/core/qgismobileapp.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a40448e3f1983123c0d2e8ce6dcfd718d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QgisMobileapp::mProjectFilePath</definition>
+        <argsstring></argsstring>
+        <name>mProjectFilePath</name>
+        <qualifiedname>QgisMobileapp::mProjectFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="238" column="13" bodyfile="src/core/qgismobileapp.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a2500f27d068a57062d9bee6e9c06262f" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QgisMobileapp::mProjectFileName</definition>
+        <argsstring></argsstring>
+        <name>mProjectFileName</name>
+        <qualifiedname>QgisMobileapp::mProjectFileName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="239" column="13" bodyfile="src/core/qgismobileapp.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a018b712111c9d294a3ddcbe76bd195f8" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classQgsGpkgFlusher" kindref="compound">QgsGpkgFlusher</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;QgsGpkgFlusher&gt; QgisMobileapp::mGpkgFlusher</definition>
+        <argsstring></argsstring>
+        <name>mGpkgFlusher</name>
+        <qualifiedname>QgisMobileapp::mGpkgFlusher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="241" column="21" bodyfile="src/core/qgismobileapp.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1af1c4d2860db1c629b06d4296d1e299a0" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classLayerObserver" kindref="compound">LayerObserver</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;LayerObserver&gt; QgisMobileapp::mLayerObserver</definition>
+        <argsstring></argsstring>
+        <name>mLayerObserver</name>
+        <qualifiedname>QgisMobileapp::mLayerObserver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="242" column="21" bodyfile="src/core/qgismobileapp.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a3b4d5eec90a272bbbeb2ded0020c5b50" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classFeatureHistory" kindref="compound">FeatureHistory</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;FeatureHistory&gt; QgisMobileapp::mFeatureHistory</definition>
+        <argsstring></argsstring>
+        <name>mFeatureHistory</name>
+        <qualifiedname>QgisMobileapp::mFeatureHistory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="243" column="21" bodyfile="src/core/qgismobileapp.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a10189df55464a3527f0121954e638bad" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classClipboardManager" kindref="compound">ClipboardManager</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;ClipboardManager&gt; QgisMobileapp::mClipboardManager</definition>
+        <argsstring></argsstring>
+        <name>mClipboardManager</name>
+        <qualifiedname>QgisMobileapp::mClipboardManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="244" column="21" bodyfile="src/core/qgismobileapp.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a67b5d93c4f75b4cdc2f7c3899ed58760" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldAppAuthRequestHandler" kindref="compound">QFieldAppAuthRequestHandler</ref> *</type>
+        <definition>QFieldAppAuthRequestHandler* QgisMobileapp::mAuthRequestHandler</definition>
+        <argsstring></argsstring>
+        <name>mAuthRequestHandler</name>
+        <qualifiedname>QgisMobileapp::mAuthRequestHandler</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="246" column="33" bodyfile="src/core/qgismobileapp.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1ad61e05c489c0826059b86aea7a6f4faf" prot="private" static="no" mutable="no">
+        <type><ref refid="classBookmarkModel" kindref="compound">BookmarkModel</ref> *</type>
+        <definition>BookmarkModel* QgisMobileapp::mBookmarkModel</definition>
+        <argsstring></argsstring>
+        <name>mBookmarkModel</name>
+        <qualifiedname>QgisMobileapp::mBookmarkModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="248" column="19" bodyfile="src/core/qgismobileapp.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a260ea8e0fe1a207f33692dba02eecc59" prot="private" static="no" mutable="no">
+        <type><ref refid="classDrawingTemplateModel" kindref="compound">DrawingTemplateModel</ref> *</type>
+        <definition>DrawingTemplateModel* QgisMobileapp::mDrawingTemplateModel</definition>
+        <argsstring></argsstring>
+        <name>mDrawingTemplateModel</name>
+        <qualifiedname>QgisMobileapp::mDrawingTemplateModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="249" column="26" bodyfile="src/core/qgismobileapp.h" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a320f2d8c9ccdcaeb3ac242903390770b" prot="private" static="no" mutable="no">
+        <type><ref refid="classMessageLogModel" kindref="compound">MessageLogModel</ref> *</type>
+        <definition>MessageLogModel* QgisMobileapp::mMessageLogModel</definition>
+        <argsstring></argsstring>
+        <name>mMessageLogModel</name>
+        <qualifiedname>QgisMobileapp::mMessageLogModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="250" column="21" bodyfile="src/core/qgismobileapp.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a8ce9074b9f06230f6f98e84453960b03" prot="private" static="no" mutable="no">
+        <type><ref refid="classPluginManager" kindref="compound">PluginManager</ref> *</type>
+        <definition>PluginManager* QgisMobileapp::mPluginManager</definition>
+        <argsstring></argsstring>
+        <name>mPluginManager</name>
+        <qualifiedname>QgisMobileapp::mPluginManager</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="252" column="19" bodyfile="src/core/qgismobileapp.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a55f996c9873bbd17f8b5ff56a8b2cdaf" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classCogoRegistry" kindref="compound">CogoRegistry</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;CogoRegistry&gt; QgisMobileapp::mCogoRegistry</definition>
+        <argsstring></argsstring>
+        <name>mCogoRegistry</name>
+        <qualifiedname>QgisMobileapp::mCogoRegistry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="254" column="21" bodyfile="src/core/qgismobileapp.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a9bb1e3cbd63ce2c81c311fd24e34e39a" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QgisMobileapp::mCrsFactory</definition>
+        <argsstring></argsstring>
+        <name>mCrsFactory</name>
+        <qualifiedname>QgisMobileapp::mCrsFactory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="257" column="34" bodyfile="src/core/qgismobileapp.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1ab5c3985aa3158df5642716223a8df0e0" prot="private" static="no" mutable="no">
+        <type>QgsUnitTypes</type>
+        <definition>QgsUnitTypes QgisMobileapp::mUnitTypes</definition>
+        <argsstring></argsstring>
+        <name>mUnitTypes</name>
+        <qualifiedname>QgisMobileapp::mUnitTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="258" column="18" bodyfile="src/core/qgismobileapp.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a63062a3d15228e3ada66e151a312c546" prot="private" static="no" mutable="no">
+        <type>QgsExifTools</type>
+        <definition>QgsExifTools QgisMobileapp::mExifTools</definition>
+        <argsstring></argsstring>
+        <name>mExifTools</name>
+        <qualifiedname>QgisMobileapp::mExifTools</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="259" column="18" bodyfile="src/core/qgismobileapp.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a9558982fc92eeab3cdefad683996b5c1" prot="private" static="no" mutable="no">
+        <type><ref refid="classTrackingModel" kindref="compound">TrackingModel</ref> *</type>
+        <definition>TrackingModel* QgisMobileapp::mTrackingModel</definition>
+        <argsstring></argsstring>
+        <name>mTrackingModel</name>
+        <qualifiedname>QgisMobileapp::mTrackingModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="261" column="19" bodyfile="src/core/qgismobileapp.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a549775bc86414c4f3bfdc9ce723ae7c3" prot="private" static="no" mutable="no">
+        <type><ref refid="classAppMissingGridHandler" kindref="compound">AppMissingGridHandler</ref> *</type>
+        <definition>AppMissingGridHandler* QgisMobileapp::mAppMissingGridHandler</definition>
+        <argsstring></argsstring>
+        <name>mAppMissingGridHandler</name>
+        <qualifiedname>QgisMobileapp::mAppMissingGridHandler</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="263" column="27" bodyfile="src/core/qgismobileapp.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a49e76dc4186a31a91a8df373308a1ebe" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classScreenDimmer" kindref="compound">ScreenDimmer</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;ScreenDimmer&gt; QgisMobileapp::mScreenDimmer</definition>
+        <argsstring></argsstring>
+        <name>mScreenDimmer</name>
+        <qualifiedname>QgisMobileapp::mScreenDimmer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="265" column="21" bodyfile="src/core/qgismobileapp.h" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1a288c192256e18ab64c586385755720ec" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classQFieldUrlHandler" kindref="compound">QFieldUrlHandler</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;QFieldUrlHandler&gt; QgisMobileapp::mUrlHandler</definition>
+        <argsstring></argsstring>
+        <name>mUrlHandler</name>
+        <qualifiedname>QgisMobileapp::mUrlHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="266" column="21" bodyfile="src/core/qgismobileapp.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgisMobileapp_1aef43553938771acf5ea1d41fc6d44d4b" prot="private" static="no" mutable="no">
+        <type>QgsApplication *</type>
+        <definition>QgsApplication* QgisMobileapp::mApp</definition>
+        <argsstring></argsstring>
+        <name>mApp</name>
+        <qualifiedname>QgisMobileapp::mApp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="267" column="20" bodyfile="src/core/qgismobileapp.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQgisMobileapp_1a54139150e3649f95ee4adc49ccfddf60" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgisMobileapp::QgisMobileapp</definition>
+        <argsstring>(QgsApplication *app, QObject *parent=nullptr)</argsstring>
+        <name>QgisMobileapp</name>
+        <qualifiedname>QgisMobileapp::QgisMobileapp</qualifiedname>
+        <param>
+          <type>QgsApplication *</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="79" column="14" bodyfile="src/core/qgismobileapp.cpp" bodystart="218" bodyend="399"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a959728493afbc03e2f47dafe0d0032c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgisMobileapp::~QgisMobileapp</definition>
+        <argsstring>() override</argsstring>
+        <name>~QgisMobileapp</name>
+        <qualifiedname>QgisMobileapp::~QgisMobileapp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="80" column="5" bodyfile="src/core/qgismobileapp.cpp" bodystart="1515" bodyend="1531"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1ab05b42e5d7210e77a5581a91cc71c42b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; QPair&lt; QString, QString &gt; &gt;</type>
+        <definition>QList&lt; QPair&lt; QString, QString &gt; &gt; QgisMobileapp::recentProjects</definition>
+        <argsstring>()</argsstring>
+        <name>recentProjects</name>
+        <qualifiedname>QgisMobileapp::recentProjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of recent projects. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="85" column="11" bodyfile="src/core/qgismobileapp.cpp" bodystart="700" bodyend="721"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a3658a585331f0338e384cf1d910a1835" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::saveRecentProjects</definition>
+        <argsstring>(const QList&lt; QPair&lt; QString, QString &gt; &gt; &amp;projects)</argsstring>
+        <name>saveRecentProjects</name>
+        <qualifiedname>QgisMobileapp::saveRecentProjects</qualifiedname>
+        <param>
+          <type>const QList&lt; QPair&lt; QString, QString &gt; &gt; &amp;</type>
+          <declname>projects</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves a list of recent <emphasis>projects</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="90" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="723" bodyend="734"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a58878b0197899f9492e2fcb1e1062fcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::removeRecentProject</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>removeRecentProject</name>
+        <qualifiedname>QgisMobileapp::removeRecentProject</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the project with a given <emphasis>path</emphasis> from the list of recent projects </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="95" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="686" bodyend="698"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a6a2fc4aedc0fbd8f8ced791afa836e95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgisMobileapp::loadProjectFile</definition>
+        <argsstring>(const QString &amp;path, const QString &amp;name=QString())</argsstring>
+        <name>loadProjectFile</name>
+        <qualifiedname>QgisMobileapp::loadProjectFile</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the project or dataset file path to be loaded.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project or dataset file to load </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The actual loading is done in readProjectFile </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="104" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="788" bodyend="816"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a7b4797048673292f5a0a6257b1a44109" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::reloadProjectFile</definition>
+        <argsstring>()</argsstring>
+        <name>reloadProjectFile</name>
+        <qualifiedname>QgisMobileapp::reloadProjectFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reloads the current project</para>
+<para><simplesect kind="note"><para>It does not reset the Auth Request Handler. </para>
+</simplesect>
+<simplesect kind="note"><para>The actual loading is done in readProjectFile </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="112" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="818" bodyend="824"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1aa664d266af8bcdfbd0633d78f7c736fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::readProjectFile</definition>
+        <argsstring>()</argsstring>
+        <name>readProjectFile</name>
+        <qualifiedname>QgisMobileapp::readProjectFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads and opens the project file set in the loadProjectFile function </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="117" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="826" bodyend="1251"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1acb7878249a01a16dd27b61d5179e1195" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QgisMobileapp::readProjectEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, const QString &amp;def=QString()) const</argsstring>
+        <name>readProjectEntry</name>
+        <qualifiedname>QgisMobileapp::readProjectEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>def</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a string from the specified <emphasis>scope</emphasis> and <emphasis>key</emphasis> from the currently opened project</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified <emphasis>key</emphasis> does not exist within the <emphasis>scope</emphasis> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>entry value as string from <emphasis>scope</emphasis> given its <emphasis>key</emphasis> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="128" column="13" bodyfile="src/core/qgismobileapp.cpp" bodystart="1253" bodyend="1259"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a4cc94cb1c97fbf1d8da1479b72742104" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QgisMobileapp::readProjectNumEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, int def=0) const</argsstring>
+        <name>readProjectNumEntry</name>
+        <qualifiedname>QgisMobileapp::readProjectNumEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>def</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads an integer from the specified <emphasis>scope</emphasis> and <emphasis>key</emphasis> from the currently opened project</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified <emphasis>key</emphasis> does not exist within the <emphasis>scope</emphasis> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>entry value as integer from <emphasis>scope</emphasis> given its <emphasis>key</emphasis> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="139" column="9" bodyfile="src/core/qgismobileapp.cpp" bodystart="1261" bodyend="1267"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1aa3c6091da12efd66d08181abd49cdb37" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgisMobileapp::readProjectDoubleEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, double def=0.0) const</argsstring>
+        <name>readProjectDoubleEntry</name>
+        <qualifiedname>QgisMobileapp::readProjectDoubleEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>def</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a double from the specified <emphasis>scope</emphasis> and <emphasis>key</emphasis> from the currently opened project</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified <emphasis>key</emphasis> does not exist within the <emphasis>scope</emphasis> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>entry value as double from <emphasis>scope</emphasis> given its <emphasis>key</emphasis> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="150" column="12" bodyfile="src/core/qgismobileapp.cpp" bodystart="1269" bodyend="1275"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a21ddc89e9ff9e93cb41480ac680198f8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgisMobileapp::readProjectBoolEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, bool def=false) const</argsstring>
+        <name>readProjectBoolEntry</name>
+        <qualifiedname>QgisMobileapp::readProjectBoolEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>def</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a boolean from the specified <emphasis>scope</emphasis> and <emphasis>key</emphasis> from the currently opened project</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified <emphasis>key</emphasis> does not exist within the <emphasis>scope</emphasis> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>entry value as boolean from <emphasis>scope</emphasis> given its <emphasis>key</emphasis> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="161" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="1277" bodyend="1283"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a9fbe70b00c7a7bbdeb9670566258eae8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgisMobileapp::print</definition>
+        <argsstring>(const QString &amp;layoutName)</argsstring>
+        <name>print</name>
+        <qualifiedname>QgisMobileapp::print</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layoutName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints a given layout from the currently opened project to a PDF file <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layoutName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layout name that will be printed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TRUE if the layout was successfully printed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="168" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="1285" bodyend="1365"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a573796c08edb57d3a83ca8c17a33784c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgisMobileapp::printAtlasFeatures</definition>
+        <argsstring>(const QString &amp;layoutName, const QList&lt; long long &gt; &amp;featureIds)</argsstring>
+        <name>printAtlasFeatures</name>
+        <qualifiedname>QgisMobileapp::printAtlasFeatures</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layoutName</declname>
+        </param>
+        <param>
+          <type>const QList&lt; long long &gt; &amp;</type>
+          <declname>featureIds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints a given atlas-driven layout from the currently opened project to one or more PDF files <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layoutName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layout name that will be printed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>featureIds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the features from the atlas coverage vector layer that will be used to print the layout </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TRUE if the layout was successfully printed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="176" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="1367" bodyend="1423"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a5a7972f2e1c9922103d57ec4cdf5c210" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::setScreenDimmerTimeout</definition>
+        <argsstring>(int timeoutSeconds)</argsstring>
+        <name>setScreenDimmerTimeout</name>
+        <qualifiedname>QgisMobileapp::setScreenDimmerTimeout</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>timeoutSeconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the screen dimmer timeout in seconds <simplesect kind="note"><para>setting the timeout value to 0 will disable the screen dimmer </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="182" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="1473" bodyend="1479"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a02836d664c44c6d48b0e85c1b0725225" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgisMobileapp::event</definition>
+        <argsstring>(QEvent *event) override</argsstring>
+        <name>event</name>
+        <qualifiedname>QgisMobileapp::event</qualifiedname>
+        <param>
+          <type>QEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="184" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="1481" bodyend="1489"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1aaa8e8bab6a9fd9e89733454bc639525a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::clearProject</definition>
+        <argsstring>()</argsstring>
+        <name>clearProject</name>
+        <qualifiedname>QgisMobileapp::clearProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clear the currently opened project back to a blank project </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="189" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="1491" bodyend="1498"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQgisMobileapp_1affa450edacade42be6b2bd6d3ab8c734" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::initDeclarative</definition>
+        <argsstring>(QQmlEngine *engine)</argsstring>
+        <name>initDeclarative</name>
+        <qualifiedname>QgisMobileapp::initDeclarative</qualifiedname>
+        <param>
+          <type>QQmlEngine *</type>
+          <declname>engine</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="191" column="17" bodyfile="src/core/qgismobileapp.cpp" bodystart="401" bodyend="639"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQgisMobileapp_1a84526f58b9d05803f129a089e788528c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::loadProjectTriggered</definition>
+        <argsstring>(const QString &amp;filename, const QString &amp;name)</argsstring>
+        <name>loadProjectTriggered</name>
+        <qualifiedname>QgisMobileapp::loadProjectTriggered</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a project file is being loaded</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The filename of the project that is being loaded </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project name that is being loaded </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="200" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgisMobileapp_1abcaaec2f409b20c8e9cc728b13b22b3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::loadProjectEnded</definition>
+        <argsstring>(const QString &amp;filename, const QString &amp;name)</argsstring>
+        <name>loadProjectEnded</name>
+        <qualifiedname>QgisMobileapp::loadProjectEnded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the project is fully loaded </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="205" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgisMobileapp_1a4c22e50a9217feb4394d556d0f38edcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::setMapExtent</definition>
+        <argsstring>(const QgsRectangle &amp;extent)</argsstring>
+        <name>setMapExtent</name>
+        <qualifiedname>QgisMobileapp::setMapExtent</qualifiedname>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>extent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a map canvas extent change is needed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="210" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQgisMobileapp_1a82c124f9f7047d17500d1172213c659c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::onAfterFirstRendering</definition>
+        <argsstring>()</argsstring>
+        <name>onAfterFirstRendering</name>
+        <qualifiedname>QgisMobileapp::onAfterFirstRendering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="214" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="736" bodyend="774"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgisMobileapp_1a3c589cc59dc3ff14be88143cfe593d05" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::onMapCanvasRefreshed</definition>
+        <argsstring>()</argsstring>
+        <name>onMapCanvasRefreshed</name>
+        <qualifiedname>QgisMobileapp::onMapCanvasRefreshed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="215" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="776" bodyend="786"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQgisMobileapp_1ae5d85beda31a14d685b40195f6938201" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::registerGlobalVariables</definition>
+        <argsstring>()</argsstring>
+        <name>registerGlobalVariables</name>
+        <qualifiedname>QgisMobileapp::registerGlobalVariables</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="218" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="641" bodyend="666"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1af87651924bb3af153b4d55a2984792fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::loadProjectQuirks</definition>
+        <argsstring>()</argsstring>
+        <name>loadProjectQuirks</name>
+        <qualifiedname>QgisMobileapp::loadProjectQuirks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="219" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="669" bodyend="684"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a2c8baff42f46783985bb81fa94c536f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgisMobileapp::saveProjectPreviewImage</definition>
+        <argsstring>()</argsstring>
+        <name>saveProjectPreviewImage</name>
+        <qualifiedname>QgisMobileapp::saveProjectPreviewImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="220" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="1500" bodyend="1513"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgisMobileapp_1a021b1a53532725e4e4049097cfd21708" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgisMobileapp::printAtlas</definition>
+        <argsstring>(QgsPrintLayout *layoutToPrint, const QString &amp;destination)</argsstring>
+        <name>printAtlas</name>
+        <qualifiedname>QgisMobileapp::printAtlas</qualifiedname>
+        <param>
+          <type>QgsPrintLayout *</type>
+          <declname>layoutToPrint</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>destination</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgismobileapp.h" line="221" column="10" bodyfile="src/core/qgismobileapp.cpp" bodystart="1425" bodyend="1471"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQmlApplicationEngine</label>
+      </node>
+      <node id="1">
+        <label>QgisMobileapp</label>
+        <link refid="classQgisMobileapp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQmlApplicationEngine</label>
+      </node>
+      <node id="1">
+        <label>QgisMobileapp</label>
+        <link refid="classQgisMobileapp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qgismobileapp.h" line="75" column="1" bodyfile="src/core/qgismobileapp.h" bodystart="76" bodyend="268"/>
+    <listofallmembers>
+      <member refid="classQgisMobileapp_1aaa8e8bab6a9fd9e89733454bc639525a" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>clearProject</name></member>
+      <member refid="classQgisMobileapp_1a02836d664c44c6d48b0e85c1b0725225" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>event</name></member>
+      <member refid="classQgisMobileapp_1affa450edacade42be6b2bd6d3ab8c734" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>initDeclarative</name></member>
+      <member refid="classQgisMobileapp_1abcaaec2f409b20c8e9cc728b13b22b3a" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>loadProjectEnded</name></member>
+      <member refid="classQgisMobileapp_1a6a2fc4aedc0fbd8f8ced791afa836e95" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>loadProjectFile</name></member>
+      <member refid="classQgisMobileapp_1af87651924bb3af153b4d55a2984792fa" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>loadProjectQuirks</name></member>
+      <member refid="classQgisMobileapp_1a84526f58b9d05803f129a089e788528c" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>loadProjectTriggered</name></member>
+      <member refid="classQgisMobileapp_1aef43553938771acf5ea1d41fc6d44d4b" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mApp</name></member>
+      <member refid="classQgisMobileapp_1a549775bc86414c4f3bfdc9ce723ae7c3" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mAppMissingGridHandler</name></member>
+      <member refid="classQgisMobileapp_1a4b291590783139956857e1b24186a50a" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mAsyncLegendImageProvider</name></member>
+      <member refid="classQgisMobileapp_1a67b5d93c4f75b4cdc2f7c3899ed58760" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mAuthRequestHandler</name></member>
+      <member refid="classQgisMobileapp_1a668a31ac0f1e5c85e6cc5c66f45436bf" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mBarcodeImageProvider</name></member>
+      <member refid="classQgisMobileapp_1ad61e05c489c0826059b86aea7a6f4faf" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mBookmarkModel</name></member>
+      <member refid="classQgisMobileapp_1a10189df55464a3527f0121954e638bad" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mClipboardManager</name></member>
+      <member refid="classQgisMobileapp_1a55f996c9873bbd17f8b5ff56a8b2cdaf" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mCogoRegistry</name></member>
+      <member refid="classQgisMobileapp_1a9bb1e3cbd63ce2c81c311fd24e34e39a" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mCrsFactory</name></member>
+      <member refid="classQgisMobileapp_1a260ea8e0fe1a207f33692dba02eecc59" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mDrawingTemplateModel</name></member>
+      <member refid="classQgisMobileapp_1a63062a3d15228e3ada66e151a312c546" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mExifTools</name></member>
+      <member refid="classQgisMobileapp_1a3b4d5eec90a272bbbeb2ded0020c5b50" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mFeatureHistory</name></member>
+      <member refid="classQgisMobileapp_1a0dc27b3e3ec6dcf69a6b29dfaeb81e23" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mFirstRenderingFlag</name></member>
+      <member refid="classQgisMobileapp_1a578723528730190917b10d406379feb7" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mFlatLayerTree</name></member>
+      <member refid="classQgisMobileapp_1a018b712111c9d294a3ddcbe76bd195f8" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mGpkgFlusher</name></member>
+      <member refid="classQgisMobileapp_1a9a1582172a611f1fcbd608ec5a806969" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mIface</name></member>
+      <member refid="classQgisMobileapp_1a2a1d8e1b3bfafd3e5259ff072b38336b" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mLayerList</name></member>
+      <member refid="classQgisMobileapp_1af1c4d2860db1c629b06d4296d1e299a0" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mLayerObserver</name></member>
+      <member refid="classQgisMobileapp_1a035690f98baa782f1bf5879081ca6876" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mLayerTreeCanvasBridge</name></member>
+      <member refid="classQgisMobileapp_1ad281a151de32d3eab45000bfdfeedc85" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mLegendImageProvider</name></member>
+      <member refid="classQgisMobileapp_1a9121044c522cf59c4b990ec3fc9859ca" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mLocalFilesImageProvider</name></member>
+      <member refid="classQgisMobileapp_1a42568da70c996bcea43ea7ad5b31a903" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mMapCanvas</name></member>
+      <member refid="classQgisMobileapp_1a320f2d8c9ccdcaeb3ac242903390770b" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mMessageLogModel</name></member>
+      <member refid="classQgisMobileapp_1a63cdb6b7220adb28a6619b779b6b3e69" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mOfflineEditing</name></member>
+      <member refid="classQgisMobileapp_1a8ce9074b9f06230f6f98e84453960b03" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mPluginManager</name></member>
+      <member refid="classQgisMobileapp_1ada79618f8ed36a74515fa86d5207fe3b" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mProject</name></member>
+      <member refid="classQgisMobileapp_1a2500f27d068a57062d9bee6e9c06262f" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mProjectFileName</name></member>
+      <member refid="classQgisMobileapp_1a40448e3f1983123c0d2e8ce6dcfd718d" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mProjectFilePath</name></member>
+      <member refid="classQgisMobileapp_1ab690329cb2d96b1d2fd232452a6cc2c2" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mProjectsImageProvider</name></member>
+      <member refid="classQgisMobileapp_1a49e76dc4186a31a91a8df373308a1ebe" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mScreenDimmer</name></member>
+      <member refid="classQgisMobileapp_1a1fb2622ac221fd5a71f9bb6ebbd1fdb6" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mSettings</name></member>
+      <member refid="classQgisMobileapp_1a9558982fc92eeab3cdefad683996b5c1" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mTrackingModel</name></member>
+      <member refid="classQgisMobileapp_1ab5c3985aa3158df5642716223a8df0e0" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mUnitTypes</name></member>
+      <member refid="classQgisMobileapp_1a288c192256e18ab64c586385755720ec" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>mUrlHandler</name></member>
+      <member refid="classQgisMobileapp_1a82c124f9f7047d17500d1172213c659c" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>onAfterFirstRendering</name></member>
+      <member refid="classQgisMobileapp_1a3c589cc59dc3ff14be88143cfe593d05" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>onMapCanvasRefreshed</name></member>
+      <member refid="classQgisMobileapp_1a9fbe70b00c7a7bbdeb9670566258eae8" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>print</name></member>
+      <member refid="classQgisMobileapp_1a021b1a53532725e4e4049097cfd21708" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>printAtlas</name></member>
+      <member refid="classQgisMobileapp_1a573796c08edb57d3a83ca8c17a33784c" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>printAtlasFeatures</name></member>
+      <member refid="classQgisMobileapp_1a54139150e3649f95ee4adc49ccfddf60" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>QgisMobileapp</name></member>
+      <member refid="classQgisMobileapp_1a21ddc89e9ff9e93cb41480ac680198f8" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>readProjectBoolEntry</name></member>
+      <member refid="classQgisMobileapp_1aa3c6091da12efd66d08181abd49cdb37" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>readProjectDoubleEntry</name></member>
+      <member refid="classQgisMobileapp_1acb7878249a01a16dd27b61d5179e1195" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>readProjectEntry</name></member>
+      <member refid="classQgisMobileapp_1aa664d266af8bcdfbd0633d78f7c736fe" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>readProjectFile</name></member>
+      <member refid="classQgisMobileapp_1a4cc94cb1c97fbf1d8da1479b72742104" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>readProjectNumEntry</name></member>
+      <member refid="classQgisMobileapp_1ab05b42e5d7210e77a5581a91cc71c42b" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>recentProjects</name></member>
+      <member refid="classQgisMobileapp_1ae5d85beda31a14d685b40195f6938201" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>registerGlobalVariables</name></member>
+      <member refid="classQgisMobileapp_1a7b4797048673292f5a0a6257b1a44109" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>reloadProjectFile</name></member>
+      <member refid="classQgisMobileapp_1a58878b0197899f9492e2fcb1e1062fcf" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>removeRecentProject</name></member>
+      <member refid="classQgisMobileapp_1a2c8baff42f46783985bb81fa94c536f2" prot="private" virt="non-virtual"><scope>QgisMobileapp</scope><name>saveProjectPreviewImage</name></member>
+      <member refid="classQgisMobileapp_1a3658a585331f0338e384cf1d910a1835" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>saveRecentProjects</name></member>
+      <member refid="classQgisMobileapp_1a4c22e50a9217feb4394d556d0f38edcc" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>setMapExtent</name></member>
+      <member refid="classQgisMobileapp_1a5a7972f2e1c9922103d57ec4cdf5c210" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>setScreenDimmerTimeout</name></member>
+      <member refid="classQgisMobileapp_1a959728493afbc03e2f47dafe0d0032c5" prot="public" virt="non-virtual"><scope>QgisMobileapp</scope><name>~QgisMobileapp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

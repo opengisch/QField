@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="GeometryEditorBase_8qml" kind="file" language="C++">
+    <compoundname>GeometryEditorBase.qml</compoundname>
+    <innerclass refid="classGeometryEditorBase" prot="public">GeometryEditorBase</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Controls</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>org.qgis</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">import<sp/>Theme</highlight></codeline>
+<codeline lineno="6" refid="classGeometryEditorBase" refkind="compound"><highlight class="normal">import<sp/>&quot;..&quot;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><ref refid="classTheme_1_1QfVisibilityFadingRow" kindref="compound">QfVisibilityFadingRow</ref><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">property</highlight><highlight class="normal"><sp/><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref><sp/>featureModel</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">property</highlight><highlight class="normal"><sp/><ref refid="classGeometryRenderer" kindref="compound">GeometryRenderer</ref><sp/>editorRenderer</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">property</highlight><highlight class="normal"><sp/>MapSettings<sp/>mapSettings</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>signal<sp/>finished</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>signal<sp/>requestJumpToPoint(var<sp/>center,<sp/>real<sp/>scale,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>handleMargins)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/geometryeditors/GeometryEditorBase.qml"/>
+  </compounddef>
+</doxygen>

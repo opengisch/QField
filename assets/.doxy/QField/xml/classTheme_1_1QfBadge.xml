@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfBadge" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfBadge</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classTheme_1_1QfBadge_1ad8e7a432d3791b90339fec15c09930c9" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Alignment</name>
+        <qualifiedname>Theme::QfBadge::Alignment</qualifiedname>
+        <enumvalue id="classTheme_1_1QfBadge_1ad8e7a432d3791b90339fec15c09930c9ab32beb056fbfe36afbabc6c88c81ab36" prot="public">
+          <name>TopLeft</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTheme_1_1QfBadge_1ad8e7a432d3791b90339fec15c09930c9a1d85a557894c340c318493f33bfa8efb" prot="public">
+          <name>TopRight</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTheme_1_1QfBadge_1ad8e7a432d3791b90339fec15c09930c9a98e5a1c44509157ebcaf46c515c78875" prot="public">
+          <name>BottomLeft</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTheme_1_1QfBadge_1ad8e7a432d3791b90339fec15c09930c9a9146bfc669fddc88db2c4d89297d0e9a" prot="public">
+          <name>BottomRight</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="12" column="1" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="12" bodyend="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfBadge_1a983846e9ca8a5244d053cffeb2f5f4d3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfBadge::badgeText</definition>
+        <argsstring></argsstring>
+        <name>badgeText</name>
+        <qualifiedname>Theme::QfBadge::badgeText</qualifiedname>
+        <read>dummyGetter_badgeText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="19" column="1" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfBadge_1a896bce8d0a686d1b8d3ea6eb2da4ece2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfBadge::enableGradient</definition>
+        <argsstring></argsstring>
+        <name>enableGradient</name>
+        <qualifiedname>Theme::QfBadge::enableGradient</qualifiedname>
+        <read>dummyGetter_enableGradient_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="21" column="1" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfBadge_1ab87652334dc32f13509458118257c675" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfBadge::alignment</definition>
+        <argsstring></argsstring>
+        <name>alignment</name>
+        <qualifiedname>Theme::QfBadge::alignment</qualifiedname>
+        <read>dummyGetter_alignment_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="23" column="1" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfBadge_1a1215940e8e5b16798148da45aff1ef40" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfBadge::topMargin</definition>
+        <argsstring></argsstring>
+        <name>topMargin</name>
+        <qualifiedname>Theme::QfBadge::topMargin</qualifiedname>
+        <read>dummyGetter_topMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="25" column="1" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfBadge_1aaed991316b6dd585e908c6c35a4f7c91" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfBadge::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>Theme::QfBadge::bottomMargin</qualifiedname>
+        <read>dummyGetter_bottomMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="27" column="1" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfBadge_1a9bd350fcce50f8da7b479c9f1d921262" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfBadge::leftMargin</definition>
+        <argsstring></argsstring>
+        <name>leftMargin</name>
+        <qualifiedname>Theme::QfBadge::leftMargin</qualifiedname>
+        <read>dummyGetter_leftMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="29" column="1" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfBadge_1a3e6447e72efe80eddaed867191e7f442" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfBadge::rightMargin</definition>
+        <argsstring></argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>Theme::QfBadge::rightMargin</qualifiedname>
+        <read>dummyGetter_rightMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="31" column="1" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfBadge_1a1f3fdf6d9c69d7f2fb46695e56b3de54" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfBadge::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>Theme::QfBadge::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="33" column="5" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfBadge_1a40a3e3f1e2f930cda8f15ba0b83597cb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfBadge::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Theme::QfBadge::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="34" column="5" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfBadge_1a74dd2fdcf09d42422326d0c396c5befa" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfBadge::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>Theme::QfBadge::radius</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="35" column="5" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfBadge_1a435bfad68f4ca81c4fe8f755f99a9386" prot="private" static="no" mutable="no">
+        <type>var border</type>
+        <definition>var border Theme::QfBadge::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>Theme::QfBadge::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="36" column="11" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfBadge_1a2a217243f43126a0e770ca988ecc6897" prot="private" static="no" mutable="no">
+        <type>var border</type>
+        <definition>var border Theme::QfBadge::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Theme::QfBadge::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="37" column="11" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfBadge_1a0330aed32c0b5cc3cf11bd7f56dabf51" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text Theme::QfBadge::inText</definition>
+        <argsstring></argsstring>
+        <name>inText</name>
+        <qualifiedname>Theme::QfBadge::inText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="38" column="6" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfBadge_1afa0b4338ca4ad503834090a639942430" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfBadge::gradient</definition>
+        <argsstring></argsstring>
+        <name>gradient</name>
+        <qualifiedname>Theme::QfBadge::gradient</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="39" column="5" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfBadge_1ab14d15a31f5a5fdb5417783ddaff700b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfBadge::rotation</definition>
+        <argsstring></argsstring>
+        <name>rotation</name>
+        <qualifiedname>Theme::QfBadge::rotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="40" column="5" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfBadge_1a0f9c52a3111fda6634a6e1265cb65b92" prot="private" static="no" mutable="no">
+        <type>Gradient</type>
+        <definition>Gradient Theme::QfBadge::greenBlueGradient</definition>
+        <argsstring></argsstring>
+        <name>greenBlueGradient</name>
+        <qualifiedname>Theme::QfBadge::greenBlueGradient</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfBadge.qml" line="41" column="10" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfBadge</label>
+        <link refid="classTheme_1_1QfBadge"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfBadge</label>
+        <link refid="classTheme_1_1QfBadge"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfBadge.qml" line="10" column="1" bodyfile="src/qml/imports/Theme/QfBadge.qml" bodystart="10" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfBadge_1ad8e7a432d3791b90339fec15c09930c9" prot="public" virt="non-virtual"><scope>Theme::QfBadge</scope><name>Alignment</name></member>
+      <member refid="classTheme_1_1QfBadge_1ab87652334dc32f13509458118257c675" prot="public" virt="non-virtual"><scope>Theme::QfBadge</scope><name>alignment</name></member>
+      <member refid="classTheme_1_1QfBadge_1a983846e9ca8a5244d053cffeb2f5f4d3" prot="public" virt="non-virtual"><scope>Theme::QfBadge</scope><name>badgeText</name></member>
+      <member refid="classTheme_1_1QfBadge_1aaed991316b6dd585e908c6c35a4f7c91" prot="public" virt="non-virtual"><scope>Theme::QfBadge</scope><name>bottomMargin</name></member>
+      <member refid="classTheme_1_1QfBadge_1a2a217243f43126a0e770ca988ecc6897" prot="private" virt="non-virtual"><scope>Theme::QfBadge</scope><name>color</name></member>
+      <member refid="classTheme_1_1QfBadge_1a896bce8d0a686d1b8d3ea6eb2da4ece2" prot="public" virt="non-virtual"><scope>Theme::QfBadge</scope><name>enableGradient</name></member>
+      <member refid="classTheme_1_1QfBadge_1afa0b4338ca4ad503834090a639942430" prot="private" virt="non-virtual"><scope>Theme::QfBadge</scope><name>gradient</name></member>
+      <member refid="classTheme_1_1QfBadge_1a0f9c52a3111fda6634a6e1265cb65b92" prot="private" virt="non-virtual"><scope>Theme::QfBadge</scope><name>greenBlueGradient</name></member>
+      <member refid="classTheme_1_1QfBadge_1a40a3e3f1e2f930cda8f15ba0b83597cb" prot="private" virt="non-virtual"><scope>Theme::QfBadge</scope><name>height</name></member>
+      <member refid="classTheme_1_1QfBadge_1a0330aed32c0b5cc3cf11bd7f56dabf51" prot="private" virt="non-virtual"><scope>Theme::QfBadge</scope><name>inText</name></member>
+      <member refid="classTheme_1_1QfBadge_1a9bd350fcce50f8da7b479c9f1d921262" prot="public" virt="non-virtual"><scope>Theme::QfBadge</scope><name>leftMargin</name></member>
+      <member refid="classTheme_1_1QfBadge_1a74dd2fdcf09d42422326d0c396c5befa" prot="private" virt="non-virtual"><scope>Theme::QfBadge</scope><name>radius</name></member>
+      <member refid="classTheme_1_1QfBadge_1a3e6447e72efe80eddaed867191e7f442" prot="public" virt="non-virtual"><scope>Theme::QfBadge</scope><name>rightMargin</name></member>
+      <member refid="classTheme_1_1QfBadge_1ab14d15a31f5a5fdb5417783ddaff700b" prot="private" virt="non-virtual"><scope>Theme::QfBadge</scope><name>rotation</name></member>
+      <member refid="classTheme_1_1QfBadge_1a1215940e8e5b16798148da45aff1ef40" prot="public" virt="non-virtual"><scope>Theme::QfBadge</scope><name>topMargin</name></member>
+      <member refid="classTheme_1_1QfBadge_1a1f3fdf6d9c69d7f2fb46695e56b3de54" prot="private" virt="non-virtual"><scope>Theme::QfBadge</scope><name>width</name></member>
+      <member refid="classTheme_1_1QfBadge_1a435bfad68f4ca81c4fe8f755f99a9386" prot="private" virt="non-virtual"><scope>Theme::QfBadge</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,599 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classWelcomeScreen" kind="class" language="C++" prot="public">
+    <compoundname>WelcomeScreen</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Page</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classWelcomeScreen_1ae9897b8f1b3806cb4a760ac26c060eb4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool WelcomeScreen::firstShown</definition>
+        <argsstring></argsstring>
+        <name>firstShown</name>
+        <qualifiedname>WelcomeScreen::firstShown</qualifiedname>
+        <read>dummyGetter_firstShown_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="14" column="1" bodyfile="src/qml/WelcomeScreen.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classWelcomeScreen_1a0973ffeb66492663d0c6cc9d24ec9792" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias WelcomeScreen::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>WelcomeScreen::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="16" column="1" bodyfile="src/qml/WelcomeScreen.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classWelcomeScreen_1ac65e7dd3ca0328fa50f12356b9ceb80e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var WelcomeScreen::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>WelcomeScreen::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="26" column="5" bodyfile="src/qml/WelcomeScreen.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1aa3970ab6b25e494efaca13497f7c52e2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var WelcomeScreen::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>WelcomeScreen::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="27" column="5" bodyfile="src/qml/WelcomeScreen.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a8d73e8b88e14c94ed2f8c288587fd984" prot="private" static="no" mutable="no">
+        <type><ref refid="classSettings" kindref="compound">Settings</ref></type>
+        <definition>Settings WelcomeScreen::registry</definition>
+        <argsstring></argsstring>
+        <name>registry</name>
+        <qualifiedname>WelcomeScreen::registry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="28" column="10" bodyfile="src/qml/WelcomeScreen.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1ae19d8458cbe6e8db6e6d7957461d565d" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle WelcomeScreen::welcomeBackground</definition>
+        <argsstring></argsstring>
+        <name>welcomeBackground</name>
+        <qualifiedname>WelcomeScreen::welcomeBackground</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="29" column="11" bodyfile="src/qml/WelcomeScreen.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a5c461e8dfc54fadb35ac91e03fa50ab7" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout WelcomeScreen::welcomeGrid</definition>
+        <argsstring></argsstring>
+        <name>welcomeGrid</name>
+        <qualifiedname>WelcomeScreen::welcomeGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="30" column="12" bodyfile="src/qml/WelcomeScreen.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1affa101663c49a5240d40b0f9cba80105" prot="private" static="no" mutable="no">
+        <type><ref refid="classImageDial" kindref="compound">ImageDial</ref></type>
+        <definition>ImageDial WelcomeScreen::imageDialLogo</definition>
+        <argsstring></argsstring>
+        <name>imageDialLogo</name>
+        <qualifiedname>WelcomeScreen::imageDialLogo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="31" column="11" bodyfile="src/qml/WelcomeScreen.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1aa80a068fb9814460b496136e195feb0c" prot="private" static="no" mutable="no">
+        <type>SwipeView</type>
+        <definition>SwipeView WelcomeScreen::feedbackView</definition>
+        <argsstring></argsstring>
+        <name>feedbackView</name>
+        <qualifiedname>WelcomeScreen::feedbackView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="32" column="11" bodyfile="src/qml/WelcomeScreen.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a4c6c5989b325170b1125bff8f7867de9" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item WelcomeScreen::ohno</definition>
+        <argsstring></argsstring>
+        <name>ohno</name>
+        <qualifiedname>WelcomeScreen::ohno</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="33" column="6" bodyfile="src/qml/WelcomeScreen.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a7672d05e8f6f30b508bfacb5f79e66d3" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item WelcomeScreen::intro</definition>
+        <argsstring></argsstring>
+        <name>intro</name>
+        <qualifiedname>WelcomeScreen::intro</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="34" column="6" bodyfile="src/qml/WelcomeScreen.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1ac7bb8c6802177a612b97febddfdead6e" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item WelcomeScreen::ohyeah</definition>
+        <argsstring></argsstring>
+        <name>ohyeah</name>
+        <qualifiedname>WelcomeScreen::ohyeah</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="35" column="6" bodyfile="src/qml/WelcomeScreen.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a12e9fef5412983edc029faeca428ed75" prot="private" static="no" mutable="no">
+        <type>SwipeView</type>
+        <definition>SwipeView WelcomeScreen::collectionView</definition>
+        <argsstring></argsstring>
+        <name>collectionView</name>
+        <qualifiedname>WelcomeScreen::collectionView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="36" column="11" bodyfile="src/qml/WelcomeScreen.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a45b2a76d4b724490116a3da1403ea27f" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item WelcomeScreen::collectionOhno</definition>
+        <argsstring></argsstring>
+        <name>collectionOhno</name>
+        <qualifiedname>WelcomeScreen::collectionOhno</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="37" column="6" bodyfile="src/qml/WelcomeScreen.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a2c034db427e61a4ec32644b698b3f7ba" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item WelcomeScreen::collectionIntro</definition>
+        <argsstring></argsstring>
+        <name>collectionIntro</name>
+        <qualifiedname>WelcomeScreen::collectionIntro</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="38" column="6" bodyfile="src/qml/WelcomeScreen.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a32366c3895f64062ba7315d744343dda" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text WelcomeScreen::welcomeText</definition>
+        <argsstring></argsstring>
+        <name>welcomeText</name>
+        <qualifiedname>WelcomeScreen::welcomeText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="39" column="6" bodyfile="src/qml/WelcomeScreen.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1ae371245d7d67862bcf11df710830c3ff" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout WelcomeScreen::welcomeActions</definition>
+        <argsstring></argsstring>
+        <name>welcomeActions</name>
+        <qualifiedname>WelcomeScreen::welcomeActions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="40" column="14" bodyfile="src/qml/WelcomeScreen.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a2c3ec1f9556f31c5fb509ebbf2731b76" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater WelcomeScreen::actionsRepeater</definition>
+        <argsstring></argsstring>
+        <name>actionsRepeater</name>
+        <qualifiedname>WelcomeScreen::actionsRepeater</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="41" column="10" bodyfile="src/qml/WelcomeScreen.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a482ed88bad161c95e448059033c38590" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text WelcomeScreen::recentText</definition>
+        <argsstring></argsstring>
+        <name>recentText</name>
+        <qualifiedname>WelcomeScreen::recentText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="42" column="6" bodyfile="src/qml/WelcomeScreen.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a699ff1f6781fa2c85529b0f8f408be14" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView WelcomeScreen::table</definition>
+        <argsstring></argsstring>
+        <name>table</name>
+        <qualifiedname>WelcomeScreen::table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="43" column="10" bodyfile="src/qml/WelcomeScreen.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1ad406126a0408c732120b40c3e2284148" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu WelcomeScreen::recentProjectActions</definition>
+        <argsstring></argsstring>
+        <name>recentProjectActions</name>
+        <qualifiedname>WelcomeScreen::recentProjectActions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="44" column="8" bodyfile="src/qml/WelcomeScreen.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a8f68535b85dcbd71ca7a9427e7877c54" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem WelcomeScreen::defaultProject</definition>
+        <argsstring></argsstring>
+        <name>defaultProject</name>
+        <qualifiedname>WelcomeScreen::defaultProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="45" column="10" bodyfile="src/qml/WelcomeScreen.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a9777ae9c051bd04881909839f1082076" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem WelcomeScreen::baseMapProject</definition>
+        <argsstring></argsstring>
+        <name>baseMapProject</name>
+        <qualifiedname>WelcomeScreen::baseMapProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="46" column="10" bodyfile="src/qml/WelcomeScreen.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a2d1143846ccbb843a43155a3b7c18213" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem WelcomeScreen::removeProject</definition>
+        <argsstring></argsstring>
+        <name>removeProject</name>
+        <qualifiedname>WelcomeScreen::removeProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="47" column="10" bodyfile="src/qml/WelcomeScreen.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1ab33334c3c2c9d89a936014cf786476e4" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch WelcomeScreen::reloadOnLaunch</definition>
+        <argsstring></argsstring>
+        <name>reloadOnLaunch</name>
+        <qualifiedname>WelcomeScreen::reloadOnLaunch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="48" column="10" bodyfile="src/qml/WelcomeScreen.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a83359a88dfbbaac174678f3c0c9c7089" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfActionButton" kindref="compound">QfActionButton</ref></type>
+        <definition>QfActionButton WelcomeScreen::currentProjectButton</definition>
+        <argsstring></argsstring>
+        <name>currentProjectButton</name>
+        <qualifiedname>WelcomeScreen::currentProjectButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="49" column="16" bodyfile="src/qml/WelcomeScreen.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1ad15b79fdbb5b0a4026f67db2a4ba23ee" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton WelcomeScreen::settingsButton</definition>
+        <argsstring></argsstring>
+        <name>settingsButton</name>
+        <qualifiedname>WelcomeScreen::settingsButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="50" column="14" bodyfile="src/qml/WelcomeScreen.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1aa01d65c6363ba9f0ccd5590a91f39c5c" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton WelcomeScreen::exitButton</definition>
+        <argsstring></argsstring>
+        <name>exitButton</name>
+        <qualifiedname>WelcomeScreen::exitButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="51" column="14" bodyfile="src/qml/WelcomeScreen.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1aac24316bc8047ce4056354d25ab61802" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea WelcomeScreen::mouseArea</definition>
+        <argsstring></argsstring>
+        <name>mouseArea</name>
+        <qualifiedname>WelcomeScreen::mouseArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="52" column="11" bodyfile="src/qml/WelcomeScreen.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a963aed57d309447c3d893160a1ec2b16" prot="private" static="no" mutable="no">
+        <type>ParticleSystem</type>
+        <definition>ParticleSystem WelcomeScreen::particles</definition>
+        <argsstring></argsstring>
+        <name>particles</name>
+        <qualifiedname>WelcomeScreen::particles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="53" column="16" bodyfile="src/qml/WelcomeScreen.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a86c68f22e960154f9f1497cfe08e69fa" prot="private" static="no" mutable="no">
+        <type>ParticleSystem</type>
+        <definition>ParticleSystem WelcomeScreen::unicorns</definition>
+        <argsstring></argsstring>
+        <name>unicorns</name>
+        <qualifiedname>WelcomeScreen::unicorns</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="54" column="16" bodyfile="src/qml/WelcomeScreen.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1a8b280f9c2b576b9d6b55726a494fb448" prot="private" static="no" mutable="no">
+        <type>Emitter</type>
+        <definition>Emitter WelcomeScreen::emitterParticles</definition>
+        <argsstring></argsstring>
+        <name>emitterParticles</name>
+        <qualifiedname>WelcomeScreen::emitterParticles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="55" column="9" bodyfile="src/qml/WelcomeScreen.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWelcomeScreen_1af9c94a02553e285e251fce34f595374c" prot="private" static="no" mutable="no">
+        <type>Emitter</type>
+        <definition>Emitter WelcomeScreen::emitterUnicorns</definition>
+        <argsstring></argsstring>
+        <name>emitterUnicorns</name>
+        <qualifiedname>WelcomeScreen::emitterUnicorns</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="56" column="9" bodyfile="src/qml/WelcomeScreen.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classWelcomeScreen_1a1f2d123a665697400500b0b6477bde00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WelcomeScreen::showLocalDataPicker</definition>
+        <argsstring>()</argsstring>
+        <name>showLocalDataPicker</name>
+        <qualifiedname>WelcomeScreen::showLocalDataPicker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="18" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWelcomeScreen_1a788a78bedc9f8f3bd74055385d93269e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WelcomeScreen::showQFieldCloudScreen</definition>
+        <argsstring>()</argsstring>
+        <name>showQFieldCloudScreen</name>
+        <qualifiedname>WelcomeScreen::showQFieldCloudScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="20" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWelcomeScreen_1ac0296a4db320b86fe439d5c11d9f89fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WelcomeScreen::showSettings</definition>
+        <argsstring>()</argsstring>
+        <name>showSettings</name>
+        <qualifiedname>WelcomeScreen::showSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="22" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classWelcomeScreen_1a5e3efd34f5fdeaf641cd9a01359d8b3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WelcomeScreen::showProjectCreationScreen</definition>
+        <argsstring>()</argsstring>
+        <name>showProjectCreationScreen</name>
+        <qualifiedname>WelcomeScreen::showProjectCreationScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/WelcomeScreen.qml" line="24" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>WelcomeScreen</label>
+        <link refid="classWelcomeScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>WelcomeScreen</label>
+        <link refid="classWelcomeScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/WelcomeScreen.qml" line="11" column="1" bodyfile="src/qml/WelcomeScreen.qml" bodystart="11" bodyend="57"/>
+    <listofallmembers>
+      <member refid="classWelcomeScreen_1a2c3ec1f9556f31c5fb509ebbf2731b76" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>actionsRepeater</name></member>
+      <member refid="classWelcomeScreen_1a9777ae9c051bd04881909839f1082076" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>baseMapProject</name></member>
+      <member refid="classWelcomeScreen_1a2c034db427e61a4ec32644b698b3f7ba" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>collectionIntro</name></member>
+      <member refid="classWelcomeScreen_1a45b2a76d4b724490116a3da1403ea27f" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>collectionOhno</name></member>
+      <member refid="classWelcomeScreen_1a12e9fef5412983edc029faeca428ed75" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>collectionView</name></member>
+      <member refid="classWelcomeScreen_1a83359a88dfbbaac174678f3c0c9c7089" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>currentProjectButton</name></member>
+      <member refid="classWelcomeScreen_1a8f68535b85dcbd71ca7a9427e7877c54" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>defaultProject</name></member>
+      <member refid="classWelcomeScreen_1a8b280f9c2b576b9d6b55726a494fb448" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>emitterParticles</name></member>
+      <member refid="classWelcomeScreen_1af9c94a02553e285e251fce34f595374c" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>emitterUnicorns</name></member>
+      <member refid="classWelcomeScreen_1aa01d65c6363ba9f0ccd5590a91f39c5c" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>exitButton</name></member>
+      <member refid="classWelcomeScreen_1aa80a068fb9814460b496136e195feb0c" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>feedbackView</name></member>
+      <member refid="classWelcomeScreen_1ae9897b8f1b3806cb4a760ac26c060eb4" prot="public" virt="non-virtual"><scope>WelcomeScreen</scope><name>firstShown</name></member>
+      <member refid="classWelcomeScreen_1aa3970ab6b25e494efaca13497f7c52e2" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>focus</name></member>
+      <member refid="classWelcomeScreen_1affa101663c49a5240d40b0f9cba80105" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>imageDialLogo</name></member>
+      <member refid="classWelcomeScreen_1a7672d05e8f6f30b508bfacb5f79e66d3" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>intro</name></member>
+      <member refid="classWelcomeScreen_1a0973ffeb66492663d0c6cc9d24ec9792" prot="public" virt="non-virtual"><scope>WelcomeScreen</scope><name>model</name></member>
+      <member refid="classWelcomeScreen_1aac24316bc8047ce4056354d25ab61802" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>mouseArea</name></member>
+      <member refid="classWelcomeScreen_1a4c6c5989b325170b1125bff8f7867de9" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>ohno</name></member>
+      <member refid="classWelcomeScreen_1ac7bb8c6802177a612b97febddfdead6e" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>ohyeah</name></member>
+      <member refid="classWelcomeScreen_1a963aed57d309447c3d893160a1ec2b16" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>particles</name></member>
+      <member refid="classWelcomeScreen_1ad406126a0408c732120b40c3e2284148" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>recentProjectActions</name></member>
+      <member refid="classWelcomeScreen_1a482ed88bad161c95e448059033c38590" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>recentText</name></member>
+      <member refid="classWelcomeScreen_1a8d73e8b88e14c94ed2f8c288587fd984" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>registry</name></member>
+      <member refid="classWelcomeScreen_1ab33334c3c2c9d89a936014cf786476e4" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>reloadOnLaunch</name></member>
+      <member refid="classWelcomeScreen_1a2d1143846ccbb843a43155a3b7c18213" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>removeProject</name></member>
+      <member refid="classWelcomeScreen_1ad15b79fdbb5b0a4026f67db2a4ba23ee" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>settingsButton</name></member>
+      <member refid="classWelcomeScreen_1a1f2d123a665697400500b0b6477bde00" prot="public" virt="non-virtual"><scope>WelcomeScreen</scope><name>showLocalDataPicker</name></member>
+      <member refid="classWelcomeScreen_1a5e3efd34f5fdeaf641cd9a01359d8b3e" prot="public" virt="non-virtual"><scope>WelcomeScreen</scope><name>showProjectCreationScreen</name></member>
+      <member refid="classWelcomeScreen_1a788a78bedc9f8f3bd74055385d93269e" prot="public" virt="non-virtual"><scope>WelcomeScreen</scope><name>showQFieldCloudScreen</name></member>
+      <member refid="classWelcomeScreen_1ac0296a4db320b86fe439d5c11d9f89fa" prot="public" virt="non-virtual"><scope>WelcomeScreen</scope><name>showSettings</name></member>
+      <member refid="classWelcomeScreen_1a699ff1f6781fa2c85529b0f8f408be14" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>table</name></member>
+      <member refid="classWelcomeScreen_1a86c68f22e960154f9f1497cfe08e69fa" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>unicorns</name></member>
+      <member refid="classWelcomeScreen_1ac65e7dd3ca0328fa50f12356b9ceb80e" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>visible</name></member>
+      <member refid="classWelcomeScreen_1ae371245d7d67862bcf11df710830c3ff" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>welcomeActions</name></member>
+      <member refid="classWelcomeScreen_1ae19d8458cbe6e8db6e6d7957461d565d" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>welcomeBackground</name></member>
+      <member refid="classWelcomeScreen_1a5c461e8dfc54fadb35ac91e03fa50ab7" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>welcomeGrid</name></member>
+      <member refid="classWelcomeScreen_1a32366c3895f64062ba7315d744343dda" prot="private" virt="non-virtual"><scope>WelcomeScreen</scope><name>welcomeText</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

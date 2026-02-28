@@ -1,0 +1,2374 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class GridModel - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-gridmodel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class GridModel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-annotationcolor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property annotationColor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-annotationhasoutline-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property annotationHasOutline [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-annotationoutlinecolor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property annotationOutlineColor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-annotationprecision-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property annotationPrecision [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-annotations-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property annotations [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-autocolor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property autoColor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-enabled-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property enabled [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-indeterminate-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property indeterminate [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-majorlinecolor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property majorLineColor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-majorlines-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property majorLines [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-mapsettings-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mapSettings [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-markercolor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property markerColor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-markers-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property markers [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-minorlinecolor-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property minorLineColor [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-minorlines-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property minorLines [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-prepareannotations-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property prepareAnnotations [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-preparelines-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property prepareLines [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-preparemarkers-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property prepareMarkers [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-xinterval-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property xInterval [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-xoffset-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property xOffset [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-yinterval-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property yInterval [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-yoffset-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property yOffset [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-annotationcolorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal annotationColorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-annotationhasoutlinechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal annotationHasOutlineChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-annotationoutlinecolorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal annotationOutlineColorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-annotationprecisionchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal annotationPrecisionChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-annotationschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal annotationsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-autocolorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal autoColorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-enabledchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal enabledChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-indeterminatechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal indeterminateChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-majorlinecolorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal majorLineColorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-majorlineschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal majorLinesChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-mapsettingschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal mapSettingsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-markercolorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal markerColorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-markerschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal markersChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-minorlinecolorchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal minorLineColorChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-minorlineschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal minorLinesChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-prepareannotationschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal prepareAnnotationsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-preparelineschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal prepareLinesChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-preparemarkerschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal prepareMarkersChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-xintervalchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal xIntervalChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-xoffsetchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal xOffsetChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-yintervalchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal yIntervalChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-yoffsetchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal yOffsetChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-gridmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function GridModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-annotationcolor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function annotationColor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-annotationhasoutline-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function annotationHasOutline [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-annotationoutlinecolor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function annotationOutlineColor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-annotationprecision-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function annotationPrecision [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-annotations-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function annotations [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-autocolor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function autoColor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-enabled-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function enabled [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-indeterminate-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function indeterminate [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-majorlinecolor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function majorLineColor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-majorlines-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function majorLines [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-mapsettings-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function mapSettings [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-markercolor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function markerColor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-markers-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function markers [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-minorlinecolor-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function minorLineColor [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-minorlines-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function minorLines [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-prepareannotations-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function prepareAnnotations [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-preparelines-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function prepareLines [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-preparemarkers-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function prepareMarkers [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setannotationcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAnnotationColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setannotationhasoutline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAnnotationHasOutline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setannotationoutlinecolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAnnotationOutlineColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setannotationprecision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAnnotationPrecision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setautocolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setAutoColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setindeterminate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIndeterminate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmajorlinecolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setMajorLineColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmapsettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setMapSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmarkercolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setMarkerColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setminorlinecolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setMinorLineColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setprepareannotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPrepareAnnotations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setpreparelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPrepareLines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setpreparemarkers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPrepareMarkers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setxinterval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setXInterval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setxoffset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setXOffset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setyinterval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setYInterval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setyoffset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setYOffset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-xinterval-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function xInterval [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-xoffset-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function xOffset [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-yinterval-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function yInterval [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-yoffset-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function yOffset [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-gridmodel">Class GridModel</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>GridModel</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;gridmodel.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QObject</p>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property QColor</td>
+<td style="text-align: left;"><a href="./#property-annotationcolor-12"><strong>annotationColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-annotationhasoutline-12"><strong>annotationHasOutline</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QColor</td>
+<td style="text-align: left;"><a href="./#property-annotationoutlinecolor-12"><strong>annotationOutlineColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-annotationprecision-12"><strong>annotationPrecision</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QList&lt; <a href="../classGridAnnotation/"><strong>GridAnnotation</strong></a> &gt;</td>
+<td style="text-align: left;"><a href="./#property-annotations-12"><strong>annotations</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-autocolor-12"><strong>autoColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-enabled-12"><strong>enabled</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-indeterminate-12"><strong>indeterminate</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QColor</td>
+<td style="text-align: left;"><a href="./#property-majorlinecolor-12"><strong>majorLineColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QListQList&lt; QPointF &gt;</td>
+<td style="text-align: left;"><a href="./#property-majorlines-12"><strong>majorLines</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-mapsettings-12"><strong>mapSettings</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QColor</td>
+<td style="text-align: left;"><a href="./#property-markercolor-12"><strong>markerColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QList&lt; QPointF &gt;</td>
+<td style="text-align: left;"><a href="./#property-markers-12"><strong>markers</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QColor</td>
+<td style="text-align: left;"><a href="./#property-minorlinecolor-12"><strong>minorLineColor</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QListQList&lt; QPointF &gt;</td>
+<td style="text-align: left;"><a href="./#property-minorlines-12"><strong>minorLines</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-prepareannotations-12"><strong>prepareAnnotations</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-preparelines-12"><strong>prepareLines</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-preparemarkers-12"><strong>prepareMarkers</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-xinterval-12"><strong>xInterval</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-xoffset-12"><strong>xOffset</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-yinterval-12"><strong>yInterval</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-yoffset-12"><strong>yOffset</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-annotationcolorchanged"><strong>annotationColorChanged</strong></a>  <br><em>Emitted when the grid annotation text color has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-annotationhasoutlinechanged"><strong>annotationHasOutlineChanged</strong></a>  <br><em>Emitted when the grid annotation text outline visibility has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-annotationoutlinecolorchanged"><strong>annotationOutlineColorChanged</strong></a>  <br><em>Emitted when the grid annotation text outline color has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-annotationprecisionchanged"><strong>annotationPrecisionChanged</strong></a>  <br><em>Emitted when the grid annotation text decimal precision has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-annotationschanged"><strong>annotationsChanged</strong></a>  <br><em>Emitted when the grid annotations have changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-autocolorchanged"><strong>autoColorChanged</strong></a>  <br><em>Emitted when the grid line and marker colors are automatically assigned.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-enabledchanged"><strong>enabledChanged</strong></a>  <br><em>Emitted when the grid enabled setting has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-indeterminatechanged"><strong>indeterminateChanged</strong></a>  <br><em>Emitted when the grid indeterminate setting has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-majorlinecolorchanged"><strong>majorLineColorChanged</strong></a>  <br><em>Emitted when the grid major line color has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-majorlineschanged"><strong>majorLinesChanged</strong></a>  <br><em>Emitted when the grid major lines have changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-mapsettingschanged"><strong>mapSettingsChanged</strong></a>  <br><em>Emitted when the map settings object has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-markercolorchanged"><strong>markerColorChanged</strong></a>  <br><em>Emitted when the grid marker color has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-markerschanged"><strong>markersChanged</strong></a>  <br><em>Emitted when the grid markers have changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-minorlinecolorchanged"><strong>minorLineColorChanged</strong></a>  <br><em>Emitted when the grid minor line color has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-minorlineschanged"><strong>minorLinesChanged</strong></a>  <br><em>Emitted when the grid minor lines have changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-prepareannotationschanged"><strong>prepareAnnotationsChanged</strong></a>  <br><em>Emitted when grid annotations preparation setting has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-preparelineschanged"><strong>prepareLinesChanged</strong></a>  <br><em>Emitted when grid lines preparation setting has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-preparemarkerschanged"><strong>prepareMarkersChanged</strong></a>  <br><em>Emitted when grid markers preparation setting has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-xintervalchanged"><strong>xIntervalChanged</strong></a>  <br><em>Emitted when the grid X interval has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-xoffsetchanged"><strong>xOffsetChanged</strong></a>  <br><em>Emitted when the grid X offset has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-yintervalchanged"><strong>yIntervalChanged</strong></a>  <br><em>Emitted when the grid Y interval has changed.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-yoffsetchanged"><strong>yOffsetChanged</strong></a>  <br><em>Emitted when the grid Y offset has changed.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-gridmodel"><strong>GridModel</strong></a> (QObject * parent=nullptr) <br><em>Default constructor.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QColor</td>
+<td style="text-align: left;"><a href="#function-annotationcolor-22"><strong>annotationColor</strong></a> () const<br><em>Returns the grid annotation text color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-annotationhasoutline-22"><strong>annotationHasOutline</strong></a> () const<br><em>Returns whether annotation text have an outline color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QColor</td>
+<td style="text-align: left;"><a href="#function-annotationoutlinecolor-22"><strong>annotationOutlineColor</strong></a> () const<br><em>Returns the grid annotation text outline color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-annotationprecision-22"><strong>annotationPrecision</strong></a> () const<br><em>Returns the annotation text decimal precision.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; <a href="../classGridAnnotation/"><strong>GridAnnotation</strong></a> &gt;</td>
+<td style="text-align: left;"><a href="#function-annotations-22"><strong>annotations</strong></a> () const<br><em>Returns the grid annotations.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-autocolor-22"><strong>autoColor</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-enabled-22"><strong>enabled</strong></a> () const<br><em>Returns TRUE when grid elements will be prepared.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-indeterminate-22"><strong>indeterminate</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QColor</td>
+<td style="text-align: left;"><a href="#function-majorlinecolor-22"><strong>majorLineColor</strong></a> () const<br><em>Returns the grid major line color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; QList&lt; QPointF &gt; &gt;</td>
+<td style="text-align: left;"><a href="#function-majorlines-22"><strong>majorLines</strong></a> () const<br><em>Returns the grid major lines.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-mapsettings-22"><strong>mapSettings</strong></a> () const<br><em>Returns the map settings object.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QColor</td>
+<td style="text-align: left;"><a href="#function-markercolor-22"><strong>markerColor</strong></a> () const<br><em>Returns the grid marker color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; QPointF &gt;</td>
+<td style="text-align: left;"><a href="#function-markers-22"><strong>markers</strong></a> () const<br><em>Returns the grid markers.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QColor</td>
+<td style="text-align: left;"><a href="#function-minorlinecolor-22"><strong>minorLineColor</strong></a> () const<br><em>Returns the grid minor line color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; QList&lt; QPointF &gt; &gt;</td>
+<td style="text-align: left;"><a href="#function-minorlines-22"><strong>minorLines</strong></a> () const<br><em>Returns the grid minor lines.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-prepareannotations-22"><strong>prepareAnnotations</strong></a> () const<br><em>Returns whether grid annotations will be prepared.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-preparelines-22"><strong>prepareLines</strong></a> () const<br><em>Returns whether grid lines will be prepared.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-preparemarkers-22"><strong>prepareMarkers</strong></a> () const<br><em>Returns whether grid markers will be prepared.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setannotationcolor"><strong>setAnnotationColor</strong></a> (const QColor &amp; color) <br><em>Sets the grid annotation text color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setannotationhasoutline"><strong>setAnnotationHasOutline</strong></a> (bool hasOutline) <br><em>Sets whether annotation text have an outline color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setannotationoutlinecolor"><strong>setAnnotationOutlineColor</strong></a> (const QColor &amp; color) <br><em>Sets the grid annotation text outline color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setannotationprecision"><strong>setAnnotationPrecision</strong></a> (int precision) <br><em>Sets the annotation text decimal precision.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setautocolor"><strong>setAutoColor</strong></a> (bool autoColor) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setenabled"><strong>setEnabled</strong></a> (bool enabled) <br><em>Sets whether grid elements will be prepared.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setindeterminate"><strong>setIndeterminate</strong></a> (bool indeterminate) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setmajorlinecolor"><strong>setMajorLineColor</strong></a> (const QColor &amp; color) <br><em>Sets the grid major line color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setmapsettings"><strong>setMapSettings</strong></a> (<a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> * mapSettings) <br><em>Sets the map settings object.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setmarkercolor"><strong>setMarkerColor</strong></a> (const QColor &amp; color) <br><em>Sets the grid marker color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setminorlinecolor"><strong>setMinorLineColor</strong></a> (const QColor &amp; color) <br><em>Sets the grid minor line color.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setprepareannotations"><strong>setPrepareAnnotations</strong></a> (bool prepare) <br><em>Sets whether grid annotations will be prepared.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setpreparelines"><strong>setPrepareLines</strong></a> (bool prepare) <br><em>Sets whether grid lines will be prepared.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setpreparemarkers"><strong>setPrepareMarkers</strong></a> (bool prepare) <br><em>Sets whether grid markers will be prepared.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setxinterval"><strong>setXInterval</strong></a> (double interval) <br><em>Sets the grid X interval.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setxoffset"><strong>setXOffset</strong></a> (double offset) <br><em>Sets the grid X interval.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setyinterval"><strong>setYInterval</strong></a> (double interval) <br><em>Sets the grid Y interval.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setyoffset"><strong>setYOffset</strong></a> (double offset) <br><em>Sets the grid Y interval.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-xinterval-22"><strong>xInterval</strong></a> () const<br><em>Returns the grid X interval.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-xoffset-22"><strong>xOffset</strong></a> () const<br><em>Returns the grid X interval.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-yinterval-22"><strong>yInterval</strong></a> () const<br><em>Returns the grid Y interval.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-yoffset-22"><strong>yOffset</strong></a> () const<br><em>Returns the grid Y interval.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>This model manages lists of lines, markers, and annotations representing a grid. </p>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-annotationcolor-12">property annotationColor [1/2]</h3>
+<pre><code class="language-C++">QColor GridModel::annotationColor;
+</code></pre>
+<hr>
+
+<h3 id="property-annotationhasoutline-12">property annotationHasOutline [1/2]</h3>
+<pre><code class="language-C++">bool GridModel::annotationHasOutline;
+</code></pre>
+<hr>
+
+<h3 id="property-annotationoutlinecolor-12">property annotationOutlineColor [1/2]</h3>
+<pre><code class="language-C++">QColor GridModel::annotationOutlineColor;
+</code></pre>
+<hr>
+
+<h3 id="property-annotationprecision-12">property annotationPrecision [1/2]</h3>
+<pre><code class="language-C++">int GridModel::annotationPrecision;
+</code></pre>
+<hr>
+
+<h3 id="property-annotations-12">property annotations [1/2]</h3>
+<pre><code class="language-C++">QList&lt;GridAnnotation&gt; GridModel::annotations;
+</code></pre>
+<hr>
+
+<h3 id="property-autocolor-12">property autoColor [1/2]</h3>
+<pre><code class="language-C++">bool GridModel::autoColor;
+</code></pre>
+<hr>
+
+<h3 id="property-enabled-12">property enabled [1/2]</h3>
+<pre><code class="language-C++">bool GridModel::enabled;
+</code></pre>
+<hr>
+
+<h3 id="property-indeterminate-12">property indeterminate [1/2]</h3>
+<pre><code class="language-C++">bool GridModel::indeterminate;
+</code></pre>
+<hr>
+
+<h3 id="property-majorlinecolor-12">property majorLineColor [1/2]</h3>
+<pre><code class="language-C++">QColor GridModel::majorLineColor;
+</code></pre>
+<hr>
+
+<h3 id="property-majorlines-12">property majorLines [1/2]</h3>
+<pre><code class="language-C++">QListQList&lt;QPointF&gt; GridModel::majorLines;
+</code></pre>
+<hr>
+
+<h3 id="property-mapsettings-12">property mapSettings [1/2]</h3>
+<pre><code class="language-C++">QgsQuickMapSettings * GridModel::mapSettings;
+</code></pre>
+<hr>
+
+<h3 id="property-markercolor-12">property markerColor [1/2]</h3>
+<pre><code class="language-C++">QColor GridModel::markerColor;
+</code></pre>
+<hr>
+
+<h3 id="property-markers-12">property markers [1/2]</h3>
+<pre><code class="language-C++">QList&lt;QPointF&gt; GridModel::markers;
+</code></pre>
+<hr>
+
+<h3 id="property-minorlinecolor-12">property minorLineColor [1/2]</h3>
+<pre><code class="language-C++">QColor GridModel::minorLineColor;
+</code></pre>
+<hr>
+
+<h3 id="property-minorlines-12">property minorLines [1/2]</h3>
+<pre><code class="language-C++">QListQList&lt;QPointF&gt; GridModel::minorLines;
+</code></pre>
+<hr>
+
+<h3 id="property-prepareannotations-12">property prepareAnnotations [1/2]</h3>
+<pre><code class="language-C++">bool GridModel::prepareAnnotations;
+</code></pre>
+<hr>
+
+<h3 id="property-preparelines-12">property prepareLines [1/2]</h3>
+<pre><code class="language-C++">bool GridModel::prepareLines;
+</code></pre>
+<hr>
+
+<h3 id="property-preparemarkers-12">property prepareMarkers [1/2]</h3>
+<pre><code class="language-C++">bool GridModel::prepareMarkers;
+</code></pre>
+<hr>
+
+<h3 id="property-xinterval-12">property xInterval [1/2]</h3>
+<pre><code class="language-C++">double GridModel::xInterval;
+</code></pre>
+<hr>
+
+<h3 id="property-xoffset-12">property xOffset [1/2]</h3>
+<pre><code class="language-C++">double GridModel::xOffset;
+</code></pre>
+<hr>
+
+<h3 id="property-yinterval-12">property yInterval [1/2]</h3>
+<pre><code class="language-C++">double GridModel::yInterval;
+</code></pre>
+<hr>
+
+<h3 id="property-yoffset-12">property yOffset [1/2]</h3>
+<pre><code class="language-C++">double GridModel::yOffset;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-annotationcolorchanged">signal annotationColorChanged</h3>
+<p><em>Emitted when the grid annotation text color has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::annotationColorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-annotationhasoutlinechanged">signal annotationHasOutlineChanged</h3>
+<p><em>Emitted when the grid annotation text outline visibility has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::annotationHasOutlineChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-annotationoutlinecolorchanged">signal annotationOutlineColorChanged</h3>
+<p><em>Emitted when the grid annotation text outline color has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::annotationOutlineColorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-annotationprecisionchanged">signal annotationPrecisionChanged</h3>
+<p><em>Emitted when the grid annotation text decimal precision has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::annotationPrecisionChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-annotationschanged">signal annotationsChanged</h3>
+<p><em>Emitted when the grid annotations have changed.</em> </p>
+<pre><code class="language-C++">void GridModel::annotationsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-autocolorchanged">signal autoColorChanged</h3>
+<p><em>Emitted when the grid line and marker colors are automatically assigned.</em> </p>
+<pre><code class="language-C++">void GridModel::autoColorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-enabledchanged">signal enabledChanged</h3>
+<p><em>Emitted when the grid enabled setting has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::enabledChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-indeterminatechanged">signal indeterminateChanged</h3>
+<p><em>Emitted when the grid indeterminate setting has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::indeterminateChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-majorlinecolorchanged">signal majorLineColorChanged</h3>
+<p><em>Emitted when the grid major line color has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::majorLineColorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-majorlineschanged">signal majorLinesChanged</h3>
+<p><em>Emitted when the grid major lines have changed.</em> </p>
+<pre><code class="language-C++">void GridModel::majorLinesChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-mapsettingschanged">signal mapSettingsChanged</h3>
+<p><em>Emitted when the map settings object has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::mapSettingsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-markercolorchanged">signal markerColorChanged</h3>
+<p><em>Emitted when the grid marker color has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::markerColorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-markerschanged">signal markersChanged</h3>
+<p><em>Emitted when the grid markers have changed.</em> </p>
+<pre><code class="language-C++">void GridModel::markersChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-minorlinecolorchanged">signal minorLineColorChanged</h3>
+<p><em>Emitted when the grid minor line color has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::minorLineColorChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-minorlineschanged">signal minorLinesChanged</h3>
+<p><em>Emitted when the grid minor lines have changed.</em> </p>
+<pre><code class="language-C++">void GridModel::minorLinesChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-prepareannotationschanged">signal prepareAnnotationsChanged</h3>
+<p><em>Emitted when grid annotations preparation setting has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::prepareAnnotationsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-preparelineschanged">signal prepareLinesChanged</h3>
+<p><em>Emitted when grid lines preparation setting has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::prepareLinesChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-preparemarkerschanged">signal prepareMarkersChanged</h3>
+<p><em>Emitted when grid markers preparation setting has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::prepareMarkersChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-xintervalchanged">signal xIntervalChanged</h3>
+<p><em>Emitted when the grid X interval has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::xIntervalChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-xoffsetchanged">signal xOffsetChanged</h3>
+<p><em>Emitted when the grid X offset has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::xOffsetChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-yintervalchanged">signal yIntervalChanged</h3>
+<p><em>Emitted when the grid Y interval has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::yIntervalChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-yoffsetchanged">signal yOffsetChanged</h3>
+<p><em>Emitted when the grid Y offset has changed.</em> </p>
+<pre><code class="language-C++">void GridModel::yOffsetChanged;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-gridmodel">function GridModel</h3>
+<p><em>Default constructor.</em> </p>
+<pre><code class="language-C++">explicit GridModel::GridModel (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-annotationcolor-22">function annotationColor [2/2]</h3>
+<p><em>Returns the grid annotation text color.</em> </p>
+<pre><code class="language-C++">inline QColor GridModel::annotationColor () const
+</code></pre>
+<hr>
+
+<h3 id="function-annotationhasoutline-22">function annotationHasOutline [2/2]</h3>
+<p><em>Returns whether annotation text have an outline color.</em> </p>
+<pre><code class="language-C++">inline bool GridModel::annotationHasOutline () const
+</code></pre>
+<hr>
+
+<h3 id="function-annotationoutlinecolor-22">function annotationOutlineColor [2/2]</h3>
+<p><em>Returns the grid annotation text outline color.</em> </p>
+<pre><code class="language-C++">inline QColor GridModel::annotationOutlineColor () const
+</code></pre>
+<hr>
+
+<h3 id="function-annotationprecision-22">function annotationPrecision [2/2]</h3>
+<p><em>Returns the annotation text decimal precision.</em> </p>
+<pre><code class="language-C++">inline int GridModel::annotationPrecision () const
+</code></pre>
+<hr>
+
+<h3 id="function-annotations-22">function annotations [2/2]</h3>
+<p><em>Returns the grid annotations.</em> </p>
+<pre><code class="language-C++">inline QList&lt; GridAnnotation &gt; GridModel::annotations () const
+</code></pre>
+<hr>
+
+<h3 id="function-autocolor-22">function autoColor [2/2]</h3>
+<pre><code class="language-C++">inline bool GridModel::autoColor () const
+</code></pre>
+<p>Returns whether grid line and marker colors will be automatically assigned to colors derived from the map canvas background color. </p>
+<hr>
+
+<h3 id="function-enabled-22">function enabled [2/2]</h3>
+<p><em>Returns TRUE when grid elements will be prepared.</em> </p>
+<pre><code class="language-C++">inline bool GridModel::enabled () const
+</code></pre>
+<hr>
+
+<h3 id="function-indeterminate-22">function indeterminate [2/2]</h3>
+<pre><code class="language-C++">inline bool GridModel::indeterminate () const
+</code></pre>
+<p>Returns TRUE when grid will adopt an indeterminate behavior and ignore the interval and offset values. </p>
+<hr>
+
+<h3 id="function-majorlinecolor-22">function majorLineColor [2/2]</h3>
+<p><em>Returns the grid major line color.</em> </p>
+<pre><code class="language-C++">inline QColor GridModel::majorLineColor () const
+</code></pre>
+<hr>
+
+<h3 id="function-majorlines-22">function majorLines [2/2]</h3>
+<p><em>Returns the grid major lines.</em> </p>
+<pre><code class="language-C++">inline QList&lt; QList&lt; QPointF &gt; &gt; GridModel::majorLines () const
+</code></pre>
+<hr>
+
+<h3 id="function-mapsettings-22">function mapSettings [2/2]</h3>
+<p><em>Returns the map settings object.</em> </p>
+<pre><code class="language-C++">inline QgsQuickMapSettings * GridModel::mapSettings () const
+</code></pre>
+<hr>
+
+<h3 id="function-markercolor-22">function markerColor [2/2]</h3>
+<p><em>Returns the grid marker color.</em> </p>
+<pre><code class="language-C++">inline QColor GridModel::markerColor () const
+</code></pre>
+<hr>
+
+<h3 id="function-markers-22">function markers [2/2]</h3>
+<p><em>Returns the grid markers.</em> </p>
+<pre><code class="language-C++">inline QList&lt; QPointF &gt; GridModel::markers () const
+</code></pre>
+<hr>
+
+<h3 id="function-minorlinecolor-22">function minorLineColor [2/2]</h3>
+<p><em>Returns the grid minor line color.</em> </p>
+<pre><code class="language-C++">inline QColor GridModel::minorLineColor () const
+</code></pre>
+<hr>
+
+<h3 id="function-minorlines-22">function minorLines [2/2]</h3>
+<p><em>Returns the grid minor lines.</em> </p>
+<pre><code class="language-C++">inline QList&lt; QList&lt; QPointF &gt; &gt; GridModel::minorLines () const
+</code></pre>
+<hr>
+
+<h3 id="function-prepareannotations-22">function prepareAnnotations [2/2]</h3>
+<p><em>Returns whether grid annotations will be prepared.</em> </p>
+<pre><code class="language-C++">inline bool GridModel::prepareAnnotations () const
+</code></pre>
+<hr>
+
+<h3 id="function-preparelines-22">function prepareLines [2/2]</h3>
+<p><em>Returns whether grid lines will be prepared.</em> </p>
+<pre><code class="language-C++">inline bool GridModel::prepareLines () const
+</code></pre>
+<hr>
+
+<h3 id="function-preparemarkers-22">function prepareMarkers [2/2]</h3>
+<p><em>Returns whether grid markers will be prepared.</em> </p>
+<pre><code class="language-C++">inline bool GridModel::prepareMarkers () const
+</code></pre>
+<hr>
+
+<h3 id="function-setannotationcolor">function setAnnotationColor</h3>
+<p><em>Sets the grid annotation text color.</em> </p>
+<pre><code class="language-C++">void GridModel::setAnnotationColor (
+    const QColor &amp; color
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setannotationhasoutline">function setAnnotationHasOutline</h3>
+<p><em>Sets whether annotation text have an outline color.</em> </p>
+<pre><code class="language-C++">void GridModel::setAnnotationHasOutline (
+    bool hasOutline
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setannotationoutlinecolor">function setAnnotationOutlineColor</h3>
+<p><em>Sets the grid annotation text outline color.</em> </p>
+<pre><code class="language-C++">void GridModel::setAnnotationOutlineColor (
+    const QColor &amp; color
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setannotationprecision">function setAnnotationPrecision</h3>
+<p><em>Sets the annotation text decimal precision.</em> </p>
+<pre><code class="language-C++">void GridModel::setAnnotationPrecision (
+    int precision
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setautocolor">function setAutoColor</h3>
+<pre><code class="language-C++">void GridModel::setAutoColor (
+    bool autoColor
+) 
+</code></pre>
+<p>Set whether grid line and marker colors will be automatically assigned to colors derived from the map canvas background color. </p>
+<hr>
+
+<h3 id="function-setenabled">function setEnabled</h3>
+<p><em>Sets whether grid elements will be prepared.</em> </p>
+<pre><code class="language-C++">void GridModel::setEnabled (
+    bool enabled
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setindeterminate">function setIndeterminate</h3>
+<pre><code class="language-C++">void GridModel::setIndeterminate (
+    bool indeterminate
+) 
+</code></pre>
+<p>Sets whether the grid will adopt an indeterminate behavior and ignore the interval and offset values. </p>
+<hr>
+
+<h3 id="function-setmajorlinecolor">function setMajorLineColor</h3>
+<p><em>Sets the grid major line color.</em> </p>
+<pre><code class="language-C++">void GridModel::setMajorLineColor (
+    const QColor &amp; color
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setmapsettings">function setMapSettings</h3>
+<p><em>Sets the map settings object.</em> </p>
+<pre><code class="language-C++">void GridModel::setMapSettings (
+    QgsQuickMapSettings * mapSettings
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setmarkercolor">function setMarkerColor</h3>
+<p><em>Sets the grid marker color.</em> </p>
+<pre><code class="language-C++">void GridModel::setMarkerColor (
+    const QColor &amp; color
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setminorlinecolor">function setMinorLineColor</h3>
+<p><em>Sets the grid minor line color.</em> </p>
+<pre><code class="language-C++">void GridModel::setMinorLineColor (
+    const QColor &amp; color
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setprepareannotations">function setPrepareAnnotations</h3>
+<p><em>Sets whether grid annotations will be prepared.</em> </p>
+<pre><code class="language-C++">void GridModel::setPrepareAnnotations (
+    bool prepare
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setpreparelines">function setPrepareLines</h3>
+<p><em>Sets whether grid lines will be prepared.</em> </p>
+<pre><code class="language-C++">void GridModel::setPrepareLines (
+    bool prepare
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setpreparemarkers">function setPrepareMarkers</h3>
+<p><em>Sets whether grid markers will be prepared.</em> </p>
+<pre><code class="language-C++">void GridModel::setPrepareMarkers (
+    bool prepare
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setxinterval">function setXInterval</h3>
+<p><em>Sets the grid X interval.</em> </p>
+<pre><code class="language-C++">void GridModel::setXInterval (
+    double interval
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setxoffset">function setXOffset</h3>
+<p><em>Sets the grid X interval.</em> </p>
+<pre><code class="language-C++">void GridModel::setXOffset (
+    double offset
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setyinterval">function setYInterval</h3>
+<p><em>Sets the grid Y interval.</em> </p>
+<pre><code class="language-C++">void GridModel::setYInterval (
+    double interval
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setyoffset">function setYOffset</h3>
+<p><em>Sets the grid Y interval.</em> </p>
+<pre><code class="language-C++">void GridModel::setYOffset (
+    double offset
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-xinterval-22">function xInterval [2/2]</h3>
+<p><em>Returns the grid X interval.</em> </p>
+<pre><code class="language-C++">inline double GridModel::xInterval () const
+</code></pre>
+<hr>
+
+<h3 id="function-xoffset-22">function xOffset [2/2]</h3>
+<p><em>Returns the grid X interval.</em> </p>
+<pre><code class="language-C++">inline double GridModel::xOffset () const
+</code></pre>
+<hr>
+
+<h3 id="function-yinterval-22">function yInterval [2/2]</h3>
+<p><em>Returns the grid Y interval.</em> </p>
+<pre><code class="language-C++">inline double GridModel::yInterval () const
+</code></pre>
+<hr>
+
+<h3 id="function-yoffset-22">function yOffset [2/2]</h3>
+<p><em>Returns the grid Y interval.</em> </p>
+<pre><code class="language-C++">inline double GridModel::yOffset () const
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/gridmodel.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

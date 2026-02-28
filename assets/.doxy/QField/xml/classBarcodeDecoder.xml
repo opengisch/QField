@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBarcodeDecoder" kind="class" language="C++" prot="public">
+    <compoundname>BarcodeDecoder</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classBarcodeDecoder_1a289bddfbe693f3da0db9b2e9c5a0d277" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVideoSink *</type>
+        <definition>QVideoSink * BarcodeDecoder::videoSink</definition>
+        <argsstring></argsstring>
+        <name>videoSink</name>
+        <qualifiedname>BarcodeDecoder::videoSink</qualifiedname>
+        <read>videoSink</read>
+        <write>setVideoSink</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="33" column="5" bodyfile="src/core/barcodedecoder.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBarcodeDecoder_1a02cc5da0b0087da50c3ff7f5b3252dcc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString BarcodeDecoder::decodedString</definition>
+        <argsstring></argsstring>
+        <name>decodedString</name>
+        <qualifiedname>BarcodeDecoder::decodedString</qualifiedname>
+        <read>decodedString</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="34" column="5" bodyfile="src/core/barcodedecoder.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBarcodeDecoder_1a725e87af0d4ea592461cdc822e27c4ab" prot="private" static="no" mutable="no">
+        <type>QImage</type>
+        <definition>QImage BarcodeDecoder::mImage</definition>
+        <argsstring></argsstring>
+        <name>mImage</name>
+        <qualifiedname>BarcodeDecoder::mImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="65" column="12" bodyfile="src/core/barcodedecoder.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBarcodeDecoder_1a301a2d38b00523c9b19fa65ad36a5ee3" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString BarcodeDecoder::mDecodedString</definition>
+        <argsstring></argsstring>
+        <name>mDecodedString</name>
+        <qualifiedname>BarcodeDecoder::mDecodedString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="66" column="13" bodyfile="src/core/barcodedecoder.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBarcodeDecoder_1ad24e165d4eca54cc9d9998c5b3c04d56" prot="private" static="no" mutable="no">
+        <type>QThread *</type>
+        <definition>QThread* BarcodeDecoder::mDecodingThread</definition>
+        <argsstring></argsstring>
+        <name>mDecodingThread</name>
+        <qualifiedname>BarcodeDecoder::mDecodingThread</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="67" column="13" bodyfile="src/core/barcodedecoder.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBarcodeDecoder_1a2c93efcc570f47f1f664c940f3367f50" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QVideoSink &gt;</type>
+        <definition>QPointer&lt;QVideoSink&gt; BarcodeDecoder::mVideoSink</definition>
+        <argsstring></argsstring>
+        <name>mVideoSink</name>
+        <qualifiedname>BarcodeDecoder::mVideoSink</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="68" column="14" bodyfile="src/core/barcodedecoder.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBarcodeDecoder_1add1a810bcfd37ae48be0d0cee4333ac6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BarcodeDecoder::BarcodeDecoder</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>BarcodeDecoder</name>
+        <qualifiedname>BarcodeDecoder::BarcodeDecoder</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="37" column="14" bodyfile="src/core/barcodedecoder.cpp" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classBarcodeDecoder_1a4bc1332c41d2521b5956b87029fda867" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString BarcodeDecoder::decodedString</definition>
+        <argsstring>() const</argsstring>
+        <name>decodedString</name>
+        <qualifiedname>BarcodeDecoder::decodedString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the last barcode decoded string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="42" column="13" bodyfile="src/core/barcodedecoder.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classBarcodeDecoder_1aeed427c5a7397e29e912ca2fefbd2421" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void BarcodeDecoder::clearDecodedString</definition>
+        <argsstring>()</argsstring>
+        <name>clearDecodedString</name>
+        <qualifiedname>BarcodeDecoder::clearDecodedString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the decoded string value and sets it to an empty string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="47" column="22" bodyfile="src/core/barcodedecoder.cpp" bodystart="51" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classBarcodeDecoder_1a5f36b7579b6f18770d66d6993e4dd18a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BarcodeDecoder::decodeImage</definition>
+        <argsstring>(const QImage &amp;image)</argsstring>
+        <name>decodeImage</name>
+        <qualifiedname>BarcodeDecoder::decodeImage</qualifiedname>
+        <param>
+          <type>const QImage &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scans a provided <emphasis>image</emphasis> for barcodes and if present sets the decoded string value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="52" column="10" bodyfile="src/core/barcodedecoder.cpp" bodystart="63" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classBarcodeDecoder_1ab7692af0cd2a4b97179490ac7ee279d3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVideoSink *</type>
+        <definition>QVideoSink * BarcodeDecoder::videoSink</definition>
+        <argsstring>() const</argsstring>
+        <name>videoSink</name>
+        <qualifiedname>BarcodeDecoder::videoSink</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="54" column="16" bodyfile="src/core/barcodedecoder.cpp" bodystart="119" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classBarcodeDecoder_1ac337fef8d865c1076fe1567502bc5f11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BarcodeDecoder::setVideoSink</definition>
+        <argsstring>(QVideoSink *sink)</argsstring>
+        <name>setVideoSink</name>
+        <qualifiedname>BarcodeDecoder::setVideoSink</qualifiedname>
+        <param>
+          <type>QVideoSink *</type>
+          <declname>sink</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="55" column="10" bodyfile="src/core/barcodedecoder.cpp" bodystart="124" bodyend="136"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classBarcodeDecoder_1a14c43e62d7871ecd81a3e45a13de2c22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BarcodeDecoder::decodeVideoFrame</definition>
+        <argsstring>(const QVideoFrame &amp;frame)</argsstring>
+        <name>decodeVideoFrame</name>
+        <qualifiedname>BarcodeDecoder::decodeVideoFrame</qualifiedname>
+        <param>
+          <type>const QVideoFrame &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="58" column="10" bodyfile="src/core/barcodedecoder.cpp" bodystart="138" bodyend="155"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classBarcodeDecoder_1ac5b17f161a8e35dddf2144ba9c9f2122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BarcodeDecoder::decodedStringChanged</definition>
+        <argsstring>()</argsstring>
+        <name>decodedStringChanged</name>
+        <qualifiedname>BarcodeDecoder::decodedStringChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="61" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classBarcodeDecoder_1af49b4786e643abe3f5506f14b67e071b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BarcodeDecoder::videoSinkChanged</definition>
+        <argsstring>()</argsstring>
+        <name>videoSinkChanged</name>
+        <qualifiedname>BarcodeDecoder::videoSinkChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/barcodedecoder.h" line="62" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BarcodeDecoder</label>
+        <link refid="classBarcodeDecoder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BarcodeDecoder</label>
+        <link refid="classBarcodeDecoder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/barcodedecoder.h" line="29" column="1" bodyfile="src/core/barcodedecoder.h" bodystart="30" bodyend="69"/>
+    <listofallmembers>
+      <member refid="classBarcodeDecoder_1add1a810bcfd37ae48be0d0cee4333ac6" prot="public" virt="non-virtual"><scope>BarcodeDecoder</scope><name>BarcodeDecoder</name></member>
+      <member refid="classBarcodeDecoder_1aeed427c5a7397e29e912ca2fefbd2421" prot="public" virt="non-virtual"><scope>BarcodeDecoder</scope><name>clearDecodedString</name></member>
+      <member refid="classBarcodeDecoder_1a02cc5da0b0087da50c3ff7f5b3252dcc" prot="public" virt="non-virtual"><scope>BarcodeDecoder</scope><name>decodedString</name></member>
+      <member refid="classBarcodeDecoder_1a4bc1332c41d2521b5956b87029fda867" prot="public" virt="non-virtual"><scope>BarcodeDecoder</scope><name>decodedString</name></member>
+      <member refid="classBarcodeDecoder_1ac5b17f161a8e35dddf2144ba9c9f2122" prot="public" virt="non-virtual"><scope>BarcodeDecoder</scope><name>decodedStringChanged</name></member>
+      <member refid="classBarcodeDecoder_1a5f36b7579b6f18770d66d6993e4dd18a" prot="public" virt="non-virtual"><scope>BarcodeDecoder</scope><name>decodeImage</name></member>
+      <member refid="classBarcodeDecoder_1a14c43e62d7871ecd81a3e45a13de2c22" prot="public" virt="non-virtual"><scope>BarcodeDecoder</scope><name>decodeVideoFrame</name></member>
+      <member refid="classBarcodeDecoder_1a301a2d38b00523c9b19fa65ad36a5ee3" prot="private" virt="non-virtual"><scope>BarcodeDecoder</scope><name>mDecodedString</name></member>
+      <member refid="classBarcodeDecoder_1ad24e165d4eca54cc9d9998c5b3c04d56" prot="private" virt="non-virtual"><scope>BarcodeDecoder</scope><name>mDecodingThread</name></member>
+      <member refid="classBarcodeDecoder_1a725e87af0d4ea592461cdc822e27c4ab" prot="private" virt="non-virtual"><scope>BarcodeDecoder</scope><name>mImage</name></member>
+      <member refid="classBarcodeDecoder_1a2c93efcc570f47f1f664c940f3367f50" prot="private" virt="non-virtual"><scope>BarcodeDecoder</scope><name>mVideoSink</name></member>
+      <member refid="classBarcodeDecoder_1ac337fef8d865c1076fe1567502bc5f11" prot="public" virt="non-virtual"><scope>BarcodeDecoder</scope><name>setVideoSink</name></member>
+      <member refid="classBarcodeDecoder_1a289bddfbe693f3da0db9b2e9c5a0d277" prot="public" virt="non-virtual"><scope>BarcodeDecoder</scope><name>videoSink</name></member>
+      <member refid="classBarcodeDecoder_1ab7692af0cd2a4b97179490ac7ee279d3" prot="public" virt="non-virtual"><scope>BarcodeDecoder</scope><name>videoSink</name></member>
+      <member refid="classBarcodeDecoder_1af49b4786e643abe3f5506f14b67e071b" prot="public" virt="non-virtual"><scope>BarcodeDecoder</scope><name>videoSinkChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

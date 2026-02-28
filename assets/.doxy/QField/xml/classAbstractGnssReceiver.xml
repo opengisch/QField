@@ -1,0 +1,733 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAbstractGnssReceiver" kind="class" language="C++" prot="public">
+    <compoundname>AbstractGnssReceiver</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <derivedcompoundref refid="classEgenioussReceiver" prot="public" virt="non-virtual">EgenioussReceiver</derivedcompoundref>
+    <derivedcompoundref refid="classInternalGnssReceiver" prot="public" virt="non-virtual">InternalGnssReceiver</derivedcompoundref>
+    <derivedcompoundref refid="classNmeaGnssReceiver" prot="public" virt="non-virtual">NmeaGnssReceiver</derivedcompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Capability</name>
+        <qualifiedname>AbstractGnssReceiver::Capability</qualifiedname>
+        <enumvalue id="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975aed9e46fde2ff0acea44bc8137ac4d21a" prot="public">
+          <name>NoCapabilities</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>No capabilities. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a26d16bd4c6171e893dd7303886a782e5" prot="public">
+          <name>OrthometricAltitude</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Orthometric altitude support. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a627bf82746c2007f651b25f6a9f4e76d" prot="public">
+          <name>Logging</name>
+          <initializer>= 1 &lt;&lt; 1</initializer>
+          <briefdescription>
+<para>Logging support. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="32" column="5" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="33" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classAbstractGnssReceiver_1aa6b096545347832a28804ac792c89e25" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class InternalGnssReceiver</definition>
+        <argsstring></argsstring>
+        <name>InternalGnssReceiver</name>
+        <qualifiedname>AbstractGnssReceiver::InternalGnssReceiver</qualifiedname>
+        <param>
+          <type><ref refid="classInternalGnssReceiver" kindref="compound">InternalGnssReceiver</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="75" column="18" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classAbstractGnssReceiver_1a24645de8767e85cc794072f31c32f5c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class EgenioussReceiver</definition>
+        <argsstring></argsstring>
+        <name>EgenioussReceiver</name>
+        <qualifiedname>AbstractGnssReceiver::EgenioussReceiver</qualifiedname>
+        <param>
+          <type><ref refid="classEgenioussReceiver" kindref="compound">EgenioussReceiver</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="76" column="18" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classAbstractGnssReceiver_1afe40606db5e131d00a8ae4aa1297aef3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class NmeaGnssReceiver</definition>
+        <argsstring></argsstring>
+        <name>NmeaGnssReceiver</name>
+        <qualifiedname>AbstractGnssReceiver::NmeaGnssReceiver</qualifiedname>
+        <param>
+          <type><ref refid="classNmeaGnssReceiver" kindref="compound">NmeaGnssReceiver</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="77" column="18" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classAbstractGnssReceiver_1a1c870873c5e23e70bb17bb146eb0b28a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BluetoothReceiver</definition>
+        <argsstring></argsstring>
+        <name>BluetoothReceiver</name>
+        <qualifiedname>AbstractGnssReceiver::BluetoothReceiver</qualifiedname>
+        <param>
+          <type><ref refid="classBluetoothReceiver" kindref="compound">BluetoothReceiver</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="78" column="18" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classAbstractGnssReceiver_1aab0b6b3907f4071b26baa9d8a0ce9058" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class TcpReceiver</definition>
+        <argsstring></argsstring>
+        <name>TcpReceiver</name>
+        <qualifiedname>AbstractGnssReceiver::TcpReceiver</qualifiedname>
+        <param>
+          <type><ref refid="classTcpReceiver" kindref="compound">TcpReceiver</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="79" column="18" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classAbstractGnssReceiver_1ad104d90bc2495e04d77f9adbe185ad23" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class UdpReceiver</definition>
+        <argsstring></argsstring>
+        <name>UdpReceiver</name>
+        <qualifiedname>AbstractGnssReceiver::UdpReceiver</qualifiedname>
+        <param>
+          <type><ref refid="classUdpReceiver" kindref="compound">UdpReceiver</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="80" column="18" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classAbstractGnssReceiver_1af2720f2c35b5068adf4ac4207dd0b54f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class SerialPortReceiver</definition>
+        <argsstring></argsstring>
+        <name>SerialPortReceiver</name>
+        <qualifiedname>AbstractGnssReceiver::SerialPortReceiver</qualifiedname>
+        <param>
+          <type><ref refid="classSerialPortReceiver" kindref="compound">SerialPortReceiver</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="81" column="18" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAbstractGnssReceiver_1a46995080c8e376aae7a16776ae89d1fd" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AbstractGnssReceiver::mValid</definition>
+        <argsstring></argsstring>
+        <name>mValid</name>
+        <qualifiedname>AbstractGnssReceiver::mValid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="89" column="10" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAbstractGnssReceiver_1ad1842203d1feba02f14168f3e08d6de7" prot="private" static="no" mutable="no">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation AbstractGnssReceiver::mLastGnssPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>mLastGnssPositionInformation</name>
+        <qualifiedname>AbstractGnssReceiver::mLastGnssPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="90" column="29" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAbstractGnssReceiver_1a6e3a9ee2ee3e90c0db687fdfb2b7c8e7" prot="private" static="no" mutable="no">
+        <type>QAbstractSocket::SocketState</type>
+        <definition>QAbstractSocket::SocketState AbstractGnssReceiver::mSocketState</definition>
+        <argsstring></argsstring>
+        <name>mSocketState</name>
+        <qualifiedname>AbstractGnssReceiver::mSocketState</qualifiedname>
+        <initializer>= QAbstractSocket::UnconnectedState</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="91" column="34" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAbstractGnssReceiver_1a159d6729a31b0c19fc066c48a4dbbc6b" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString AbstractGnssReceiver::mLastError</definition>
+        <argsstring></argsstring>
+        <name>mLastError</name>
+        <qualifiedname>AbstractGnssReceiver::mLastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="92" column="13" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAbstractGnssReceiver_1a1609d1d8c1a316b44ffdbcc83bf4a766" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AbstractGnssReceiver::AbstractGnssReceiver</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>AbstractGnssReceiver</name>
+        <qualifiedname>AbstractGnssReceiver::AbstractGnssReceiver</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="41" column="14" bodyfile="src/core/positioning/abstractgnssreceiver.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1a79bb78bb03066de84106cd0a72579378" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual AbstractGnssReceiver::~AbstractGnssReceiver</definition>
+        <argsstring>()=default</argsstring>
+        <name>~AbstractGnssReceiver</name>
+        <qualifiedname>AbstractGnssReceiver::~AbstractGnssReceiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="42" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1a0738727cbe42715b16564e8ea5863875" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AbstractGnssReceiver::valid</definition>
+        <argsstring>() const</argsstring>
+        <name>valid</name>
+        <qualifiedname>AbstractGnssReceiver::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="44" column="10" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1a61a9a4baf3e854038b0cd6bd9f969366" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractGnssReceiver::setValid</definition>
+        <argsstring>(bool valid)</argsstring>
+        <name>setValid</name>
+        <qualifiedname>AbstractGnssReceiver::setValid</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>valid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="45" column="10" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1a44f38d0bb07d582b9b301aeb1b834c71" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractGnssReceiver::connectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>connectDevice</name>
+        <qualifiedname>AbstractGnssReceiver::connectDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="47" column="10" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1a8238eb63f6cea17e0269188394fad4d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractGnssReceiver::disconnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>disconnectDevice</name>
+        <qualifiedname>AbstractGnssReceiver::disconnectDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="48" column="10" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1acb8e0d5ddd87eb007bf55a2a9a231801" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractGnssReceiver::startLogging</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>startLogging</name>
+        <qualifiedname>AbstractGnssReceiver::startLogging</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="50" column="10" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1a098f12276d444f455473ffb9b95735d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractGnssReceiver::stopLogging</definition>
+        <argsstring>()</argsstring>
+        <name>stopLogging</name>
+        <qualifiedname>AbstractGnssReceiver::stopLogging</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="51" column="10" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1acae5ab4648a4eaa9aae76c1b76d4915c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation AbstractGnssReceiver::lastGnssPositionInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>lastGnssPositionInformation</name>
+        <qualifiedname>AbstractGnssReceiver::lastGnssPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="53" column="29" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1aaca96579de6a3a47f6af8f3872b9b727" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString AbstractGnssReceiver::lastError</definition>
+        <argsstring>() const</argsstring>
+        <name>lastError</name>
+        <qualifiedname>AbstractGnssReceiver::lastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="55" column="13" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1af2969f1d0e0a4b756709baa112261d64" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classGnssPositionDetails" kindref="compound">GnssPositionDetails</ref></type>
+        <definition>virtual GnssPositionDetails AbstractGnssReceiver::details</definition>
+        <argsstring>() const</argsstring>
+        <name>details</name>
+        <qualifiedname>AbstractGnssReceiver::details</qualifiedname>
+        <reimplementedby refid="classEgenioussReceiver_1ab794bdce55fab62a2985afe62a65762b">details</reimplementedby>
+        <reimplementedby refid="classNmeaGnssReceiver_1abe7e489681f2bdaf1239233e27c2f99f">details</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns extra details (such as hdop, vdop, pdop) provided by the positioning device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="60" column="33" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1a778bd4ee7e98f891e42396a953eba4b4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QAbstractSocket::SocketState</type>
+        <definition>virtual QAbstractSocket::SocketState AbstractGnssReceiver::socketState</definition>
+        <argsstring>() const</argsstring>
+        <name>socketState</name>
+        <qualifiedname>AbstractGnssReceiver::socketState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="61" column="42" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1a21957b057c65d7c39cf84626848c56a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>QString</type>
+        <definition>QString AbstractGnssReceiver::socketStateString</definition>
+        <argsstring>()</argsstring>
+        <name>socketStateString</name>
+        <qualifiedname>AbstractGnssReceiver::socketStateString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="62" column="21" bodyfile="src/core/positioning/abstractgnssreceiver.cpp" bodystart="24" bodyend="39"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classAbstractGnssReceiver_1a579d81115c16bc5a498cc8532f44fcb3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractGnssReceiver::setSocketState</definition>
+        <argsstring>(const QAbstractSocket::SocketState &amp;state)</argsstring>
+        <name>setSocketState</name>
+        <qualifiedname>AbstractGnssReceiver::setSocketState</qualifiedname>
+        <param>
+          <type>const QAbstractSocket::SocketState &amp;</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="65" column="10" bodyfile="src/core/positioning/abstractgnssreceiver.cpp" bodystart="41" bodyend="52"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classAbstractGnssReceiver_1a3fa79a03f84f0f9b0938cf9cc76513ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractGnssReceiver::validChanged</definition>
+        <argsstring>()</argsstring>
+        <name>validChanged</name>
+        <qualifiedname>AbstractGnssReceiver::validChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAbstractGnssReceiver_1a4f9353d27fc14bbbc9f157a3aea8429f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractGnssReceiver::lastGnssPositionInformationChanged</definition>
+        <argsstring>(const GnssPositionInformation &amp;lastGnssPositionInformation)</argsstring>
+        <name>lastGnssPositionInformationChanged</name>
+        <qualifiedname>AbstractGnssReceiver::lastGnssPositionInformationChanged</qualifiedname>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>lastGnssPositionInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="69" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAbstractGnssReceiver_1a251c5c7ac7a3e6a8795fd9004b729e2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractGnssReceiver::socketStateChanged</definition>
+        <argsstring>(const QAbstractSocket::SocketState socketState)</argsstring>
+        <name>socketStateChanged</name>
+        <qualifiedname>AbstractGnssReceiver::socketStateChanged</qualifiedname>
+        <param>
+          <type>const QAbstractSocket::SocketState</type>
+          <declname>socketState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="70" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAbstractGnssReceiver_1ad9d28fec49b2faf94fe187453b540d00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractGnssReceiver::socketStateStringChanged</definition>
+        <argsstring>(const QString &amp;socketStateString)</argsstring>
+        <name>socketStateStringChanged</name>
+        <qualifiedname>AbstractGnssReceiver::socketStateStringChanged</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>socketStateString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="71" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAbstractGnssReceiver_1afe956f57b712d23f7ffc7988293aea3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractGnssReceiver::lastErrorChanged</definition>
+        <argsstring>(const QString &amp;lastError)</argsstring>
+        <name>lastErrorChanged</name>
+        <qualifiedname>AbstractGnssReceiver::lastErrorChanged</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>lastError</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="72" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classAbstractGnssReceiver_1ab5f4dc91f3711881f4fb6217e4e4f1b9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void AbstractGnssReceiver::handleConnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>handleConnectDevice</name>
+        <qualifiedname>AbstractGnssReceiver::handleConnectDevice</qualifiedname>
+        <reimplementedby refid="classBluetoothReceiver_1a84b02dc2a257d65154acb60b52aee4af">handleConnectDevice</reimplementedby>
+        <reimplementedby refid="classEgenioussReceiver_1a47dc0179072ccf1f4886a82e6ac3adda">handleConnectDevice</reimplementedby>
+        <reimplementedby refid="classFileReceiver_1a3bb9b38ddbad0d1a2ab365903be798d9">handleConnectDevice</reimplementedby>
+        <reimplementedby refid="classInternalGnssReceiver_1af8c94f21e57b8dd29724144cabf789c1">handleConnectDevice</reimplementedby>
+        <reimplementedby refid="classSerialPortReceiver_1aca7634d054e573890f1a1b814f62621e">handleConnectDevice</reimplementedby>
+        <reimplementedby refid="classTcpReceiver_1af8320d7565270a3a43a651e57f49dec0">handleConnectDevice</reimplementedby>
+        <reimplementedby refid="classUdpReceiver_1a9f8fdbaf3b78a28622a3af310f7235da">handleConnectDevice</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="83" column="18" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1a66579ca4823f700826dcf66fcdad18e0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void AbstractGnssReceiver::handleDisconnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>handleDisconnectDevice</name>
+        <qualifiedname>AbstractGnssReceiver::handleDisconnectDevice</qualifiedname>
+        <reimplementedby refid="classBluetoothReceiver_1a4c011bb795e2720d72c6f07e2cb42dbc">handleDisconnectDevice</reimplementedby>
+        <reimplementedby refid="classEgenioussReceiver_1aeb8fdaf12146c3ab3ae8476c2ba4eebe">handleDisconnectDevice</reimplementedby>
+        <reimplementedby refid="classFileReceiver_1a24ab8bbef8dca8868218b271b1eebd97">handleDisconnectDevice</reimplementedby>
+        <reimplementedby refid="classInternalGnssReceiver_1ac80ebf5442faa32cd316fc1f64002ddf">handleDisconnectDevice</reimplementedby>
+        <reimplementedby refid="classSerialPortReceiver_1a45d782659bc8bba9e3f81a2925b5a6ff">handleDisconnectDevice</reimplementedby>
+        <reimplementedby refid="classTcpReceiver_1ab6964e810ac434313ee07e4b4279e224">handleDisconnectDevice</reimplementedby>
+        <reimplementedby refid="classUdpReceiver_1a4fb219a87526c94280957e293d8f2e1a">handleDisconnectDevice</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="84" column="18" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1ac3ab7ee30e53668c39097100335403ab" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void AbstractGnssReceiver::handleStartLogging</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>handleStartLogging</name>
+        <qualifiedname>AbstractGnssReceiver::handleStartLogging</qualifiedname>
+        <reimplementedby refid="classNmeaGnssReceiver_1ae6bb7af007399c9b45051a61cf6697ca">handleStartLogging</reimplementedby>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="86" column="18" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classAbstractGnssReceiver_1abfc65c78595efd6c0c655f21c7177b48" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void AbstractGnssReceiver::handleStopLogging</definition>
+        <argsstring>()</argsstring>
+        <name>handleStopLogging</name>
+        <qualifiedname>AbstractGnssReceiver::handleStopLogging</qualifiedname>
+        <reimplementedby refid="classNmeaGnssReceiver_1a8c6e4d3c84c1a1d520bc89c41bd19654">handleStopLogging</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/abstractgnssreceiver.h" line="87" column="18" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AbstractGnssReceiver</label>
+        <link refid="classAbstractGnssReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>BluetoothReceiver</label>
+        <link refid="classBluetoothReceiver"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>EgenioussReceiver</label>
+        <link refid="classEgenioussReceiver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>FileReceiver</label>
+        <link refid="classFileReceiver"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>InternalGnssReceiver</label>
+        <link refid="classInternalGnssReceiver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>NmeaGnssReceiver</label>
+        <link refid="classNmeaGnssReceiver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="8">
+        <label>SerialPortReceiver</label>
+        <link refid="classSerialPortReceiver"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>TcpReceiver</label>
+        <link refid="classTcpReceiver"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>UdpReceiver</label>
+        <link refid="classUdpReceiver"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AbstractGnssReceiver</label>
+        <link refid="classAbstractGnssReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/abstractgnssreceiver.h" line="27" column="1" bodyfile="src/core/positioning/abstractgnssreceiver.h" bodystart="28" bodyend="93"/>
+    <listofallmembers>
+      <member refid="classAbstractGnssReceiver_1a1609d1d8c1a316b44ffdbcc83bf4a766" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>AbstractGnssReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1a1c870873c5e23e70bb17bb146eb0b28a" prot="private" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>BluetoothReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>Capability</name></member>
+      <member refid="classAbstractGnssReceiver_1a44f38d0bb07d582b9b301aeb1b834c71" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>connectDevice</name></member>
+      <member refid="classAbstractGnssReceiver_1af2969f1d0e0a4b756709baa112261d64" prot="public" virt="virtual"><scope>AbstractGnssReceiver</scope><name>details</name></member>
+      <member refid="classAbstractGnssReceiver_1a8238eb63f6cea17e0269188394fad4d8" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>disconnectDevice</name></member>
+      <member refid="classAbstractGnssReceiver_1a24645de8767e85cc794072f31c32f5c1" prot="private" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>EgenioussReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1ab5f4dc91f3711881f4fb6217e4e4f1b9" prot="private" virt="virtual"><scope>AbstractGnssReceiver</scope><name>handleConnectDevice</name></member>
+      <member refid="classAbstractGnssReceiver_1a66579ca4823f700826dcf66fcdad18e0" prot="private" virt="virtual"><scope>AbstractGnssReceiver</scope><name>handleDisconnectDevice</name></member>
+      <member refid="classAbstractGnssReceiver_1ac3ab7ee30e53668c39097100335403ab" prot="private" virt="virtual"><scope>AbstractGnssReceiver</scope><name>handleStartLogging</name></member>
+      <member refid="classAbstractGnssReceiver_1abfc65c78595efd6c0c655f21c7177b48" prot="private" virt="virtual"><scope>AbstractGnssReceiver</scope><name>handleStopLogging</name></member>
+      <member refid="classAbstractGnssReceiver_1aa6b096545347832a28804ac792c89e25" prot="private" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>InternalGnssReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1aaca96579de6a3a47f6af8f3872b9b727" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>lastError</name></member>
+      <member refid="classAbstractGnssReceiver_1afe956f57b712d23f7ffc7988293aea3e" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>lastErrorChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1acae5ab4648a4eaa9aae76c1b76d4915c" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>lastGnssPositionInformation</name></member>
+      <member refid="classAbstractGnssReceiver_1a4f9353d27fc14bbbc9f157a3aea8429f" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>lastGnssPositionInformationChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a627bf82746c2007f651b25f6a9f4e76d" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>Logging</name></member>
+      <member refid="classAbstractGnssReceiver_1a159d6729a31b0c19fc066c48a4dbbc6b" prot="private" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>mLastError</name></member>
+      <member refid="classAbstractGnssReceiver_1ad1842203d1feba02f14168f3e08d6de7" prot="private" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>mLastGnssPositionInformation</name></member>
+      <member refid="classAbstractGnssReceiver_1a6e3a9ee2ee3e90c0db687fdfb2b7c8e7" prot="private" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>mSocketState</name></member>
+      <member refid="classAbstractGnssReceiver_1a46995080c8e376aae7a16776ae89d1fd" prot="private" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>mValid</name></member>
+      <member refid="classAbstractGnssReceiver_1afe40606db5e131d00a8ae4aa1297aef3" prot="private" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>NmeaGnssReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975aed9e46fde2ff0acea44bc8137ac4d21a" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>NoCapabilities</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a26d16bd4c6171e893dd7303886a782e5" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>OrthometricAltitude</name></member>
+      <member refid="classAbstractGnssReceiver_1af2720f2c35b5068adf4ac4207dd0b54f" prot="private" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>SerialPortReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1a579d81115c16bc5a498cc8532f44fcb3" prot="protected" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>setSocketState</name></member>
+      <member refid="classAbstractGnssReceiver_1a61a9a4baf3e854038b0cd6bd9f969366" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>setValid</name></member>
+      <member refid="classAbstractGnssReceiver_1a778bd4ee7e98f891e42396a953eba4b4" prot="public" virt="virtual"><scope>AbstractGnssReceiver</scope><name>socketState</name></member>
+      <member refid="classAbstractGnssReceiver_1a251c5c7ac7a3e6a8795fd9004b729e2e" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>socketStateChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1a21957b057c65d7c39cf84626848c56a4" prot="public" virt="virtual"><scope>AbstractGnssReceiver</scope><name>socketStateString</name></member>
+      <member refid="classAbstractGnssReceiver_1ad9d28fec49b2faf94fe187453b540d00" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>socketStateStringChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1acb8e0d5ddd87eb007bf55a2a9a231801" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>startLogging</name></member>
+      <member refid="classAbstractGnssReceiver_1a098f12276d444f455473ffb9b95735d0" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>stopLogging</name></member>
+      <member refid="classAbstractGnssReceiver_1aab0b6b3907f4071b26baa9d8a0ce9058" prot="private" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>TcpReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1ad104d90bc2495e04d77f9adbe185ad23" prot="private" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>UdpReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1a0738727cbe42715b16564e8ea5863875" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>valid</name></member>
+      <member refid="classAbstractGnssReceiver_1a3fa79a03f84f0f9b0938cf9cc76513ba" prot="public" virt="non-virtual"><scope>AbstractGnssReceiver</scope><name>validChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1a79bb78bb03066de84106cd0a72579378" prot="public" virt="virtual"><scope>AbstractGnssReceiver</scope><name>~AbstractGnssReceiver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

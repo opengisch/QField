@@ -1,0 +1,1969 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class QgsQuickMapCanvasMap - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-qgsquickmapcanvasmap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class QgsQuickMapCanvasMap
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protected-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-bottommargin-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property bottomMargin [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-forcedeferredlayersrepaint-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property forceDeferredLayersRepaint [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-freeze-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property freeze [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-incrementalrendering-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property incrementalRendering [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-isrendering-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property isRendering [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-mapsettings-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mapSettings [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-mapupdateinterval-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property mapUpdateInterval [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-previewjobsenabled-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property previewJobsEnabled [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-previewjobsquadrants-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property previewJobsQuadrants [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-quality-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property quality [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-rightmargin-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property rightMargin [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-smooth-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property smooth [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-slots-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Slots Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Slots Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slot-pan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot pan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot refresh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-rotate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot rotate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-schedulepreviewjob" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot schedulePreviewJob
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-startpreviewjobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot startPreviewJobs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-stoppreviewjobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot stopPreviewJobs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-stoprendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot stopRendering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-zoombyfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot zoomByFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slot-zoomscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        slot zoomScale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-bottommarginchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal bottomMarginChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-forcedeferredlayersrepaintchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal forceDeferredLayersRepaintChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-freezechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal freezeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-incrementalrenderingchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal incrementalRenderingChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-isrenderingchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal isRenderingChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-mapcanvasrefreshed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal mapCanvasRefreshed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-mapupdateintervalchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal mapUpdateIntervalChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-previewjobsenabledchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal previewJobsEnabledChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-previewjobsquadrantschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal previewJobsQuadrantsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-qualitychanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal qualityChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-renderstarting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal renderStarting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-rightmarginchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal rightMarginChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-smoothchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal smoothChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-qgsquickmapcanvasmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function QgsQuickMapCanvasMap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-bottommargin-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function bottomMargin [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-forcedeferredlayersrepaint-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function forceDeferredLayersRepaint [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-freeze-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function freeze [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-incrementalrendering-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function incrementalRendering [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isrendering-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isRendering [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-mapsettings-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function mapSettings [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-mapupdateinterval-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function mapUpdateInterval [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-previewjobsenabled-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function previewJobsEnabled [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-previewjobsquadrants-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function previewJobsQuadrants [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-quality-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function quality [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-rightmargin-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function rightMargin [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setbottommargin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setBottomMargin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setforcedeferredlayersrepaint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setForceDeferredLayersRepaint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setfreeze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setFreeze
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setincrementalrendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setIncrementalRendering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmapupdateinterval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setMapUpdateInterval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setpreviewjobsenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPreviewJobsEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setpreviewjobsquadrants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setPreviewJobsQuadrants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setquality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setQuality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setrightmargin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setRightMargin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setsmooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setSmooth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-smooth-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function smooth [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-updatepaintnode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function updatePaintNode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-qgsquickmapcanvasmap_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~QgsQuickMapCanvasMap
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protected-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protected Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-geometrychange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function geometryChange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-qgsquickmapcanvasmap">Class QgsQuickMapCanvasMap</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>QgsQuickMapCanvasMap</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;qgsquickmapcanvasmap.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QQuickItem</p>
+<h2 id="public-slots">Public Slots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-pan"><strong>pan</strong></a> (const QPointF oldPos, const QPointF newPos) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-refresh"><strong>refresh</strong></a> (bool ignoreFreeze=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-rotate"><strong>rotate</strong></a> (double degrees) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-schedulepreviewjob"><strong>schedulePreviewJob</strong></a> (int number) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-startpreviewjobs"><strong>startPreviewJobs</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-stoppreviewjobs"><strong>stopPreviewJobs</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-stoprendering"><strong>stopRendering</strong></a>  <br><em>Stop map rendering.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-zoombyfactor"><strong>zoomByFactor</strong></a> (const QPointF center, qreal factor, bool handleMargins=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">slot void</td>
+<td style="text-align: left;"><a href="./#slot-zoomscale"><strong>zoomScale</strong></a> (const QPointF center, qreal scale, bool handleMargins=false) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-bottommargin-12"><strong>bottomMargin</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-forcedeferredlayersrepaint-12"><strong>forceDeferredLayersRepaint</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-freeze-12"><strong>freeze</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-incrementalrendering-12"><strong>incrementalRendering</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-isrendering-12"><strong>isRendering</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property <a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> *</td>
+<td style="text-align: left;"><a href="./#property-mapsettings-12"><strong>mapSettings</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-mapupdateinterval-12"><strong>mapUpdateInterval</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-previewjobsenabled-12"><strong>previewJobsEnabled</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QList&lt; int &gt;</td>
+<td style="text-align: left;"><a href="./#property-previewjobsquadrants-12"><strong>previewJobsQuadrants</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-quality-12"><strong>quality</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-rightmargin-12"><strong>rightMargin</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-smooth-12"><strong>smooth</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-bottommarginchanged"><strong>bottomMarginChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-forcedeferredlayersrepaintchanged"><strong>forceDeferredLayersRepaintChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-freezechanged"><strong>freezeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-incrementalrenderingchanged"><strong>incrementalRenderingChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-isrenderingchanged"><strong>isRenderingChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-mapcanvasrefreshed"><strong>mapCanvasRefreshed</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-mapupdateintervalchanged"><strong>mapUpdateIntervalChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-previewjobsenabledchanged"><strong>previewJobsEnabledChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-previewjobsquadrantschanged"><strong>previewJobsQuadrantsChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-qualitychanged"><strong>qualityChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-renderstarting"><strong>renderStarting</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-rightmarginchanged"><strong>rightMarginChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-smoothchanged"><strong>smoothChanged</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qgsquickmapcanvasmap"><strong>QgsQuickMapCanvasMap</strong></a> (QQuickItem * parent=nullptr) <br><em>Create map canvas map.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-bottommargin-22"><strong>bottomMargin</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-forcedeferredlayersrepaint-22"><strong>forceDeferredLayersRepaint</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-freeze-22"><strong>freeze</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QImage</td>
+<td style="text-align: left;"><a href="#function-image"><strong>image</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-incrementalrendering-22"><strong>incrementalRendering</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isrendering-22"><strong>isRendering</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> *</td>
+<td style="text-align: left;"><a href="#function-mapsettings-22"><strong>mapSettings</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-mapupdateinterval-22"><strong>mapUpdateInterval</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-previewjobsenabled-22"><strong>previewJobsEnabled</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QList&lt; int &gt;</td>
+<td style="text-align: left;"><a href="#function-previewjobsquadrants-22"><strong>previewJobsQuadrants</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-quality-22"><strong>quality</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-rightmargin-22"><strong>rightMargin</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setbottommargin"><strong>setBottomMargin</strong></a> (double bottomMargin) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setforcedeferredlayersrepaint"><strong>setForceDeferredLayersRepaint</strong></a> (bool deferred) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setfreeze"><strong>setFreeze</strong></a> (bool freeze) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setincrementalrendering"><strong>setIncrementalRendering</strong></a> (bool incrementalRendering) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setmapupdateinterval"><strong>setMapUpdateInterval</strong></a> (int mapUpdateInterval) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setpreviewjobsenabled"><strong>setPreviewJobsEnabled</strong></a> (bool enabled) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setpreviewjobsquadrants"><strong>setPreviewJobsQuadrants</strong></a> (const QList&lt; int &gt; &amp; quadrants) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setquality"><strong>setQuality</strong></a> (double quality) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setrightmargin"><strong>setRightMargin</strong></a> (double rightMargin) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setsmooth"><strong>setSmooth</strong></a> (bool smooth) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-smooth-22"><strong>smooth</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">QSGNode *</td>
+<td style="text-align: left;"><a href="#function-updatepaintnode"><strong>updatePaintNode</strong></a> (QSGNode * oldNode, QQuickItem::UpdatePaintNodeData *) override<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-qgsquickmapcanvasmap"><strong>~QgsQuickMapCanvasMap</strong></a> () <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="protected-functions">Protected Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-geometrychange"><strong>geometryChange</strong></a> (const QRectF &amp; newGeometry, const QRectF &amp; oldGeometry) override<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>This class implements a visual Qt Quick Item that does map rendering according to the current map settings. Client code is expected to use <a href="../classMapCanvas/"><strong>MapCanvas</strong></a> item rather than using this class directly.</p>
+<p><a href="./"><strong>QgsQuickMapCanvasMap</strong></a> instance internally creates <a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a> in constructor. The QgsProject should be attached to the <a href="../classQgsQuickMapSettings/"><strong>QgsQuickMapSettings</strong></a>. The map settings for other QgsQuick components should be initialized from <a href="./"><strong>QgsQuickMapCanvasMap</strong></a>'s mapSettings</p>
+<p><strong>Note:</strong></p>
+<p>QML Type: MapCanvasMap </p>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-bottommargin-12">property bottomMargin [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapCanvasMap::bottomMargin;
+</code></pre>
+<p>The bottom margin used by the map settings when calculating map extent or center. </p>
+<hr>
+
+<h3 id="property-forcedeferredlayersrepaint-12">property forceDeferredLayersRepaint [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapCanvasMap::forceDeferredLayersRepaint;
+</code></pre>
+<p>When the forceDeferredLayersRepaint property is set to true, all layer repaint signals will be deferred. </p>
+<hr>
+
+<h3 id="property-freeze-12">property freeze [1/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapCanvasMap::freeze;
+</code></pre>
+<p>When freeze property is set to true, the map canvas does not refresh. The value temporary changes during the rendering process. </p>
+<hr>
+
+<h3 id="property-incrementalrendering-12">property incrementalRendering [1/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapCanvasMap::incrementalRendering;
+</code></pre>
+<p>When the incrementalRendering property is set to true, the automatic refresh of map canvas during rendering is allowed. </p>
+<hr>
+
+<h3 id="property-isrendering-12">property isRendering [1/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapCanvasMap::isRendering;
+</code></pre>
+<p>The isRendering property is set to true while a rendering job is pending for this map canvas map. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property. </p>
+<hr>
+
+<h3 id="property-mapsettings-12">property mapSettings [1/2]</h3>
+<pre><code class="language-C++">QgsQuickMapSettings * QgsQuickMapCanvasMap::mapSettings;
+</code></pre>
+<p>The mapSettings property contains configuration for rendering of the map.</p>
+<p>It should be used as a primary source of map settings (and project) for all other components in the application.</p>
+<p>This is a readonly property. </p>
+<hr>
+
+<h3 id="property-mapupdateinterval-12">property mapUpdateInterval [1/2]</h3>
+<pre><code class="language-C++">int QgsQuickMapCanvasMap::mapUpdateInterval;
+</code></pre>
+<p>Interval in milliseconds after which the map canvas will be updated while a rendering job is ongoing. This only has an effect if incrementalRendering is activated. Default is 250 [ms]. </p>
+<hr>
+
+<h3 id="property-previewjobsenabled-12">property previewJobsEnabled [1/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapCanvasMap::previewJobsEnabled;
+</code></pre>
+<p>When the previewJobsEnabled property is set to true, canvas map preview jobs (low priority render jobs which render portions of the view just outside of the canvas extent, to allow preview of these out-of-canvas areas when panning or zooming out the map) while be rendered. </p>
+<hr>
+
+<h3 id="property-previewjobsquadrants-12">property previewJobsQuadrants [1/2]</h3>
+<pre><code class="language-C++">QList&lt;int&gt; QgsQuickMapCanvasMap::previewJobsQuadrants;
+</code></pre>
+<p>The previewJobsQuadrants property is used to customize the preview jobs ordering. The possible quadrant integer values are:</p>
+<p>0 (top left) | 1 (top) | 2 (top right) 3 (left) | canvas | 5 (right) 6 (bottom left) | 7 (bottom) | 8 (bottom right) </p>
+<hr>
+
+<h3 id="property-quality-12">property quality [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapCanvasMap::quality;
+</code></pre>
+<p>The quality property allows for an increase in rendering speed and memory usage reduction at the cost of rendering quality.</p>
+<p>By default, the value is set to 1.0, providing for the best rendering. The lowest quality value is 0.5. </p>
+<hr>
+
+<h3 id="property-rightmargin-12">property rightMargin [1/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapCanvasMap::rightMargin;
+</code></pre>
+<p>The right margin used by the map settings when calculating map extent or center. </p>
+<hr>
+
+<h3 id="property-smooth-12">property smooth [1/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapCanvasMap::smooth;
+</code></pre>
+<p>When the smooth property is set to true, canvas map panning, zooming, and rotation changes while be interpolated to create a smoother transition. </p>
+<hr>
+<h2 id="public-slots-documentation">Public Slots Documentation</h2>
+<h3 id="slot-pan">slot pan</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::pan;
+</code></pre>
+<p>Set map setting's extent (pan the map) based on the difference of positions </p>
+<hr>
+
+<h3 id="slot-refresh">slot refresh</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::refresh;
+</code></pre>
+<p>Refresh the map canvas. Does nothing when output size of map settings is not set </p>
+<hr>
+
+<h3 id="slot-rotate">slot rotate</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::rotate;
+</code></pre>
+<p>Change the map rotation by <em>degrees</em>. </p>
+<hr>
+
+<h3 id="slot-schedulepreviewjob">slot schedulePreviewJob</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::schedulePreviewJob;
+</code></pre>
+<hr>
+
+<h3 id="slot-startpreviewjobs">slot startPreviewJobs</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::startPreviewJobs;
+</code></pre>
+<hr>
+
+<h3 id="slot-stoppreviewjobs">slot stopPreviewJobs</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::stopPreviewJobs;
+</code></pre>
+<hr>
+
+<h3 id="slot-stoprendering">slot stopRendering</h3>
+<p><em>Stop map rendering.</em> </p>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::stopRendering;
+</code></pre>
+<hr>
+
+<h3 id="slot-zoombyfactor">slot zoomByFactor</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::zoomByFactor;
+</code></pre>
+<p>Set map setting's extent (zoom the map) on the <em>center</em> by given <em>factor</em> </p>
+<hr>
+
+<h3 id="slot-zoomscale">slot zoomScale</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::zoomScale;
+</code></pre>
+<p>Set map setting's extent (zoom the map) on the <em>center</em> at a given <em>scale</em> </p>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-bottommarginchanged">signal bottomMarginChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::bottomMarginChanged;
+</code></pre>
+<p>The bottom margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="signal-forcedeferredlayersrepaintchanged">signal forceDeferredLayersRepaintChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::forceDeferredLayersRepaintChanged;
+</code></pre>
+<p>When the forceDeferredLayersRepaint property is set to true, all layer repaint signals will be deferred.   </p>
+<hr>
+
+<h3 id="signal-freezechanged">signal freezeChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::freezeChanged;
+</code></pre>
+<p>When freeze property is set to true, the map canvas does not refresh. The value temporary changes during the rendering process.   </p>
+<hr>
+
+<h3 id="signal-incrementalrenderingchanged">signal incrementalRenderingChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::incrementalRenderingChanged;
+</code></pre>
+<p>When the incrementalRendering property is set to true, the automatic refresh of map canvas during rendering is allowed.   </p>
+<hr>
+
+<h3 id="signal-isrenderingchanged">signal isRenderingChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::isRenderingChanged;
+</code></pre>
+<p>The isRendering property is set to true while a rendering job is pending for this map canvas map. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property.   </p>
+<hr>
+
+<h3 id="signal-mapcanvasrefreshed">signal mapCanvasRefreshed</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::mapCanvasRefreshed;
+</code></pre>
+<p>Signal is emitted when a canvas is refreshed </p>
+<hr>
+
+<h3 id="signal-mapupdateintervalchanged">signal mapUpdateIntervalChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::mapUpdateIntervalChanged;
+</code></pre>
+<p>Interval in milliseconds after which the map canvas will be updated while a rendering job is ongoing. This only has an effect if incrementalRendering is activated. Default is 250 [ms].   </p>
+<hr>
+
+<h3 id="signal-previewjobsenabledchanged">signal previewJobsEnabledChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::previewJobsEnabledChanged;
+</code></pre>
+<p>When the previewJobsEnabled property is set to true, canvas map preview jobs (low priority render jobs which render portions of the view just outside of the canvas extent, to allow preview of these out-of-canvas areas when panning or zooming out the map) while be rendered.   </p>
+<hr>
+
+<h3 id="signal-previewjobsquadrantschanged">signal previewJobsQuadrantsChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::previewJobsQuadrantsChanged;
+</code></pre>
+<p>The previewJobsQuadrants property is used to customize the preview jobs ordering. The possible quadrant integer values are:</p>
+<p>0 (top left) | 1 (top) | 2 (top right) 3 (left) | canvas | 5 (right) 6 (bottom left) | 7 (bottom) | 8 (bottom right)   </p>
+<hr>
+
+<h3 id="signal-qualitychanged">signal qualityChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::qualityChanged;
+</code></pre>
+<p>The quality property allows for an increase in rendering speed and memory usage reduction at the cost of rendering quality.</p>
+<p>By default, the value is set to 1.0, providing for the best rendering. The lowest quality value is 0.5.   </p>
+<hr>
+
+<h3 id="signal-renderstarting">signal renderStarting</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::renderStarting;
+</code></pre>
+<p>Signal is emitted when a rendering is starting </p>
+<hr>
+
+<h3 id="signal-rightmarginchanged">signal rightMarginChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::rightMarginChanged;
+</code></pre>
+<p>The right margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="signal-smoothchanged">signal smoothChanged</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::smoothChanged;
+</code></pre>
+<p>The previewJobsQuadrants property is used to customize the preview jobs ordering. The possible quadrant integer values are:</p>
+<p>0 (top left) | 1 (top) | 2 (top right) 3 (left) | canvas | 5 (right) 6 (bottom left) | 7 (bottom) | 8 (bottom right)   </p>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-qgsquickmapcanvasmap">function QgsQuickMapCanvasMap</h3>
+<p><em>Create map canvas map.</em> </p>
+<pre><code class="language-C++">explicit QgsQuickMapCanvasMap::QgsQuickMapCanvasMap (
+    QQuickItem * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-bottommargin-22">function bottomMargin [2/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapCanvasMap::bottomMargin () const
+</code></pre>
+<p>The bottom margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="function-forcedeferredlayersrepaint-22">function forceDeferredLayersRepaint [2/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapCanvasMap::forceDeferredLayersRepaint () const
+</code></pre>
+<p>When the forceDeferredLayersRepaint property is set to true, all layer repaint signals will be deferred.   </p>
+<hr>
+
+<h3 id="function-freeze-22">function freeze [2/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapCanvasMap::freeze () const
+</code></pre>
+<p>When freeze property is set to true, the map canvas does not refresh. The value temporary changes during the rendering process.   </p>
+<hr>
+
+<h3 id="function-image">function image</h3>
+<pre><code class="language-C++">inline QImage QgsQuickMapCanvasMap::image () const
+</code></pre>
+<p>Returns an image of the last successful map canvas rendering </p>
+<hr>
+
+<h3 id="function-incrementalrendering-22">function incrementalRendering [2/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapCanvasMap::incrementalRendering () const
+</code></pre>
+<p>When the incrementalRendering property is set to true, the automatic refresh of map canvas during rendering is allowed.   </p>
+<hr>
+
+<h3 id="function-isrendering-22">function isRendering [2/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapCanvasMap::isRendering () const
+</code></pre>
+<p>The isRendering property is set to true while a rendering job is pending for this map canvas map. It can be used to show a notification icon about an ongoing rendering job. This is a readonly property.   </p>
+<hr>
+
+<h3 id="function-mapsettings-22">function mapSettings [2/2]</h3>
+<pre><code class="language-C++">QgsQuickMapSettings * QgsQuickMapCanvasMap::mapSettings () const
+</code></pre>
+<p>The mapSettings property contains configuration for rendering of the map.</p>
+<p>It should be used as a primary source of map settings (and project) for all other components in the application.</p>
+<p>This is a readonly property.   </p>
+<hr>
+
+<h3 id="function-mapupdateinterval-22">function mapUpdateInterval [2/2]</h3>
+<pre><code class="language-C++">int QgsQuickMapCanvasMap::mapUpdateInterval () const
+</code></pre>
+<p>Interval in milliseconds after which the map canvas will be updated while a rendering job is ongoing. This only has an effect if incrementalRendering is activated. Default is 250 [ms].   </p>
+<hr>
+
+<h3 id="function-previewjobsenabled-22">function previewJobsEnabled [2/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapCanvasMap::previewJobsEnabled () const
+</code></pre>
+<p>When the previewJobsEnabled property is set to true, canvas map preview jobs (low priority render jobs which render portions of the view just outside of the canvas extent, to allow preview of these out-of-canvas areas when panning or zooming out the map) while be rendered.   </p>
+<hr>
+
+<h3 id="function-previewjobsquadrants-22">function previewJobsQuadrants [2/2]</h3>
+<pre><code class="language-C++">QList&lt; int &gt; QgsQuickMapCanvasMap::previewJobsQuadrants () const
+</code></pre>
+<p>The previewJobsQuadrants property is used to customize the preview jobs ordering. The possible quadrant integer values are:</p>
+<p>0 (top left) | 1 (top) | 2 (top right) 3 (left) | canvas | 5 (right) 6 (bottom left) | 7 (bottom) | 8 (bottom right)   </p>
+<hr>
+
+<h3 id="function-quality-22">function quality [2/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapCanvasMap::quality () const
+</code></pre>
+<p>The quality property allows for an increase in rendering speed and memory usage reduction at the cost of rendering quality.</p>
+<p>By default, the value is set to 1.0, providing for the best rendering. The lowest quality value is 0.5.   </p>
+<hr>
+
+<h3 id="function-rightmargin-22">function rightMargin [2/2]</h3>
+<pre><code class="language-C++">double QgsQuickMapCanvasMap::rightMargin () const
+</code></pre>
+<p>The right margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="function-setbottommargin">function setBottomMargin</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::setBottomMargin (
+    double bottomMargin
+) 
+</code></pre>
+<p>The bottom margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="function-setforcedeferredlayersrepaint">function setForceDeferredLayersRepaint</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::setForceDeferredLayersRepaint (
+    bool deferred
+) 
+</code></pre>
+<p>When the forceDeferredLayersRepaint property is set to true, all layer repaint signals will be deferred.   </p>
+<hr>
+
+<h3 id="function-setfreeze">function setFreeze</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::setFreeze (
+    bool freeze
+) 
+</code></pre>
+<p>When freeze property is set to true, the map canvas does not refresh. The value temporary changes during the rendering process.   </p>
+<hr>
+
+<h3 id="function-setincrementalrendering">function setIncrementalRendering</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::setIncrementalRendering (
+    bool incrementalRendering
+) 
+</code></pre>
+<p>When the incrementalRendering property is set to true, the automatic refresh of map canvas during rendering is allowed.   </p>
+<hr>
+
+<h3 id="function-setmapupdateinterval">function setMapUpdateInterval</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::setMapUpdateInterval (
+    int mapUpdateInterval
+) 
+</code></pre>
+<p>Interval in milliseconds after which the map canvas will be updated while a rendering job is ongoing. This only has an effect if incrementalRendering is activated. Default is 250 [ms].   </p>
+<hr>
+
+<h3 id="function-setpreviewjobsenabled">function setPreviewJobsEnabled</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::setPreviewJobsEnabled (
+    bool enabled
+) 
+</code></pre>
+<p>When the previewJobsEnabled property is set to true, canvas map preview jobs (low priority render jobs which render portions of the view just outside of the canvas extent, to allow preview of these out-of-canvas areas when panning or zooming out the map) while be rendered.   </p>
+<hr>
+
+<h3 id="function-setpreviewjobsquadrants">function setPreviewJobsQuadrants</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::setPreviewJobsQuadrants (
+    const QList&lt; int &gt; &amp; quadrants
+) 
+</code></pre>
+<p>The previewJobsQuadrants property is used to customize the preview jobs ordering. The possible quadrant integer values are:</p>
+<p>0 (top left) | 1 (top) | 2 (top right) 3 (left) | canvas | 5 (right) 6 (bottom left) | 7 (bottom) | 8 (bottom right)   </p>
+<hr>
+
+<h3 id="function-setquality">function setQuality</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::setQuality (
+    double quality
+) 
+</code></pre>
+<p>When the incrementalRendering property is set to true, the automatic refresh of map canvas during rendering is allowed.   </p>
+<hr>
+
+<h3 id="function-setrightmargin">function setRightMargin</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::setRightMargin (
+    double rightMargin
+) 
+</code></pre>
+<p>The right margin used by the map settings when calculating map extent or center.   </p>
+<hr>
+
+<h3 id="function-setsmooth">function setSmooth</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::setSmooth (
+    bool smooth
+) 
+</code></pre>
+<p>When the smooth property is set to true, canvas map panning, zooming, and rotation changes while be interpolated to create a smoother transition.   </p>
+<hr>
+
+<h3 id="function-smooth-22">function smooth [2/2]</h3>
+<pre><code class="language-C++">bool QgsQuickMapCanvasMap::smooth () const
+</code></pre>
+<p>When the smooth property is set to true, canvas map panning, zooming, and rotation changes while be interpolated to create a smoother transition.   </p>
+<hr>
+
+<h3 id="function-updatepaintnode">function updatePaintNode</h3>
+<pre><code class="language-C++">QSGNode * QgsQuickMapCanvasMap::updatePaintNode (
+    QSGNode * oldNode,
+    QQuickItem::UpdatePaintNodeData *
+) override
+</code></pre>
+<hr>
+
+<h3 id="function-qgsquickmapcanvasmap_1">function ~QgsQuickMapCanvasMap</h3>
+<pre><code class="language-C++">QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap () 
+</code></pre>
+<hr>
+<h2 id="protected-functions-documentation">Protected Functions Documentation</h2>
+<h3 id="function-geometrychange">function geometryChange</h3>
+<pre><code class="language-C++">void QgsQuickMapCanvasMap::geometryChange (
+    const QRectF &amp; newGeometry,
+    const QRectF &amp; oldGeometry
+) override
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/qgsquick/qgsquickmapcanvasmap.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

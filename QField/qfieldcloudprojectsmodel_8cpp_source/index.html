@@ -1,0 +1,1716 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File qfieldcloudprojectsmodel.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-qfieldcloudprojectsmodelcpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File qfieldcloudprojectsmodel.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-qfieldcloudprojectsmodelcpp">File qfieldcloudprojectsmodel.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_d27ac98b23548f5810403c734ce9817b/"><strong>qfieldcloud</strong></a> <strong>&gt;</strong> <a href="../qfieldcloudprojectsmodel_8cpp/"><strong>qfieldcloudprojectsmodel.cpp</strong></a></p>
+<p><a href="../qfieldcloudprojectsmodel_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+    qfieldcloudprojectsmodel.cpp
+    ---------------------
+    begin                : January 2020
+    copyright            : (C) 2020 by Matthias Kuhn
+    email                : matthias at opengis dot ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include &quot;deltafilewrapper.h&quot;
+#include &quot;deltalistmodel.h&quot;
+#include &quot;layerobserver.h&quot;
+#include &quot;qfieldcloudconnection.h&quot;
+#include &quot;qfieldcloudprojectsmodel.h&quot;
+#include &quot;qfieldcloudutils.h&quot;
+
+#include &lt;QDir&gt;
+#include &lt;QDirIterator&gt;
+#include &lt;QJsonArray&gt;
+#include &lt;QJsonDocument&gt;
+#include &lt;QJsonObject&gt;
+#include &lt;QNetworkReply&gt;
+#include &lt;QSettings&gt;
+#include &lt;QTemporaryFile&gt;
+#include &lt;qgis.h&gt;
+#include &lt;qgsapplication.h&gt;
+#include &lt;qgslocalizeddatapathregistry.h&gt;
+#include &lt;qgsmessagelog.h&gt;
+#include &lt;qgsnetworkaccessmanager.h&gt;
+#include &lt;qgsproject.h&gt;
+#include &lt;qgsproviderregistry.h&gt;
+
+
+QFieldCloudProjectsModel::QFieldCloudProjectsModel()
+{
+  // TODO all of these connects are a bit too much, and I guess not very precise, should be refactored!
+  connect( this, &amp;QFieldCloudProjectsModel::dataChanged, this, [this]( const QModelIndex &amp;topLeft, const QModelIndex &amp;bottomRight, const QVector&lt;int&gt; &amp;roles ) {
+    Q_UNUSED( bottomRight )
+    Q_UNUSED( roles )
+
+    if ( roles.isEmpty() || roles.contains( StatusRole ) )
+    {
+      emit busyProjectIdsChanged();
+    }
+  } );
+}
+
+QFieldCloudConnection *QFieldCloudProjectsModel::cloudConnection() const
+{
+  return mCloudConnection;
+}
+
+void QFieldCloudProjectsModel::setCloudConnection( QFieldCloudConnection *cloudConnection )
+{
+  if ( mCloudConnection == cloudConnection )
+  {
+    return;
+  }
+
+  if ( mCloudConnection )
+  {
+    disconnect( mCloudConnection, &amp;QFieldCloudConnection::statusChanged, this, &amp;QFieldCloudProjectsModel::connectionStatusChanged );
+    disconnect( mCloudConnection, &amp;QFieldCloudConnection::usernameChanged, this, &amp;QFieldCloudProjectsModel::usernameChanged );
+    disconnect( mCloudConnection, &amp;QFieldCloudConnection::urlChanged, this, &amp;QFieldCloudProjectsModel::urlChanged );
+    disconnect( mCloudConnection, &amp;QFieldCloudConnection::queuedProjectPushRequested, this, nullptr );
+  }
+
+  mCloudConnection = cloudConnection;
+
+  if ( mCloudConnection )
+  {
+    connect( mCloudConnection, &amp;QFieldCloudConnection::statusChanged, this, &amp;QFieldCloudProjectsModel::connectionStatusChanged );
+    connect( mCloudConnection, &amp;QFieldCloudConnection::usernameChanged, this, &amp;QFieldCloudProjectsModel::usernameChanged );
+    connect( mCloudConnection, &amp;QFieldCloudConnection::urlChanged, this, &amp;QFieldCloudProjectsModel::urlChanged );
+    connect( mCloudConnection, &amp;QFieldCloudConnection::queuedProjectPushRequested, this,
+             [this]( const QString &amp;projectId ) {
+               // queuedProjectPush only provides projectId, so default shouldDownloadUpdates = false
+               projectPush( projectId, false );
+             } );
+    mUsername = mCloudConnection-&gt;username();
+    mUrl = mCloudConnection-&gt;url();
+    resetProjects();
+  }
+
+  emit cloudConnectionChanged();
+}
+
+LayerObserver *QFieldCloudProjectsModel::layerObserver() const
+{
+  return mLayerObserver;
+}
+
+void QFieldCloudProjectsModel::setLayerObserver( LayerObserver *layerObserver )
+{
+  if ( mLayerObserver == layerObserver )
+  {
+    return;
+  }
+
+  mLayerObserver = layerObserver;
+
+  if ( !layerObserver )
+  {
+    return;
+  }
+
+  emit layerObserverChanged();
+}
+
+QString QFieldCloudProjectsModel::currentProjectId() const
+{
+  return mCurrentProjectId;
+}
+
+void QFieldCloudProjectsModel::setCurrentProjectId( const QString &amp;currentProjectId )
+{
+  if ( mCurrentProjectId == currentProjectId )
+  {
+    return;
+  }
+
+  mCurrentProjectId = currentProjectId;
+  mCurrentProject = findProject( mCurrentProjectId );
+
+  if ( mLayerObserver )
+  {
+    mLayerObserver-&gt;setDeltaFileWrapper( mCurrentProject ? mCurrentProject-&gt;deltaFileWrapper() : nullptr );
+  }
+
+  emit currentProjectIdChanged();
+  emit currentProjectChanged();
+}
+
+QFieldCloudProject *QFieldCloudProjectsModel::currentProject() const
+{
+  return mCurrentProject.data();
+}
+
+QSet&lt;QString&gt; QFieldCloudProjectsModel::busyProjectIds() const
+{
+  QSet&lt;QString&gt; result;
+
+  for ( const auto project : mProjects )
+  {
+    if ( project-&gt;status() != QFieldCloudProject::ProjectStatus::Idle &amp;&amp; project-&gt;status() != QFieldCloudProject::ProjectStatus::Failing )
+    {
+      result.insert( project-&gt;id() );
+    }
+  }
+
+  return result;
+}
+
+void QFieldCloudProjectsModel::refreshProjectsList( bool shouldResetModel, bool shouldFetchPublic, int projectFetchOffset )
+{
+  switch ( mCloudConnection-&gt;status() )
+  {
+    case QFieldCloudConnection::ConnectionStatus::LoggedIn:
+    {
+      QString url = shouldFetchPublic ? QStringLiteral( &quot;/api/v1/projects/public/&quot; ) : QStringLiteral( &quot;/api/v1/projects/&quot; );
+
+      QVariantMap params;
+      params[&quot;limit&quot;] = QString::number( mProjectsPerFetch );
+      params[&quot;offset&quot;] = QString::number( projectFetchOffset );
+
+      QNetworkRequest request( url );
+      request.setHeader( QNetworkRequest::ContentTypeHeader, &quot;application/json&quot; );
+      request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+
+      request.setAttribute( static_cast&lt;QNetworkRequest::Attribute&gt;( ProjectsRequestAttribute::ResetModel ), shouldResetModel );
+      request.setAttribute( static_cast&lt;QNetworkRequest::Attribute&gt;( ProjectsRequestAttribute::FetchPublicProjects ), shouldFetchPublic );
+      request.setAttribute( static_cast&lt;QNetworkRequest::Attribute&gt;( ProjectsRequestAttribute::ProjectsFetchOffset ), projectFetchOffset );
+
+      mIsRefreshing = true;
+      emit isRefreshingChanged();
+
+      mCloudConnection-&gt;setAuthenticationDetails( request );
+      const NetworkReply *reply = mCloudConnection-&gt;get( request, url, params );
+      connect( reply, &amp;NetworkReply::finished, this, &amp;QFieldCloudProjectsModel::projectListReceived );
+      break;
+    }
+    case QFieldCloudConnection::ConnectionStatus::Disconnected:
+    {
+      // Nothing done at the moment; since the connection can be disconnected after discovering
+      // a token has been invalidated, be careful with what is added here.
+      break;
+    }
+    case QFieldCloudConnection::ConnectionStatus::Connecting:
+      // Nothing done for this intermediary status.
+      break;
+  }
+}
+
+QModelIndex QFieldCloudProjectsModel::findProjectIndex( const QString &amp;projectId ) const
+{
+  if ( projectId.isEmpty() )
+  {
+    QgsLogger::debug( QStringLiteral( &quot;No project found for an empty project id.&quot; ) );
+    return QModelIndex();
+  }
+
+  for ( int i = 0; i &lt; mProjects.count(); i++ )
+  {
+    if ( mProjects.at( i )-&gt;id() == projectId )
+    {
+      return createIndex( i, 0 );
+    }
+  }
+
+  QgsLogger::debug( QStringLiteral( &quot;No project found with the provided id: `%1`&quot; ).arg( projectId ) );
+
+  return QModelIndex();
+}
+
+QFieldCloudProject *QFieldCloudProjectsModel::findProject( const QString &amp;projectId ) const
+{
+  const QModelIndex index = findProjectIndex( projectId );
+
+  if ( index.isValid() )
+  {
+    return mProjects[index.row()];
+  }
+
+  return nullptr;
+}
+
+void QFieldCloudProjectsModel::appendProject( const QString &amp;projectId )
+{
+  if ( !mCloudConnection )
+  {
+    return;
+  }
+
+  const QModelIndex index = findProjectIndex( projectId );
+  if ( index.isValid() )
+  {
+    emit projectAppended( projectId );
+    return;
+  }
+
+  const QString url = QStringLiteral( &quot;/api/v1/projects/%1/&quot; ).arg( projectId );
+  QNetworkRequest request( url );
+  request.setHeader( QNetworkRequest::ContentTypeHeader, &quot;application/json&quot; );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  request.setAttribute( static_cast&lt;QNetworkRequest::Attribute&gt;( QFieldCloudProjectsModel::ProjectsRequestAttribute::ProjectId ), projectId );
+  mCloudConnection-&gt;setAuthenticationDetails( request );
+
+  const NetworkReply *reply = mCloudConnection-&gt;get( request, url );
+  connect( reply, &amp;NetworkReply::finished, this, &amp;QFieldCloudProjectsModel::projectReceived );
+}
+
+void QFieldCloudProjectsModel::removeLocalProject( const QString &amp;projectId )
+{
+  QDir dir( QStringLiteral( &quot;%1/%2/%3&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId ) );
+
+  if ( dir.exists() )
+  {
+    const QModelIndex projectIndex = findProjectIndex( projectId );
+    if ( projectIndex.isValid() )
+    {
+      QFieldCloudProject *project = mProjects[projectIndex.row()];
+      project-&gt;removeLocally();
+
+      if ( ( project-&gt;status() == QFieldCloudProject::ProjectStatus::Idle || project-&gt;status() == QFieldCloudProject::ProjectStatus::Failing ) &amp;&amp; project-&gt;checkout() &amp; QFieldCloudProject::RemoteCheckout )
+      {
+        emit dataChanged( projectIndex, projectIndex, QVector&lt;int&gt;() &lt;&lt; StatusRole &lt;&lt; LocalPathRole &lt;&lt; CheckoutRole );
+      }
+      else
+      {
+        beginRemoveRows( QModelIndex(), projectIndex.row(), projectIndex.row() );
+        delete mProjects.takeAt( projectIndex.row() );
+        endRemoveRows();
+      }
+    }
+  }
+}
+
+QString QFieldCloudProjectsModel::layerFileName( const QgsMapLayer *layer ) const
+{
+  return layer-&gt;dataProvider()-&gt;dataSourceUri().split( '|' )[0];
+}
+
+void QFieldCloudProjectsModel::projectCancelDownload( const QString &amp;projectId )
+{
+  if ( !mCloudConnection )
+  {
+    return;
+  }
+
+  const QModelIndex projectIndex = findProjectIndex( projectId );
+  if ( !projectIndex.isValid() )
+  {
+    return;
+  }
+
+  QFieldCloudProject *project = mProjects[projectIndex.row()];
+
+  // before canceling, the project should be downloading
+  if ( project-&gt;status() != QFieldCloudProject::ProjectStatus::Downloading )
+  {
+    return;
+  }
+
+  project-&gt;cancelDownload();
+
+  emit dataChanged( projectIndex, projectIndex, QVector&lt;int&gt;() &lt;&lt; StatusRole &lt;&lt; ErrorStatusRole &lt;&lt; PackagingStatusRole );
+}
+
+void QFieldCloudProjectsModel::projectPackageAndDownload( const QString &amp;projectId )
+{
+  QgsLogger::debug( QStringLiteral( &quot;Project %1: package and download initiated.&quot; ).arg( projectId ) );
+
+  if ( !mCloudConnection )
+  {
+    return;
+  }
+
+  const QModelIndex projectIndex = findProjectIndex( projectId );
+  if ( !projectIndex.isValid() )
+  {
+    QgsLogger::debug( QStringLiteral( &quot;Project %1: package and download cancelled, the project is deleted.&quot; ).arg( projectId ) );
+    return;
+  }
+
+  QFieldCloudProject *project = mProjects[projectIndex.row()];
+
+  if ( project-&gt;status() != QFieldCloudProject::ProjectStatus::Idle )
+  {
+    QgsLogger::debug( QStringLiteral( &quot;Project %1: package and download cancelled, the project is currently busy.&quot; ).arg( projectId ) );
+    emit warning( tr( &quot;Project busy.&quot; ) );
+    return;
+  }
+
+  project-&gt;packageAndDownload();
+
+  emit dataChanged( projectIndex, projectIndex );
+}
+
+void QFieldCloudProjectsModel::projectPush( const QString &amp;projectId, const bool shouldDownloadUpdates )
+{
+  const QModelIndex projectIndex = findProjectIndex( projectId );
+
+  if ( !projectIndex.isValid() )
+  {
+    return;
+  }
+
+  QFieldCloudProject *project = mProjects[projectIndex.row()];
+  if ( !project )
+  {
+    return;
+  }
+
+  if ( !mCloudConnection )
+  {
+    return;
+  }
+
+  if ( !mCloudConnection-&gt;isReachable() )
+  {
+    mCloudConnection-&gt;queueProjectPush( projectId );
+    emit warning( tr( &quot;Network is not currently active. &quot;
+                      &quot;We will push the changes automatically once you are back online.&quot; ) );
+    return;
+  }
+
+  if ( project-&gt;status() != QFieldCloudProject::ProjectStatus::Idle )
+  {
+    return;
+  }
+
+  project-&gt;push( shouldDownloadUpdates );
+}
+
+
+void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &amp;projectId )
+{
+  const QModelIndex projectIndex = findProjectIndex( projectId );
+  if ( !projectIndex.isValid() )
+  {
+    return;
+  }
+
+  QFieldCloudProject *project = mProjects[projectIndex.row()];
+  project-&gt;refreshDeltaList();
+}
+
+void QFieldCloudProjectsModel::connectionStatusChanged()
+{
+  refreshProjectsList( false );
+}
+
+void QFieldCloudProjectsModel::usernameChanged()
+{
+  if ( mUsername == mCloudConnection-&gt;username() )
+  {
+    return;
+  }
+
+  mUsername = mCloudConnection-&gt;username();
+  resetProjects();
+}
+
+void QFieldCloudProjectsModel::urlChanged()
+{
+  if ( mUrl == mCloudConnection-&gt;url() )
+  {
+    return;
+  }
+
+  mUrl = mCloudConnection-&gt;url();
+}
+
+void QFieldCloudProjectsModel::resetProjects()
+{
+  if ( !mProjects.isEmpty() )
+  {
+    beginResetModel();
+    qDeleteAll( mProjects );
+    mProjects.clear();
+    endResetModel();
+  }
+
+  // Load locally stored projects
+  loadProjects();
+}
+
+void QFieldCloudProjectsModel::projectReceived()
+{
+  NetworkReply *reply = qobject_cast&lt;NetworkReply *&gt;( sender() );
+  QNetworkReply *rawReply = reply-&gt;currentRawReply();
+
+  Q_ASSERT( rawReply );
+
+  const QString projectId = rawReply-&gt;request().attribute( static_cast&lt;QNetworkRequest::Attribute&gt;( ProjectsRequestAttribute::ProjectId ) ).toString();
+  if ( rawReply-&gt;error() != QNetworkReply::NoError )
+  {
+    emit projectAppended( projectId, true, QFieldCloudConnection::errorString( rawReply ) );
+    return;
+  }
+
+  QByteArray response = rawReply-&gt;readAll();
+  QJsonDocument doc = QJsonDocument::fromJson( response );
+  QVariantHash projectDetails = doc.object().toVariantHash();
+
+  QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher ); // cppcheck-suppress constVariablePointer
+  if ( cloudProject )
+  {
+    insertProjects( QList&lt;QFieldCloudProject *&gt;() &lt;&lt; cloudProject );
+    emit projectAppended( cloudProject-&gt;id() );
+  }
+}
+
+void QFieldCloudProjectsModel::projectListReceived()
+{
+  NetworkReply *reply = qobject_cast&lt;NetworkReply *&gt;( sender() );
+  QNetworkReply *rawReply = reply-&gt;currentRawReply();
+
+  Q_ASSERT( rawReply );
+
+  if ( rawReply-&gt;error() != QNetworkReply::NoError )
+  {
+    mIsRefreshing = false;
+    emit isRefreshingChanged();
+
+    emit warning( QFieldCloudConnection::errorString( rawReply ) );
+    return;
+  }
+
+  const bool resetModel = rawReply-&gt;request().attribute( static_cast&lt;QNetworkRequest::Attribute&gt;( ProjectsRequestAttribute::ResetModel ) ).toBool();
+  const bool fetchPublic = rawReply-&gt;request().attribute( static_cast&lt;QNetworkRequest::Attribute&gt;( ProjectsRequestAttribute::FetchPublicProjects ) ).toBool();
+  const int projectFetchOffset = rawReply-&gt;request().attribute( static_cast&lt;QNetworkRequest::Attribute&gt;( ProjectsRequestAttribute::ProjectsFetchOffset ) ).toInt();
+  if ( resetModel &amp;&amp; projectFetchOffset == 0 )
+  {
+    beginResetModel();
+    qDeleteAll( mProjects );
+    mProjects.clear();
+    endResetModel();
+
+    mCurrentProject.clear();
+    emit currentProjectChanged();
+  }
+
+  QByteArray response = rawReply-&gt;readAll();
+  QJsonDocument doc = QJsonDocument::fromJson( response );
+  QJsonArray projects = doc.array();
+
+  loadProjects( projects, projectFetchOffset &gt; 0 );
+
+  if ( rawReply-&gt;hasRawHeader( QStringLiteral( &quot;X-Next-Page&quot; ) ) )
+  {
+    refreshProjectsList( resetModel, fetchPublic, projectFetchOffset + mProjectsPerFetch );
+  }
+  else
+  {
+    // All projects fetched, refresh current project details if found
+    if ( !mCurrentProjectId.isEmpty() )
+    {
+      mCurrentProject = findProject( mCurrentProjectId );
+      emit currentProjectChanged();
+    }
+
+    mIsRefreshing = false;
+    emit isRefreshingChanged();
+  }
+}
+
+QHash&lt;int, QByteArray&gt; QFieldCloudProjectsModel::roleNames() const
+{
+  QHash&lt;int, QByteArray&gt; roles;
+  roles[IdRole] = &quot;Id&quot;;
+  roles[PublicRole] = &quot;Public&quot;;
+  roles[FeaturedRole] = &quot;Featured&quot;;
+  roles[OwnerRole] = &quot;Owner&quot;;
+  roles[NameRole] = &quot;Name&quot;;
+  roles[DescriptionRole] = &quot;Description&quot;;
+  roles[ModificationRole] = &quot;Modification&quot;;
+  roles[CheckoutRole] = &quot;Checkout&quot;;
+  roles[StatusRole] = &quot;Status&quot;;
+  roles[ProjectOutdatedRole] = &quot;ProjectOutdated&quot;;
+  roles[ProjectFileOutdatedRole] = &quot;ProjectFileOutdated&quot;;
+  roles[ErrorStatusRole] = &quot;ErrorStatus&quot;;
+  roles[ErrorStringRole] = &quot;ErrorString&quot;;
+  roles[DownloadSizeRole] = &quot;DownloadSize&quot;;
+  roles[DownloadProgressRole] = &quot;DownloadProgress&quot;;
+  roles[PackagingStatusRole] = &quot;PackagingStatus&quot;;
+  roles[PackagedLayerErrorsRole] = &quot;PackagedLayerErrors&quot;;
+  roles[PushDeltaProgressRole] = &quot;PushDeltaProgress&quot;;
+  roles[PushDeltaStatusRole] = &quot;PushDeltaStatus&quot;;
+  roles[PushDeltaStatusStringRole] = &quot;PushDeltaStatusString&quot;;
+  roles[LocalDeltasCountRole] = &quot;LocalDeltasCount&quot;;
+  roles[LocalPathRole] = &quot;LocalPath&quot;;
+  roles[LastLocalExportedAtRole] = &quot;LastLocalExportedAt&quot;;
+  roles[LastLocalPushDeltasRole] = &quot;LastLocalPushDeltas&quot;;
+  roles[UserRoleRole] = &quot;UserRole&quot;;
+  roles[UserRoleOriginRole] = &quot;UserRoleOrigin&quot;;
+  roles[DeltaListRole] = &quot;DeltaList&quot;;
+
+  return roles;
+}
+
+void QFieldCloudProjectsModel::insertProjects( const QList&lt;QFieldCloudProject *&gt; &amp;projects )
+{
+  int currentCount = static_cast&lt;int&gt;( mProjects.size() );
+  int newProjectsCount = 0;
+  for ( QFieldCloudProject *project : projects )
+  {
+    setupProjectConnections( project );
+
+    bool found = false;
+    for ( int i = 0; i &lt; mProjects.count(); ++i )
+    {
+      if ( mProjects[i]-&gt;id() == project-&gt;id() )
+      {
+        if ( mProjects[i]-&gt;checkout() == QFieldCloudProject::LocalCheckout &amp;&amp; project-&gt;checkout() != QFieldCloudProject::LocalCheckout )
+        {
+          mProjects[i]-&gt;setCheckout( QFieldCloudProject::LocalAndRemoteCheckout );
+          mProjects[i]-&gt;setIsPublic( project-&gt;isPublic() );
+          mProjects[i]-&gt;setIsFeatured( project-&gt;isFeatured() );
+          mProjects[i]-&gt;setOwner( project-&gt;owner() );
+          mProjects[i]-&gt;setName( project-&gt;name() );
+          mProjects[i]-&gt;setDescription( project-&gt;description() );
+          mProjects[i]-&gt;setUserRole( project-&gt;userRole() );
+          mProjects[i]-&gt;setUserRoleOrigin( project-&gt;userRoleOrigin() );
+          mProjects[i]-&gt;setCreatedAt( project-&gt;createdAt() );
+          mProjects[i]-&gt;setUpdatedAt( project-&gt;updatedAt() );
+          mProjects[i]-&gt;setCanRepackage( project-&gt;canRepackage() );
+          mProjects[i]-&gt;setNeedsRepackaging( project-&gt;needsRepackaging() );
+          mProjects[i]-&gt;setSharedDatasetsProjectId( project-&gt;sharedDatasetsProjectId() );
+          mProjects[i]-&gt;setIsSharedDatasetsProject( project-&gt;isSharedDatasetsProject() );
+          mProjects[i]-&gt;setDataLastUpdatedAt( project-&gt;dataLastUpdatedAt() );
+          mProjects[i]-&gt;setRestrictedDataLastUpdatedAt( project-&gt;restrictedDataLastUpdatedAt() );
+          emit dataChanged( index( i, 0 ), index( i, 0 ) );
+
+          delete project;
+        }
+        found = true;
+        break;
+      }
+    }
+    if ( !found )
+    {
+      newProjectsCount++;
+      mProjects.append( project );
+    }
+  }
+
+  beginInsertRows( QModelIndex(), currentCount, currentCount + newProjectsCount - 1 );
+  endInsertRows();
+}
+
+void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *project )
+{
+  connect( project, &amp;QFieldCloudProject::isProjectOutdatedChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; ProjectFileOutdatedRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::downloaded, this, [this]( const QString &amp;name, const QString &amp;error ) {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit projectDownloaded( p-&gt;id(), name, !error.isEmpty(), error );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; StatusRole &lt;&lt; PackagingStatusRole &lt;&lt; ErrorStatusRole &lt;&lt; ErrorStringRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::pushFinished, this, [this]( bool isDownloading, const QString &amp;error ) {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit pushFinished( p-&gt;id(), isDownloading, !error.isEmpty(), error );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::dataRefreshed, this, [this]( QFieldCloudProject::ProjectRefreshReason reason, const QString &amp;error ) {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::jobFinished, this, [this]( QFieldCloudProject::JobType type, const QString &amp;error ) {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::statusChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; StatusRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::errorStatusChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; ErrorStatusRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::packagingStatusChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; PackagingStatusRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::downloadProgressChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; DownloadProgressRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::downloadBytesTotalChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; DownloadSizeRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::packagedLayerErrorsChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; PackagedLayerErrorsRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::isOutdatedChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; ProjectOutdatedRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::localPathChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; LocalPathRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::checkoutChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; CheckoutRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::lastLocalExportedAtChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; LastLocalExportedAtRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::modificationChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; ModificationRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::deltaFilePushStatusChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; PushDeltaStatusRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::deltaFilePushStatusStringChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; PushDeltaStatusStringRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::pushDeltaProgressChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; PushDeltaProgressRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::lastLocalPushDeltasChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; LastLocalPushDeltasRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::deltasCountChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; LocalDeltasCountRole );
+  } );
+
+  connect( project, &amp;QFieldCloudProject::deltaListModelChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast&lt;QFieldCloudProject *&gt;( sender() );
+    const QModelIndex idx = findProjectIndex( p-&gt;id() );
+    emit dataChanged( idx, idx, QVector&lt;int&gt;() &lt;&lt; DeltaListRole );
+    emit deltaListModelChanged();
+  } );
+}
+
+void QFieldCloudProjectsModel::loadProjects( const QJsonArray &amp;remoteProjects, bool skipLocalProjects )
+{
+  QList&lt;QFieldCloudProject *&gt; freshCloudProjects;
+  for ( const auto project : remoteProjects )
+  {
+    QVariantHash projectDetails = project.toObject().toVariantHash();
+    QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher );
+
+    if ( cloudProject-&gt;isSharedDatasetsProject() )
+    {
+      delete cloudProject;
+    }
+    else
+    {
+      freshCloudProjects.push_back( cloudProject );
+    }
+  }
+
+  insertProjects( freshCloudProjects );
+
+  if ( !skipLocalProjects )
+  {
+    QList&lt;QFieldCloudProject *&gt; userSpecificProjects;
+    QDirIterator userDirs( QFieldCloudUtils::localCloudDirectory(), QDir::Dirs | QDir::NoDotAndDotDot );
+    while ( userDirs.hasNext() )
+    {
+      userDirs.next();
+      const QString username = userDirs.fileName();
+
+      // We skip cloud projects that are not linked to the last successul logged in account
+      if ( username != mUsername )
+        continue;
+
+      QDirIterator projectDirs( QStringLiteral( &quot;%1/%2&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), username ), QDir::Dirs | QDir::NoDotAndDotDot );
+      while ( projectDirs.hasNext() )
+      {
+        projectDirs.next();
+
+        const QString projectId = projectDirs.fileName();
+        if ( findProject( projectId ) )
+        {
+          // Already covered when receiving cloud projects from the server
+          continue;
+        }
+
+        QFieldCloudProject *cloudProject = QFieldCloudProject::fromLocalSettings( projectId, mCloudConnection, mGpkgFlusher );
+        if ( !cloudProject )
+        {
+          // Not a previously loaded cloud project
+          continue;
+        }
+
+        // If the cloud project is a special shared dataset project or if the cloud project
+        // had a folder but was not downloaded properly, do not add to the model
+        if ( cloudProject-&gt;isSharedDatasetsProject() || cloudProject-&gt;localPath().isEmpty() )
+        {
+          delete cloudProject;
+        }
+        else
+        {
+          userSpecificProjects.push_back( cloudProject );
+        }
+
+        Q_ASSERT( projectId == cloudProject-&gt;id() );
+      }
+    }
+
+    insertProjects( userSpecificProjects );
+  }
+}
+
+int QFieldCloudProjectsModel::rowCount( const QModelIndex &amp;parent ) const
+{
+  return !parent.isValid() ? static_cast&lt;int&gt;( mProjects.size() ) : 0;
+}
+
+QVariant QFieldCloudProjectsModel::data( const QModelIndex &amp;index, int role ) const
+{
+  if ( index.row() &gt;= mProjects.size() || index.row() &lt; 0 )
+  {
+    return QVariant();
+  }
+
+  const QFieldCloudProject *project = mProjects.at( index.row() );
+  if ( !project )
+  {
+    return QVariant();
+  }
+
+  if ( role == Qt::DisplayRole )
+  {
+    return QStringLiteral( &quot;%1/%2&quot; ).arg( project-&gt;owner(), project-&gt;name() );
+  }
+
+  switch ( static_cast&lt;ColumnRole&gt;( role ) )
+  {
+    case IdRole:
+      return project-&gt;id();
+
+    case PublicRole:
+      return project-&gt;isPublic();
+
+    case FeaturedRole:
+      return project-&gt;isFeatured();
+
+    case OwnerRole:
+      return project-&gt;owner();
+
+    case NameRole:
+      return project-&gt;name();
+
+    case DescriptionRole:
+      return project-&gt;description();
+
+    case ModificationRole:
+      return static_cast&lt;int&gt;( project-&gt;modification() );
+
+    case CheckoutRole:
+      return static_cast&lt;int&gt;( project-&gt;checkout() );
+
+    case StatusRole:
+      return static_cast&lt;int&gt;( project-&gt;status() );
+
+    case ProjectOutdatedRole:
+      return project-&gt;isOutdated();
+
+    case ProjectFileOutdatedRole:
+      return project-&gt;isProjectOutdated();
+
+    case ErrorStatusRole:
+      return static_cast&lt;int&gt;( project-&gt;errorStatus() );
+
+    case ErrorStringRole:
+      if ( project-&gt;errorStatus() == QFieldCloudProject::DownloadErrorStatus )
+      {
+        return project-&gt;packagingStatusString();
+      }
+      else if ( project-&gt;errorStatus() == QFieldCloudProject::PushErrorStatus )
+      {
+        return project-&gt;deltaFilePushStatusString();
+      }
+      return QString();
+
+    case PackagingStatusRole:
+      return project-&gt;packagingStatus();
+
+    case PackagedLayerErrorsRole:
+      return QVariant( project-&gt;packagedLayerErrors() );
+
+    case DownloadSizeRole:
+      return project-&gt;downloadBytesTotal();
+
+    case DownloadProgressRole:
+      return project-&gt;downloadProgress();
+
+    case PushDeltaProgressRole:
+      return project-&gt;pushDeltaProgress();
+
+    case PushDeltaStatusRole:
+      return project-&gt;deltaFilePushStatus();
+
+    case PushDeltaStatusStringRole:
+      return project-&gt;deltaFilePushStatusString();
+
+    case LocalDeltasCountRole:
+      return project-&gt;deltasCount();
+
+    case LocalPathRole:
+      return project-&gt;localPath();
+
+    case LastLocalExportedAtRole:
+      return project-&gt;lastLocalExportedAt();
+
+    case LastLocalPushDeltasRole:
+      return project-&gt;lastLocalPushDeltas();
+
+    case UserRoleRole:
+      return project-&gt;userRole();
+
+    case UserRoleOriginRole:
+      return project-&gt;userRoleOrigin();
+
+    case DeltaListRole:
+      return QVariant::fromValue&lt;DeltaListModel *&gt;( project-&gt;deltaListModel() );
+  }
+
+  return QVariant();
+}
+
+bool QFieldCloudProjectsModel::revertLocalChangesFromCurrentProject()
+{
+  const QFieldCloudProject *project = findProject( mCurrentProjectId );
+  if ( !project )
+  {
+    return false;
+  }
+
+  DeltaFileWrapper *deltaFileWrapper = mLayerObserver-&gt;deltaFileWrapper();
+
+  if ( !deltaFileWrapper-&gt;toFile() )
+  {
+    return false;
+  }
+
+  if ( !deltaFileWrapper-&gt;applyReversed( QgsProject::instance() ) )
+  {
+    QgsMessageLog::logMessage( QStringLiteral( &quot;Failed to apply reversed&quot; ) );
+    return false;
+  }
+
+  deltaFileWrapper-&gt;reset();
+  deltaFileWrapper-&gt;resetId();
+
+  if ( !deltaFileWrapper-&gt;toFile() )
+  {
+    return false;
+  }
+
+  return true;
+}
+
+bool QFieldCloudProjectsModel::discardLocalChangesFromCurrentProject()
+{
+  const QFieldCloudProject *project = findProject( mCurrentProjectId );
+  if ( !project )
+  {
+    return false;
+  }
+
+  DeltaFileWrapper *deltaFileWrapper = mLayerObserver-&gt;deltaFileWrapper();
+
+  if ( !deltaFileWrapper-&gt;toFile() )
+  {
+    QgsMessageLog::logMessage( QStringLiteral( &quot;Failed to write deltas.&quot; ) );
+  }
+
+  deltaFileWrapper-&gt;reset();
+  deltaFileWrapper-&gt;resetId();
+
+  if ( !deltaFileWrapper-&gt;toFile() )
+  {
+    return false;
+  }
+
+  return true;
+}
+
+void QFieldCloudProjectsModel::setGpkgFlusher( QgsGpkgFlusher *flusher )
+{
+  if ( mGpkgFlusher == flusher )
+  {
+    return;
+  }
+
+  mGpkgFlusher = flusher;
+
+  emit gpkgFlusherChanged();
+}
+
+void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &amp;projectPath )
+{
+  const QString projectId = QFieldCloudUtils::getProjectId( projectPath );
+  QString localizedDataPath;
+  if ( !projectId.isEmpty() )
+  {
+    const QFieldCloudProject *project = findProject( projectId );
+    if ( project &amp;&amp; !project-&gt;sharedDatasetsProjectId().isEmpty() )
+    {
+      localizedDataPath = QStringLiteral( &quot;%1/%2/%3&quot; ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, project-&gt;sharedDatasetsProjectId() );
+    }
+  }
+
+  QStringList localizedDataPaths = QgsApplication::instance()-&gt;localizedDataPathRegistry()-&gt;paths();
+  localizedDataPaths.erase( std::remove_if( localizedDataPaths.begin(),
+                                            localizedDataPaths.end(),
+                                            [&amp;localizedDataPath]( const QString &amp;path ) { return path.startsWith( QFieldCloudUtils::localCloudDirectory() ); } ),
+                            localizedDataPaths.end() );
+  localizedDataPaths &lt;&lt; localizedDataPath;
+  QgsApplication::instance()-&gt;localizedDataPathRegistry()-&gt;setPaths( localizedDataPaths );
+}
+
+void QFieldCloudProjectsModel::createProject( QString name )
+{
+  if ( name.isEmpty() )
+  {
+    emit projectCreated( QString(), true, tr( &quot;Project creation requires a name&quot; ) );
+    return;
+  }
+
+  mIsCreating = true;
+  emit isCreatingChanged();
+
+  name.replace( QRegularExpression( &quot;[^A-Za-z0-9_]&quot; ), QStringLiteral( &quot;_&quot; ) );
+
+  QString url = QStringLiteral( &quot;/api/v1/projects/?owner=%1&quot; ).arg( mUsername );
+  QNetworkRequest request( url );
+  request.setHeader( QNetworkRequest::ContentTypeHeader, &quot;application/json&quot; );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  mCloudConnection-&gt;setAuthenticationDetails( request );
+
+  const NetworkReply *listingreply = mCloudConnection-&gt;get( request, url );
+  connect( listingreply, &amp;NetworkReply::finished, this, [this, name]() {
+    NetworkReply *reply = qobject_cast&lt;NetworkReply *&gt;( sender() );
+    QNetworkReply *rawReply = reply-&gt;currentRawReply();
+    Q_ASSERT( rawReply );
+
+    if ( rawReply-&gt;error() != QNetworkReply::NoError )
+    {
+      emit projectCreated( QString(), true, mCloudConnection-&gt;errorString( rawReply ) );
+      return;
+    }
+
+    QByteArray response = rawReply-&gt;readAll();
+    QJsonDocument doc = QJsonDocument::fromJson( response );
+    QJsonArray projects = doc.array();
+    QStringList projectNames;
+    for ( const auto project : projects )
+    {
+      QVariantHash projectDetails = project.toObject().toVariantHash();
+      projectNames &lt;&lt; projectDetails.value( QStringLiteral( &quot;name&quot; ) ).toString().toLower();
+    }
+
+    int uniqueSuffix = 1;
+    QString finalizedName = name;
+    while ( projectNames.contains( finalizedName.toLower() ) )
+    {
+      finalizedName = QStringLiteral( &quot;%1_%2&quot; ).arg( name, QString::number( uniqueSuffix++ ) );
+    }
+
+    QString url = QStringLiteral( &quot;/api/v1/projects/&quot; );
+
+    QVariantMap params;
+    params.insert( QStringLiteral( &quot;name&quot; ), finalizedName );
+    params.insert( QStringLiteral( &quot;owner&quot; ), mUsername );
+    params.insert( QStringLiteral( &quot;description&quot; ), QString() );
+    params.insert( QStringLiteral( &quot;private&quot; ), true );
+
+    QNetworkRequest request;
+    const NetworkReply *creationReply = mCloudConnection-&gt;post( request, url, params );
+    connect( creationReply, &amp;NetworkReply::finished, this, &amp;QFieldCloudProjectsModel::projectCreationReceived );
+  } );
+}
+
+void QFieldCloudProjectsModel::projectCreationReceived()
+{
+  NetworkReply *reply = qobject_cast&lt;NetworkReply *&gt;( sender() );
+  QNetworkReply *rawReply = reply-&gt;currentRawReply();
+  Q_ASSERT( rawReply );
+
+  if ( rawReply-&gt;error() != QNetworkReply::NoError )
+  {
+    emit projectCreated( QString(), true, mCloudConnection-&gt;errorString( rawReply ) );
+
+    mIsCreating = false;
+    emit isCreatingChanged();
+    return;
+  }
+
+  QByteArray response = rawReply-&gt;readAll();
+  QJsonDocument doc = QJsonDocument::fromJson( response );
+  QVariantHash projectDetails = doc.object().toVariantHash();
+  QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher ); // cppcheck-suppress constVariablePointer
+  if ( cloudProject )
+  {
+    insertProjects( QList&lt;QFieldCloudProject *&gt;() &lt;&lt; cloudProject );
+    emit projectCreated( cloudProject-&gt;id() );
+  }
+  else
+  {
+    emit projectCreated( QString(), true, tr( &quot;Cloud project could not be created.&quot; ) );
+  }
+
+  mIsCreating = false;
+  emit isCreatingChanged();
+}
+
+// --
+
+QFieldCloudProjectsFilterModel::QFieldCloudProjectsFilterModel( QObject *parent )
+  : QSortFilterProxyModel( parent )
+{
+  setDynamicSortFilter( true );
+  setSortLocaleAware( true );
+  sort( 0 );
+}
+
+void QFieldCloudProjectsFilterModel::setProjectsModel( QFieldCloudProjectsModel *projectsModel )
+{
+  if ( mSourceModel == projectsModel )
+  {
+    return;
+  }
+
+  mSourceModel = projectsModel;
+  setSourceModel( mSourceModel );
+
+  emit projectsModelChanged();
+}
+
+QFieldCloudProjectsModel *QFieldCloudProjectsFilterModel::projectsModel() const
+{
+  return mSourceModel;
+}
+
+void QFieldCloudProjectsFilterModel::setFilter( ProjectsFilter filter )
+{
+  if ( mFilter == filter )
+  {
+    return;
+  }
+
+  mFilter = filter;
+  invalidateFilter();
+
+  emit filterChanged();
+}
+
+QFieldCloudProjectsFilterModel::ProjectsFilter QFieldCloudProjectsFilterModel::filter() const
+{
+  return mFilter;
+}
+
+void QFieldCloudProjectsFilterModel::setShowLocalOnly( bool showLocalOnly )
+{
+  if ( mShowLocalOnly == showLocalOnly )
+  {
+    return;
+  }
+
+  mShowLocalOnly = showLocalOnly;
+  invalidateFilter();
+
+  emit showLocalOnlyChanged();
+}
+
+bool QFieldCloudProjectsFilterModel::showLocalOnly() const
+{
+  return mShowLocalOnly;
+}
+
+bool QFieldCloudProjectsFilterModel::lessThan( const QModelIndex &amp;sourceLeft, const QModelIndex &amp;sourceRight ) const
+{
+  if ( !mSourceModel )
+  {
+    return true;
+  }
+
+  if ( mShowFeaturedOnTop )
+  {
+    const bool isFeaturedLeft = mSourceModel-&gt;data( sourceLeft, QFieldCloudProjectsModel::FeaturedRole ).toBool();
+    const bool isFeaturedRight = mSourceModel-&gt;data( sourceRight, QFieldCloudProjectsModel::FeaturedRole ).toBool();
+    if ( isFeaturedLeft != isFeaturedRight )
+    {
+      return isFeaturedLeft;
+    }
+  }
+
+  QString left = mSourceModel-&gt;data( sourceLeft, QFieldCloudProjectsModel::OwnerRole ).toString();
+  QString right = mSourceModel-&gt;data( sourceRight, QFieldCloudProjectsModel::OwnerRole ).toString();
+  int compare = QString::localeAwareCompare( left, right );
+  if ( compare != 0 )
+  {
+    return compare &lt; 0;
+  }
+
+  left = mSourceModel-&gt;data( sourceLeft, QFieldCloudProjectsModel::NameRole ).toString();
+  right = mSourceModel-&gt;data( sourceRight, QFieldCloudProjectsModel::NameRole ).toString();
+  compare = QString::localeAwareCompare( left, right );
+  return compare &lt; 0;
+}
+
+bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelIndex &amp;source_parent ) const
+{
+  const QModelIndex currentRowIndex = mSourceModel-&gt;index( source_row, 0, source_parent );
+  if ( mShowLocalOnly &amp;&amp; mSourceModel-&gt;data( currentRowIndex, QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty() )
+  {
+    return false;
+  }
+
+  bool matchesProjectType = false;
+  switch ( mFilter )
+  {
+    case PrivateProjects:
+      // the list will include public &quot;community&quot; projects that are present locally so they can appear in the &quot;My projects&quot; list
+      matchesProjectType = mSourceModel-&gt;data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() != QStringLiteral( &quot;public&quot; )
+                           || !mSourceModel-&gt;data( currentRowIndex, QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty();
+      break;
+    case PublicProjects:
+      matchesProjectType = mSourceModel-&gt;data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() == QStringLiteral( &quot;public&quot; );
+      break;
+  }
+
+  const QString name = mSourceModel-&gt;data( currentRowIndex, QFieldCloudProjectsModel::NameRole ).toString();
+  const QString description = mSourceModel-&gt;data( currentRowIndex, QFieldCloudProjectsModel::DescriptionRole ).toString();
+  const QString owner = mSourceModel-&gt;data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
+  const int status = mSourceModel-&gt;data( currentRowIndex, QFieldCloudProjectsModel::StatusRole ).toInt();
+
+  const bool matchesTextFilter = mTextFilter.isEmpty() || name.contains( mTextFilter, Qt::CaseInsensitive ) || description.contains( mTextFilter, Qt::CaseInsensitive ) || owner.contains( mTextFilter, Qt::CaseInsensitive );
+
+  const bool validProjectsFilter = mShowInValidProjects || status != static_cast&lt;int&gt;( QFieldCloudProject::ProjectStatus::Failing );
+
+  return matchesProjectType &amp;&amp; matchesTextFilter &amp;&amp; validProjectsFilter;
+}
+
+void QFieldCloudProjectsFilterModel::setTextFilter( const QString &amp;text )
+{
+  if ( mTextFilter == text )
+  {
+    return;
+  }
+  mTextFilter = text;
+  invalidateFilter();
+}
+
+QString QFieldCloudProjectsFilterModel::textFilter() const
+{
+  return mTextFilter;
+}
+
+void QFieldCloudProjectsFilterModel::setShowInValidProjects( bool showInValidProjects )
+{
+  if ( mShowInValidProjects == showInValidProjects )
+  {
+    return;
+  }
+
+  mShowInValidProjects = showInValidProjects;
+  invalidateFilter();
+}
+
+
+bool QFieldCloudProjectsFilterModel::showInValidProjects() const
+{
+  return mShowInValidProjects;
+}
+
+void QFieldCloudProjectsFilterModel::setShowFeaturedOnTop( bool showFeaturedOnTop )
+{
+  if ( mShowFeaturedOnTop == showFeaturedOnTop )
+  {
+    return;
+  }
+
+  mShowFeaturedOnTop = showFeaturedOnTop;
+  emit showFeaturedOnTopChanged();
+
+  sort( 0 );
+}
+
+bool QFieldCloudProjectsFilterModel::showFeaturedOnTop() const
+{
+  return mShowFeaturedOnTop;
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

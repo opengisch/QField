@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureListModelSelection" kind="class" language="C++" prot="public">
+    <compoundname>FeatureListModelSelection</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classFeatureListModelSelection_1a1cd3f4f6818f748f47a812ff17297282" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref> *</type>
+        <definition>MultiFeatureListModel * FeatureListModelSelection::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>FeatureListModelSelection::model</qualifiedname>
+        <read>model</read>
+        <write>setModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="31" column="5" bodyfile="src/core/featurelistmodelselection.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModelSelection_1a59857e991d30e7ed5a6441d9d0505c75" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int FeatureListModelSelection::focusedItem</definition>
+        <argsstring></argsstring>
+        <name>focusedItem</name>
+        <qualifiedname>FeatureListModelSelection::focusedItem</qualifiedname>
+        <read>focusedItem</read>
+        <write>setFocusedItem</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="32" column="5" bodyfile="src/core/featurelistmodelselection.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModelSelection_1a76ba341d6ccc4975c6e9834305d914b4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * FeatureListModelSelection::focusedLayer</definition>
+        <argsstring></argsstring>
+        <name>focusedLayer</name>
+        <qualifiedname>FeatureListModelSelection::focusedLayer</qualifiedname>
+        <read>focusedLayer</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="33" column="5" bodyfile="src/core/featurelistmodelselection.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModelSelection_1ac7fc01106d9d9991f7fe9efad0853d82" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureListModelSelection::focusedFeature</definition>
+        <argsstring></argsstring>
+        <name>focusedFeature</name>
+        <qualifiedname>FeatureListModelSelection::focusedFeature</qualifiedname>
+        <read>focusedFeature</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="34" column="5" bodyfile="src/core/featurelistmodelselection.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModelSelection_1a5bb4ec08ad1c40e8fc2e9c4848c7abda" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry FeatureListModelSelection::focusedGeometry</definition>
+        <argsstring></argsstring>
+        <name>focusedGeometry</name>
+        <qualifiedname>FeatureListModelSelection::focusedGeometry</qualifiedname>
+        <read>focusedGeometry</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="35" column="5" bodyfile="src/core/featurelistmodelselection.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFeatureListModelSelection_1a9efe2e4247f1efbb1559b19a71315b84" prot="private" static="no" mutable="no">
+        <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref> *</type>
+        <definition>MultiFeatureListModel* FeatureListModelSelection::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>FeatureListModelSelection::mModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="61" column="27" bodyfile="src/core/featurelistmodelselection.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModelSelection_1afe6e9a87141ff6fa1879cd5cc09ce9bc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FeatureListModelSelection::mFocusedItem</definition>
+        <argsstring></argsstring>
+        <name>mFocusedItem</name>
+        <qualifiedname>FeatureListModelSelection::mFocusedItem</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="62" column="9" bodyfile="src/core/featurelistmodelselection.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFeatureListModelSelection_1a7c525bcf8ad51f5894249151b5af49a6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FeatureListModelSelection::FeatureListModelSelection</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>FeatureListModelSelection</name>
+        <qualifiedname>FeatureListModelSelection::FeatureListModelSelection</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="38" column="14" bodyfile="src/core/featurelistmodelselection.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModelSelection_1a24402b6a58f4559925d71985ccf1a0cb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FeatureListModelSelection::focusedItem</definition>
+        <argsstring>() const</argsstring>
+        <name>focusedItem</name>
+        <qualifiedname>FeatureListModelSelection::focusedItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="40" column="9" bodyfile="src/core/featurelistmodelselection.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModelSelection_1ab74c3af0588bec009107d655922e1e72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModelSelection::setFocusedItem</definition>
+        <argsstring>(int item)</argsstring>
+        <name>setFocusedItem</name>
+        <qualifiedname>FeatureListModelSelection::setFocusedItem</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="42" column="10" bodyfile="src/core/featurelistmodelselection.cpp" bodystart="32" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModelSelection_1a835a9d7fe88dc8939dac20b6b1c47a0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FeatureListModelSelection::toggleSelectedItem</definition>
+        <argsstring>(int item)</argsstring>
+        <name>toggleSelectedItem</name>
+        <qualifiedname>FeatureListModelSelection::toggleSelectedItem</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="44" column="22" bodyfile="src/core/featurelistmodelselection.cpp" bodystart="41" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModelSelection_1ad00d83fd417b222fe95b5e987579eff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FeatureListModelSelection::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>FeatureListModelSelection::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="46" column="22" bodyfile="src/core/featurelistmodelselection.cpp" bodystart="47" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModelSelection_1a981496be743166bc3859a6db3eace813" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref> *</type>
+        <definition>MultiFeatureListModel * FeatureListModelSelection::model</definition>
+        <argsstring>() const</argsstring>
+        <name>model</name>
+        <qualifiedname>FeatureListModelSelection::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="48" column="27" bodyfile="src/core/featurelistmodelselection.cpp" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModelSelection_1af66e4cd57055fc603e5229fa32082cdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModelSelection::setModel</definition>
+        <argsstring>(MultiFeatureListModel *model)</argsstring>
+        <name>setModel</name>
+        <qualifiedname>FeatureListModelSelection::setModel</qualifiedname>
+        <param>
+          <type><ref refid="classMultiFeatureListModel" kindref="compound">MultiFeatureListModel</ref> *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="49" column="10" bodyfile="src/core/featurelistmodelselection.cpp" bodystart="58" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModelSelection_1ae05d3d861a728833eabe7eb0567ac59a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * FeatureListModelSelection::focusedLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>focusedLayer</name>
+        <qualifiedname>FeatureListModelSelection::focusedLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="51" column="20" bodyfile="src/core/featurelistmodelselection.cpp" bodystart="68" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModelSelection_1a04daecd30268a6e17604f46bad679a5e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureListModelSelection::focusedFeature</definition>
+        <argsstring>() const</argsstring>
+        <name>focusedFeature</name>
+        <qualifiedname>FeatureListModelSelection::focusedFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="52" column="16" bodyfile="src/core/featurelistmodelselection.cpp" bodystart="77" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModelSelection_1adeb8e0d665ba09b217bb066096167226" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry FeatureListModelSelection::focusedGeometry</definition>
+        <argsstring>() const</argsstring>
+        <name>focusedGeometry</name>
+        <qualifiedname>FeatureListModelSelection::focusedGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="53" column="17" bodyfile="src/core/featurelistmodelselection.cpp" bodystart="87" bodyend="90"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classFeatureListModelSelection_1a77590b18fa7eee2ccbe15c88d8cdc346" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModelSelection::modelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelChanged</name>
+        <qualifiedname>FeatureListModelSelection::modelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="56" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModelSelection_1a2963fed95aeac97c186027084e4fc638" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModelSelection::focusedItemChanged</definition>
+        <argsstring>()</argsstring>
+        <name>focusedItemChanged</name>
+        <qualifiedname>FeatureListModelSelection::focusedItemChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="57" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModelSelection_1a0a33ca4056c00da9b9a65d7d78d0a932" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModelSelection::selectedFeaturesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>selectedFeaturesChanged</name>
+        <qualifiedname>FeatureListModelSelection::selectedFeaturesChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodelselection.h" line="58" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureListModelSelection</label>
+        <link refid="classFeatureListModelSelection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureListModelSelection</label>
+        <link refid="classFeatureListModelSelection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/featurelistmodelselection.h" line="28" column="1" bodyfile="src/core/featurelistmodelselection.h" bodystart="29" bodyend="63"/>
+    <listofallmembers>
+      <member refid="classFeatureListModelSelection_1ad00d83fd417b222fe95b5e987579eff1" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>clear</name></member>
+      <member refid="classFeatureListModelSelection_1a7c525bcf8ad51f5894249151b5af49a6" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>FeatureListModelSelection</name></member>
+      <member refid="classFeatureListModelSelection_1ac7fc01106d9d9991f7fe9efad0853d82" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>focusedFeature</name></member>
+      <member refid="classFeatureListModelSelection_1a04daecd30268a6e17604f46bad679a5e" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>focusedFeature</name></member>
+      <member refid="classFeatureListModelSelection_1a5bb4ec08ad1c40e8fc2e9c4848c7abda" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>focusedGeometry</name></member>
+      <member refid="classFeatureListModelSelection_1adeb8e0d665ba09b217bb066096167226" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>focusedGeometry</name></member>
+      <member refid="classFeatureListModelSelection_1a59857e991d30e7ed5a6441d9d0505c75" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>focusedItem</name></member>
+      <member refid="classFeatureListModelSelection_1a24402b6a58f4559925d71985ccf1a0cb" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>focusedItem</name></member>
+      <member refid="classFeatureListModelSelection_1a2963fed95aeac97c186027084e4fc638" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>focusedItemChanged</name></member>
+      <member refid="classFeatureListModelSelection_1a76ba341d6ccc4975c6e9834305d914b4" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>focusedLayer</name></member>
+      <member refid="classFeatureListModelSelection_1ae05d3d861a728833eabe7eb0567ac59a" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>focusedLayer</name></member>
+      <member refid="classFeatureListModelSelection_1afe6e9a87141ff6fa1879cd5cc09ce9bc" prot="private" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>mFocusedItem</name></member>
+      <member refid="classFeatureListModelSelection_1a9efe2e4247f1efbb1559b19a71315b84" prot="private" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>mModel</name></member>
+      <member refid="classFeatureListModelSelection_1a1cd3f4f6818f748f47a812ff17297282" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>model</name></member>
+      <member refid="classFeatureListModelSelection_1a981496be743166bc3859a6db3eace813" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>model</name></member>
+      <member refid="classFeatureListModelSelection_1a77590b18fa7eee2ccbe15c88d8cdc346" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>modelChanged</name></member>
+      <member refid="classFeatureListModelSelection_1a0a33ca4056c00da9b9a65d7d78d0a932" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>selectedFeaturesChanged</name></member>
+      <member refid="classFeatureListModelSelection_1ab74c3af0588bec009107d655922e1e72" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>setFocusedItem</name></member>
+      <member refid="classFeatureListModelSelection_1af66e4cd57055fc603e5229fa32082cdb" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>setModel</name></member>
+      <member refid="classFeatureListModelSelection_1a835a9d7fe88dc8939dac20b6b1c47a0b" prot="public" virt="non-virtual"><scope>FeatureListModelSelection</scope><name>toggleSelectedItem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

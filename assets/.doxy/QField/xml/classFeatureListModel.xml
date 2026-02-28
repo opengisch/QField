@@ -1,0 +1,1510 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureListModel" kind="class" language="C++" prot="public">
+    <compoundname>FeatureListModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractItemModel</basecompoundref>
+    <derivedcompoundref refid="classFeatureCheckListModelBase" prot="public" virt="non-virtual">FeatureCheckListModelBase</derivedcompoundref>
+    <includes refid="featurelistmodel_8h" local="no">featurelistmodel.h</includes>
+    <innerclass refid="structFeatureListModel_1_1Entry" prot="private">FeatureListModel::Entry</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classFeatureListModel_1a191ee737cb0f5e52044b6aa286a965a4" prot="public" static="no" strong="no">
+        <type></type>
+        <name>FeatureListRoles</name>
+        <qualifiedname>FeatureListModel::FeatureListRoles</qualifiedname>
+        <enumvalue id="classFeatureListModel_1a191ee737cb0f5e52044b6aa286a965a4af27c1dc104b5189e453848438fc7e897" prot="public">
+          <name>KeyFieldRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureListModel_1a191ee737cb0f5e52044b6aa286a965a4a6763c843ff2b2169fe98ceaf6a855c50" prot="public">
+          <name>DisplayStringRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureListModel_1a191ee737cb0f5e52044b6aa286a965a4a8a47c3e2c99d5ab7795472707b8fba8c" prot="public">
+          <name>GroupFieldRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeatureListModel_1a191ee737cb0f5e52044b6aa286a965a4adeacf311b1a569a57433ba7cd12b2109" prot="public">
+          <name>FeatureIdRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="99" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="100" bodyend="105"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classFeatureListModel_1af6236f6cc477e42c141bdb93725741ed" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * FeatureListModel::currentLayer</definition>
+        <argsstring></argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>FeatureListModel::currentLayer</qualifiedname>
+        <read>currentLayer</read>
+        <write>setCurrentLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The vector layer to list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="46" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModel_1a3d919df1f4d6956c405fe9887b3bdfe2" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString FeatureListModel::keyField</definition>
+        <argsstring></argsstring>
+        <name>keyField</name>
+        <qualifiedname>FeatureListModel::keyField</qualifiedname>
+        <read>keyField</read>
+        <write>setKeyField</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The primary key field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="51" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModel_1a23627088eaa2e4d75a3325eb6724fed4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString FeatureListModel::displayValueField</definition>
+        <argsstring></argsstring>
+        <name>displayValueField</name>
+        <qualifiedname>FeatureListModel::displayValueField</qualifiedname>
+        <read>displayValueField</read>
+        <write>setDisplayValueField</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The display value field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="56" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModel_1a8dd4140065042313b348c4dafcf3efd2" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString FeatureListModel::groupField</definition>
+        <argsstring></argsstring>
+        <name>groupField</name>
+        <qualifiedname>FeatureListModel::groupField</qualifiedname>
+        <read>groupField</read>
+        <write>setGroupField</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The grouping key field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="61" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModel_1aee02e7131f09495e53ee21a8b9cc7012" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureListModel::displayGroupName</definition>
+        <argsstring></argsstring>
+        <name>displayGroupName</name>
+        <qualifiedname>FeatureListModel::displayGroupName</qualifiedname>
+        <read>displayGroupName</read>
+        <write>setDisplayGroupName</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set to TRUE if the group name will be displayed in the list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="66" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModel_1a65b5ac88a0b2744531ed31a8708f4585" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureListModel::orderByValue</definition>
+        <argsstring></argsstring>
+        <name>orderByValue</name>
+        <qualifiedname>FeatureListModel::orderByValue</qualifiedname>
+        <read>orderByValue</read>
+        <write>setOrderByValue</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set to TRUE if features should be ordered by value </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="71" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModel_1a618664faec74f0bf444f7351c8d4c2d0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureListModel::addNull</definition>
+        <argsstring></argsstring>
+        <name>addNull</name>
+        <qualifiedname>FeatureListModel::addNull</qualifiedname>
+        <read>addNull</read>
+        <write>setAddNull</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set to TRUE if null values are allowed in the list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="76" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModel_1acb6b38152ac78954dcbec087b5c9b20d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString FeatureListModel::filterExpression</definition>
+        <argsstring></argsstring>
+        <name>filterExpression</name>
+        <qualifiedname>FeatureListModel::filterExpression</qualifiedname>
+        <read>filterExpression</read>
+        <write>setFilterExpression</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Expression to filter features with. Empty string if no filter is applied. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="81" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModel_1a82dd2b65d6edb96fdd990a2ecd1d5d87" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString FeatureListModel::searchTerm</definition>
+        <argsstring></argsstring>
+        <name>searchTerm</name>
+        <qualifiedname>FeatureListModel::searchTerm</qualifiedname>
+        <read>searchTerm</read>
+        <write>setSearchTerm</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current search term used to filter items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="86" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModel_1a6ffbb705974a48a6e99cb654ba6a60f6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureListModel::currentFormFeature</definition>
+        <argsstring></argsstring>
+        <name>currentFormFeature</name>
+        <qualifiedname>FeatureListModel::currentFormFeature</qualifiedname>
+        <read>currentFormFeature</read>
+        <write>setCurrentFormFeature</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current form feature, used to evaluate expressions such as <lsquo/>current_value(&apos;attr1<rsquo/>)` </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="91" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureListModel_1abd04fe11c246a9f296a82c05a40790bb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> *</type>
+        <definition>AppExpressionContextScopesGenerator * FeatureListModel::appExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>FeatureListModel::appExpressionContextScopesGenerator</qualifiedname>
+        <read>appExpressionContextScopesGenerator</read>
+        <write>setAppExpressionContextScopesGenerator</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The application expression context scope generator used when filtering by expression </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="96" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFeatureListModel_1a53790341881147ca86abb477723dc279" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; FeatureListModel::mCurrentLayer</definition>
+        <argsstring></argsstring>
+        <name>mCurrentLayer</name>
+        <qualifiedname>FeatureListModel::mCurrentLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="275" column="14" bodyfile="src/core/featurelistmodel.h" bodystart="275" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1a62ed0977eb6bebd2d654694062515754" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureExpressionValuesGatherer" kindref="compound">FeatureExpressionValuesGatherer</ref> *</type>
+        <definition>FeatureExpressionValuesGatherer* FeatureListModel::mGatherer</definition>
+        <argsstring></argsstring>
+        <name>mGatherer</name>
+        <qualifiedname>FeatureListModel::mGatherer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="277" column="37" bodyfile="src/core/featurelistmodel.h" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1ab227a678c0e3c80d2b72d7b6d164c190" prot="private" static="no" mutable="no">
+        <type>QList&lt; Entry &gt;</type>
+        <definition>QList&lt;Entry&gt; FeatureListModel::mEntries</definition>
+        <argsstring></argsstring>
+        <name>mEntries</name>
+        <qualifiedname>FeatureListModel::mEntries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="279" column="11" bodyfile="src/core/featurelistmodel.h" bodystart="279" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1a5adfc4651d83beb6f662f3dc33d26250" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureListModel::mKeyField</definition>
+        <argsstring></argsstring>
+        <name>mKeyField</name>
+        <qualifiedname>FeatureListModel::mKeyField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="280" column="13" bodyfile="src/core/featurelistmodel.h" bodystart="280" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1ade79b02720c8c38af82af674383eda3b" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureListModel::mDisplayValueField</definition>
+        <argsstring></argsstring>
+        <name>mDisplayValueField</name>
+        <qualifiedname>FeatureListModel::mDisplayValueField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="281" column="13" bodyfile="src/core/featurelistmodel.h" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1a79965baeef79c2d059cc1492a400cdbc" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureListModel::mGroupField</definition>
+        <argsstring></argsstring>
+        <name>mGroupField</name>
+        <qualifiedname>FeatureListModel::mGroupField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="282" column="13" bodyfile="src/core/featurelistmodel.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1a271efaa4fd7b55868f660850c7ac1d86" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureListModel::mDisplayGroupName</definition>
+        <argsstring></argsstring>
+        <name>mDisplayGroupName</name>
+        <qualifiedname>FeatureListModel::mDisplayGroupName</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="283" column="10" bodyfile="src/core/featurelistmodel.h" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1ad5690586ddb4d88f7cdb0aabb4404ad3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureListModel::mOrderByValue</definition>
+        <argsstring></argsstring>
+        <name>mOrderByValue</name>
+        <qualifiedname>FeatureListModel::mOrderByValue</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="284" column="10" bodyfile="src/core/featurelistmodel.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1aa487f2c22e42ebc6f4def02b6d24a83f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureListModel::mAddNull</definition>
+        <argsstring></argsstring>
+        <name>mAddNull</name>
+        <qualifiedname>FeatureListModel::mAddNull</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="285" column="10" bodyfile="src/core/featurelistmodel.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1ae42727192ed72febd9ed6e7594c1c40b" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureListModel::mFilterExpression</definition>
+        <argsstring></argsstring>
+        <name>mFilterExpression</name>
+        <qualifiedname>FeatureListModel::mFilterExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="286" column="13" bodyfile="src/core/featurelistmodel.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1ac559ef7729f30bf0bb630a8e3ab050b7" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureListModel::mSearchTerm</definition>
+        <argsstring></argsstring>
+        <name>mSearchTerm</name>
+        <qualifiedname>FeatureListModel::mSearchTerm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="287" column="13" bodyfile="src/core/featurelistmodel.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1a94894fd5de06a3da0c76d719435a0af4" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureListModel::mCurrentFormFeature</definition>
+        <argsstring></argsstring>
+        <name>mCurrentFormFeature</name>
+        <qualifiedname>FeatureListModel::mCurrentFormFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="288" column="16" bodyfile="src/core/featurelistmodel.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1af48e7870c7bc7ea25ce5786b9e257558" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> &gt;</type>
+        <definition>QPointer&lt;AppExpressionContextScopesGenerator&gt; FeatureListModel::mAppExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>mAppExpressionContextScopesGenerator</name>
+        <qualifiedname>FeatureListModel::mAppExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="289" column="14" bodyfile="src/core/featurelistmodel.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureListModel_1abd5cbcf6fd3b7a60a34e4e9995030096" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer FeatureListModel::mReloadTimer</definition>
+        <argsstring></argsstring>
+        <name>mReloadTimer</name>
+        <qualifiedname>FeatureListModel::mReloadTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="291" column="12" bodyfile="src/core/featurelistmodel.h" bodystart="291" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classFeatureListModel_1ad03c23597df4846d771f29f0494dfd97" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class FeatureCheckListModel</definition>
+        <argsstring></argsstring>
+        <name>FeatureCheckListModel</name>
+        <qualifiedname>FeatureListModel::FeatureCheckListModel</qualifiedname>
+        <param>
+          <type><ref refid="classFeatureCheckListModel" kindref="compound">FeatureCheckListModel</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="293" column="18" bodyfile="src/core/featurelistmodel.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classFeatureListModel_1a5676a1f9ea828aeafbc42f7853e9ed5f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class FeatureCheckListModelBase</definition>
+        <argsstring></argsstring>
+        <name>FeatureCheckListModelBase</name>
+        <qualifiedname>FeatureListModel::FeatureCheckListModelBase</qualifiedname>
+        <param>
+          <type><ref refid="classFeatureCheckListModelBase" kindref="compound">FeatureCheckListModelBase</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="294" column="18" bodyfile="src/core/featurelistmodel.h" bodystart="294" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFeatureListModel_1a42de81aeba52af505b6029eaddc37027" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FeatureListModel::FeatureListModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>FeatureListModel</name>
+        <qualifiedname>FeatureListModel::FeatureListModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="109" column="14" bodyfile="src/core/featurelistmodel.cpp" bodystart="28" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a941dc4c630306e9dbed7b962127f0f35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FeatureListModel::~FeatureListModel</definition>
+        <argsstring>()</argsstring>
+        <name>~FeatureListModel</name>
+        <qualifiedname>FeatureListModel::~FeatureListModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="110" column="5" bodyfile="src/core/featurelistmodel.cpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a66c8e7e88957d961f5ca44b65de3315e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex FeatureListModel::index</definition>
+        <argsstring>(int row, int column, const QModelIndex &amp;parent) const override</argsstring>
+        <name>index</name>
+        <qualifiedname>FeatureListModel::index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="112" column="25" bodyfile="src/core/featurelistmodel.cpp" bodystart="53" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1adee1ee935fa716b15ba0502641936347" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex FeatureListModel::parent</definition>
+        <argsstring>(const QModelIndex &amp;child) const override</argsstring>
+        <name>parent</name>
+        <qualifiedname>FeatureListModel::parent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="113" column="25" bodyfile="src/core/featurelistmodel.cpp" bodystart="60" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a16c6dbb512842578f8f1acb340346f87" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>int</type>
+        <definition>int FeatureListModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>FeatureListModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="114" column="17" bodyfile="src/core/featurelistmodel.cpp" bodystart="68" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1af1dbfd86b3d855f1f3b88dd4bd635034" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>int</type>
+        <definition>int FeatureListModel::columnCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>columnCount</name>
+        <qualifiedname>FeatureListModel::columnCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="115" column="17" bodyfile="src/core/featurelistmodel.cpp" bodystart="74" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a82e99b35ffa28e76ce6180750e07404c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QVariant</type>
+        <definition>QVariant FeatureListModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>FeatureListModel::data</qualifiedname>
+        <reimplementedby refid="classFeatureCheckListModelBase_1a4c0e136690b9492da77d8e9f5b05f7a2">data</reimplementedby>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="116" column="22" bodyfile="src/core/featurelistmodel.cpp" bodystart="80" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a844c1d0f76025cd16ed9dbb2b03214fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>Q_INVOKABLE QVariant FeatureListModel::dataFromRowIndex</definition>
+        <argsstring>(int row, int role)</argsstring>
+        <name>dataFromRowIndex</name>
+        <qualifiedname>FeatureListModel::dataFromRowIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="118" column="26" bodyfile="src/core/featurelistmodel.h" bodystart="118" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1ae1d2d57f7f5e9f1470435ef519de12d8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsFeature</type>
+        <definition>QgsFeature FeatureListModel::getFeatureFromKeyValue</definition>
+        <argsstring>(const QVariant &amp;value) const</argsstring>
+        <name>getFeatureFromKeyValue</name>
+        <qualifiedname>FeatureListModel::getFeatureFromKeyValue</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the first feature matching the key <emphasis>value</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="123" column="28" bodyfile="src/core/featurelistmodel.cpp" bodystart="289" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a32d7e37c1f662f52d2f545689fbdd8bc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsFeature</type>
+        <definition>QgsFeature FeatureListModel::getFeatureById</definition>
+        <argsstring>(QgsFeatureId id) const</argsstring>
+        <name>getFeatureById</name>
+        <qualifiedname>FeatureListModel::getFeatureById</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the first feature matching the key <emphasis>id</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="128" column="28" bodyfile="src/core/featurelistmodel.cpp" bodystart="308" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a4b19218d26eefd9a6cf961cc13d5357e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; FeatureListModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>FeatureListModel::roleNames</qualifiedname>
+        <reimplementedby refid="classFeatureCheckListModelBase_1a2797a8c3bd9c0328c6140d55288d7240">roleNames</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="130" column="19" bodyfile="src/core/featurelistmodel.cpp" bodystart="106" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1aab7e153b880dca9024735a6fe5b9fff3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * FeatureListModel::currentLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>FeatureListModel::currentLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="132" column="20" bodyfile="src/core/featurelistmodel.cpp" bodystart="118" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a20def739ceabd5f5404d7bebebf7e834" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::setCurrentLayer</definition>
+        <argsstring>(QgsVectorLayer *currentLayer)</argsstring>
+        <name>setCurrentLayer</name>
+        <qualifiedname>FeatureListModel::setCurrentLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>currentLayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="133" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="123" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a3ed0160f2458ffa0deb26df0d547aede" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FeatureListModel::keyField</definition>
+        <argsstring>() const</argsstring>
+        <name>keyField</name>
+        <qualifiedname>FeatureListModel::keyField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="135" column="13" bodyfile="src/core/featurelistmodel.cpp" bodystart="151" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1ac786527c2bd579c5f2f7b92698ea96e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::setKeyField</definition>
+        <argsstring>(const QString &amp;keyField)</argsstring>
+        <name>setKeyField</name>
+        <qualifiedname>FeatureListModel::setKeyField</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>keyField</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="136" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="156" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1ad5bf39e66fb6a3b52a23f537b29fc672" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FeatureListModel::displayValueField</definition>
+        <argsstring>() const</argsstring>
+        <name>displayValueField</name>
+        <qualifiedname>FeatureListModel::displayValueField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="138" column="13" bodyfile="src/core/featurelistmodel.cpp" bodystart="170" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a9b00a094ffc9c4b24e3e3d62f1fb3c95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::setDisplayValueField</definition>
+        <argsstring>(const QString &amp;displayValueField)</argsstring>
+        <name>setDisplayValueField</name>
+        <qualifiedname>FeatureListModel::setDisplayValueField</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>displayValueField</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="139" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="175" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a50189612c38005cab08ac36b63dee793" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FeatureListModel::groupField</definition>
+        <argsstring>() const</argsstring>
+        <name>groupField</name>
+        <qualifiedname>FeatureListModel::groupField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="141" column="13" bodyfile="src/core/featurelistmodel.cpp" bodystart="189" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a14dc8783c906ca9d880c90e51f5378d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::setGroupField</definition>
+        <argsstring>(const QString &amp;groupField)</argsstring>
+        <name>setGroupField</name>
+        <qualifiedname>FeatureListModel::setGroupField</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>groupField</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="142" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="194" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a8420ab3753c15512398da4e3ea75927e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureListModel::displayGroupName</definition>
+        <argsstring>() const</argsstring>
+        <name>displayGroupName</name>
+        <qualifiedname>FeatureListModel::displayGroupName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="144" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="208" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a9cfae7280a6e2d1371d9e34184d49f2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::setDisplayGroupName</definition>
+        <argsstring>(bool displayGroupName)</argsstring>
+        <name>setDisplayGroupName</name>
+        <qualifiedname>FeatureListModel::setDisplayGroupName</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>displayGroupName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="145" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="213" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a09853107fc0ba499d432d15ec6e45fe6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int FeatureListModel::findKey</definition>
+        <argsstring>(const QVariant &amp;key) const</argsstring>
+        <name>findKey</name>
+        <qualifiedname>FeatureListModel::findKey</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the row for a given key value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="150" column="21" bodyfile="src/core/featurelistmodel.cpp" bodystart="225" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1aa6b81a227e6a2d7dd09e4884e264f356" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QList&lt; int &gt;</type>
+        <definition>QList&lt; int &gt; FeatureListModel::findDisplayValueMatches</definition>
+        <argsstring>(const QString &amp;filter) const</argsstring>
+        <name>findDisplayValueMatches</name>
+        <qualifiedname>FeatureListModel::findDisplayValueMatches</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get rows for a given filter string used to match display values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="155" column="23" bodyfile="src/core/featurelistmodel.cpp" bodystart="246" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a9cf0358280386bf76188646c728e1c45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureListModel::orderByValue</definition>
+        <argsstring>() const</argsstring>
+        <name>orderByValue</name>
+        <qualifiedname>FeatureListModel::orderByValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Orders all the values alphabethically by their displayString. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="160" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="528" bodyend="531"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a88b0237022942fd2c906a94c07118528" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::setOrderByValue</definition>
+        <argsstring>(bool orderByValue)</argsstring>
+        <name>setOrderByValue</name>
+        <qualifiedname>FeatureListModel::setOrderByValue</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>orderByValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Orders all the values alphabethically by their displayString. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="165" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="533" bodyend="543"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a721353852d5ef87c003a0ef51d39923e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureListModel::addNull</definition>
+        <argsstring>() const</argsstring>
+        <name>addNull</name>
+        <qualifiedname>FeatureListModel::addNull</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a NULL value as the first entry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="170" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="510" bodyend="513"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a292f6b257d4e80368c6bb0d01c9e5c0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::setAddNull</definition>
+        <argsstring>(bool addNull)</argsstring>
+        <name>setAddNull</name>
+        <qualifiedname>FeatureListModel::setAddNull</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>addNull</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a NULL value as the first entry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="175" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="515" bodyend="526"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1ae68ca53bb1727d3b98f510de045924a5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FeatureListModel::filterExpression</definition>
+        <argsstring>() const</argsstring>
+        <name>filterExpression</name>
+        <qualifiedname>FeatureListModel::filterExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Expression to filter features with. Empty string if no filter is applied. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="180" column="13" bodyfile="src/core/featurelistmodel.cpp" bodystart="545" bodyend="548"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a58041d84d27e3214a115ff3d8ea2ce01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::setFilterExpression</definition>
+        <argsstring>(const QString &amp;filterExpression)</argsstring>
+        <name>setFilterExpression</name>
+        <qualifiedname>FeatureListModel::setFilterExpression</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filterExpression</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets an expression to filter features with. Empty string if no filter is applied. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="185" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="550" bodyend="560"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a620c6100a17fdc63aba63f36439b6f11" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FeatureListModel::searchTerm</definition>
+        <argsstring>() const</argsstring>
+        <name>searchTerm</name>
+        <qualifiedname>FeatureListModel::searchTerm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current search term used to filter items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="190" column="13" bodyfile="src/core/featurelistmodel.cpp" bodystart="562" bodyend="565"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a33f0babdbbeae6c0f324925913c04a45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::setSearchTerm</definition>
+        <argsstring>(const QString &amp;searchTerm)</argsstring>
+        <name>setSearchTerm</name>
+        <qualifiedname>FeatureListModel::setSearchTerm</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>searchTerm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the search term for filtering and updates the filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="195" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="567" bodyend="578"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a52cbce3bdef081a4bc04d3a4df06638c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureListModel::currentFormFeature</definition>
+        <argsstring>() const</argsstring>
+        <name>currentFormFeature</name>
+        <qualifiedname>FeatureListModel::currentFormFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current form feature, used to evaluate expressions such as <lsquo/>current_value(&apos;attr1<rsquo/>)` </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="200" column="16" bodyfile="src/core/featurelistmodel.cpp" bodystart="580" bodyend="583"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1abff49b774d782966e2d423028b582bcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::setCurrentFormFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>setCurrentFormFeature</name>
+        <qualifiedname>FeatureListModel::setCurrentFormFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current form feature, used to evaluate expressions such as <lsquo/>current_value(&apos;attr1<rsquo/>)` </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="205" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="585" bodyend="600"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1adb7a949cf8de039f03589d4a668dd955" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> *</type>
+        <definition>AppExpressionContextScopesGenerator * FeatureListModel::appExpressionContextScopesGenerator</definition>
+        <argsstring>() const</argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>FeatureListModel::appExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the application expression context scope generator used when filtering by expression </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="210" column="41" bodyfile="src/core/featurelistmodel.cpp" bodystart="602" bodyend="605"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1af1b0181a36e5a6ea1163c3082c1ac050" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::setAppExpressionContextScopesGenerator</definition>
+        <argsstring>(AppExpressionContextScopesGenerator *generator)</argsstring>
+        <name>setAppExpressionContextScopesGenerator</name>
+        <qualifiedname>FeatureListModel::setAppExpressionContextScopesGenerator</qualifiedname>
+        <param>
+          <type><ref refid="classAppExpressionContextScopesGenerator" kindref="compound">AppExpressionContextScopesGenerator</ref> *</type>
+          <declname>generator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the application expression context scope generator used when filtering by expression </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="215" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="607" bodyend="622"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classFeatureListModel_1a32cdcab44a0d0e917bb963bbdc18ec6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::currentLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentLayerChanged</name>
+        <qualifiedname>FeatureListModel::currentLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="218" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModel_1a38207614886cf49e69ac0e70b0c59fb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::keyFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>keyFieldChanged</name>
+        <qualifiedname>FeatureListModel::keyFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="219" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModel_1af33a318911e9fdd3af96f5c68f9bf70b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::displayValueFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>displayValueFieldChanged</name>
+        <qualifiedname>FeatureListModel::displayValueFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="220" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModel_1a23a299fa174fa6308548f44eab1e3fdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::groupFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>groupFieldChanged</name>
+        <qualifiedname>FeatureListModel::groupFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="221" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModel_1a3e2596f8a714089950a46378d5f5d2d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::displayGroupNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>displayGroupNameChanged</name>
+        <qualifiedname>FeatureListModel::displayGroupNameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="222" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModel_1a54479e6d8e45ddf63830b8ca8166d290" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::orderByValueChanged</definition>
+        <argsstring>()</argsstring>
+        <name>orderByValueChanged</name>
+        <qualifiedname>FeatureListModel::orderByValueChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="223" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModel_1a128c71b216185bee10da7b7153f32db3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::addNullChanged</definition>
+        <argsstring>()</argsstring>
+        <name>addNullChanged</name>
+        <qualifiedname>FeatureListModel::addNullChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="224" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModel_1a587deb457d83261d89f8e651906cddf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::filterExpressionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>filterExpressionChanged</name>
+        <qualifiedname>FeatureListModel::filterExpressionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="225" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModel_1afa1dc0df85aea3f871511a69e4b2f571" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::searchTermChanged</definition>
+        <argsstring>()</argsstring>
+        <name>searchTermChanged</name>
+        <qualifiedname>FeatureListModel::searchTermChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="226" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModel_1ae33d7fa23494ed95481640057d8612a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::currentFormFeatureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentFormFeatureChanged</name>
+        <qualifiedname>FeatureListModel::currentFormFeatureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="227" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureListModel_1a4bad79fd5d297f56094d2031439fe7c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::appExpressionContextScopesGeneratorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>appExpressionContextScopesGeneratorChanged</name>
+        <qualifiedname>FeatureListModel::appExpressionContextScopesGeneratorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="228" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classFeatureListModel_1afcdd3b1955f1cee98f035352aae6b846" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::onFeatureAdded</definition>
+        <argsstring>()</argsstring>
+        <name>onFeatureAdded</name>
+        <qualifiedname>FeatureListModel::onFeatureAdded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="231" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="265" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureListModel_1aedfdf98aaf0dd0768f033133845dd330" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::onAttributeValueChanged</definition>
+        <argsstring>(QgsFeatureId fid, int idx, const QVariant &amp;value)</argsstring>
+        <name>onAttributeValueChanged</name>
+        <qualifiedname>FeatureListModel::onAttributeValueChanged</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="232" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="270" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureListModel_1a5186659479253a4af100ebf22ccc0359" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::onFeatureDeleted</definition>
+        <argsstring>()</argsstring>
+        <name>onFeatureDeleted</name>
+        <qualifiedname>FeatureListModel::onFeatureDeleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="233" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="284" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureListModel_1a0005f018d191b302bb19f9a96dc8b84f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::gatherFeatureList</definition>
+        <argsstring>()</argsstring>
+        <name>gatherFeatureList</name>
+        <qualifiedname>FeatureListModel::gatherFeatureList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="235" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="318" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFeatureListModel_1a1761d7e2efa2a75e4bd63c0af6d2a12d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::processFeatureList</definition>
+        <argsstring>()</argsstring>
+        <name>processFeatureList</name>
+        <qualifiedname>FeatureListModel::processFeatureList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reloads a layer. This will normally be triggered by <simplesect kind="see"><para>reloadLayer and should not be called directly. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="241" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="407" bodyend="497"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classFeatureListModel_1a6ca39e477f13a8cc6ea42c7d3402c4f3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Entry</type>
+        <definition>FeatureListModel::Entry FeatureListModel::entryFromRow</definition>
+        <argsstring>(int row)</argsstring>
+        <name>entryFromRow</name>
+        <qualifiedname>FeatureListModel::entryFromRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="262" column="11" bodyfile="src/core/featurelistmodel.cpp" bodystart="499" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1a98bd70d3001be81dfa6dffffc473d93e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::reloadLayer</definition>
+        <argsstring>()</argsstring>
+        <name>reloadLayer</name>
+        <qualifiedname>FeatureListModel::reloadLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Triggers a reload of the values from the layer. To avoid having the (expensive) reload operation happening for every property change, it will only execute this after a very short delay. This allows changing multiple properties at once and have a single reload in the end. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="271" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="504" bodyend="508"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureListModel_1afb821ef460439b7bb9158acc39316414" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureListModel::cleanupGatherer</definition>
+        <argsstring>()</argsstring>
+        <name>cleanupGatherer</name>
+        <qualifiedname>FeatureListModel::cleanupGatherer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="273" column="10" bodyfile="src/core/featurelistmodel.cpp" bodystart="42" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides access to a list of features from a layer. For each feature, the display expression is exposed as DisplayRole and a keyField as KeyFieldRole for a unique identifier. If a displayValueField is set it replaces the display expression of the layer. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>FeatureCheckListModelBase</label>
+        <link refid="classFeatureCheckListModelBase"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>FeatureListModel</label>
+        <link refid="classFeatureListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureListModel</label>
+        <link refid="classFeatureListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/featurelistmodel.h" line="39" column="1" bodyfile="src/core/featurelistmodel.h" bodystart="40" bodyend="295"/>
+    <listofallmembers>
+      <member refid="classFeatureListModel_1a618664faec74f0bf444f7351c8d4c2d0" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>addNull</name></member>
+      <member refid="classFeatureListModel_1a721353852d5ef87c003a0ef51d39923e" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>addNull</name></member>
+      <member refid="classFeatureListModel_1a128c71b216185bee10da7b7153f32db3" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>addNullChanged</name></member>
+      <member refid="classFeatureListModel_1abd04fe11c246a9f296a82c05a40790bb" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classFeatureListModel_1adb7a949cf8de039f03589d4a668dd955" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classFeatureListModel_1a4bad79fd5d297f56094d2031439fe7c5" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>appExpressionContextScopesGeneratorChanged</name></member>
+      <member refid="classFeatureListModel_1afb821ef460439b7bb9158acc39316414" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>cleanupGatherer</name></member>
+      <member refid="classFeatureListModel_1af1dbfd86b3d855f1f3b88dd4bd635034" prot="public" virt="virtual"><scope>FeatureListModel</scope><name>columnCount</name></member>
+      <member refid="classFeatureListModel_1a6ffbb705974a48a6e99cb654ba6a60f6" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>currentFormFeature</name></member>
+      <member refid="classFeatureListModel_1a52cbce3bdef081a4bc04d3a4df06638c" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>currentFormFeature</name></member>
+      <member refid="classFeatureListModel_1ae33d7fa23494ed95481640057d8612a3" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>currentFormFeatureChanged</name></member>
+      <member refid="classFeatureListModel_1af6236f6cc477e42c141bdb93725741ed" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>currentLayer</name></member>
+      <member refid="classFeatureListModel_1aab7e153b880dca9024735a6fe5b9fff3" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>currentLayer</name></member>
+      <member refid="classFeatureListModel_1a32cdcab44a0d0e917bb963bbdc18ec6f" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>currentLayerChanged</name></member>
+      <member refid="classFeatureListModel_1a82e99b35ffa28e76ce6180750e07404c" prot="public" virt="virtual"><scope>FeatureListModel</scope><name>data</name></member>
+      <member refid="classFeatureListModel_1a844c1d0f76025cd16ed9dbb2b03214fc" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>dataFromRowIndex</name></member>
+      <member refid="classFeatureListModel_1aee02e7131f09495e53ee21a8b9cc7012" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>displayGroupName</name></member>
+      <member refid="classFeatureListModel_1a8420ab3753c15512398da4e3ea75927e" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>displayGroupName</name></member>
+      <member refid="classFeatureListModel_1a3e2596f8a714089950a46378d5f5d2d9" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>displayGroupNameChanged</name></member>
+      <member refid="classFeatureListModel_1a191ee737cb0f5e52044b6aa286a965a4a6763c843ff2b2169fe98ceaf6a855c50" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>DisplayStringRole</name></member>
+      <member refid="classFeatureListModel_1a23627088eaa2e4d75a3325eb6724fed4" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>displayValueField</name></member>
+      <member refid="classFeatureListModel_1ad5bf39e66fb6a3b52a23f537b29fc672" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>displayValueField</name></member>
+      <member refid="classFeatureListModel_1af33a318911e9fdd3af96f5c68f9bf70b" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>displayValueFieldChanged</name></member>
+      <member refid="classFeatureListModel_1a6ca39e477f13a8cc6ea42c7d3402c4f3" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>entryFromRow</name></member>
+      <member refid="classFeatureListModel_1ad03c23597df4846d771f29f0494dfd97" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>FeatureCheckListModel</name></member>
+      <member refid="classFeatureListModel_1a5676a1f9ea828aeafbc42f7853e9ed5f" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>FeatureCheckListModelBase</name></member>
+      <member refid="classFeatureListModel_1a191ee737cb0f5e52044b6aa286a965a4adeacf311b1a569a57433ba7cd12b2109" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>FeatureIdRole</name></member>
+      <member refid="classFeatureListModel_1a42de81aeba52af505b6029eaddc37027" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>FeatureListModel</name></member>
+      <member refid="classFeatureListModel_1a191ee737cb0f5e52044b6aa286a965a4" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>FeatureListRoles</name></member>
+      <member refid="classFeatureListModel_1acb6b38152ac78954dcbec087b5c9b20d" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>filterExpression</name></member>
+      <member refid="classFeatureListModel_1ae68ca53bb1727d3b98f510de045924a5" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>filterExpression</name></member>
+      <member refid="classFeatureListModel_1a587deb457d83261d89f8e651906cddf9" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>filterExpressionChanged</name></member>
+      <member refid="classFeatureListModel_1aa6b81a227e6a2d7dd09e4884e264f356" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>findDisplayValueMatches</name></member>
+      <member refid="classFeatureListModel_1a09853107fc0ba499d432d15ec6e45fe6" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>findKey</name></member>
+      <member refid="classFeatureListModel_1a0005f018d191b302bb19f9a96dc8b84f" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>gatherFeatureList</name></member>
+      <member refid="classFeatureListModel_1a32d7e37c1f662f52d2f545689fbdd8bc" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>getFeatureById</name></member>
+      <member refid="classFeatureListModel_1ae1d2d57f7f5e9f1470435ef519de12d8" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>getFeatureFromKeyValue</name></member>
+      <member refid="classFeatureListModel_1a8dd4140065042313b348c4dafcf3efd2" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>groupField</name></member>
+      <member refid="classFeatureListModel_1a50189612c38005cab08ac36b63dee793" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>groupField</name></member>
+      <member refid="classFeatureListModel_1a23a299fa174fa6308548f44eab1e3fdc" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>groupFieldChanged</name></member>
+      <member refid="classFeatureListModel_1a191ee737cb0f5e52044b6aa286a965a4a8a47c3e2c99d5ab7795472707b8fba8c" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>GroupFieldRole</name></member>
+      <member refid="classFeatureListModel_1a66c8e7e88957d961f5ca44b65de3315e" prot="public" virt="virtual"><scope>FeatureListModel</scope><name>index</name></member>
+      <member refid="classFeatureListModel_1a3d919df1f4d6956c405fe9887b3bdfe2" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>keyField</name></member>
+      <member refid="classFeatureListModel_1a3ed0160f2458ffa0deb26df0d547aede" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>keyField</name></member>
+      <member refid="classFeatureListModel_1a38207614886cf49e69ac0e70b0c59fb3" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>keyFieldChanged</name></member>
+      <member refid="classFeatureListModel_1a191ee737cb0f5e52044b6aa286a965a4af27c1dc104b5189e453848438fc7e897" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>KeyFieldRole</name></member>
+      <member refid="classFeatureListModel_1aa487f2c22e42ebc6f4def02b6d24a83f" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mAddNull</name></member>
+      <member refid="classFeatureListModel_1af48e7870c7bc7ea25ce5786b9e257558" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mAppExpressionContextScopesGenerator</name></member>
+      <member refid="classFeatureListModel_1a94894fd5de06a3da0c76d719435a0af4" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mCurrentFormFeature</name></member>
+      <member refid="classFeatureListModel_1a53790341881147ca86abb477723dc279" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mCurrentLayer</name></member>
+      <member refid="classFeatureListModel_1a271efaa4fd7b55868f660850c7ac1d86" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mDisplayGroupName</name></member>
+      <member refid="classFeatureListModel_1ade79b02720c8c38af82af674383eda3b" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mDisplayValueField</name></member>
+      <member refid="classFeatureListModel_1ab227a678c0e3c80d2b72d7b6d164c190" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mEntries</name></member>
+      <member refid="classFeatureListModel_1ae42727192ed72febd9ed6e7594c1c40b" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mFilterExpression</name></member>
+      <member refid="classFeatureListModel_1a62ed0977eb6bebd2d654694062515754" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mGatherer</name></member>
+      <member refid="classFeatureListModel_1a79965baeef79c2d059cc1492a400cdbc" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mGroupField</name></member>
+      <member refid="classFeatureListModel_1a5adfc4651d83beb6f662f3dc33d26250" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mKeyField</name></member>
+      <member refid="classFeatureListModel_1ad5690586ddb4d88f7cdb0aabb4404ad3" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mOrderByValue</name></member>
+      <member refid="classFeatureListModel_1abd5cbcf6fd3b7a60a34e4e9995030096" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mReloadTimer</name></member>
+      <member refid="classFeatureListModel_1ac559ef7729f30bf0bb630a8e3ab050b7" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>mSearchTerm</name></member>
+      <member refid="classFeatureListModel_1aedfdf98aaf0dd0768f033133845dd330" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>onAttributeValueChanged</name></member>
+      <member refid="classFeatureListModel_1afcdd3b1955f1cee98f035352aae6b846" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>onFeatureAdded</name></member>
+      <member refid="classFeatureListModel_1a5186659479253a4af100ebf22ccc0359" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>onFeatureDeleted</name></member>
+      <member refid="classFeatureListModel_1a65b5ac88a0b2744531ed31a8708f4585" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>orderByValue</name></member>
+      <member refid="classFeatureListModel_1a9cf0358280386bf76188646c728e1c45" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>orderByValue</name></member>
+      <member refid="classFeatureListModel_1a54479e6d8e45ddf63830b8ca8166d290" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>orderByValueChanged</name></member>
+      <member refid="classFeatureListModel_1adee1ee935fa716b15ba0502641936347" prot="public" virt="virtual"><scope>FeatureListModel</scope><name>parent</name></member>
+      <member refid="classFeatureListModel_1a1761d7e2efa2a75e4bd63c0af6d2a12d" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>processFeatureList</name></member>
+      <member refid="classFeatureListModel_1a98bd70d3001be81dfa6dffffc473d93e" prot="private" virt="non-virtual"><scope>FeatureListModel</scope><name>reloadLayer</name></member>
+      <member refid="classFeatureListModel_1a4b19218d26eefd9a6cf961cc13d5357e" prot="public" virt="virtual"><scope>FeatureListModel</scope><name>roleNames</name></member>
+      <member refid="classFeatureListModel_1a16c6dbb512842578f8f1acb340346f87" prot="public" virt="virtual"><scope>FeatureListModel</scope><name>rowCount</name></member>
+      <member refid="classFeatureListModel_1a82dd2b65d6edb96fdd990a2ecd1d5d87" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>searchTerm</name></member>
+      <member refid="classFeatureListModel_1a620c6100a17fdc63aba63f36439b6f11" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>searchTerm</name></member>
+      <member refid="classFeatureListModel_1afa1dc0df85aea3f871511a69e4b2f571" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>searchTermChanged</name></member>
+      <member refid="classFeatureListModel_1a292f6b257d4e80368c6bb0d01c9e5c0e" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>setAddNull</name></member>
+      <member refid="classFeatureListModel_1af1b0181a36e5a6ea1163c3082c1ac050" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>setAppExpressionContextScopesGenerator</name></member>
+      <member refid="classFeatureListModel_1abff49b774d782966e2d423028b582bcd" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>setCurrentFormFeature</name></member>
+      <member refid="classFeatureListModel_1a20def739ceabd5f5404d7bebebf7e834" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>setCurrentLayer</name></member>
+      <member refid="classFeatureListModel_1a9cfae7280a6e2d1371d9e34184d49f2f" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>setDisplayGroupName</name></member>
+      <member refid="classFeatureListModel_1a9b00a094ffc9c4b24e3e3d62f1fb3c95" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>setDisplayValueField</name></member>
+      <member refid="classFeatureListModel_1a58041d84d27e3214a115ff3d8ea2ce01" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>setFilterExpression</name></member>
+      <member refid="classFeatureListModel_1a14dc8783c906ca9d880c90e51f5378d4" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>setGroupField</name></member>
+      <member refid="classFeatureListModel_1ac786527c2bd579c5f2f7b92698ea96e1" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>setKeyField</name></member>
+      <member refid="classFeatureListModel_1a88b0237022942fd2c906a94c07118528" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>setOrderByValue</name></member>
+      <member refid="classFeatureListModel_1a33f0babdbbeae6c0f324925913c04a45" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>setSearchTerm</name></member>
+      <member refid="classFeatureListModel_1a941dc4c630306e9dbed7b962127f0f35" prot="public" virt="non-virtual"><scope>FeatureListModel</scope><name>~FeatureListModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

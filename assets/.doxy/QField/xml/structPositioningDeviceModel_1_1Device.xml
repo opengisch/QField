@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structPositioningDeviceModel_1_1Device" kind="struct" language="C++" prot="public">
+    <compoundname>PositioningDeviceModel::Device</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structPositioningDeviceModel_1_1Device_1a176cb2678bea8218192661b1c2d250bb" prot="public" static="no" mutable="no">
+        <type>Type</type>
+        <definition>Type PositioningDeviceModel::Device::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>PositioningDeviceModel::Device::type</qualifiedname>
+        <initializer>= Type::InternalDevice</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="51" column="14" bodyfile="src/core/positioning/positioningdevicemodel.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPositioningDeviceModel_1_1Device_1a909ab2f617b587f509c6e2e2dae306cf" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString PositioningDeviceModel::Device::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>PositioningDeviceModel::Device::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="52" column="17" bodyfile="src/core/positioning/positioningdevicemodel.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPositioningDeviceModel_1_1Device_1a57b4ce7a8ada3467b9c3f9eef4b7e319" prot="public" static="no" mutable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap PositioningDeviceModel::Device::settings</definition>
+        <argsstring></argsstring>
+        <name>settings</name>
+        <qualifiedname>PositioningDeviceModel::Device::settings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="53" column="21" bodyfile="src/core/positioning/positioningdevicemodel.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structPositioningDeviceModel_1_1Device_1a38cd213047935f638391a43d479312c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PositioningDeviceModel::Device::Device</definition>
+        <argsstring>()=default</argsstring>
+        <name>Device</name>
+        <qualifiedname>PositioningDeviceModel::Device::Device</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="43" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structPositioningDeviceModel_1_1Device_1a5266ff1616cd7877e141daaf6001072b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PositioningDeviceModel::Device::Device</definition>
+        <argsstring>(Type type, const QString &amp;name, const QVariantMap &amp;settings)</argsstring>
+        <name>Device</name>
+        <qualifiedname>PositioningDeviceModel::Device::Device</qualifiedname>
+        <param>
+          <type>Type</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="45" column="9" bodyfile="src/core/positioning/positioningdevicemodel.h" bodystart="45" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/positioning/positioningdevicemodel.h" line="41" column="5" bodyfile="src/core/positioning/positioningdevicemodel.h" bodystart="42" bodyend="54"/>
+    <listofallmembers>
+      <member refid="structPositioningDeviceModel_1_1Device_1a38cd213047935f638391a43d479312c3" prot="public" virt="non-virtual"><scope>PositioningDeviceModel::Device</scope><name>Device</name></member>
+      <member refid="structPositioningDeviceModel_1_1Device_1a5266ff1616cd7877e141daaf6001072b" prot="public" virt="non-virtual"><scope>PositioningDeviceModel::Device</scope><name>Device</name></member>
+      <member refid="structPositioningDeviceModel_1_1Device_1a909ab2f617b587f509c6e2e2dae306cf" prot="public" virt="non-virtual"><scope>PositioningDeviceModel::Device</scope><name>name</name></member>
+      <member refid="structPositioningDeviceModel_1_1Device_1a57b4ce7a8ada3467b9c3f9eef4b7e319" prot="public" virt="non-virtual"><scope>PositioningDeviceModel::Device</scope><name>settings</name></member>
+      <member refid="structPositioningDeviceModel_1_1Device_1a176cb2678bea8218192661b1c2d250bb" prot="public" virt="non-virtual"><scope>PositioningDeviceModel::Device</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

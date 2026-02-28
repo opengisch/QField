@@ -1,0 +1,1894 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Class RubberbandModel - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-rubberbandmodel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class RubberbandModel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-properties-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Properties Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Properties Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-crs-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property crs [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-currentcoordinate-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property currentCoordinate [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-currentcoordinateindex-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property currentCoordinateIndex [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-currentpositiontimestamp-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property currentPositionTimestamp [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-firstcoordinate-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property firstCoordinate [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-frozen-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property frozen [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-geometrytype-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property geometryType [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-lastcoordinate-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property lastCoordinate [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-measurevalue-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property measureValue [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-penultimatecoordinate-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property penultimateCoordinate [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vectorlayer-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vectorLayer [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vertexcount-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vertexCount [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-vertices-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        property vertices [1/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-signals-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Signals Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Signals Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-crschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal crsChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-currentcoordinatechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal currentCoordinateChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-currentcoordinateindexchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal currentCoordinateIndexChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-currentpositiontimestampchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal currentPositionTimestampChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-frozenchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal frozenChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-geometrytypechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal geometryTypeChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-measurevaluechanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal measureValueChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-vectorlayerchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal vectorLayerChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-vertexchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal vertexChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-vertexcountchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal vertexCountChanged
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-verticesinserted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal verticesInserted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-verticesremoved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        signal verticesRemoved
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-rubberbandmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function RubberbandModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-addvertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function addVertex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-addvertexfrompoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function addVertexFromPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-crs-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function crs [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-currentcoordinate-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function currentCoordinate [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-currentcoordinateindex-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function currentCoordinateIndex [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-currentpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function currentPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-currentpositiontimestamp-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function currentPositionTimestamp [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-firstcoordinate-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function firstCoordinate [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-flatpointsequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function flatPointSequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-frozen-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function frozen [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-geometrytype-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function geometryType [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-insertvertices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function insertVertices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-isempty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function isEmpty
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lastcoordinate-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function lastCoordinate [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-measurevalue-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function measureValue [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-penultimatecoordinate-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function penultimateCoordinate [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-pointsequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function pointSequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-removevertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function removeVertex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-removevertices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function removeVertices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCrs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcurrentcoordinate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCurrentCoordinate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcurrentcoordinateindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCurrentCoordinateIndex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcurrentpositiontimestamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCurrentPositionTimestamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setdatafromgeometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setDataFromGeometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setfrozen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setFrozen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setgeometrytype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setGeometryType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmeasurevalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setMeasureValue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setvectorlayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setVectorLayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setvertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setVertex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vectorlayer-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vectorLayer [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vertexat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vertexAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vertexcount-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vertexCount [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-vertices-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function vertices [2/2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-verticescopy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function verticesCopy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-rubberbandmodel">Class RubberbandModel</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="./"><strong>RubberbandModel</strong></a></p>
+<p><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;rubberbandmodel.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: QObject</p>
+<h2 id="public-properties">Public Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">property QgsCoordinateReferenceSystem</td>
+<td style="text-align: left;"><a href="./#property-crs-12"><strong>crs</strong></a>  <br><em>Coordinate reference system.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsPoint</td>
+<td style="text-align: left;"><a href="./#property-currentcoordinate-12"><strong>currentCoordinate</strong></a>  <br><em>Current vertex point.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-currentcoordinateindex-12"><strong>currentCoordinateIndex</strong></a>  <br><em>Current vertex index.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QDateTime</td>
+<td style="text-align: left;"><a href="./#property-currentpositiontimestamp-12"><strong>currentPositionTimestamp</strong></a>  <br><em>currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsPoint</td>
+<td style="text-align: left;"><a href="./#property-firstcoordinate-12"><strong>firstCoordinate</strong></a>  <br><em>First vertex point.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property bool</td>
+<td style="text-align: left;"><a href="./#property-frozen-12"><strong>frozen</strong></a>  <br><em>Freeze the rubberband so it doesn't get modified while panning map.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property Qgis::GeometryType</td>
+<td style="text-align: left;"><a href="./#property-geometrytype-12"><strong>geometryType</strong></a>  <br><a href="../classGeometry/"><em><strong>Geometry</strong></em></a> <em>type of the model.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsPoint</td>
+<td style="text-align: left;"><a href="./#property-lastcoordinate-12"><strong>lastCoordinate</strong></a>  <br><em>Last vertex point.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property double</td>
+<td style="text-align: left;"><a href="./#property-measurevalue-12"><strong>measureValue</strong></a>  <br><em>measureValue defines the M value of the coordinates</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsPoint</td>
+<td style="text-align: left;"><a href="./#property-penultimatecoordinate-12"><strong>penultimateCoordinate</strong></a>  <br><em>Penultimate (last but one) vertex point.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QgsVectorLayer *</td>
+<td style="text-align: left;"><a href="./#property-vectorlayer-12"><strong>vectorLayer</strong></a>  <br><em>The vector layer the model is for.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property int</td>
+<td style="text-align: left;"><a href="./#property-vertexcount-12"><strong>vertexCount</strong></a>  <br><em>Total count of vertices.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">property QVector&lt; QgsPoint &gt;</td>
+<td style="text-align: left;"><a href="./#property-vertices-12"><strong>vertices</strong></a>  <br><em>All vertex points.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-signals">Public Signals</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-crschanged"><strong>crsChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-currentcoordinatechanged"><strong>currentCoordinateChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-currentcoordinateindexchanged"><strong>currentCoordinateIndexChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-currentpositiontimestampchanged"><strong>currentPositionTimestampChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-frozenchanged"><strong>frozenChanged</strong></a>  <br><em>Freeze the rubberband so it doesn't get modified while panning map.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-geometrytypechanged"><strong>geometryTypeChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-measurevaluechanged"><strong>measureValueChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-vectorlayerchanged"><strong>vectorLayerChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-vertexchanged"><strong>vertexChanged</strong></a> (int index) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-vertexcountchanged"><strong>vertexCountChanged</strong></a>  <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-verticesinserted"><strong>verticesInserted</strong></a> (int index, int count) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">signal void</td>
+<td style="text-align: left;"><a href="./#signal-verticesremoved"><strong>verticesRemoved</strong></a> (int index, int count) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-rubberbandmodel"><strong>RubberbandModel</strong></a> (QObject * parent=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-addvertex"><strong>addVertex</strong></a> () <br><em>Add vertex from the current position.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-addvertexfrompoint"><strong>addVertexFromPoint</strong></a> (const QgsPoint &amp; point) <br><em>Add vertex with a given point.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsCoordinateReferenceSystem</td>
+<td style="text-align: left;"><a href="#function-crs-22"><strong>crs</strong></a> () const<br><em>Coordinate reference system.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-currentcoordinate-22"><strong>currentCoordinate</strong></a> () const<br><em>Current vertex point.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-currentcoordinateindex-22"><strong>currentCoordinateIndex</strong></a> () const<br><em>Current vertex index.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-currentpoint"><strong>currentPoint</strong></a> (const QgsCoordinateReferenceSystem &amp; crs=QgsCoordinateReferenceSystem(), Qgis::WkbType wkbType=Qgis::WkbType::PointZ) const<br><em>Returns the current vertex point transformed to the given</em> <em>crs</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QDateTime</td>
+<td style="text-align: left;"><a href="#function-currentpositiontimestamp-22"><strong>currentPositionTimestamp</strong></a> () const<br><em>currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-firstcoordinate-22"><strong>firstCoordinate</strong></a> () const<br><em>First vertex point.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVector&lt; QgsPointXY &gt;</td>
+<td style="text-align: left;"><a href="#function-flatpointsequence"><strong>flatPointSequence</strong></a> (const QgsCoordinateReferenceSystem &amp; crs=QgsCoordinateReferenceSystem()) const<br><em>Returns all vertices points keeping only X and Y coordinates and transformed to the given</em> <em>crs</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-frozen-22"><strong>frozen</strong></a> () const<br><em>Freeze the rubberband so it doesn't get modified while panning map.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Qgis::GeometryType</td>
+<td style="text-align: left;"><a href="#function-geometrytype-22"><strong>geometryType</strong></a> () const<br><a href="../classGeometry/"><em><strong>Geometry</strong></em></a> <em>type of the model.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-insertvertices"><strong>insertVertices</strong></a> (int index, int count) <br><em>Inserts vertices.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isempty"><strong>isEmpty</strong></a> () const<br><em>Returns whether there is at least one vertex in the model.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-lastcoordinate-22"><strong>lastCoordinate</strong></a> () const<br><em>Last vertex point.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">double</td>
+<td style="text-align: left;"><a href="#function-measurevalue-22"><strong>measureValue</strong></a> () const<br><em>measureValue defines the M value of the coordinates</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-penultimatecoordinate-22"><strong>penultimateCoordinate</strong></a> () const<br><em>Penultimate (last but one) vertex point.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE QgsPointSequence</td>
+<td style="text-align: left;"><a href="#function-pointsequence"><strong>pointSequence</strong></a> (const QgsCoordinateReferenceSystem &amp; crs=QgsCoordinateReferenceSystem(), Qgis::WkbType wkbType=Qgis::WkbType::Point, bool closeLine=false) const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-removevertex"><strong>removeVertex</strong></a> () <br><em>Remove the vertex at the current index.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-removevertices"><strong>removeVertices</strong></a> (int index, int count, bool keepLast=true) <br><em>Remove</em> <em>count</em> <em>vertices starting at__index</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">Q_INVOKABLE void</td>
+<td style="text-align: left;"><a href="#function-reset"><strong>reset</strong></a> (bool keepLast=true) <br><em>Reset the model, remove all vertices and restart the vertex index.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcrs"><strong>setCrs</strong></a> (const QgsCoordinateReferenceSystem &amp; crs) <br><em>Coordinate reference system.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcurrentcoordinate"><strong>setCurrentCoordinate</strong></a> (const QgsPoint &amp; currentCoordinate) <br><em>Current vertex point.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcurrentcoordinateindex"><strong>setCurrentCoordinateIndex</strong></a> (int currentCoordinateIndex) <br><em>Current vertex index.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setcurrentpositiontimestamp"><strong>setCurrentPositionTimestamp</strong></a> (const QDateTime &amp; currentPositionTimestamp) <br><em>currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setdatafromgeometry"><strong>setDataFromGeometry</strong></a> (QgsGeometry geometry, const QgsCoordinateReferenceSystem &amp; crs=QgsCoordinateReferenceSystem()) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setfrozen"><strong>setFrozen</strong></a> (const bool &amp; frozen) <br><em>Freeze the rubberband so it doesn't get modified while panning map.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setgeometrytype"><strong>setGeometryType</strong></a> (const Qgis::GeometryType &amp; geometryType) <br><a href="../classGeometry/"><em><strong>Geometry</strong></em></a> <em>type of the model.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setmeasurevalue"><strong>setMeasureValue</strong></a> (const double measureValue) <br><em>measureValue defines the M value of the coordinates</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setvectorlayer"><strong>setVectorLayer</strong></a> (QgsVectorLayer * vectorLayer) <br><em>The vector layer the model is for.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setvertex"><strong>setVertex</strong></a> (int index, QgsPoint coordinate) <br><em>Sets a vertex point at given index.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsVectorLayer *</td>
+<td style="text-align: left;"><a href="#function-vectorlayer-22"><strong>vectorLayer</strong></a> () const<br><em>The vector layer the model is for.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QgsPoint</td>
+<td style="text-align: left;"><a href="#function-vertexat"><strong>vertexAt</strong></a> (int index, const QgsCoordinateReferenceSystem &amp; crs=QgsCoordinateReferenceSystem()) const<br><em>Returns the vertex point at a given</em> <em>index</em> <em>transformed to the given__crs</em> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-vertexcount-22"><strong>vertexCount</strong></a> () const<br><em>Total count of vertices.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVector&lt; QgsPoint &gt;</td>
+<td style="text-align: left;"><a href="#function-vertices-22"><strong>vertices</strong></a> () const<br><em>All vertex points.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">QVector&lt; QgsPoint &gt;</td>
+<td style="text-align: left;"><a href="#function-verticescopy"><strong>verticesCopy</strong></a> (bool skipCurrentPoint=false) const<br><em>Returns a copy of all vertice points in the model, with the option to skip the current vertex.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<p>This model manages a list of vertices. It can be used as a linestring or as a ring in a polygon. </p>
+<h2 id="public-properties-documentation">Public Properties Documentation</h2>
+<h3 id="property-crs-12">property crs [1/2]</h3>
+<p><em>Coordinate reference system.</em> </p>
+<pre><code class="language-C++">QgsCoordinateReferenceSystem RubberbandModel::crs;
+</code></pre>
+<hr>
+
+<h3 id="property-currentcoordinate-12">property currentCoordinate [1/2]</h3>
+<p><em>Current vertex point.</em> </p>
+<pre><code class="language-C++">QgsPoint RubberbandModel::currentCoordinate;
+</code></pre>
+<hr>
+
+<h3 id="property-currentcoordinateindex-12">property currentCoordinateIndex [1/2]</h3>
+<p><em>Current vertex index.</em> </p>
+<pre><code class="language-C++">int RubberbandModel::currentCoordinateIndex;
+</code></pre>
+<hr>
+
+<h3 id="property-currentpositiontimestamp-12">property currentPositionTimestamp [1/2]</h3>
+<p><em>currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself</em> </p>
+<pre><code class="language-C++">QDateTime RubberbandModel::currentPositionTimestamp;
+</code></pre>
+<hr>
+
+<h3 id="property-firstcoordinate-12">property firstCoordinate [1/2]</h3>
+<p><em>First vertex point.</em> </p>
+<pre><code class="language-C++">QgsPoint RubberbandModel::firstCoordinate;
+</code></pre>
+<hr>
+
+<h3 id="property-frozen-12">property frozen [1/2]</h3>
+<p><em>Freeze the rubberband so it doesn't get modified while panning map.</em> </p>
+<pre><code class="language-C++">bool RubberbandModel::frozen;
+</code></pre>
+<hr>
+
+<h3 id="property-geometrytype-12">property geometryType [1/2]</h3>
+<p><a href="../classGeometry/"><em><strong>Geometry</strong></em></a> <em>type of the model.</em></p>
+<pre><code class="language-C++">Qgis::GeometryType RubberbandModel::geometryType;
+</code></pre>
+<hr>
+
+<h3 id="property-lastcoordinate-12">property lastCoordinate [1/2]</h3>
+<p><em>Last vertex point.</em> </p>
+<pre><code class="language-C++">QgsPoint RubberbandModel::lastCoordinate;
+</code></pre>
+<hr>
+
+<h3 id="property-measurevalue-12">property measureValue [1/2]</h3>
+<p><em>measureValue defines the M value of the coordinates</em> </p>
+<pre><code class="language-C++">double RubberbandModel::measureValue;
+</code></pre>
+<hr>
+
+<h3 id="property-penultimatecoordinate-12">property penultimateCoordinate [1/2]</h3>
+<p><em>Penultimate (last but one) vertex point.</em> </p>
+<pre><code class="language-C++">QgsPoint RubberbandModel::penultimateCoordinate;
+</code></pre>
+<hr>
+
+<h3 id="property-vectorlayer-12">property vectorLayer [1/2]</h3>
+<p><em>The vector layer the model is for.</em> </p>
+<pre><code class="language-C++">QgsVectorLayer * RubberbandModel::vectorLayer;
+</code></pre>
+<hr>
+
+<h3 id="property-vertexcount-12">property vertexCount [1/2]</h3>
+<p><em>Total count of vertices.</em> </p>
+<pre><code class="language-C++">int RubberbandModel::vertexCount;
+</code></pre>
+<hr>
+
+<h3 id="property-vertices-12">property vertices [1/2]</h3>
+<p><em>All vertex points.</em> </p>
+<pre><code class="language-C++">QVector&lt;QgsPoint&gt; RubberbandModel::vertices;
+</code></pre>
+<hr>
+<h2 id="public-signals-documentation">Public Signals Documentation</h2>
+<h3 id="signal-crschanged">signal crsChanged</h3>
+<pre><code class="language-C++">void RubberbandModel::crsChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-currentcoordinatechanged">signal currentCoordinateChanged</h3>
+<pre><code class="language-C++">void RubberbandModel::currentCoordinateChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-currentcoordinateindexchanged">signal currentCoordinateIndexChanged</h3>
+<pre><code class="language-C++">void RubberbandModel::currentCoordinateIndexChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-currentpositiontimestampchanged">signal currentPositionTimestampChanged</h3>
+<pre><code class="language-C++">void RubberbandModel::currentPositionTimestampChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-frozenchanged">signal frozenChanged</h3>
+<p><em>Freeze the rubberband so it doesn't get modified while panning map.</em> </p>
+<pre><code class="language-C++">void RubberbandModel::frozenChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-geometrytypechanged">signal geometryTypeChanged</h3>
+<pre><code class="language-C++">void RubberbandModel::geometryTypeChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-measurevaluechanged">signal measureValueChanged</h3>
+<pre><code class="language-C++">void RubberbandModel::measureValueChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-vectorlayerchanged">signal vectorLayerChanged</h3>
+<pre><code class="language-C++">void RubberbandModel::vectorLayerChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-vertexchanged">signal vertexChanged</h3>
+<pre><code class="language-C++">void RubberbandModel::vertexChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-vertexcountchanged">signal vertexCountChanged</h3>
+<pre><code class="language-C++">void RubberbandModel::vertexCountChanged;
+</code></pre>
+<hr>
+
+<h3 id="signal-verticesinserted">signal verticesInserted</h3>
+<pre><code class="language-C++">void RubberbandModel::verticesInserted;
+</code></pre>
+<hr>
+
+<h3 id="signal-verticesremoved">signal verticesRemoved</h3>
+<pre><code class="language-C++">void RubberbandModel::verticesRemoved;
+</code></pre>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-rubberbandmodel">function RubberbandModel</h3>
+<pre><code class="language-C++">explicit RubberbandModel::RubberbandModel (
+    QObject * parent=nullptr
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-addvertex">function addVertex</h3>
+<p><em>Add vertex from the current position.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void RubberbandModel::addVertex () 
+</code></pre>
+<hr>
+
+<h3 id="function-addvertexfrompoint">function addVertexFromPoint</h3>
+<p><em>Add vertex with a given point.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void RubberbandModel::addVertexFromPoint (
+    const QgsPoint &amp; point
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-crs-22">function crs [2/2]</h3>
+<p><em>Coordinate reference system.</em> </p>
+<pre><code class="language-C++">QgsCoordinateReferenceSystem RubberbandModel::crs () const
+</code></pre>
+<hr>
+
+<h3 id="function-currentcoordinate-22">function currentCoordinate [2/2]</h3>
+<p><em>Current vertex point.</em> </p>
+<pre><code class="language-C++">QgsPoint RubberbandModel::currentCoordinate () const
+</code></pre>
+<hr>
+
+<h3 id="function-currentcoordinateindex-22">function currentCoordinateIndex [2/2]</h3>
+<p><em>Current vertex index.</em> </p>
+<pre><code class="language-C++">int RubberbandModel::currentCoordinateIndex () const
+</code></pre>
+<hr>
+
+<h3 id="function-currentpoint">function currentPoint</h3>
+<p><em>Returns the current vertex point transformed to the given</em> <em>crs</em> <em>.</em></p>
+<pre><code class="language-C++">QgsPoint RubberbandModel::currentPoint (
+    const QgsCoordinateReferenceSystem &amp; crs=QgsCoordinateReferenceSystem(),
+    Qgis::WkbType wkbType=Qgis::WkbType::PointZ
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-currentpositiontimestamp-22">function currentPositionTimestamp [2/2]</h3>
+<p><em>currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself</em> </p>
+<pre><code class="language-C++">QDateTime RubberbandModel::currentPositionTimestamp () const
+</code></pre>
+<hr>
+
+<h3 id="function-firstcoordinate-22">function firstCoordinate [2/2]</h3>
+<p><em>First vertex point.</em> </p>
+<pre><code class="language-C++">QgsPoint RubberbandModel::firstCoordinate () const
+</code></pre>
+<hr>
+
+<h3 id="function-flatpointsequence">function flatPointSequence</h3>
+<p><em>Returns all vertices points keeping only X and Y coordinates and transformed to the given</em> <em>crs</em> <em>.</em></p>
+<pre><code class="language-C++">QVector&lt; QgsPointXY &gt; RubberbandModel::flatPointSequence (
+    const QgsCoordinateReferenceSystem &amp; crs=QgsCoordinateReferenceSystem()
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-frozen-22">function frozen [2/2]</h3>
+<p><em>Freeze the rubberband so it doesn't get modified while panning map.</em> </p>
+<pre><code class="language-C++">bool RubberbandModel::frozen () const
+</code></pre>
+<hr>
+
+<h3 id="function-geometrytype-22">function geometryType [2/2]</h3>
+<p><a href="../classGeometry/"><em><strong>Geometry</strong></em></a> <em>type of the model.</em></p>
+<pre><code class="language-C++">Qgis::GeometryType RubberbandModel::geometryType () const
+</code></pre>
+<hr>
+
+<h3 id="function-insertvertices">function insertVertices</h3>
+<p><em>Inserts vertices.</em> </p>
+<pre><code class="language-C++">void RubberbandModel::insertVertices (
+    int index,
+    int count
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-isempty">function isEmpty</h3>
+<p><em>Returns whether there is at least one vertex in the model.</em> </p>
+<pre><code class="language-C++">bool RubberbandModel::isEmpty () const
+</code></pre>
+<hr>
+
+<h3 id="function-lastcoordinate-22">function lastCoordinate [2/2]</h3>
+<p><em>Last vertex point.</em> </p>
+<pre><code class="language-C++">QgsPoint RubberbandModel::lastCoordinate () const
+</code></pre>
+<hr>
+
+<h3 id="function-measurevalue-22">function measureValue [2/2]</h3>
+<p><em>measureValue defines the M value of the coordinates</em> </p>
+<pre><code class="language-C++">double RubberbandModel::measureValue () const
+</code></pre>
+<hr>
+
+<h3 id="function-penultimatecoordinate-22">function penultimateCoordinate [2/2]</h3>
+<p><em>Penultimate (last but one) vertex point.</em> </p>
+<pre><code class="language-C++">QgsPoint RubberbandModel::penultimateCoordinate () const
+</code></pre>
+<hr>
+
+<h3 id="function-pointsequence">function pointSequence</h3>
+<pre><code class="language-C++">Q_INVOKABLE QgsPointSequence RubberbandModel::pointSequence (
+    const QgsCoordinateReferenceSystem &amp; crs=QgsCoordinateReferenceSystem(),
+    Qgis::WkbType wkbType=Qgis::WkbType::Point,
+    bool closeLine=false
+) const
+</code></pre>
+<p>The target CRS into which points should be reprojected. To retrieve unprojected points pass an invalid QgsCoordinateReferenceSystem object.</p>
+<p>By default coordinates will be returned unprojected. </p>
+<hr>
+
+<h3 id="function-removevertex">function removeVertex</h3>
+<p><em>Remove the vertex at the current index.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void RubberbandModel::removeVertex () 
+</code></pre>
+<hr>
+
+<h3 id="function-removevertices">function removeVertices</h3>
+<p><em>Remove</em> <em>count</em> <em>vertices starting at__index</em> <em>.</em></p>
+<pre><code class="language-C++">void RubberbandModel::removeVertices (
+    int index,
+    int count,
+    bool keepLast=true
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-reset">function reset</h3>
+<p><em>Reset the model, remove all vertices and restart the vertex index.</em> </p>
+<pre><code class="language-C++">Q_INVOKABLE void RubberbandModel::reset (
+    bool keepLast=true
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setcrs">function setCrs</h3>
+<p><em>Coordinate reference system.</em> </p>
+<pre><code class="language-C++">void RubberbandModel::setCrs (
+    const QgsCoordinateReferenceSystem &amp; crs
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setcurrentcoordinate">function setCurrentCoordinate</h3>
+<p><em>Current vertex point.</em> </p>
+<pre><code class="language-C++">void RubberbandModel::setCurrentCoordinate (
+    const QgsPoint &amp; currentCoordinate
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setcurrentcoordinateindex">function setCurrentCoordinateIndex</h3>
+<p><em>Current vertex index.</em> </p>
+<pre><code class="language-C++">void RubberbandModel::setCurrentCoordinateIndex (
+    int currentCoordinateIndex
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setcurrentpositiontimestamp">function setCurrentPositionTimestamp</h3>
+<p><em>currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself</em> </p>
+<pre><code class="language-C++">void RubberbandModel::setCurrentPositionTimestamp (
+    const QDateTime &amp; currentPositionTimestamp
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setdatafromgeometry">function setDataFromGeometry</h3>
+<pre><code class="language-C++">void RubberbandModel::setDataFromGeometry (
+    QgsGeometry geometry,
+    const QgsCoordinateReferenceSystem &amp; crs=QgsCoordinateReferenceSystem()
+) 
+</code></pre>
+<p>Sets the model data to match a given <em>geometry</em> </p>
+<p><strong>Note:</strong></p>
+<p>rings and multiparts are discarded </p>
+<hr>
+
+<h3 id="function-setfrozen">function setFrozen</h3>
+<p><em>Freeze the rubberband so it doesn't get modified while panning map.</em> </p>
+<pre><code class="language-C++">void RubberbandModel::setFrozen (
+    const bool &amp; frozen
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setgeometrytype">function setGeometryType</h3>
+<p><a href="../classGeometry/"><em><strong>Geometry</strong></em></a> <em>type of the model.</em></p>
+<pre><code class="language-C++">void RubberbandModel::setGeometryType (
+    const Qgis::GeometryType &amp; geometryType
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setmeasurevalue">function setMeasureValue</h3>
+<p><em>measureValue defines the M value of the coordinates</em> </p>
+<pre><code class="language-C++">void RubberbandModel::setMeasureValue (
+    const double measureValue
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setvectorlayer">function setVectorLayer</h3>
+<p><em>The vector layer the model is for.</em> </p>
+<pre><code class="language-C++">void RubberbandModel::setVectorLayer (
+    QgsVectorLayer * vectorLayer
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-setvertex">function setVertex</h3>
+<p><em>Sets a vertex point at given index.</em> </p>
+<pre><code class="language-C++">void RubberbandModel::setVertex (
+    int index,
+    QgsPoint coordinate
+) 
+</code></pre>
+<hr>
+
+<h3 id="function-vectorlayer-22">function vectorLayer [2/2]</h3>
+<p><em>The vector layer the model is for.</em> </p>
+<pre><code class="language-C++">QgsVectorLayer * RubberbandModel::vectorLayer () const
+</code></pre>
+<hr>
+
+<h3 id="function-vertexat">function vertexAt</h3>
+<p><em>Returns the vertex point at a given</em> <em>index</em> <em>transformed to the given__crs</em> <em>.</em></p>
+<pre><code class="language-C++">QgsPoint RubberbandModel::vertexAt (
+    int index,
+    const QgsCoordinateReferenceSystem &amp; crs=QgsCoordinateReferenceSystem()
+) const
+</code></pre>
+<hr>
+
+<h3 id="function-vertexcount-22">function vertexCount [2/2]</h3>
+<p><em>Total count of vertices.</em> </p>
+<pre><code class="language-C++">int RubberbandModel::vertexCount () const
+</code></pre>
+<hr>
+
+<h3 id="function-vertices-22">function vertices [2/2]</h3>
+<p><em>All vertex points.</em> </p>
+<pre><code class="language-C++">QVector&lt; QgsPoint &gt; RubberbandModel::vertices () const
+</code></pre>
+<hr>
+
+<h3 id="function-verticescopy">function verticesCopy</h3>
+<p><em>Returns a copy of all vertice points in the model, with the option to skip the current vertex.</em> </p>
+<pre><code class="language-C++">QVector&lt; QgsPoint &gt; RubberbandModel::verticesCopy (
+    bool skipCurrentPoint=false
+) const
+</code></pre>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/core/rubberbandmodel.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,895 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMultiFeatureListModelBase" kind="class" language="C++" prot="public">
+    <compoundname>MultiFeatureListModelBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractItemModel</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMultiFeatureListModelBase_1a2473d1123bf172ab10b0b52bdeaf0ddd" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPair&lt; QgsMapLayer *, QgsFeature &gt; &gt;</type>
+        <definition>QList&lt;QPair&lt;QgsMapLayer *, QgsFeature&gt; &gt; MultiFeatureListModelBase::mFeatures</definition>
+        <argsstring></argsstring>
+        <name>mFeatures</name>
+        <qualifiedname>MultiFeatureListModelBase::mFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="151" column="11" bodyfile="src/core/multifeaturelistmodelbase.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMultiFeatureListModelBase_1a90dd49da9fe804efd57871d25f252516" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPair&lt; QgsMapLayer *, QgsFeature &gt; &gt;</type>
+        <definition>QList&lt;QPair&lt;QgsMapLayer *, QgsFeature&gt; &gt; MultiFeatureListModelBase::mSelectedFeatures</definition>
+        <argsstring></argsstring>
+        <name>mSelectedFeatures</name>
+        <qualifiedname>MultiFeatureListModelBase::mSelectedFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="152" column="11" bodyfile="src/core/multifeaturelistmodelbase.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMultiFeatureListModelBase_1a2f183183657f41e8e8f8ac76515e4377" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QgsVectorLayer * &gt;</type>
+        <definition>QMap&lt;QString, QgsVectorLayer *&gt; MultiFeatureListModelBase::mRepresentationalLayers</definition>
+        <argsstring></argsstring>
+        <name>mRepresentationalLayers</name>
+        <qualifiedname>MultiFeatureListModelBase::mRepresentationalLayers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="154" column="10" bodyfile="src/core/multifeaturelistmodelbase.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a66ab0e29579f25ec756d54a7639bce7d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MultiFeatureListModelBase::MultiFeatureListModelBase</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>MultiFeatureListModelBase</name>
+        <qualifiedname>MultiFeatureListModelBase::MultiFeatureListModelBase</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="35" column="14" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="35" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a20c6636ed8fcb3d0e0ea2299a71b7d2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MultiFeatureListModelBase::setFeatures</definition>
+        <argsstring>(const QMap&lt; QgsVectorLayer *, QgsFeatureRequest &gt; &amp;requests)</argsstring>
+        <name>setFeatures</name>
+        <qualifiedname>MultiFeatureListModelBase::setFeatures</qualifiedname>
+        <param>
+          <type>const QMap&lt; QgsVectorLayer *, QgsFeatureRequest &gt; &amp;</type>
+          <declname>requests</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the model to contain features found from a list of <emphasis>requests</emphasis>.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="38" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="41" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a3e3781f59ac508a6d12f4c8167a1424c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MultiFeatureListModelBase::appendFeatures</definition>
+        <argsstring>(const QList&lt; IdentifyTool::IdentifyResult &gt; &amp;results)</argsstring>
+        <name>appendFeatures</name>
+        <qualifiedname>MultiFeatureListModelBase::appendFeatures</qualifiedname>
+        <param>
+          <type>const QList&lt; <ref refid="structIdentifyTool_1_1IdentifyResult" kindref="compound">IdentifyTool::IdentifyResult</ref> &gt; &amp;</type>
+          <declname>results</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Appends features from a list of <emphasis>results</emphasis>.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="41" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="81" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1adf7f5ffed4829a1b8c1edcf61ff81848" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MultiFeatureListModelBase::clear</definition>
+        <argsstring>(const bool keepSelected=false)</argsstring>
+        <name>clear</name>
+        <qualifiedname>MultiFeatureListModelBase::clear</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>keepSelected</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the model to either an empty feature list or one that contains only the selected features. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keepSelected</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if set to TRUE, selected features will be kept when resetting the model.   </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="44" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="170" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a1462ac1ab4bbe2b9c52a2430380e30d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MultiFeatureListModelBase::clearSelection</definition>
+        <argsstring>()</argsstring>
+        <name>clearSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::clearSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Empties the list of selected features.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="47" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="206" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a3b5b1a763eccfd776a5f708e7f0fd2e2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; MultiFeatureListModelBase::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>MultiFeatureListModelBase::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="49" column="11" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="249" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a572a49c2972b6c20881ba47ff957b0c6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex MultiFeatureListModelBase::index</definition>
+        <argsstring>(int row, int column, const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>index</name>
+        <qualifiedname>MultiFeatureListModelBase::index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="50" column="17" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="268" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1abc2690c8c497ccff7c51da4879062bee" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex MultiFeatureListModelBase::parent</definition>
+        <argsstring>(const QModelIndex &amp;child) const override</argsstring>
+        <name>parent</name>
+        <qualifiedname>MultiFeatureListModelBase::parent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="51" column="17" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="278" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a273c7c30c85b98baf478b724ceeab75d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int MultiFeatureListModelBase::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>MultiFeatureListModelBase::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="52" column="9" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="284" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1af7c1275a0123a96d0f556ef60a0b0637" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int MultiFeatureListModelBase::columnCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>columnCount</name>
+        <qualifiedname>MultiFeatureListModelBase::columnCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="53" column="9" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="292" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a10484f9376539e940b7d1848221f5a20" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant MultiFeatureListModelBase::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>MultiFeatureListModelBase::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="54" column="14" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="298" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a5b66438d85e9d448e32653f9c5a49047" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::removeRows</definition>
+        <argsstring>(int row, int count, const QModelIndex &amp;parent) override</argsstring>
+        <name>removeRows</name>
+        <qualifiedname>MultiFeatureListModelBase::removeRows</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes a defined number of rows starting from a given position. The parent index is not used as we have a list only.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first row to remove </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The numbe rof rows to remove </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Can savely be omitted as it is unused and defaults to an invalid index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="64" column="18" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="369" bodyend="395"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1ac4c7a5cf7f6e0ac9f6eefb8737959566" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int MultiFeatureListModelBase::count</definition>
+        <argsstring>() const</argsstring>
+        <name>count</name>
+        <qualifiedname>MultiFeatureListModelBase::count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="67" column="9" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="397" bodyend="400"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a06eb9f3b3bf7351f04e8838ae402d77e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int MultiFeatureListModelBase::selectedCount</definition>
+        <argsstring>() const</argsstring>
+        <name>selectedCount</name>
+        <qualifiedname>MultiFeatureListModelBase::selectedCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="70" column="9" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="402" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1af60e5fcb852d382374e25bd935ddcf08" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::canEditAttributesSelection</definition>
+        <argsstring>() const</argsstring>
+        <name>canEditAttributesSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::canEditAttributesSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="73" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="407" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a4682840bd71d60597a79eafcfc102767" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::canMergeSelection</definition>
+        <argsstring>() const</argsstring>
+        <name>canMergeSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::canMergeSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="76" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="421" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1af438071d35d3fcdd629db69c8318f5e3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::canDeleteSelection</definition>
+        <argsstring>() const</argsstring>
+        <name>canDeleteSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::canDeleteSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="79" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="435" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a89ea371354069b11057b8142505a8c67" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::canDuplicateSelection</definition>
+        <argsstring>() const</argsstring>
+        <name>canDuplicateSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::canDuplicateSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="82" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="449" bodyend="461"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1aaed1d81607eb59aa1564e792dad17569" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::canMoveSelection</definition>
+        <argsstring>() const</argsstring>
+        <name>canMoveSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::canMoveSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="85" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="463" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1af4fecee167bad1c7fb80f10c0580046a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::canRotateSelection</definition>
+        <argsstring>() const</argsstring>
+        <name>canRotateSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::canRotateSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="88" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="504" bodyend="543"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1aa26698e7169180f5e1dd2d0f1e192ddb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::canProcessSelection</definition>
+        <argsstring>() const</argsstring>
+        <name>canProcessSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::canProcessSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="91" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="545" bodyend="584"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1ada5873606f05e86bfd01f9882471b94f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::mergeSelection</definition>
+        <argsstring>()</argsstring>
+        <name>mergeSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::mergeSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Merges selected features by updating the first seleted feature&apos;s geometry to a combination (i.e. union) of geometries of all selected features.</para>
+<para>All but the first feature will then be removed from the vector layer containing the selected features.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="94" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="586" bodyend="668"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1aef8e049006ee10a5612e79de2dcec346" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::deleteFeature</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsFeatureId fid, bool selectionAction=false)</argsstring>
+        <name>deleteFeature</name>
+        <qualifiedname>MultiFeatureListModelBase::deleteFeature</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>selectionAction</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes a feature from a vector layer</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The layer from which a feature will be removed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The id of the feature to remove </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>selectionAction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="103" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="670" bodyend="673"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a92f787e5b483f6457407bf3bb18a799d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::deleteSelection</definition>
+        <argsstring>()</argsstring>
+        <name>deleteSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::deleteSelection</qualifiedname>
+        <briefdescription>
+<para>Deletes selected features.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="106" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="675" bodyend="712"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a7470029442d55e8868426608b6fe9bfa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::duplicateFeature</definition>
+        <argsstring>(QgsVectorLayer *layer, const QgsFeature &amp;feature)</argsstring>
+        <name>duplicateFeature</name>
+        <qualifiedname>MultiFeatureListModelBase::duplicateFeature</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Duplicates a feature on a given layer</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The layer within which the feature will be duplicated </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The feature to be duplicated   </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="109" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="714" bodyend="731"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1aad7c07183cd4f12997eaaed6b6dc93ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::duplicateSelection</definition>
+        <argsstring>()</argsstring>
+        <name>duplicateSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::duplicateSelection</qualifiedname>
+        <briefdescription>
+<para>Duplicates selected features onto their associated layer.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="112" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="733" bodyend="762"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a9dcdb1e7f2895805e56b1c46b3d8baec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::moveSelection</definition>
+        <argsstring>(const double x, const double y)</argsstring>
+        <name>moveSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::moveSelection</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Moves selected features along a given <emphasis>vector</emphasis>.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="115" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="764" bodyend="806"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a183251b6e44529da5714ef0018af19bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MultiFeatureListModelBase::rotateSelection</definition>
+        <argsstring>(const double angle)</argsstring>
+        <name>rotateSelection</name>
+        <qualifiedname>MultiFeatureListModelBase::rotateSelection</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Rotate selected features along a given <emphasis>vector</emphasis>.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="118" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="808" bodyend="849"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a4ea22175c44c19f33746bb7562bf44d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MultiFeatureListModelBase::toggleSelectedItem</definition>
+        <argsstring>(int item)</argsstring>
+        <name>toggleSelectedItem</name>
+        <qualifiedname>MultiFeatureListModelBase::toggleSelectedItem</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Toggles the selection state of a given item. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the item&apos;s row number   </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="121" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="218" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a40654b8f44fadadb919a7e9dc50c9ecf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; QgsFeature &gt;</type>
+        <definition>QList&lt; QgsFeature &gt; MultiFeatureListModelBase::selectedFeatures</definition>
+        <argsstring>() const</argsstring>
+        <name>selectedFeatures</name>
+        <qualifiedname>MultiFeatureListModelBase::selectedFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="124" column="11" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="234" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a25afa34ee426ee327e66fbd07a6c900d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * MultiFeatureListModelBase::selectedLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>selectedLayer</name>
+        <qualifiedname>MultiFeatureListModelBase::selectedLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="127" column="20" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="244" bodyend="247"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classMultiFeatureListModelBase_1a59378acedb260b623bcc74dca5236ef5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MultiFeatureListModelBase::countChanged</definition>
+        <argsstring>()</argsstring>
+        <name>countChanged</name>
+        <qualifiedname>MultiFeatureListModelBase::countChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="131" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMultiFeatureListModelBase_1a0c1e10b5cff75a442bad09eb4bcaa970" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MultiFeatureListModelBase::selectedCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>selectedCountChanged</name>
+        <qualifiedname>MultiFeatureListModelBase::selectedCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="133" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classMultiFeatureListModelBase_1ae6f0945adb088694c0cb2d7fbe5cfbee" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MultiFeatureListModelBase::layerDeleted</definition>
+        <argsstring>(QObject *object)</argsstring>
+        <name>layerDeleted</name>
+        <qualifiedname>MultiFeatureListModelBase::layerDeleted</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="137" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="851" bodyend="884"/>
+      </memberdef>
+      <memberdef kind="slot" id="classMultiFeatureListModelBase_1af5ebb846c6faae5205f2efdb93f456b3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MultiFeatureListModelBase::featureDeleted</definition>
+        <argsstring>(QgsFeatureId fid)</argsstring>
+        <name>featureDeleted</name>
+        <qualifiedname>MultiFeatureListModelBase::featureDeleted</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="139" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="886" bodyend="904"/>
+      </memberdef>
+      <memberdef kind="slot" id="classMultiFeatureListModelBase_1ade44a5a30849e16f14ec83476a7078a9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MultiFeatureListModelBase::attributeValueChanged</definition>
+        <argsstring>(QgsFeatureId fid, int idx, const QVariant &amp;value)</argsstring>
+        <name>attributeValueChanged</name>
+        <qualifiedname>MultiFeatureListModelBase::attributeValueChanged</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="141" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="906" bodyend="935"/>
+      </memberdef>
+      <memberdef kind="slot" id="classMultiFeatureListModelBase_1a997507d661d0c2f1387faec43ea991f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MultiFeatureListModelBase::geometryChanged</definition>
+        <argsstring>(QgsFeatureId fid, const QgsGeometry &amp;geometry)</argsstring>
+        <name>geometryChanged</name>
+        <qualifiedname>MultiFeatureListModelBase::geometryChanged</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="143" column="10" bodyfile="src/core/multifeaturelistmodelbase.cpp" bodystart="937" bodyend="966"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classMultiFeatureListModelBase_1a92d5aed8fff36c87f745c16f61604191" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QPair&lt; QgsMapLayer *, QgsFeature &gt; *</type>
+        <definition>QPair&lt; QgsMapLayer *, QgsFeature &gt; * MultiFeatureListModelBase::toFeature</definition>
+        <argsstring>(const QModelIndex &amp;index) const</argsstring>
+        <name>toFeature</name>
+        <qualifiedname>MultiFeatureListModelBase::toFeature</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/multifeaturelistmodelbase.h" line="146" column="18" bodyfile="src/core/multifeaturelistmodelbase.h" bodystart="146" bodyend="149"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MultiFeatureListModelBase</label>
+        <link refid="classMultiFeatureListModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MultiFeatureListModelBase</label>
+        <link refid="classMultiFeatureListModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/multifeaturelistmodelbase.h" line="30" column="1" bodyfile="src/core/multifeaturelistmodelbase.h" bodystart="31" bodyend="155"/>
+    <listofallmembers>
+      <member refid="classMultiFeatureListModelBase_1a3e3781f59ac508a6d12f4c8167a1424c" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>appendFeatures</name></member>
+      <member refid="classMultiFeatureListModelBase_1ade44a5a30849e16f14ec83476a7078a9" prot="private" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>attributeValueChanged</name></member>
+      <member refid="classMultiFeatureListModelBase_1af438071d35d3fcdd629db69c8318f5e3" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>canDeleteSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1a89ea371354069b11057b8142505a8c67" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>canDuplicateSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1af60e5fcb852d382374e25bd935ddcf08" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>canEditAttributesSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1a4682840bd71d60597a79eafcfc102767" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>canMergeSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1aaed1d81607eb59aa1564e792dad17569" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>canMoveSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1aa26698e7169180f5e1dd2d0f1e192ddb" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>canProcessSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1af4fecee167bad1c7fb80f10c0580046a" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>canRotateSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1adf7f5ffed4829a1b8c1edcf61ff81848" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>clear</name></member>
+      <member refid="classMultiFeatureListModelBase_1a1462ac1ab4bbe2b9c52a2430380e30d0" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>clearSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1af7c1275a0123a96d0f556ef60a0b0637" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>columnCount</name></member>
+      <member refid="classMultiFeatureListModelBase_1ac4c7a5cf7f6e0ac9f6eefb8737959566" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>count</name></member>
+      <member refid="classMultiFeatureListModelBase_1a59378acedb260b623bcc74dca5236ef5" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>countChanged</name></member>
+      <member refid="classMultiFeatureListModelBase_1a10484f9376539e940b7d1848221f5a20" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>data</name></member>
+      <member refid="classMultiFeatureListModelBase_1aef8e049006ee10a5612e79de2dcec346" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>deleteFeature</name></member>
+      <member refid="classMultiFeatureListModelBase_1a92f787e5b483f6457407bf3bb18a799d" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>deleteSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1a7470029442d55e8868426608b6fe9bfa" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>duplicateFeature</name></member>
+      <member refid="classMultiFeatureListModelBase_1aad7c07183cd4f12997eaaed6b6dc93ea" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>duplicateSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1af5ebb846c6faae5205f2efdb93f456b3" prot="private" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>featureDeleted</name></member>
+      <member refid="classMultiFeatureListModelBase_1a997507d661d0c2f1387faec43ea991f2" prot="private" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>geometryChanged</name></member>
+      <member refid="classMultiFeatureListModelBase_1a572a49c2972b6c20881ba47ff957b0c6" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>index</name></member>
+      <member refid="classMultiFeatureListModelBase_1ae6f0945adb088694c0cb2d7fbe5cfbee" prot="private" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>layerDeleted</name></member>
+      <member refid="classMultiFeatureListModelBase_1ada5873606f05e86bfd01f9882471b94f" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>mergeSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1a2473d1123bf172ab10b0b52bdeaf0ddd" prot="private" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>mFeatures</name></member>
+      <member refid="classMultiFeatureListModelBase_1a9dcdb1e7f2895805e56b1c46b3d8baec" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>moveSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1a2f183183657f41e8e8f8ac76515e4377" prot="private" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>mRepresentationalLayers</name></member>
+      <member refid="classMultiFeatureListModelBase_1a90dd49da9fe804efd57871d25f252516" prot="private" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>mSelectedFeatures</name></member>
+      <member refid="classMultiFeatureListModelBase_1a66ab0e29579f25ec756d54a7639bce7d" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>MultiFeatureListModelBase</name></member>
+      <member refid="classMultiFeatureListModelBase_1abc2690c8c497ccff7c51da4879062bee" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>parent</name></member>
+      <member refid="classMultiFeatureListModelBase_1a5b66438d85e9d448e32653f9c5a49047" prot="public" virt="virtual"><scope>MultiFeatureListModelBase</scope><name>removeRows</name></member>
+      <member refid="classMultiFeatureListModelBase_1a3b5b1a763eccfd776a5f708e7f0fd2e2" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>roleNames</name></member>
+      <member refid="classMultiFeatureListModelBase_1a183251b6e44529da5714ef0018af19bc" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>rotateSelection</name></member>
+      <member refid="classMultiFeatureListModelBase_1a273c7c30c85b98baf478b724ceeab75d" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>rowCount</name></member>
+      <member refid="classMultiFeatureListModelBase_1a06eb9f3b3bf7351f04e8838ae402d77e" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>selectedCount</name></member>
+      <member refid="classMultiFeatureListModelBase_1a0c1e10b5cff75a442bad09eb4bcaa970" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>selectedCountChanged</name></member>
+      <member refid="classMultiFeatureListModelBase_1a40654b8f44fadadb919a7e9dc50c9ecf" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>selectedFeatures</name></member>
+      <member refid="classMultiFeatureListModelBase_1a25afa34ee426ee327e66fbd07a6c900d" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>selectedLayer</name></member>
+      <member refid="classMultiFeatureListModelBase_1a20c6636ed8fcb3d0e0ea2299a71b7d2e" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>setFeatures</name></member>
+      <member refid="classMultiFeatureListModelBase_1a92d5aed8fff36c87f745c16f61604191" prot="private" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>toFeature</name></member>
+      <member refid="classMultiFeatureListModelBase_1a4ea22175c44c19f33746bb7562bf44d0" prot="public" virt="non-virtual"><scope>MultiFeatureListModelBase</scope><name>toggleSelectedItem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

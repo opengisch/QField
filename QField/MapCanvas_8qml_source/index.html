@@ -1,0 +1,1015 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File MapCanvas.qml - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-mapcanvasqml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File MapCanvas.qml
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-mapcanvasqml">File MapCanvas.qml</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_1d81f7f4362e4398c0a695c4e466fcb0/"><strong>qml</strong></a> <strong>&gt;</strong> <a href="../MapCanvas_8qml/"><strong>MapCanvas.qml</strong></a></p>
+<p><a href="../MapCanvas_8qml/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+                            MapCanvas.qml
+                              -------------------
+              begin                : 10.12.2014
+              copyright            : (C) 2014 by Matthias Kuhn
+              email                : matthias (at) opengis.ch
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+import QtQuick
+import QtQuick.Controls
+import QtQml
+import org.qgis
+
+Item {
+  id: mapArea
+
+  property alias mapCanvasWrapper: mapCanvasWrapper
+  property alias mapSettings: mapCanvasWrapper.mapSettings
+  property alias bottomMargin: mapCanvasWrapper.bottomMargin
+  property alias rightMargin: mapCanvasWrapper.rightMargin
+  property alias isRendering: mapCanvasWrapper.isRendering
+  property alias incrementalRendering: mapCanvasWrapper.incrementalRendering
+  property alias quality: mapCanvasWrapper.quality
+  property alias smooth: mapCanvasWrapper.smooth
+  property alias previewJobsEnabled: mapCanvasWrapper.previewJobsEnabled
+  property alias previewJobsQuadrants: mapCanvasWrapper.previewJobsQuadrants
+  property alias forceDeferredLayersRepaint: mapCanvasWrapper.forceDeferredLayersRepaint
+
+  property bool interactive: true
+  property bool hovered: false
+  property bool freehandDigitizing: false
+  property bool isMapRotationEnabled: false
+
+  readonly property bool pinched: pinchHandler.active
+  readonly property bool jumping: jumpDetails.enabled
+
+  // for signals, type can be &quot;stylus&quot; for any device click or &quot;touch&quot;
+
+  signal clicked(var point, var type)
+
+  signal rightClicked(var point, var type)
+
+  signal confirmedClicked(var point)
+
+  signal longPressed(var point, var type)
+
+  signal longPressReleased(var type)
+
+  signal aboutToWheelZoom
+
+  signal doubleClicked(var point, var type)
+
+  function freeze(id) {
+    mapCanvasWrapper.__freezecount[id] = true;
+    mapCanvasWrapper.freeze = true;
+    if (id !== 'follow') {
+      mapCanvasWrapper.stopRendering();
+    }
+  }
+
+  function unfreeze(id) {
+    delete mapCanvasWrapper.__freezecount[id];
+    mapCanvasWrapper.freeze = Object.keys(mapCanvasWrapper.__freezecount).length !== 0;
+  }
+
+  function zoomIn(point) {
+    mapCanvasWrapper.zoomByFactor(point, 0.67);
+  }
+
+  function zoomOut(point) {
+    mapCanvasWrapper.zoomByFactor(point, 1.5);
+  }
+
+  function refresh(ignoreFreeze) {
+    mapCanvasWrapper.refresh(ignoreFreeze === undefined ? false : ignoreFreeze);
+  }
+
+  function stopRendering() {
+    mapCanvasWrapper.stopRendering();
+  }
+
+  function _setupJump(scale, rotation, handleMargins, callback) {
+    const currentCenter = mapCanvasWrapper.mapSettings.getCenter(true);
+    const currentRotation = mapCanvasWrapper.mapSettings.rotation;
+    jumpDetails.fromScale = mapCanvasWrapper.mapSettings.scale;
+    jumpDetails.fromRotation = currentRotation;
+    jumpDetails.fromX = currentCenter.x;
+    jumpDetails.fromY = currentCenter.y;
+    jumpDetails.toScale = !isNaN(scale) ? scale : -1;
+    jumpDetails.completedCallback = callback;
+    jumpDetails.toRotation = !isNaN(rotation) ? rotation : -1;
+    jumpDetails.position = 0.0;
+    jumpDetails.handleMargins = handleMargins;
+    freeze('jumping');
+    jumpDetails.enabled = true;
+    jumpDetails.position = 1.0;
+  }
+
+  function jumpTo(point, scale = -1, rotation = -1, handleMargins = false, callback = null) {
+    jumpDetails.positionSource = null;
+    jumpDetails.toX = &quot;x&quot; in point ? point.x : 0;
+    jumpDetails.toY = &quot;y&quot; in point ? point.y : 0;
+    _setupJump(scale, rotation, handleMargins, callback);
+  }
+
+  function jumpToPosition(positionSource, scale = -1, rotation = -1, handleMargins = false, callback = null) {
+    jumpDetails.positionSource = positionSource;
+    _setupJump(scale, rotation, handleMargins, callback);
+  }
+
+  Item {
+    id: jumpDetails
+
+    property bool enabled: false
+    property double fromRotation: 0
+    property double fromScale: 0
+    property double fromX: 0
+    property double fromY: 0
+    property double toRotation: -1
+    property double toScale: -1
+    property double toX: 0
+    property double toY: 0
+    property var positionSource: null
+    property double position: 0
+    property bool handleMargins: false
+    property var completedCallback: null
+
+    onPositionChanged: {
+      if (!enabled) {
+        return;
+      }
+      const targetX = positionSource ? positionSource.projectedPosition.x : toX;
+      const targetY = positionSource ? positionSource.projectedPosition.y : toY;
+      const dx = targetX - fromX;
+      const dy = targetY - fromY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance === 0 &amp;&amp; toRotation === -1 &amp;&amp; toScale === -1) {
+        enabled = false;
+        positionSource = null;
+        mapArea.unfreeze('jumping');
+        return;
+      }
+      if (toRotation !== -1) {
+        const progressRotation = fromRotation + (toRotation - fromRotation) * position;
+        mapCanvasWrapper.mapSettings.rotation = progressRotation;
+      }
+      const progressX = fromX + dx * position;
+      const progressY = fromY + dy * position;
+      if (toScale !== -1) {
+        const progressScale = fromScale + (toScale - fromScale) * position;
+        mapCanvasWrapper.zoomScale(Qt.point(progressX, progressY), progressScale, jumpDetails.handleMargins);
+      } else {
+        mapCanvasWrapper.mapSettings.setCenter(Qt.point(progressX, progressY), jumpDetails.handleMargins);
+      }
+      if (position &gt;= 1.0) {
+        enabled = false;
+        positionSource = null;
+        mapArea.unfreeze('jumping');
+        if (completedCallback &amp;&amp; typeof completedCallback === 'function') {
+          completedCallback();
+          completedCallback = null;
+        }
+      }
+    }
+
+    Behavior on position {
+      enabled: jumpDetails.enabled
+      NumberAnimation {
+        easing.type: Easing.InOutQuart
+        duration: 500
+      }
+    }
+  }
+
+  MapCanvasMap {
+    id: mapCanvasWrapper
+
+    width: mapArea.width
+    height: mapArea.height
+
+    property var __freezecount: ({})
+    property int animationDuration: 50
+
+    freeze: false
+
+    Behavior on x {
+      NumberAnimation {
+        duration: mapCanvasWrapper.animationDuration
+      }
+    }
+    Behavior on y {
+      NumberAnimation {
+        duration: mapCanvasWrapper.animationDuration
+      }
+    }
+    Behavior on scale {
+      NumberAnimation {
+        duration: mapCanvasWrapper.animationDuration
+      }
+    }
+    Behavior on rotation {
+      NumberAnimation {
+        duration: mapCanvasWrapper.animationDuration
+      }
+    }
+  }
+
+  TapHandler {
+    id: stylusTapHandler
+    enabled: interactive
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything | PointerHandler.ApprovesCancellation
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse | PointerDevice.TouchPad : PointerDevice.Stylus
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+    property bool longPressActive: false
+
+    onSingleTapped: (eventPoint, button) =&gt; {
+      if (button === undefined) {
+        button = eventPoint.event.button;
+      }
+      if (button === Qt.RightButton) {
+        mapArea.rightClicked(point.position, &quot;stylus&quot;);
+      } else {
+        mapArea.clicked(point.position, &quot;stylus&quot;);
+      }
+    }
+
+    onLongPressed: {
+      mapArea.longPressed(point.position, &quot;stylus&quot;);
+      longPressActive = true;
+    }
+
+    onPressedChanged: {
+      if (longPressActive)
+        mapArea.longPressReleased(&quot;stylus&quot;);
+      longPressActive = false;
+    }
+  }
+
+  DragHandler {
+    id: stylusDragHandler
+    enabled: interactive &amp;&amp; !freehandDigitizing
+    target: null
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse | PointerDevice.TouchPad : PointerDevice.Stylus | PointerDevice.TouchPad
+    acceptedButtons: Qt.NoButton | Qt.LeftButton
+    dragThreshold: 5
+
+    property var oldPos
+    property real oldTranslationY
+
+    property bool isZooming: false
+    property bool isPanning: false
+    property point zoomCenter
+
+    onActiveChanged: {
+      if (active) {
+        if (mainTapHandler.doublePressed) {
+          oldTranslationY = 0;
+          zoomCenter = centroid.position;
+          isZooming = true;
+          freeze('zoom');
+        } else {
+          oldPos = centroid.position;
+          isPanning = true;
+          freeze('pan');
+        }
+      } else {
+        if (isZooming || isPanning) {
+          unfreeze(isZooming ? 'zoom' : 'pan');
+        }
+        isZooming = false;
+        isPanning = false;
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        if (isZooming) {
+          mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
+          oldTranslationY = translation.y;
+        } else if (isPanning) {
+          mapCanvasWrapper.pan(centroid.position, oldPos);
+          oldPos = centroid.position;
+        }
+      }
+    }
+  }
+
+  Timer {
+    id: timer
+    interval: 350
+    repeat: false
+
+    property var tapPoint
+
+    onTriggered: {
+      mainTapHandler.doublePressed = false;
+      confirmedClicked(tapPoint);
+    }
+  }
+
+  TapHandler {
+    id: mainTapHandler
+    enabled: interactive &amp;&amp; !hovered
+    acceptedButtons: Qt.NoButton | Qt.LeftButton | Qt.RightButton
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.TouchPad
+
+    property bool longPressActive: false
+    property bool doublePressed: false
+
+    onLongPressed: {
+      mapArea.longPressed(Qt.point(point.position.x, point.position.y), &quot;touch&quot;);
+      longPressActive = true;
+    }
+
+    onPressedChanged: {
+      if (pressed) {
+        if (point.pressedButtons !== Qt.RightButton) {
+          if (timer.running) {
+            timer.stop();
+            doublePressed = true;
+          } else {
+            doublePressed = false;
+          }
+        }
+      }
+    }
+
+    onTapped: (eventPoint, button) =&gt; {
+      if (button === Qt.RightButton) {
+        mapArea.rightClicked(Qt.point(eventPoint.position.x, eventPoint.position.y), &quot;touch&quot;);
+      } else {
+        if (!doublePressed) {
+          timer.tapPoint = Qt.point(eventPoint.position.x, eventPoint.position.y);
+          timer.restart();
+        } else {
+          mapArea.doubleClicked(point.position, &quot;touch&quot;);
+          doublePressed = false;
+        }
+      }
+    }
+
+    onCanceled: {
+      timer.stop();
+    }
+  }
+
+  DragHandler {
+    id: mainDragHandler
+    enabled: interactive &amp;&amp; !hovered &amp;&amp; !freehandDigitizing
+    target: null
+    acceptedButtons: Qt.NoButton | Qt.LeftButton
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.TouchPad
+    dragThreshold: 5
+
+    property var oldPos
+    property real oldTranslationY
+
+    property bool isZooming: false
+    property bool isPanning: false
+    property point zoomCenter
+
+    onActiveChanged: {
+      if (active) {
+        if (mainTapHandler.doublePressed) {
+          oldTranslationY = 0;
+          zoomCenter = centroid.position;
+          isZooming = true;
+          freeze('zoom');
+        } else {
+          oldPos = centroid.position;
+          isPanning = true;
+          freeze('pan');
+        }
+      } else {
+        if (isZooming || isPanning) {
+          unfreeze(isZooming ? 'zoom' : 'pan');
+        }
+        isZooming = false;
+        isPanning = false;
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        if (isZooming) {
+          mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
+          oldTranslationY = translation.y;
+        } else if (isPanning) {
+          mapCanvasWrapper.pan(centroid.position, oldPos);
+          oldPos = centroid.position;
+        }
+      }
+    }
+  }
+
+  DragHandler {
+    id: secondaryDragHandler
+    target: null
+    enabled: interactive
+    grabPermissions: PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
+    acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+    acceptedButtons: Qt.RightButton
+    dragThreshold: 10
+
+    property real oldTranslationY
+    property point zoomCenter
+
+    onActiveChanged: {
+      if (active) {
+        oldTranslationY = 0;
+        zoomCenter = centroid.position;
+        freeze('zoom');
+      } else {
+        grabPermissions: PointerHandler.TakeOverForbidden;
+        unfreeze('zoom');
+      }
+    }
+
+    onTranslationChanged: {
+      if (active) {
+        mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (oldTranslationY - translation.y) / 60));
+      }
+      oldTranslationY = translation.y;
+    }
+  }
+
+  DragHandler {
+    target: null
+    enabled: interactive
+    acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+    acceptedModifiers: Qt.NoModifier
+    grabPermissions: PointerHandler.TakeOverForbidden
+    acceptedButtons: Qt.MiddleButton
+
+    property var oldPos
+
+    onActiveChanged: {
+      if (active) {
+        freeze('pan');
+        oldPos = centroid.position;
+      } else {
+        unfreeze('pan');
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        var oldPos1 = oldPos;
+        oldPos = centroid.position;
+        mapCanvasWrapper.pan(centroid.position, oldPos1);
+      }
+    }
+  }
+
+  DragHandler {
+    target: null
+    enabled: interactive &amp;&amp; isMapRotationEnabled
+    acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+    acceptedModifiers: Qt.ShiftModifier
+    grabPermissions: PointerHandler.TakeOverForbidden
+    acceptedButtons: Qt.MiddleButton
+
+    property real pressClickX: 0
+    property real pressClickY: 0
+    property real screenCenterX: 0
+    property real screenCenterY: 0
+    property real lastRotateAngle: 0
+
+    onActiveChanged: {
+      if (active) {
+        freeze('rotate');
+        pressClickX = centroid.position.x;
+        pressClickY = centroid.position.y;
+        screenCenterX = width / 2;
+        screenCenterY = height / 2;
+        lastRotateAngle = 0;
+      } else {
+        unfreeze('rotate');
+      }
+    }
+
+    onTranslationChanged: {
+      if (active) {
+        if (lastRotateAngle != 0) {
+          let newPositionX = pressClickX + translation.x;
+          let newPositionY = pressClickY + translation.y;
+          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
+          if (angle != 0) {
+            mapCanvasWrapper.rotate(angle * 180 / Math.PI - lastRotateAngle);
+          }
+          lastRotateAngle = angle * 180 / Math.PI;
+        } else {
+          let newPositionX = pressClickX + translation.x;
+          let newPositionY = pressClickY + translation.y;
+          let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
+          lastRotateAngle = angle * 180 / Math.PI;
+        }
+      }
+    }
+  }
+
+  PinchHandler {
+    id: pinchHandler
+    enabled: interactive
+    target: null
+    acceptedButtons: Qt.NoButton | Qt.LeftButton
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: PointerDevice.TouchScreen
+    dragThreshold: 5
+
+    property real rotationTreshold: 20.0
+
+    property var oldPos
+    property real oldScale: 1.0
+    property real oldRotation: 0.0
+
+    property bool rotationActive: false
+    property bool rotationTresholdReached: false
+
+    onActiveChanged: {
+      if (active) {
+        freeze('pinch');
+        oldScale = 1.0;
+        oldRotation = 0.0;
+        rotationTresholdReached = false;
+        oldPos = centroid.position;
+      } else {
+        unfreeze('pinch');
+      }
+    }
+
+    onCentroidChanged: {
+      var oldPos1 = oldPos;
+      oldPos = centroid.position;
+      if (active) {
+        mapCanvasWrapper.pan(centroid.position, oldPos1);
+      }
+    }
+
+    onRotationChanged: {
+      if (active &amp;&amp; isMapRotationEnabled) {
+        if (rotationTresholdReached) {
+          mapCanvasWrapper.rotate(rotation - oldRotation);
+          oldRotation = rotation;
+        } else if (Math.abs(rotation - oldRotation) &gt; pinchHandler.rotationTreshold) {
+          oldRotation = rotation;
+          rotationTresholdReached = true;
+        }
+      }
+    }
+
+    onActiveScaleChanged: {
+      mapCanvasWrapper.zoomByFactor(pinchHandler.centroid.position, oldScale / pinchHandler.activeScale);
+      mapCanvasWrapper.pan(pinchHandler.centroid.position, oldPos);
+      oldScale = pinchHandler.activeScale;
+    }
+  }
+
+  WheelHandler {
+    enabled: interactive
+    target: null
+    acceptedDevices: PointerDevice.AllDevices
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
+
+    onWheel: event =&gt; {
+      aboutToWheelZoom();
+      if (event.angleDelta.y &gt; 0) {
+        zoomIn(point.position);
+      } else {
+        zoomOut(point.position);
+      }
+    }
+  }
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

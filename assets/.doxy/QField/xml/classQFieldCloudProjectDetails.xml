@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldCloudProjectDetails" kind="class" language="C++" prot="public">
+    <compoundname>QFieldCloudProjectDetails</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ColumnLayout</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1aab506972e02086e97e9726871504e92f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudProjectDetails::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QFieldCloudProjectDetails::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="7" column="5" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1a2e73d79b51b353a8fc0254fee629e4e8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudProjectDetails::onCloudProjectChanged</definition>
+        <argsstring></argsstring>
+        <name>onCloudProjectChanged</name>
+        <qualifiedname>QFieldCloudProjectDetails::onCloudProjectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="16" column="5" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1a1d9668fccedda6c51b169678bc15aa6b" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QFieldCloudProjectDetails::projectDetailsLayout</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsLayout</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="17" column="14" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1a61addfca3da0db1f44741e78460e7da9" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudProjectDetails::projectDetailsName</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsName</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="18" column="6" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1abc6061ee8c10dea1eba9ae9409298903" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QFieldCloudProjectDetails::projectDetailsThumbnailRect</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsThumbnailRect</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsThumbnailRect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="19" column="11" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1a9e3c2d797371ece371b6bfb5136e317a" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QFieldCloudProjectDetails::projectDetailsThumbnail</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsThumbnail</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsThumbnail</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="20" column="7" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1a4e8436ec1bb8ebd2fe3148dce10e0d05" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QFieldCloudProjectDetails::projectDetailsBodyLayout</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsBodyLayout</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsBodyLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="21" column="14" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1a34799e613c2aa6551e7d68cab287ce9a" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudProjectDetails::projectDetailsDescription</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsDescription</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="22" column="6" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1ac72717b0594652d4504a4fb7adad9336" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudProjectDetails::projectDetailsOwnerLabel</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsOwnerLabel</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsOwnerLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="23" column="6" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1a0c125887f52ece0f6a2364b02ef6688e" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudProjectDetails::projectDetailsOwner</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsOwner</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsOwner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="24" column="6" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1ac24d88a27e7e9b30fedb5eabfeb3b58b" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudProjectDetails::projectDetailsCreationDateLabel</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsCreationDateLabel</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsCreationDateLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="25" column="6" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1acbc898ebdc4bcd9c88ad5ff2c68150c4" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudProjectDetails::projectDetailsCreationDate</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsCreationDate</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsCreationDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="26" column="6" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1aa860d0473f56422f1dd891e33524798e" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudProjectDetails::projectDetailsUpdateDateLabel</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsUpdateDateLabel</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsUpdateDateLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="27" column="6" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1ab770a0e2d02d61b54c3619985e662948" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudProjectDetails::projectDetailsUpdateDate</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsUpdateDate</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsUpdateDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="28" column="6" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1a26b20ce22195936959e2ad230f3a9911" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QFieldCloudProjectDetails::projectDetailsCode</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsCode</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="29" column="7" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1a1b2ed435610aef0030299ed54ca56f54" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldCloudProjectDetails::projectDetailsCodeLabel</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsCodeLabel</name>
+        <qualifiedname>QFieldCloudProjectDetails::projectDetailsCodeLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="30" column="6" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1afa2e0ea57debf5c835f7fff9bd677de1" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QFieldCloudProjectDetails::syncButton</definition>
+        <argsstring></argsstring>
+        <name>syncButton</name>
+        <qualifiedname>QFieldCloudProjectDetails::syncButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="31" column="10" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1a20894fcab6e315e8d68446f73b4464f0" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QFieldCloudProjectDetails::pushButton</definition>
+        <argsstring></argsstring>
+        <name>pushButton</name>
+        <qualifiedname>QFieldCloudProjectDetails::pushButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="32" column="10" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1a9d7715b28a3614a278096bbcbf8ead20" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QFieldCloudProjectDetails::downloadProjectInDetailsLayout</definition>
+        <argsstring></argsstring>
+        <name>downloadProjectInDetailsLayout</name>
+        <qualifiedname>QFieldCloudProjectDetails::downloadProjectInDetailsLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="33" column="10" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectDetails_1aef58cd993677d9d70777cdb667b77995" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QFieldCloudProjectDetails::openProjectBtn</definition>
+        <argsstring></argsstring>
+        <name>openProjectBtn</name>
+        <qualifiedname>QFieldCloudProjectDetails::openProjectBtn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="34" column="10" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldCloudProjectDetails_1a4f5757a0d72c27062a7a20bb2178e229" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QFieldCloudProjectDetails::cloudProject</definition>
+        <argsstring></argsstring>
+        <name>cloudProject</name>
+        <qualifiedname>QFieldCloudProjectDetails::cloudProject</qualifiedname>
+        <read>dummyGetter_cloudProject_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="14" column="1" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQFieldCloudProjectDetails_1add6d3b49f4c70c721d9e8023afb22000" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudProjectDetails::synchronize</definition>
+        <argsstring>()</argsstring>
+        <name>synchronize</name>
+        <qualifiedname>QFieldCloudProjectDetails::synchronize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="10" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudProjectDetails_1ae676b869dc3c867ab84c8b3df6d0fc83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudProjectDetails::pushChanges</definition>
+        <argsstring>()</argsstring>
+        <name>pushChanges</name>
+        <qualifiedname>QFieldCloudProjectDetails::pushChanges</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectDetails.qml" line="12" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ColumnLayout</label>
+      </node>
+      <node id="1">
+        <label>QFieldCloudProjectDetails</label>
+        <link refid="classQFieldCloudProjectDetails"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ColumnLayout</label>
+      </node>
+      <node id="1">
+        <label>QFieldCloudProjectDetails</label>
+        <link refid="classQFieldCloudProjectDetails"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/QFieldCloudProjectDetails.qml" line="6" column="1" bodyfile="src/qml/QFieldCloudProjectDetails.qml" bodystart="6" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classQFieldCloudProjectDetails_1a4f5757a0d72c27062a7a20bb2178e229" prot="public" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>cloudProject</name></member>
+      <member refid="classQFieldCloudProjectDetails_1a9d7715b28a3614a278096bbcbf8ead20" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>downloadProjectInDetailsLayout</name></member>
+      <member refid="classQFieldCloudProjectDetails_1a2e73d79b51b353a8fc0254fee629e4e8" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>onCloudProjectChanged</name></member>
+      <member refid="classQFieldCloudProjectDetails_1aef58cd993677d9d70777cdb667b77995" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>openProjectBtn</name></member>
+      <member refid="classQFieldCloudProjectDetails_1a4e8436ec1bb8ebd2fe3148dce10e0d05" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsBodyLayout</name></member>
+      <member refid="classQFieldCloudProjectDetails_1a26b20ce22195936959e2ad230f3a9911" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsCode</name></member>
+      <member refid="classQFieldCloudProjectDetails_1a1b2ed435610aef0030299ed54ca56f54" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsCodeLabel</name></member>
+      <member refid="classQFieldCloudProjectDetails_1acbc898ebdc4bcd9c88ad5ff2c68150c4" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsCreationDate</name></member>
+      <member refid="classQFieldCloudProjectDetails_1ac24d88a27e7e9b30fedb5eabfeb3b58b" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsCreationDateLabel</name></member>
+      <member refid="classQFieldCloudProjectDetails_1a34799e613c2aa6551e7d68cab287ce9a" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsDescription</name></member>
+      <member refid="classQFieldCloudProjectDetails_1a1d9668fccedda6c51b169678bc15aa6b" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsLayout</name></member>
+      <member refid="classQFieldCloudProjectDetails_1a61addfca3da0db1f44741e78460e7da9" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsName</name></member>
+      <member refid="classQFieldCloudProjectDetails_1a0c125887f52ece0f6a2364b02ef6688e" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsOwner</name></member>
+      <member refid="classQFieldCloudProjectDetails_1ac72717b0594652d4504a4fb7adad9336" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsOwnerLabel</name></member>
+      <member refid="classQFieldCloudProjectDetails_1a9e3c2d797371ece371b6bfb5136e317a" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsThumbnail</name></member>
+      <member refid="classQFieldCloudProjectDetails_1abc6061ee8c10dea1eba9ae9409298903" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsThumbnailRect</name></member>
+      <member refid="classQFieldCloudProjectDetails_1ab770a0e2d02d61b54c3619985e662948" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsUpdateDate</name></member>
+      <member refid="classQFieldCloudProjectDetails_1aa860d0473f56422f1dd891e33524798e" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>projectDetailsUpdateDateLabel</name></member>
+      <member refid="classQFieldCloudProjectDetails_1a20894fcab6e315e8d68446f73b4464f0" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>pushButton</name></member>
+      <member refid="classQFieldCloudProjectDetails_1ae676b869dc3c867ab84c8b3df6d0fc83" prot="public" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>pushChanges</name></member>
+      <member refid="classQFieldCloudProjectDetails_1aab506972e02086e97e9726871504e92f" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>spacing</name></member>
+      <member refid="classQFieldCloudProjectDetails_1afa2e0ea57debf5c835f7fff9bd677de1" prot="private" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>syncButton</name></member>
+      <member refid="classQFieldCloudProjectDetails_1add6d3b49f4c70c721d9e8023afb22000" prot="public" virt="non-virtual"><scope>QFieldCloudProjectDetails</scope><name>synchronize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

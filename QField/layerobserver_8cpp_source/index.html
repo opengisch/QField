@@ -1,0 +1,792 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>File layerobserver.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-layerobservercpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File layerobserver.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-layerobservercpp">File layerobserver.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_d27ac98b23548f5810403c734ce9817b/"><strong>qfieldcloud</strong></a> <strong>&gt;</strong> <a href="../layerobserver_8cpp/"><strong>layerobserver.cpp</strong></a></p>
+<p><a href="../layerobserver_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">/***************************************************************************
+                        layerobserver.cpp
+                        -----------------
+  begin                : Apr 2020
+  copyright            : (C) 2020 by Ivan Ivanov
+  email                : ivan@opengis.ch
+***************************************************************************/
+
+/***************************************************************************
+ *                                     *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or   *
+ *   (at your option) any later version.                   *
+ *                                     *
+ ***************************************************************************/
+
+#include &quot;layerobserver.h&quot;
+#include &quot;qfieldcloudutils.h&quot;
+
+#include &lt;QDebug&gt;
+#include &lt;QDir&gt;
+#include &lt;qgsfeature.h&gt;
+#include &lt;qgsfeatureiterator.h&gt;
+#include &lt;qgsfeaturerequest.h&gt;
+#include &lt;qgsmessagelog.h&gt;
+#include &lt;qgsvectorlayereditbuffer.h&gt;
+
+#include &lt;appinterface.h&gt;
+
+
+LayerObserver::LayerObserver( const QgsProject *project )
+  : mProject( project )
+{
+  connect( mProject, &amp;QgsProject::homePathChanged, this, &amp;LayerObserver::onHomePathChanged );
+  connect( mProject, &amp;QgsProject::layersAdded, this, &amp;LayerObserver::onLayersAdded );
+
+  if ( !project-&gt;fileName().isEmpty() )
+  {
+    onHomePathChanged();
+  }
+}
+
+
+void LayerObserver::reset( bool isHardReset ) const
+{
+  if ( !mDeltaFileWrapper )
+  {
+    return;
+  }
+
+  if ( isHardReset )
+  {
+    mDeltaFileWrapper-&gt;resetId();
+  }
+
+  mDeltaFileWrapper-&gt;reset();
+}
+
+
+DeltaFileWrapper *LayerObserver::deltaFileWrapper() const
+{
+  return mDeltaFileWrapper.data();
+}
+
+
+void LayerObserver::setDeltaFileWrapper( DeltaFileWrapper *wrapper )
+{
+  if ( mDeltaFileWrapper == wrapper )
+  {
+    return;
+  }
+
+  mDeltaFileWrapper = wrapper;
+  emit deltaFileWrapperChanged();
+}
+
+
+void LayerObserver::onHomePathChanged()
+{
+  if ( mProject-&gt;fileName().isEmpty() )
+  {
+    return;
+  }
+
+  mObservedLayerIds.clear();
+
+  if ( !QFieldCloudUtils::getProjectId( mProject-&gt;fileName() ).isEmpty() )
+  {
+    addLayerListeners();
+  }
+}
+
+void LayerObserver::onLayersAdded( const QList&lt;QgsMapLayer *&gt; &amp;layers )
+{
+  Q_UNUSED( layers );
+  addLayerListeners();
+}
+
+
+void LayerObserver::onBeforeCommitChanges()
+{
+  QgsVectorLayer *vl = qobject_cast&lt;QgsVectorLayer *&gt;( sender() );
+  QgsVectorLayerEditBuffer *eb = vl-&gt;editBuffer();
+
+  if ( !eb )
+  {
+    return;
+  }
+
+  const QgsFeatureIds deletedFids = eb-&gt;deletedFeatureIds();
+  const QgsFeatureIds changedGeometriesFids = qgis::listToSet( eb-&gt;changedGeometries().keys() );
+  const QgsFeatureIds changedAttributesFids = qgis::listToSet( eb-&gt;changedAttributeValues().keys() );
+  // NOTE QgsFeatureIds underlying implementation is QSet, so no need to check if the QgsFeatureId already exists
+  QgsFeatureIds changedFids;
+
+  for ( const QgsFeatureId fid : deletedFids )
+  {
+    changedFids.insert( fid );
+  }
+
+  for ( const QgsFeatureId fid : changedGeometriesFids )
+  {
+    changedFids.insert( fid );
+  }
+
+  for ( const QgsFeatureId fid : changedAttributesFids )
+  {
+    changedFids.insert( fid );
+  }
+
+  // NOTE we read the features from the dataProvider directly as we want to access the old values.
+  // If we use the layer, we get the values from the edit buffer.
+  QgsFeatureIterator featuresIt = vl-&gt;dataProvider()-&gt;getFeatures( QgsFeatureRequest( changedFids ) );
+  QgsChangedFeatures changedFeatures;
+  QgsFeature f;
+
+  // ? is it possible to use the iterator in a less ugly way? something like normal `for ( QgsFeature &amp;f : it ) {}`
+  while ( featuresIt.nextFeature( f ) )
+    changedFeatures.insert( f.id(), f );
+
+  qDebug() &lt;&lt; &quot;LayerObserver::onBeforeCommitChanges: vl-&gt;id()=&quot; &lt;&lt; vl-&gt;id() &lt;&lt; &quot;sourcePkAttrPair=&quot; &lt;&lt; changedFids;
+
+  // NOTE no need to keep track of added features, as they are always present in the layer after commit
+  mChangedFeatures.insert( vl-&gt;id(), changedFeatures );
+  mPatchedFids.insert( vl-&gt;id(), QgsFeatureIds() );
+}
+
+
+void LayerObserver::onCommittedFeaturesAdded( const QString &amp;localLayerId, const QgsFeatureList &amp;addedFeatures )
+{
+  if ( !mDeltaFileWrapper || mDeltaFileWrapper-&gt;isDeltaBeingApplied() )
+  {
+    return;
+  }
+
+  const QgsVectorLayer *vl = qobject_cast&lt;QgsVectorLayer *&gt;( sender() );
+  const QString sourceLayerId = DeltaFileWrapper::getSourceLayerId( vl );
+  const QPair&lt;int, QString&gt; localPkAttrPair = DeltaFileWrapper::getLocalPkAttribute( vl );
+  const QPair&lt;int, QString&gt; sourcePkAttrPair = DeltaFileWrapper::getSourcePkAttribute( vl );
+
+  for ( const QgsFeature &amp;newFeature : addedFeatures )
+  {
+    mDeltaFileWrapper-&gt;addCreate( mProject, localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, newFeature );
+  }
+}
+
+
+void LayerObserver::onCommittedFeaturesRemoved( const QString &amp;localLayerId, const QgsFeatureIds &amp;deletedFeatureIds )
+{
+  if ( !mDeltaFileWrapper || mDeltaFileWrapper-&gt;isDeltaBeingApplied() )
+  {
+    return;
+  }
+
+  QgsChangedFeatures changedFeatures = mChangedFeatures.value( localLayerId );
+  const QgsVectorLayer *vl = qobject_cast&lt;QgsVectorLayer *&gt;( sender() );
+  const QString sourceLayerId = DeltaFileWrapper::getSourceLayerId( vl );
+  const QPair&lt;int, QString&gt; localPkAttrPair = DeltaFileWrapper::getLocalPkAttribute( vl );
+  const QPair&lt;int, QString&gt; sourcePkAttrPair = DeltaFileWrapper::getSourcePkAttribute( vl );
+
+  for ( const QgsFeatureId &amp;fid : deletedFeatureIds )
+  {
+    Q_ASSERT( changedFeatures.contains( fid ) );
+
+    QgsFeature oldFeature = changedFeatures.take( fid );
+
+    mDeltaFileWrapper-&gt;addDelete( mProject, localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature );
+  }
+
+  mChangedFeatures.insert( localLayerId, changedFeatures );
+}
+
+
+void LayerObserver::onCommittedAttributeValuesChanges( const QString &amp;localLayerId, const QgsChangedAttributesMap &amp;changedAttributesValues )
+{
+  if ( !mDeltaFileWrapper || mDeltaFileWrapper-&gt;isDeltaBeingApplied() )
+  {
+    return;
+  }
+
+  QgsVectorLayer *vl = qobject_cast&lt;QgsVectorLayer *&gt;( sender() );
+  QgsFeatureIds patchedFids = mPatchedFids.value( localLayerId );
+  QgsChangedFeatures changedFeatures = mChangedFeatures.value( localLayerId );
+  const QgsFeatureIds changedAttributesValuesFids = qgis::listToSet( changedAttributesValues.keys() );
+  const QString sourceLayerId = DeltaFileWrapper::getSourceLayerId( vl );
+  const QPair&lt;int, QString&gt; localPkAttrPair = DeltaFileWrapper::getLocalPkAttribute( vl );
+  const QPair&lt;int, QString&gt; sourcePkAttrPair = DeltaFileWrapper::getSourcePkAttribute( vl );
+
+  for ( const QgsFeatureId fid : changedAttributesValuesFids )
+  {
+    if ( patchedFids.contains( fid ) )
+    {
+      continue;
+    }
+
+    Q_ASSERT( changedFeatures.contains( fid ) );
+
+    patchedFids.insert( fid );
+
+    QgsFeature oldFeature = changedFeatures.take( fid );
+    QgsFeature newFeature = vl-&gt;getFeature( fid );
+
+    if ( vl-&gt;fields().indexOf( &quot;fid_1&quot; ) != -1 &amp;&amp; localPkAttrPair.second == sourcePkAttrPair.second &amp;&amp; newFeature.attribute( &quot;fid&quot; ) != newFeature.attribute( &quot;fid_1&quot; ) )
+    {
+      mLocalAndSourcePkAttrAreEqual = true;
+    }
+    mDeltaFileWrapper-&gt;addPatch( mProject, localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature, newFeature );
+  }
+
+  mPatchedFids.insert( localLayerId, patchedFids );
+  mChangedFeatures.insert( localLayerId, changedFeatures );
+}
+
+
+void LayerObserver::onCommittedGeometriesChanges( const QString &amp;localLayerId, const QgsGeometryMap &amp;changedGeometries )
+{
+  if ( !mDeltaFileWrapper || mDeltaFileWrapper-&gt;isDeltaBeingApplied() )
+  {
+    return;
+  }
+
+  QgsVectorLayer *vl = qobject_cast&lt;QgsVectorLayer *&gt;( sender() );
+  QgsFeatureIds patchedFids = mPatchedFids.value( localLayerId );
+  QgsChangedFeatures changedFeatures = mChangedFeatures.value( localLayerId );
+  const QgsFeatureIds changedGeometriesFids = qgis::listToSet( changedGeometries.keys() );
+  const QString sourceLayerId = DeltaFileWrapper::getSourceLayerId( vl );
+  const QPair&lt;int, QString&gt; localPkAttrPair = DeltaFileWrapper::getLocalPkAttribute( vl );
+  const QPair&lt;int, QString&gt; sourcePkAttrPair = DeltaFileWrapper::getSourcePkAttribute( vl );
+
+  for ( const QgsFeatureId &amp;fid : changedGeometriesFids )
+  {
+    if ( patchedFids.contains( fid ) )
+    {
+      continue;
+    }
+
+    Q_ASSERT( changedFeatures.contains( fid ) );
+
+    patchedFids.insert( fid );
+
+    QgsFeature oldFeature = changedFeatures.take( fid );
+    QgsFeature newFeature = vl-&gt;getFeature( fid );
+
+    if ( vl-&gt;fields().indexOf( &quot;fid_1&quot; ) != -1 &amp;&amp; localPkAttrPair.second == sourcePkAttrPair.second &amp;&amp; newFeature.attribute( &quot;fid&quot; ) != newFeature.attribute( &quot;fid_1&quot; ) )
+    {
+      mLocalAndSourcePkAttrAreEqual = true;
+    }
+    mDeltaFileWrapper-&gt;addPatch( mProject, localLayerId, sourceLayerId, localPkAttrPair.second, sourcePkAttrPair.second, oldFeature, newFeature );
+  }
+
+  mPatchedFids.insert( localLayerId, patchedFids );
+  mChangedFeatures.insert( localLayerId, changedFeatures );
+}
+
+
+void LayerObserver::onEditingStopped()
+{
+  if ( !mDeltaFileWrapper )
+  {
+    return;
+  }
+
+  const QgsVectorLayer *vl = qobject_cast&lt;QgsVectorLayer *&gt;( sender() );
+  const QString layerId = vl-&gt;id();
+
+  mPatchedFids.take( layerId );
+  mChangedFeatures.take( layerId );
+
+  if ( !mDeltaFileWrapper-&gt;toFile() )
+  {
+    // TODO somehow indicate the user that writing failed
+    QgsMessageLog::logMessage( QStringLiteral( &quot;Failed writing JSON file&quot; ) );
+  }
+
+  if ( vl-&gt;source().contains( QStringLiteral( &quot;data.gpkg&quot; ) ) &amp;&amp; mLocalAndSourcePkAttrAreEqual )
+  {
+    AppInterface::instance()-&gt;sendLog( QStringLiteral( &quot;Called LayerObserver::onEditingStopped!&quot; ), QString() );
+    mLocalAndSourcePkAttrAreEqual = false;
+  }
+
+  emit layerEdited( layerId );
+}
+
+
+void LayerObserver::addLayerListeners()
+{
+  const QList&lt;QgsMapLayer *&gt; layers = mProject-&gt;mapLayers().values();
+
+  // we should keep track only of the layers on cloud projects
+  if ( QFieldCloudUtils::getProjectId( mProject-&gt;fileName() ).isEmpty() )
+  {
+    return;
+  }
+
+  for ( QgsMapLayer *layer : layers )
+  {
+    QgsVectorLayer *vl = qobject_cast&lt;QgsVectorLayer *&gt;( layer );
+
+    if ( vl )
+    {
+      if ( mObservedLayerIds.contains( vl-&gt;id() ) )
+      {
+        continue;
+      }
+
+      if ( !vl-&gt;readOnly() &amp;&amp; QFieldCloudUtils::isCloudAction( vl ) )
+      {
+        // Ignore all layers that cannot determine a primary key column
+        if ( DeltaFileWrapper::getLocalPkAttribute( vl ).first == -1 )
+        {
+          QgsMessageLog::logMessage( tr( &quot;Failed to find a local primary key column in layer \&quot;%1\&quot;&quot; ).arg( layer-&gt;name() ) );
+          continue;
+        }
+
+        if ( DeltaFileWrapper::getSourcePkAttribute( vl ).first == -1 )
+        {
+          QgsMessageLog::logMessage( tr( &quot;Failed to find a source primary key column in layer \&quot;%1\&quot;&quot; ).arg( layer-&gt;name() ) );
+          continue;
+        }
+
+        disconnect( vl, &amp;QgsVectorLayer::beforeCommitChanges, this, &amp;LayerObserver::onBeforeCommitChanges );
+        disconnect( vl, &amp;QgsVectorLayer::committedFeaturesAdded, this, &amp;LayerObserver::onCommittedFeaturesAdded );
+        disconnect( vl, &amp;QgsVectorLayer::committedFeaturesRemoved, this, &amp;LayerObserver::onCommittedFeaturesRemoved );
+        disconnect( vl, &amp;QgsVectorLayer::committedAttributeValuesChanges, this, &amp;LayerObserver::onCommittedAttributeValuesChanges );
+        disconnect( vl, &amp;QgsVectorLayer::committedGeometriesChanges, this, &amp;LayerObserver::onCommittedGeometriesChanges );
+        // TODO use the future &quot;afterCommitChanges&quot; signal
+        disconnect( vl, &amp;QgsVectorLayer::editingStopped, this, &amp;LayerObserver::onEditingStopped );
+
+        // for `cloud` projects, we keep track of any change that has occurred
+        connect( vl, &amp;QgsVectorLayer::beforeCommitChanges, this, &amp;LayerObserver::onBeforeCommitChanges );
+        connect( vl, &amp;QgsVectorLayer::committedFeaturesAdded, this, &amp;LayerObserver::onCommittedFeaturesAdded );
+        connect( vl, &amp;QgsVectorLayer::committedFeaturesRemoved, this, &amp;LayerObserver::onCommittedFeaturesRemoved );
+        connect( vl, &amp;QgsVectorLayer::committedAttributeValuesChanges, this, &amp;LayerObserver::onCommittedAttributeValuesChanges );
+        connect( vl, &amp;QgsVectorLayer::committedGeometriesChanges, this, &amp;LayerObserver::onCommittedGeometriesChanges );
+        // TODO use the future &quot;afterCommitChanges&quot; signal
+        connect( vl, &amp;QgsVectorLayer::editingStopped, this, &amp;LayerObserver::onEditingStopped );
+
+        mObservedLayerIds.insert( vl-&gt;id() );
+      }
+    }
+  }
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

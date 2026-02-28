@@ -1,0 +1,704 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTouchCameraController" kind="class" language="C++" prot="public">
+    <compoundname>TouchCameraController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTouchCameraController_1af6cc3dae76cca56205a84b6931af184d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>PerspectiveCamera</type>
+        <definition>PerspectiveCamera TouchCameraController::camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <qualifiedname>TouchCameraController::camera</qualifiedname>
+        <read>dummyGetter_camera_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="6" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1af77e654dc682ee780f032a75544c4cf0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>vector3d</type>
+        <definition>vector3d TouchCameraController::target</definition>
+        <argsstring></argsstring>
+        <name>target</name>
+        <qualifiedname>TouchCameraController::target</qualifiedname>
+        <read>dummyGetter_target_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="12" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1aa5cf8ef5a22e3fb0ecf44b48bd7c3c28" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::distance</definition>
+        <argsstring></argsstring>
+        <name>distance</name>
+        <qualifiedname>TouchCameraController::distance</qualifiedname>
+        <read>dummyGetter_distance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="14" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1afdca2af719b1f86db790e4d413b680a4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::yaw</definition>
+        <argsstring></argsstring>
+        <name>yaw</name>
+        <qualifiedname>TouchCameraController::yaw</qualifiedname>
+        <read>dummyGetter_yaw_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="16" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1aa01bdc95d9a68ee02bf5d1898a9034d8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::pitch</definition>
+        <argsstring></argsstring>
+        <name>pitch</name>
+        <qualifiedname>TouchCameraController::pitch</qualifiedname>
+        <read>dummyGetter_pitch_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="18" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1a8c54480a93ae64bf973c5f9d51e6b6df" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::defaultDistance</definition>
+        <argsstring></argsstring>
+        <name>defaultDistance</name>
+        <qualifiedname>TouchCameraController::defaultDistance</qualifiedname>
+        <read>dummyGetter_defaultDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="20" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1aa1237abf7e00d36c36fa66361168c1cc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::defaultYaw</definition>
+        <argsstring></argsstring>
+        <name>defaultYaw</name>
+        <qualifiedname>TouchCameraController::defaultYaw</qualifiedname>
+        <read>dummyGetter_defaultYaw_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="22" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1a757275678d8cf0bedc1fed27bc9d7481" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::defaultPitch</definition>
+        <argsstring></argsstring>
+        <name>defaultPitch</name>
+        <qualifiedname>TouchCameraController::defaultPitch</qualifiedname>
+        <read>dummyGetter_defaultPitch_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="24" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1aa66b08609865435b30ddfd879d159a13" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::minDistance</definition>
+        <argsstring></argsstring>
+        <name>minDistance</name>
+        <qualifiedname>TouchCameraController::minDistance</qualifiedname>
+        <read>dummyGetter_minDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="26" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1a3476013422144b882d5fb49e76852f34" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::maxDistance</definition>
+        <argsstring></argsstring>
+        <name>maxDistance</name>
+        <qualifiedname>TouchCameraController::maxDistance</qualifiedname>
+        <read>dummyGetter_maxDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="28" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1ac382ee1f643f3808946374b04371b859" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::minPitch</definition>
+        <argsstring></argsstring>
+        <name>minPitch</name>
+        <qualifiedname>TouchCameraController::minPitch</qualifiedname>
+        <read>dummyGetter_minPitch_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="30" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1a0023fcae4b952f5e6901a2e2c1861caf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::maxPitch</definition>
+        <argsstring></argsstring>
+        <name>maxPitch</name>
+        <qualifiedname>TouchCameraController::maxPitch</qualifiedname>
+        <read>dummyGetter_maxPitch_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="32" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1a82bc34b79b69ba6ed5bd6d45b04d1d5a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::orbitSensitivity</definition>
+        <argsstring></argsstring>
+        <name>orbitSensitivity</name>
+        <qualifiedname>TouchCameraController::orbitSensitivity</qualifiedname>
+        <read>dummyGetter_orbitSensitivity_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="34" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1a8c19c39a843b04005be87db9cb3bbbf0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::targetX</definition>
+        <argsstring></argsstring>
+        <name>targetX</name>
+        <qualifiedname>TouchCameraController::targetX</qualifiedname>
+        <read>dummyGetter_targetX_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="36" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1afc480289fb502f5b7872119c138a9a87" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::targetY</definition>
+        <argsstring></argsstring>
+        <name>targetY</name>
+        <qualifiedname>TouchCameraController::targetY</qualifiedname>
+        <read>dummyGetter_targetY_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="38" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTouchCameraController_1a842fe65ee470087645ccca691487e4be" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real TouchCameraController::targetZ</definition>
+        <argsstring></argsstring>
+        <name>targetZ</name>
+        <qualifiedname>TouchCameraController::targetZ</qualifiedname>
+        <read>dummyGetter_targetZ_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="40" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTouchCameraController_1af83432ccfaae5bb95c0dafd2d709ad3a" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component TouchCameraController::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>TouchCameraController::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="42" column="14" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1a8ff55f3eb78a4df7e8842f7b85dfcf54" prot="private" static="no" mutable="no">
+        <type>ParallelAnimation</type>
+        <definition>ParallelAnimation TouchCameraController::cameraAnimation</definition>
+        <argsstring></argsstring>
+        <name>cameraAnimation</name>
+        <qualifiedname>TouchCameraController::cameraAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="61" column="19" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1a9579a0a35b72ea9d1e519882adaaeb42" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TouchCameraController::onTargetXChanged</definition>
+        <argsstring></argsstring>
+        <name>onTargetXChanged</name>
+        <qualifiedname>TouchCameraController::onTargetXChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="62" column="5" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1abfc4e266af3cb9e58bed5c8365cf4eab" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TouchCameraController::onTargetYChanged</definition>
+        <argsstring></argsstring>
+        <name>onTargetYChanged</name>
+        <qualifiedname>TouchCameraController::onTargetYChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="63" column="5" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1a0ca05167a72a3743b211ced9ea4bd07e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TouchCameraController::onTargetZChanged</definition>
+        <argsstring></argsstring>
+        <name>onTargetZChanged</name>
+        <qualifiedname>TouchCameraController::onTargetZChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="64" column="5" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1a5cbbccec6df503dfcae9ab48a5100714" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TouchCameraController::onYawChanged</definition>
+        <argsstring></argsstring>
+        <name>onYawChanged</name>
+        <qualifiedname>TouchCameraController::onYawChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="65" column="5" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1a3ffb5f52020541fbcc82f05491637d1a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TouchCameraController::onPitchChanged</definition>
+        <argsstring></argsstring>
+        <name>onPitchChanged</name>
+        <qualifiedname>TouchCameraController::onPitchChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="66" column="5" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1abc3985741dbde1327514c17b313d0efe" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TouchCameraController::onDistanceChanged</definition>
+        <argsstring></argsstring>
+        <name>onDistanceChanged</name>
+        <qualifiedname>TouchCameraController::onDistanceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="67" column="5" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1addbffc0c19af69305687aa7ebd2dac48" prot="private" static="no" mutable="no">
+        <type>TapHandler</type>
+        <definition>TapHandler TouchCameraController::tapHandler</definition>
+        <argsstring></argsstring>
+        <name>tapHandler</name>
+        <qualifiedname>TouchCameraController::tapHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="68" column="12" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1a02ce457f188a7a902fade29dc83db05b" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler TouchCameraController::orbitDragHandler</definition>
+        <argsstring></argsstring>
+        <name>orbitDragHandler</name>
+        <qualifiedname>TouchCameraController::orbitDragHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="69" column="13" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1a52eb17752549a1a8f5ec19db056a92cb" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler TouchCameraController::panDragHandler</definition>
+        <argsstring></argsstring>
+        <name>panDragHandler</name>
+        <qualifiedname>TouchCameraController::panDragHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="70" column="13" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1aa9573ac38d7a4985af9e80b9947b817a" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler TouchCameraController::touchOrbitHandler</definition>
+        <argsstring></argsstring>
+        <name>touchOrbitHandler</name>
+        <qualifiedname>TouchCameraController::touchOrbitHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="71" column="13" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1a35933f01abbae6977428214b0785fb41" prot="private" static="no" mutable="no">
+        <type>PinchHandler</type>
+        <definition>PinchHandler TouchCameraController::pinchHandler</definition>
+        <argsstring></argsstring>
+        <name>pinchHandler</name>
+        <qualifiedname>TouchCameraController::pinchHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="72" column="14" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTouchCameraController_1ae53dd53bbc9984fe2a91ee49bb5853cb" prot="private" static="no" mutable="no">
+        <type>WheelHandler</type>
+        <definition>WheelHandler TouchCameraController::wheelHandler</definition>
+        <argsstring></argsstring>
+        <name>wheelHandler</name>
+        <qualifiedname>TouchCameraController::wheelHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="73" column="14" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTouchCameraController_1a7d8a830d18dfe0ec0ae4bfee4d647de6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchCameraController::singleTapped</definition>
+        <argsstring>(real x, real y)</argsstring>
+        <name>singleTapped</name>
+        <qualifiedname>TouchCameraController::singleTapped</qualifiedname>
+        <param>
+          <type>real</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="8" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTouchCameraController_1a31164f0a63f595a17f27642a673776d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchCameraController::userInteractionStarted</definition>
+        <argsstring>()</argsstring>
+        <name>userInteractionStarted</name>
+        <qualifiedname>TouchCameraController::userInteractionStarted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="10" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTouchCameraController_1abb39d19a491734850cae39c0ef593d5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchCameraController::updateCameraPosition</definition>
+        <argsstring>()</argsstring>
+        <name>updateCameraPosition</name>
+        <qualifiedname>TouchCameraController::updateCameraPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="45" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classTouchCameraController_1af8ac12330af050866b42279480e426de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchCameraController::resetView</definition>
+        <argsstring>()</argsstring>
+        <name>resetView</name>
+        <qualifiedname>TouchCameraController::resetView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="47" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classTouchCameraController_1a702f63b62aaad095f28b44f92c543a11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchCameraController::zoomToFit</definition>
+        <argsstring>(center, radius)</argsstring>
+        <name>zoomToFit</name>
+        <qualifiedname>TouchCameraController::zoomToFit</qualifiedname>
+        <param>
+          <type>center</type>
+        </param>
+        <param>
+          <type>radius</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="49" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classTouchCameraController_1aa36bc036276ad739c4138de04a23028a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchCameraController::lookAtPoint</definition>
+        <argsstring>(point, zoomDistance)</argsstring>
+        <name>lookAtPoint</name>
+        <qualifiedname>TouchCameraController::lookAtPoint</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <param>
+          <type>zoomDistance</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="51" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classTouchCameraController_1a7c922b025cd64a0f2f417e1228448029" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchCameraController::flyTo</definition>
+        <argsstring>(newTarget, newDistance, newYaw, newPitch)</argsstring>
+        <name>flyTo</name>
+        <qualifiedname>TouchCameraController::flyTo</qualifiedname>
+        <param>
+          <type>newTarget</type>
+        </param>
+        <param>
+          <type>newDistance</type>
+        </param>
+        <param>
+          <type>newYaw</type>
+        </param>
+        <param>
+          <type>newPitch</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="53" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classTouchCameraController_1aa0c54b3d8bfd612b4b6d3752f78bc26e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchCameraController::clampPitch</definition>
+        <argsstring>(value)</argsstring>
+        <name>clampPitch</name>
+        <qualifiedname>TouchCameraController::clampPitch</qualifiedname>
+        <param>
+          <type>value</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="55" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classTouchCameraController_1a532eee6098e05b2c6233b40898d5cf12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchCameraController::clampDistance</definition>
+        <argsstring>(value)</argsstring>
+        <name>clampDistance</name>
+        <qualifiedname>TouchCameraController::clampDistance</qualifiedname>
+        <param>
+          <type>value</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="57" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classTouchCameraController_1a2c87e5bba8c14ecf4d1de4cd838fb0d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchCameraController::applyPan</definition>
+        <argsstring>(dx, dy)</argsstring>
+        <name>applyPan</name>
+        <qualifiedname>TouchCameraController::applyPan</qualifiedname>
+        <param>
+          <type>dx</type>
+        </param>
+        <param>
+          <type>dy</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/3d/TouchCameraController.qml" line="59" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>TouchCameraController</label>
+        <link refid="classTouchCameraController"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>TouchCameraController</label>
+        <link refid="classTouchCameraController"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/3d/TouchCameraController.qml" line="3" column="1" bodyfile="src/qml/3d/TouchCameraController.qml" bodystart="3" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classTouchCameraController_1a2c87e5bba8c14ecf4d1de4cd838fb0d9" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>applyPan</name></member>
+      <member refid="classTouchCameraController_1af6cc3dae76cca56205a84b6931af184d" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>camera</name></member>
+      <member refid="classTouchCameraController_1a8ff55f3eb78a4df7e8842f7b85dfcf54" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>cameraAnimation</name></member>
+      <member refid="classTouchCameraController_1a532eee6098e05b2c6233b40898d5cf12" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>clampDistance</name></member>
+      <member refid="classTouchCameraController_1aa0c54b3d8bfd612b4b6d3752f78bc26e" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>clampPitch</name></member>
+      <member refid="classTouchCameraController_1a8c54480a93ae64bf973c5f9d51e6b6df" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>defaultDistance</name></member>
+      <member refid="classTouchCameraController_1a757275678d8cf0bedc1fed27bc9d7481" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>defaultPitch</name></member>
+      <member refid="classTouchCameraController_1aa1237abf7e00d36c36fa66361168c1cc" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>defaultYaw</name></member>
+      <member refid="classTouchCameraController_1aa5cf8ef5a22e3fb0ecf44b48bd7c3c28" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>distance</name></member>
+      <member refid="classTouchCameraController_1a7c922b025cd64a0f2f417e1228448029" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>flyTo</name></member>
+      <member refid="classTouchCameraController_1aa36bc036276ad739c4138de04a23028a" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>lookAtPoint</name></member>
+      <member refid="classTouchCameraController_1a3476013422144b882d5fb49e76852f34" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>maxDistance</name></member>
+      <member refid="classTouchCameraController_1a0023fcae4b952f5e6901a2e2c1861caf" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>maxPitch</name></member>
+      <member refid="classTouchCameraController_1aa66b08609865435b30ddfd879d159a13" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>minDistance</name></member>
+      <member refid="classTouchCameraController_1ac382ee1f643f3808946374b04371b859" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>minPitch</name></member>
+      <member refid="classTouchCameraController_1af83432ccfaae5bb95c0dafd2d709ad3a" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>onCompleted</name></member>
+      <member refid="classTouchCameraController_1abc3985741dbde1327514c17b313d0efe" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>onDistanceChanged</name></member>
+      <member refid="classTouchCameraController_1a3ffb5f52020541fbcc82f05491637d1a" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>onPitchChanged</name></member>
+      <member refid="classTouchCameraController_1a9579a0a35b72ea9d1e519882adaaeb42" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>onTargetXChanged</name></member>
+      <member refid="classTouchCameraController_1abfc4e266af3cb9e58bed5c8365cf4eab" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>onTargetYChanged</name></member>
+      <member refid="classTouchCameraController_1a0ca05167a72a3743b211ced9ea4bd07e" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>onTargetZChanged</name></member>
+      <member refid="classTouchCameraController_1a5cbbccec6df503dfcae9ab48a5100714" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>onYawChanged</name></member>
+      <member refid="classTouchCameraController_1a02ce457f188a7a902fade29dc83db05b" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>orbitDragHandler</name></member>
+      <member refid="classTouchCameraController_1a82bc34b79b69ba6ed5bd6d45b04d1d5a" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>orbitSensitivity</name></member>
+      <member refid="classTouchCameraController_1a52eb17752549a1a8f5ec19db056a92cb" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>panDragHandler</name></member>
+      <member refid="classTouchCameraController_1a35933f01abbae6977428214b0785fb41" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>pinchHandler</name></member>
+      <member refid="classTouchCameraController_1aa01bdc95d9a68ee02bf5d1898a9034d8" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>pitch</name></member>
+      <member refid="classTouchCameraController_1af8ac12330af050866b42279480e426de" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>resetView</name></member>
+      <member refid="classTouchCameraController_1a7d8a830d18dfe0ec0ae4bfee4d647de6" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>singleTapped</name></member>
+      <member refid="classTouchCameraController_1addbffc0c19af69305687aa7ebd2dac48" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>tapHandler</name></member>
+      <member refid="classTouchCameraController_1af77e654dc682ee780f032a75544c4cf0" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>target</name></member>
+      <member refid="classTouchCameraController_1a8c19c39a843b04005be87db9cb3bbbf0" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>targetX</name></member>
+      <member refid="classTouchCameraController_1afc480289fb502f5b7872119c138a9a87" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>targetY</name></member>
+      <member refid="classTouchCameraController_1a842fe65ee470087645ccca691487e4be" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>targetZ</name></member>
+      <member refid="classTouchCameraController_1aa9573ac38d7a4985af9e80b9947b817a" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>touchOrbitHandler</name></member>
+      <member refid="classTouchCameraController_1abb39d19a491734850cae39c0ef593d5e" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>updateCameraPosition</name></member>
+      <member refid="classTouchCameraController_1a31164f0a63f595a17f27642a673776d7" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>userInteractionStarted</name></member>
+      <member refid="classTouchCameraController_1ae53dd53bbc9984fe2a91ee49bb5853cb" prot="private" virt="non-virtual"><scope>TouchCameraController</scope><name>wheelHandler</name></member>
+      <member refid="classTouchCameraController_1afdca2af719b1f86db790e4d413b680a4" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>yaw</name></member>
+      <member refid="classTouchCameraController_1a702f63b62aaad095f28b44f92c543a11" prot="public" virt="non-virtual"><scope>TouchCameraController</scope><name>zoomToFit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

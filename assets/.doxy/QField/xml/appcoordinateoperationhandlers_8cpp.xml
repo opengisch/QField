@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="appcoordinateoperationhandlers_8cpp" kind="file" language="C++">
+    <compoundname>appcoordinateoperationhandlers.cpp</compoundname>
+    <includes refid="appcoordinateoperationhandlers_8h" local="yes">appcoordinateoperationhandlers.h</includes>
+    <includes local="no">qgscoordinatetransform.h</includes>
+    <includes local="no">qgsmessagelog.h</includes>
+    <includes local="no">qgsproject.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/appcoordinateoperationhandlers.cpp</label>
+        <link refid="appcoordinateoperationhandlers_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>appcoordinateoperationhandlers.h</label>
+        <link refid="appcoordinateoperationhandlers_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="4">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="6">
+        <label>qgscoordinatetransform.h</label>
+      </node>
+      <node id="5">
+        <label>qgsdatumtransform.h</label>
+      </node>
+      <node id="7">
+        <label>qgsmessagelog.h</label>
+      </node>
+      <node id="8">
+        <label>qgsproject.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>qgsappcoordinateoperationhandlers.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/>-------------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>November<sp/>2020</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2020<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>nirvn<sp/>dot<sp/>asia<sp/>at<sp/>gmail<sp/>dot<sp/>com</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;appcoordinateoperationhandlers.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgscoordinatetransform.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmessagelog.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsproject.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>AppMissingRequiredGridHandler</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">AppMissingGridHandler::AppMissingGridHandler(<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>:<sp/>QObject(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>QgsCoordinateTransform::setCustomMissingRequiredGridHandler(<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;sourceCrs,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsDatumTransform::GridDetails<sp/>&amp;grid<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>missingRequiredGrid(<sp/>sourceCrs,<sp/>destinationCrs,<sp/>grid<sp/>);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>QgsCoordinateTransform::setCustomMissingPreferredGridHandler(<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;sourceCrs,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsDatumTransform::TransformDetails<sp/>&amp;preferredOperation,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsDatumTransform::TransformDetails<sp/>&amp;availableOperation<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>missingPreferredGrid(<sp/>sourceCrs,<sp/>destinationCrs,<sp/>preferredOperation,<sp/>availableOperation<sp/>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>QgsCoordinateTransform::setCustomCoordinateOperationCreationErrorHandler(<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;sourceCrs,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;error<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>coordinateOperationCreationError(<sp/>sourceCrs,<sp/>destinationCrs,<sp/>error<sp/>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>QgsCoordinateTransform::setCustomMissingGridUsedByContextHandler(<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;sourceCrs,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsDatumTransform::TransformDetails<sp/>&amp;desired<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>missingGridUsedByContextHandler(<sp/>sourceCrs,<sp/>destinationCrs,<sp/>desired<sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>QgsCoordinateTransform::setFallbackOperationOccurredHandler(<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;sourceCrs,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;desired<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>fallbackOperationOccurred(<sp/>sourceCrs,<sp/>destinationCrs,<sp/>desired<sp/>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>connect(<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AppMissingGridHandler::missingRequiredGrid,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AppMissingGridHandler::onMissingRequiredGrid,<sp/>Qt::QueuedConnection<sp/>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>connect(<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AppMissingGridHandler::missingPreferredGrid,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AppMissingGridHandler::onMissingPreferredGrid,<sp/>Qt::QueuedConnection<sp/>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>connect(<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AppMissingGridHandler::coordinateOperationCreationError,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AppMissingGridHandler::onCoordinateOperationCreationError,<sp/>Qt::QueuedConnection<sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>connect(<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AppMissingGridHandler::missingGridUsedByContextHandler,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AppMissingGridHandler::onMissingGridUsedByContextHandler,<sp/>Qt::QueuedConnection<sp/>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>connect(<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AppMissingGridHandler::fallbackOperationOccurred,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AppMissingGridHandler::onFallbackOperationOccurred,<sp/>Qt::QueuedConnection<sp/>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>connect(<sp/>QgsProject::instance(),<sp/>&amp;QgsProject::cleared,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>mAlreadyWarnedPairsForProject.clear();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>mAlreadyWarnedBallparkPairsForProject.clear();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AppMissingGridHandler::onMissingRequiredGrid(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;sourceCrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsDatumTransform::GridDetails<sp/>&amp;grid<sp/>)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!shouldWarnAboutPair(<sp/>sourceCrs,<sp/>destinationCrs<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>shortMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;No<sp/>transform<sp/>available<sp/>between<sp/>%1<sp/>and<sp/>%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>sourceCrs.userFriendlyIdentifier(<sp/>Qgis::CrsIdentifierType::ShortString<sp/>),<sp/>destinationCrs.userFriendlyIdentifier(<sp/>Qgis::CrsIdentifierType::ShortString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>QString<sp/>downloadMessage;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!grid.url.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!grid.packageName.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>downloadMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;This<sp/>grid<sp/>is<sp/>part<sp/>of<sp/>the<sp/>“&lt;i&gt;%1&lt;/i&gt;”<sp/>package,<sp/>available<sp/>for<sp/>download<sp/>from<sp/>&lt;a<sp/>href=\&quot;%2\&quot;&gt;%2&lt;/a&gt;.&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>grid.packageName,<sp/>grid.url<sp/>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>downloadMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;This<sp/>grid<sp/>is<sp/>available<sp/>for<sp/>download<sp/>from<sp/>&lt;a<sp/>href=\&quot;%1\&quot;&gt;%1&lt;/a&gt;.&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>grid.url<sp/>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>QgsMessageLog::logMessage(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1\n%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>shortMessage,<sp/>downloadMessage<sp/>),<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;projection&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AppMissingGridHandler::onMissingPreferredGrid(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;sourceCrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsDatumTransform::TransformDetails<sp/>&amp;preferredOperation,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsDatumTransform::TransformDetails<sp/>&amp;availableOperation<sp/>)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!shouldWarnAboutPair(<sp/>sourceCrs,<sp/>destinationCrs<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>QString<sp/>gridMessage;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>QString<sp/>downloadMessage;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsDatumTransform::GridDetails<sp/>&amp;grid<sp/>:<sp/>preferredOperation.grids<sp/>)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!grid.isAvailable<sp/>)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>m<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;This<sp/>transformation<sp/>requires<sp/>the<sp/>grid<sp/>file<sp/>“%1”,<sp/>which<sp/>is<sp/>not<sp/>available<sp/>for<sp/>use<sp/>on<sp/>the<sp/>system.&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>grid.shortName<sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!grid.url.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!grid.packageName.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>downloadMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;This<sp/>grid<sp/>is<sp/>part<sp/>of<sp/>the<sp/>&lt;i&gt;%1&lt;/i&gt;<sp/>package,<sp/>available<sp/>for<sp/>download<sp/>from<sp/>&lt;a<sp/>href=\&quot;%2\&quot;&gt;%2&lt;/a&gt;.&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>grid.packageName,<sp/>grid.url<sp/>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>downloadMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;This<sp/>grid<sp/>is<sp/>available<sp/>for<sp/>download<sp/>from<sp/>&lt;a<sp/>href=\&quot;%1\&quot;&gt;%1&lt;/a&gt;.&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>grid.url<sp/>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gridMessage<sp/>+=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;&lt;li&gt;%1&lt;/li&gt;&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>m<sp/>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!gridMessage.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>gridMessage<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;ul&gt;&quot;</highlight><highlight class="normal"><sp/>+<sp/>gridMessage<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&lt;/ul&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>QString<sp/>accuracyMessage;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>availableOperation.accuracy<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>preferredOperation.accuracy<sp/>&gt;=<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>accuracyMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;Current<sp/>transform<sp/>“&lt;i&gt;%1&lt;/i&gt;”<sp/>has<sp/>an<sp/>accuracy<sp/>of<sp/>%2<sp/>meters,<sp/>while<sp/>the<sp/>preferred<sp/>transformation<sp/>“&lt;i&gt;%3&lt;/i&gt;”<sp/>has<sp/>accuracy<sp/>%4<sp/>meters.&lt;/p&gt;&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>availableOperation.name<sp/>).arg(<sp/>availableOperation.accuracy<sp/>).arg(<sp/>preferredOperation.name<sp/>).arg(<sp/>preferredOperation.accuracy<sp/>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>preferredOperation.accuracy<sp/>&gt;=<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>accuracyMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;Current<sp/>transform<sp/>“&lt;i&gt;%1&lt;/i&gt;”<sp/>has<sp/>an<sp/>unknown<sp/>accuracy,<sp/>while<sp/>the<sp/>preferred<sp/>transformation<sp/>“&lt;i&gt;%2&lt;/i&gt;”<sp/>has<sp/>accuracy<sp/>%3<sp/>meters.&lt;/p&gt;&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>availableOperation.name<sp/>).arg(<sp/>preferredOperation.name<sp/>).arg(<sp/>preferredOperation.accuracy<sp/>);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>longMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;The<sp/>preferred<sp/>transform<sp/>between<sp/>&lt;i&gt;%1&lt;/i&gt;<sp/>and<sp/>&lt;i&gt;%2&lt;/i&gt;<sp/>is<sp/>not<sp/>available<sp/>for<sp/>use<sp/>on<sp/>the<sp/>system.&lt;/p&gt;&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>sourceCrs.userFriendlyIdentifier(),<sp/>destinationCrs.userFriendlyIdentifier()<sp/>)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>gridMessage<sp/>+<sp/>accuracyMessage;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>QgsMessageLog::logMessage(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1\n%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>longMessage,<sp/>downloadMessage<sp/>),<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;projection&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AppMissingGridHandler::onCoordinateOperationCreationError(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;sourceCrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;error<sp/>)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!shouldWarnAboutPairForCurrentProject(<sp/>sourceCrs,<sp/>destinationCrs<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>longMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;No<sp/>transform<sp/>is<sp/>available<sp/>between<sp/>&lt;i&gt;%1&lt;/i&gt;<sp/>and<sp/>&lt;i&gt;%2&lt;/i&gt;.&lt;p<sp/>style=\&quot;color:<sp/>red\&quot;&gt;%3&lt;/p&gt;&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>sourceCrs.userFriendlyIdentifier(),<sp/>destinationCrs.userFriendlyIdentifier(),<sp/>error<sp/>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>QgsMessageLog::logMessage(<sp/>longMessage,<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;projection&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AppMissingGridHandler::onMissingGridUsedByContextHandler(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;sourceCrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsDatumTransform::TransformDetails<sp/>&amp;desired<sp/>)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!shouldWarnAboutPairForCurrentProject(<sp/>sourceCrs,<sp/>destinationCrs<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>shortMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;Cannot<sp/>use<sp/>project<sp/>transform<sp/>between<sp/>%1<sp/>and<sp/>%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>sourceCrs.userFriendlyIdentifier(<sp/>Qgis::CrsIdentifierType::ShortString<sp/>),<sp/>destinationCrs.userFriendlyIdentifier(<sp/>Qgis::CrsIdentifierType::ShortString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>QString<sp/>gridMessage;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>QString<sp/>downloadMessage;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsDatumTransform::GridDetails<sp/>&amp;grid<sp/>:<sp/>desired.grids<sp/>)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!grid.isAvailable<sp/>)</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>m<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;This<sp/>transformation<sp/>requires<sp/>the<sp/>grid<sp/>file<sp/>“%1”,<sp/>which<sp/>is<sp/>not<sp/>available<sp/>for<sp/>use<sp/>on<sp/>the<sp/>system.&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>grid.shortName<sp/>);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!grid.url.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!grid.packageName.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>downloadMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;This<sp/>grid<sp/>is<sp/>part<sp/>of<sp/>the<sp/>&lt;i&gt;%1&lt;/i&gt;<sp/>package,<sp/>available<sp/>for<sp/>download<sp/>from<sp/>&lt;a<sp/>href=\&quot;%2\&quot;&gt;%2&lt;/a&gt;.&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>grid.packageName,<sp/>grid.url<sp/>);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>downloadMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;This<sp/>grid<sp/>is<sp/>available<sp/>for<sp/>download<sp/>from<sp/>&lt;a<sp/>href=\&quot;%1\&quot;&gt;%1&lt;/a&gt;.&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>grid.url<sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gridMessage<sp/>+=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;&lt;li&gt;%1&lt;/li&gt;&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>m<sp/>);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>QgsMessageLog::logMessage(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1\n%2\n%3&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>shortMessage,<sp/>gridMessage,<sp/>downloadMessage<sp/>),<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;projection&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AppMissingGridHandler::onFallbackOperationOccurred(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;sourceCrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;desired<sp/>)</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>Q_UNUSED(<sp/>desired<sp/>)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!shouldWarnAboutBallparkPairForCurrentProject(<sp/>sourceCrs,<sp/>destinationCrs<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>shortMessage<sp/>=<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>a<sp/>ballpark<sp/>transform<sp/>from<sp/>%1<sp/>to<sp/>%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>sourceCrs.userFriendlyIdentifier(<sp/>Qgis::CrsIdentifierType::ShortString<sp/>),<sp/>destinationCrs.userFriendlyIdentifier(<sp/>Qgis::CrsIdentifierType::ShortString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/>QgsMessageLog::logMessage(<sp/>shortMessage,<sp/>tr(<sp/></highlight><highlight class="stringliteral">&quot;projection&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>AppMissingGridHandler::shouldWarnAboutPair(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;<ref refid="classsource" kindref="compound">source</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;dest<sp/>)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mAlreadyWarnedPairs.contains(<sp/>qMakePair(<sp/><ref refid="classsource" kindref="compound">source</ref>,<sp/>dest<sp/>)<sp/>)<sp/>||<sp/>mAlreadyWarnedPairs.contains(<sp/>qMakePair(<sp/>dest,<sp/><ref refid="classsource" kindref="compound">source</ref><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>mAlreadyWarnedPairs.append(<sp/>qMakePair(<sp/><ref refid="classsource" kindref="compound">source</ref>,<sp/>dest<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>AppMissingGridHandler::shouldWarnAboutPairForCurrentProject(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;<ref refid="classsource" kindref="compound">source</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;dest<sp/>)</highlight></codeline>
+<codeline lineno="198"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mAlreadyWarnedPairsForProject.contains(<sp/>qMakePair(<sp/><ref refid="classsource" kindref="compound">source</ref>,<sp/>dest<sp/>)<sp/>)<sp/>||<sp/>mAlreadyWarnedPairsForProject.contains(<sp/>qMakePair(<sp/>dest,<sp/><ref refid="classsource" kindref="compound">source</ref><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>mAlreadyWarnedPairsForProject.append(<sp/>qMakePair(<sp/><ref refid="classsource" kindref="compound">source</ref>,<sp/>dest<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>AppMissingGridHandler::shouldWarnAboutBallparkPairForCurrentProject(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;<ref refid="classsource" kindref="compound">source</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;dest<sp/>)</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mAlreadyWarnedBallparkPairsForProject.contains(<sp/>qMakePair(<sp/><ref refid="classsource" kindref="compound">source</ref>,<sp/>dest<sp/>)<sp/>)<sp/>||<sp/>mAlreadyWarnedBallparkPairsForProject.contains(<sp/>qMakePair(<sp/>dest,<sp/><ref refid="classsource" kindref="compound">source</ref><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>mAlreadyWarnedBallparkPairsForProject.append(<sp/>qMakePair(<sp/><ref refid="classsource" kindref="compound">source</ref>,<sp/>dest<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/appcoordinateoperationhandlers.cpp"/>
+  </compounddef>
+</doxygen>

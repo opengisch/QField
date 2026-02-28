@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfield_8h_8in" kind="file" language="C++">
+    <compoundname>qfield.h.in</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">/***************************************************************************</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qfield.h</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>---------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Jun<sp/>2020</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2020<sp/>by<sp/>Ivan<sp/>Ivanov</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>ivan@opengis.ch</highlight></codeline>
+<codeline><highlight class="normal">***************************************************************************/</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">/***************************************************************************</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>***************************************************************************/</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#ifndef<sp/>QFIELD_H</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>QFIELD_H</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;QString&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">/**</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>Contains<sp/>&quot;polyfills&quot;<sp/>for<sp/>backporting<sp/>c++<sp/>features<sp/>from<sp/>standards<sp/>&gt;<sp/>c++17<sp/>and<sp/>Qt<sp/>global<sp/>methods</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>added<sp/>later<sp/>than<sp/>our<sp/>minimum<sp/>version,<sp/>as<sp/>well<sp/>nice<sp/>some<sp/>sugar.</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">namespace<sp/>qfield</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>/**</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/>Can<sp/>be<sp/>used<sp/>to<sp/>iterate<sp/>over<sp/>`QMap`s<sp/>in<sp/>a<sp/>convenient<sp/>way.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/>\code{.cpp}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/>for<sp/>(auto<sp/>[key,<sp/>value]:<sp/>asKeyValueRange(map))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/><sp/><sp/>//<sp/>do<sp/>something<sp/>with<sp/>`key`<sp/>and<sp/>`value`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/>\endcode</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>template&lt;typename<sp/>T&gt;<sp/>class<sp/>asKeyValueRange</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>public:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>explicit<sp/>asKeyValueRange(<sp/>T<sp/>&amp;data<sp/>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mData<sp/>{<sp/>data<sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>begin()<sp/>{<sp/>return<sp/>mData.keyValueBegin();<sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>end()<sp/>{<sp/>return<sp/>mData.keyValueEnd();<sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>private:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/>&amp;mData;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>static<sp/>inline<sp/>const<sp/>QString<sp/>gitRev{<sp/>QStringLiteral(<sp/>&quot;@GIT_REV@&quot;<sp/>)<sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>static<sp/>inline<sp/>const<sp/>QString<sp/>appVersion{<sp/>QStringLiteral(<sp/>&quot;@APP_VERSION@&quot;<sp/>)<sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>static<sp/>inline<sp/>const<sp/>QString<sp/>appVersionStr{<sp/>QStringLiteral(<sp/>&quot;@APP_VERSION_STR@&quot;<sp/>)<sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>static<sp/>inline<sp/>const<sp/>QString<sp/>appName{<sp/>QStringLiteral(<sp/>&quot;@APP_NAME@&quot;<sp/>)<sp/>};</highlight></codeline>
+<codeline><highlight class="normal">};<sp/>//<sp/>namespace<sp/>qfield</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#define<sp/>WITH_SENTRY<sp/>@WITH_SENTRY@</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>QGIS_PREFIX_PATH<sp/>&quot;@QGIS_PREFIX_PATH@&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#define<sp/>SUPPORTED_PROJECT_EXTENSIONS<sp/>QStringList(<sp/>{<sp/>QStringLiteral(<sp/>&quot;qgs&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;qgz&quot;<sp/>)<sp/>}<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>SUPPORTED_VECTOR_EXTENSIONS<sp/>QStringList(<sp/>{<sp/>QStringLiteral(<sp/>&quot;gpkg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;shp&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;kml&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;kmz&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;geojson&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;json&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;pdf&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;gpx&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;gml&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;mif&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;fgb&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;db&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;sqlite&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;mbtiles&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;vrt&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;zip&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;7z&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;rar&quot;<sp/>)<sp/>}<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>SUPPORTED_RASTER_EXTENSIONS<sp/>QStringList(<sp/>{<sp/>QStringLiteral(<sp/>&quot;tif&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;tiff&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;pdf&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jpg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jpeg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;png&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;gpkg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jp2&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;webp&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;mbtiles&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;vrt&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;zip&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;7z&quot;<sp/>)<sp/>}<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>SUPPORTED_FILE_EXTENSIONS<sp/>QStringList(<sp/>{<sp/>QStringLiteral(<sp/>&quot;log&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;txt&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;mp4&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;m4a&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;ogg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;mp3&quot;<sp/>)<sp/>}<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>SUPPORTED_DATASET_THUMBNAIL<sp/>QStringList(<sp/>{<sp/>QStringLiteral(<sp/>&quot;zip&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;tif&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;tiff&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;pdf&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jpg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jpeg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;png&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jp2&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;webp&quot;<sp/>)<sp/>}<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#endif<sp/>//<sp/>QFIELD_H</highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfield.h.in"/>
+  </compounddef>
+</doxygen>

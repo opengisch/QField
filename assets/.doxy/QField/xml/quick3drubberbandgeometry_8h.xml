@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="quick3drubberbandgeometry_8h" kind="file" language="C++">
+    <compoundname>quick3drubberbandgeometry.h</compoundname>
+    <includes refid="quick3dterrainprovider_8h" local="yes">quick3dterrainprovider.h</includes>
+    <includes refid="rubberbandmodel_8h" local="yes">rubberbandmodel.h</includes>
+    <includes local="no">QColor</includes>
+    <includes local="no">QQuick3DGeometry</includes>
+    <includedby refid="quick3drubberbandgeometry_8cpp" local="yes">src/core/3d/quick3drubberbandgeometry.cpp</includedby>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/3d/quick3drubberbandgeometry.h</label>
+        <link refid="quick3drubberbandgeometry_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>quick3dterrainprovider.h</label>
+        <link refid="quick3dterrainprovider_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>rubberbandmodel.h</label>
+        <link refid="rubberbandmodel_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>QColor</label>
+      </node>
+      <node id="20">
+        <label>QDateTime</label>
+      </node>
+      <node id="12">
+        <label>QFutureWatcher</label>
+      </node>
+      <node id="5">
+        <label>QObject</label>
+      </node>
+      <node id="21">
+        <label>QPointF</label>
+      </node>
+      <node id="13">
+        <label>QPointer</label>
+      </node>
+      <node id="28">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="14">
+        <label>QSize</label>
+      </node>
+      <node id="15">
+        <label>QVariantList</label>
+      </node>
+      <node id="22">
+        <label>QVector</label>
+      </node>
+      <node id="16">
+        <label>QVector3D</label>
+      </node>
+      <node id="18">
+        <label>memory</label>
+      </node>
+      <node id="4">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="23">
+        <label>qgis.h</label>
+      </node>
+      <node id="24">
+        <label>qgsabstractgeometry.h</label>
+      </node>
+      <node id="25">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="6">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="26">
+        <label>qgsgeometry.h</label>
+      </node>
+      <node id="7">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="8">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="9">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="10">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="17">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="11">
+        <label>qgsrectangle.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classQuick3DRubberbandGeometry" prot="public">Quick3DRubberbandGeometry</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>quick3drubberbandgeometry.h<sp/>-<sp/>Quick3DRubberbandGeometry</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>9.2.2026</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2026<sp/>by<sp/>Mohsen<sp/>Dehghanzadeh</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mohsen@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QUICK3DRUBBERBANDGEOMETRY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QUICK3DRUBBERBANDGEOMETRY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;quick3dterrainprovider.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rubberbandmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QColor&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QQuick3DGeometry&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="classQuick3DRubberbandGeometry" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQuick3DRubberbandGeometry" kindref="compound">Quick3DRubberbandGeometry</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QQuick3DGeometry</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_ELEMENT</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classQuick3DRubberbandGeometry_1adcf2aa83c43186cbfa8a8082c68d9e90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*<ref refid="classQuick3DRubberbandGeometry_1adcf2aa83c43186cbfa8a8082c68d9e90" kindref="member">rubberbandModel</ref><sp/>READ<sp/><ref refid="classQuick3DRubberbandGeometry_1adcf2aa83c43186cbfa8a8082c68d9e90" kindref="member">rubberbandModel</ref><sp/>WRITE<sp/><ref refid="classQuick3DRubberbandGeometry_1add19ef5fc4d075312d10b86908e91423" kindref="member">setRubberbandModel</ref><sp/>NOTIFY<sp/>rubberbandModelChanged<sp/>)</highlight></codeline>
+<codeline lineno="44" refid="classQuick3DRubberbandGeometry_1a9fa944562cf562811de6d2aa2b6e8809" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref><sp/>*<ref refid="classQuick3DRubberbandGeometry_1a9fa944562cf562811de6d2aa2b6e8809" kindref="member">terrainProvider</ref><sp/>READ<sp/><ref refid="classQuick3DRubberbandGeometry_1a9fa944562cf562811de6d2aa2b6e8809" kindref="member">terrainProvider</ref><sp/>WRITE<sp/><ref refid="classQuick3DRubberbandGeometry_1ac2c24151b5df0c9a973fa4d9407697e3" kindref="member">setTerrainProvider</ref><sp/>NOTIFY<sp/>terrainProviderChanged<sp/>)</highlight></codeline>
+<codeline lineno="46" refid="classQuick3DRubberbandGeometry_1a603ae572b8c6e6ecf2b11b36e1cfe365" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1a603ae572b8c6e6ecf2b11b36e1cfe365" kindref="member">radius</ref><sp/>READ<sp/><ref refid="classQuick3DRubberbandGeometry_1a603ae572b8c6e6ecf2b11b36e1cfe365" kindref="member">radius</ref><sp/>WRITE<sp/><ref refid="classQuick3DRubberbandGeometry_1a58179f63c377ba8e6ab499affa5cd710" kindref="member">setRadius</ref><sp/>NOTIFY<sp/>radiusChanged<sp/>)</highlight></codeline>
+<codeline lineno="48" refid="classQuick3DRubberbandGeometry_1a31a77dab99d42c0ffc869a3cd50adaf9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1a31a77dab99d42c0ffc869a3cd50adaf9" kindref="member">segments</ref><sp/>READ<sp/><ref refid="classQuick3DRubberbandGeometry_1a31a77dab99d42c0ffc869a3cd50adaf9" kindref="member">segments</ref><sp/>WRITE<sp/><ref refid="classQuick3DRubberbandGeometry_1a02ffb3fc2b14fba61d3d926459fe5279" kindref="member">setSegments</ref><sp/>NOTIFY<sp/>segmentsChanged<sp/>)</highlight></codeline>
+<codeline lineno="50" refid="classQuick3DRubberbandGeometry_1acb54e763973880c4435a95947c99bec5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1acb54e763973880c4435a95947c99bec5" kindref="member">heightOffset</ref><sp/>READ<sp/><ref refid="classQuick3DRubberbandGeometry_1acb54e763973880c4435a95947c99bec5" kindref="member">heightOffset</ref><sp/>WRITE<sp/><ref refid="classQuick3DRubberbandGeometry_1a87bdb909ff82c1c231a3a35837a66135" kindref="member">setHeightOffset</ref><sp/>NOTIFY<sp/>heightOffsetChanged<sp/>)</highlight></codeline>
+<codeline lineno="52" refid="classQuick3DRubberbandGeometry_1aaa937bd558d6289f22f88ceb9e8c33eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QColor<sp/><ref refid="classQuick3DRubberbandGeometry_1aaa937bd558d6289f22f88ceb9e8c33eb" kindref="member">color</ref><sp/>READ<sp/><ref refid="classQuick3DRubberbandGeometry_1aaa937bd558d6289f22f88ceb9e8c33eb" kindref="member">color</ref><sp/>WRITE<sp/><ref refid="classQuick3DRubberbandGeometry_1ab99fed1e34e5dc2ebdc5e1d6682a1fe1" kindref="member">setColor</ref><sp/>NOTIFY<sp/>colorChanged<sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classQuick3DRubberbandGeometry" kindref="compound">Quick3DRubberbandGeometry</ref>(<sp/>QQuick3DObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="classQuick3DRubberbandGeometry_1a074454e682f4ab477937a26c0d84617e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*<ref refid="classQuick3DRubberbandGeometry_1adcf2aa83c43186cbfa8a8082c68d9e90" kindref="member">rubberbandModel</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mRubberbandModel;<sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1add19ef5fc4d075312d10b86908e91423" kindref="member">setRubberbandModel</ref>(<sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*model<sp/>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="classQuick3DRubberbandGeometry_1abd057eb086b2ce43c87d4a714936591c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref><sp/>*<ref refid="classQuick3DRubberbandGeometry_1abd057eb086b2ce43c87d4a714936591c" kindref="member">terrainProvider</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mTerrainProvider;<sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1ac2c24151b5df0c9a973fa4d9407697e3" kindref="member">setTerrainProvider</ref>(<sp/><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref><sp/>*provider<sp/>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="classQuick3DRubberbandGeometry_1ae7ce18baab2f3f7076bb9567d3aefca7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1ae7ce18baab2f3f7076bb9567d3aefca7" kindref="member">radius</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mRadius;<sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1a58179f63c377ba8e6ab499affa5cd710" kindref="member">setRadius</ref>(<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1a603ae572b8c6e6ecf2b11b36e1cfe365" kindref="member">radius</ref><sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="classQuick3DRubberbandGeometry_1a70a0f5b804b5c76b3b6aa12bc0684263" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1a70a0f5b804b5c76b3b6aa12bc0684263" kindref="member">segments</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mSegments;<sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1a02ffb3fc2b14fba61d3d926459fe5279" kindref="member">setSegments</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1a31a77dab99d42c0ffc869a3cd50adaf9" kindref="member">segments</ref><sp/>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="classQuick3DRubberbandGeometry_1aed084a3f5400f097f1f60b97afb1d3ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1aed084a3f5400f097f1f60b97afb1d3ee" kindref="member">heightOffset</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mHeightOffset;<sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1a87bdb909ff82c1c231a3a35837a66135" kindref="member">setHeightOffset</ref>(<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>offset<sp/>);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="classQuick3DRubberbandGeometry_1a44812720994eeb1e46d2e6dfe53a64a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/><ref refid="classQuick3DRubberbandGeometry_1a44812720994eeb1e46d2e6dfe53a64a7" kindref="member">color</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mColor;<sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQuick3DRubberbandGeometry_1ab99fed1e34e5dc2ebdc5e1d6682a1fe1" kindref="member">setColor</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QColor<sp/>&amp;<ref refid="classQuick3DRubberbandGeometry_1aaa937bd558d6289f22f88ceb9e8c33eb" kindref="member">color</ref><sp/>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rubberbandModelChanged();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>terrainProviderChanged();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>radiusChanged();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>segmentsChanged();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>heightOffsetChanged();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>colorChanged();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>markDirtyAndUpdate();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateGeometry();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*mRubberbandModel<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref><sp/>*mTerrainProvider<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mRadius<sp/>=<sp/>3.0f;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mSegments<sp/>=<sp/>8;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mHeightOffset<sp/>=<sp/>15.0f;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mDirty<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>mColor<sp/>=<sp/>QColor(<sp/>255,<sp/>240,<sp/>50<sp/>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QUICK3DRUBBERBANDGEOMETRY_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/3d/quick3drubberbandgeometry.h"/>
+  </compounddef>
+</doxygen>
