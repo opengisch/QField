@@ -18,6 +18,7 @@
 #include "catch2.h"
 #include "maplayermodel.h"
 #include "trackingmodel.h"
+
 #include <QSignalSpy>
 #include <qgsfield.h>
 #include <qgsmemoryproviderutils.h>
