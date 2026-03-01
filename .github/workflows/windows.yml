@@ -95,9 +95,7 @@ jobs:
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -D VCPKG_HOST_TRIPLET="${{ matrix.triplet }}" \
                 -D WITH_VCPKG=ON \
-                -D WITH_SPIX=ON \
-                -D WITH_SENTRY=OFF \
-                -D WITH_UNITTESTS=OFF \
+                -D WITH_SPIX=ON \                -D WITH_UNITTESTS=OFF \
                 -D WITH_NFC=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
@@ -110,7 +108,6 @@ jobs:
                 -D WITH_BLUETOOTH=ON \
                 -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src" \
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
-                -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
                 ${EXTRA_CMAKE_ARGS}
 
