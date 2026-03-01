@@ -433,6 +433,9 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<QgsField>( "QgsField" );
   qRegisterMetaType<QgsDefaultValue>( "QgsDefaultValue" );
   qRegisterMetaType<QgsFieldConstraints>( "QgsFieldConstraints" );
+  qRegisterMetaType<QgsCoordinateReferenceSystem>( "QgsCoordinateReferenceSystem" );
+  qRegisterMetaType<QgsUnitTypes>( "QgsUnitTypes" );
+  qRegisterMetaType<QgsWkbTypes>( "QgsWkbTypes" );
 
   qRegisterMetaType<Qgis::GeometryType>( "Qgis::GeometryType" );
   qRegisterMetaType<Qgis::WkbType>( "Qgis::WkbType" );
@@ -444,14 +447,11 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<Qgis::DeviceConnectionStatus>( "Qgis::DeviceConnectionStatus" );
   qRegisterMetaType<Qgis::SnappingMode>( "Qgis::SnappingMode" );
 
-  qmlRegisterUncreatableType<Qgis>( "org.qgis", 1, 0, "Qgis", "" );
+  qmlRegisterUncreatableMetaObject( Qgis::staticMetaObject, "org.qgis", 1, 0, "Qgis", "Used to access enum values" );
 
   qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
   qmlRegisterUncreatableType<QgsProjectDisplaySettings>( "org.qgis", 1, 0, "ProjectDisplaySettings", "" );
-  qmlRegisterUncreatableType<QgsCoordinateReferenceSystem>( "org.qgis", 1, 0, "CoordinateReferenceSystem", "" );
-  qmlRegisterUncreatableType<QgsUnitTypes>( "org.qgis", 1, 0, "QgsUnitTypes", "" );
   qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
-  qmlRegisterUncreatableType<QgsWkbTypes>( "org.qgis", 1, 0, "QgsWkbTypes", "" );
   qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
   qmlRegisterUncreatableType<QgsRasterLayer>( "org.qgis", 1, 0, "RasterLayer", "" );
   qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
@@ -481,7 +481,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<PositioningSource::ElevationCorrectionMode>( "PositioningSource::ElevationCorrectionMode" );
 
   qmlRegisterType<MultiFeatureListModel>( "org.qfield", 1, 0, "MultiFeatureListModel" );
-  qmlRegisterType<FeatureIterator>( "org.qfield", 1, 0, "FeatureIterator" );
   qmlRegisterType<FeatureListModel>( "org.qfield", 1, 0, "FeatureListModel" );
   qmlRegisterType<FeatureListModelSelection>( "org.qfield", 1, 0, "FeatureListModelSelection" );
   qmlRegisterType<FeatureListExtentController>( "org.qfield", 1, 0, "FeaturelistExtentController" );
@@ -493,12 +492,14 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<ProjectSource>( "org.qfield", 1, 0, "ProjectSource" );
   qmlRegisterType<ViewStatus>( "org.qfield", 1, 0, "ViewStatus" );
   qmlRegisterType<GridModel>( "org.qfield", 1, 0, "GridModel" );
-  qmlRegisterUncreatableType<GridAnnotation>( "org.qfield", 1, 0, "GridAnnotation", "" );
+  qmlRegisterUncreatableType<GridAnnotation>( "org.qfield", 1, 0, "gridAnnotation", "Used for property values" );
+  qmlRegisterUncreatableMetaObject( GridAnnotation::staticMetaObject, "org.qfield", 1, 0, "GridAnnotation", "Used to access enum values" );
 
   qmlRegisterType<CogoExecutor>( "org.qfield", 1, 0, "CogoExecutor" );
   qmlRegisterType<CogoOperationsModel>( "org.qfield", 1, 0, "CogoOperationsModel" );
-  qmlRegisterUncreatableType<CogoParameter>( "org.qfield", 1, 0, "CogoParameter", "" );
-  qmlRegisterUncreatableType<CogoVisualGuide>( "org.qfield", 1, 0, "CogoVisualGuide", "" );
+  qmlRegisterUncreatableType<CogoParameter>( "org.qfield", 1, 0, "cogoParameter", "Used for property values" );
+  qmlRegisterUncreatableType<CogoVisualGuide>( "org.qfield", 1, 0, "cogoVisualGuide", "Used for property values" );
+  qmlRegisterUncreatableMetaObject( CogoVisualGuide::staticMetaObject, "org.qfield", 1, 0, "CogoVisualGuide", "Used to access enum values" );
 
   qmlRegisterType<Geofencer>( "org.qfield", 1, 0, "Geofencer" );
   qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );
@@ -546,7 +547,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   engine->rootContext()->setContextProperty( "withSerialPort", QVariant( false ) );
 #endif
   qmlRegisterType<NearFieldReader>( "org.qfield", 1, 0, "NearFieldReader" );
-  engine->rootContext()->setContextProperty( "withNfc", QVariant( NearFieldReader::isSupported() ) );
   qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
   qmlRegisterType<LayerResolver>( "org.qfield", 1, 0, "LayerResolver" );
   qmlRegisterType<QFieldCloudConnection>( "org.qfield", 1, 0, "QFieldCloudConnection" );
@@ -570,20 +570,22 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
-  qmlRegisterUncreatableType<GnssPositionInformation>( "org.qfield", 1, 0, "GnssPositionInformation", "Access to enums and properties only; cannot instantiate in QML." );
 
+  qmlRegisterUncreatableType<GnssPositionInformation>( "org.qfield", 1, 0, "gnssPositionInformation", "Used for property values" );
+  qmlRegisterUncreatableMetaObject( GnssPositionInformation::staticMetaObject, "org.qfield", 1, 0, "GnssPositionInformation", "USed to access to enum values" );
   qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
-  qRegisterMetaType<PluginInformation>( "PluginInformation" );
 
+  qRegisterMetaType<PluginInformation>( "PluginInformation" );
   qmlRegisterType<PluginModel>( "org.qfield", 1, 0, "PluginModel" );
   qmlRegisterType<PluginProxyModel>( "org.qfield", 1, 0, "PluginProxyModel" );
+  qmlRegisterType<FeatureIterator>( "org.qfield", 1, 0, "featureIterator" );
 
   qmlRegisterType<ProcessingAlgorithm>( "org.qfield", 1, 0, "ProcessingAlgorithm" );
   qmlRegisterType<ProcessingAlgorithmParametersModel>( "org.qfield", 1, 0, "ProcessingAlgorithmParametersModel" );
   qmlRegisterType<ProcessingAlgorithmsModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsModel" );
 
-  qmlRegisterType<QgsLocatorContext>( "org.qgis", 1, 0, "QgsLocatorContext" );
   qmlRegisterType<QFieldLocatorFilter>( "org.qfield", 1, 0, "QFieldLocatorFilter" );
+  qmlRegisterUncreatableType<QgsLocatorContext>( "org.qgis", 1, 0, "locatorContext", "Used as parameter type in invokable function" );
 
   QScreen *screen = QGuiApplication::primaryScreen();
   const qreal dpi = screen ? screen->logicalDotsPerInch() * screen->devicePixelRatio() : 96.0;

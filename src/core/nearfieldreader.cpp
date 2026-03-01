@@ -28,17 +28,15 @@
 NearFieldReader::NearFieldReader( QObject *parent )
   : QObject( parent )
 {
-#ifdef WITH_NFC
-  mNearFieldManager = new QNearFieldManager( this );
-  connect( mNearFieldManager, &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetDetected );
-  connect( mNearFieldManager, &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetLost );
-#endif
 }
 
 NearFieldReader::~NearFieldReader()
 {
 #ifdef WITH_NFC
-  mNearFieldManager->stopTargetDetection();
+  if ( mNearFieldManager )
+  {
+    mNearFieldManager->stopTargetDetection();
+  }
 #endif
 }
 
@@ -61,6 +59,16 @@ void NearFieldReader::setActive( bool active )
   emit activeChanged();
 
 #ifdef WITH_NFC
+  if ( !mNearFieldManager )
+  {
+    qDebug() << "NFC..";
+    qDebug() << "NFC..";
+    qDebug() << "NFC..";
+    mNearFieldManager = new QNearFieldManager( this );
+    connect( mNearFieldManager, &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetDetected );
+    connect( mNearFieldManager, &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetLost );
+  }
+
   if ( mActive )
   {
     mNearFieldManager->startTargetDetection( QNearFieldTarget::AnyAccess );
