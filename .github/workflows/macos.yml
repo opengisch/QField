@@ -217,7 +217,7 @@ jobs:
           export DMG_PATH=qfield.dmg
           ./platform/macos/create_dmg.sh
 
-          echo "ARTIFACT_PACKAGE_NAME=qfield-dmg" >> $GITHUB_ENV
+          echo "ARTIFACT_PACKAGE_NAME=qfield" >> $GITHUB_ENV
 
       - name: 📤 Upload app
         uses: actions/upload-artifact@v7
