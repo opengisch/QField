@@ -332,6 +332,13 @@ ApplicationWindow {
   }
 
   onClose3DView: {
+    // Sync 2D map to the 3D extent so we land on the same area
+    if (mapCanvas3DLoader.item) {
+      const ext = mapCanvas3DLoader.item.terrainExtent;
+      if (ext && ext.width > 0 && ext.height > 0) {
+        mapCanvas.mapSettings.extent = ext;
+      }
+    }
     changeMode(stateMachine.lastState);
   }
 

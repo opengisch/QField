@@ -140,6 +140,15 @@ class Quick3DTerrainProvider : public QObject
      */
     Q_INVOKABLE double calculateVisualExaggeration() const;
 
+    /**
+     * Sets a custom geographic extent, regenerating terrain and emitting extentChanged.
+     * \param xMin Minimum X (west) in map CRS
+     * \param yMin Minimum Y (south) in map CRS
+     * \param xMax Maximum X (east) in map CRS
+     * \param yMax Maximum Y (north) in map CRS
+     */
+    Q_INVOKABLE void setCustomExtent( double xMin, double yMin, double xMax, double yMax );
+
   signals:
     void projectChanged();
     void mapSettingsChanged();
@@ -157,6 +166,7 @@ class Quick3DTerrainProvider : public QObject
     void updateTerrainProvider();
     void updateFromMapSettings();
     void calculateResolution();
+    void applyExtent( const QgsRectangle &extent );
 
     //! Calculates terrain heights asynchronously in a worker thread and normalizes the data
     void calcNormalizedData();

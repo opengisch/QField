@@ -9,6 +9,10 @@ Item {
   signal singleTapped(real x, real y)
   signal userInteractionStarted
 
+  signal extentPanMoved(real sceneX, real sceneZ)
+  signal extentPanFinished
+  signal extentZoomRequested(real factor)
+
   property vector3d target: Qt.vector3d(0, 100, 0)
 
   property real distance: root.defaultDistance
@@ -303,7 +307,47 @@ Item {
 
     onWheel: function (event) {
       root.userInteractionStarted();
-      root.distance = clampDistance(distance - event.angleDelta.y * 0.5);
+      if (event.modifiers & Qt.ShiftModifier) {
+        const factor = event.angleDelta.y > 0 ? 0.8 : 1.25;
+        root.extentZoomRequested(factor);
+      } else {
+        root.distance = clampDistance(distance - event.angleDelta.y * 0.5);
+      }
+    }
+  }
+
+  DragHandler {
+    id: extentPanHandler
+    target: null
+    acceptedButtons: Qt.LeftButton
+    acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
+    acceptedModifiers: Qt.ShiftModifier
+
+    property var lastPoint
+
+    onActiveChanged: {
+      if (active) {
+        lastPoint = centroid.position;
+        root.userInteractionStarted();
+      } else {
+        root.extentPanFinished();
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        const dx = centroid.position.x - lastPoint.x;
+        const dy = centroid.position.y - lastPoint.y;
+        lastPoint = centroid.position;
+
+        // Convert pixel delta to scene-space displacement
+        const s = root.distance * 0.0025;
+        const yawRad = -root.yaw * Math.PI / 180.0;
+        const sceneX = (dx * s * Math.cos(yawRad) - dy * s * Math.sin(yawRad));
+        const sceneZ = (dx * s * Math.sin(yawRad) + dy * s * Math.cos(yawRad));
+
+        root.extentPanMoved(sceneX, sceneZ);
+      }
     }
   }
 }
