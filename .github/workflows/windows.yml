@@ -15,8 +15,8 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
-# env:
-#   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+env:
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
 jobs:
   build:
@@ -96,6 +96,7 @@ jobs:
                 -D VCPKG_HOST_TRIPLET="${{ matrix.triplet }}" \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=ON \
+                -D WITH_SENTRY=OFF \
                 -D WITH_UNITTESTS=OFF \
                 -D WITH_NFC=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
