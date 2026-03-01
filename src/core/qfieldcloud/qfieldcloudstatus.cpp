@@ -51,11 +51,6 @@ void QFieldCloudStatus::setUrl( const QString &url )
   mDetailsMessage.clear();
   mStatusPageUrl.clear();
   emit statusUpdated();
-
-  if ( !mUrl.isEmpty() )
-  {
-    fetchStatus();
-  }
 }
 
 QFieldCloudStatus::StatusType QFieldCloudStatus::statusType() const
