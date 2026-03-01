@@ -196,6 +196,8 @@ jobs:
           STOREPASS: ${{ secrets.STOREPASS }}
         run: |
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
+          [ ! -f ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk ] || cp ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/${{ env.APP_PACKAGE_NAME }}-${{ matrix.triplet }}.apk
+          [ ! -f ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/android-build-debug.apk ] || cp ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/android-build-debug.apk ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/${{ env.APP_PACKAGE_NAME }}-${{ matrix.triplet }}.apk
 
       - name: 📦 Upload artifacts
         uses: actions/upload-artifact@v7
@@ -203,8 +205,8 @@ jobs:
           name: ${{ env.APP_PACKAGE_NAME }}-${{ matrix.triplet }}
           archive: false
           path: |
-            ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk
-            ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/android-build-debug.apk
+            ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/${{ env.APP_PACKAGE_NAME }}-${{ matrix.triplet }}.apk
+            ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/${{ env.APP_PACKAGE_NAME }}-${{ matrix.triplet }}.apk
 
       - name: 🍺 Deploy
         run: |
