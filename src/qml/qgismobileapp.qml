@@ -3257,6 +3257,7 @@ ApplicationWindow {
     }
 
     onShowCloudPopup: {
+      qfieldCloudStatus.refresh();
       dashBoard.close();
       qfieldCloudPopup.show();
     }
@@ -4934,9 +4935,10 @@ ApplicationWindow {
       }
       previousStatus = cloudConnection.status;
     }
+
     onLoginFailed: function (reason) {
+      qfieldCloudStatus.refresh();
       displayToast(reason);
-      cloudStatus.refresh();
     }
   }
 
@@ -4946,17 +4948,19 @@ ApplicationWindow {
     layerObserver: layerObserverAlias
     gpkgFlusher: gpkgFlusherAlias
 
-    onProjectDownloaded: function (projectId, projectName, hasError, errorString) {
+    onProjectDownloaded: (projectId, projectName, hasError, errorString) => {
       if (hasError) {
         cloudStatus.refresh();
+        displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error');
+      } else {
+        displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
       }
-      return hasError ? displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error') : displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
     }
 
-    onPushFinished: function (projectId, isDownloadingProject, hasError, errorString) {
+    onPushFinished: (projectId, isDownloadingProject, hasError, errorString) => {
       if (hasError) {
-        displayToast(qsTr("Changes failed to reach QFieldCloud: %1").arg(errorString), 'error');
         cloudStatus.refresh();
+        displayToast(qsTr("Changes failed to reach QFieldCloud: %1").arg(errorString), 'error');
         return;
       }
       if (!isDownloadingProject) {
@@ -4970,7 +4974,7 @@ ApplicationWindow {
 
     onWarning: message => displayToast(message)
 
-    onDeltaListModelChanged: function () {
+    onDeltaListModelChanged: () => {
       qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProject.deltaListModel;
     }
   }
@@ -4981,6 +4985,11 @@ ApplicationWindow {
     modal: true
     closePolicy: Popup.CloseOnEscape
     parent: Overlay.overlay
+  }
+
+  QFieldCloudStatus {
+    id: qfieldCloudStatus
+    url: cloudConnection.url
   }
 
   WelcomeScreen {
@@ -5001,6 +5010,7 @@ ApplicationWindow {
     }
 
     onShowQFieldCloudScreen: {
+      qfieldCloudStatus.refresh();
       qfieldCloudScreen.visible = true;
     }
 
