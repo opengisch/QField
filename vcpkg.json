@@ -113,7 +113,7 @@
         "breakpad",
         "transport"
       ],
-      "platform": "windows | linux"
+      "platform": "osx | linux | (!arm & !uwp)"
     },
     "spix-qt6",
     {
