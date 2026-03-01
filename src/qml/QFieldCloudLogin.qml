@@ -13,6 +13,7 @@ Item {
   property bool hasCredentialsAuthentication: true
   property bool isServerUrlEditingActive: false
   property bool isVisible: false
+  property QFieldCloudStatus cloudServiceStatus: null
 
   width: parent.width
   height: connectionSettings.childrenRect.height
@@ -136,9 +137,9 @@ Item {
         onTextChanged: {
           const cleanedText = text.replace(/\s+/g, '');
           if (cleanedText !== cloudConnection.url) {
-            getAuthenticationProvidersTimer.restart();
+            applyUrlTimer.restart();
           } else {
-            getAuthenticationProvidersTimer.stop();
+            applyUrlTimer.stop();
           }
           return cleanedText;
         }
@@ -151,7 +152,7 @@ Item {
       }
 
       Timer {
-        id: getAuthenticationProvidersTimer
+        id: applyUrlTimer
         interval: 500
         repeat: false
         running: false
@@ -159,6 +160,7 @@ Item {
         onTriggered: {
           cloudConnection.url = serverUrlField.text !== '' && prefixUrlWithProtocol(serverUrlField.text) !== cloudConnection.defaultUrl ? prefixUrlWithProtocol(serverUrlField.text) : cloudConnection.defaultUrl;
           cloudConnection.getAuthenticationProviders();
+          qfieldCloudStatus.refresh();
         }
       }
     }
@@ -215,6 +217,10 @@ Item {
           }
         }
       }
+    }
+
+    QFieldCloudStatusBanner {
+      cloudServiceStatus: qfieldCloudLogin.cloudServiceStatus
     }
 
     QfButton {

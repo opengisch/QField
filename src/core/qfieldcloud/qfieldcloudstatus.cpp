@@ -1,0 +1,208 @@
+/***************************************************************************
+    qfieldcloudstatus.cpp
+    ---------------------
+    begin                : February 2026
+    copyright            : (C) 2026 by Mohsen Dehghanzadeh
+    email                : mohsen@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include "networkmanager.h"
+#include "networkreply.h"
+#include "qfieldcloudstatus.h"
+
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <qgsmessagelog.h>
+
+
+QFieldCloudStatus::QFieldCloudStatus( QObject *parent )
+  : QObject( parent )
+{
+}
+
+QString QFieldCloudStatus::url() const
+{
+  return mUrl;
+}
+
+void QFieldCloudStatus::setUrl( const QString &url )
+{
+  if ( url == mUrl )
+  {
+    return;
+  }
+
+  mUrl = url;
+  emit urlChanged();
+
+  // Reset state when URL changes
+  mStatusType = StatusType::Ok;
+  mHasProblem = false;
+  mStatusMessage.clear();
+  mDetailsMessage.clear();
+  mStatusPageUrl.clear();
+  emit statusUpdated();
+}
+
+QFieldCloudStatus::StatusType QFieldCloudStatus::statusType() const
+{
+  return mStatusType;
+}
+
+bool QFieldCloudStatus::hasProblem() const
+{
+  return mHasProblem;
+}
+
+QString QFieldCloudStatus::statusMessage() const
+{
+  return mStatusMessage;
+}
+
+QString QFieldCloudStatus::detailsMessage() const
+{
+  return mDetailsMessage;
+}
+
+QString QFieldCloudStatus::statusPageUrl() const
+{
+  return mStatusPageUrl;
+}
+
+void QFieldCloudStatus::refresh()
+{
+  fetchStatus();
+}
+
+void QFieldCloudStatus::fetchStatus()
+{
+  if ( mUrl.isEmpty() )
+  {
+    return;
+  }
+
+  if ( mPendingReply )
+  {
+    return;
+  }
+
+  QNetworkRequest request;
+  request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+
+  QUrl requestUrl( mUrl + QStringLiteral( "/api/v1/status/" ) );
+  request.setUrl( requestUrl );
+
+  mPendingReply = NetworkManager::get( request );
+
+  connect( mPendingReply, &NetworkReply::finished, this, [this]() {
+    if ( !mPendingReply )
+    {
+      return;
+    }
+    QNetworkReply *rawReply = mPendingReply->currentRawReply();
+    if ( rawReply->error() == QNetworkReply::NoError )
+    {
+      parseStatusResponse( rawReply->readAll() );
+    }
+    else
+    {
+      QgsMessageLog::logMessage( QStringLiteral( "QFieldCloud status check failed: %1" ).arg( rawReply->errorString() ), QStringLiteral( "QFieldCloud" ), Qgis::MessageLevel::Warning );
+
+      if ( rawReply->error() == QNetworkReply::HostNotFoundError )
+      {
+        mHasProblem = true;
+        mStatusType = StatusType::Incident;
+        mStatusMessage = tr( "QFieldCloud server is not reachable" );
+        mDetailsMessage = tr( "The server at %1 could not be reached. Please check your internet connection." ).arg( mUrl );
+
+        if ( mStatusPageUrl.isEmpty() && mUrl == QStringLiteral( "https://app.qfield.cloud" ) )
+        {
+          mStatusPageUrl = QStringLiteral( "https://status.qfield.cloud" );
+        }
+
+        emit statusUpdated();
+      }
+    }
+    mPendingReply->deleteLater();
+    mPendingReply = nullptr;
+  } );
+}
+
+void QFieldCloudStatus::parseStatusResponse( const QByteArray &data )
+{
+  QJsonParseError jsonError;
+  const QJsonDocument doc = QJsonDocument::fromJson( data, &jsonError );
+
+  if ( jsonError.error != QJsonParseError::NoError || !doc.isObject() )
+  {
+    return;
+  }
+
+  const QJsonObject obj = doc.object();
+
+  const QString databaseStatus = obj.value( QStringLiteral( "database" ) ).toString();
+  const QString storageStatus = obj.value( QStringLiteral( "storage" ) ).toString();
+  mStatusPageUrl = obj.value( QStringLiteral( "status_page_url" ) ).toString();
+  mIncidentMessage = obj.value( QStringLiteral( "incident_message" ) ).toString();
+  const QString incidentTimestamp = obj.value( QStringLiteral( "incident_timestamp_utc" ) ).toString();
+  mMaintenanceMessage = obj.value( QStringLiteral( "maintenance_message" ) ).toString();
+
+  // Determine if there is a problem
+  const bool databaseDegraded = !databaseStatus.isEmpty() && databaseStatus != QStringLiteral( "ok" );
+  const bool storageDegraded = !storageStatus.isEmpty() && storageStatus != QStringLiteral( "ok" );
+  const bool hasIncident = !incidentTimestamp.isEmpty();
+  const bool hasMaintenance = !mMaintenanceMessage.isEmpty();
+
+  mHasProblem = databaseDegraded || storageDegraded || hasIncident || hasMaintenance;
+
+  mStatusType = StatusType::Ok;
+
+  if ( mHasProblem )
+  {
+    QStringList messages;
+    QStringList details;
+
+    if ( hasMaintenance )
+    {
+      messages << tr( "QFieldCloud is under maintenance" );
+      details << mMaintenanceMessage;
+      mStatusType = StatusType::Maintenance;
+    }
+
+    if ( databaseDegraded || storageDegraded )
+    {
+      messages << tr( "QFieldCloud service is degraded" );
+      mStatusType = StatusType::Degraded;
+    }
+
+    if ( hasIncident )
+    {
+      messages << tr( "There is an ongoing incident" );
+      if ( !mIncidentMessage.isEmpty() )
+      {
+        details << mIncidentMessage;
+      }
+      mStatusType = StatusType::Incident;
+    }
+
+    mStatusMessage = messages.join( QStringLiteral( ". " ) );
+    mDetailsMessage = details.join( QStringLiteral( "\n\n" ) );
+  }
+  else
+  {
+    mStatusMessage.clear();
+    mDetailsMessage.clear();
+  }
+
+  emit statusUpdated();
+}
