@@ -12,7 +12,7 @@ QfOverlayContainer {
   property var parameterValues: ({})
 
   property var positionInformations: ({})
-  property GnssPositionInformation positionInformation: PositioningUtils.createEmptyGnssPositionInformation()
+  property gnssPositionInformation positionInformation: PositioningUtils.createEmptyGnssPositionInformation()
 
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
