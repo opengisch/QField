@@ -137,20 +137,20 @@ jobs:
           gtar -cpvzf qfield-app-${{ matrix.triplet }}.tar.gz staging
 
       - name: 📦 Upload package
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: qfield-app-${{ matrix.triplet }}
           path: qfield-app-${{ matrix.triplet }}.tar.gz
 
       - name: 📊 Upload test report
         if: ${{ matrix.run-tests == true && always() }}
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
       - name: 📑 Upload logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: logs-${{ matrix.triplet }}
@@ -220,10 +220,11 @@ jobs:
           echo "ARTIFACT_PACKAGE_NAME=qfield-dmg" >> $GITHUB_ENV
 
       - name: 📤 Upload app
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         id: artifact-macos
         with:
           name: ${{ env.ARTIFACT_PACKAGE_NAME }}
+          archive: false
           path: |
             *.dmg
 
@@ -234,7 +235,7 @@ jobs:
           marker: macos
           body: |
             ### 🍎 MacOS DMG universal builds
-            Download a [MacOS DMG universal build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/${{ env.ARTIFACT_PACKAGE_NAME }}.zip).
+            Download a [MacOS DMG universal build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/${{ env.ARTIFACT_PACKAGE_NAME }}.dmg).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}
 

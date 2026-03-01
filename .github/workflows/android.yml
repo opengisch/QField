@@ -172,7 +172,7 @@ jobs:
                 -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
       - name: 📑 Upload Dep Build Logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: build-logs-${{ matrix.triplet }}
@@ -198,9 +198,10 @@ jobs:
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
 
       - name: 📦 Upload artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ env.APP_PACKAGE_NAME }}-${{ matrix.triplet }}
+          archive: false
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk
             ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/android-build-debug.apk
@@ -296,18 +297,18 @@ jobs:
           marker: android
           body: |
             ### 📱 Android builds
-            Download an [Android arm64 build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield${{ env.APP_PACKAGE_NAME_SUFFIX }}-arm64-android.zip).
+            Download an [Android arm64 build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield${{ env.APP_PACKAGE_NAME_SUFFIX }}-arm64-android.apk).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
             <details>
             <summary>Other Android architectures</summary>
 
-            - [arm-neon](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield${{ env.APP_PACKAGE_NAME_SUFFIX }}-arm-neon-android.zip)
-            - [x64](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield${{ env.APP_PACKAGE_NAME_SUFFIX }}-x64-android.zip)
-            - [x86](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield${{ env.APP_PACKAGE_NAME_SUFFIX }}-x86-android.zip)
-            - [**all access arm64**](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access${{ env.APP_PACKAGE_NAME_SUFFIX }}-arm64-android.zip)
-            - [all access arm-neon](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access${{ env.APP_PACKAGE_NAME_SUFFIX }}-arm-neon-android.zip)
-            - [all access x64](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access${{ env.APP_PACKAGE_NAME_SUFFIX }}-x64-android.zip)
-            - [all access x86](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access${{ env.APP_PACKAGE_NAME_SUFFIX }}-x86-android.zip)
+            - [arm-neon](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield${{ env.APP_PACKAGE_NAME_SUFFIX }}-arm-neon-android.apk)
+            - [x64](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield${{ env.APP_PACKAGE_NAME_SUFFIX }}-x64-android.apk)
+            - [x86](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield${{ env.APP_PACKAGE_NAME_SUFFIX }}-x86-android.apk)
+            - [**all access arm64**](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access${{ env.APP_PACKAGE_NAME_SUFFIX }}-arm64-android.apk)
+            - [all access arm-neon](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access${{ env.APP_PACKAGE_NAME_SUFFIX }}-arm-neon-android.apk)
+            - [all access x64](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access${{ env.APP_PACKAGE_NAME_SUFFIX }}-x64-android.apk)
+            - [all access x86](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access${{ env.APP_PACKAGE_NAME_SUFFIX }}-x86-android.apk)
             </details>
           pr: ${{ github.event.number }}
 

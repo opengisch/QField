@@ -97,7 +97,7 @@ jobs:
                 -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
       - name: 📑 Upload dep build logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: build-logs-x64-linux
@@ -190,10 +190,11 @@ jobs:
 
       - name: 📦 Upload package
         if: ${{ env.ARTIFACT_NAME != null }}
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         id: artifact-linux
         with:
           name: ${{ env.ARTIFACT_PACKAGE_NAME }}
+          archive: false
           path: ${{ env.ARTIFACT_PATHNAME }}
 
       - name: 🧫 Test
@@ -244,7 +245,7 @@ jobs:
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down 2>/dev/null || true
 
       - name: 📑 Upload package logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: package-logs-x64-linux
@@ -252,7 +253,7 @@ jobs:
 
       - name: 📊 Upload test report
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: "test-report-x64-linux-${{ env.BUILD_TYPE }}"
           path: "build/report"
@@ -287,6 +288,6 @@ jobs:
           marker: linux
           body: |
             ### 🐧 Linux AppImage builds
-            Download a [Linux AppImage build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/${{ env.ARTIFACT_PACKAGE_NAME }}.zip).
+            Download a [Linux AppImage build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/${{ env.ARTIFACT_PACKAGE_NAME }}.AppImage).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}
