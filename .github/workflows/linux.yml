@@ -184,6 +184,8 @@ jobs:
         run: |
           export LD_LIBRARY_PATH="${{ github.workspace }}/build/vcpkg_installed/x64-linux/lib/":${LD_LIBRARY_PATH}
           cmake --build  "build" --target bundle --config ${{ env.BUILD_TYPE }}
+          mv build/QField-x86_64.AppImage QField-dev-x64-linux-${{ env.BUILD_TYPE }}.AppImage
+
           echo "ARTIFACT_PATHNAME=build/QField-x86_64.AppImage" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-linux-x64.AppImage" >> $GITHUB_ENV
           echo "ARTIFACT_PACKAGE_NAME=QField-dev-x64-linux-${{ env.BUILD_TYPE }}" >> $GITHUB_ENV
