@@ -803,6 +803,260 @@ Page {
               delegate: listItem
             }
 
+            GridLayout {
+              Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
+
+              columns: 2
+              columnSpacing: 0
+              rowSpacing: 5
+
+              Label {
+                text: qsTr('Network')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 10
+                Layout.columnSpan: 2
+              }
+
+              Label {
+                text: qsTr("Enable proxy")
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+              }
+
+              QfSwitch {
+                id: proxyEnabledSwitch
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                checked: proxySettings ? proxySettings.enabled : false
+                onCheckedChanged: {
+                  if (proxySettings) {
+                    proxySettings.enabled = checked;
+                  }
+                }
+              }
+
+              Label {
+                text: qsTr("Proxy type:")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                visible: proxyEnabledSwitch.checked
+              }
+
+              QfComboBox {
+                id: proxyTypeComboBox
+                enabled: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                model: ListModel {
+                  ListElement {
+                    name: "HTTP"
+                    value: "HttpProxy"
+                  }
+                  ListElement {
+                    name: "SOCKS5"
+                    value: "Socks5Proxy"
+                  }
+                  ListElement {
+                    name: qsTr("System Default")
+                    value: "DefaultProxy"
+                  }
+                }
+                textRole: "name"
+                valueRole: "value"
+
+                property bool initialized: false
+
+                onCurrentValueChanged: {
+                  if (initialized && proxySettings) {
+                    proxySettings.proxyType = currentValue;
+                  }
+                }
+
+                Component.onCompleted: {
+                  currentIndex = proxySettings ? indexOfValue(proxySettings.proxyType) : 0;
+                  if (currentIndex < 0)
+                    currentIndex = 0;
+                  initialized = true;
+                }
+              }
+
+              Label {
+                text: qsTr("Host:")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                visible: proxyEnabledSwitch.checked
+              }
+
+              QfTextField {
+                id: proxyHostField
+                enabled: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked
+                font: Theme.defaultFont
+                Layout.fillWidth: true
+                placeholderText: qsTr("e.g. proxy.example.com")
+                inputMethodHints: Qt.ImhUrlCharactersOnly
+
+                Component.onCompleted: {
+                  text = proxySettings ? proxySettings.host : '';
+                }
+
+                onTextChanged: {
+                  if (proxySettings) {
+                    proxySettings.host = text;
+                  }
+                }
+              }
+
+              Label {
+                text: qsTr("Port:")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                visible: proxyEnabledSwitch.checked
+              }
+
+              QfTextField {
+                id: proxyPortField
+                enabled: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked
+                font: Theme.defaultFont
+                Layout.preferredWidth: 100
+                horizontalAlignment: TextInput.AlignHCenter
+                inputMethodHints: Qt.ImhDigitsOnly
+                validator: IntValidator {
+                  bottom: 0
+                  top: 65535
+                }
+
+                Component.onCompleted: {
+                  text = proxySettings && proxySettings.port > 0 ? proxySettings.port : '';
+                }
+
+                onTextChanged: {
+                  if (proxySettings) {
+                    proxySettings.port = text.length > 0 ? parseInt(text) : 0;
+                  }
+                }
+              }
+
+              Label {
+                text: qsTr("Username:")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                visible: proxyEnabledSwitch.checked
+              }
+
+              QfTextField {
+                id: proxyUserField
+                enabled: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked
+                font: Theme.defaultFont
+                Layout.fillWidth: true
+                placeholderText: qsTr("Optional")
+
+                Component.onCompleted: {
+                  text = proxySettings ? proxySettings.user : '';
+                }
+
+                onTextChanged: {
+                  if (proxySettings) {
+                    proxySettings.user = text;
+                  }
+                }
+              }
+
+              Label {
+                text: qsTr("Password:")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                visible: proxyEnabledSwitch.checked
+              }
+
+              QfTextField {
+                id: proxyPasswordField
+                enabled: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked
+                font: Theme.defaultFont
+                Layout.fillWidth: true
+                echoMode: TextInput.Password
+                placeholderText: qsTr("Optional")
+
+                Component.onCompleted: {
+                  text = proxySettings ? proxySettings.password : '';
+                }
+
+                onTextChanged: {
+                  if (proxySettings) {
+                    proxySettings.password = text;
+                  }
+                }
+              }
+
+              Label {
+                text: qsTr("Excluded URLs (comma-separated):")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                visible: proxyEnabledSwitch.checked
+              }
+
+              QfTextField {
+                id: proxyExcludedUrlsField
+                enabled: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked
+                font: Theme.defaultFont
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                placeholderText: qsTr("e.g. localhost, 192.168.*")
+
+                Component.onCompleted: {
+                  text = proxySettings ? proxySettings.excludedUrls : '';
+                }
+
+                onTextChanged: {
+                  if (proxySettings) {
+                    proxySettings.excludedUrls = text;
+                  }
+                }
+              }
+
+              Label {
+                text: qsTr("Configure a network proxy to route QField's traffic through a proxy server. Useful for corporate networks and VPNs.")
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+              }
+            }
+
             Item {
               // spacer item
               Layout.fillWidth: true

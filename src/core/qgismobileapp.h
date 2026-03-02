@@ -35,6 +35,7 @@
 #include "cogoregistry.h"
 #include "drawingtemplatemodel.h"
 #include "pluginmanager.h"
+#include "proxysettings.h"
 #include "qfield_core_export.h"
 #include "qfieldappauthrequesthandler.h"
 #include "qfieldurlhandler.h"
@@ -262,6 +263,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 
     AppMissingGridHandler *mAppMissingGridHandler = nullptr;
 
+    std::unique_ptr<ProxySettings> mProxySettings;
     std::unique_ptr<ScreenDimmer> mScreenDimmer;
     std::unique_ptr<QFieldUrlHandler> mUrlHandler;
     QgsApplication *mApp;
