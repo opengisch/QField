@@ -25,8 +25,10 @@ jobs:
         include:
           - os: windows-2022
             triplet: x64-windows-static
+            arch: amd64
           - os: windows-11-arm
             triplet: arm64-windows-static
+            arch: arm64
     name: build (windows)
     runs-on: ${{ matrix.os }}
 
@@ -50,7 +52,8 @@ jobs:
 
       - name: 🧽 Developer Command Prompt for Microsoft Visual C++
         uses: ilammy/msvc-dev-cmd@v1
-        # with:
+        with:
+          arch: ${{ matrix.arch }}
           # See https://github.com/actions/runner-images/issues/9398
           # toolset: 14.39
 
