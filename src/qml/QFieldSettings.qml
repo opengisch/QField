@@ -833,7 +833,7 @@ Page {
               QfSwitch {
                 id: proxyEnabledSwitch
                 Layout.preferredWidth: implicitContentWidth
-                Layout.alignment: Qt.AlignTop
+                Layout.alignment: Qt.AlignTop | Qt.AlignRight
                 checked: proxySettings ? proxySettings.enabled : false
                 onCheckedChanged: {
                   if (proxySettings) {
