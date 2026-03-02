@@ -137,20 +137,20 @@ jobs:
           gtar -cpvzf qfield-app-${{ matrix.triplet }}.tar.gz staging
 
       - name: 📦 Upload package
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: qfield-app-${{ matrix.triplet }}
           path: qfield-app-${{ matrix.triplet }}.tar.gz
 
       - name: 📊 Upload test report
         if: ${{ matrix.run-tests == true && always() }}
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
       - name: 📑 Upload logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: logs-${{ matrix.triplet }}
@@ -186,7 +186,7 @@ jobs:
           brew install create-dmg
 
       - name: 📤 Download app
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           pattern: qfield-app-*
           path: |
@@ -220,7 +220,7 @@ jobs:
           echo "ARTIFACT_PACKAGE_NAME=qfield-dmg" >> $GITHUB_ENV
 
       - name: 📤 Upload app
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         id: artifact-macos
         with:
           name: ${{ env.ARTIFACT_PACKAGE_NAME }}
