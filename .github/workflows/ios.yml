@@ -139,7 +139,7 @@ jobs:
                 -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
       - name: 📑 Upload Dep Build Logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: build-logs-${{ env.TRIPLET }}
@@ -169,7 +169,7 @@ jobs:
           bundle exec fastlane ios upload_s3 ipa:/Users/runner/builddir/qfieldIpa/QField.ipa
 
       - name: 📤 Upload qfield Ipa
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           name: qfield-${{ env.TRIPLET }}-${{ env.DEPLOYMENT_TARGET }}.ipa
