@@ -35,6 +35,14 @@ Page {
   property alias snapToCommonAngleDegrees: registry.snapToCommonAngleDegrees
   property alias snapToCommonAngleTolerance: registry.snapToCommonAngleTolerance
 
+  property bool proxyEnabled: false
+  property string proxyType: "HttpProxy"
+  property string proxyHost: ""
+  property int proxyPort: 0
+  property string proxyUser: ""
+  property string proxyPassword: ""
+  property string proxyExcludedUrls: ""
+
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
 
@@ -46,10 +54,29 @@ Page {
       // a crash occured while the native camera was launched, disable it
       nativeCamera2 = false;
     }
+    proxyEnabled = settings.valueBool('proxy/proxyEnabled', false);
+    proxyType = settings.value('proxy/proxyType', 'HttpProxy');
+    proxyHost = settings.value('proxy/proxyHost', '');
+    proxyPort = settings.valueInt('proxy/proxyPort', 0);
+    proxyUser = settings.value('proxy/proxyUser', '');
+    proxyPassword = settings.value('proxy/proxyPassword', '');
+    const excludedRaw = settings.value('proxy/proxyExcludedUrls', '');
+    proxyExcludedUrls = Array.isArray(excludedRaw) ? excludedRaw.join(', ') : (excludedRaw || '');
   }
 
   function reset() {
     variableEditor.reset();
+  }
+
+  function applyProxySettings() {
+    settings.setValue('proxy/proxyEnabled', proxyEnabled);
+    settings.setValue('proxy/proxyType', proxyType);
+    settings.setValue('proxy/proxyHost', proxyHost);
+    settings.setValue('proxy/proxyPort', proxyPort);
+    settings.setValue('proxy/proxyUser', proxyUser);
+    settings.setValue('proxy/proxyPassword', proxyPassword);
+    settings.setValue('proxy/proxyExcludedUrls', proxyExcludedUrls);
+    iface.setupNetworkProxy();
   }
 
   Settings {
@@ -834,12 +861,8 @@ Page {
                 id: proxyEnabledSwitch
                 Layout.preferredWidth: implicitContentWidth
                 Layout.alignment: Qt.AlignTop | Qt.AlignRight
-                checked: proxySettings ? proxySettings.enabled : false
-                onCheckedChanged: {
-                  if (proxySettings) {
-                    proxySettings.enabled = checked;
-                  }
-                }
+                checked: proxyEnabled
+                onCheckedChanged: proxyEnabled = checked
               }
 
               Label {
@@ -885,13 +908,13 @@ Page {
                 property bool initialized: false
 
                 onCurrentValueChanged: {
-                  if (initialized && proxySettings) {
-                    proxySettings.proxyType = currentValue;
+                  if (initialized) {
+                    proxyType = currentValue;
                   }
                 }
 
                 Component.onCompleted: {
-                  currentIndex = proxySettings ? indexOfValue(proxySettings.proxyType) : 0;
+                  currentIndex = indexOfValue(proxyType);
                   if (currentIndex < 0)
                     currentIndex = 0;
                   initialized = true;
@@ -915,16 +938,8 @@ Page {
                 Layout.fillWidth: true
                 placeholderText: qsTr("e.g. proxy.example.com")
                 inputMethodHints: Qt.ImhUrlCharactersOnly
-
-                Component.onCompleted: {
-                  text = proxySettings ? proxySettings.host : '';
-                }
-
-                onTextChanged: {
-                  if (proxySettings) {
-                    proxySettings.host = text;
-                  }
-                }
+                text: proxyHost
+                onTextChanged: proxyHost = text
               }
 
               Label {
@@ -948,16 +963,8 @@ Page {
                   bottom: 0
                   top: 65535
                 }
-
-                Component.onCompleted: {
-                  text = proxySettings && proxySettings.port > 0 ? proxySettings.port : '';
-                }
-
-                onTextChanged: {
-                  if (proxySettings) {
-                    proxySettings.port = text.length > 0 ? parseInt(text) : 0;
-                  }
-                }
+                text: proxyPort > 0 ? proxyPort : ''
+                onTextChanged: proxyPort = text.length > 0 ? parseInt(text) : 0
               }
 
               Label {
@@ -976,16 +983,8 @@ Page {
                 font: Theme.defaultFont
                 Layout.fillWidth: true
                 placeholderText: qsTr("Optional")
-
-                Component.onCompleted: {
-                  text = proxySettings ? proxySettings.user : '';
-                }
-
-                onTextChanged: {
-                  if (proxySettings) {
-                    proxySettings.user = text;
-                  }
-                }
+                text: proxyUser
+                onTextChanged: proxyUser = text
               }
 
               Label {
@@ -1005,16 +1004,8 @@ Page {
                 Layout.fillWidth: true
                 echoMode: TextInput.Password
                 placeholderText: qsTr("Optional")
-
-                Component.onCompleted: {
-                  text = proxySettings ? proxySettings.password : '';
-                }
-
-                onTextChanged: {
-                  if (proxySettings) {
-                    proxySettings.password = text;
-                  }
-                }
+                text: proxyPassword
+                onTextChanged: proxyPassword = text
               }
 
               Label {
@@ -1035,16 +1026,8 @@ Page {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 placeholderText: qsTr("e.g. localhost, 192.168.*")
-
-                Component.onCompleted: {
-                  text = proxySettings ? proxySettings.excludedUrls : '';
-                }
-
-                onTextChanged: {
-                  if (proxySettings) {
-                    proxySettings.excludedUrls = text;
-                  }
-                }
+                text: proxyExcludedUrls
+                onTextChanged: proxyExcludedUrls = text
               }
 
               Label {
@@ -1961,6 +1944,7 @@ Page {
     onFinished: {
       parent.finished();
       variableEditor.apply();
+      applyProxySettings();
     }
   }
 
@@ -1968,6 +1952,7 @@ Page {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       event.accepted = true;
       variableEditor.apply();
+      applyProxySettings();
       finished();
     }
   }

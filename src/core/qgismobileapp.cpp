@@ -244,8 +244,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   QgsNetworkAccessManager::settingsNetworkTimeout->setValue( 60 * 1000 );
 
-  mProxySettings = std::make_unique<ProxySettings>( this );
-  mProxySettings->applyProxy();
+  QgsNetworkAccessManager::instance()->setupDefaultProxyAndCache();
 
   // we cannot use "/" as separator, since QGIS puts a suffix QGIS/31700 anyway
   const QString userAgent = QStringLiteral( "qfield|%1|%2|%3|" ).arg( qfield::appVersion, qfield::appVersionStr.normalized( QString::NormalizationForm_KD ), qfield::gitRev );
@@ -661,7 +660,6 @@ void QgisMobileapp::registerGlobalVariables()
   rootContext()->setContextProperty( "drawingTemplateModel", mDrawingTemplateModel );
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
   rootContext()->setContextProperty( "trackingModel", mTrackingModel );
-  rootContext()->setContextProperty( "proxySettings", mProxySettings.get() );
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
   addImageProvider( QLatin1String( "asynclegend" ), mAsyncLegendImageProvider );
   addImageProvider( QLatin1String( "localfiles" ), mLocalFilesImageProvider );
