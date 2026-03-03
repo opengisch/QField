@@ -113,6 +113,7 @@
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudproject.h"
 #include "qfieldcloudprojectsmodel.h"
+#include "qfieldcloudstatus.h"
 #include "qfieldcloudutils.h"
 #include "qfieldlocatorfilter.h"
 #include "qfieldurlhandler.h"
@@ -553,6 +554,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<QFieldCloudProject>( "org.qfield", 1, 0, "QFieldCloudProject" );
   qmlRegisterType<QFieldCloudProjectsModel>( "org.qfield", 1, 0, "QFieldCloudProjectsModel" );
   qmlRegisterType<QFieldCloudProjectsFilterModel>( "org.qfield", 1, 0, "QFieldCloudProjectsFilterModel" );
+  qmlRegisterType<QFieldCloudStatus>( "org.qfield", 1, 0, "QFieldCloudStatus" );
   qmlRegisterType<DeltaListModel>( "org.qfield", 1, 0, "DeltaListModel" );
   qmlRegisterType<ScaleBarMeasurement>( "org.qfield", 1, 0, "ScaleBarMeasurement" );
   qmlRegisterType<SensorListModel>( "org.qfield", 1, 0, "SensorListModel" );

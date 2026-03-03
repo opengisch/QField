@@ -3257,6 +3257,7 @@ ApplicationWindow {
     }
 
     onShowCloudPopup: {
+      qfieldCloudStatus.refresh();
       dashBoard.close();
       qfieldCloudPopup.show();
     }
@@ -4918,6 +4919,7 @@ ApplicationWindow {
     onStatusChanged: {
       if (cloudConnection.status === QFieldCloudConnection.Disconnected && previousStatus === QFieldCloudConnection.LoggedIn) {
         displayToast(qsTr('Signed out'));
+        cloudStatus.refresh();
       } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
         displayToast(qsTr('Connecting...'));
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
@@ -4933,7 +4935,9 @@ ApplicationWindow {
       }
       previousStatus = cloudConnection.status;
     }
+
     onLoginFailed: function (reason) {
+      qfieldCloudStatus.refresh();
       displayToast(reason);
     }
   }
@@ -4944,12 +4948,18 @@ ApplicationWindow {
     layerObserver: layerObserverAlias
     gpkgFlusher: gpkgFlusherAlias
 
-    onProjectDownloaded: function (projectId, projectName, hasError, errorString) {
-      return hasError ? displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error') : displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
+    onProjectDownloaded: (projectId, projectName, hasError, errorString) => {
+      if (hasError) {
+        cloudStatus.refresh();
+        displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error');
+      } else {
+        displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
+      }
     }
 
-    onPushFinished: function (projectId, isDownloadingProject, hasError, errorString) {
+    onPushFinished: (projectId, isDownloadingProject, hasError, errorString) => {
       if (hasError) {
+        cloudStatus.refresh();
         displayToast(qsTr("Changes failed to reach QFieldCloud: %1").arg(errorString), 'error');
         return;
       }
@@ -4964,7 +4974,7 @@ ApplicationWindow {
 
     onWarning: message => displayToast(message)
 
-    onDeltaListModelChanged: function () {
+    onDeltaListModelChanged: () => {
       qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProject.deltaListModel;
     }
   }
@@ -4975,6 +4985,11 @@ ApplicationWindow {
     modal: true
     closePolicy: Popup.CloseOnEscape
     parent: Overlay.overlay
+  }
+
+  QFieldCloudStatus {
+    id: qfieldCloudStatus
+    url: cloudConnection.url
   }
 
   WelcomeScreen {
@@ -4995,6 +5010,7 @@ ApplicationWindow {
     }
 
     onShowQFieldCloudScreen: {
+      qfieldCloudStatus.refresh();
       qfieldCloudScreen.visible = true;
     }
 

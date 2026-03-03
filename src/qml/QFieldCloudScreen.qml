@@ -15,6 +15,7 @@ Page {
   signal viewProjectFolder(string projectPath)
 
   property string requestedProjectDetails: ""
+  property QFieldCloudStatus cloudServiceStatus: null
 
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
@@ -166,6 +167,7 @@ Page {
           id: qfieldCloudLogin
           isVisible: connectionSettings.visible
           width: connectionSettings.width
+          cloudServiceStatus: qfieldCloudScreen.cloudServiceStatus
         }
       }
 
@@ -188,6 +190,10 @@ Page {
       ColumnLayout {
         id: projects
         spacing: 2
+
+        QFieldCloudStatusBanner {
+          cloudServiceStatus: qfieldCloudScreen.cloudServiceStatus
+        }
 
         QfTabBar {
           id: filterBar
