@@ -16,13 +16,15 @@
  ***************************************************************************/
 
 #define QFIELDTEST_MAIN
-#include "catch2.h"
+
 #include "bookmarkmodel.h"
+#include "catch2.h"
+
 #include <QSignalSpy>
+#include <qgsapplication.h>
 #include <qgsbookmarkmanager.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsrectangle.h>
-#include <qgsapplication.h>
 #include <qgsreferencedgeometry.h>
 
 static QgsBookmark makeBookmark( const QString &name, const QString &group = QString() )
