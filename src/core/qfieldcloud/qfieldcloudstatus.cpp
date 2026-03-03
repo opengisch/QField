@@ -174,9 +174,15 @@ void QFieldCloudStatus::parseStatusResponse( const QByteArray &data )
 
     if ( hasMaintenance )
     {
-      messages << tr( "QFieldCloud is under maintenance" );
-      details << mMaintenanceMessage;
-      mStatusType = StatusType::Maintenance;
+      const QDateTime currentTimestamp = QDateTime::currentDateTime();
+      const QDateTime startTimestamp = QDateTime::fromString( obj.value( QStringLiteral( "maintenance_start_timestamp_utc" ) ).toString(), Qt::ISODate );
+      const QDateTime endTimestamp = QDateTime::fromString( obj.value( QStringLiteral( "maintenance_end_timestamp_utc" ) ).toString(), Qt::ISODate );
+      if ( !startTimestamp.isValid() || !endTimestamp.isValid() || ( currentTimestamp >= startTimestamp && currentTimestamp <= endTimestamp ) )
+      {
+        messages << tr( "QFieldCloud is under maintenance" );
+        details << mMaintenanceMessage;
+        mStatusType = StatusType::Maintenance;
+      }
     }
 
     if ( databaseDegraded || storageDegraded )
