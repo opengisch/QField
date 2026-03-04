@@ -650,7 +650,7 @@ void QgisMobileapp::registerGlobalVariables()
   rootContext()->setContextProperty( "pluginManager", mPluginManager );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "flatLayerTree", mFlatLayerTree );
-  rootContext()->setContextProperty( "CrsFactory", QVariant::fromValue<QgsCoordinateReferenceSystem>( mCrsFactory ) );
+  rootContext()->setContextProperty( "WkbTypes", QVariant::fromValue<QgsWkbTypes>( mWkbTypes ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
   rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
   rootContext()->setContextProperty( "bookmarkModel", mBookmarkModel );
