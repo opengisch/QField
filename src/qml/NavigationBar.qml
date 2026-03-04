@@ -310,9 +310,10 @@ Rectangle {
   QfToolButton {
     id: editGeomButton
 
+    property bool supportsGeometryEditing: false
     property bool readOnly: false
 
-    visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryEditingLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state === "Navigation" && editButton.supportsEditing && projectInfo.editRights
+    visible: stateMachine.state === "digitize" && toolBar.state === "Navigation" && supportsGeometryEditing && !featureForm.model.featureModel.geometryEditingLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature)
 
     anchors.right: editButton.left
     anchors.top: parent.top
@@ -378,6 +379,7 @@ Rectangle {
 
       function onFocusedItemChanged() {
         editButton.supportsEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing;
+        editGeomButton.supportsGeometryEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing && !selection.focusedGeometry.isNull && (selection.focusedLayer.geometryType() !== Qgis.GeometryType.Point || WkbTypes.isMultiType(selection.focusedLayer.wkbType()));
       }
       function onFocusedFeatureChanged() {
         if (QFieldCloudUtils.getProjectId(qgisProject.fileName) !== '') {

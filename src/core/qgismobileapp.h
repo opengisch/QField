@@ -254,7 +254,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     std::unique_ptr<CogoRegistry> mCogoRegistry;
 
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
-    QgsCoordinateReferenceSystem mCrsFactory;
+    QgsWkbTypes mWkbTypes;
     QgsUnitTypes mUnitTypes;
     QgsExifTools mExifTools;
 
