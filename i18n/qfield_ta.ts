@@ -2548,7 +2548,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
+        <translation>QField இல் உங்கள் குழுவால் சேகரிக்கப்பட்ட தரவை  %1 ஒத்திசைக்கவும் ஒன்றிணைக்கவும் QFieldCloud அனுமதிக்கிறது. சிறிய தனிப்பட்ட திட்டங்கள் முதல் பெரிய தரவு சேகரிப்பு பிரச்சாரங்கள் வரை.</translation>
     </message>
 </context>
 <context>
@@ -3596,6 +3596,29 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudStatus</name>
+    <message>
+        <source>QFieldCloud server is not reachable</source>
+        <translation>QFieldCloud சேவையகத்தை அணுக முடியவில்லை.</translation>
+    </message>
+    <message>
+        <source>The server at %1 could not be reached. Please check your internet connection.</source>
+        <translation>%1 இல் உள்ள சேவையகத்தை அடைய முடியவில்லை. உங்கள் இணைய இணைப்பைச் சரிபார்க்கவும்.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is under maintenance</source>
+        <translation>QFieldCloud பராமரிப்பில் உள்ளது.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud service is degraded</source>
+        <translation>QFieldCloud சேவை தரமிறக்கப்பட்டுள்ளது.</translation>
+    </message>
+    <message>
+        <source>There is an ongoing incident</source>
+        <translation>ஒரு சம்பவம் நடந்து கொண்டிருக்கிறது.</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -4413,19 +4436,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>இயக்கப்பட்டால், அனைவருக்கும் அனுபவத்தை மேம்படுத்த உதவும் வகையில் பெயர் குறிப்பிடப்படாத அளவீடுகள் சேகரிக்கப்பட்டு அனுப்பப்படும்.</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>இயக்கப்பட்டால், அனைவருக்கும் %1 ஐ மேம்படுத்த உதவுவதற்காக பெயர் குறிப்பிடப்படாத அளவீடுகள் சேகரிக்கப்பட்டு அனுப்பப்படும்.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
+        <translation>இந்த மதிப்பு நிலைப்படுத்தல் சாதனத்திலிருந்து பதிவுசெய்யப்பட்ட Z மதிப்புகளைச் சரிசெய்யும். 1.6 மதிப்பை உள்ளிட்டால், கணினி தானாகவே ஒவ்வொரு பதிவுசெய்யப்பட்ட மதிப்பிலிருந்தும் 1.6 ஐக் கழிக்கும். பயனுள்ள ஆண்டெனா உயரத்தைச் செருகுவதை உறுதிசெய்து கொள்ளுங்கள், அதாவது துருவ நீளம் + ஆண்டெனா கட்ட மைய ஆஃப்செட்.</translation>
     </message>
     <message>
         <source>%1 Settings</source>
-        <translation type="unfinished"/>
+        <translation>%1 அமைப்புகள்</translation>
     </message>
 </context>
 <context>
@@ -5573,55 +5596,55 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation type="unfinished"/>
+        <translation>பதிவேற்றம் முடிந்தது.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
-        <translation type="unfinished"/>
+        <translation>உள்ளூர் பாதைகள் எதுவும் வழங்கப்படவில்லை.</translation>
     </message>
     <message>
         <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV பிஸியாக உள்ளது.</translation>
     </message>
     <message>
         <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV இறக்குமதி செய்யப்பட்ட திட்டம் அல்ல.</translation>
     </message>
     <message>
         <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV கட்டமைப்பில் தேவையான புலங்கள் இல்லை.</translation>
     </message>
     <message>
         <source>No stored password available.</source>
-        <translation type="unfinished"/>
+        <translation>சேமிக்கப்பட்ட கடவுச்சொல் எதுவும் கிடைக்கவில்லை.</translation>
     </message>
     <message>
         <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
+        <translation>தேர்ந்தெடுக்கப்பட்ட உருப்படிகள் வெவ்வேறு WebDAV திட்டங்களுக்குச் சொந்தமானவை.</translation>
     </message>
     <message>
         <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
+        <translation>பதிவேற்ற எதுவும் இல்லை.</translation>
     </message>
     <message>
         <source>No local changes detected.</source>
-        <translation type="unfinished"/>
+        <translation>உள்ளூர் மாற்றங்கள் எதுவும் கண்டறியப்படவில்லை.</translation>
     </message>
     <message>
         <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>பதிவேற்றம் ரத்து செய்யப்பட்டது.</translation>
     </message>
     <message>
         <source>Upload skipped.</source>
-        <translation type="unfinished"/>
+        <translation>பதிவேற்றம் தவிர்க்கப்பட்டது.</translation>
     </message>
     <message>
         <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
+        <translation>பதிவேற்றம் மற்றொரு செயல்முறையால் பூட்டப்பட்டுள்ளது.</translation>
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV கட்டமைப்பு கோப்பைப் படிக்க முடியவில்லை.</translation>
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
@@ -5758,11 +5781,11 @@ project</source>
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
+        <translation>வணக்கம், இதுவரை %1 உடனான உங்கள் அனுபவம் உங்களுக்கு எப்படிப் பிடித்திருக்கிறது?</translation>
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>அனைவருக்கும் நிலைத்தன்மையை மேம்படுத்த, %1 பெயர் குறிப்பிடப்படாதது அளவீடுகளைச் சேகரித்து அனுப்புகிறது.</translation>
     </message>
     <message>
         <source>Welcome back to %1.</source>
@@ -5774,7 +5797,7 @@ project</source>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>இந்தப் பயன்பாட்டை முதல் முறையாகப் பயன்படுத்துகிறீர்களா? கீழே பட்டியலிடப்பட்டுள்ள மாதிரி திட்டங்களை முயற்சிக்கவும்.</translation>
     </message>
 </context>
 <context>
@@ -6749,19 +6772,19 @@ to show actions</source>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>3D காட்சியை ஏற்ற முடியவில்லை.</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>நிலப்பரப்பை ஏற்றுகிறது...</translation>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation type="unfinished"/>
+        <translation>3D காட்சியை மூடு</translation>
     </message>
     <message>
         <source>About %1</source>
-        <translation type="unfinished"/>
+        <translation>சுமார் %1</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
