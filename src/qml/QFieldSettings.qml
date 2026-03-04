@@ -810,36 +810,6 @@ Page {
               rowSpacing: 5
 
               Label {
-                text: qsTr('Advanced')
-                font: Theme.strongFont
-                color: Theme.mainTextColor
-                wrapMode: Text.WordWrap
-                Layout.fillWidth: true
-                Layout.topMargin: 5
-                Layout.columnSpan: 2
-              }
-            }
-
-            ListView {
-              Layout.fillWidth: true
-              Layout.preferredHeight: childrenRect.height
-              interactive: false
-
-              model: advancedSettingsModel
-
-              delegate: listItem
-            }
-
-            GridLayout {
-              Layout.fillWidth: true
-              Layout.leftMargin: 20
-              Layout.rightMargin: 20
-
-              columns: 2
-              columnSpacing: 0
-              rowSpacing: 5
-
-              Label {
                 text: qsTr('Network')
                 font: Theme.strongFont
                 color: Theme.mainTextColor
@@ -1038,6 +1008,36 @@ Page {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
               }
+            }
+
+            GridLayout {
+              Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
+
+              columns: 2
+              columnSpacing: 0
+              rowSpacing: 5
+
+              Label {
+                text: qsTr('Advanced')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                Layout.columnSpan: 2
+              }
+            }
+
+            ListView {
+              Layout.fillWidth: true
+              Layout.preferredHeight: childrenRect.height
+              interactive: false
+
+              model: advancedSettingsModel
+
+              delegate: listItem
             }
 
             Item {
