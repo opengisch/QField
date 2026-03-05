@@ -6,6 +6,7 @@ set(${PORT}_PATCHES
     remove-static-ssl-stub.patch
     ffmpeg-compile-def-and-devendor-signalsmith-stretch.patch
     ffmpeg.patch
+    ae41d3e-ffmpeg8.diff
     ios-camera.patch
 )
 
