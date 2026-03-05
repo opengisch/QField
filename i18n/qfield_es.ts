@@ -23,15 +23,15 @@
     </message>
     <message>
         <source>Powered by QField</source>
-        <translation type="unfinished"/>
+        <translation>Desarrollado por QField</translation>
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>%1 directorios de aplicaciones</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>%1 directorio de aplicaciones</translation>
     </message>
 </context>
 <context>
@@ -862,7 +862,7 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>Falta el ID de configuración de autenticación del almacenamiento externo. Asegúrese de importarlo a %1.</translation>
     </message>
 </context>
 <context>
@@ -2554,7 +2554,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud permite sincronizar y fusionar los datos recopilados por su equipo en %1. Desde pequeños proyectos individuales hasta grandes campañas de recopilación de datos. </translation>
     </message>
 </context>
 <context>
@@ -3603,23 +3603,23 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudStatus</name>
     <message>
         <source>QFieldCloud server is not reachable</source>
-        <translation type="unfinished"/>
+        <translation>No se puede acceder al servidor QFieldCloud.</translation>
     </message>
     <message>
         <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation type="unfinished"/>
+        <translation>No se pudo establecer conexión con el servidor en %1. Compruebe su conexión a Internet.</translation>
     </message>
     <message>
         <source>QFieldCloud is under maintenance</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud está en mantenimiento.</translation>
     </message>
     <message>
         <source>QFieldCloud service is degraded</source>
-        <translation type="unfinished"/>
+        <translation>El servicio QFieldCloud está degradado.</translation>
     </message>
     <message>
         <source>There is an ongoing incident</source>
-        <translation type="unfinished"/>
+        <translation>Hay un incidente en curso.</translation>
     </message>
 </context>
 <context>
@@ -4440,19 +4440,19 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Si se habilita, se recopilarán y enviarán métricas anónimas para ayudar a mejorar la experiencia de todos.</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Si se habilita, se recopilarán y enviarán métricas anónimas para ayudar a mejorar %1 para todos.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
+        <translation>Este valor corregirá los valores Z registrados por el dispositivo de posicionamiento. Si se introduce un valor de 1.6, el sistema restará automáticamente 1.6 de cada valor registrado. Asegúrese de introducir la altura efectiva de la antena, es decir, la longitud del mástil + el desplazamiento del centro de fase de la antena.</translation>
     </message>
     <message>
         <source>%1 Settings</source>
-        <translation type="unfinished"/>
+        <translation>%1 Configuración</translation>
     </message>
 </context>
 <context>
@@ -5785,23 +5785,23 @@ proyecto</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
+        <translation>Hola, ¿qué tal tu experiencia con %1 hasta ahora?</translation>
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Para mejorar la estabilidad para todos, %1 recopila y envía métricas anónimas.</translation>
     </message>
     <message>
         <source>Welcome back to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Bienvenido de nuevo a %1.</translation>
     </message>
     <message>
         <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Bienvenido a %1.</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>¿Es la primera vez que utiliza esta aplicación? Pruebe los proyectos de ejemplo que se enumeran a continuación.</translation>
     </message>
 </context>
 <context>
@@ -6788,11 +6788,11 @@ para mostrar las acciones</translation>
     </message>
     <message>
         <source>About %1</source>
-        <translation type="unfinished"/>
+        <translation>Acerca de %1</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
+        <translation>¿Desea importar &lt;b&gt;%1&lt;/b&gt; desde &lt;b&gt;%2&lt;/b&gt; a %3?</translation>
     </message>
 </context>
 <context>
