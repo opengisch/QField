@@ -485,10 +485,12 @@ void QFieldCloudProject::downloadThumbnail()
       }
       QTemporaryFile file( QString( "%1/XXXXXX.%2" ).arg( QDir::tempPath(), imageExtension ) );
       file.setAutoRemove( false );
-      file.open();
-      file.write( rawReply->readAll() );
-      file.close();
-      setThumbnailPath( file.fileName() );
+      if ( file.open() )
+      {
+        file.write( rawReply->readAll() );
+        file.close();
+        setThumbnailPath( file.fileName() );
+      }
     };
   } );
 }
