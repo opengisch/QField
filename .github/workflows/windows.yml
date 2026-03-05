@@ -26,9 +26,11 @@ jobs:
           - os: windows-2022
             triplet: x64-windows-static
             arch: amd64
+            platform_arch: x64
           - os: windows-11-arm
             triplet: arm64-windows-static
             arch: arm64
+            platform_arch: arm64
     name: build (windows)
     runs-on: ${{ matrix.os }}
 
@@ -92,13 +94,14 @@ jobs:
           cmake -S "${SOURCE_DIR}" \
                 -G Ninja \
                 -B "${CMAKE_BUILD_DIR}" \
-                -D CMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x64/bin/clang-cl.exe" \
-                -D CMAKE_CXX_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/x64/bin/clang-cl.exe" \
+                -D CMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/${{ matrix.platform_arch }}/bin/clang-cl.exe" \
+                -D CMAKE_CXX_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/${{ matrix.platform_arch }}/bin/clang-cl.exe" \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -D VCPKG_HOST_TRIPLET="${{ matrix.triplet }}" \
                 -D WITH_VCPKG=ON \
-                -D WITH_SPIX=ON \                -D WITH_UNITTESTS=OFF \
+                -D WITH_SPIX=ON \
+                -D WITH_UNITTESTS=OFF \
                 -D WITH_NFC=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APP_VERSION_STR="${APP_VERSION_STR}" \
@@ -148,7 +151,7 @@ jobs:
           ARTIFACT_PATHNAME=$(ls ${{ env.CMAKE_BUILD_DIR }}/QField-*-win64.* | head -n 1)
           ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
-          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-x64.exe" >> $GITHUB_ENV
+          echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-${{ matrix.platform_arch }}.exe" >> $GITHUB_ENV
 
           echo "artifact_name=${ARTIFACT_NAME}" >> "$GITHUB_OUTPUT"
 
@@ -261,6 +264,7 @@ jobs:
         with:
           command: update
           # See documentation here https://learn.microsoft.com/en-us/windows/apps/publish/store-submission-api#update-current-draft-submission-metadata-api
+          # TODO: arm64
           product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/files/${{ needs.build.outputs.artifact_name }}","languages":["en"],"architectures":["X64"],"isSilentInstall":false,"installerParameters":"/S","packageType":"exe","genericDocUrl":"https://nsis.sourceforge.io/Docs/AppendixD.html#errorlevels"}]}'
 
       - name: Publish Submission
