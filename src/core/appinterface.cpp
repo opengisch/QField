@@ -38,6 +38,7 @@
 #include <qgsapplication.h>
 #include <qgsauthmanager.h>
 #include <qgsmessagelog.h>
+#include <qgsnetworkaccessmanager.h>
 #include <qgsproject.h>
 #include <qgsruntimeprofiler.h>
 #include <qgsziputils.h>
@@ -210,6 +211,26 @@ bool AppInterface::printAtlasFeatures( const QString &layoutName, const QList<lo
 void AppInterface::setScreenDimmerTimeout( int timeoutSeconds )
 {
   mApp->setScreenDimmerTimeout( timeoutSeconds );
+}
+
+void AppInterface::setupNetworkProxy() const
+{
+  // The QML layer stores excluded URLs as a plain comma-separated string to
+  // avoid passing JS arrays across the QML/C++ boundary (Qt 6 serialization
+  // limitation).  Parse and re-write as QStringList so that
+  // setupDefaultProxyAndCache() can read it correctly via QgsSettings.
+  QSettings settings;
+  const QString raw = settings.value( QStringLiteral( "proxy/proxyExcludedUrls" ) ).toString();
+  if ( !raw.isEmpty() )
+  {
+    const QStringList parts = raw.split( QLatin1Char( ',' ), Qt::SkipEmptyParts );
+    QStringList trimmed;
+    for ( const QString &part : parts )
+      trimmed.append( part.trimmed() );
+    settings.setValue( QStringLiteral( "proxy/proxyExcludedUrls" ), trimmed );
+  }
+
+  QgsNetworkAccessManager::instance()->setupDefaultProxyAndCache();
 }
 
 QVariantMap AppInterface::availableLanguages() const

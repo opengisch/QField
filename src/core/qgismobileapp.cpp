@@ -245,6 +245,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   QgsNetworkAccessManager::settingsNetworkTimeout->setValue( 60 * 1000 );
 
+  QgsNetworkAccessManager::instance()->setupDefaultProxyAndCache();
+
   // we cannot use "/" as separator, since QGIS puts a suffix QGIS/31700 anyway
   const QString userAgent = QStringLiteral( "qfield|%1|%2|%3|" ).arg( qfield::appVersion, qfield::appVersionStr.normalized( QString::NormalizationForm_KD ), qfield::gitRev );
   settings.setValue( QStringLiteral( "/qgis/networkAndProxy/userAgent" ), userAgent );

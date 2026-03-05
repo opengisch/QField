@@ -218,6 +218,12 @@ class AppInterface : public QObject
     Q_INVOKABLE QObject *positioning() const;
 
 
+    /**
+     * Applies network proxy settings stored in QSettings to the network access manager.
+     * Call this after updating the proxy/ settings keys.
+     */
+    Q_INVOKABLE void setupNetworkProxy() const;
+
     //! One-shot xmlhttp request. Defaults to autoDelete = true.
     Q_INVOKABLE QObject *createHttpRequest() const;
 
