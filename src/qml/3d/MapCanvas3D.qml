@@ -43,11 +43,7 @@ Item {
         flatHeightData = new Float32Array(normalizedData.length);
       }
 
-      // Reset any pan/zoom preview transforms
-      panOffsetX = 0;
-      panOffsetZ = 0;
-      isPanning = false;
-
+      // Don't reset pan offsets here — wait until texture is ready
       mapTextureData.render();
 
       if (isFirstLoad) {
@@ -73,6 +69,10 @@ Item {
 
     onTextureUpdated: {
       if (mapArea.isTransitioning) {
+        // Reset pan offsets now that new texture is ready
+        mapArea.panOffsetX = 0;
+        mapArea.panOffsetZ = 0;
+        mapArea.isPanning = false;
         mapArea.isTransitioning = false;
       }
     }
