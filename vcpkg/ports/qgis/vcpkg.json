@@ -115,6 +115,7 @@
     },
     "qtkeychain-qt6",
     "qtlocation",
+    "qtmultimedia",
     "qtsvg",
     {
       "name": "qttools",

@@ -1,5 +1,5 @@
-set(QGIS_REF e0c3959ffc57116664d48f4b687686d0360c6c89)
-set(QGIS_SHA512 07120e1754e1bcfd5a4f05a3225e266d8cc11525f85d933b50677c3aefff35b3d2b9c73db61795233eca8f472c631d509034d02461173095b4f7bbd66d88b641)
+set(QGIS_REF bc4c5b7fb2d4ee8ab52ae95116dba9ae45c4ac70)
+set(QGIS_SHA512 c51a03a00fc4735fbf9e7e291236f6bbc6d0eec6d1924bb7008f94857f4308d51bec099b03e2f83e0cd605b3257426b63b335f4f0fc60d21bebed8658d3d4ab1)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -10,12 +10,10 @@ vcpkg_from_github(
     PATCHES
         qgspython.patch # Make qgis support python's debug library
         libxml2.patch
-        exiv2.patch
-        mesh.patch
         crssync-no-install.patch
         include-qthread.patch
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
-        wfsfilter.patch
+        mesh.patch
 )
 
 
@@ -29,6 +27,7 @@ vcpkg_find_acquire_program(FLEX)
 vcpkg_find_acquire_program(BISON)
 
 list(APPEND QGIS_OPTIONS "-DENABLE_TESTS:BOOL=OFF")
+list(APPEND QGIS_OPTIONS "-DWITH_QTWEBENGINE:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_QTWEBKIT:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_QTPRINTER:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_GRASS7:BOOL=OFF")
