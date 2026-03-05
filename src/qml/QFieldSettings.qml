@@ -36,7 +36,7 @@ Page {
   property alias snapToCommonAngleTolerance: registry.snapToCommonAngleTolerance
 
   property bool proxyEnabled: false
-  property string proxyType: "HttpProxy"
+  property string proxyType: "DefaultProxy"
   property string proxyHost: ""
   property int proxyPort: 0
   property string proxyUser: ""
@@ -55,7 +55,7 @@ Page {
       nativeCamera2 = false;
     }
     proxyEnabled = settings.valueBool('proxy/proxyEnabled', false);
-    proxyType = settings.value('proxy/proxyType', 'HttpProxy');
+    proxyType = settings.value('proxy/proxyType', 'DefaultProxy');
     proxyHost = settings.value('proxy/proxyHost', '');
     proxyPort = settings.valueInt('proxy/proxyPort', 0);
     proxyUser = settings.value('proxy/proxyUser', '');
@@ -860,16 +860,16 @@ Page {
 
                 model: ListModel {
                   ListElement {
+                    name: qsTr("System default")
+                    value: "DefaultProxy"
+                  }
+                  ListElement {
                     name: "HTTP"
                     value: "HttpProxy"
                   }
                   ListElement {
                     name: "SOCKS5"
                     value: "Socks5Proxy"
-                  }
-                  ListElement {
-                    name: qsTr("System Default")
-                    value: "DefaultProxy"
                   }
                 }
                 textRole: "name"
@@ -894,16 +894,16 @@ Page {
               Label {
                 text: qsTr("Host:")
                 font: Theme.defaultFont
-                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
-                visible: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
               }
 
               QfTextField {
                 id: proxyHostField
-                enabled: proxyEnabledSwitch.checked
-                visible: proxyEnabledSwitch.checked
+                enabled: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
                 font: Theme.defaultFont
                 Layout.fillWidth: true
                 placeholderText: qsTr("e.g. proxy.example.com")
@@ -915,16 +915,16 @@ Page {
               Label {
                 text: qsTr("Port:")
                 font: Theme.defaultFont
-                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
-                visible: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
               }
 
               QfTextField {
                 id: proxyPortField
-                enabled: proxyEnabledSwitch.checked
-                visible: proxyEnabledSwitch.checked
+                enabled: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
                 font: Theme.defaultFont
                 Layout.preferredWidth: 100
                 horizontalAlignment: TextInput.AlignHCenter
@@ -940,16 +940,16 @@ Page {
               Label {
                 text: qsTr("Username:")
                 font: Theme.defaultFont
-                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
-                visible: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
               }
 
               QfTextField {
                 id: proxyUserField
-                enabled: proxyEnabledSwitch.checked
-                visible: proxyEnabledSwitch.checked
+                enabled: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
                 font: Theme.defaultFont
                 Layout.fillWidth: true
                 placeholderText: qsTr("Optional")
@@ -960,16 +960,16 @@ Page {
               Label {
                 text: qsTr("Password:")
                 font: Theme.defaultFont
-                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
-                visible: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
               }
 
               QfTextField {
                 id: proxyPasswordField
-                enabled: proxyEnabledSwitch.checked
-                visible: proxyEnabledSwitch.checked
+                enabled: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
                 font: Theme.defaultFont
                 Layout.fillWidth: true
                 echoMode: TextInput.Password
