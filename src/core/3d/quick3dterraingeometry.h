@@ -45,7 +45,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     Q_PROPERTY( QSizeF size READ size WRITE setSize NOTIFY sizeChanged )
 
     //! Height data array for terrain elevation values
-    Q_PROPERTY( QVariantList heightData WRITE setHeightData NOTIFY heightDataChanged )
+    Q_PROPERTY( QVariantList heightData READ heightData WRITE setHeightData NOTIFY heightDataChanged )
 
   public:
     //! Creates a new terrain geometry
@@ -62,6 +62,8 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
 
     //! Sets the terrain width.
     void setSize( QSizeF size );
+
+    QVariantList heightData() const;
 
     //! Sets the height data array.
     void setHeightData( const QVariantList &data );
