@@ -38,10 +38,15 @@ Item {
         return;
       }
 
+      // Create flat height array once when terrain size is known
+      if (flatHeightData.length !== normalizedData.length) {
+        flatHeightData = new Float32Array(normalizedData.length);
+      }
+
       // Reset any pan/zoom preview transforms
       panOffsetX = 0;
       panOffsetZ = 0;
-      zoomScale = 1.0;
+      isPanning = false;
 
       mapTextureData.render();
 
@@ -76,15 +81,15 @@ Item {
   Texture {
     id: mapTexture
     textureData: mapTextureData
-    generateMipmaps: true
-    mipFilter: Texture.Linear
+    generateMipmaps: false
+    mipFilter: Texture.None
     tilingModeHorizontal: Texture.ClampToEdge
     tilingModeVertical: Texture.ClampToEdge
     pivotU: 0.5
     pivotV: 0.5
     // The texture is a 3x3 metagrid; base scale 1/3 maps UVs to the center block only.
-    scaleU: (1.0 / 3.0) * mapArea.zoomScale
-    scaleV: (1.0 / 3.0) * mapArea.zoomScale
+    scaleU: (1.0 / 3.0)
+    scaleV: (1.0 / 3.0)
     // Convert scene-space pan offset to UV offset within the metagrid (1/3 = one map width)
     positionU: mapTerrainProvider.size.width > 0 ? -(mapArea.panOffsetX / mapTerrainProvider.size.width) * (1.0 / 3.0) : 0
     positionV: mapTerrainProvider.size.height > 0 ? -(mapArea.panOffsetZ / mapTerrainProvider.size.height) * (1.0 / 3.0) : 0
@@ -123,7 +128,7 @@ Item {
       id: terrainMesh
       mapTerrainGeometry.gridSize: mapTerrainProvider.gridSize
       mapTerrainGeometry.size: mapTerrainProvider.size
-      mapTerrainGeometry.heightData: mapTerrainProvider.normalizedData
+      mapTerrainGeometry.heightData: mapArea.shouldFlattenTerrain ? mapArea.flatHeightData : mapTerrainProvider.normalizedData
       texture: mapTexture
       textureReady: mapTextureData.ready && !mapArea.isTransitioning
     }
@@ -252,20 +257,12 @@ Item {
   // Pan/zoom preview state
   property real panOffsetX: 0
   property real panOffsetZ: 0
-  property real zoomScale: 1.0
+  property bool isPanning: false
   property bool isTransitioning: false
+  property var flatHeightData: new Float32Array(0)
 
-  Timer {
-    id: zoomDebounceTimer
-    interval: 300
-    repeat: false
-    onTriggered: {
-      const factor = mapArea.zoomScale;
-      mapArea.zoomScale = 1.0;
-      mapArea.isTransitioning = true;
-      applyExtentZoom(factor);
-    }
-  }
+  // Helper property: should we show flat terrain?
+  readonly property bool shouldFlattenTerrain: isPanning || isTransitioning
 
   TouchCameraController {
     id: cameraController
@@ -284,6 +281,7 @@ Item {
       mapArea.cameraInteractionDetected();
     }
     onExtentPanMoved: function (sceneX, sceneZ) {
+      if (!isPanning) isPanning = true;
       panOffsetX += sceneX;
       panOffsetZ += sceneZ;
     }
@@ -294,8 +292,9 @@ Item {
       applyExtentShift(savedX, savedZ);
     }
     onExtentZoomRequested: function (factor) {
-      zoomScale *= factor;
-      zoomDebounceTimer.restart();
+      // Apply zoom immediately without preview
+      isTransitioning = true;
+      applyExtentZoom(factor);
     }
   }
 
@@ -387,12 +386,22 @@ Item {
   }
 
   // Scales the extent around its center by the given factor, then regenerates.
+  // factor < 1.0 means zoom IN (smaller extent), factor > 1.0 means zoom OUT (larger extent)
   function applyExtentZoom(factor) {
     const ext = mapTerrainProvider.extent;
+    const oldWidth = ext.width;
     const cx = (ext.xMinimum + ext.xMaximum) / 2;
     const cy = (ext.yMinimum + ext.yMaximum) / 2;
-    const halfW = ext.width / 2 * factor;
-    const halfH = ext.height / 2 * factor;
+    let halfW = ext.width / 2 * factor;
+    let halfH = ext.height / 2 * factor;
+
+    // Clamp extent size
+    const minHalfExtent = 50;
+    const maxHalfExtent = 50000;
+    halfW = Math.max(minHalfExtent, Math.min(maxHalfExtent, halfW));
+    halfH = Math.max(minHalfExtent, Math.min(maxHalfExtent, halfH));
+
+    console.log("[Zoom] factor:", factor, "oldWidth:", oldWidth, "newWidth:", halfW * 2);
     mapTerrainProvider.setCustomExtent(cx - halfW, cy - halfH, cx + halfW, cy + halfH);
   }
 }
