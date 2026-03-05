@@ -37,8 +37,10 @@ Item {
         return;
       }
 
-      // Reset any panning offset before showing the new terrain
-      terrainMesh.position = Qt.vector3d(0, 0, 0);
+      // Reset any pan/zoom preview transforms
+      panOffsetX = 0;
+      panOffsetZ = 0;
+      zoomScale = 1.0;
 
       mapTextureData.render();
 
@@ -56,6 +58,18 @@ Item {
     extent: mapTerrainProvider.extent
     incrementalRendering: true
     forceDeferredLayersRepaint: mapArea.trackingModel ? mapArea.trackingModel.count > 0 : false
+
+    onReadyChanged: {
+      if (ready && mapArea.isTransitioning) {
+        mapArea.isTransitioning = false;
+      }
+    }
+
+    onTextureUpdated: {
+      if (mapArea.isTransitioning) {
+        mapArea.isTransitioning = false;
+      }
+    }
   }
 
   Texture {
@@ -63,6 +77,16 @@ Item {
     textureData: mapTextureData
     generateMipmaps: true
     mipFilter: Texture.Linear
+    tilingModeHorizontal: Texture.ClampToEdge
+    tilingModeVertical: Texture.ClampToEdge
+    pivotU: 0.5
+    pivotV: 0.5
+    // The texture is a 3x3 metagrid; base scale 1/3 maps UVs to the center block only.
+    scaleU: (1.0 / 3.0) * mapArea.zoomScale
+    scaleV: (1.0 / 3.0) * mapArea.zoomScale
+    // Convert scene-space pan offset to UV offset within the metagrid (1/3 = one map width)
+    positionU: mapTerrainProvider.size.width > 0 ? -(mapArea.panOffsetX / mapTerrainProvider.size.width) * (1.0 / 3.0) : 0
+    positionV: mapTerrainProvider.size.height > 0 ? -(mapArea.panOffsetZ / mapTerrainProvider.size.height) * (1.0 / 3.0) : 0
   }
 
   View3D {
@@ -100,7 +124,7 @@ Item {
       mapTerrainGeometry.size: mapTerrainProvider.size
       mapTerrainGeometry.heightData: mapTerrainProvider.normalizedData
       texture: mapTexture
-      textureReady: mapTextureData.ready
+      textureReady: mapTextureData.ready && !mapArea.isTransitioning
     }
 
     Node {
@@ -224,8 +248,23 @@ Item {
     }
   }
 
+  // Pan/zoom preview state
   property real panOffsetX: 0
   property real panOffsetZ: 0
+  property real zoomScale: 1.0
+  property bool isTransitioning: false
+
+  Timer {
+    id: zoomDebounceTimer
+    interval: 300
+    repeat: false
+    onTriggered: {
+      const factor = mapArea.zoomScale;
+      mapArea.zoomScale = 1.0;
+      mapArea.isTransitioning = true;
+      applyExtentZoom(factor);
+    }
+  }
 
   TouchCameraController {
     id: cameraController
@@ -246,15 +285,16 @@ Item {
     onExtentPanMoved: function (sceneX, sceneZ) {
       panOffsetX += sceneX;
       panOffsetZ += sceneZ;
-      terrainMesh.position = Qt.vector3d(panOffsetX, 0, panOffsetZ);
     }
     onExtentPanFinished: {
-      applyExtentShift(panOffsetX, panOffsetZ);
-      panOffsetX = 0;
-      panOffsetZ = 0;
+      const savedX = panOffsetX;
+      const savedZ = panOffsetZ;
+      isTransitioning = true;
+      applyExtentShift(savedX, savedZ);
     }
     onExtentZoomRequested: function (factor) {
-      applyExtentZoom(factor);
+      zoomScale *= factor;
+      zoomDebounceTimer.restart();
     }
   }
 

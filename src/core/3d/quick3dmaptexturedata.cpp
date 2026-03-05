@@ -254,21 +254,34 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
 {
   QImage rgbaImage = image.convertToFormat( QImage::Format_RGBA8888 );
 
-  setSize( rgbaImage.size() );
+  // Create a 3x3 metagrid: the center block is the rendered map,
+  // surrounding blocks are a neutral gray representing non-rendered areas.
+  // This allows panning via Texture positionU/V to reveal gray edges
+  // instead of stretched pixels from ClampToEdge.
+  const int w = rgbaImage.width();
+  const int h = rgbaImage.height();
+  QImage metagrid( w * 3, h * 3, QImage::Format_RGBA8888 );
+  metagrid.fill( QColor( 180, 180, 180 ) );
+
+  // Copy rendered map into the center block
+  for ( int y = 0; y < h; ++y )
+  {
+    memcpy( metagrid.scanLine( y + h ) + w * 4, rgbaImage.constScanLine( y ), w * 4 );
+  }
+
+  setSize( metagrid.size() );
   setFormat( QQuick3DTextureData::RGBA8 );
   setHasTransparency( true );
 
-  const qsizetype dataSize = rgbaImage.sizeInBytes();
-  QByteArray textureData( reinterpret_cast<const char *>( rgbaImage.constBits() ), dataSize );
+  const qsizetype dataSize = metagrid.sizeInBytes();
+  QByteArray textureData( reinterpret_cast<const char *>( metagrid.constBits() ), dataSize );
   setTextureData( textureData );
 
-  // Force Qt Quick 3D to reload the texture by toggling ready state
-  if ( mReady )
+  if ( !mReady )
   {
-    mReady = false;
+    mReady = true;
     emit readyChanged();
   }
 
-  mReady = true;
-  emit readyChanged();
+  emit textureUpdated();
 }

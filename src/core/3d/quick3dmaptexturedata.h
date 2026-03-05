@@ -104,6 +104,9 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Emitted when texture rendering is complete and data is ready
     void readyChanged();
 
+    //! Emitted every time texture data has been updated (unlike readyChanged which only fires once)
+    void textureUpdated();
+
     //! Emitted when incremental rendering setting changes
     void incrementalRenderingChanged();
 
