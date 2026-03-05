@@ -383,8 +383,10 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
                              PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/ios)
 endif()
 
-target_compile_features(qfield_core PUBLIC cxx_std_17)
+target_compile_features(qfield_core PUBLIC cxx_std_20)
 set_target_properties(qfield_core PROPERTIES AUTOMOC TRUE)
+
+find_package(Qt6 REQUIRED COMPONENTS CorePrivate GuiPrivate)
 
 target_link_libraries(
   qfield_core
