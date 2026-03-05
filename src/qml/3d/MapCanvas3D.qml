@@ -13,6 +13,7 @@ Item {
   property alias mapSettings: mapTerrainProvider.mapSettings
   property alias terrainExtent: mapTerrainProvider.extent
   property bool isLoading: mapTerrainProvider.isLoading
+  property bool isFirstLoad: mapTerrainProvider.isFirstLoad
   property bool wireframeMode: false
 
   property bool gnssActive: false
