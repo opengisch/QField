@@ -1143,8 +1143,9 @@ void QFieldCloudProjectsFilterModel::setFilter( ProjectsFilter filter )
     return;
   }
 
+  beginFilterChange();
   mFilter = filter;
-  invalidateFilter();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
   emit filterChanged();
 }
@@ -1161,8 +1162,9 @@ void QFieldCloudProjectsFilterModel::setShowLocalOnly( bool showLocalOnly )
     return;
   }
 
+  beginFilterChange();
   mShowLocalOnly = showLocalOnly;
-  invalidateFilter();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
   emit showLocalOnlyChanged();
 }
@@ -1242,8 +1244,12 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
   {
     return;
   }
+
+  beginFilterChange();
   mTextFilter = text;
-  invalidateFilter();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
+
+  emit textFilterChanged();
 }
 
 QString QFieldCloudProjectsFilterModel::textFilter() const
@@ -1258,8 +1264,11 @@ void QFieldCloudProjectsFilterModel::setShowInValidProjects( bool showInValidPro
     return;
   }
 
+  beginFilterChange();
   mShowInValidProjects = showInValidProjects;
-  invalidateFilter();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
+
+  emit showInValidProjectsChanged();
 }
 
 

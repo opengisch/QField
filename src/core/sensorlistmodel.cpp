@@ -73,10 +73,11 @@ void SensorListModel::setShowConnectedOnly( bool showConnectedOnly )
   if ( mShowConnectedOnly == showConnectedOnly )
     return;
 
+  beginFilterChange();
   mShowConnectedOnly = showConnectedOnly;
-  emit showConnectedOnlyChanged();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
-  invalidateFilter();
+  emit showConnectedOnlyChanged();
 }
 
 bool SensorListModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
