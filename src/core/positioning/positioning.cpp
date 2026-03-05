@@ -495,8 +495,10 @@ void Positioning::setBackgroundMode( bool enabled )
   QFile backgroundFile( PositioningSource::backgroundFilePath );
   if ( mBackgroundMode )
   {
-    backgroundFile.open( QFile::WriteOnly );
-    backgroundFile.close();
+    if ( backgroundFile.open( QFile::WriteOnly ) )
+    {
+      backgroundFile.close();
+    }
   }
   else
   {

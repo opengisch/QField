@@ -501,10 +501,10 @@ TEST_CASE( "PluginManager findProjectPlugin" )
   SECTION( "exact match" )
   {
     const QString projectPath = tempDir.filePath( "test_project.qgs" );
-    QFile( projectPath ).open( QIODevice::WriteOnly );
+    REQUIRE( QFile( projectPath ).open( QIODevice::WriteOnly ) );
 
     const QString pluginPath = tempDir.filePath( "test_project.qml" );
-    QFile( pluginPath ).open( QIODevice::WriteOnly );
+    REQUIRE( QFile( pluginPath ).open( QIODevice::WriteOnly ) );
 
     REQUIRE( PluginManager::findProjectPlugin( projectPath ) == pluginPath );
   }
@@ -512,10 +512,10 @@ TEST_CASE( "PluginManager findProjectPlugin" )
   SECTION( "_qfield suffix variant" )
   {
     const QString projectPath = tempDir.filePath( "cloud_project_qfield.qgs" );
-    QFile( projectPath ).open( QIODevice::WriteOnly );
+    REQUIRE( QFile( projectPath ).open( QIODevice::WriteOnly ) );
 
     const QString pluginPath = tempDir.filePath( "cloud_project.qml" );
-    QFile( pluginPath ).open( QIODevice::WriteOnly );
+    REQUIRE( QFile( pluginPath ).open( QIODevice::WriteOnly ) );
 
     REQUIRE( PluginManager::findProjectPlugin( projectPath ) == pluginPath );
   }
@@ -523,13 +523,13 @@ TEST_CASE( "PluginManager findProjectPlugin" )
   SECTION( "prefer exact match over suffix variant" )
   {
     const QString projectPath = tempDir.filePath( "project_qfield.qgs" );
-    QFile( projectPath ).open( QIODevice::WriteOnly );
+    REQUIRE( QFile( projectPath ).open( QIODevice::WriteOnly ) );
 
     const QString exactPlugin = tempDir.filePath( "project_qfield.qml" );
-    QFile( exactPlugin ).open( QIODevice::WriteOnly );
+    REQUIRE( QFile( exactPlugin ).open( QIODevice::WriteOnly ) );
 
     const QString variantPlugin = tempDir.filePath( "project.qml" );
-    QFile( variantPlugin ).open( QIODevice::WriteOnly );
+    REQUIRE( QFile( variantPlugin ).open( QIODevice::WriteOnly ) );
 
     REQUIRE( PluginManager::findProjectPlugin( projectPath ) == exactPlugin );
   }
@@ -537,7 +537,7 @@ TEST_CASE( "PluginManager findProjectPlugin" )
   SECTION( "no plugin found" )
   {
     const QString projectPath = tempDir.filePath( "no_plugin.qgs" );
-    QFile( projectPath ).open( QIODevice::WriteOnly );
+    REQUIRE( QFile( projectPath ).open( QIODevice::WriteOnly ) );
 
     REQUIRE( PluginManager::findProjectPlugin( projectPath ).isEmpty() );
   }

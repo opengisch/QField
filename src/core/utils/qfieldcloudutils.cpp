@@ -148,15 +148,17 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
     // Step 1: Load the already existing legacy `attachments.csv` file contents in the memory.
     QMultiMap<QString, QString> migrationFiles;
     QFile migrationFile( QStringLiteral( "%1/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
-    migrationFile.open( QFile::ReadWrite | QFile::Text );
-    QTextStream migrationStream( &migrationFile );
-    while ( !migrationStream.atEnd() )
+    if ( migrationFile.open( QFile::ReadWrite | QFile::Text ) )
     {
-      const QString line = migrationStream.readLine().trimmed();
-      const QStringList values = StringUtils::csvToStringList( line );
-      if ( values.size() >= 2 )
+      QTextStream migrationStream( &migrationFile );
+      while ( !migrationStream.atEnd() )
       {
-        migrationFiles.insert( values.at( 0 ), values.at( 1 ) );
+        const QString line = migrationStream.readLine().trimmed();
+        const QStringList values = StringUtils::csvToStringList( line );
+        if ( values.size() >= 2 )
+        {
+          migrationFiles.insert( values.at( 0 ), values.at( 1 ) );
+        }
       }
     }
 
@@ -212,18 +214,20 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
       return files;
     }
 
-    attachmentsFile.open( QFile::ReadWrite | QFile::Text );
-    QTextStream attachmentsStream( &attachmentsFile );
-    while ( !attachmentsStream.atEnd() )
+    if ( attachmentsFile.open( QFile::ReadWrite | QFile::Text ) )
     {
-      const QString line = attachmentsStream.readLine().trimmed();
-      const QStringList values = StringUtils::csvToStringList( line );
-
-      // The expected CSV format must have two columns:
-      // project_id,file_path
-      if ( values.size() >= 2 )
+      QTextStream attachmentsStream( &attachmentsFile );
+      while ( !attachmentsStream.atEnd() )
       {
-        files.insert( values.at( 0 ), values.at( 1 ) );
+        const QString line = attachmentsStream.readLine().trimmed();
+        const QStringList values = StringUtils::csvToStringList( line );
+
+        // The expected CSV format must have two columns:
+        // project_id,file_path
+        if ( values.size() >= 2 )
+        {
+          files.insert( values.at( 0 ), values.at( 1 ) );
+        }
       }
     }
   }
@@ -288,22 +292,24 @@ void QFieldCloudUtils::writeToAttachmentsFile( const QString &username, const QS
   if ( attachmentsLock.tryLock( 10000 ) )
   {
     QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( localCloudUSerDirectory ) );
-    attachmentsFile.open( QFile::Append | QFile::Text );
-    QTextStream attachmentsStream( &attachmentsFile );
-
-    for ( const QString &fileName : fileNames )
+    if ( attachmentsFile.open( QFile::Append | QFile::Text ) )
     {
-      QFileInfo fi( QDir::cleanPath( fileName ) );
-      if ( fi.isDir() )
+      QTextStream attachmentsStream( &attachmentsFile );
+
+      for ( const QString &fileName : fileNames )
       {
-        writeFilesFromDirectory( fileName, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
+        QFileInfo fi( QDir::cleanPath( fileName ) );
+        if ( fi.isDir() )
+        {
+          writeFilesFromDirectory( fileName, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
+        }
+        else if ( fi.isFile() )
+        {
+          writeFileDetails( fileName, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
+        }
       }
-      else if ( fi.isFile() )
-      {
-        writeFileDetails( fileName, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
-      }
+      attachmentsFile.close();
     }
-    attachmentsFile.close();
 
     if ( cloudConnection )
       emit cloudConnection->pendingAttachmentsAdded();
@@ -359,19 +365,21 @@ void QFieldCloudUtils::removePendingAttachment( const QString &username, const Q
     const QString lineToRemove = StringUtils::stringListToCsv( QStringList() << projectId << fileName );
     QString output;
     QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( localCloudUSerDirectory ) );
-    attachmentsFile.open( QFile::ReadWrite | QFile::Text );
-    QTextStream attachmentsStream( &attachmentsFile );
-    while ( !attachmentsStream.atEnd() )
+    if ( attachmentsFile.open( QFile::ReadWrite | QFile::Text ) )
     {
-      const QString line = attachmentsStream.readLine();
-      if ( !line.isEmpty() && !line.startsWith( lineToRemove ) )
+      QTextStream attachmentsStream( &attachmentsFile );
+      while ( !attachmentsStream.atEnd() )
       {
-        output += line + QChar( '\n' );
+        const QString line = attachmentsStream.readLine();
+        if ( !line.isEmpty() && !line.startsWith( lineToRemove ) )
+        {
+          output += line + QChar( '\n' );
+        }
       }
+      attachmentsFile.resize( 0 );
+      attachmentsStream.reset();
+      attachmentsStream << output;
+      attachmentsFile.close();
     }
-    attachmentsFile.resize( 0 );
-    attachmentsStream.reset();
-    attachmentsStream << output;
-    attachmentsFile.close();
   }
 }

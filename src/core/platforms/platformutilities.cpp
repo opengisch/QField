@@ -89,9 +89,11 @@ void PlatformUtilities::initSystem()
     afterUpdate();
     copySampleProjects();
 
-    gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate );
-    gitRevFile.write( appGitRev );
-    gitRevFile.close();
+    if ( gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate ) )
+    {
+      gitRevFile.write( appGitRev );
+      gitRevFile.close();
+    }
   }
 }
 
