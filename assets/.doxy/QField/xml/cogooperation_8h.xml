@@ -1,0 +1,468 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="cogooperation_8h" kind="file" language="C++">
+    <compoundname>cogooperation.h</compoundname>
+    <includes refid="qgsquickmapsettings_8h" local="yes">qgsquickmapsettings.h</includes>
+    <includes refid="rubberbandmodel_8h" local="yes">rubberbandmodel.h</includes>
+    <includes local="no">QColor</includes>
+    <includes local="no">QObject</includes>
+    <includes local="no">QString</includes>
+    <includedby refid="cogoexecutor_8h" local="yes">src/core/cogo/cogoexecutor.h</includedby>
+    <includedby refid="cogooperation_8cpp" local="yes">src/core/cogo/cogooperation.cpp</includedby>
+    <includedby refid="cogoregistry_8h" local="yes">src/core/cogo/cogoregistry.h</includedby>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/cogo/cogooperation.h</label>
+        <link refid="cogooperation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>rubberbandmodel.h</label>
+        <link refid="rubberbandmodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>QColor</label>
+      </node>
+      <node id="12">
+        <label>QDateTime</label>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="13">
+        <label>QPointF</label>
+      </node>
+      <node id="14">
+        <label>QPointer</label>
+      </node>
+      <node id="21">
+        <label>QString</label>
+      </node>
+      <node id="15">
+        <label>QVector</label>
+      </node>
+      <node id="3">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="16">
+        <label>qgis.h</label>
+      </node>
+      <node id="17">
+        <label>qgsabstractgeometry.h</label>
+      </node>
+      <node id="18">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="5">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="19">
+        <label>qgsgeometry.h</label>
+      </node>
+      <node id="6">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="7">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="8">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="9">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="10">
+        <label>qgsrectangle.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/core/cogo/cogoexecutor.h</label>
+        <link refid="cogoexecutor_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/core/cogo/cogooperation.h</label>
+        <link refid="cogooperation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/core/cogo/cogoregistry.h</label>
+        <link refid="cogoregistry_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/core/qgismobileapp.h</label>
+        <link refid="qgismobileapp_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classCogoParameter" prot="public">CogoParameter</innerclass>
+    <innerclass refid="classCogoVisualGuide" prot="public">CogoVisualGuide</innerclass>
+    <innerclass refid="classCogoOperation" prot="public">CogoOperation</innerclass>
+    <innerclass refid="classCogoOperationPointAtXYZ" prot="public">CogoOperationPointAtXYZ</innerclass>
+    <innerclass refid="classCogoOperationPointAtDistanceAngle" prot="public">CogoOperationPointAtDistanceAngle</innerclass>
+    <innerclass refid="classCogoOperationPointAtIntersectionCircles" prot="public">CogoOperationPointAtIntersectionCircles</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="cogooperation_8h_1a98d87796334cb67d17a036245373e15e" prot="public" static="no">
+        <name>SIZE_LABEL</name>
+        <initializer>14</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="28" column="9" bodyfile="src/core/cogo/cogooperation.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cogooperation_8h_1ae66cba3548a752f5466d3e0ddd0fca1f" prot="public" static="no">
+        <name>SIZE_LINE</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="29" column="9" bodyfile="src/core/cogo/cogooperation.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cogooperation_8h_1a129e296266c9f37ffba98614b3a4f71f" prot="public" static="no">
+        <name>SIZE_POINT</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="30" column="9" bodyfile="src/core/cogo/cogooperation.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cogooperation_8h_1a68351561da55b3e6a6b37a4e1e640acf" prot="public" static="no">
+        <name>SIZE_RESULT_FACTOR</name>
+        <initializer>1.8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="31" column="9" bodyfile="src/core/cogo/cogooperation.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cogooperation_8h_1a3d8f6101098c793f7a345117c5c12ce0" prot="public" static="no">
+        <name>COLOR_NEUTRAL</name>
+        <initializer>QColor( 127, 127, 127 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="33" column="9" bodyfile="src/core/cogo/cogooperation.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cogooperation_8h_1a85b448e63ef2b625a6626cbdb7b58a71" prot="public" static="no">
+        <name>COLOR_GROUP_1</name>
+        <initializer>QColor( 228, 26, 28 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="34" column="9" bodyfile="src/core/cogo/cogooperation.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cogooperation_8h_1a94be851a35a14b591f943fefac6c917b" prot="public" static="no">
+        <name>COLOR_GROUP_2</name>
+        <initializer>QColor( 55, 126, 184 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="35" column="9" bodyfile="src/core/cogo/cogooperation.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cogooperation_8h_1aaed159e191e8422c1713f567185e3aed" prot="public" static="no">
+        <name>COLOR_GROUP_3</name>
+        <initializer>QColor( 152, 78, 163 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="36" column="9" bodyfile="src/core/cogo/cogooperation.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cogooperation_8h_1a0aaa46e928f59ca955d98f05ce6c4e5c" prot="public" static="no">
+        <name>COLOR_GROUP_4</name>
+        <initializer>QColor( 255, 127, 0 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="37" column="9" bodyfile="src/core/cogo/cogooperation.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cogooperation_8h_1aabe2ebe914abc158ed05c52c31ca9c27" prot="public" static="no">
+        <name>COLOR_RESULT</name>
+        <initializer>QColor( 77, 175, 74 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/cogooperation.h" line="38" column="9" bodyfile="src/core/cogo/cogooperation.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cogooperation.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>2025.12.21</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2025<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>COGOOPERATION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COGOOPERATION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquickmapsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rubberbandmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QColor&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QString&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE_LABEL<sp/>14</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE_LINE<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE_POINT<sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE_RESULT_FACTOR<sp/>1.8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLOR_NEUTRAL<sp/>QColor(<sp/>127,<sp/>127,<sp/>127<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLOR_GROUP_1<sp/>QColor(<sp/>228,<sp/>26,<sp/>28<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLOR_GROUP_2<sp/>QColor(<sp/>55,<sp/>126,<sp/>184<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLOR_GROUP_3<sp/>QColor(<sp/>152,<sp/>78,<sp/>163<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLOR_GROUP_4<sp/>QColor(<sp/>255,<sp/>127,<sp/>0<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLOR_RESULT<sp/>QColor(<sp/>77,<sp/>175,<sp/>74<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classCogoParameter" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classCogoParameter" kindref="compound">CogoParameter</ref></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_GADGET</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="classCogoParameter_1ac29c0445accea5a443b5b86eb0f77fa9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classCogoParameter_1ac29c0445accea5a443b5b86eb0f77fa9" kindref="member">type</ref><sp/>MEMBER<sp/><ref refid="classCogoParameter_1ac29c0445accea5a443b5b86eb0f77fa9" kindref="member">type</ref><sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56" refid="classCogoParameter_1a48f8f1b441ce67ea329898f2d434f647" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classCogoParameter_1a48f8f1b441ce67ea329898f2d434f647" kindref="member">name</ref><sp/>MEMBER<sp/><ref refid="classCogoParameter_1a48f8f1b441ce67ea329898f2d434f647" kindref="member">name</ref><sp/>)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="classCogoParameter_1a481a7ea0d385439c971762e1cc51a81f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classCogoParameter_1a481a7ea0d385439c971762e1cc51a81f" kindref="member">label</ref><sp/>MEMBER<sp/><ref refid="classCogoParameter_1a481a7ea0d385439c971762e1cc51a81f" kindref="member">label</ref><sp/>)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="classCogoParameter_1a8bbe77b3a1145305c6538deda9ba9fc8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QColor<sp/><ref refid="classCogoParameter_1a8bbe77b3a1145305c6538deda9ba9fc8" kindref="member">color</ref><sp/>MEMBER<sp/><ref refid="classCogoParameter_1a8bbe77b3a1145305c6538deda9ba9fc8" kindref="member">color</ref><sp/>)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classCogoParameter_1a25eac5e69ea60f8d537b9d01e9351597" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QVariantMap<sp/><ref refid="classCogoParameter_1a25eac5e69ea60f8d537b9d01e9351597" kindref="member">configuration</ref><sp/>MEMBER<sp/><ref refid="classCogoParameter_1a25eac5e69ea60f8d537b9d01e9351597" kindref="member">configuration</ref><sp/>)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classCogoParameter" kindref="compound">CogoParameter</ref>(<sp/>const<sp/>QString<sp/>&amp;<ref refid="classCogoParameter_1ac29c0445accea5a443b5b86eb0f77fa9" kindref="member">type</ref><sp/>=<sp/>QString(),<sp/>const<sp/>QString<sp/>&amp;<ref refid="classCogoParameter_1a48f8f1b441ce67ea329898f2d434f647" kindref="member">name</ref><sp/>=<sp/>QString(),<sp/>const<sp/>QString<sp/>&amp;<ref refid="classCogoParameter_1a481a7ea0d385439c971762e1cc51a81f" kindref="member">label</ref><sp/>=<sp/>QString(),<sp/>const<sp/>QColor<sp/>&amp;<ref refid="classCogoParameter_1a8bbe77b3a1145305c6538deda9ba9fc8" kindref="member">color</ref><sp/>=<sp/>Qt::transparent,<sp/>const<sp/>QVariantMap<sp/>&amp;<ref refid="classCogoParameter_1a25eac5e69ea60f8d537b9d01e9351597" kindref="member">configuration</ref><sp/>=<sp/>QVariantMap()<sp/>)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classCogoParameter_1ac29c0445accea5a443b5b86eb0f77fa9" kindref="member">type</ref>(<sp/><ref refid="classCogoParameter_1ac29c0445accea5a443b5b86eb0f77fa9" kindref="member">type</ref><sp/>)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="classCogoParameter_1a48f8f1b441ce67ea329898f2d434f647" kindref="member">name</ref>(<sp/><ref refid="classCogoParameter_1a48f8f1b441ce67ea329898f2d434f647" kindref="member">name</ref><sp/>)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="classCogoParameter_1a481a7ea0d385439c971762e1cc51a81f" kindref="member">label</ref>(<sp/><ref refid="classCogoParameter_1a481a7ea0d385439c971762e1cc51a81f" kindref="member">label</ref><sp/>)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="classCogoParameter_1a8bbe77b3a1145305c6538deda9ba9fc8" kindref="member">color</ref>(<sp/><ref refid="classCogoParameter_1a8bbe77b3a1145305c6538deda9ba9fc8" kindref="member">color</ref><sp/>)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="classCogoParameter_1a25eac5e69ea60f8d537b9d01e9351597" kindref="member">configuration</ref>(<sp/><ref refid="classCogoParameter_1a25eac5e69ea60f8d537b9d01e9351597" kindref="member">configuration</ref><sp/>)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoParameter_1ac29c0445accea5a443b5b86eb0f77fa9" kindref="member">type</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoParameter_1a48f8f1b441ce67ea329898f2d434f647" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoParameter_1a481a7ea0d385439c971762e1cc51a81f" kindref="member">label</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/><ref refid="classCogoParameter_1a8bbe77b3a1145305c6538deda9ba9fc8" kindref="member">color</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantMap<sp/><ref refid="classCogoParameter_1a25eac5e69ea60f8d537b9d01e9351597" kindref="member">configuration</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator==(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCogoParameter" kindref="compound">CogoParameter</ref><sp/>&amp;other<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="89"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classCogoParameter_1ac29c0445accea5a443b5b86eb0f77fa9" kindref="member">type</ref><sp/>==<sp/>other.<ref refid="classCogoParameter_1ac29c0445accea5a443b5b86eb0f77fa9" kindref="member">type</ref><sp/>&amp;&amp;<sp/><ref refid="classCogoParameter_1a48f8f1b441ce67ea329898f2d434f647" kindref="member">name</ref><sp/>==<sp/>other.<ref refid="classCogoParameter_1a48f8f1b441ce67ea329898f2d434f647" kindref="member">name</ref><sp/>&amp;&amp;<sp/><ref refid="classCogoParameter_1a481a7ea0d385439c971762e1cc51a81f" kindref="member">label</ref><sp/>==<sp/>other.<ref refid="classCogoParameter_1a481a7ea0d385439c971762e1cc51a81f" kindref="member">label</ref><sp/>&amp;&amp;<sp/><ref refid="classCogoParameter_1a8bbe77b3a1145305c6538deda9ba9fc8" kindref="member">color</ref><sp/>==<sp/>other.<ref refid="classCogoParameter_1a8bbe77b3a1145305c6538deda9ba9fc8" kindref="member">color</ref><sp/>&amp;&amp;<sp/><ref refid="classCogoParameter_1a25eac5e69ea60f8d537b9d01e9351597" kindref="member">configuration</ref><sp/>==<sp/>other.<ref refid="classCogoParameter_1a25eac5e69ea60f8d537b9d01e9351597" kindref="member">configuration</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator!=(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCogoParameter" kindref="compound">CogoParameter</ref><sp/>&amp;other<sp/>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!operator==(<sp/>other<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="classCogoVisualGuide" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classCogoVisualGuide" kindref="compound">CogoVisualGuide</ref></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_GADGET</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="classCogoVisualGuide_1a490a0d8301f98279eb36dc97b0404633" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>Type<sp/><ref refid="classCogoVisualGuide_1a490a0d8301f98279eb36dc97b0404633" kindref="member">type</ref><sp/>MEMBER<sp/><ref refid="classCogoVisualGuide_1a490a0d8301f98279eb36dc97b0404633" kindref="member">type</ref><sp/>)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113" refid="classCogoVisualGuide_1a20c7b35a44b895f229d613d342c2ad73" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QVariantMap<sp/><ref refid="classCogoVisualGuide_1a20c7b35a44b895f229d613d342c2ad73" kindref="member">details</ref><sp/>MEMBER<sp/><ref refid="classCogoVisualGuide_1a20c7b35a44b895f229d613d342c2ad73" kindref="member">details</ref><sp/>)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="classCogoVisualGuide_1abe03976fd3c244e40b9f99cbaf35355e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QColor<sp/><ref refid="classCogoVisualGuide_1abe03976fd3c244e40b9f99cbaf35355e" kindref="member">color</ref><sp/>MEMBER<sp/><ref refid="classCogoVisualGuide_1abe03976fd3c244e40b9f99cbaf35355e" kindref="member">color</ref><sp/>)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="classCogoVisualGuide_1afc25d3a77881415f4c18bf71d02aa2c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QColor<sp/><ref refid="classCogoVisualGuide_1afc25d3a77881415f4c18bf71d02aa2c1" kindref="member">outlineColor</ref><sp/>MEMBER<sp/><ref refid="classCogoVisualGuide_1afc25d3a77881415f4c18bf71d02aa2c1" kindref="member">outlineColor</ref><sp/>)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classenum" kindref="compound">enum</ref><sp/>Type</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Point,</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Line,</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Circle,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Label,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ENUM(<sp/>Type<sp/>)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classCogoVisualGuide" kindref="compound">CogoVisualGuide</ref>(<sp/>Type<sp/><ref refid="classCogoVisualGuide_1a490a0d8301f98279eb36dc97b0404633" kindref="member">type</ref><sp/>=<sp/>Point,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoVisualGuide_1a20c7b35a44b895f229d613d342c2ad73" kindref="member">details</ref><sp/>=<sp/>QVariantMap(),<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QColor<sp/>&amp;<ref refid="classCogoVisualGuide_1abe03976fd3c244e40b9f99cbaf35355e" kindref="member">color</ref><sp/>=<sp/>COLOR_NEUTRAL,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QColor<sp/>&amp;<ref refid="classCogoVisualGuide_1afc25d3a77881415f4c18bf71d02aa2c1" kindref="member">outlineColor</ref><sp/>=<sp/>QColor(<sp/>255,<sp/>255,<sp/>255,<sp/>127<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classCogoVisualGuide_1a490a0d8301f98279eb36dc97b0404633" kindref="member">type</ref>(<sp/><ref refid="classCogoVisualGuide_1a490a0d8301f98279eb36dc97b0404633" kindref="member">type</ref><sp/>)</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="classCogoVisualGuide_1a20c7b35a44b895f229d613d342c2ad73" kindref="member">details</ref>(<sp/><ref refid="classCogoVisualGuide_1a20c7b35a44b895f229d613d342c2ad73" kindref="member">details</ref><sp/>)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="classCogoVisualGuide_1abe03976fd3c244e40b9f99cbaf35355e" kindref="member">color</ref>(<sp/><ref refid="classCogoVisualGuide_1abe03976fd3c244e40b9f99cbaf35355e" kindref="member">color</ref><sp/>)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="classCogoVisualGuide_1afc25d3a77881415f4c18bf71d02aa2c1" kindref="member">outlineColor</ref>(<sp/><ref refid="classCogoVisualGuide_1afc25d3a77881415f4c18bf71d02aa2c1" kindref="member">outlineColor</ref><sp/>)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>Type<sp/><ref refid="classCogoVisualGuide_1a490a0d8301f98279eb36dc97b0404633" kindref="member">type</ref><sp/>=<sp/>Point;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantMap<sp/><ref refid="classCogoVisualGuide_1a20c7b35a44b895f229d613d342c2ad73" kindref="member">details</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/><ref refid="classCogoVisualGuide_1abe03976fd3c244e40b9f99cbaf35355e" kindref="member">color</ref><sp/>=<sp/>QColor(<sp/>255,<sp/>0,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/><ref refid="classCogoVisualGuide_1afc25d3a77881415f4c18bf71d02aa2c1" kindref="member">outlineColor</ref><sp/>=<sp/>QColor(<sp/>255,<sp/>255,<sp/>255,<sp/>100<sp/>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="classCogoOperation" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classCogoOperation" kindref="compound">CogoOperation</ref></highlight></codeline>
+<codeline lineno="154"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="159" refid="classCogoOperation_1a200c8000516f212a8ff37dfa84abc4f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classCogoOperation_1a200c8000516f212a8ff37dfa84abc4f5" kindref="member">CogoOperation</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classCogoOperation" kindref="compound">~CogoOperation</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165" refid="classCogoOperation_1a37f3a0f561d3dbdae44206cb25fb2f02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classCogoOperation_1a37f3a0f561d3dbdae44206cb25fb2f02" kindref="member">name</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QString();<sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="classCogoOperation_1a6057f38831a16080c47f965835e85786" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classCogoOperation_1a6057f38831a16080c47f965835e85786" kindref="member">displayName</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QString();<sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="classCogoOperation_1a6e175c95df9b9519e93ba736d7db15ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classCogoOperation_1a6e175c95df9b9519e93ba736d7db15ef" kindref="member">icon</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QString();<sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="classCogoOperation_1ab2ffa4125084d99b3b07c70eb6d4f90b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>QList&lt;CogoParameter&gt;<sp/><ref refid="classCogoOperation_1ab2ffa4125084d99b3b07c70eb6d4f90b" kindref="member">parameters</ref>(<sp/>Qgis::WkbType<sp/>wkbType<sp/>=<sp/>Qgis::WkbType::Unknown<sp/>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QList&lt;CogoParameter&gt;();<sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188" refid="classCogoOperation_1a8ac32808a57d6a99dae4ca50127d8ab0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>QList&lt;CogoVisualGuide&gt;<sp/><ref refid="classCogoOperation_1a8ac32808a57d6a99dae4ca50127d8ab0" kindref="member">visualGuides</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperation_1ab2ffa4125084d99b3b07c70eb6d4f90b" kindref="member">parameters</ref>,<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings<sp/>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QList&lt;CogoVisualGuide&gt;();<sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195" refid="classCogoOperation_1a887b6fc4c35ad2d42a4ab9c4c1ebec3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCogoOperation_1a887b6fc4c35ad2d42a4ab9c4c1ebec3a" kindref="member">checkReadiness</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperation_1ab2ffa4125084d99b3b07c70eb6d4f90b" kindref="member">parameters</ref>,<sp/>Qgis::WkbType<sp/>wkbType<sp/>=<sp/>Qgis::WkbType::Unknown<sp/>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203" refid="classCogoOperation_1a79eff34d37074e5463c32cab4d907350" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCogoOperation_1a79eff34d37074e5463c32cab4d907350" kindref="member">execute</ref>(<sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*rubberbandModel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperation_1ab2ffa4125084d99b3b07c70eb6d4f90b" kindref="member">parameters</ref>,<sp/>Qgis::WkbType<sp/>wkbType<sp/>=<sp/>Qgis::WkbType::Unknown<sp/>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211" refid="classCogoOperationPointAtXYZ" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classCogoOperationPointAtXYZ" kindref="compound">CogoOperationPointAtXYZ</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classCogoOperation" kindref="compound">CogoOperation</ref></highlight></codeline>
+<codeline lineno="212"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classCogoOperationPointAtXYZ" kindref="compound">CogoOperationPointAtXYZ</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classCogoOperationPointAtXYZ" kindref="compound">~CogoOperationPointAtXYZ</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217" refid="classCogoOperationPointAtXYZ_1a44e08985f33b237b8cbfea47b69702f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoOperationPointAtXYZ_1a44e08985f33b237b8cbfea47b69702f3" kindref="member">name</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;point_at_xyz&quot;</highlight><highlight class="normal"><sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="218" refid="classCogoOperationPointAtXYZ_1a9cab6d194e73235efa0cd1d469aea189" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoOperationPointAtXYZ_1a9cab6d194e73235efa0cd1d469aea189" kindref="member">displayName</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QObject::tr(<sp/></highlight><highlight class="stringliteral">&quot;XYZ<sp/>Parameters&quot;</highlight><highlight class="normal"><sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="219" refid="classCogoOperationPointAtXYZ_1aae2cfe1d0699267d8f4d60298a2853a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoOperationPointAtXYZ_1aae2cfe1d0699267d8f4d60298a2853a5" kindref="member">icon</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;ic_cogo_xy_white_24dp&quot;</highlight><highlight class="normal"><sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;CogoParameter&gt;<sp/><ref refid="classCogoOperationPointAtXYZ_1a42b52f49a85bf617b88370b41617c6b3" kindref="member">parameters</ref>(<sp/>Qgis::WkbType<sp/>wkbType<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;CogoVisualGuide&gt;<sp/><ref refid="classCogoOperationPointAtXYZ_1a61e72d316e4a320f3e6955d680eee84b" kindref="member">visualGuides</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperationPointAtXYZ_1a42b52f49a85bf617b88370b41617c6b3" kindref="member">parameters</ref>,<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCogoOperationPointAtXYZ_1a4bf02709aae815ba1a15febcd01362dd" kindref="member">checkReadiness</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperationPointAtXYZ_1a42b52f49a85bf617b88370b41617c6b3" kindref="member">parameters</ref>,<sp/>Qgis::WkbType<sp/>wkbType<sp/>=<sp/>Qgis::WkbType::Unknown<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCogoOperationPointAtXYZ_1a65fd297c29866fc32d52ef96be7ffdbd" kindref="member">execute</ref>(<sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*rubberbandModel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperationPointAtXYZ_1a42b52f49a85bf617b88370b41617c6b3" kindref="member">parameters</ref>,<sp/>Qgis::WkbType<sp/>wkbType<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231" refid="classCogoOperationPointAtDistanceAngle" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classCogoOperationPointAtDistanceAngle" kindref="compound">CogoOperationPointAtDistanceAngle</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classCogoOperation" kindref="compound">CogoOperation</ref></highlight></codeline>
+<codeline lineno="232"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classCogoOperationPointAtDistanceAngle" kindref="compound">CogoOperationPointAtDistanceAngle</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classCogoOperationPointAtDistanceAngle" kindref="compound">~CogoOperationPointAtDistanceAngle</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237" refid="classCogoOperationPointAtDistanceAngle_1a0a702fc9dc930441aacc3f71af48c669" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoOperationPointAtDistanceAngle_1a0a702fc9dc930441aacc3f71af48c669" kindref="member">name</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;point_at_distance_angle&quot;</highlight><highlight class="normal"><sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="238" refid="classCogoOperationPointAtDistanceAngle_1a83fa1a0e1334ff181a44dd08eba9fcd2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoOperationPointAtDistanceAngle_1a83fa1a0e1334ff181a44dd08eba9fcd2" kindref="member">displayName</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QObject::tr(<sp/></highlight><highlight class="stringliteral">&quot;Distance/Angle<sp/>from<sp/>Point&quot;</highlight><highlight class="normal"><sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="239" refid="classCogoOperationPointAtDistanceAngle_1a8ed0332670667235d9660b445a7b2283" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoOperationPointAtDistanceAngle_1a8ed0332670667235d9660b445a7b2283" kindref="member">icon</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;ic_cogo_angle_distance_white_24dp&quot;</highlight><highlight class="normal"><sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;CogoParameter&gt;<sp/><ref refid="classCogoOperationPointAtDistanceAngle_1a6ef74cf7584bcfd93714e95cde561039" kindref="member">parameters</ref>(<sp/>Qgis::WkbType<sp/>wkbType<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;CogoVisualGuide&gt;<sp/><ref refid="classCogoOperationPointAtDistanceAngle_1abd5c06aae8ef0e68d44dc8a60a7d8e7a" kindref="member">visualGuides</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperationPointAtDistanceAngle_1a6ef74cf7584bcfd93714e95cde561039" kindref="member">parameters</ref>,<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCogoOperationPointAtDistanceAngle_1a06cfe4ee7ba37cace5dab8f82e307963" kindref="member">checkReadiness</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperationPointAtDistanceAngle_1a6ef74cf7584bcfd93714e95cde561039" kindref="member">parameters</ref>,<sp/>Qgis::WkbType<sp/>wkbType<sp/>=<sp/>Qgis::WkbType::Unknown<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCogoOperationPointAtDistanceAngle_1a10099cd003f04595feb2273cb94c74d8" kindref="member">execute</ref>(<sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*rubberbandModel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperationPointAtDistanceAngle_1a6ef74cf7584bcfd93714e95cde561039" kindref="member">parameters</ref>,<sp/>Qgis::WkbType<sp/>wkbType<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251" refid="classCogoOperationPointAtIntersectionCircles" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classCogoOperationPointAtIntersectionCircles" kindref="compound">CogoOperationPointAtIntersectionCircles</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classCogoOperation" kindref="compound">CogoOperation</ref></highlight></codeline>
+<codeline lineno="252"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classCogoOperationPointAtIntersectionCircles" kindref="compound">CogoOperationPointAtIntersectionCircles</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classCogoOperationPointAtIntersectionCircles" kindref="compound">~CogoOperationPointAtIntersectionCircles</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257" refid="classCogoOperationPointAtIntersectionCircles_1a84082869c0dabb52a1c26b080597ef0a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoOperationPointAtIntersectionCircles_1a84082869c0dabb52a1c26b080597ef0a" kindref="member">name</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;point_at_intersection_circles&quot;</highlight><highlight class="normal"><sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="258" refid="classCogoOperationPointAtIntersectionCircles_1a7563f37dc493f0ffd79bd85ab64c7901" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoOperationPointAtIntersectionCircles_1a7563f37dc493f0ffd79bd85ab64c7901" kindref="member">displayName</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QObject::tr(<sp/></highlight><highlight class="stringliteral">&quot;Circles<sp/>Intersection&quot;</highlight><highlight class="normal"><sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="259" refid="classCogoOperationPointAtIntersectionCircles_1af8bf2ba1cd288dabc1267e00131038a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classCogoOperationPointAtIntersectionCircles_1af8bf2ba1cd288dabc1267e00131038a2" kindref="member">icon</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;ic_cogo_intersection_circles_white_24dp&quot;</highlight><highlight class="normal"><sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;CogoParameter&gt;<sp/><ref refid="classCogoOperationPointAtIntersectionCircles_1a0f06933d81068ed81471730514a209e7" kindref="member">parameters</ref>(<sp/>Qgis::WkbType<sp/>wkbType<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;CogoVisualGuide&gt;<sp/><ref refid="classCogoOperationPointAtIntersectionCircles_1affaf03e3186087dbdf7f11ae467e97f5" kindref="member">visualGuides</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperationPointAtIntersectionCircles_1a0f06933d81068ed81471730514a209e7" kindref="member">parameters</ref>,<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCogoOperationPointAtIntersectionCircles_1aa5580b408c94db3cd4ff6cc2c7b7862c" kindref="member">checkReadiness</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperationPointAtIntersectionCircles_1a0f06933d81068ed81471730514a209e7" kindref="member">parameters</ref>,<sp/>Qgis::WkbType<sp/>wkbType<sp/>=<sp/>Qgis::WkbType::Unknown<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCogoOperationPointAtIntersectionCircles_1a6a0634ac3cf863af1fd0126ace9f302b" kindref="member">execute</ref>(<sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*rubberbandModel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;<ref refid="classCogoOperationPointAtIntersectionCircles_1a0f06933d81068ed81471730514a209e7" kindref="member">parameters</ref>,<sp/>Qgis::WkbType<sp/>wkbType<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="265"><highlight class="normal">Q_DECLARE_METATYPE(<sp/><ref refid="classCogoOperation" kindref="compound">CogoOperation</ref><sp/>)</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">Q_DECLARE_METATYPE(<sp/><ref refid="classCogoParameter" kindref="compound">CogoParameter</ref><sp/>)</highlight></codeline>
+<codeline lineno="267"><highlight class="normal">Q_DECLARE_METATYPE(<sp/><ref refid="classCogoVisualGuide" kindref="compound">CogoVisualGuide</ref><sp/>)</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>COGOOPERATION_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/cogo/cogooperation.h"/>
+  </compounddef>
+</doxygen>

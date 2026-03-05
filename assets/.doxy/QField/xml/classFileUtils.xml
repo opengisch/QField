@@ -1,0 +1,858 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFileUtils" kind="class" language="C++" prot="public">
+    <compoundname>FileUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFileUtils_1a43b3109011d64be4a3e3c531a8520388" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FileUtils::FileUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>FileUtils</name>
+        <qualifiedname>FileUtils::FileUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="40" column="14" bodyfile="src/core/utils/fileutils.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1adb5b3ca318a447638cc361716a6d9501" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FileUtils::~FileUtils</definition>
+        <argsstring>()=default</argsstring>
+        <name>~FileUtils</name>
+        <qualifiedname>FileUtils::~FileUtils</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="41" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classFileUtils_1ab7f24ceae31485222f0937040c7de94c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString FileUtils::mimeTypeName</definition>
+        <argsstring>(const QString &amp;filePath)</argsstring>
+        <name>mimeTypeName</name>
+        <qualifiedname>FileUtils::mimeTypeName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+<para>Returns the mimetype of a filepath as string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="44" column="32" bodyfile="src/core/utils/fileutils.cpp" bodystart="55" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a7425b585036c38115aa35b4b54628a60" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FileUtils::isImageMimeTypeSupported</definition>
+        <argsstring>(const QString &amp;mimeType)</argsstring>
+        <name>isImageMimeTypeSupported</name>
+        <qualifiedname>FileUtils::isImageMimeTypeSupported</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mimeType</declname>
+        </param>
+        <briefdescription>
+<para>Returns TRUE if the provided mimetype is a supported image. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="46" column="29" bodyfile="src/core/utils/fileutils.cpp" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a0adfd8add8ee3d7330fda979b73d57a5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString FileUtils::fileName</definition>
+        <argsstring>(const QString &amp;filePath)</argsstring>
+        <name>fileName</name>
+        <qualifiedname>FileUtils::fileName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+<para>Returns the filename of a <emphasis>filePath</emphasis> - if no file name exists it&apos;s empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="48" column="32" bodyfile="src/core/utils/fileutils.cpp" bodystart="73" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a52b278042363d7a131771fc500497b0b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FileUtils::fileExists</definition>
+        <argsstring>(const QString &amp;filePath)</argsstring>
+        <name>fileExists</name>
+        <qualifiedname>FileUtils::fileExists</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+<para>Returns true if the <emphasis>filePath</emphasis> exists (false if it&apos;s a directory) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="50" column="29" bodyfile="src/core/utils/fileutils.cpp" bodystart="85" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a696f4b85dc4747efdc98a3eca224a53a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString FileUtils::fileSuffix</definition>
+        <argsstring>(const QString &amp;filePath)</argsstring>
+        <name>fileSuffix</name>
+        <qualifiedname>FileUtils::fileSuffix</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+<para>Returns the suffix (extension) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="52" column="32" bodyfile="src/core/utils/fileutils.cpp" bodystart="79" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a4fbd26ba5487898dcb74244aa2a7a775" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString FileUtils::representFileSize</definition>
+        <argsstring>(qint64 bytes)</argsstring>
+        <name>representFileSize</name>
+        <qualifiedname>FileUtils::representFileSize</qualifiedname>
+        <param>
+          <type>qint64</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+<para>Returns a human-friendly size from bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="54" column="32" bodyfile="src/core/utils/fileutils.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a0568b663a5c5824b87366ea55f8c1f25" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString FileUtils::sanitizeFilePath</definition>
+        <argsstring>(const QString &amp;filePath, const QString &amp;replacement=QLatin1String(&quot;_&quot;))</argsstring>
+        <name>sanitizeFilePath</name>
+        <qualifiedname>FileUtils::sanitizeFilePath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>replacement</declname>
+          <defval>QLatin1String(&quot;_&quot;)</defval>
+        </param>
+        <briefdescription>
+<para>Tries to convert the given <emphasis>filePath</emphasis> with path to a cross OS valid file name with path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="56" column="32" bodyfile="src/core/utils/fileutils.cpp" bodystart="96" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a9c0469676c9b34d37f51157840981ea2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString FileUtils::sanitizeFilePathPart</definition>
+        <argsstring>(const QString &amp;filePathPart, const QString &amp;replacement=QLatin1String(&quot;_&quot;))</argsstring>
+        <name>sanitizeFilePathPart</name>
+        <qualifiedname>FileUtils::sanitizeFilePathPart</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePathPart</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>replacement</declname>
+          <defval>QLatin1String(&quot;_&quot;)</defval>
+        </param>
+        <briefdescription>
+<para>Tries to convert the given <emphasis>filePathPart</emphasis> to a cross OS valid file name part. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="58" column="32" bodyfile="src/core/utils/fileutils.cpp" bodystart="147" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1aec5b7f4cbbb767efdfad3f0116889f84" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString FileUtils::absolutePath</definition>
+        <argsstring>(const QString &amp;filePath)</argsstring>
+        <name>absolutePath</name>
+        <qualifiedname>FileUtils::absolutePath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+<para>Returns the absolute path of the folder containing the <emphasis>filePath</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="60" column="32" bodyfile="src/core/utils/fileutils.cpp" bodystart="67" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1ab24fba2dc76e0d8027648a7841c19509" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FileUtils::isWithinProjectDirectory</definition>
+        <argsstring>(const QString &amp;filePath)</argsstring>
+        <name>isWithinProjectDirectory</name>
+        <qualifiedname>FileUtils::isWithinProjectDirectory</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if a file path is securely within the current project directory. Security measures:<itemizedlist>
+<listitem><para>Prevents directory traversal attacks using path normalization</para>
+</listitem><listitem><para>Handles symbolic links that could escape project boundaries</para>
+</listitem><listitem><para>Supports cross-platform path comparisons (Windows, macOS, Linux, Android, iOS)</para>
+</listitem><listitem><para>Validates non-existent files safely for write operations</para>
+</listitem><listitem><para>Prevents partial directory matching by enforcing complete path containment</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to check </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the path is safely within the current project directory </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="74" column="29" bodyfile="src/core/utils/fileutils.cpp" bodystart="500" bodyend="577"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a676ec3be2910d43ae9ada9cf4b768ded" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QByteArray</type>
+        <definition>QByteArray FileUtils::readFileContent</definition>
+        <argsstring>(const QString &amp;filePath)</argsstring>
+        <name>readFileContent</name>
+        <qualifiedname>FileUtils::readFileContent</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the entire content of a file and returns it as a byte array. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to the file to be read </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The file content as a QByteArray </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="81" column="35" bodyfile="src/core/utils/fileutils.cpp" bodystart="579" bodyend="609"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a9be80c3bebde5a8f059c377ed9f4efeb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FileUtils::writeFileContent</definition>
+        <argsstring>(const QString &amp;filePath, const QByteArray &amp;content)</argsstring>
+        <name>writeFileContent</name>
+        <qualifiedname>FileUtils::writeFileContent</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes content to a file. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to the file to be written </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>content</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The content to write to the file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the write operation was successful, false otherwise</para>
+</simplesect>
+<simplesect kind="note"><para>Platform restrictions apply:<itemizedlist>
+<listitem><para>On Android: Writing is only permitted within the app&apos;s internal storage or properly requested scoped storage locations.</para>
+</listitem><listitem><para>On iOS: Writing is restricted to the app&apos;s sandbox.</para>
+</listitem><listitem><para>Use <ref refid="classPlatformUtilities_1a0b9f81a24f9a48bab89af8b7865cda4b" kindref="member">PlatformUtilities.applicationDirectory()</ref> to get a safe write location. </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="95" column="29" bodyfile="src/core/utils/fileutils.cpp" bodystart="611" bodyend="655"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1aa1076225e33a39a7ad4a277d806ebc12" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap FileUtils::getFileInfo</definition>
+        <argsstring>(const QString &amp;filePath, bool fetchContent=false)</argsstring>
+        <name>getFileInfo</name>
+        <qualifiedname>FileUtils::getFileInfo</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fetchContent</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets detailed information about a file including MD5 hash and metadata. Optionally includes the file content when fetchContent is true. This is useful for file validation, caching, and efficient file handling in QML. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to the file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fetchContent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to include the file content in the returned information (default: false) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A map containing file metadata and optionally its content </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="105" column="36" bodyfile="src/core/utils/fileutils.cpp" bodystart="657" bodyend="740"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a5d434f48b856989081db45f07fddfd56" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FileUtils::restrictImageSize</definition>
+        <argsstring>(const QString &amp;imagePath, int maximumWidthHeight)</argsstring>
+        <name>restrictImageSize</name>
+        <qualifiedname>FileUtils::restrictImageSize</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>imagePath</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maximumWidthHeight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Insures that a given image&apos;s width and height are restricted to a maximum size. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>imagePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the image file path </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maximumWidthHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the maximum width and height size </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="112" column="29" bodyfile="src/core/utils/fileutils.cpp" bodystart="324" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a5965fe4df82f51dd295bb60c90c783b0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FileUtils::addImageMetadata</definition>
+        <argsstring>(const QString &amp;imagePath, const GnssPositionInformation &amp;positionInformation)</argsstring>
+        <name>addImageMetadata</name>
+        <qualifiedname>FileUtils::addImageMetadata</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>imagePath</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds positioning metadata to a given image. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>imagePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the image path </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>positionInformation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the GNSS position information used to add metadata details </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="119" column="29" bodyfile="src/core/utils/fileutils.cpp" bodystart="347" bodyend="390"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a547aed794658672acc13b34c42d97058" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FileUtils::addImageStamp</definition>
+        <argsstring>(const QString &amp;imagePath, const QString &amp;text, const QString &amp;textFormat=QString(), Qgis::TextHorizontalAlignment horizontalAlignment=Qgis::TextHorizontalAlignment::Left, const QString &amp;imageDecoration=QString())</argsstring>
+        <name>addImageStamp</name>
+        <qualifiedname>FileUtils::addImageStamp</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>imagePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>textFormat</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>Qgis::TextHorizontalAlignment</type>
+          <declname>horizontalAlignment</declname>
+          <defval>Qgis::TextHorizontalAlignment::Left</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>imageDecoration</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints details to a given image. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>imagePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the image path </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the details text </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional project from which custom stamping settings will be retrieved </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="127" column="29" bodyfile="src/core/utils/fileutils.cpp" bodystart="392" bodyend="498"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a961da2b1cb2905e9afd2bbfeed93c607" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FileUtils::copyRecursively</definition>
+        <argsstring>(const QString &amp;sourceFolder, const QString &amp;destFolder, QgsFeedback *feedback=nullptr, bool wipeDestFolder=true)</argsstring>
+        <name>copyRecursively</name>
+        <qualifiedname>FileUtils::copyRecursively</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourceFolder</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>destFolder</declname>
+        </param>
+        <param>
+          <type>QgsFeedback *</type>
+          <declname>feedback</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>wipeDestFolder</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="129" column="17" bodyfile="src/core/utils/fileutils.cpp" bodystart="191" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a07c2068de0511d9c15a86532245055f7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QByteArray</type>
+        <definition>QByteArray FileUtils::fileChecksum</definition>
+        <argsstring>(const QString &amp;fileName, const QCryptographicHash::Algorithm hashAlgorithm)</argsstring>
+        <name>fileChecksum</name>
+        <qualifiedname>FileUtils::fileChecksum</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type>const QCryptographicHash::Algorithm</type>
+          <declname>hashAlgorithm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the checksum of a file. An empty QByteArray will be returned if it cannot be calculated. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file name to get checksum of </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hashAlgorithm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>hash algorithm (md5, sha1, sha256 etc) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>QByteArray checksum value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="137" column="35" bodyfile="src/core/utils/fileutils.cpp" bodystart="277" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a1e180810c696414b8dbb7a1314d800b5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString FileUtils::fileEtag</definition>
+        <argsstring>(const QString &amp;fileName, int partSize=8 *1024 *1024)</argsstring>
+        <name>fileEtag</name>
+        <qualifiedname>FileUtils::fileEtag</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>partSize</declname>
+          <defval>8 *1024 *1024</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an Object Storage (S3) ETag of a file. An empty string will be returned if it cannot be calculated. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file name to get checksum of </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>partSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum size used to divide the file content into parts </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>QString Etag value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="145" column="32" bodyfile="src/core/utils/fileutils.cpp" bodystart="292" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a1efccb0ef9ba9cd24abbc4aa57046a34" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FileUtils::unzip</definition>
+        <argsstring>(const QString &amp;zipFilename, const QString &amp;dir, QStringList &amp;files, bool checkConsistency)</argsstring>
+        <name>unzip</name>
+        <qualifiedname>FileUtils::unzip</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>zipFilename</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>QStringList &amp;</type>
+          <declname>files</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>checkConsistency</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unzip a zip file in an output directory. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>zip</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The zip filename </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The output directory </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>files</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The absolute path of unzipped files </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>checkConsistency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Perform additional stricter consistency checks on the archive, and error if they fail (since QGIS 3.30) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>FALSE if the zip filename does not exist, the output directory does not exist or is not writable. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="155" column="17" bodyfile="src/core/utils/fileutils.cpp" bodystart="742" bodyend="849"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a931f21dd8df6e429519b387237a7d182" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FileUtils::isDeletable</definition>
+        <argsstring>(const QString &amp;filePath)</argsstring>
+        <name>isDeletable</name>
+        <qualifiedname>FileUtils::isDeletable</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if a file can be safely deleted. Security checks:<itemizedlist>
+<listitem><para>File must be within application or cloud directories</para>
+</listitem><listitem><para>Only allows deletion of specific file types</para>
+</listitem><listitem><para>Prevents deletion of folders, project files <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to check for deletion eligibility </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the file can be safely deleted, false otherwise </para>
+</simplesect>
+</para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="166" column="29" bodyfile="src/core/utils/fileutils.cpp" bodystart="851" bodyend="904"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileUtils_1a756cf3d23f7c0daa8b42806cd950a50e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap FileUtils::deleteFiles</definition>
+        <argsstring>(const QStringList &amp;filePaths)</argsstring>
+        <name>deleteFiles</name>
+        <qualifiedname>FileUtils::deleteFiles</qualifiedname>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>filePaths</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes a list of files with security validation. Only deletes files that pass <ref refid="classFileUtils_1a931f21dd8df6e429519b387237a7d182" kindref="member">isDeletable()</ref> checks and are within the project or cloud directories. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filePaths</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of file paths to delete </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A map with file paths as keys and boolean success status as values </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="174" column="36" bodyfile="src/core/utils/fileutils.cpp" bodystart="906" bodyend="944"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classFileUtils_1a53eca6243c819d868b3a01eb36ab71b9" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FileUtils::copyRecursivelyPrepare</definition>
+        <argsstring>(const QString &amp;sourceFolder, const QString &amp;destFolder, QList&lt; QPair&lt; QString, QString &gt; &gt; &amp;mapping)</argsstring>
+        <name>copyRecursivelyPrepare</name>
+        <qualifiedname>FileUtils::copyRecursivelyPrepare</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sourceFolder</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>destFolder</declname>
+        </param>
+        <param>
+          <type>QList&lt; QPair&lt; QString, QString &gt; &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/fileutils.h" line="177" column="16" bodyfile="src/core/utils/fileutils.cpp" bodystart="247" bodyend="274"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FileUtils</label>
+        <link refid="classFileUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FileUtils</label>
+        <link refid="classFileUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/fileutils.h" line="35" column="1" bodyfile="src/core/utils/fileutils.h" bodystart="36" bodyend="178"/>
+    <listofallmembers>
+      <member refid="classFileUtils_1aec5b7f4cbbb767efdfad3f0116889f84" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>absolutePath</name></member>
+      <member refid="classFileUtils_1a5965fe4df82f51dd295bb60c90c783b0" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>addImageMetadata</name></member>
+      <member refid="classFileUtils_1a547aed794658672acc13b34c42d97058" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>addImageStamp</name></member>
+      <member refid="classFileUtils_1a961da2b1cb2905e9afd2bbfeed93c607" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>copyRecursively</name></member>
+      <member refid="classFileUtils_1a53eca6243c819d868b3a01eb36ab71b9" prot="private" virt="non-virtual"><scope>FileUtils</scope><name>copyRecursivelyPrepare</name></member>
+      <member refid="classFileUtils_1a756cf3d23f7c0daa8b42806cd950a50e" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>deleteFiles</name></member>
+      <member refid="classFileUtils_1a07c2068de0511d9c15a86532245055f7" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>fileChecksum</name></member>
+      <member refid="classFileUtils_1a1e180810c696414b8dbb7a1314d800b5" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>fileEtag</name></member>
+      <member refid="classFileUtils_1a52b278042363d7a131771fc500497b0b" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>fileExists</name></member>
+      <member refid="classFileUtils_1a0adfd8add8ee3d7330fda979b73d57a5" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>fileName</name></member>
+      <member refid="classFileUtils_1a696f4b85dc4747efdc98a3eca224a53a" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>fileSuffix</name></member>
+      <member refid="classFileUtils_1a43b3109011d64be4a3e3c531a8520388" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>FileUtils</name></member>
+      <member refid="classFileUtils_1aa1076225e33a39a7ad4a277d806ebc12" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>getFileInfo</name></member>
+      <member refid="classFileUtils_1a931f21dd8df6e429519b387237a7d182" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>isDeletable</name></member>
+      <member refid="classFileUtils_1a7425b585036c38115aa35b4b54628a60" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>isImageMimeTypeSupported</name></member>
+      <member refid="classFileUtils_1ab24fba2dc76e0d8027648a7841c19509" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>isWithinProjectDirectory</name></member>
+      <member refid="classFileUtils_1ab7f24ceae31485222f0937040c7de94c" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>mimeTypeName</name></member>
+      <member refid="classFileUtils_1a676ec3be2910d43ae9ada9cf4b768ded" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>readFileContent</name></member>
+      <member refid="classFileUtils_1a4fbd26ba5487898dcb74244aa2a7a775" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>representFileSize</name></member>
+      <member refid="classFileUtils_1a5d434f48b856989081db45f07fddfd56" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>restrictImageSize</name></member>
+      <member refid="classFileUtils_1a0568b663a5c5824b87366ea55f8c1f25" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>sanitizeFilePath</name></member>
+      <member refid="classFileUtils_1a9c0469676c9b34d37f51157840981ea2" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>sanitizeFilePathPart</name></member>
+      <member refid="classFileUtils_1a1efccb0ef9ba9cd24abbc4aa57046a34" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>unzip</name></member>
+      <member refid="classFileUtils_1a9be80c3bebde5a8f059c377ed9f4efeb" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>writeFileContent</name></member>
+      <member refid="classFileUtils_1adb5b3ca318a447638cc361716a6d9501" prot="public" virt="non-virtual"><scope>FileUtils</scope><name>~FileUtils</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

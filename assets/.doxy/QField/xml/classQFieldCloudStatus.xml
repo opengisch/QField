@@ -1,0 +1,543 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldCloudStatus" kind="class" language="C++" prot="public">
+    <compoundname>QFieldCloudStatus</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfieldcloudstatus_8h" local="no">qfieldcloudstatus.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQFieldCloudStatus_1a2a9a237eec40ccf7a8c218f939fd584b" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>StatusType</name>
+        <qualifiedname>QFieldCloudStatus::StatusType</qualifiedname>
+        <enumvalue id="classQFieldCloudStatus_1a2a9a237eec40ccf7a8c218f939fd584baa60852f204ed8028c1c58808b746d115" prot="public">
+          <name>Ok</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQFieldCloudStatus_1a2a9a237eec40ccf7a8c218f939fd584ba10d0de28911c5f66463b9c8783f8148a" prot="public">
+          <name>Maintenance</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQFieldCloudStatus_1a2a9a237eec40ccf7a8c218f939fd584baaa95669cd5732a57e8f6467705f06642" prot="public">
+          <name>Degraded</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQFieldCloudStatus_1a2a9a237eec40ccf7a8c218f939fd584ba124617f0ad4a4ecb40ac0b9dcad97ed9" prot="public">
+          <name>Incident</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="45" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="46" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldCloudStatus_1a2be38eb26601f3c8345fbf6ad731db32" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::url</definition>
+        <argsstring></argsstring>
+        <name>url</name>
+        <qualifiedname>QFieldCloudStatus::url</qualifiedname>
+        <read>url</read>
+        <write>setUrl</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="37" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudStatus_1a110941c6115467e3583639dc6713e92c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>StatusType</type>
+        <definition>StatusType QFieldCloudStatus::statusType</definition>
+        <argsstring></argsstring>
+        <name>statusType</name>
+        <qualifiedname>QFieldCloudStatus::statusType</qualifiedname>
+        <read>statusType</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="38" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudStatus_1abc458b7bd42060cb18f6fd13a7b67350" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudStatus::hasProblem</definition>
+        <argsstring></argsstring>
+        <name>hasProblem</name>
+        <qualifiedname>QFieldCloudStatus::hasProblem</qualifiedname>
+        <read>hasProblem</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="39" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudStatus_1a3ea6b4b1f6b5ee026864a8a2499b3102" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::statusMessage</definition>
+        <argsstring></argsstring>
+        <name>statusMessage</name>
+        <qualifiedname>QFieldCloudStatus::statusMessage</qualifiedname>
+        <read>statusMessage</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="40" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudStatus_1a5dd6aba58c7fe0fd380198d98c65e781" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::detailsMessage</definition>
+        <argsstring></argsstring>
+        <name>detailsMessage</name>
+        <qualifiedname>QFieldCloudStatus::detailsMessage</qualifiedname>
+        <read>detailsMessage</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="41" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudStatus_1a03114c251578b69459e0e01de0d289b0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::statusPageUrl</definition>
+        <argsstring></argsstring>
+        <name>statusPageUrl</name>
+        <qualifiedname>QFieldCloudStatus::statusPageUrl</qualifiedname>
+        <read>statusPageUrl</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="42" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldCloudStatus_1a2c3057d6836bef748edf1b14dcd4aa12" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::mUrl</definition>
+        <argsstring></argsstring>
+        <name>mUrl</name>
+        <qualifiedname>QFieldCloudStatus::mUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="104" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatus_1aaef9490389878e2932dedeb7d96641a9" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::mStatusPageUrl</definition>
+        <argsstring></argsstring>
+        <name>mStatusPageUrl</name>
+        <qualifiedname>QFieldCloudStatus::mStatusPageUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="106" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatus_1aff61fca21997087f0426e0203719886b" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::mIncidentMessage</definition>
+        <argsstring></argsstring>
+        <name>mIncidentMessage</name>
+        <qualifiedname>QFieldCloudStatus::mIncidentMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="107" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatus_1a53d7213a675e90d4f5625467fe7fec9b" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::mMaintenanceMessage</definition>
+        <argsstring></argsstring>
+        <name>mMaintenanceMessage</name>
+        <qualifiedname>QFieldCloudStatus::mMaintenanceMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="108" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatus_1a46bd62226cdfe22161a9924bcbc1495a" prot="private" static="no" mutable="no">
+        <type>StatusType</type>
+        <definition>StatusType QFieldCloudStatus::mStatusType</definition>
+        <argsstring></argsstring>
+        <name>mStatusType</name>
+        <qualifiedname>QFieldCloudStatus::mStatusType</qualifiedname>
+        <initializer>= StatusType::Ok</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="110" column="16" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatus_1ac1fe599b8a7c60263b4f4a6ef63d775f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudStatus::mHasProblem</definition>
+        <argsstring></argsstring>
+        <name>mHasProblem</name>
+        <qualifiedname>QFieldCloudStatus::mHasProblem</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="111" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatus_1ad9062ee0780c7f03e307f42567124945" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::mStatusMessage</definition>
+        <argsstring></argsstring>
+        <name>mStatusMessage</name>
+        <qualifiedname>QFieldCloudStatus::mStatusMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="112" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatus_1adfe033d4de4aa57ff1b313a650773b9e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::mDetailsMessage</definition>
+        <argsstring></argsstring>
+        <name>mDetailsMessage</name>
+        <qualifiedname>QFieldCloudStatus::mDetailsMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="113" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatus_1a245837ec6da0e20a11b87f840abb98ad" prot="private" static="no" mutable="no">
+        <type><ref refid="classNetworkReply" kindref="compound">NetworkReply</ref> *</type>
+        <definition>NetworkReply* QFieldCloudStatus::mPendingReply</definition>
+        <argsstring></argsstring>
+        <name>mPendingReply</name>
+        <qualifiedname>QFieldCloudStatus::mPendingReply</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="115" column="18" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQFieldCloudStatus_1aa4e6ddb2d3141a823da821249f4a3d9d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QFieldCloudStatus::QFieldCloudStatus</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QFieldCloudStatus</name>
+        <qualifiedname>QFieldCloudStatus::QFieldCloudStatus</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="54" column="14" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudStatus_1aa6efa6d559c4b08686a55f54489b8880" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::url</definition>
+        <argsstring>() const</argsstring>
+        <name>url</name>
+        <qualifiedname>QFieldCloudStatus::url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the base URL of the QFieldCloud server. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="59" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudStatus_1a51a7e141dd80691a79407e227d69e1a1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>StatusType</type>
+        <definition>QFieldCloudStatus::StatusType QFieldCloudStatus::statusType</definition>
+        <argsstring>() const</argsstring>
+        <name>statusType</name>
+        <qualifiedname>QFieldCloudStatus::statusType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current status type of the QFieldCloud service. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="64" column="16" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudStatus_1ad61ea4a48c0433ec8f0d91c8de29f2a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudStatus::setUrl</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>setUrl</name>
+        <qualifiedname>QFieldCloudStatus::setUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the base URL of the QFieldCloud server and triggers a status fetch. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="69" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.cpp" bodystart="37" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudStatus_1ac8cdd6c282249c21a3324a4cfe756c54" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QFieldCloudStatus::hasProblem</definition>
+        <argsstring>() const</argsstring>
+        <name>hasProblem</name>
+        <qualifiedname>QFieldCloudStatus::hasProblem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns true if the service has any problem (degraded, incident, or maintenance). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="74" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.cpp" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudStatus_1aa1423501591815a19094571f0c8ffc96" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::statusMessage</definition>
+        <argsstring>() const</argsstring>
+        <name>statusMessage</name>
+        <qualifiedname>QFieldCloudStatus::statusMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a short user-facing message summarizing the service status. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="79" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.cpp" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudStatus_1a383a1b44c74f7f38927f816bb7fd94c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::detailsMessage</definition>
+        <argsstring>() const</argsstring>
+        <name>detailsMessage</name>
+        <qualifiedname>QFieldCloudStatus::detailsMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns additional details (incident/maintenance message) if available. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="84" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.cpp" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudStatus_1a870bd696bf2682c64ccd71e394f4ee31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldCloudStatus::statusPageUrl</definition>
+        <argsstring>() const</argsstring>
+        <name>statusPageUrl</name>
+        <qualifiedname>QFieldCloudStatus::statusPageUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the URL to the status page (e.g. <ulink url="https://status.qfield.cloud/">https://status.qfield.cloud/</ulink>). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="89" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.cpp" bodystart="76" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudStatus_1acabf207e458d4e61943cd1e0191a5666" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QFieldCloudStatus::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <qualifiedname>QFieldCloudStatus::refresh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Manually triggers a status fetch. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="94" column="22" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQFieldCloudStatus_1ab1d0ac65ea9ba6a2176742116f5ac3e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudStatus::urlChanged</definition>
+        <argsstring>()</argsstring>
+        <name>urlChanged</name>
+        <qualifiedname>QFieldCloudStatus::urlChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="97" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudStatus_1a31ae8ce9c156d41523b74cad578e2901" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudStatus::statusUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>statusUpdated</name>
+        <qualifiedname>QFieldCloudStatus::statusUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="98" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQFieldCloudStatus_1aa4bb201c4a82b5bf2b0b2ebde3fd1048" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudStatus::fetchStatus</definition>
+        <argsstring>()</argsstring>
+        <name>fetchStatus</name>
+        <qualifiedname>QFieldCloudStatus::fetchStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="101" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.cpp" bodystart="86" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudStatus_1a4ffc649f7f657c00d1ecf90b4ec511e7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudStatus::parseStatusResponse</definition>
+        <argsstring>(const QByteArray &amp;data)</argsstring>
+        <name>parseStatusResponse</name>
+        <qualifiedname>QFieldCloudStatus::parseStatusResponse</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="102" column="10" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.cpp" bodystart="141" bodyend="214"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classQFieldCloudStatus" kindref="compound">QFieldCloudStatus</ref> fetches the QFieldCloud service status endpoint and exposes the health state of the service to QML.</para>
+<para>It fetches the /api/v1/status/ endpoint once per session and provides properties to determine whether the service is degraded, has ongoing incidents, or is under maintenance. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QFieldCloudStatus</label>
+        <link refid="classQFieldCloudStatus"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QFieldCloudStatus</label>
+        <link refid="classQFieldCloudStatus"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/qfieldcloudstatus.h" line="33" column="1" bodyfile="src/core/qfieldcloud/qfieldcloudstatus.h" bodystart="34" bodyend="116"/>
+    <listofallmembers>
+      <member refid="classQFieldCloudStatus_1a5dd6aba58c7fe0fd380198d98c65e781" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>detailsMessage</name></member>
+      <member refid="classQFieldCloudStatus_1a383a1b44c74f7f38927f816bb7fd94c3" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>detailsMessage</name></member>
+      <member refid="classQFieldCloudStatus_1aa4bb201c4a82b5bf2b0b2ebde3fd1048" prot="private" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>fetchStatus</name></member>
+      <member refid="classQFieldCloudStatus_1abc458b7bd42060cb18f6fd13a7b67350" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>hasProblem</name></member>
+      <member refid="classQFieldCloudStatus_1ac8cdd6c282249c21a3324a4cfe756c54" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>hasProblem</name></member>
+      <member refid="classQFieldCloudStatus_1adfe033d4de4aa57ff1b313a650773b9e" prot="private" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>mDetailsMessage</name></member>
+      <member refid="classQFieldCloudStatus_1ac1fe599b8a7c60263b4f4a6ef63d775f" prot="private" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>mHasProblem</name></member>
+      <member refid="classQFieldCloudStatus_1aff61fca21997087f0426e0203719886b" prot="private" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>mIncidentMessage</name></member>
+      <member refid="classQFieldCloudStatus_1a53d7213a675e90d4f5625467fe7fec9b" prot="private" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>mMaintenanceMessage</name></member>
+      <member refid="classQFieldCloudStatus_1a245837ec6da0e20a11b87f840abb98ad" prot="private" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>mPendingReply</name></member>
+      <member refid="classQFieldCloudStatus_1ad9062ee0780c7f03e307f42567124945" prot="private" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>mStatusMessage</name></member>
+      <member refid="classQFieldCloudStatus_1aaef9490389878e2932dedeb7d96641a9" prot="private" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>mStatusPageUrl</name></member>
+      <member refid="classQFieldCloudStatus_1a46bd62226cdfe22161a9924bcbc1495a" prot="private" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>mStatusType</name></member>
+      <member refid="classQFieldCloudStatus_1a2c3057d6836bef748edf1b14dcd4aa12" prot="private" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>mUrl</name></member>
+      <member refid="classQFieldCloudStatus_1a4ffc649f7f657c00d1ecf90b4ec511e7" prot="private" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>parseStatusResponse</name></member>
+      <member refid="classQFieldCloudStatus_1aa4e6ddb2d3141a823da821249f4a3d9d" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>QFieldCloudStatus</name></member>
+      <member refid="classQFieldCloudStatus_1acabf207e458d4e61943cd1e0191a5666" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>refresh</name></member>
+      <member refid="classQFieldCloudStatus_1ad61ea4a48c0433ec8f0d91c8de29f2a6" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>setUrl</name></member>
+      <member refid="classQFieldCloudStatus_1a3ea6b4b1f6b5ee026864a8a2499b3102" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>statusMessage</name></member>
+      <member refid="classQFieldCloudStatus_1aa1423501591815a19094571f0c8ffc96" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>statusMessage</name></member>
+      <member refid="classQFieldCloudStatus_1a03114c251578b69459e0e01de0d289b0" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>statusPageUrl</name></member>
+      <member refid="classQFieldCloudStatus_1a870bd696bf2682c64ccd71e394f4ee31" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>statusPageUrl</name></member>
+      <member refid="classQFieldCloudStatus_1a110941c6115467e3583639dc6713e92c" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>statusType</name></member>
+      <member refid="classQFieldCloudStatus_1a51a7e141dd80691a79407e227d69e1a1" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>statusType</name></member>
+      <member refid="classQFieldCloudStatus_1a2a9a237eec40ccf7a8c218f939fd584b" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>StatusType</name></member>
+      <member refid="classQFieldCloudStatus_1a31ae8ce9c156d41523b74cad578e2901" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>statusUpdated</name></member>
+      <member refid="classQFieldCloudStatus_1a2be38eb26601f3c8345fbf6ad731db32" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>url</name></member>
+      <member refid="classQFieldCloudStatus_1aa6efa6d559c4b08686a55f54489b8880" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>url</name></member>
+      <member refid="classQFieldCloudStatus_1ab1d0ac65ea9ba6a2176742116f5ac3e8" prot="public" virt="non-virtual"><scope>QFieldCloudStatus</scope><name>urlChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

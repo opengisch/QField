@@ -1,0 +1,1872 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTracker" kind="class" language="C++" prot="public">
+    <compoundname>Tracker</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classTracker_1a999bec5ead84471080063dea999d10d5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>MeasureType</name>
+        <qualifiedname>Tracker::MeasureType</qualifiedname>
+        <enumvalue id="classTracker_1a999bec5ead84471080063dea999d10d5a4fff88ad11200c313fb7c43f45a6249b" prot="public">
+          <name>SecondsSinceStart</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTracker_1a999bec5ead84471080063dea999d10d5a30481cdc4852a1699d28be3674001cde" prot="public">
+          <name>Timestamp</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTracker_1a999bec5ead84471080063dea999d10d5af350e7db115b081ed4981bfcb2133607" prot="public">
+          <name>GroundSpeed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTracker_1a999bec5ead84471080063dea999d10d5a70ea2ee7b625cdda305c5a823c113438" prot="public">
+          <name>Bearing</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTracker_1a999bec5ead84471080063dea999d10d5a4b826acc37297849bd0758cf475ff930" prot="public">
+          <name>HorizontalAccuracy</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTracker_1a999bec5ead84471080063dea999d10d5a947136fadb69955a4b03b2c51c3c6f67" prot="public">
+          <name>VerticalAccuracy</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTracker_1a999bec5ead84471080063dea999d10d5ac9d0c1e302f117d67a49d53a14d4ca9d" prot="public">
+          <name>PDOP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTracker_1a999bec5ead84471080063dea999d10d5a536da02c83b51e944dfae14dc86e453c" prot="public">
+          <name>HDOP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classTracker_1a999bec5ead84471080063dea999d10d5a6f550e0729eaeaadd3b351ec583b17c4" prot="public">
+          <name>VDOP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="64" column="5" bodyfile="src/core/tracker.h" bodystart="65" bodyend="75"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTracker_1ad41f29d795943fac2c394e76fb4ea9ad" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Tracker::isActive</definition>
+        <argsstring></argsstring>
+        <name>isActive</name>
+        <qualifiedname>Tracker::isActive</qualifiedname>
+        <read>isActive</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="39" column="5" bodyfile="src/core/tracker.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1a0c156d833d75edf3353a8673dc9d536a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Tracker::isSuspended</definition>
+        <argsstring></argsstring>
+        <name>isSuspended</name>
+        <qualifiedname>Tracker::isSuspended</qualifiedname>
+        <read>isSuspended</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="40" column="5" bodyfile="src/core/tracker.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1a81bf5c06a4d954752be4a3cfa1e8acd4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Tracker::isReplaying</definition>
+        <argsstring></argsstring>
+        <name>isReplaying</name>
+        <qualifiedname>Tracker::isReplaying</qualifiedname>
+        <read>isReplaying</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="41" column="5" bodyfile="src/core/tracker.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1a38df840a02fa5c30dc3a540cc9b0dd41" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Tracker::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>Tracker::visible</qualifiedname>
+        <read>visible</read>
+        <write>setVisible</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="43" column="5" bodyfile="src/core/tracker.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1a25441b1081b070a361a0e424a26a0374" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor Tracker::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Tracker::color</qualifiedname>
+        <read>color</read>
+        <write>setColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="44" column="5" bodyfile="src/core/tracker.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1aba088d9f36553fd499602aeee7d2861b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * Tracker::vectorLayer</definition>
+        <argsstring></argsstring>
+        <name>vectorLayer</name>
+        <qualifiedname>Tracker::vectorLayer</qualifiedname>
+        <read>vectorLayer</read>
+        <write>setVectorLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="46" column="5" bodyfile="src/core/tracker.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1abf5cecc9aa13b457f040a661cc572d35" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature Tracker::feature</definition>
+        <argsstring></argsstring>
+        <name>feature</name>
+        <qualifiedname>Tracker::feature</qualifiedname>
+        <read>feature</read>
+        <write>setFeature</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="47" column="5" bodyfile="src/core/tracker.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1aa7edf4a442e34ad9816e161faf9e88e1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+        <definition>RubberbandModel * Tracker::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>Tracker::rubberbandModel</qualifiedname>
+        <read>rubberbandModel</read>
+        <write>setRubberbandModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="49" column="5" bodyfile="src/core/tracker.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1a98e93e59e3e67ba9021e33fe485f0a97" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref> *</type>
+        <definition>FeatureModel * Tracker::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>Tracker::featureModel</qualifiedname>
+        <read>featureModel</read>
+        <write>setFeatureModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="50" column="5" bodyfile="src/core/tracker.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1a1d513231a81fe99c8ad4fc8b6dc153eb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Tracker::timeInterval</definition>
+        <argsstring></argsstring>
+        <name>timeInterval</name>
+        <qualifiedname>Tracker::timeInterval</qualifiedname>
+        <read>timeInterval</read>
+        <write>setTimeInterval</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="52" column="5" bodyfile="src/core/tracker.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1ae1b1650c774d25f3c35de1304b3e87a9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Tracker::minimumDistance</definition>
+        <argsstring></argsstring>
+        <name>minimumDistance</name>
+        <qualifiedname>Tracker::minimumDistance</qualifiedname>
+        <read>minimumDistance</read>
+        <write>setMinimumDistance</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="53" column="5" bodyfile="src/core/tracker.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1a7285e80d400b3ff79f8354eb404a0396" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Tracker::maximumDistance</definition>
+        <argsstring></argsstring>
+        <name>maximumDistance</name>
+        <qualifiedname>Tracker::maximumDistance</qualifiedname>
+        <read>maximumDistance</read>
+        <write>setMaximumDistance</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="54" column="5" bodyfile="src/core/tracker.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1a26cbdb2e5f53e6db832e3583e9e19d2c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Tracker::sensorCapture</definition>
+        <argsstring></argsstring>
+        <name>sensorCapture</name>
+        <qualifiedname>Tracker::sensorCapture</qualifiedname>
+        <read>sensorCapture</read>
+        <write>setSensorCapture</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="55" column="5" bodyfile="src/core/tracker.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1a42d21ff141dbf0ff44850158bbee6d67" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Tracker::conjunction</definition>
+        <argsstring></argsstring>
+        <name>conjunction</name>
+        <qualifiedname>Tracker::conjunction</qualifiedname>
+        <read>conjunction</read>
+        <write>setConjunction</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="56" column="5" bodyfile="src/core/tracker.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1ad068c45c8fc5dbf7aac6ff4f39053da0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>MeasureType</type>
+        <definition>MeasureType Tracker::measureType</definition>
+        <argsstring></argsstring>
+        <name>measureType</name>
+        <qualifiedname>Tracker::measureType</qualifiedname>
+        <read>measureType</read>
+        <write>setMeasureType</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="57" column="5" bodyfile="src/core/tracker.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1a3e20603e89654c4ff35a67d9ac5c4187" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime Tracker::startPositionTimestamp</definition>
+        <argsstring></argsstring>
+        <name>startPositionTimestamp</name>
+        <qualifiedname>Tracker::startPositionTimestamp</qualifiedname>
+        <read>startPositionTimestamp</read>
+        <write>setStartPositionTimestamp</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="59" column="5" bodyfile="src/core/tracker.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTracker_1a975374cc38ce5e2016be8c95e9ff5062" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Tracker::filterAccuracy</definition>
+        <argsstring></argsstring>
+        <name>filterAccuracy</name>
+        <qualifiedname>Tracker::filterAccuracy</qualifiedname>
+        <read>filterAccuracy</read>
+        <write>setFilterAccuracy</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="61" column="5" bodyfile="src/core/tracker.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTracker_1a9df142bb4851b92069584572aa8a799a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mIsActive</definition>
+        <argsstring></argsstring>
+        <name>mIsActive</name>
+        <qualifiedname>Tracker::mIsActive</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="205" column="10" bodyfile="src/core/tracker.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1ad4848b2aa1ff3f3ae9aeac09c9d8eae6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mIsSuspended</definition>
+        <argsstring></argsstring>
+        <name>mIsSuspended</name>
+        <qualifiedname>Tracker::mIsSuspended</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="206" column="10" bodyfile="src/core/tracker.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1acfb0dc045d476da751aaac6f7d470852" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mIsReplaying</definition>
+        <argsstring></argsstring>
+        <name>mIsReplaying</name>
+        <qualifiedname>Tracker::mIsReplaying</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="207" column="10" bodyfile="src/core/tracker.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1adafe89f62643c3ed7de749adcc180947" prot="private" static="no" mutable="no">
+        <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+        <definition>RubberbandModel* Tracker::mRubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>mRubberbandModel</name>
+        <qualifiedname>Tracker::mRubberbandModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="209" column="21" bodyfile="src/core/tracker.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a583119ef3d98b279d1d6546a26a3f387" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref> *</type>
+        <definition>FeatureModel* Tracker::mFeatureModel</definition>
+        <argsstring></argsstring>
+        <name>mFeatureModel</name>
+        <qualifiedname>Tracker::mFeatureModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="210" column="18" bodyfile="src/core/tracker.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1af1811d4b95f9fb0c2a968ba3a02798fc" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 Tracker::mLastFeatureModelSaveMSSecsSinceEpoch</definition>
+        <argsstring></argsstring>
+        <name>mLastFeatureModelSaveMSSecsSinceEpoch</name>
+        <qualifiedname>Tracker::mLastFeatureModelSaveMSSecsSinceEpoch</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="211" column="12" bodyfile="src/core/tracker.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1af7bcac3cdb3ea0cdca4ede49eebcf69f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Tracker::mTimeInterval</definition>
+        <argsstring></argsstring>
+        <name>mTimeInterval</name>
+        <qualifiedname>Tracker::mTimeInterval</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="213" column="12" bodyfile="src/core/tracker.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1ad9d90588302a2700e2ecf0b70d32b841" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Tracker::mMinimumDistance</definition>
+        <argsstring></argsstring>
+        <name>mMinimumDistance</name>
+        <qualifiedname>Tracker::mMinimumDistance</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="214" column="12" bodyfile="src/core/tracker.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a5e9971062c5ce71d199cf2f5e08ab1ab" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Tracker::mMaximumDistance</definition>
+        <argsstring></argsstring>
+        <name>mMaximumDistance</name>
+        <qualifiedname>Tracker::mMaximumDistance</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="215" column="12" bodyfile="src/core/tracker.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a4ec49cf5e370abc5ac801f1ccf257a7d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Tracker::mMaximumDistanceFailuresCount</definition>
+        <argsstring></argsstring>
+        <name>mMaximumDistanceFailuresCount</name>
+        <qualifiedname>Tracker::mMaximumDistanceFailuresCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="216" column="9" bodyfile="src/core/tracker.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1abeca7bb1805aeb826ed4026d930ecc47" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Tracker::mCurrentDistance</definition>
+        <argsstring></argsstring>
+        <name>mCurrentDistance</name>
+        <qualifiedname>Tracker::mCurrentDistance</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="217" column="12" bodyfile="src/core/tracker.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a8bcdcdb786383aafbb3da8affe2e66f4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mSensorCapture</definition>
+        <argsstring></argsstring>
+        <name>mSensorCapture</name>
+        <qualifiedname>Tracker::mSensorCapture</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="218" column="10" bodyfile="src/core/tracker.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a25375083c9b69e80afd0d229f5302eba" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mConjunction</definition>
+        <argsstring></argsstring>
+        <name>mConjunction</name>
+        <qualifiedname>Tracker::mConjunction</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="219" column="10" bodyfile="src/core/tracker.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a49510eed79fddb0581b386de7ae53d48" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mTimeIntervalFulfilled</definition>
+        <argsstring></argsstring>
+        <name>mTimeIntervalFulfilled</name>
+        <qualifiedname>Tracker::mTimeIntervalFulfilled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="220" column="10" bodyfile="src/core/tracker.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a7f313c98cf506ed343fdbde832d31487" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mMinimumDistanceFulfilled</definition>
+        <argsstring></argsstring>
+        <name>mMinimumDistanceFulfilled</name>
+        <qualifiedname>Tracker::mMinimumDistanceFulfilled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="221" column="10" bodyfile="src/core/tracker.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1ae21d4f50e8537262de7e35903df68e99" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mSensorCaptureFulfilled</definition>
+        <argsstring></argsstring>
+        <name>mSensorCaptureFulfilled</name>
+        <qualifiedname>Tracker::mSensorCaptureFulfilled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="222" column="10" bodyfile="src/core/tracker.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a3c8dd190ea457dc889cb3a05a023263a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mSkipPositionReceived</definition>
+        <argsstring></argsstring>
+        <name>mSkipPositionReceived</name>
+        <qualifiedname>Tracker::mSkipPositionReceived</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="223" column="10" bodyfile="src/core/tracker.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a433e8332024a7af9d81cd074cc9613e4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mSkipBadPositionReceived</definition>
+        <argsstring></argsstring>
+        <name>mSkipBadPositionReceived</name>
+        <qualifiedname>Tracker::mSkipBadPositionReceived</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="224" column="10" bodyfile="src/core/tracker.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a03f800111ccf7a61e81dcb53a06fe43d" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; Tracker::mVectorLayer</definition>
+        <argsstring></argsstring>
+        <name>mVectorLayer</name>
+        <qualifiedname>Tracker::mVectorLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="226" column="14" bodyfile="src/core/tracker.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1ab963b6f014d57c987e790af9ffb926e3" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature Tracker::mFeature</definition>
+        <argsstring></argsstring>
+        <name>mFeature</name>
+        <qualifiedname>Tracker::mFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="227" column="16" bodyfile="src/core/tracker.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1ad0371b3d3c13dd7c85318d48c943b760" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mVisible</definition>
+        <argsstring></argsstring>
+        <name>mVisible</name>
+        <qualifiedname>Tracker::mVisible</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="229" column="10" bodyfile="src/core/tracker.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a07578cda656942181df9ba4b593eb1b6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Tracker::mFilterAccuracy</definition>
+        <argsstring></argsstring>
+        <name>mFilterAccuracy</name>
+        <qualifiedname>Tracker::mFilterAccuracy</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="230" column="10" bodyfile="src/core/tracker.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1abfb9fc8e7e73181bbe14bbbd189bf273" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor Tracker::mColor</definition>
+        <argsstring></argsstring>
+        <name>mColor</name>
+        <qualifiedname>Tracker::mColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="232" column="12" bodyfile="src/core/tracker.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1aba3619e563323de1679efd78fd1032ca" prot="private" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime Tracker::mStartPositionTimestamp</definition>
+        <argsstring></argsstring>
+        <name>mStartPositionTimestamp</name>
+        <qualifiedname>Tracker::mStartPositionTimestamp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="234" column="15" bodyfile="src/core/tracker.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1a6887efb56f5cd86ffc206b3e5a2e81be" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 Tracker::mLastDevicePositionTimestampMSecsSinceEpoch</definition>
+        <argsstring></argsstring>
+        <name>mLastDevicePositionTimestampMSecsSinceEpoch</name>
+        <qualifiedname>Tracker::mLastDevicePositionTimestampMSecsSinceEpoch</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="235" column="12" bodyfile="src/core/tracker.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1ac74a8aed8ce44e3e5835092f9200d1a0" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 Tracker::mLastVertexPositionTimestampMSecsSinceEpoch</definition>
+        <argsstring></argsstring>
+        <name>mLastVertexPositionTimestampMSecsSinceEpoch</name>
+        <qualifiedname>Tracker::mLastVertexPositionTimestampMSecsSinceEpoch</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="236" column="12" bodyfile="src/core/tracker.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1ae56d4e075b790161784d1a8d901e6b43" prot="private" static="no" mutable="no">
+        <type>MeasureType</type>
+        <definition>MeasureType Tracker::mMeasureType</definition>
+        <argsstring></argsstring>
+        <name>mMeasureType</name>
+        <qualifiedname>Tracker::mMeasureType</qualifiedname>
+        <initializer>= Tracker::SecondsSinceStart</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="238" column="17" bodyfile="src/core/tracker.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTracker_1aa10d2f52788e321cb51902aca70047ef" prot="private" static="no" mutable="no">
+        <type>QgsDistanceArea</type>
+        <definition>QgsDistanceArea Tracker::mDa</definition>
+        <argsstring></argsstring>
+        <name>mDa</name>
+        <qualifiedname>Tracker::mDa</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="240" column="21" bodyfile="src/core/tracker.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTracker_1a1f03ac650643e51fb9e9f555ec75e06b" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Tracker::Tracker</definition>
+        <argsstring>(QgsVectorLayer *vectorLayer)</argsstring>
+        <name>Tracker</name>
+        <qualifiedname>Tracker::Tracker</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>vectorLayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="78" column="14" bodyfile="src/core/tracker.cpp" bodystart="27" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a358180a821a29b1bce7006a2c1f5bb8f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor Tracker::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <qualifiedname>Tracker::color</qualifiedname>
+        <briefdescription>
+<para>Returns the track rubberband color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="81" column="12" bodyfile="src/core/tracker.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a5b0a8d8422161a3ba3bba8f8bbb70e75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setColor</name>
+        <qualifiedname>Tracker::setColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the track rubberband color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="83" column="10" bodyfile="src/core/tracker.cpp" bodystart="37" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a8289f3836be72472de91dcdd03b77067" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+        <definition>RubberbandModel * Tracker::rubberbandModel</definition>
+        <argsstring>() const</argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>Tracker::rubberbandModel</qualifiedname>
+        <briefdescription>
+<para>Returns the rubber band model used to generate the track geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="86" column="21" bodyfile="src/core/tracker.cpp" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a36c1e2e3a755cfbd5a540958da3889e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setRubberbandModel</definition>
+        <argsstring>(RubberbandModel *rubberbandModel)</argsstring>
+        <name>setRubberbandModel</name>
+        <qualifiedname>Tracker::setRubberbandModel</qualifiedname>
+        <param>
+          <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref> *</type>
+          <declname>rubberbandModel</declname>
+        </param>
+        <briefdescription>
+<para>Sets the rubber band model used to generate the track geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="88" column="10" bodyfile="src/core/tracker.cpp" bodystart="71" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a05a41f0a4c58eec35b6d1f45e89706f8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref> *</type>
+        <definition>FeatureModel * Tracker::featureModel</definition>
+        <argsstring>() const</argsstring>
+        <name>featureModel</name>
+        <qualifiedname>Tracker::featureModel</qualifiedname>
+        <briefdescription>
+<para>Returns the feature model used to generate the track attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="91" column="18" bodyfile="src/core/tracker.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1ad8fc7b09a65dccaf4c0cea5d05ece1d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setFeatureModel</definition>
+        <argsstring>(FeatureModel *featureModel)</argsstring>
+        <name>setFeatureModel</name>
+        <qualifiedname>Tracker::setFeatureModel</qualifiedname>
+        <param>
+          <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref> *</type>
+          <declname>featureModel</declname>
+        </param>
+        <briefdescription>
+<para>Sets the feature model used to generate the track attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="93" column="10" bodyfile="src/core/tracker.cpp" bodystart="96" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a8a824ad27383f3ff31d4c374dfcf0827" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Tracker::timeInterval</definition>
+        <argsstring>() const</argsstring>
+        <name>timeInterval</name>
+        <qualifiedname>Tracker::timeInterval</qualifiedname>
+        <briefdescription>
+<para>Returns the minimum time interval constraint between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="96" column="12" bodyfile="src/core/tracker.h" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a97a7c45461d511d2cb5967c86dafc87e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setTimeInterval</definition>
+        <argsstring>(double timeInterval)</argsstring>
+        <name>setTimeInterval</name>
+        <qualifiedname>Tracker::setTimeInterval</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>timeInterval</declname>
+        </param>
+        <briefdescription>
+<para>Sets the minimum time interval constraint between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="98" column="10" bodyfile="src/core/tracker.cpp" bodystart="119" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1ace715642fec905b1bc4cc0b70c96b714" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Tracker::minimumDistance</definition>
+        <argsstring>() const</argsstring>
+        <name>minimumDistance</name>
+        <qualifiedname>Tracker::minimumDistance</qualifiedname>
+        <briefdescription>
+<para>Returns the minimum distance constraint between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="101" column="12" bodyfile="src/core/tracker.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a2016eb5caf4ec02693d06d296de2dcda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setMinimumDistance</definition>
+        <argsstring>(double minimumDistance)</argsstring>
+        <name>setMinimumDistance</name>
+        <qualifiedname>Tracker::setMinimumDistance</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>minimumDistance</declname>
+        </param>
+        <briefdescription>
+<para>Sets the minimum distance constraint between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="103" column="10" bodyfile="src/core/tracker.cpp" bodystart="128" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a9ecae038a6b803c08f9e73567d2f445a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Tracker::maximumDistance</definition>
+        <argsstring>() const</argsstring>
+        <name>maximumDistance</name>
+        <qualifiedname>Tracker::maximumDistance</qualifiedname>
+        <briefdescription>
+<para>Returns the maximum distance tolerated beyond which a position will be considered errenous. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="106" column="12" bodyfile="src/core/tracker.h" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a371d79168b1a922caa6ef22424dc5d98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setMaximumDistance</definition>
+        <argsstring>(double maximumDistance)</argsstring>
+        <name>setMaximumDistance</name>
+        <qualifiedname>Tracker::setMaximumDistance</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>maximumDistance</declname>
+        </param>
+        <briefdescription>
+<para>Sets the maximum distance tolerated beyond which a position will be considered errenous. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="108" column="10" bodyfile="src/core/tracker.cpp" bodystart="137" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a0e880c3dc5419ed5fad5c2f8c6cd4181" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Tracker::sensorCapture</definition>
+        <argsstring>() const</argsstring>
+        <name>sensorCapture</name>
+        <qualifiedname>Tracker::sensorCapture</qualifiedname>
+        <briefdescription>
+<para>Returns if TRUE, newly captured sensor data is needed between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="111" column="10" bodyfile="src/core/tracker.h" bodystart="111" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a6371881a7236b7d588442496ac0c7f1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setSensorCapture</definition>
+        <argsstring>(bool capture)</argsstring>
+        <name>setSensorCapture</name>
+        <qualifiedname>Tracker::setSensorCapture</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>capture</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether newly captured sensor data is needed between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="113" column="10" bodyfile="src/core/tracker.cpp" bodystart="146" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1af8f11d57185fb12404a703fe25f6de24" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Tracker::conjunction</definition>
+        <argsstring>() const</argsstring>
+        <name>conjunction</name>
+        <qualifiedname>Tracker::conjunction</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if all constraints need to be fulfilled between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="116" column="10" bodyfile="src/core/tracker.h" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1abd49bfe32d3c1d468fba4626a73940a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setConjunction</definition>
+        <argsstring>(bool conjunction)</argsstring>
+        <name>setConjunction</name>
+        <qualifiedname>Tracker::setConjunction</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>conjunction</declname>
+        </param>
+        <briefdescription>
+<para>Sets where all constraints need to be fulfilled between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="118" column="10" bodyfile="src/core/tracker.cpp" bodystart="155" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a508a45e952f208702f08851b33fc9e58" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDateTime</type>
+        <definition>QDateTime Tracker::startPositionTimestamp</definition>
+        <argsstring>() const</argsstring>
+        <name>startPositionTimestamp</name>
+        <qualifiedname>Tracker::startPositionTimestamp</qualifiedname>
+        <briefdescription>
+<para>Returns the timestamp of the first recorded point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="121" column="15" bodyfile="src/core/tracker.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a6705f9e17ae37339787f5a4c2517e8f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setStartPositionTimestamp</definition>
+        <argsstring>(const QDateTime &amp;startPositionTimestamp)</argsstring>
+        <name>setStartPositionTimestamp</name>
+        <qualifiedname>Tracker::setStartPositionTimestamp</qualifiedname>
+        <param>
+          <type>const QDateTime &amp;</type>
+          <declname>startPositionTimestamp</declname>
+        </param>
+        <briefdescription>
+<para>Sets the timestamp of the first recorded point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="123" column="10" bodyfile="src/core/tracker.h" bodystart="123" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a8d3c35a39bfe38d51d43b576ab1e432a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * Tracker::vectorLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>vectorLayer</name>
+        <qualifiedname>Tracker::vectorLayer</qualifiedname>
+        <briefdescription>
+<para>Returns the current layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="126" column="20" bodyfile="src/core/tracker.h" bodystart="126" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a09a746b4fd9cdc547008d31a801fb354" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setVectorLayer</definition>
+        <argsstring>(QgsVectorLayer *vectorLayer)</argsstring>
+        <name>setVectorLayer</name>
+        <qualifiedname>Tracker::setVectorLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>vectorLayer</declname>
+        </param>
+        <briefdescription>
+<para>Sets the current layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="128" column="10" bodyfile="src/core/tracker.cpp" bodystart="57" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1abfd0c2471fed6a4a19ec0f082751f544" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature Tracker::feature</definition>
+        <argsstring>() const</argsstring>
+        <name>feature</name>
+        <qualifiedname>Tracker::feature</qualifiedname>
+        <briefdescription>
+<para>Returns the created feature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="131" column="16" bodyfile="src/core/tracker.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a3a6becf553d613bb08164a60375556cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>setFeature</name>
+        <qualifiedname>Tracker::setFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+<para>Sets the created feature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="133" column="10" bodyfile="src/core/tracker.cpp" bodystart="110" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a0a274f7ca563f3778a6a1f9265e4b5f9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Tracker::visible</definition>
+        <argsstring>() const</argsstring>
+        <name>visible</name>
+        <qualifiedname>Tracker::visible</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if the tracker rubberband is visible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="136" column="10" bodyfile="src/core/tracker.h" bodystart="136" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1ad356005f28ea12a5d7610b3021ced009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setVisible</definition>
+        <argsstring>(bool visible)</argsstring>
+        <name>setVisible</name>
+        <qualifiedname>Tracker::setVisible</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>visible</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether the tracker rubberband is visible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="138" column="10" bodyfile="src/core/tracker.cpp" bodystart="48" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1ac1ec4f9dc6a5211ff07b04f814bb72c0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>MeasureType</type>
+        <definition>MeasureType Tracker::measureType</definition>
+        <argsstring>() const</argsstring>
+        <name>measureType</name>
+        <qualifiedname>Tracker::measureType</qualifiedname>
+        <briefdescription>
+<para>Returns the measure type used with the tracker geometry&apos;s M dimension when available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="141" column="17" bodyfile="src/core/tracker.h" bodystart="141" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a2890f65ec63532ba6d98b38d1b110b61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setMeasureType</definition>
+        <argsstring>(MeasureType type)</argsstring>
+        <name>setMeasureType</name>
+        <qualifiedname>Tracker::setMeasureType</qualifiedname>
+        <param>
+          <type>MeasureType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Sets the measure type used with the tracker geometry&apos;s M dimension when available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="143" column="10" bodyfile="src/core/tracker.cpp" bodystart="164" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a4989feb558413efd605d901c911a30d0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Tracker::isActive</definition>
+        <argsstring>() const</argsstring>
+        <name>isActive</name>
+        <qualifiedname>Tracker::isActive</qualifiedname>
+        <briefdescription>
+<para>Returns whether the tracker has been started. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="146" column="10" bodyfile="src/core/tracker.h" bodystart="146" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a398fe1aff396d5f644f43d8b2925e8a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Tracker::isSuspended</definition>
+        <argsstring>() const</argsstring>
+        <name>isSuspended</name>
+        <qualifiedname>Tracker::isSuspended</qualifiedname>
+        <briefdescription>
+<para>Returns whether the track has been suspended. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="149" column="10" bodyfile="src/core/tracker.h" bodystart="149" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1af0f84788f55fc7e9bac4d85b83604271" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Tracker::isReplaying</definition>
+        <argsstring>() const</argsstring>
+        <name>isReplaying</name>
+        <qualifiedname>Tracker::isReplaying</qualifiedname>
+        <briefdescription>
+<para>Returns whether the tracker is replaying positions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="152" column="10" bodyfile="src/core/tracker.h" bodystart="152" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a7b418904e3d2384a2327b567c56e50b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::start</definition>
+        <argsstring>(const GnssPositionInformation &amp;positionInformation=GnssPositionInformation(), const QgsPoint &amp;projectedPosition=QgsPoint())</argsstring>
+        <name>start</name>
+        <qualifiedname>Tracker::start</qualifiedname>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+          <defval><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>()</defval>
+        </param>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>projectedPosition</declname>
+          <defval>QgsPoint()</defval>
+        </param>
+        <briefdescription>
+<para>Starts tracking. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="155" column="10" bodyfile="src/core/tracker.cpp" bodystart="269" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a9f1ffd518945d2ea5edb4e9c102343de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <qualifiedname>Tracker::stop</qualifiedname>
+        <briefdescription>
+<para>Stops tracking. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="157" column="10" bodyfile="src/core/tracker.cpp" bodystart="310" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a3d6bcb360c2ea75695ed578242323ce9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Tracker::processPositionInformation</definition>
+        <argsstring>(const GnssPositionInformation &amp;positionInformation, const QgsPoint &amp;projectedPosition)</argsstring>
+        <name>processPositionInformation</name>
+        <qualifiedname>Tracker::processPositionInformation</qualifiedname>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+        </param>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>projectedPosition</declname>
+        </param>
+        <briefdescription>
+<para>Process the given position information and projected position passed onto the tracker. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="160" column="22" bodyfile="src/core/tracker.cpp" bodystart="330" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1aeae2f809fdd3d37632a645ff1865d262" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::replayPositionInformationList</definition>
+        <argsstring>(const QList&lt; GnssPositionInformation &gt; &amp;positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer=nullptr)</argsstring>
+        <name>replayPositionInformationList</name>
+        <qualifiedname>Tracker::replayPositionInformationList</qualifiedname>
+        <param>
+          <type>const QList&lt; <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &gt; &amp;</type>
+          <declname>positionInformationList</declname>
+        </param>
+        <param>
+          <type><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> *</type>
+          <declname>coordinateTransformer</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Replays a list of position information taking into account the tracker settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="163" column="10" bodyfile="src/core/tracker.cpp" bodystart="378" bodyend="438"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1acc68c7f21d81a547beec2f53f04d9b08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::suspendUntilReplay</definition>
+        <argsstring>()</argsstring>
+        <name>suspendUntilReplay</name>
+        <qualifiedname>Tracker::suspendUntilReplay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="165" column="10" bodyfile="src/core/tracker.cpp" bodystart="440" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1afa5de974a0f9c5eb03fc21087d80bfe1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Tracker::filterAccuracy</definition>
+        <argsstring>() const</argsstring>
+        <name>filterAccuracy</name>
+        <qualifiedname>Tracker::filterAccuracy</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if GNSS accuracy filtering is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="168" column="10" bodyfile="src/core/tracker.cpp" bodystart="499" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="classTracker_1a6d845833ce5925157f6cc12475a149fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::setFilterAccuracy</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setFilterAccuracy</name>
+        <qualifiedname>Tracker::setFilterAccuracy</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether GNSS accuracy filtering is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="171" column="10" bodyfile="src/core/tracker.cpp" bodystart="504" bodyend="511"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTracker_1a0a39110ed78451760d23ab04279be314" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::isActiveChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isActiveChanged</name>
+        <qualifiedname>Tracker::isActiveChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="174" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1aa3ea93facb203e52bf7888ec5aec3fac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::isSuspendedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isSuspendedChanged</name>
+        <qualifiedname>Tracker::isSuspendedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="175" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1a635097a556211f095d69a6e09e463716" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::isReplayingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isReplayingChanged</name>
+        <qualifiedname>Tracker::isReplayingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="176" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1a77d65e389c73ac4d8b21fd52974d85f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::visibleChanged</definition>
+        <argsstring>()</argsstring>
+        <name>visibleChanged</name>
+        <qualifiedname>Tracker::visibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="177" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1aa756a688d2e181709fa69a904abbab18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::vectorLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vectorLayerChanged</name>
+        <qualifiedname>Tracker::vectorLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="178" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1aa2b4950ac3f60353e21044bf4088000a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::rubberbandModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rubberbandModelChanged</name>
+        <qualifiedname>Tracker::rubberbandModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="179" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1a1e9021bd03720d54e4ff47935859198e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::featureModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureModelChanged</name>
+        <qualifiedname>Tracker::featureModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="180" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1aea451c6dfab70759cfe9d05357db29f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::timeIntervalChanged</definition>
+        <argsstring>()</argsstring>
+        <name>timeIntervalChanged</name>
+        <qualifiedname>Tracker::timeIntervalChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="182" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1a81f3217fa131acf51ca85505dc716829" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::minimumDistanceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>minimumDistanceChanged</name>
+        <qualifiedname>Tracker::minimumDistanceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="183" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1a9a39fbcccdeb067bce88f04c7d906831" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::maximumDistanceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>maximumDistanceChanged</name>
+        <qualifiedname>Tracker::maximumDistanceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="184" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1a6b5b681534a9c8bbad5448ee2b6d2598" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::sensorCaptureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>sensorCaptureChanged</name>
+        <qualifiedname>Tracker::sensorCaptureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="185" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1a1d3d751c024c410e68514393d4b989e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::conjunctionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>conjunctionChanged</name>
+        <qualifiedname>Tracker::conjunctionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="186" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1aa4350ae179189f16a498695d360fa7e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::measureTypeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>measureTypeChanged</name>
+        <qualifiedname>Tracker::measureTypeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="187" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1af64983b234468f13aa3a14710741b86e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::featureCreated</definition>
+        <argsstring>()</argsstring>
+        <name>featureCreated</name>
+        <qualifiedname>Tracker::featureCreated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="189" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1adcc4829771279b0f9ec48c33f90f9f4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::featureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureChanged</name>
+        <qualifiedname>Tracker::featureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="190" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1abeda4a5ea3894422b47074e728b4af62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::startPositionTimestampChanged</definition>
+        <argsstring>()</argsstring>
+        <name>startPositionTimestampChanged</name>
+        <qualifiedname>Tracker::startPositionTimestampChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="192" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1a4af9ed6647e70feb620ccd3373ccb2b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::filterAccuracyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>filterAccuracyChanged</name>
+        <qualifiedname>Tracker::filterAccuracyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="194" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTracker_1a02210da4a12271d064409133ef9ea39b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::colorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>colorChanged</name>
+        <qualifiedname>Tracker::colorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="195" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classTracker_1af03bcec0d8efa92130d8bf55ac423b5f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::positionReceived</definition>
+        <argsstring>()</argsstring>
+        <name>positionReceived</name>
+        <qualifiedname>Tracker::positionReceived</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="198" column="10" bodyfile="src/core/tracker.cpp" bodystart="200" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="slot" id="classTracker_1ae3afa3d0f2d79c511b7f4fa887802315" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::sensorDataReceived</definition>
+        <argsstring>()</argsstring>
+        <name>sensorDataReceived</name>
+        <qualifiedname>Tracker::sensorDataReceived</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="199" column="10" bodyfile="src/core/tracker.cpp" bodystart="259" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="slot" id="classTracker_1ad4ccb66b4101e330435cdfb9267c3f77" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::rubberbandModelVertexCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rubberbandModelVertexCountChanged</name>
+        <qualifiedname>Tracker::rubberbandModelVertexCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="200" column="10" bodyfile="src/core/tracker.cpp" bodystart="450" bodyend="497"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classTracker_1aaf2d02a4024d3163b0b3281f2d780e04" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Tracker::trackPosition</definition>
+        <argsstring>()</argsstring>
+        <name>trackPosition</name>
+        <qualifiedname>Tracker::trackPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/tracker.h" line="203" column="10" bodyfile="src/core/tracker.cpp" bodystart="173" bodyend="198"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>Tracker</label>
+        <link refid="classTracker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>Tracker</label>
+        <link refid="classTracker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/tracker.h" line="35" column="1" bodyfile="src/core/tracker.h" bodystart="36" bodyend="241"/>
+    <listofallmembers>
+      <member refid="classTracker_1a999bec5ead84471080063dea999d10d5a70ea2ee7b625cdda305c5a823c113438" prot="public" virt="non-virtual"><scope>Tracker</scope><name>Bearing</name></member>
+      <member refid="classTracker_1a25441b1081b070a361a0e424a26a0374" prot="public" virt="non-virtual"><scope>Tracker</scope><name>color</name></member>
+      <member refid="classTracker_1a358180a821a29b1bce7006a2c1f5bb8f" prot="public" virt="non-virtual"><scope>Tracker</scope><name>color</name></member>
+      <member refid="classTracker_1a02210da4a12271d064409133ef9ea39b" prot="public" virt="non-virtual"><scope>Tracker</scope><name>colorChanged</name></member>
+      <member refid="classTracker_1a42d21ff141dbf0ff44850158bbee6d67" prot="public" virt="non-virtual"><scope>Tracker</scope><name>conjunction</name></member>
+      <member refid="classTracker_1af8f11d57185fb12404a703fe25f6de24" prot="public" virt="non-virtual"><scope>Tracker</scope><name>conjunction</name></member>
+      <member refid="classTracker_1a1d3d751c024c410e68514393d4b989e2" prot="public" virt="non-virtual"><scope>Tracker</scope><name>conjunctionChanged</name></member>
+      <member refid="classTracker_1abf5cecc9aa13b457f040a661cc572d35" prot="public" virt="non-virtual"><scope>Tracker</scope><name>feature</name></member>
+      <member refid="classTracker_1abfd0c2471fed6a4a19ec0f082751f544" prot="public" virt="non-virtual"><scope>Tracker</scope><name>feature</name></member>
+      <member refid="classTracker_1adcc4829771279b0f9ec48c33f90f9f4d" prot="public" virt="non-virtual"><scope>Tracker</scope><name>featureChanged</name></member>
+      <member refid="classTracker_1af64983b234468f13aa3a14710741b86e" prot="public" virt="non-virtual"><scope>Tracker</scope><name>featureCreated</name></member>
+      <member refid="classTracker_1a98e93e59e3e67ba9021e33fe485f0a97" prot="public" virt="non-virtual"><scope>Tracker</scope><name>featureModel</name></member>
+      <member refid="classTracker_1a05a41f0a4c58eec35b6d1f45e89706f8" prot="public" virt="non-virtual"><scope>Tracker</scope><name>featureModel</name></member>
+      <member refid="classTracker_1a1e9021bd03720d54e4ff47935859198e" prot="public" virt="non-virtual"><scope>Tracker</scope><name>featureModelChanged</name></member>
+      <member refid="classTracker_1a975374cc38ce5e2016be8c95e9ff5062" prot="public" virt="non-virtual"><scope>Tracker</scope><name>filterAccuracy</name></member>
+      <member refid="classTracker_1afa5de974a0f9c5eb03fc21087d80bfe1" prot="public" virt="non-virtual"><scope>Tracker</scope><name>filterAccuracy</name></member>
+      <member refid="classTracker_1a4af9ed6647e70feb620ccd3373ccb2b6" prot="public" virt="non-virtual"><scope>Tracker</scope><name>filterAccuracyChanged</name></member>
+      <member refid="classTracker_1a999bec5ead84471080063dea999d10d5af350e7db115b081ed4981bfcb2133607" prot="public" virt="non-virtual"><scope>Tracker</scope><name>GroundSpeed</name></member>
+      <member refid="classTracker_1a999bec5ead84471080063dea999d10d5a536da02c83b51e944dfae14dc86e453c" prot="public" virt="non-virtual"><scope>Tracker</scope><name>HDOP</name></member>
+      <member refid="classTracker_1a999bec5ead84471080063dea999d10d5a4b826acc37297849bd0758cf475ff930" prot="public" virt="non-virtual"><scope>Tracker</scope><name>HorizontalAccuracy</name></member>
+      <member refid="classTracker_1ad41f29d795943fac2c394e76fb4ea9ad" prot="public" virt="non-virtual"><scope>Tracker</scope><name>isActive</name></member>
+      <member refid="classTracker_1a4989feb558413efd605d901c911a30d0" prot="public" virt="non-virtual"><scope>Tracker</scope><name>isActive</name></member>
+      <member refid="classTracker_1a0a39110ed78451760d23ab04279be314" prot="public" virt="non-virtual"><scope>Tracker</scope><name>isActiveChanged</name></member>
+      <member refid="classTracker_1a81bf5c06a4d954752be4a3cfa1e8acd4" prot="public" virt="non-virtual"><scope>Tracker</scope><name>isReplaying</name></member>
+      <member refid="classTracker_1af0f84788f55fc7e9bac4d85b83604271" prot="public" virt="non-virtual"><scope>Tracker</scope><name>isReplaying</name></member>
+      <member refid="classTracker_1a635097a556211f095d69a6e09e463716" prot="public" virt="non-virtual"><scope>Tracker</scope><name>isReplayingChanged</name></member>
+      <member refid="classTracker_1a0c156d833d75edf3353a8673dc9d536a" prot="public" virt="non-virtual"><scope>Tracker</scope><name>isSuspended</name></member>
+      <member refid="classTracker_1a398fe1aff396d5f644f43d8b2925e8a6" prot="public" virt="non-virtual"><scope>Tracker</scope><name>isSuspended</name></member>
+      <member refid="classTracker_1aa3ea93facb203e52bf7888ec5aec3fac" prot="public" virt="non-virtual"><scope>Tracker</scope><name>isSuspendedChanged</name></member>
+      <member refid="classTracker_1a7285e80d400b3ff79f8354eb404a0396" prot="public" virt="non-virtual"><scope>Tracker</scope><name>maximumDistance</name></member>
+      <member refid="classTracker_1a9ecae038a6b803c08f9e73567d2f445a" prot="public" virt="non-virtual"><scope>Tracker</scope><name>maximumDistance</name></member>
+      <member refid="classTracker_1a9a39fbcccdeb067bce88f04c7d906831" prot="public" virt="non-virtual"><scope>Tracker</scope><name>maximumDistanceChanged</name></member>
+      <member refid="classTracker_1abfb9fc8e7e73181bbe14bbbd189bf273" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mColor</name></member>
+      <member refid="classTracker_1a25375083c9b69e80afd0d229f5302eba" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mConjunction</name></member>
+      <member refid="classTracker_1abeca7bb1805aeb826ed4026d930ecc47" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mCurrentDistance</name></member>
+      <member refid="classTracker_1aa10d2f52788e321cb51902aca70047ef" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mDa</name></member>
+      <member refid="classTracker_1ad068c45c8fc5dbf7aac6ff4f39053da0" prot="public" virt="non-virtual"><scope>Tracker</scope><name>measureType</name></member>
+      <member refid="classTracker_1ac1ec4f9dc6a5211ff07b04f814bb72c0" prot="public" virt="non-virtual"><scope>Tracker</scope><name>measureType</name></member>
+      <member refid="classTracker_1a999bec5ead84471080063dea999d10d5" prot="public" virt="non-virtual"><scope>Tracker</scope><name>MeasureType</name></member>
+      <member refid="classTracker_1aa4350ae179189f16a498695d360fa7e9" prot="public" virt="non-virtual"><scope>Tracker</scope><name>measureTypeChanged</name></member>
+      <member refid="classTracker_1ab963b6f014d57c987e790af9ffb926e3" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mFeature</name></member>
+      <member refid="classTracker_1a583119ef3d98b279d1d6546a26a3f387" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mFeatureModel</name></member>
+      <member refid="classTracker_1a07578cda656942181df9ba4b593eb1b6" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mFilterAccuracy</name></member>
+      <member refid="classTracker_1ae1b1650c774d25f3c35de1304b3e87a9" prot="public" virt="non-virtual"><scope>Tracker</scope><name>minimumDistance</name></member>
+      <member refid="classTracker_1ace715642fec905b1bc4cc0b70c96b714" prot="public" virt="non-virtual"><scope>Tracker</scope><name>minimumDistance</name></member>
+      <member refid="classTracker_1a81f3217fa131acf51ca85505dc716829" prot="public" virt="non-virtual"><scope>Tracker</scope><name>minimumDistanceChanged</name></member>
+      <member refid="classTracker_1a9df142bb4851b92069584572aa8a799a" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mIsActive</name></member>
+      <member refid="classTracker_1acfb0dc045d476da751aaac6f7d470852" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mIsReplaying</name></member>
+      <member refid="classTracker_1ad4848b2aa1ff3f3ae9aeac09c9d8eae6" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mIsSuspended</name></member>
+      <member refid="classTracker_1a6887efb56f5cd86ffc206b3e5a2e81be" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mLastDevicePositionTimestampMSecsSinceEpoch</name></member>
+      <member refid="classTracker_1af1811d4b95f9fb0c2a968ba3a02798fc" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mLastFeatureModelSaveMSSecsSinceEpoch</name></member>
+      <member refid="classTracker_1ac74a8aed8ce44e3e5835092f9200d1a0" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mLastVertexPositionTimestampMSecsSinceEpoch</name></member>
+      <member refid="classTracker_1a5e9971062c5ce71d199cf2f5e08ab1ab" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mMaximumDistance</name></member>
+      <member refid="classTracker_1a4ec49cf5e370abc5ac801f1ccf257a7d" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mMaximumDistanceFailuresCount</name></member>
+      <member refid="classTracker_1ae56d4e075b790161784d1a8d901e6b43" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mMeasureType</name></member>
+      <member refid="classTracker_1ad9d90588302a2700e2ecf0b70d32b841" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mMinimumDistance</name></member>
+      <member refid="classTracker_1a7f313c98cf506ed343fdbde832d31487" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mMinimumDistanceFulfilled</name></member>
+      <member refid="classTracker_1adafe89f62643c3ed7de749adcc180947" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mRubberbandModel</name></member>
+      <member refid="classTracker_1a8bcdcdb786383aafbb3da8affe2e66f4" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mSensorCapture</name></member>
+      <member refid="classTracker_1ae21d4f50e8537262de7e35903df68e99" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mSensorCaptureFulfilled</name></member>
+      <member refid="classTracker_1a433e8332024a7af9d81cd074cc9613e4" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mSkipBadPositionReceived</name></member>
+      <member refid="classTracker_1a3c8dd190ea457dc889cb3a05a023263a" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mSkipPositionReceived</name></member>
+      <member refid="classTracker_1aba3619e563323de1679efd78fd1032ca" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mStartPositionTimestamp</name></member>
+      <member refid="classTracker_1af7bcac3cdb3ea0cdca4ede49eebcf69f" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mTimeInterval</name></member>
+      <member refid="classTracker_1a49510eed79fddb0581b386de7ae53d48" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mTimeIntervalFulfilled</name></member>
+      <member refid="classTracker_1a03f800111ccf7a61e81dcb53a06fe43d" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mVectorLayer</name></member>
+      <member refid="classTracker_1ad0371b3d3c13dd7c85318d48c943b760" prot="private" virt="non-virtual"><scope>Tracker</scope><name>mVisible</name></member>
+      <member refid="classTracker_1a999bec5ead84471080063dea999d10d5ac9d0c1e302f117d67a49d53a14d4ca9d" prot="public" virt="non-virtual"><scope>Tracker</scope><name>PDOP</name></member>
+      <member refid="classTracker_1af03bcec0d8efa92130d8bf55ac423b5f" prot="private" virt="non-virtual"><scope>Tracker</scope><name>positionReceived</name></member>
+      <member refid="classTracker_1a3d6bcb360c2ea75695ed578242323ce9" prot="public" virt="non-virtual"><scope>Tracker</scope><name>processPositionInformation</name></member>
+      <member refid="classTracker_1aeae2f809fdd3d37632a645ff1865d262" prot="public" virt="non-virtual"><scope>Tracker</scope><name>replayPositionInformationList</name></member>
+      <member refid="classTracker_1aa7edf4a442e34ad9816e161faf9e88e1" prot="public" virt="non-virtual"><scope>Tracker</scope><name>rubberbandModel</name></member>
+      <member refid="classTracker_1a8289f3836be72472de91dcdd03b77067" prot="public" virt="non-virtual"><scope>Tracker</scope><name>rubberbandModel</name></member>
+      <member refid="classTracker_1aa2b4950ac3f60353e21044bf4088000a" prot="public" virt="non-virtual"><scope>Tracker</scope><name>rubberbandModelChanged</name></member>
+      <member refid="classTracker_1ad4ccb66b4101e330435cdfb9267c3f77" prot="private" virt="non-virtual"><scope>Tracker</scope><name>rubberbandModelVertexCountChanged</name></member>
+      <member refid="classTracker_1a999bec5ead84471080063dea999d10d5a4fff88ad11200c313fb7c43f45a6249b" prot="public" virt="non-virtual"><scope>Tracker</scope><name>SecondsSinceStart</name></member>
+      <member refid="classTracker_1a26cbdb2e5f53e6db832e3583e9e19d2c" prot="public" virt="non-virtual"><scope>Tracker</scope><name>sensorCapture</name></member>
+      <member refid="classTracker_1a0e880c3dc5419ed5fad5c2f8c6cd4181" prot="public" virt="non-virtual"><scope>Tracker</scope><name>sensorCapture</name></member>
+      <member refid="classTracker_1a6b5b681534a9c8bbad5448ee2b6d2598" prot="public" virt="non-virtual"><scope>Tracker</scope><name>sensorCaptureChanged</name></member>
+      <member refid="classTracker_1ae3afa3d0f2d79c511b7f4fa887802315" prot="private" virt="non-virtual"><scope>Tracker</scope><name>sensorDataReceived</name></member>
+      <member refid="classTracker_1a5b0a8d8422161a3ba3bba8f8bbb70e75" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setColor</name></member>
+      <member refid="classTracker_1abd49bfe32d3c1d468fba4626a73940a0" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setConjunction</name></member>
+      <member refid="classTracker_1a3a6becf553d613bb08164a60375556cc" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setFeature</name></member>
+      <member refid="classTracker_1ad8fc7b09a65dccaf4c0cea5d05ece1d1" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setFeatureModel</name></member>
+      <member refid="classTracker_1a6d845833ce5925157f6cc12475a149fe" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setFilterAccuracy</name></member>
+      <member refid="classTracker_1a371d79168b1a922caa6ef22424dc5d98" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setMaximumDistance</name></member>
+      <member refid="classTracker_1a2890f65ec63532ba6d98b38d1b110b61" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setMeasureType</name></member>
+      <member refid="classTracker_1a2016eb5caf4ec02693d06d296de2dcda" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setMinimumDistance</name></member>
+      <member refid="classTracker_1a36c1e2e3a755cfbd5a540958da3889e6" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setRubberbandModel</name></member>
+      <member refid="classTracker_1a6371881a7236b7d588442496ac0c7f1f" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setSensorCapture</name></member>
+      <member refid="classTracker_1a6705f9e17ae37339787f5a4c2517e8f0" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setStartPositionTimestamp</name></member>
+      <member refid="classTracker_1a97a7c45461d511d2cb5967c86dafc87e" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setTimeInterval</name></member>
+      <member refid="classTracker_1a09a746b4fd9cdc547008d31a801fb354" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setVectorLayer</name></member>
+      <member refid="classTracker_1ad356005f28ea12a5d7610b3021ced009" prot="public" virt="non-virtual"><scope>Tracker</scope><name>setVisible</name></member>
+      <member refid="classTracker_1a7b418904e3d2384a2327b567c56e50b5" prot="public" virt="non-virtual"><scope>Tracker</scope><name>start</name></member>
+      <member refid="classTracker_1a3e20603e89654c4ff35a67d9ac5c4187" prot="public" virt="non-virtual"><scope>Tracker</scope><name>startPositionTimestamp</name></member>
+      <member refid="classTracker_1a508a45e952f208702f08851b33fc9e58" prot="public" virt="non-virtual"><scope>Tracker</scope><name>startPositionTimestamp</name></member>
+      <member refid="classTracker_1abeda4a5ea3894422b47074e728b4af62" prot="public" virt="non-virtual"><scope>Tracker</scope><name>startPositionTimestampChanged</name></member>
+      <member refid="classTracker_1a9f1ffd518945d2ea5edb4e9c102343de" prot="public" virt="non-virtual"><scope>Tracker</scope><name>stop</name></member>
+      <member refid="classTracker_1acc68c7f21d81a547beec2f53f04d9b08" prot="public" virt="non-virtual"><scope>Tracker</scope><name>suspendUntilReplay</name></member>
+      <member refid="classTracker_1a1d513231a81fe99c8ad4fc8b6dc153eb" prot="public" virt="non-virtual"><scope>Tracker</scope><name>timeInterval</name></member>
+      <member refid="classTracker_1a8a824ad27383f3ff31d4c374dfcf0827" prot="public" virt="non-virtual"><scope>Tracker</scope><name>timeInterval</name></member>
+      <member refid="classTracker_1aea451c6dfab70759cfe9d05357db29f3" prot="public" virt="non-virtual"><scope>Tracker</scope><name>timeIntervalChanged</name></member>
+      <member refid="classTracker_1a999bec5ead84471080063dea999d10d5a30481cdc4852a1699d28be3674001cde" prot="public" virt="non-virtual"><scope>Tracker</scope><name>Timestamp</name></member>
+      <member refid="classTracker_1a1f03ac650643e51fb9e9f555ec75e06b" prot="public" virt="non-virtual"><scope>Tracker</scope><name>Tracker</name></member>
+      <member refid="classTracker_1aaf2d02a4024d3163b0b3281f2d780e04" prot="private" virt="non-virtual"><scope>Tracker</scope><name>trackPosition</name></member>
+      <member refid="classTracker_1a999bec5ead84471080063dea999d10d5a6f550e0729eaeaadd3b351ec583b17c4" prot="public" virt="non-virtual"><scope>Tracker</scope><name>VDOP</name></member>
+      <member refid="classTracker_1aba088d9f36553fd499602aeee7d2861b" prot="public" virt="non-virtual"><scope>Tracker</scope><name>vectorLayer</name></member>
+      <member refid="classTracker_1a8d3c35a39bfe38d51d43b576ab1e432a" prot="public" virt="non-virtual"><scope>Tracker</scope><name>vectorLayer</name></member>
+      <member refid="classTracker_1aa756a688d2e181709fa69a904abbab18" prot="public" virt="non-virtual"><scope>Tracker</scope><name>vectorLayerChanged</name></member>
+      <member refid="classTracker_1a999bec5ead84471080063dea999d10d5a947136fadb69955a4b03b2c51c3c6f67" prot="public" virt="non-virtual"><scope>Tracker</scope><name>VerticalAccuracy</name></member>
+      <member refid="classTracker_1a38df840a02fa5c30dc3a540cc9b0dd41" prot="public" virt="non-virtual"><scope>Tracker</scope><name>visible</name></member>
+      <member refid="classTracker_1a0a274f7ca563f3778a6a1f9265e4b5f9" prot="public" virt="non-virtual"><scope>Tracker</scope><name>visible</name></member>
+      <member refid="classTracker_1a77d65e389c73ac4d8b21fd52974d85f6" prot="public" virt="non-virtual"><scope>Tracker</scope><name>visibleChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfDialog_8qml" kind="file" language="C++">
+    <compoundname>QfDialog.qml</compoundname>
+    <innerclass refid="classTheme_1_1QfDialog" prot="public">Theme::QfDialog</innerclass>
+    <innernamespace refid="namespaceTheme">Theme</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Controls</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">Dialog<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>visible:<sp/>false</highlight></codeline>
+<codeline lineno="10" refid="classTheme_1_1QfDialog" refkind="compound"><highlight class="normal"><sp/><sp/>modal:<sp/>true</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>font:<sp/>Theme.defaultFont</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>standardButtons:<sp/>Dialog.Ok<sp/>|<sp/>Dialog.Cancel</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>x:<sp/>(mainWindow.width<sp/>-<sp/>width)<sp/>/<sp/>2</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>y:<sp/>(mainWindow.height<sp/>-<sp/>height)<sp/>/<sp/>2</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>onClosed:<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>focusstack.forceActiveFocusOnLastTaker();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/imports/Theme/QfDialog.qml"/>
+  </compounddef>
+</doxygen>

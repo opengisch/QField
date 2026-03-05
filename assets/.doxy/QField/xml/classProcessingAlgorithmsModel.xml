@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProcessingAlgorithmsModel" kind="class" language="C++" prot="public">
+    <compoundname>ProcessingAlgorithmsModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <includes refid="processingalgorithmsmodel_8h" local="no">processingalgorithmsmodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classProcessingAlgorithmsModel_1ad3703ef7f43c41f87b8822f93b6f6bd4" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Filter</name>
+        <qualifiedname>ProcessingAlgorithmsModel::Filter</qualifiedname>
+        <enumvalue id="classProcessingAlgorithmsModel_1ad3703ef7f43c41f87b8822f93b6f6bd4a2149bab60ffd1ed056fcb5260dd6fddb" prot="public">
+          <name>InPlaceFilter</name>
+          <initializer>= 1 &lt;&lt; 1</initializer>
+          <briefdescription>
+<para>Only show algorithms which support in-place edits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classProcessingAlgorithmsModel_1ad3703ef7f43c41f87b8822f93b6f6bd4a399e66552db332234b03a47927ee4252" prot="public">
+          <name>FavoriteFilter</name>
+          <initializer>= 1 &lt;&lt; 2</initializer>
+          <briefdescription>
+<para>Only show algorithms that been added to favorites. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Available filter flags for filtering the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="62" column="5" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="63" bodyend="66"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classProcessingAlgorithmsModel_1a6be754928f0f730e3d7978f3ce3b9fca" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>ProcessingAlgorithmsModel::Filters</type>
+        <definition>ProcessingAlgorithmsModel::Filters ProcessingAlgorithmsModel::filters</definition>
+        <argsstring></argsstring>
+        <name>filters</name>
+        <qualifiedname>ProcessingAlgorithmsModel::filters</qualifiedname>
+        <read>filters</read>
+        <write>setFilters</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="57" column="5" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classProcessingAlgorithmsModel_1a04514d04dfdd7ea8a350cf77a1cedc3e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * ProcessingAlgorithmsModel::inPlaceLayer</definition>
+        <argsstring></argsstring>
+        <name>inPlaceLayer</name>
+        <qualifiedname>ProcessingAlgorithmsModel::inPlaceLayer</qualifiedname>
+        <read>inPlaceLayer</read>
+        <write>setInPlaceLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="58" column="5" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classProcessingAlgorithmsModel_1a7662a7fe46571da75f0b060607a724fb" prot="private" static="no" mutable="no">
+        <type><ref refid="classProcessingAlgorithmsModelBase" kindref="compound">ProcessingAlgorithmsModelBase</ref> *</type>
+        <definition>ProcessingAlgorithmsModelBase* ProcessingAlgorithmsModel::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>ProcessingAlgorithmsModel::mModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="112" column="35" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmsModel_1a4cb6701e561ed13164565dc1b77800a8" prot="private" static="no" mutable="no">
+        <type>ProcessingAlgorithmsModel::Filters</type>
+        <definition>ProcessingAlgorithmsModel::Filters ProcessingAlgorithmsModel::mFilters</definition>
+        <argsstring></argsstring>
+        <name>mFilters</name>
+        <qualifiedname>ProcessingAlgorithmsModel::mFilters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="113" column="40" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmsModel_1a797cc5b554702d7b677e26b5ad6828c2" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; ProcessingAlgorithmsModel::mInPlaceLayer</definition>
+        <argsstring></argsstring>
+        <name>mInPlaceLayer</name>
+        <qualifiedname>ProcessingAlgorithmsModel::mInPlaceLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="114" column="14" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classProcessingAlgorithmsModel_1aa8f7a0a2fcd4f0324b2cb738bb7022f9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ProcessingAlgorithmsModel::ProcessingAlgorithmsModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ProcessingAlgorithmsModel</name>
+        <qualifiedname>ProcessingAlgorithmsModel::ProcessingAlgorithmsModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="70" column="14" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="30" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModel_1ad8b8e7e694384e357508bab7c5ca57c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ProcessingAlgorithmsModel::rebuild</definition>
+        <argsstring>()</argsstring>
+        <name>rebuild</name>
+        <qualifiedname>ProcessingAlgorithmsModel::rebuild</qualifiedname>
+        <briefdescription>
+<para>Rebuilds the algorithms model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="73" column="22" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModel_1a5ffa8eb06c2518ba60c0a4666e5cbfab" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>ProcessingAlgorithmsModel::Filters</type>
+        <definition>ProcessingAlgorithmsModel::Filters ProcessingAlgorithmsModel::filters</definition>
+        <argsstring>() const</argsstring>
+        <name>filters</name>
+        <qualifiedname>ProcessingAlgorithmsModel::filters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns any filters that affect how toolbox content is filtered. <simplesect kind="see"><para><ref refid="classProcessingAlgorithmsModel_1a74873b515952e460dee45b6e5b20b1f1" kindref="member">setFilters()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="79" column="40" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModel_1a74873b515952e460dee45b6e5b20b1f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ProcessingAlgorithmsModel::setFilters</definition>
+        <argsstring>(ProcessingAlgorithmsModel::Filters filters)</argsstring>
+        <name>setFilters</name>
+        <qualifiedname>ProcessingAlgorithmsModel::setFilters</qualifiedname>
+        <param>
+          <type>ProcessingAlgorithmsModel::Filters</type>
+          <declname>filters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set <emphasis>filters</emphasis> that affect how toolbox content is filtered. <simplesect kind="see"><para>filters() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="85" column="10" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="46" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModel_1ae5eaaf0e16822269e4c49acaadde877d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * ProcessingAlgorithmsModel::inPlaceLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>inPlaceLayer</name>
+        <qualifiedname>ProcessingAlgorithmsModel::inPlaceLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the vector <emphasis>layer</emphasis> for in-place algorithm filter </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="90" column="20" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModel_1ae000c531e62208561af1ce52465de21b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ProcessingAlgorithmsModel::setInPlaceLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>setInPlaceLayer</name>
+        <qualifiedname>ProcessingAlgorithmsModel::setInPlaceLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the vector <emphasis>layer</emphasis> for in-place algorithm filter </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="95" column="10" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="59" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModel_1a1b3dcbd1538cdb6e63a8fc26ad53879b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ProcessingAlgorithmsModel::lessThan</definition>
+        <argsstring>(const QModelIndex &amp;sourceLeft, const QModelIndex &amp;sourceRight) const override</argsstring>
+        <name>lessThan</name>
+        <qualifiedname>ProcessingAlgorithmsModel::lessThan</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceRight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="97" column="10" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="72" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classProcessingAlgorithmsModel_1a51296ae91fe5b2735b2fa13068c1d595" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ProcessingAlgorithmsModel::filterAcceptsRow</definition>
+        <argsstring>(int sourceRow, const QModelIndex &amp;sourceParent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>ProcessingAlgorithmsModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceParent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="98" column="10" bodyfile="src/core/processing/processingalgorithmsmodel.cpp" bodystart="88" bodyend="114"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classProcessingAlgorithmsModel_1a48d1c9bac74ef13d88b038c273067c12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ProcessingAlgorithmsModel::filtersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>filtersChanged</name>
+        <qualifiedname>ProcessingAlgorithmsModel::filtersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the active filters have changed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="104" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classProcessingAlgorithmsModel_1ad3b67fdc6a7e82f3b3cd67af70730710" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ProcessingAlgorithmsModel::inPlaceLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>inPlaceLayerChanged</name>
+        <qualifiedname>ProcessingAlgorithmsModel::inPlaceLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the in place vector layer has changed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="109" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A sort/filter proxy model for providers and algorithms available within QField which automatically sorts the toolbox in a logical fashion and supports filtering the results. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ProcessingAlgorithmsModel</label>
+        <link refid="classProcessingAlgorithmsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProcessingAlgorithmsModel</label>
+        <link refid="classProcessingAlgorithmsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/processing/processingalgorithmsmodel.h" line="53" column="1" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="54" bodyend="115"/>
+    <listofallmembers>
+      <member refid="classProcessingAlgorithmsModel_1ad3703ef7f43c41f87b8822f93b6f6bd4a399e66552db332234b03a47927ee4252" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>FavoriteFilter</name></member>
+      <member refid="classProcessingAlgorithmsModel_1ad3703ef7f43c41f87b8822f93b6f6bd4" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>Filter</name></member>
+      <member refid="classProcessingAlgorithmsModel_1a51296ae91fe5b2735b2fa13068c1d595" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classProcessingAlgorithmsModel_1a6be754928f0f730e3d7978f3ce3b9fca" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>filters</name></member>
+      <member refid="classProcessingAlgorithmsModel_1a5ffa8eb06c2518ba60c0a4666e5cbfab" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>filters</name></member>
+      <member refid="classProcessingAlgorithmsModel_1a48d1c9bac74ef13d88b038c273067c12" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>filtersChanged</name></member>
+      <member refid="classProcessingAlgorithmsModel_1ad3703ef7f43c41f87b8822f93b6f6bd4a2149bab60ffd1ed056fcb5260dd6fddb" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>InPlaceFilter</name></member>
+      <member refid="classProcessingAlgorithmsModel_1a04514d04dfdd7ea8a350cf77a1cedc3e" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>inPlaceLayer</name></member>
+      <member refid="classProcessingAlgorithmsModel_1ae5eaaf0e16822269e4c49acaadde877d" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>inPlaceLayer</name></member>
+      <member refid="classProcessingAlgorithmsModel_1ad3b67fdc6a7e82f3b3cd67af70730710" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>inPlaceLayerChanged</name></member>
+      <member refid="classProcessingAlgorithmsModel_1a1b3dcbd1538cdb6e63a8fc26ad53879b" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>lessThan</name></member>
+      <member refid="classProcessingAlgorithmsModel_1a4cb6701e561ed13164565dc1b77800a8" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>mFilters</name></member>
+      <member refid="classProcessingAlgorithmsModel_1a797cc5b554702d7b677e26b5ad6828c2" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>mInPlaceLayer</name></member>
+      <member refid="classProcessingAlgorithmsModel_1a7662a7fe46571da75f0b060607a724fb" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>mModel</name></member>
+      <member refid="classProcessingAlgorithmsModel_1aa8f7a0a2fcd4f0324b2cb738bb7022f9" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>ProcessingAlgorithmsModel</name></member>
+      <member refid="classProcessingAlgorithmsModel_1ad8b8e7e694384e357508bab7c5ca57c0" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>rebuild</name></member>
+      <member refid="classProcessingAlgorithmsModel_1a74873b515952e460dee45b6e5b20b1f1" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>setFilters</name></member>
+      <member refid="classProcessingAlgorithmsModel_1ae000c531e62208561af1ce52465de21b" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsModel</scope><name>setInPlaceLayer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

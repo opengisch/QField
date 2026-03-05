@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBookmarkHighlight" kind="class" language="C++" prot="public">
+    <compoundname>BookmarkHighlight</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Repeater</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classBookmarkHighlight_1afe4ed73f29eb585585aa367053030f27" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings BookmarkHighlight::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>BookmarkHighlight::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkHighlight.qml" line="10" column="1" bodyfile="src/qml/BookmarkHighlight.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBookmarkHighlight_1a7971160eafcf1b626185e67c79c6cb88" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BookmarkHighlight::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>BookmarkHighlight::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkHighlight.qml" line="12" column="5" bodyfile="src/qml/BookmarkHighlight.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkHighlight_1a677fd44fa9deae17ef2c53aaabc4d898" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BookmarkHighlight::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <qualifiedname>BookmarkHighlight::delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkHighlight.qml" line="13" column="5" bodyfile="src/qml/BookmarkHighlight.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BookmarkHighlight</label>
+        <link refid="classBookmarkHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BookmarkHighlight</label>
+        <link refid="classBookmarkHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/BookmarkHighlight.qml" line="7" column="1" bodyfile="src/qml/BookmarkHighlight.qml" bodystart="7" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classBookmarkHighlight_1a677fd44fa9deae17ef2c53aaabc4d898" prot="private" virt="non-virtual"><scope>BookmarkHighlight</scope><name>delegate</name></member>
+      <member refid="classBookmarkHighlight_1afe4ed73f29eb585585aa367053030f27" prot="public" virt="non-virtual"><scope>BookmarkHighlight</scope><name>mapSettings</name></member>
+      <member refid="classBookmarkHighlight_1a7971160eafcf1b626185e67c79c6cb88" prot="private" virt="non-virtual"><scope>BookmarkHighlight</scope><name>model</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

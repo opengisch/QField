@@ -1,0 +1,1767 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQgsQuickMapSettings" kind="class" language="C++" prot="public">
+    <compoundname>QgsQuickMapSettings</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qgsquickmapsettings_8h" local="no">qgsquickmapsettings.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQgsQuickMapSettings_1af9342d711e05f92f1a20ae42ee114acb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QgsQuickMapSettings::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QgsQuickMapSettings::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A project property should be used as a primary source of project all other components in the application. QgsProject should be attached to <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> before it is read (QgsProject::read)</para>
+<para>When project is read, map settings (CRS, extent, ...) are automatically set from its DOM. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="56" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1aeba1702a5790dcf64a71dec06f941e45" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QgsQuickMapSettings::center</definition>
+        <argsstring></argsstring>
+        <name>center</name>
+        <qualifiedname>QgsQuickMapSettings::center</qualifiedname>
+        <read>getCenter</read>
+        <write>setCenter</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Geographical coordinate representing the center point of the current extent </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="61" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1a1fae7b1cc02972fbdb36c05b331d1cb8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle QgsQuickMapSettings::extent</definition>
+        <argsstring></argsstring>
+        <name>extent</name>
+        <qualifiedname>QgsQuickMapSettings::extent</qualifiedname>
+        <read>extent</read>
+        <write>setExtent</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Geographical coordinates of the rectangle that should be rendered. The actual visible extent used for rendering could be slightly different since the given extent may be expanded in order to fit the aspect ratio of output size. Use <ref refid="classQgsQuickMapSettings_1a4c918426a29c03035ba8aa670549dbcb" kindref="member">QgsQuickMapSettings::visibleExtent</ref> to get the resulting extent.</para>
+<para>Automatically loaded from project on QgsProject::readProject </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="70" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1a4c918426a29c03035ba8aa670549dbcb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle QgsQuickMapSettings::visibleExtent</definition>
+        <argsstring></argsstring>
+        <name>visibleExtent</name>
+        <qualifiedname>QgsQuickMapSettings::visibleExtent</qualifiedname>
+        <read>visibleExtent</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="72" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1ad379f5b63eefd0cc2f6f2424735719e0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <qualifiedname>QgsQuickMapSettings::scale</qualifiedname>
+        <read>scale</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="74" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1aa04c21ca7d0aab10e65d1bc6b0f4313d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::mapUnitsPerPoint</definition>
+        <argsstring></argsstring>
+        <name>mapUnitsPerPoint</name>
+        <qualifiedname>QgsQuickMapSettings::mapUnitsPerPoint</qualifiedname>
+        <read>mapUnitsPerPoint</read>
+        <briefdescription>
+<para>Returns the distance in geographical coordinates that equals to one point unit in the map. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="76" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1a1f111f2e3247c552c77519c698ea3719" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::rotation</definition>
+        <argsstring></argsstring>
+        <name>rotation</name>
+        <qualifiedname>QgsQuickMapSettings::rotation</qualifiedname>
+        <read>rotation</read>
+        <write>setRotation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The rotation of the resulting map image, in degrees clockwise. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="81" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1a8e9229ba9bbff78bae72934b13cdf51a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QgsQuickMapSettings::backgroundColor</definition>
+        <argsstring></argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>QgsQuickMapSettings::backgroundColor</qualifiedname>
+        <read>backgroundColor</read>
+        <write>setBackgroundColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The background color used to render the map</para>
+<para>The value is set to the project&apos;s bacckground color setting on QgsProject::readProject </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="88" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1ad37b44f94ac4b34469468c5586f76ada" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QSize</type>
+        <definition>QSize QgsQuickMapSettings::outputSize</definition>
+        <argsstring></argsstring>
+        <name>outputSize</name>
+        <qualifiedname>QgsQuickMapSettings::outputSize</qualifiedname>
+        <read>outputSize</read>
+        <write>setOutputSize</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The size of the resulting map image</para>
+<para>Automatically loaded from project on QgsProject::readProject </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="95" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1a08181add28740e8762bee7ee5a93307f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::outputDpi</definition>
+        <argsstring></argsstring>
+        <name>outputDpi</name>
+        <qualifiedname>QgsQuickMapSettings::outputDpi</qualifiedname>
+        <read>outputDpi</read>
+        <write>setOutputDpi</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Output DPI used for conversion between real world units (e.g. mm) and pixels</para>
+<para>Automatically loaded from project on QgsProject::readProject </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="102" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1abc3e11f665b5972a8f84b25270ddd49a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QgsQuickMapSettings::destinationCrs</definition>
+        <argsstring></argsstring>
+        <name>destinationCrs</name>
+        <qualifiedname>QgsQuickMapSettings::destinationCrs</qualifiedname>
+        <read>destinationCrs</read>
+        <write>setDestinationCrs</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>CRS of destination coordinate reference system.</para>
+<para>Automatically loaded from project on QgsProject::readProject </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="109" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1abf1d5b544debb49d3f886b75b5f18294" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; QgsMapLayer * &gt;</type>
+        <definition>QList&lt;QgsMapLayer *&gt; QgsQuickMapSettings::layers</definition>
+        <argsstring></argsstring>
+        <name>layers</name>
+        <qualifiedname>QgsQuickMapSettings::layers</qualifiedname>
+        <read>layers</read>
+        <write>setLayers</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set list of layers for map rendering. The layers must be registered in QgsProject. The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)</para>
+<para><simplesect kind="note"><para>Any non-spatial layers will be automatically stripped from the list (since they cannot be rendered!).</para>
+</simplesect>
+Not loaded automatically from the associated project </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="119" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1a4b103fcf5ffc8a440aee6950a7ca4d90" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickMapSettings::isTemporal</definition>
+        <argsstring></argsstring>
+        <name>isTemporal</name>
+        <qualifiedname>QgsQuickMapSettings::isTemporal</qualifiedname>
+        <read>isTemporal</read>
+        <write>setIsTemporal</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if a temporal filtering is enabled </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="124" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1a2b883afc5dcc3dc73978288790b4e8b5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QgsQuickMapSettings::temporalBegin</definition>
+        <argsstring></argsstring>
+        <name>temporalBegin</name>
+        <qualifiedname>QgsQuickMapSettings::temporalBegin</qualifiedname>
+        <read>temporalBegin</read>
+        <write>setTemporalBegin</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The temporal range&apos;s begin (i.e. lower) value </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="129" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1abcf4b768670a784d288e2d0cac03de73" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QgsQuickMapSettings::temporalEnd</definition>
+        <argsstring></argsstring>
+        <name>temporalEnd</name>
+        <qualifiedname>QgsQuickMapSettings::temporalEnd</qualifiedname>
+        <read>temporalEnd</read>
+        <write>setTemporalEnd</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The temporal range&apos;s end (i.e. higher) value </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="134" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1a2402e1c03adb13cc19314e860f4099f3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::zRangeLower</definition>
+        <argsstring></argsstring>
+        <name>zRangeLower</name>
+        <qualifiedname>QgsQuickMapSettings::zRangeLower</qualifiedname>
+        <read>zRangeLower</read>
+        <write>setZRangeLower</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Z range&apos;s lower value; if both the lower and upper value are finite, Z range filtering will occur. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="139" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1a88d4eccce8a4aa6cbcedbbab23bec5d9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::zRangeUpper</definition>
+        <argsstring></argsstring>
+        <name>zRangeUpper</name>
+        <qualifiedname>QgsQuickMapSettings::zRangeUpper</qualifiedname>
+        <read>zRangeUpper</read>
+        <write>setZRangeUpper</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Z range&apos;s upper value; if both the lower and upper value are finite, Z range filtering will occur. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="144" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1a6a959fc142ddec4ec31981192257fbcd" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>QgsQuickMapSettings::bottomMargin</qualifiedname>
+        <read>bottomMargin</read>
+        <write>setBottomMargin</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bottom margin used by the map settings when calculating map extent or center. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="149" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickMapSettings_1ae1ba0e3f2a070ee404bd36e563cac4b1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::rightMargin</definition>
+        <argsstring></argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>QgsQuickMapSettings::rightMargin</qualifiedname>
+        <read>rightMargin</read>
+        <write>setRightMargin</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The right margin used by the map settings when calculating map extent or center. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="154" column="5" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQgsQuickMapSettings_1afe3f5c36b91178c28f3cd7b1c484ae56" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QgsQuickMapSettings::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QgsQuickMapSettings::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="408" column="16" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="408" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapSettings_1a0e434983d82f014ed9ad34c3759106ed" prot="private" static="no" mutable="no">
+        <type>QgsMapSettings</type>
+        <definition>QgsMapSettings QgsQuickMapSettings::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QgsQuickMapSettings::mMapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="409" column="20" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="409" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapSettings_1a4a9dffec7a64b9d817938685633e88c9" prot="private" static="no" mutable="no">
+        <type>qreal</type>
+        <definition>qreal QgsQuickMapSettings::mDevicePixelRatio</definition>
+        <argsstring></argsstring>
+        <name>mDevicePixelRatio</name>
+        <qualifiedname>QgsQuickMapSettings::mDevicePixelRatio</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="410" column="11" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="410" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapSettings_1a90faf555ae71ae1c40ad90d19055d854" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::mBottomMargin</definition>
+        <argsstring></argsstring>
+        <name>mBottomMargin</name>
+        <qualifiedname>QgsQuickMapSettings::mBottomMargin</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="411" column="12" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="411" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapSettings_1a530b05175564348d6faf99b04e55108f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::mRightMargin</definition>
+        <argsstring></argsstring>
+        <name>mRightMargin</name>
+        <qualifiedname>QgsQuickMapSettings::mRightMargin</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="412" column="12" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="412" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a09b05b0e6e7fd69703b9ade407d38c20" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgsQuickMapSettings::QgsQuickMapSettings</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QgsQuickMapSettings</name>
+        <qualifiedname>QgsQuickMapSettings::QgsQuickMapSettings</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Create new map settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="158" column="14" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="27" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a874c4d1648291500cfea048bb663bce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgsQuickMapSettings::~QgsQuickMapSettings</definition>
+        <argsstring>()=default</argsstring>
+        <name>~QgsQuickMapSettings</name>
+        <qualifiedname>QgsQuickMapSettings::~QgsQuickMapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="159" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1aa0819eabfca106939c96d57f4d48d6f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsMapSettings</type>
+        <definition>QgsMapSettings QgsQuickMapSettings::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QgsQuickMapSettings::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Clone map settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="162" column="20" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="341" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1af38db0bfade1785b7b03028ce12227eb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle QgsQuickMapSettings::extent</definition>
+        <argsstring>() const</argsstring>
+        <name>extent</name>
+        <qualifiedname>QgsQuickMapSettings::extent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="165" column="18" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1ab594ae8219e176a00187974fcd358693" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QgsQuickMapSettings::setExtent</definition>
+        <argsstring>(const QgsRectangle &amp;extent, bool handleMargins=false)</argsstring>
+        <name>setExtent</name>
+        <qualifiedname>QgsQuickMapSettings::setExtent</qualifiedname>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>extent</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="168" column="22" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="85" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1aa39988b49f56e2f3aa89c755d3c0c9b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QgsQuickMapSettings::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A project property should be used as a primary source of project all other components in the application. QgsProject should be attached to <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> before it is read (QgsProject::read)</para>
+<para>When project is read, map settings (CRS, extent, ...) are automatically set from its DOM.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="171" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="39" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a59472988190c02f748ec303383415050" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QgsQuickMapSettings::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QgsQuickMapSettings::project</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A project property should be used as a primary source of project all other components in the application. QgsProject should be attached to <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> before it is read (QgsProject::read)</para>
+<para>When project is read, map settings (CRS, extent, ...) are automatically set from its DOM.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="174" column="16" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="70" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a03b4375ce2ad4a67021691c0766f4963" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>QgsPoint QgsQuickMapSettings::getCenter</definition>
+        <argsstring>(bool handleMargins=false) const</argsstring>
+        <name>getCenter</name>
+        <qualifiedname>QgsQuickMapSettings::getCenter</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Returns the center point of the current map extent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="177" column="26" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="179" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1ace8e843b313546ed7d2e110551a74a61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QgsQuickMapSettings::setCenter</definition>
+        <argsstring>(const QgsPoint &amp;center, bool handleMargins=false)</argsstring>
+        <name>setCenter</name>
+        <qualifiedname>QgsQuickMapSettings::setCenter</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Move current map extent to have center point defined by center <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>center</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a QgsPoint center point </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handleMargins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE for margins to be considered when recentering </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="184" column="22" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="206" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a58b322d6b8098dc39340ca2840a00292" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QgsQuickMapSettings::setCenter</definition>
+        <argsstring>(const QPointF &amp;center, bool handleMargins=false)</argsstring>
+        <name>setCenter</name>
+        <qualifiedname>QgsQuickMapSettings::setCenter</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Move current map extent to have center point defined by center <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>center</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a QPointF center point </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handleMargins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE for margins to be considered when recentering </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="191" column="22" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="240" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1ab90f2fc5eea9c6ae1dac85e5d1b970ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QgsQuickMapSettings::setCenterToLayer</definition>
+        <argsstring>(QgsMapLayer *layer, bool shouldZoom=true)</argsstring>
+        <name>setCenterToLayer</name>
+        <qualifiedname>QgsQuickMapSettings::setCenterToLayer</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shouldZoom</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Move current map extent to have center point defined by <emphasis>layer</emphasis>. Optionally only pan to the layer if <emphasis>shouldZoom</emphasis> is false. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="194" column="22" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="245" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a6bdc52ea81468cc915061c0376870b7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QgsQuickMapSettings::setExtentFromPoints</definition>
+        <argsstring>(const QVariantList &amp;points, const double &amp;minimumScale=0, bool handleMargins=false)</argsstring>
+        <name>setExtentFromPoints</name>
+        <qualifiedname>QgsQuickMapSettings::setExtentFromPoints</qualifiedname>
+        <param>
+          <type>const QVariantList &amp;</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>minimumScale</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Move current map extent to center around the list of <emphasis>points</emphasis> provided. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="197" column="22" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="260" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a48c010fb90033e9c8209e35a5e1ca5ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::mapUnitsPerPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>mapUnitsPerPoint</name>
+        <qualifiedname>QgsQuickMapSettings::mapUnitsPerPoint</qualifiedname>
+        <briefdescription>
+<para>Returns the distance in geographical coordinates that equals to one point unit in the map.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="200" column="12" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="311" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a3b5f3024b77a784a887ff35de47dbfb7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle QgsQuickMapSettings::visibleExtent</definition>
+        <argsstring>() const</argsstring>
+        <name>visibleExtent</name>
+        <qualifiedname>QgsQuickMapSettings::visibleExtent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="203" column="18" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="316" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a2bfaf1cc78a3630bdd546c196c4c8442" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::scale</definition>
+        <argsstring>() const</argsstring>
+        <name>scale</name>
+        <qualifiedname>QgsQuickMapSettings::scale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="206" column="12" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="321" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a3c930bca60efefc0a85571312d479a23" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsCoordinateTransformContext</type>
+        <definition>QgsCoordinateTransformContext QgsQuickMapSettings::transformContext</definition>
+        <argsstring>() const</argsstring>
+        <name>transformContext</name>
+        <qualifiedname>QgsQuickMapSettings::transformContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="209" column="47" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1ae19d826e77f38d040bfa9410fb0c7d2e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QPointF</type>
+        <definition>QPointF QgsQuickMapSettings::coordinateToScreen</definition>
+        <argsstring>(const QgsPoint &amp;point) const</argsstring>
+        <name>coordinateToScreen</name>
+        <qualifiedname>QgsQuickMapSettings::coordinateToScreen</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a map coordinate to screen pixel coordinates</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A coordinate in map coordinates</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A coordinate in pixel / screen space </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="218" column="25" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="326" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a70b53cdb13b98778d4694631e9b754f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>QgsPoint QgsQuickMapSettings::screenToCoordinate</definition>
+        <argsstring>(const QPointF &amp;point) const</argsstring>
+        <name>screenToCoordinate</name>
+        <qualifiedname>QgsQuickMapSettings::screenToCoordinate</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a screen coordinate to a map coordinate</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A coordinate in pixel / screen coordinates</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A coordinate in map coordinates </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="227" column="26" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="335" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a29f3ea6bb84e66600998219a78c70c70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double QgsQuickMapSettings::computeScaleForExtent</definition>
+        <argsstring>(const QgsRectangle &amp;extent, bool handleMargins=false)</argsstring>
+        <name>computeScaleForExtent</name>
+        <qualifiedname>QgsQuickMapSettings::computeScaleForExtent</qualifiedname>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>extent</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the scale that corresponds to the specified <emphasis>extent</emphasis>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A coordinate in pixel / screen coordinates</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A scale value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="236" column="24" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="93" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a1494d4b98a251d161b22360124a753a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setTransformContext</definition>
+        <argsstring>(const QgsCoordinateTransformContext &amp;context)</argsstring>
+        <name>setTransformContext</name>
+        <qualifiedname>QgsQuickMapSettings::setTransformContext</qualifiedname>
+        <param>
+          <type>const QgsCoordinateTransformContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="239" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a94184e2bd63404d7fd857bda4f23f6c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::rotation</definition>
+        <argsstring>() const</argsstring>
+        <name>rotation</name>
+        <qualifiedname>QgsQuickMapSettings::rotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The rotation of the resulting map image, in degrees clockwise.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="242" column="12" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="479" bodyend="482"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a0d62b47f8092a072a830bb2be2776625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setRotation</definition>
+        <argsstring>(double rotation)</argsstring>
+        <name>setRotation</name>
+        <qualifiedname>QgsQuickMapSettings::setRotation</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>rotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The rotation of the resulting map image, in degrees clockwise.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="245" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="484" bodyend="491"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a088e38c38f8910f58e8f68caf9ab9290" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QgsQuickMapSettings::backgroundColor</definition>
+        <argsstring>() const</argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>QgsQuickMapSettings::backgroundColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The background color used to render the map</para>
+<para>The value is set to the project&apos;s bacckground color setting on QgsProject::readProject   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="248" column="12" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="493" bodyend="496"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1af947772c6a72d2a9924e5428f3b5ec78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setBackgroundColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setBackgroundColor</name>
+        <qualifiedname>QgsQuickMapSettings::setBackgroundColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The background color used to render the map</para>
+<para>The value is set to the project&apos;s bacckground color setting on QgsProject::readProject   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="251" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="498" bodyend="505"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a6360907f96d18974a8d8698c0d45e76d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QSize</type>
+        <definition>QSize QgsQuickMapSettings::outputSize</definition>
+        <argsstring>() const</argsstring>
+        <name>outputSize</name>
+        <qualifiedname>QgsQuickMapSettings::outputSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="254" column="11" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="346" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a0a981a8b02de04231dd4714c8e30518f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setOutputSize</definition>
+        <argsstring>(QSize outputSize)</argsstring>
+        <name>setOutputSize</name>
+        <qualifiedname>QgsQuickMapSettings::setOutputSize</qualifiedname>
+        <param>
+          <type>QSize</type>
+          <declname>outputSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="257" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="351" bodyend="360"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a81251878e5cedbc85abe5211d1b32c60" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::outputDpi</definition>
+        <argsstring>() const</argsstring>
+        <name>outputDpi</name>
+        <qualifiedname>QgsQuickMapSettings::outputDpi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="260" column="12" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="362" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1aa5253290222c4c3f4c5f8cf45a27efd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setOutputDpi</definition>
+        <argsstring>(double outputDpi)</argsstring>
+        <name>setOutputDpi</name>
+        <qualifiedname>QgsQuickMapSettings::setOutputDpi</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>outputDpi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="263" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="367" bodyend="375"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a6f462bec92ce83152f056a2e1eb0a048" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QgsQuickMapSettings::destinationCrs</definition>
+        <argsstring>() const</argsstring>
+        <name>destinationCrs</name>
+        <qualifiedname>QgsQuickMapSettings::destinationCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="266" column="34" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="377" bodyend="380"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1ac42107f6cc35b3de8b2369bbff72654b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setDestinationCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;destinationCrs)</argsstring>
+        <name>setDestinationCrs</name>
+        <qualifiedname>QgsQuickMapSettings::setDestinationCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="269" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="382" bodyend="389"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1aa6b87becd1430d653bd0df0ddbaeacf5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; QgsMapLayer * &gt;</type>
+        <definition>QList&lt; QgsMapLayer * &gt; QgsQuickMapSettings::layers</definition>
+        <argsstring>() const</argsstring>
+        <name>layers</name>
+        <qualifiedname>QgsQuickMapSettings::layers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of layers which will be rendered in the map.</para>
+<para>The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)</para>
+<para><simplesect kind="see"><para><ref refid="classQgsQuickMapSettings_1ab1007f4cff0f98a0dec50fad8db05b04" kindref="member">setLayers()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="278" column="11" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="391" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1ab1007f4cff0f98a0dec50fad8db05b04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setLayers</definition>
+        <argsstring>(const QList&lt; QgsMapLayer * &gt; &amp;layers)</argsstring>
+        <name>setLayers</name>
+        <qualifiedname>QgsQuickMapSettings::setLayers</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsMapLayer * &gt; &amp;</type>
+          <declname>layers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the list of <emphasis>layers</emphasis> to render in the map.</para>
+<para>The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)</para>
+<para><simplesect kind="note"><para>Any non-spatial layers will be automatically stripped from the list (since they cannot be rendered!).</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQgsQuickMapSettings_1abf1d5b544debb49d3f886b75b5f18294" kindref="member">layers()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="289" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="396" bodyend="400"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1aa9fd36850a40a1f62de8e3a435d01344" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal QgsQuickMapSettings::devicePixelRatio</definition>
+        <argsstring>() const</argsstring>
+        <name>devicePixelRatio</name>
+        <qualifiedname>QgsQuickMapSettings::devicePixelRatio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the ratio between physical pixels and device-independent pixels. This value is dependent on the screen the window is on, and may change when the window is moved. Common values are 1.0 on normal displays and 2.0 on Apple &quot;retina&quot; displays. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="296" column="11" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="507" bodyend="510"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a9f7331fea821c67827723ec0040043fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setDevicePixelRatio</definition>
+        <argsstring>(const qreal &amp;devicePixelRatio)</argsstring>
+        <name>setDevicePixelRatio</name>
+        <qualifiedname>QgsQuickMapSettings::setDevicePixelRatio</qualifiedname>
+        <param>
+          <type>const qreal &amp;</type>
+          <declname>devicePixelRatio</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the ratio between physical pixels and device-independent pixels. This value is dependent on the screen the window is on, and may change when the window is moved. Common values are 1.0 on normal displays and 2.0 on Apple &quot;retina&quot; displays. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="304" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="512" bodyend="515"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1aebbdd48fb1bbce853441cf063b5bb05e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsQuickMapSettings::isTemporal</definition>
+        <argsstring>() const</argsstring>
+        <name>isTemporal</name>
+        <qualifiedname>QgsQuickMapSettings::isTemporal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if a temporal filtering is enabled   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="307" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="517" bodyend="520"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a0934bce893b9b17d5dee70008fcc937b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setIsTemporal</definition>
+        <argsstring>(bool temporal)</argsstring>
+        <name>setIsTemporal</name>
+        <qualifiedname>QgsQuickMapSettings::setIsTemporal</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>temporal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if a temporal filtering is enabled   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="310" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="522" bodyend="526"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a6052103ffc6a44fb499ff9250881a599" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QDateTime</type>
+        <definition>QDateTime QgsQuickMapSettings::temporalBegin</definition>
+        <argsstring>() const</argsstring>
+        <name>temporalBegin</name>
+        <qualifiedname>QgsQuickMapSettings::temporalBegin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The temporal range&apos;s begin (i.e. lower) value   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="313" column="15" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="528" bodyend="531"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1af2ad6b3bfa672520969085acf960c107" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setTemporalBegin</definition>
+        <argsstring>(const QDateTime &amp;begin)</argsstring>
+        <name>setTemporalBegin</name>
+        <qualifiedname>QgsQuickMapSettings::setTemporalBegin</qualifiedname>
+        <param>
+          <type>const QDateTime &amp;</type>
+          <declname>begin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The temporal range&apos;s begin (i.e. lower) value   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="316" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="533" bodyend="541"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a8c463f6d9e5f18221b1cdeb4ee89a0e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QDateTime</type>
+        <definition>QDateTime QgsQuickMapSettings::temporalEnd</definition>
+        <argsstring>() const</argsstring>
+        <name>temporalEnd</name>
+        <qualifiedname>QgsQuickMapSettings::temporalEnd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The temporal range&apos;s end (i.e. higher) value   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="319" column="15" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="543" bodyend="546"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1ad6276a8c90c711d0ab32237a39be738e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setTemporalEnd</definition>
+        <argsstring>(const QDateTime &amp;end)</argsstring>
+        <name>setTemporalEnd</name>
+        <qualifiedname>QgsQuickMapSettings::setTemporalEnd</qualifiedname>
+        <param>
+          <type>const QDateTime &amp;</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The temporal range&apos;s end (i.e. higher) value   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="322" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="548" bodyend="556"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a676d303e1563e5d0339f00745625f820" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::zRangeLower</definition>
+        <argsstring>() const</argsstring>
+        <name>zRangeLower</name>
+        <qualifiedname>QgsQuickMapSettings::zRangeLower</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Z range&apos;s lower value; if both the lower and upper value are finite, Z range filtering will occur.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="325" column="12" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="558" bodyend="561"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a42b920aec204b70c9562b62c657417ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setZRangeLower</definition>
+        <argsstring>(double lower)</argsstring>
+        <name>setZRangeLower</name>
+        <qualifiedname>QgsQuickMapSettings::setZRangeLower</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>lower</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Z range&apos;s lower value; if both the lower and upper value are finite, Z range filtering will occur.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="328" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="563" bodyend="571"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a28a4ad0ec32e8586459d39d77bd68172" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::zRangeUpper</definition>
+        <argsstring>() const</argsstring>
+        <name>zRangeUpper</name>
+        <qualifiedname>QgsQuickMapSettings::zRangeUpper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Z range&apos;s upper value; if both the lower and upper value are finite, Z range filtering will occur.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="331" column="12" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="573" bodyend="576"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a90311f0d875964cdcf706dfae3c6b93c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setZRangeUpper</definition>
+        <argsstring>(double upper)</argsstring>
+        <name>setZRangeUpper</name>
+        <qualifiedname>QgsQuickMapSettings::setZRangeUpper</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>upper</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Z range&apos;s upper value; if both the lower and upper value are finite, Z range filtering will occur.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="334" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="578" bodyend="586"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1af7cfed2e96514525e4a7094c530ccab0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::bottomMargin</definition>
+        <argsstring>() const</argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>QgsQuickMapSettings::bottomMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bottom margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="337" column="12" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="588" bodyend="591"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1ac331e4f449f4e840e33be609d4c8c884" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setBottomMargin</definition>
+        <argsstring>(double bottomMargin)</argsstring>
+        <name>setBottomMargin</name>
+        <qualifiedname>QgsQuickMapSettings::setBottomMargin</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>bottomMargin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bottom margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="340" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="593" bodyend="600"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a40ed56e2f2407b1cfe39bd0210b95926" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QgsQuickMapSettings::rightMargin</definition>
+        <argsstring>() const</argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>QgsQuickMapSettings::rightMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The right margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="343" column="12" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="602" bodyend="605"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a8f9cf2c141e4cd6fb30153ab91b387e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::setRightMargin</definition>
+        <argsstring>(double rightMargin)</argsstring>
+        <name>setRightMargin</name>
+        <qualifiedname>QgsQuickMapSettings::setRightMargin</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>rightMargin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The right margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="346" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="607" bodyend="614"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1a3944b588e676c13880af329fe10ed686" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QgsQuickMapSettings::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A project property should be used as a primary source of project all other components in the application. QgsProject should be attached to <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> before it is read (QgsProject::read)</para>
+<para>When project is read, map settings (CRS, extent, ...) are automatically set from its DOM.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="350" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1a1956e57291066171d306c1981691f5be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::extentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>extentChanged</name>
+        <qualifiedname>QgsQuickMapSettings::extentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Geographical coordinates of the rectangle that should be rendered. The actual visible extent used for rendering could be slightly different since the given extent may be expanded in order to fit the aspect ratio of output size. Use <ref refid="classQgsQuickMapSettings_1a4c918426a29c03035ba8aa670549dbcb" kindref="member">QgsQuickMapSettings::visibleExtent</ref> to get the resulting extent.</para>
+<para>Automatically loaded from project on QgsProject::readProject   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="353" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1a5bbaee0bf1722dc39bd5b3c62e2ba7d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::destinationCrsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>destinationCrsChanged</name>
+        <qualifiedname>QgsQuickMapSettings::destinationCrsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>CRS of destination coordinate reference system.</para>
+<para>Automatically loaded from project on QgsProject::readProject   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="356" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1a17f499848a3b70f57c9a7b19361e911d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::mapUnitsPerPointChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapUnitsPerPointChanged</name>
+        <qualifiedname>QgsQuickMapSettings::mapUnitsPerPointChanged</qualifiedname>
+        <briefdescription>
+<para>Returns the distance in geographical coordinates that equals to one point unit in the map.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="359" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1adbaa9fe6328d1267c71dc5887808ec65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::rotationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rotationChanged</name>
+        <qualifiedname>QgsQuickMapSettings::rotationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The rotation of the resulting map image, in degrees clockwise.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="362" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1ad58ca29e2bb36fb162039e33ed27e8e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::backgroundColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>backgroundColorChanged</name>
+        <qualifiedname>QgsQuickMapSettings::backgroundColorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The background color used to render the map</para>
+<para>The value is set to the project&apos;s bacckground color setting on QgsProject::readProject   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="365" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1a629128b24007f86bc9a978a6a58f63c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::visibleExtentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>visibleExtentChanged</name>
+        <qualifiedname>QgsQuickMapSettings::visibleExtentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="368" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1a2024918fa14e5d9859b894ed33786bdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::outputSizeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>outputSizeChanged</name>
+        <qualifiedname>QgsQuickMapSettings::outputSizeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The size of the resulting map image</para>
+<para>Automatically loaded from project on QgsProject::readProject   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="371" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1a534acbc9d4a6e9ef73708233f97efc92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::outputDpiChanged</definition>
+        <argsstring>()</argsstring>
+        <name>outputDpiChanged</name>
+        <qualifiedname>QgsQuickMapSettings::outputDpiChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Output DPI used for conversion between real world units (e.g. mm) and pixels</para>
+<para>Automatically loaded from project on QgsProject::readProject   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="374" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1a551323cbaf98c6c1da70cc35721a45df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::layersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>layersChanged</name>
+        <qualifiedname>QgsQuickMapSettings::layersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set list of layers for map rendering. The layers must be registered in QgsProject. The layers are stored in the reverse order of how they are rendered (layer with index 0 will be on top)</para>
+<para><simplesect kind="note"><para>Any non-spatial layers will be automatically stripped from the list (since they cannot be rendered!).</para>
+</simplesect>
+Not loaded automatically from the associated project   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="377" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1a62d7172a3898e29d941d2ad8e443e486" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::temporalStateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>temporalStateChanged</name>
+        <qualifiedname>QgsQuickMapSettings::temporalStateChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when temporal properties are modified. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="380" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1ad6bc6b14c95ef5dcd4174e7ccb948947" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::zRangeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>zRangeChanged</name>
+        <qualifiedname>QgsQuickMapSettings::zRangeChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the Z range&apos;s lower and upper values are modified. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="383" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1a588224da8e3f0627fb29d96c0a8c79d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::bottomMarginChanged</definition>
+        <argsstring>()</argsstring>
+        <name>bottomMarginChanged</name>
+        <qualifiedname>QgsQuickMapSettings::bottomMarginChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bottom margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="386" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickMapSettings_1ad638469210ff44815256cea8d7e6b18d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::rightMarginChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rightMarginChanged</name>
+        <qualifiedname>QgsQuickMapSettings::rightMarginChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The right margin used by the map settings when calculating map extent or center.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="389" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQgsQuickMapSettings_1af477fb6d59407fb0a7fd4a06d74d6c02" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::onReadProject</definition>
+        <argsstring>(const QDomDocument &amp;doc)</argsstring>
+        <name>onReadProject</name>
+        <qualifiedname>QgsQuickMapSettings::onReadProject</qualifiedname>
+        <param>
+          <type>const QDomDocument &amp;</type>
+          <declname>doc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read map canvas settings stored in a QGIS project file</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>doc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>parsed DOM of a QgsProject </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="398" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="428" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQgsQuickMapSettings_1ab77ee5ef82550553983503b2164e2ec4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapSettings::onCrsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onCrsChanged</name>
+        <qualifiedname>QgsQuickMapSettings::onCrsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the destination CRS to match the changed project CRS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="403" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="423" bodyend="426"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQgsQuickMapSettings_1a785b4ee44dd18a393b820e95677ac708" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsQuickMapSettings::applyExtent</definition>
+        <argsstring>(QgsMapSettings &amp;mapSettings, const QgsRectangle &amp;extent, bool handleMargins=false)</argsstring>
+        <name>applyExtent</name>
+        <qualifiedname>QgsQuickMapSettings::applyExtent</qualifiedname>
+        <param>
+          <type>QgsMapSettings &amp;</type>
+          <declname>mapSettings</declname>
+        </param>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>extent</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmapsettings.h" line="406" column="10" bodyfile="src/core/qgsquick/qgsquickmapsettings.cpp" bodystart="100" bodyend="177"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> class encapsulates QgsMapSettings class to offer settings of configuration of map rendering via QML properties.</para>
+<para>On top of QgsMapSettings functionality, when QgsProject is attached, it automatically loads its default settings from the project. QgsProject should be attached before it is read.</para>
+<para><simplesect kind="note"><para>QML Type: MapSettings</para>
+</simplesect>
+<simplesect kind="see"><para>QgsQuickMapCanvas </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QgsQuickMapSettings</label>
+        <link refid="classQgsQuickMapSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QgsQuickMapSettings</label>
+        <link refid="classQgsQuickMapSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qgsquick/qgsquickmapsettings.h" line="45" column="1" bodyfile="src/core/qgsquick/qgsquickmapsettings.h" bodystart="46" bodyend="413"/>
+    <listofallmembers>
+      <member refid="classQgsQuickMapSettings_1a785b4ee44dd18a393b820e95677ac708" prot="private" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>applyExtent</name></member>
+      <member refid="classQgsQuickMapSettings_1a8e9229ba9bbff78bae72934b13cdf51a" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>backgroundColor</name></member>
+      <member refid="classQgsQuickMapSettings_1a088e38c38f8910f58e8f68caf9ab9290" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>backgroundColor</name></member>
+      <member refid="classQgsQuickMapSettings_1ad58ca29e2bb36fb162039e33ed27e8e7" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>backgroundColorChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1a6a959fc142ddec4ec31981192257fbcd" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>bottomMargin</name></member>
+      <member refid="classQgsQuickMapSettings_1af7cfed2e96514525e4a7094c530ccab0" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>bottomMargin</name></member>
+      <member refid="classQgsQuickMapSettings_1a588224da8e3f0627fb29d96c0a8c79d5" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>bottomMarginChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1aeba1702a5790dcf64a71dec06f941e45" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>center</name></member>
+      <member refid="classQgsQuickMapSettings_1a29f3ea6bb84e66600998219a78c70c70" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>computeScaleForExtent</name></member>
+      <member refid="classQgsQuickMapSettings_1ae19d826e77f38d040bfa9410fb0c7d2e" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>coordinateToScreen</name></member>
+      <member refid="classQgsQuickMapSettings_1abc3e11f665b5972a8f84b25270ddd49a" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>destinationCrs</name></member>
+      <member refid="classQgsQuickMapSettings_1a6f462bec92ce83152f056a2e1eb0a048" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>destinationCrs</name></member>
+      <member refid="classQgsQuickMapSettings_1a5bbaee0bf1722dc39bd5b3c62e2ba7d9" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>destinationCrsChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1aa9fd36850a40a1f62de8e3a435d01344" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>devicePixelRatio</name></member>
+      <member refid="classQgsQuickMapSettings_1a1fae7b1cc02972fbdb36c05b331d1cb8" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>extent</name></member>
+      <member refid="classQgsQuickMapSettings_1af38db0bfade1785b7b03028ce12227eb" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>extent</name></member>
+      <member refid="classQgsQuickMapSettings_1a1956e57291066171d306c1981691f5be" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>extentChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1a03b4375ce2ad4a67021691c0766f4963" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>getCenter</name></member>
+      <member refid="classQgsQuickMapSettings_1a4b103fcf5ffc8a440aee6950a7ca4d90" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>isTemporal</name></member>
+      <member refid="classQgsQuickMapSettings_1aebbdd48fb1bbce853441cf063b5bb05e" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>isTemporal</name></member>
+      <member refid="classQgsQuickMapSettings_1abf1d5b544debb49d3f886b75b5f18294" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>layers</name></member>
+      <member refid="classQgsQuickMapSettings_1aa6b87becd1430d653bd0df0ddbaeacf5" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>layers</name></member>
+      <member refid="classQgsQuickMapSettings_1a551323cbaf98c6c1da70cc35721a45df" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>layersChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1aa0819eabfca106939c96d57f4d48d6f0" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>mapSettings</name></member>
+      <member refid="classQgsQuickMapSettings_1aa04c21ca7d0aab10e65d1bc6b0f4313d" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>mapUnitsPerPoint</name></member>
+      <member refid="classQgsQuickMapSettings_1a48c010fb90033e9c8209e35a5e1ca5ce" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>mapUnitsPerPoint</name></member>
+      <member refid="classQgsQuickMapSettings_1a17f499848a3b70f57c9a7b19361e911d" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>mapUnitsPerPointChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1a90faf555ae71ae1c40ad90d19055d854" prot="private" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>mBottomMargin</name></member>
+      <member refid="classQgsQuickMapSettings_1a4a9dffec7a64b9d817938685633e88c9" prot="private" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>mDevicePixelRatio</name></member>
+      <member refid="classQgsQuickMapSettings_1a0e434983d82f014ed9ad34c3759106ed" prot="private" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>mMapSettings</name></member>
+      <member refid="classQgsQuickMapSettings_1afe3f5c36b91178c28f3cd7b1c484ae56" prot="private" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>mProject</name></member>
+      <member refid="classQgsQuickMapSettings_1a530b05175564348d6faf99b04e55108f" prot="private" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>mRightMargin</name></member>
+      <member refid="classQgsQuickMapSettings_1ab77ee5ef82550553983503b2164e2ec4" prot="private" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>onCrsChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1af477fb6d59407fb0a7fd4a06d74d6c02" prot="private" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>onReadProject</name></member>
+      <member refid="classQgsQuickMapSettings_1a08181add28740e8762bee7ee5a93307f" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>outputDpi</name></member>
+      <member refid="classQgsQuickMapSettings_1a81251878e5cedbc85abe5211d1b32c60" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>outputDpi</name></member>
+      <member refid="classQgsQuickMapSettings_1a534acbc9d4a6e9ef73708233f97efc92" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>outputDpiChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1ad37b44f94ac4b34469468c5586f76ada" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>outputSize</name></member>
+      <member refid="classQgsQuickMapSettings_1a6360907f96d18974a8d8698c0d45e76d" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>outputSize</name></member>
+      <member refid="classQgsQuickMapSettings_1a2024918fa14e5d9859b894ed33786bdf" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>outputSizeChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1af9342d711e05f92f1a20ae42ee114acb" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>project</name></member>
+      <member refid="classQgsQuickMapSettings_1a59472988190c02f748ec303383415050" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>project</name></member>
+      <member refid="classQgsQuickMapSettings_1a3944b588e676c13880af329fe10ed686" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>projectChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1a09b05b0e6e7fd69703b9ade407d38c20" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>QgsQuickMapSettings</name></member>
+      <member refid="classQgsQuickMapSettings_1ae1ba0e3f2a070ee404bd36e563cac4b1" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>rightMargin</name></member>
+      <member refid="classQgsQuickMapSettings_1a40ed56e2f2407b1cfe39bd0210b95926" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>rightMargin</name></member>
+      <member refid="classQgsQuickMapSettings_1ad638469210ff44815256cea8d7e6b18d" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>rightMarginChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1a1f111f2e3247c552c77519c698ea3719" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>rotation</name></member>
+      <member refid="classQgsQuickMapSettings_1a94184e2bd63404d7fd857bda4f23f6c2" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>rotation</name></member>
+      <member refid="classQgsQuickMapSettings_1adbaa9fe6328d1267c71dc5887808ec65" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>rotationChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1ad379f5b63eefd0cc2f6f2424735719e0" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>scale</name></member>
+      <member refid="classQgsQuickMapSettings_1a2bfaf1cc78a3630bdd546c196c4c8442" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>scale</name></member>
+      <member refid="classQgsQuickMapSettings_1a70b53cdb13b98778d4694631e9b754f7" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>screenToCoordinate</name></member>
+      <member refid="classQgsQuickMapSettings_1af947772c6a72d2a9924e5428f3b5ec78" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setBackgroundColor</name></member>
+      <member refid="classQgsQuickMapSettings_1ac331e4f449f4e840e33be609d4c8c884" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setBottomMargin</name></member>
+      <member refid="classQgsQuickMapSettings_1ace8e843b313546ed7d2e110551a74a61" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setCenter</name></member>
+      <member refid="classQgsQuickMapSettings_1a58b322d6b8098dc39340ca2840a00292" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setCenter</name></member>
+      <member refid="classQgsQuickMapSettings_1ab90f2fc5eea9c6ae1dac85e5d1b970ab" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setCenterToLayer</name></member>
+      <member refid="classQgsQuickMapSettings_1ac42107f6cc35b3de8b2369bbff72654b" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setDestinationCrs</name></member>
+      <member refid="classQgsQuickMapSettings_1a9f7331fea821c67827723ec0040043fe" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setDevicePixelRatio</name></member>
+      <member refid="classQgsQuickMapSettings_1ab594ae8219e176a00187974fcd358693" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setExtent</name></member>
+      <member refid="classQgsQuickMapSettings_1a6bdc52ea81468cc915061c0376870b7f" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setExtentFromPoints</name></member>
+      <member refid="classQgsQuickMapSettings_1a0934bce893b9b17d5dee70008fcc937b" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setIsTemporal</name></member>
+      <member refid="classQgsQuickMapSettings_1ab1007f4cff0f98a0dec50fad8db05b04" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setLayers</name></member>
+      <member refid="classQgsQuickMapSettings_1aa5253290222c4c3f4c5f8cf45a27efd1" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setOutputDpi</name></member>
+      <member refid="classQgsQuickMapSettings_1a0a981a8b02de04231dd4714c8e30518f" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setOutputSize</name></member>
+      <member refid="classQgsQuickMapSettings_1aa39988b49f56e2f3aa89c755d3c0c9b0" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setProject</name></member>
+      <member refid="classQgsQuickMapSettings_1a8f9cf2c141e4cd6fb30153ab91b387e3" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setRightMargin</name></member>
+      <member refid="classQgsQuickMapSettings_1a0d62b47f8092a072a830bb2be2776625" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setRotation</name></member>
+      <member refid="classQgsQuickMapSettings_1af2ad6b3bfa672520969085acf960c107" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setTemporalBegin</name></member>
+      <member refid="classQgsQuickMapSettings_1ad6276a8c90c711d0ab32237a39be738e" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setTemporalEnd</name></member>
+      <member refid="classQgsQuickMapSettings_1a1494d4b98a251d161b22360124a753a2" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setTransformContext</name></member>
+      <member refid="classQgsQuickMapSettings_1a42b920aec204b70c9562b62c657417ee" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setZRangeLower</name></member>
+      <member refid="classQgsQuickMapSettings_1a90311f0d875964cdcf706dfae3c6b93c" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>setZRangeUpper</name></member>
+      <member refid="classQgsQuickMapSettings_1a2b883afc5dcc3dc73978288790b4e8b5" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>temporalBegin</name></member>
+      <member refid="classQgsQuickMapSettings_1a6052103ffc6a44fb499ff9250881a599" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>temporalBegin</name></member>
+      <member refid="classQgsQuickMapSettings_1abcf4b768670a784d288e2d0cac03de73" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>temporalEnd</name></member>
+      <member refid="classQgsQuickMapSettings_1a8c463f6d9e5f18221b1cdeb4ee89a0e6" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>temporalEnd</name></member>
+      <member refid="classQgsQuickMapSettings_1a62d7172a3898e29d941d2ad8e443e486" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>temporalStateChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1a3c930bca60efefc0a85571312d479a23" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>transformContext</name></member>
+      <member refid="classQgsQuickMapSettings_1a4c918426a29c03035ba8aa670549dbcb" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>visibleExtent</name></member>
+      <member refid="classQgsQuickMapSettings_1a3b5f3024b77a784a887ff35de47dbfb7" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>visibleExtent</name></member>
+      <member refid="classQgsQuickMapSettings_1a629128b24007f86bc9a978a6a58f63c0" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>visibleExtentChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1ad6bc6b14c95ef5dcd4174e7ccb948947" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>zRangeChanged</name></member>
+      <member refid="classQgsQuickMapSettings_1a2402e1c03adb13cc19314e860f4099f3" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>zRangeLower</name></member>
+      <member refid="classQgsQuickMapSettings_1a676d303e1563e5d0339f00745625f820" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>zRangeLower</name></member>
+      <member refid="classQgsQuickMapSettings_1a88d4eccce8a4aa6cbcedbbab23bec5d9" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>zRangeUpper</name></member>
+      <member refid="classQgsQuickMapSettings_1a28a4ad0ec32e8586459d39d77bd68172" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>zRangeUpper</name></member>
+      <member refid="classQgsQuickMapSettings_1a874c4d1648291500cfea048bb663bce3" prot="public" virt="non-virtual"><scope>QgsQuickMapSettings</scope><name>~QgsQuickMapSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

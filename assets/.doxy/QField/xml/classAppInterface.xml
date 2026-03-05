@@ -1,0 +1,1160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAppInterface" kind="class" language="C++" prot="public">
+    <compoundname>AppInterface</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="appinterface_8h" local="no">appinterface.h</includes>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classAppInterface_1a851cebadd5337aaeb39841279b4e3861" prot="private" static="yes" mutable="no">
+        <type><ref refid="classAppInterface" kindref="compound">AppInterface</ref> *</type>
+        <definition>AppInterface * AppInterface::sAppInterface</definition>
+        <argsstring></argsstring>
+        <name>sAppInterface</name>
+        <qualifiedname>AppInterface::sAppInterface</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="278" column="25" bodyfile="src/core/appinterface.h" bodystart="278" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAppInterface_1a489ef794f4db44bd1c723ad187a8230e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgisMobileapp" kindref="compound">QgisMobileapp</ref> *</type>
+        <definition>QgisMobileapp* AppInterface::mApp</definition>
+        <argsstring></argsstring>
+        <name>mApp</name>
+        <qualifiedname>AppInterface::mApp</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="280" column="19" bodyfile="src/core/appinterface.h" bodystart="280" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAppInterface_1aa0d386100efabed338b0a798396d9af6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AppInterface::AppInterface</definition>
+        <argsstring>(QgisMobileapp *app)</argsstring>
+        <name>AppInterface</name>
+        <qualifiedname>AppInterface::AppInterface</qualifiedname>
+        <param>
+          <type><ref refid="classQgisMobileapp" kindref="compound">QgisMobileapp</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="41" column="14" bodyfile="src/core/appinterface.cpp" bodystart="47" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a9e9afb59a545280da49a7f059f88d385" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AppInterface::AppInterface</definition>
+        <argsstring>()</argsstring>
+        <name>AppInterface</name>
+        <qualifiedname>AppInterface::AppInterface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="42" column="5" bodyfile="src/core/appinterface.h" bodystart="42" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a627b3cf74e26e6e8ea19e42e63662aac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::importUrl</definition>
+        <argsstring>(const QString &amp;url, bool loadOnImport=false)</argsstring>
+        <name>importUrl</name>
+        <qualifiedname>AppInterface::importUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>loadOnImport</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Imports a compressed project from a given URL and place the content into the Imported Projects folder. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the URL where the compressed project ZIP file is </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>loadOnImport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE to load the project on successful import </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="54" column="22" bodyfile="src/core/appinterface.cpp" bodystart="348" bodyend="476"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1ac13113459edee27b1944678c6060faa1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AppInterface::hasProjectOnLaunch</definition>
+        <argsstring>() const</argsstring>
+        <name>hasProjectOnLaunch</name>
+        <qualifiedname>AppInterface::hasProjectOnLaunch</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE is a project was passed on when launching QField. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="57" column="22" bodyfile="src/core/appinterface.cpp" bodystart="138" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a51109ead3d958f19f272ac61811da742" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AppInterface::loadFile</definition>
+        <argsstring>(const QString &amp;path, const QString &amp;name=QString())</argsstring>
+        <name>loadFile</name>
+        <qualifiedname>AppInterface::loadFile</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads a project file or standalone dataset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the project file (.qgs or .qgz) or standalone dataset path </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a project name (if left empty, the project file will be used instead) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="65" column="22" bodyfile="src/core/appinterface.cpp" bodystart="158" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a6ce7c6406bba9e75315c0b24253161c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::reloadProject</definition>
+        <argsstring>()</argsstring>
+        <name>reloadProject</name>
+        <qualifiedname>AppInterface::reloadProject</qualifiedname>
+        <briefdescription>
+<para>Reloads the currently opened project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="68" column="22" bodyfile="src/core/appinterface.cpp" bodystart="170" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a33e52726de0b82e13e5e71f1a604468e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::removeRecentProject</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>removeRecentProject</name>
+        <qualifiedname>AppInterface::removeRecentProject</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Removes a given project <emphasis>path</emphasis> from the recent projects list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="70" column="22" bodyfile="src/core/appinterface.cpp" bodystart="133" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a3a90b4f16915cd6012f20df6b36a51f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString AppInterface::readProjectEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, const QString &amp;def=QString()) const</argsstring>
+        <name>readProjectEntry</name>
+        <qualifiedname>AppInterface::readProjectEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>def</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a string from the specified scope and key. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified key does not exist within the scope </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="78" column="25" bodyfile="src/core/appinterface.cpp" bodystart="180" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a5b27fc062bc81f296098f8d8b83f8886" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int AppInterface::readProjectNumEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, int def=0) const</argsstring>
+        <name>readProjectNumEntry</name>
+        <qualifiedname>AppInterface::readProjectNumEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>def</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads an integer from the specified scope and key. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified key does not exist within the scope </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="86" column="21" bodyfile="src/core/appinterface.cpp" bodystart="185" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a7fbda9051ea28fc69944481553f699f5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double AppInterface::readProjectDoubleEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, double def=0.0) const</argsstring>
+        <name>readProjectDoubleEntry</name>
+        <qualifiedname>AppInterface::readProjectDoubleEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>def</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a double from the specified scope and key. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified key does not exist within the scope </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="94" column="24" bodyfile="src/core/appinterface.cpp" bodystart="190" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a8be3834d18cc8735ca336734448577e9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AppInterface::readProjectBoolEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, bool def=false) const</argsstring>
+        <name>readProjectBoolEntry</name>
+        <qualifiedname>AppInterface::readProjectBoolEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>def</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a double from the specified scope and key. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified key does not exist within the scope </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="102" column="22" bodyfile="src/core/appinterface.cpp" bodystart="195" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a62dcb352791de3871d8715d1bf63e6b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AppInterface::print</definition>
+        <argsstring>(const QString &amp;layoutName)</argsstring>
+        <name>print</name>
+        <qualifiedname>AppInterface::print</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layoutName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints a project layout to PDF. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layoutName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layout name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="108" column="22" bodyfile="src/core/appinterface.cpp" bodystart="200" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a837691adef9cfb8f90471bdda86f273e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AppInterface::printAtlasFeatures</definition>
+        <argsstring>(const QString &amp;layoutName, const QList&lt; long long &gt; &amp;featureIds)</argsstring>
+        <name>printAtlasFeatures</name>
+        <qualifiedname>AppInterface::printAtlasFeatures</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layoutName</declname>
+        </param>
+        <param>
+          <type>const QList&lt; long long &gt; &amp;</type>
+          <declname>featureIds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints an atlas-driven project layout to PDF. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layoutName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layout name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>featureIds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list of atlas feature IDs </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="115" column="22" bodyfile="src/core/appinterface.cpp" bodystart="205" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a46241d4f667a3e7e57f43067e587a256" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::setScreenDimmerTimeout</definition>
+        <argsstring>(int timeoutSeconds)</argsstring>
+        <name>setScreenDimmerTimeout</name>
+        <qualifiedname>AppInterface::setScreenDimmerTimeout</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>timeoutSeconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the screen drimmer timeout. Dimming can be disabled by setting the timeout to zero. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeoutSeconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>timeout in seconds </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="121" column="22" bodyfile="src/core/appinterface.cpp" bodystart="210" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1ae913c92c1fbae0f05f7bb08aba0a78ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap AppInterface::availableLanguages</definition>
+        <argsstring>() const</argsstring>
+        <name>availableLanguages</name>
+        <qualifiedname>AppInterface::availableLanguages</qualifiedname>
+        <briefdescription>
+<para>Returns a list of available UI translation languages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="124" column="29" bodyfile="src/core/appinterface.cpp" bodystart="215" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a6d9e5622aaac54ef06d0b6b3db9685f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::changeLanguage</definition>
+        <argsstring>(const QString &amp;languageCode)</argsstring>
+        <name>changeLanguage</name>
+        <qualifiedname>AppInterface::changeLanguage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>languageCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Changes the application language to the specified <emphasis>languageCode</emphasis>. This will reload translators and refresh all QML translations without restarting the app. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>languageCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The language code (e.g., &quot;en&quot;, &quot;de&quot;) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classAppInterface_1ae913c92c1fbae0f05f7bb08aba0a78ed" kindref="member">availableLanguages</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="132" column="22" bodyfile="src/core/appinterface.cpp" bodystart="249" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a87637a01a41124c87e4db90e2d5e2d31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AppInterface::isFileExtensionSupported</definition>
+        <argsstring>(const QString &amp;filename) const</argsstring>
+        <name>isFileExtensionSupported</name>
+        <qualifiedname>AppInterface::isFileExtensionSupported</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Returns TRUE if a given <emphasis>filename</emphasis> can be opened as a project or standalone dataset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="135" column="22" bodyfile="src/core/appinterface.cpp" bodystart="298" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a3dcc81b8ae4680050292e7fe4465f122" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AppInterface::isAuthenticationConfigurationAvailable</definition>
+        <argsstring>(const QString &amp;id) const</argsstring>
+        <name>isAuthenticationConfigurationAvailable</name>
+        <qualifiedname>AppInterface::isAuthenticationConfigurationAvailable</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the authentication configuration <emphasis>id</emphasis> is available. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="140" column="22" bodyfile="src/core/appinterface.cpp" bodystart="305" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1af48b92d10a729627f66b0d26e7cfa004" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::logMessage</definition>
+        <argsstring>(const QString &amp;message)</argsstring>
+        <name>logMessage</name>
+        <qualifiedname>AppInterface::logMessage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a log <emphasis>message</emphasis> that will be visible to the user through the message log panel, as well as added into the device&apos;s system logs which will be captured by the sentry&apos;s reporting framework when enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="147" column="22" bodyfile="src/core/appinterface.cpp" bodystart="312" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a2b96debab6267adfb5f2a12c2f3e4ff5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::logRuntimeProfiler</definition>
+        <argsstring>()</argsstring>
+        <name>logRuntimeProfiler</name>
+        <qualifiedname>AppInterface::logRuntimeProfiler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs the current runtime profiler model content into the message log panel, as well as added into the device&apos;s system logs which will be captured by the sentry&apos;s reporting framework when enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="154" column="22" bodyfile="src/core/appinterface.cpp" bodystart="317" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a39c34b7e72cba0ba568313ca91a06312" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::sendLog</definition>
+        <argsstring>(const QString &amp;message, const QString &amp;cloudUser)</argsstring>
+        <name>sendLog</name>
+        <qualifiedname>AppInterface::sendLog</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>cloudUser</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a logs reporting through to sentry when enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="159" column="22" bodyfile="src/core/appinterface.cpp" bodystart="322" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1aa2be3bf42b22d8a618ba1ee8fc0a080c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::initiateSentry</definition>
+        <argsstring>() const</argsstring>
+        <name>initiateSentry</name>
+        <qualifiedname>AppInterface::initiateSentry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initalizes sentry connection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="164" column="22" bodyfile="src/core/appinterface.cpp" bodystart="329" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1ab0b16e68365e711a32d51cc4af8fa372" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::closeSentry</definition>
+        <argsstring>() const</argsstring>
+        <name>closeSentry</name>
+        <qualifiedname>AppInterface::closeSentry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Closes active sentry connection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="169" column="22" bodyfile="src/core/appinterface.cpp" bodystart="336" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a100202acb9902fe6e46144930be41aa8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::clearProject</definition>
+        <argsstring>() const</argsstring>
+        <name>clearProject</name>
+        <qualifiedname>AppInterface::clearProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the currently opened project </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="174" column="22" bodyfile="src/core/appinterface.cpp" bodystart="343" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a82ad4faff3cd08ff4cd208d3b7f0b27c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QObject *</type>
+        <definition>QObject * AppInterface::findItemByObjectName</definition>
+        <argsstring>(const QString &amp;name) const</argsstring>
+        <name>findItemByObjectName</name>
+        <qualifiedname>AppInterface::findItemByObjectName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the item matching the provided object <emphasis>name</emphasis> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="179" column="25" bodyfile="src/core/appinterface.cpp" bodystart="65" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1ab4802cf5c4a1980d449de88fc249a4c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::addItemToPluginsToolbar</definition>
+        <argsstring>(QQuickItem *item) const</argsstring>
+        <name>addItemToPluginsToolbar</name>
+        <qualifiedname>AppInterface::addItemToPluginsToolbar</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an <emphasis>item</emphasis> in the plugins toolbar container </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="184" column="22" bodyfile="src/core/appinterface.cpp" bodystart="74" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1aa9a580848d21659c0fb47e07217bd508" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::addItemToCanvasActionsToolbar</definition>
+        <argsstring>(QQuickItem *item) const</argsstring>
+        <name>addItemToCanvasActionsToolbar</name>
+        <qualifiedname>AppInterface::addItemToCanvasActionsToolbar</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an <emphasis>item</emphasis> in the map canvas menu&apos;s action toolbar container </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="189" column="22" bodyfile="src/core/appinterface.cpp" bodystart="83" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1acb50bfdb85b4c7d5157a614180102cb6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::addItemToDashboardActionsToolbar</definition>
+        <argsstring>(QQuickItem *item) const</argsstring>
+        <name>addItemToDashboardActionsToolbar</name>
+        <qualifiedname>AppInterface::addItemToDashboardActionsToolbar</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an <emphasis>item</emphasis> in the dashboard&apos;s action toolbar container </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="194" column="22" bodyfile="src/core/appinterface.cpp" bodystart="92" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a301bdf89fae99b54ae261f8bbf36d973" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AppInterface::addItemToMainMenuActionsToolbar</definition>
+        <argsstring>(QQuickItem *item) const</argsstring>
+        <name>addItemToMainMenuActionsToolbar</name>
+        <qualifiedname>AppInterface::addItemToMainMenuActionsToolbar</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an <emphasis>item</emphasis> in the dashboard&apos;s action toolbar container <simplesect kind="note"><para>This function is deprecated and will be removed in the future, use the addItemToDashboardActionsToolbar function instead </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="201" column="22" bodyfile="src/core/appinterface.cpp" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1aed5ecec795cb12fbf0dd4743ff65f4c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QObject *</type>
+        <definition>QObject * AppInterface::mainWindow</definition>
+        <argsstring>() const</argsstring>
+        <name>mainWindow</name>
+        <qualifiedname>AppInterface::mainWindow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the main window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="206" column="25" bodyfile="src/core/appinterface.cpp" bodystart="106" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a02f3e10e3ac108b93329cd842c4e664c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QObject *</type>
+        <definition>QObject * AppInterface::mapCanvas</definition>
+        <argsstring>() const</argsstring>
+        <name>mapCanvas</name>
+        <qualifiedname>AppInterface::mapCanvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the main map canvas item. <simplesect kind="see"><para><ref refid="classMapCanvas" kindref="compound">MapCanvas</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="212" column="25" bodyfile="src/core/appinterface.cpp" bodystart="115" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1a910a395761997e6fc88b650531897dec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QObject *</type>
+        <definition>QObject * AppInterface::positioning</definition>
+        <argsstring>() const</argsstring>
+        <name>positioning</name>
+        <qualifiedname>AppInterface::positioning</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the positioning item. <simplesect kind="see"><para><ref refid="classPositioning" kindref="compound">Positioning</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="218" column="25" bodyfile="src/core/appinterface.cpp" bodystart="124" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppInterface_1afb3e62cdc1840be29181c2efb9e3871d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QObject *</type>
+        <definition>QObject * AppInterface::createHttpRequest</definition>
+        <argsstring>() const</argsstring>
+        <name>createHttpRequest</name>
+        <qualifiedname>AppInterface::createHttpRequest</qualifiedname>
+        <briefdescription>
+<para>One-shot xmlhttp request. Defaults to autoDelete = true. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="222" column="25" bodyfile="src/core/appinterface.cpp" bodystart="52" bodyend="63"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classAppInterface_1a6f0bc3aafba7fdfdbb19b56490352058" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppInterface::importTriggered</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>importTriggered</name>
+        <qualifiedname>AppInterface::importTriggered</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a dataset or project import has been triggered. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a indentifier-friendly string (e.g. a file being imported) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="237" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAppInterface_1a1070f2982412e1cf4c021f720da3efea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppInterface::importProgress</definition>
+        <argsstring>(double progress)</argsstring>
+        <name>importProgress</name>
+        <qualifiedname>AppInterface::importProgress</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>progress</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when an ongoing import reports its <emphasis>progress</emphasis>. <simplesect kind="note"><para>when an import is started, its progress will be indefinite by default </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="243" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAppInterface_1a3671b5c4ff4b70b8971c794ddf453e0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppInterface::importEnded</definition>
+        <argsstring>(const QString &amp;path=QString())</argsstring>
+        <name>importEnded</name>
+        <qualifiedname>AppInterface::importEnded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when an import has ended. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the path within which the imported dataset or project has been copied into </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>if the import was not successful, the path value will be an empty string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="250" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAppInterface_1a228e1e2c6ad4e7011e38d5cd6ffb66f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppInterface::loadProjectTriggered</definition>
+        <argsstring>(const QString &amp;path, const QString &amp;name)</argsstring>
+        <name>loadProjectTriggered</name>
+        <qualifiedname>AppInterface::loadProjectTriggered</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a project has begin loading. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="255" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAppInterface_1aed5524b7cafe7dac77c8b50235cf3f2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppInterface::loadProjectEnded</definition>
+        <argsstring>(const QString &amp;path, const QString &amp;name)</argsstring>
+        <name>loadProjectEnded</name>
+        <qualifiedname>AppInterface::loadProjectEnded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a project loading has ended. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="260" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAppInterface_1a498e396ce997805cec7dd21c36b24969" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppInterface::setMapExtent</definition>
+        <argsstring>(const QgsRectangle &amp;extent)</argsstring>
+        <name>setMapExtent</name>
+        <qualifiedname>AppInterface::setMapExtent</qualifiedname>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>extent</declname>
+        </param>
+        <briefdescription>
+<para>Requests QField to set its map to the provided <emphasis>extent</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="263" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAppInterface_1a2c8ab8a988ae0d213d64fc142a57b3be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppInterface::openPath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>openPath</name>
+        <qualifiedname>AppInterface::openPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Requests QField to open its local data picker screen to show the <emphasis>path</emphasis> content. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="266" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAppInterface_1a918c12202b85cb8f766266cea29ee664" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppInterface::executeAction</definition>
+        <argsstring>(const QString &amp;action)</argsstring>
+        <name>executeAction</name>
+        <qualifiedname>AppInterface::executeAction</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+<para>Requests QField to execute a given <emphasis>action</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="269" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAppInterface_1a391071402be4f1bba39d4a2def086312" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppInterface::volumeKeyDown</definition>
+        <argsstring>(int volumeKeyCode)</argsstring>
+        <name>volumeKeyDown</name>
+        <qualifiedname>AppInterface::volumeKeyDown</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>volumeKeyCode</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a volume key is pressed while QField is set to handle those keys. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="272" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAppInterface_1a61b9fb79cbcba8debfe6b648dec110bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppInterface::volumeKeyUp</definition>
+        <argsstring>(int volumeKeyCode)</argsstring>
+        <name>volumeKeyUp</name>
+        <qualifiedname>AppInterface::volumeKeyUp</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>volumeKeyCode</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a volume key is pressed while QField is set to handle those keys. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appinterface.h" line="275" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>App interface made available in QML as <computeroutput>iface</computeroutput>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AppInterface</label>
+        <link refid="classAppInterface"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AppInterface</label>
+        <link refid="classAppInterface"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/appinterface.h" line="36" column="1" bodyfile="src/core/appinterface.h" bodystart="37" bodyend="281"/>
+    <listofallmembers>
+      <member refid="classAppInterface_1aa9a580848d21659c0fb47e07217bd508" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>addItemToCanvasActionsToolbar</name></member>
+      <member refid="classAppInterface_1acb50bfdb85b4c7d5157a614180102cb6" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>addItemToDashboardActionsToolbar</name></member>
+      <member refid="classAppInterface_1a301bdf89fae99b54ae261f8bbf36d973" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>addItemToMainMenuActionsToolbar</name></member>
+      <member refid="classAppInterface_1ab4802cf5c4a1980d449de88fc249a4c5" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>addItemToPluginsToolbar</name></member>
+      <member refid="classAppInterface_1aa0d386100efabed338b0a798396d9af6" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>AppInterface</name></member>
+      <member refid="classAppInterface_1a9e9afb59a545280da49a7f059f88d385" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>AppInterface</name></member>
+      <member refid="classAppInterface_1ae913c92c1fbae0f05f7bb08aba0a78ed" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>availableLanguages</name></member>
+      <member refid="classAppInterface_1a6d9e5622aaac54ef06d0b6b3db9685f1" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>changeLanguage</name></member>
+      <member refid="classAppInterface_1a100202acb9902fe6e46144930be41aa8" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>clearProject</name></member>
+      <member refid="classAppInterface_1ab0b16e68365e711a32d51cc4af8fa372" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>closeSentry</name></member>
+      <member refid="classAppInterface_1afb3e62cdc1840be29181c2efb9e3871d" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>createHttpRequest</name></member>
+      <member refid="classAppInterface_1a918c12202b85cb8f766266cea29ee664" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>executeAction</name></member>
+      <member refid="classAppInterface_1a82ad4faff3cd08ff4cd208d3b7f0b27c" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>findItemByObjectName</name></member>
+      <member refid="classAppInterface_1ac13113459edee27b1944678c6060faa1" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>hasProjectOnLaunch</name></member>
+      <member refid="classAppInterface_1a3671b5c4ff4b70b8971c794ddf453e0d" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>importEnded</name></member>
+      <member refid="classAppInterface_1a1070f2982412e1cf4c021f720da3efea" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>importProgress</name></member>
+      <member refid="classAppInterface_1a6f0bc3aafba7fdfdbb19b56490352058" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>importTriggered</name></member>
+      <member refid="classAppInterface_1a627b3cf74e26e6e8ea19e42e63662aac" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>importUrl</name></member>
+      <member refid="classAppInterface_1aa2be3bf42b22d8a618ba1ee8fc0a080c" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>initiateSentry</name></member>
+      <member refid="classAppInterface_1a3dcc81b8ae4680050292e7fe4465f122" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>isAuthenticationConfigurationAvailable</name></member>
+      <member refid="classAppInterface_1a87637a01a41124c87e4db90e2d5e2d31" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>isFileExtensionSupported</name></member>
+      <member refid="classAppInterface_1a51109ead3d958f19f272ac61811da742" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>loadFile</name></member>
+      <member refid="classAppInterface_1aed5524b7cafe7dac77c8b50235cf3f2f" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>loadProjectEnded</name></member>
+      <member refid="classAppInterface_1a228e1e2c6ad4e7011e38d5cd6ffb66f6" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>loadProjectTriggered</name></member>
+      <member refid="classAppInterface_1af48b92d10a729627f66b0d26e7cfa004" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>logMessage</name></member>
+      <member refid="classAppInterface_1a2b96debab6267adfb5f2a12c2f3e4ff5" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>logRuntimeProfiler</name></member>
+      <member refid="classAppInterface_1aed5ecec795cb12fbf0dd4743ff65f4c3" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>mainWindow</name></member>
+      <member refid="classAppInterface_1a02f3e10e3ac108b93329cd842c4e664c" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>mapCanvas</name></member>
+      <member refid="classAppInterface_1a489ef794f4db44bd1c723ad187a8230e" prot="private" virt="non-virtual"><scope>AppInterface</scope><name>mApp</name></member>
+      <member refid="classAppInterface_1a2c8ab8a988ae0d213d64fc142a57b3be" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>openPath</name></member>
+      <member refid="classAppInterface_1a910a395761997e6fc88b650531897dec" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>positioning</name></member>
+      <member refid="classAppInterface_1a62dcb352791de3871d8715d1bf63e6b3" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>print</name></member>
+      <member refid="classAppInterface_1a837691adef9cfb8f90471bdda86f273e" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>printAtlasFeatures</name></member>
+      <member refid="classAppInterface_1a8be3834d18cc8735ca336734448577e9" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>readProjectBoolEntry</name></member>
+      <member refid="classAppInterface_1a7fbda9051ea28fc69944481553f699f5" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>readProjectDoubleEntry</name></member>
+      <member refid="classAppInterface_1a3a90b4f16915cd6012f20df6b36a51f3" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>readProjectEntry</name></member>
+      <member refid="classAppInterface_1a5b27fc062bc81f296098f8d8b83f8886" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>readProjectNumEntry</name></member>
+      <member refid="classAppInterface_1a6ce7c6406bba9e75315c0b24253161c1" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>reloadProject</name></member>
+      <member refid="classAppInterface_1a33e52726de0b82e13e5e71f1a604468e" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>removeRecentProject</name></member>
+      <member refid="classAppInterface_1a851cebadd5337aaeb39841279b4e3861" prot="private" virt="non-virtual"><scope>AppInterface</scope><name>sAppInterface</name></member>
+      <member refid="classAppInterface_1a39c34b7e72cba0ba568313ca91a06312" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>sendLog</name></member>
+      <member refid="classAppInterface_1a498e396ce997805cec7dd21c36b24969" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>setMapExtent</name></member>
+      <member refid="classAppInterface_1a46241d4f667a3e7e57f43067e587a256" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>setScreenDimmerTimeout</name></member>
+      <member refid="classAppInterface_1a391071402be4f1bba39d4a2def086312" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>volumeKeyDown</name></member>
+      <member refid="classAppInterface_1a61b9fb79cbcba8debfe6b648dec110bb" prot="public" virt="non-virtual"><scope>AppInterface</scope><name>volumeKeyUp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFillRing" kind="class" language="C++" prot="public">
+    <compoundname>FillRing</compoundname>
+    <basecompoundref refid="classGeometryEditorBase" prot="public" virt="non-virtual">GeometryEditorBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classFillRing_1aaf110662aacb4b287c762a7fd7079f1c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FillRing::screenHovering</definition>
+        <argsstring></argsstring>
+        <name>screenHovering</name>
+        <qualifiedname>FillRing::screenHovering</qualifiedname>
+        <read>dummyGetter_screenHovering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="9" column="1" bodyfile="src/qml/geometryeditors/FillRing.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFillRing_1a74c54197161efdec5d7ffb6ae0b652ce" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FillRing::blocking</definition>
+        <argsstring></argsstring>
+        <name>blocking</name>
+        <qualifiedname>FillRing::blocking</qualifiedname>
+        <read>dummyGetter_blocking_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="12" column="1" bodyfile="src/qml/geometryeditors/FillRing.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFillRing_1a22dea8568184fca3e5d68d43a06d5c43" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var FillRing::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>FillRing::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="14" column="5" bodyfile="src/qml/geometryeditors/FillRing.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFillRing_1a08242545bdaad6667a994172d7179888" prot="private" static="no" mutable="no">
+        <type><ref refid="classDigitizingToolbar" kindref="compound">DigitizingToolbar</ref></type>
+        <definition>DigitizingToolbar FillRing::drawPolygonToolbar</definition>
+        <argsstring></argsstring>
+        <name>drawPolygonToolbar</name>
+        <qualifiedname>FillRing::drawPolygonToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="21" column="19" bodyfile="src/qml/geometryeditors/FillRing.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFillRing_1aae05feec2da8f8888b864df2b5e08066" prot="private" static="no" mutable="no">
+        <type><ref refid="classEmbeddedFeatureForm" kindref="compound">EmbeddedFeatureForm</ref></type>
+        <definition>EmbeddedFeatureForm FillRing::formPopupLoader</definition>
+        <argsstring></argsstring>
+        <name>formPopupLoader</name>
+        <qualifiedname>FillRing::formPopupLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="22" column="21" bodyfile="src/qml/geometryeditors/FillRing.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFillRing_1a17af250c7072d5cfac61fc6b0a41558e" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog FillRing::addPolygonDialog</definition>
+        <argsstring></argsstring>
+        <name>addPolygonDialog</name>
+        <qualifiedname>FillRing::addPolygonDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="23" column="10" bodyfile="src/qml/geometryeditors/FillRing.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFillRing_1a13435a3be901eac96a288f424dcc3815" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillRing::canvasClicked</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasClicked</name>
+        <qualifiedname>FillRing::canvasClicked</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="17" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classFillRing_1a34edbb23610b53e44400fb3b4aceaac0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillRing::canvasLongPressed</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasLongPressed</name>
+        <qualifiedname>FillRing::canvasLongPressed</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="19" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classFillRing_1a149c0d4a6cc240a72406617d742c991d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillRing::init</definition>
+        <argsstring>(featureModel, mapSettings, editorRubberbandModel, editorRenderer)</argsstring>
+        <name>init</name>
+        <qualifiedname>FillRing::init</qualifiedname>
+        <param>
+          <type>featureModel</type>
+        </param>
+        <param>
+          <type>mapSettings</type>
+        </param>
+        <param>
+          <type>editorRubberbandModel</type>
+        </param>
+        <param>
+          <type>editorRenderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="26" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classFillRing_1ad3a76e2849c04d445ad841b4ffb6c3cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillRing::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>FillRing::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="28" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classFillRing_1abfccd9c1c18b2dca3198a3a485753f4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillRing::commitRingFeature</definition>
+        <argsstring>()</argsstring>
+        <name>commitRingFeature</name>
+        <qualifiedname>FillRing::commitRingFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classFillRing_1a7e97ced4a7ef8c1ec97f7f4267b80775" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillRing::cancelRingFeature</definition>
+        <argsstring>()</argsstring>
+        <name>cancelRingFeature</name>
+        <qualifiedname>FillRing::cancelRingFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classFillRing_1ab401e9a8634dd3e48f348e8a8916283c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillRing::fillWithPolygon</definition>
+        <argsstring>()</argsstring>
+        <name>fillWithPolygon</name>
+        <qualifiedname>FillRing::fillWithPolygon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/FillRing.qml" line="34" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FillRing</label>
+        <link refid="classFillRing"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GeometryEditorBase</label>
+        <link refid="classGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+      <node id="3">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FillRing</label>
+        <link refid="classFillRing"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GeometryEditorBase</label>
+        <link refid="classGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+      <node id="3">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/geometryeditors/FillRing.qml" line="6" column="1" bodyfile="src/qml/geometryeditors/FillRing.qml" bodystart="6" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classFillRing_1a17af250c7072d5cfac61fc6b0a41558e" prot="private" virt="non-virtual"><scope>FillRing</scope><name>addPolygonDialog</name></member>
+      <member refid="classFillRing_1a74c54197161efdec5d7ffb6ae0b652ce" prot="public" virt="non-virtual"><scope>FillRing</scope><name>blocking</name></member>
+      <member refid="classFillRing_1ad3a76e2849c04d445ad841b4ffb6c3cb" prot="public" virt="non-virtual"><scope>FillRing</scope><name>cancel</name></member>
+      <member refid="classFillRing_1a7e97ced4a7ef8c1ec97f7f4267b80775" prot="public" virt="non-virtual"><scope>FillRing</scope><name>cancelRingFeature</name></member>
+      <member refid="classFillRing_1a13435a3be901eac96a288f424dcc3815" prot="public" virt="non-virtual"><scope>FillRing</scope><name>canvasClicked</name></member>
+      <member refid="classFillRing_1a34edbb23610b53e44400fb3b4aceaac0" prot="public" virt="non-virtual"><scope>FillRing</scope><name>canvasLongPressed</name></member>
+      <member refid="classFillRing_1abfccd9c1c18b2dca3198a3a485753f4c" prot="public" virt="non-virtual"><scope>FillRing</scope><name>commitRingFeature</name></member>
+      <member refid="classFillRing_1a08242545bdaad6667a994172d7179888" prot="private" virt="non-virtual"><scope>FillRing</scope><name>drawPolygonToolbar</name></member>
+      <member refid="classGeometryEditorBase_1a812216b79434d6d6574cd15f4882812d" prot="public" virt="non-virtual"><scope>FillRing</scope><name>editorRenderer</name></member>
+      <member refid="classGeometryEditorBase_1a6643fdabf1ea07e1838aa9763af7abbf" prot="public" virt="non-virtual"><scope>FillRing</scope><name>featureModel</name></member>
+      <member refid="classFillRing_1ab401e9a8634dd3e48f348e8a8916283c" prot="public" virt="non-virtual"><scope>FillRing</scope><name>fillWithPolygon</name></member>
+      <member refid="classGeometryEditorBase_1a45fa84fa67ccbe332d28bf989ad6602c" prot="public" virt="non-virtual"><scope>FillRing</scope><name>finished</name></member>
+      <member refid="classFillRing_1aae05feec2da8f8888b864df2b5e08066" prot="private" virt="non-virtual"><scope>FillRing</scope><name>formPopupLoader</name></member>
+      <member refid="classFillRing_1a149c0d4a6cc240a72406617d742c991d" prot="public" virt="non-virtual"><scope>FillRing</scope><name>init</name></member>
+      <member refid="classGeometryEditorBase_1a2caaddaad7be03263eda29824c88c722" prot="public" virt="non-virtual"><scope>FillRing</scope><name>mapSettings</name></member>
+      <member refid="classGeometryEditorBase_1a7f750f40a04cdd685b84c95719e3fb83" prot="public" virt="non-virtual"><scope>FillRing</scope><name>requestJumpToPoint</name></member>
+      <member refid="classFillRing_1aaf110662aacb4b287c762a7fd7079f1c" prot="public" virt="non-virtual"><scope>FillRing</scope><name>screenHovering</name></member>
+      <member refid="classFillRing_1a22dea8568184fca3e5d68d43a06d5c43" prot="private" virt="non-virtual"><scope>FillRing</scope><name>spacing</name></member>
+      <member refid="classTheme_1_1QfVisibilityFadingRow_1a5757c98a1693481e83314781b5d3433e" prot="public" virt="non-virtual"><scope>FillRing</scope><name>stateVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classEditorWidgetBase" kind="class" language="C++" prot="public">
+    <compoundname>EditorWidgetBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classBinary" prot="public" virt="non-virtual">Binary</derivedcompoundref>
+    <derivedcompoundref refid="classCheckBox" prot="public" virt="non-virtual">CheckBox</derivedcompoundref>
+    <derivedcompoundref refid="classColor" prot="public" virt="non-virtual">Color</derivedcompoundref>
+    <derivedcompoundref refid="classDateTime" prot="public" virt="non-virtual">DateTime</derivedcompoundref>
+    <derivedcompoundref refid="classExternalResource" prot="public" virt="non-virtual">ExternalResource</derivedcompoundref>
+    <derivedcompoundref refid="classRange" prot="public" virt="non-virtual">Range</derivedcompoundref>
+    <derivedcompoundref refid="classRelationEditorBase" prot="public" virt="non-virtual">RelationEditorBase</derivedcompoundref>
+    <derivedcompoundref refid="classRelationReference" prot="public" virt="non-virtual">RelationReference</derivedcompoundref>
+    <derivedcompoundref refid="classTextEdit" prot="public" virt="non-virtual">TextEdit</derivedcompoundref>
+    <derivedcompoundref refid="classUuidGenerator" prot="public" virt="non-virtual">UuidGenerator</derivedcompoundref>
+    <derivedcompoundref refid="classValueMap" prot="public" virt="non-virtual">ValueMap</derivedcompoundref>
+    <derivedcompoundref refid="classValueRelation" prot="public" virt="non-virtual">ValueRelation</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool EditorWidgetBase::isLoaded</definition>
+        <argsstring></argsstring>
+        <name>isLoaded</name>
+        <qualifiedname>EditorWidgetBase::isLoaded</qualifiedname>
+        <read>dummyGetter_isLoaded_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property indicates whether the editor widget has been fully loaded by its Loader. Note: prior to this property being true, signals emitted by the editor widget will not be propagated. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/EditorWidgetBase.qml" line="12" column="1" bodyfile="src/qml/editorwidgets/EditorWidgetBase.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool EditorWidgetBase::hasMenu</definition>
+        <argsstring></argsstring>
+        <name>hasMenu</name>
+        <qualifiedname>EditorWidgetBase::hasMenu</qualifiedname>
+        <read>dummyGetter_hasMenu_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/EditorWidgetBase.qml" line="14" column="1" bodyfile="src/qml/editorwidgets/EditorWidgetBase.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool EditorWidgetBase::isNull</definition>
+        <argsstring></argsstring>
+        <name>isNull</name>
+        <qualifiedname>EditorWidgetBase::isNull</qualifiedname>
+        <read>dummyGetter_isNull_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/EditorWidgetBase.qml" line="17" column="1" bodyfile="src/qml/editorwidgets/EditorWidgetBase.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool EditorWidgetBase::isEmpty</definition>
+        <argsstring></argsstring>
+        <name>isEmpty</name>
+        <qualifiedname>EditorWidgetBase::isEmpty</qualifiedname>
+        <read>dummyGetter_isEmpty_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/EditorWidgetBase.qml" line="20" column="1" bodyfile="src/qml/editorwidgets/EditorWidgetBase.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Menu</type>
+        <definition>Menu EditorWidgetBase::menu</definition>
+        <argsstring></argsstring>
+        <name>menu</name>
+        <qualifiedname>EditorWidgetBase::menu</qualifiedname>
+        <read>dummyGetter_menu_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/EditorWidgetBase.qml" line="22" column="1" bodyfile="src/qml/editorwidgets/EditorWidgetBase.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EditorWidgetBase::valueChangeRequested</definition>
+        <argsstring>(var value, bool isNull)</argsstring>
+        <name>valueChangeRequested</name>
+        <qualifiedname>EditorWidgetBase::valueChangeRequested</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isNull</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This signal is emmited when an editor widget has changed the value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/EditorWidgetBase.qml" line="26" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EditorWidgetBase::requestGeometry</definition>
+        <argsstring>(var item, var layer)</argsstring>
+        <name>requestGeometry</name>
+        <qualifiedname>EditorWidgetBase::requestGeometry</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>var</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This signal is emitted when an editor widget is in need of a digitized geometry. The geometry will be returned through calling a requestedGeometryReceived(geometry) function attached to editor widget which signaled the request. The corresponding handler is <computeroutput>onRequestGeometry</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/EditorWidgetBase.qml" line="33" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EditorWidgetBase::requestBarcode</definition>
+        <argsstring>(var item)</argsstring>
+        <name>requestBarcode</name>
+        <qualifiedname>EditorWidgetBase::requestBarcode</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This signal is emitted when an editor widget is requesting a barcode value. The decoded barcode value will be returned as a string through calling a requestedBarcodeReceived(string) function attached to editor widget which signaled the request. The corresponding handler is <computeroutput>onRequestBarcode</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/EditorWidgetBase.qml" line="40" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EditorWidgetBase::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>EditorWidgetBase::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This signal is emitted when an editor widget is requesting to jump to a specific point on the map. The corresponding handler is <computeroutput>onRequestJumpToPoint</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/EditorWidgetBase.qml" line="45" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Binary</label>
+        <link refid="classBinary"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CheckBox</label>
+        <link refid="classCheckBox"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Color</label>
+        <link refid="classColor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>DateTime</label>
+        <link refid="classDateTime"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ExternalResource</label>
+        <link refid="classExternalResource"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="8">
+        <label>Range</label>
+        <link refid="classRange"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>RelationEditorBase</label>
+        <link refid="classRelationEditorBase"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>RelationReference</label>
+        <link refid="classRelationReference"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>TextEdit</label>
+        <link refid="classTextEdit"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>UuidGenerator</label>
+        <link refid="classUuidGenerator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>ValueMap</label>
+        <link refid="classValueMap"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>ValueRelation</label>
+        <link refid="classValueRelation"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>ordered_relation_editor</label>
+        <link refid="classordered__relation__editor"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>relation_editor</label>
+        <link refid="classrelation__editor"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/EditorWidgetBase.qml" line="5" column="1" bodyfile="src/qml/editorwidgets/EditorWidgetBase.qml" bodystart="5" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>EditorWidgetBase</scope><name>hasMenu</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>EditorWidgetBase</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>EditorWidgetBase</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>EditorWidgetBase</scope><name>isNull</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>EditorWidgetBase</scope><name>menu</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>EditorWidgetBase</scope><name>requestBarcode</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>EditorWidgetBase</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>EditorWidgetBase</scope><name>requestJumpToPoint</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>EditorWidgetBase</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfOverlayContainer_8qml" kind="file" language="C++">
+    <compoundname>QfOverlayContainer.qml</compoundname>
+    <innerclass refid="classTheme_1_1QfOverlayContainer" prot="public">Theme::QfOverlayContainer</innerclass>
+    <innernamespace refid="namespaceTheme">Theme</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">Rectangle<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>id:<sp/>container</highlight></codeline>
+<codeline lineno="9" refid="classTheme_1_1QfOverlayContainer" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>default<sp/>property<sp/>alias<sp/>contents:<sp/>containerLayout.children</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>layout:<sp/>containerLayout</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>title:<sp/>title.text</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>width:<sp/>parent.width</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>height:<sp/>childrenRect.height</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>color:<sp/>Theme.mainBackgroundColorSemiOpaque</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>radius:<sp/>8</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>clip:<sp/>true</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>Column<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>containerLayout</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>width:<sp/>parent.width<sp/>-<sp/>10</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>anchors.horizontalCenter:<sp/>parent.horizontalCenter</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>topPadding:<sp/>5</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>bottomPadding:<sp/>5</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>spacing:<sp/>4</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>Text<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>title</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>text:<sp/>&quot;&quot;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>font:<sp/>Theme.strongTipFont</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>color:<sp/>Theme.mainTextColor</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>leftPadding:<sp/>6</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/imports/Theme/QfOverlayContainer.qml"/>
+  </compounddef>
+</doxygen>

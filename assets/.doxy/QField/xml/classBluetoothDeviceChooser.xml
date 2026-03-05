@@ -1,0 +1,274 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBluetoothDeviceChooser" kind="class" language="C++" prot="public">
+    <compoundname>BluetoothDeviceChooser</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classBluetoothDeviceChooser_1af773967c0abdd2905097b59c29fedef2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BluetoothDeviceChooser::isScanning</definition>
+        <argsstring></argsstring>
+        <name>isScanning</name>
+        <qualifiedname>BluetoothDeviceChooser::isScanning</qualifiedname>
+        <read>dummyGetter_isScanning_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="12" column="1" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBluetoothDeviceChooser_1ad76f361abf0ed61966beb4c1d53ded77" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BluetoothDeviceChooser::scannedOnce</definition>
+        <argsstring></argsstring>
+        <name>scannedOnce</name>
+        <qualifiedname>BluetoothDeviceChooser::scannedOnce</qualifiedname>
+        <read>dummyGetter_scannedOnce_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="14" column="1" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBluetoothDeviceChooser_1a01d95f26a69e5e9a5287975dd0174ee1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BluetoothDeviceChooser::deviceName</definition>
+        <argsstring></argsstring>
+        <name>deviceName</name>
+        <qualifiedname>BluetoothDeviceChooser::deviceName</qualifiedname>
+        <read>dummyGetter_deviceName_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="20" column="1" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBluetoothDeviceChooser_1ad214ee0531dfb07f342caf0b97b12f5f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BluetoothDeviceChooser::deviceAddress</definition>
+        <argsstring></argsstring>
+        <name>deviceAddress</name>
+        <qualifiedname>BluetoothDeviceChooser::deviceAddress</qualifiedname>
+        <read>dummyGetter_deviceAddress_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="22" column="1" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBluetoothDeviceChooser_1ada4e420bffdff0e5b6904a2645b85e07" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BluetoothDeviceChooser::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>BluetoothDeviceChooser::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="16" column="5" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceChooser_1a1afab09b4a04029ee1e1946c81d91fbe" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BluetoothDeviceChooser::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>BluetoothDeviceChooser::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="17" column="5" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceChooser_1a81f3bfdffee3da8e00c26cbb6d7ffeb1" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton BluetoothDeviceChooser::scanButton</definition>
+        <argsstring></argsstring>
+        <name>scanButton</name>
+        <qualifiedname>BluetoothDeviceChooser::scanButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="32" column="10" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceChooser_1a4a05c19bbc16a3f5f8830449330e804d" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator BluetoothDeviceChooser::busyIndicator</definition>
+        <argsstring></argsstring>
+        <name>busyIndicator</name>
+        <qualifiedname>BluetoothDeviceChooser::busyIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="33" column="15" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceChooser_1ae96ee99efec79564c52ad502875956bb" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox BluetoothDeviceChooser::bluetoothDeviceComboBox</definition>
+        <argsstring></argsstring>
+        <name>bluetoothDeviceComboBox</name>
+        <qualifiedname>BluetoothDeviceChooser::bluetoothDeviceComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="34" column="12" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceChooser_1a9b19cf5c9452733de80f3960736b376d" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label BluetoothDeviceChooser::bluetoothDeviceName</definition>
+        <argsstring></argsstring>
+        <name>bluetoothDeviceName</name>
+        <qualifiedname>BluetoothDeviceChooser::bluetoothDeviceName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="35" column="7" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceChooser_1a6eeb249063dfdefbf6d6a41014aa06d7" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label BluetoothDeviceChooser::bluetoothDeviceAddress</definition>
+        <argsstring></argsstring>
+        <name>bluetoothDeviceAddress</name>
+        <qualifiedname>BluetoothDeviceChooser::bluetoothDeviceAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="36" column="7" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBluetoothDeviceChooser_1a7038a435afeedc09b0f1275f6f5dabfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothDeviceChooser::generateName</definition>
+        <argsstring>()</argsstring>
+        <name>generateName</name>
+        <qualifiedname>BluetoothDeviceChooser::generateName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="24" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceChooser_1a22fe1fcb5210696f393dcb1da289e675" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothDeviceChooser::setSettings</definition>
+        <argsstring>(settings)</argsstring>
+        <name>setSettings</name>
+        <qualifiedname>BluetoothDeviceChooser::setSettings</qualifiedname>
+        <param>
+          <type>settings</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="26" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceChooser_1ac7e7f12eb650884b3bbc387d365d514a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothDeviceChooser::getSettings</definition>
+        <argsstring>()</argsstring>
+        <name>getSettings</name>
+        <qualifiedname>BluetoothDeviceChooser::getSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="28" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceChooser_1a6426442ec9cc6c242ab3fcca46df8e61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothDeviceChooser::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <qualifiedname>BluetoothDeviceChooser::close</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BluetoothDeviceChooser.qml" line="30" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BluetoothDeviceChooser</label>
+        <link refid="classBluetoothDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BluetoothDeviceChooser</label>
+        <link refid="classBluetoothDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/BluetoothDeviceChooser.qml" line="9" column="1" bodyfile="src/qml/BluetoothDeviceChooser.qml" bodystart="9" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classBluetoothDeviceChooser_1a6eeb249063dfdefbf6d6a41014aa06d7" prot="private" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>bluetoothDeviceAddress</name></member>
+      <member refid="classBluetoothDeviceChooser_1ae96ee99efec79564c52ad502875956bb" prot="private" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>bluetoothDeviceComboBox</name></member>
+      <member refid="classBluetoothDeviceChooser_1a9b19cf5c9452733de80f3960736b376d" prot="private" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>bluetoothDeviceName</name></member>
+      <member refid="classBluetoothDeviceChooser_1a4a05c19bbc16a3f5f8830449330e804d" prot="private" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>busyIndicator</name></member>
+      <member refid="classBluetoothDeviceChooser_1a6426442ec9cc6c242ab3fcca46df8e61" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>close</name></member>
+      <member refid="classBluetoothDeviceChooser_1ad214ee0531dfb07f342caf0b97b12f5f" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>deviceAddress</name></member>
+      <member refid="classBluetoothDeviceChooser_1a01d95f26a69e5e9a5287975dd0174ee1" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>deviceName</name></member>
+      <member refid="classBluetoothDeviceChooser_1a7038a435afeedc09b0f1275f6f5dabfb" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>generateName</name></member>
+      <member refid="classBluetoothDeviceChooser_1ac7e7f12eb650884b3bbc387d365d514a" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>getSettings</name></member>
+      <member refid="classBluetoothDeviceChooser_1a1afab09b4a04029ee1e1946c81d91fbe" prot="private" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>height</name></member>
+      <member refid="classBluetoothDeviceChooser_1af773967c0abdd2905097b59c29fedef2" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>isScanning</name></member>
+      <member refid="classBluetoothDeviceChooser_1a81f3bfdffee3da8e00c26cbb6d7ffeb1" prot="private" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>scanButton</name></member>
+      <member refid="classBluetoothDeviceChooser_1ad76f361abf0ed61966beb4c1d53ded77" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>scannedOnce</name></member>
+      <member refid="classBluetoothDeviceChooser_1a22fe1fcb5210696f393dcb1da289e675" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>setSettings</name></member>
+      <member refid="classBluetoothDeviceChooser_1ada4e420bffdff0e5b6904a2645b85e07" prot="private" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

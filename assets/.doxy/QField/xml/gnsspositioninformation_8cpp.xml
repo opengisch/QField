@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="gnsspositioninformation_8cpp" kind="file" language="C++">
+    <compoundname>gnsspositioninformation.cpp</compoundname>
+    <includes refid="gnsspositioninformation_8h" local="yes">gnsspositioninformation.h</includes>
+    <includes local="no">QCoreApplication</includes>
+    <includes local="no">QFileInfo</includes>
+    <includes local="no">QIODevice</includes>
+    <includes local="no">QStringList</includes>
+    <includes local="no">QTime</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/positioning/gnsspositioninformation.cpp</label>
+        <link refid="gnsspositioninformation_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gnsspositioninformation.h</label>
+        <link refid="gnsspositioninformation_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>QCoreApplication</label>
+      </node>
+      <node id="3">
+        <label>QDateTime</label>
+      </node>
+      <node id="9">
+        <label>QFileInfo</label>
+      </node>
+      <node id="10">
+        <label>QIODevice</label>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="5">
+        <label>QString</label>
+      </node>
+      <node id="11">
+        <label>QStringList</label>
+      </node>
+      <node id="12">
+        <label>QTime</label>
+      </node>
+      <node id="6">
+        <label>qgis.h</label>
+      </node>
+      <node id="7">
+        <label>qgssatelliteinformation.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="gnsspositioninformation_8cpp_1a1fba583c74ffb43871b2be910f25d3c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;stream, const GnssPositionDetails &amp;positionDetails)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classGnssPositionDetails" kindref="compound">GnssPositionDetails</ref> &amp;</type>
+          <declname>positionDetails</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.cpp" line="180" column="1" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="180" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="gnsspositioninformation_8cpp_1a0d31bb428029588e297a652d89f6339a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;stream, GnssPositionDetails &amp;positionDetails)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classGnssPositionDetails" kindref="compound">GnssPositionDetails</ref> &amp;</type>
+          <declname>positionDetails</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.cpp" line="186" column="13" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="186" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="gnsspositioninformation_8cpp_1a73115d3dc93fa7425bb31de795727592" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;stream, const GnssPositionInformation &amp;position)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.cpp" line="191" column="1" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="191" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="gnsspositioninformation_8cpp_1abcff4222db860c76e1f4d12062175f6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;stream, GnssPositionInformation &amp;position)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.cpp" line="204" column="13" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="204" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="gnsspositioninformation_8cpp_1a99b161ffde0e1246b32c867a81c6e242" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;stream, const QgsSatelliteInfo &amp;satelliteInfo)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const QgsSatelliteInfo &amp;</type>
+          <declname>satelliteInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.cpp" line="216" column="1" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="216" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="gnsspositioninformation_8cpp_1a301000efd1188a6c65a74ca9caf73dee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;stream, QgsSatelliteInfo &amp;satelliteInfo)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>QgsSatelliteInfo &amp;</type>
+          <declname>satelliteInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.cpp" line="222" column="13" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="222" bodyend="225"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>gnsspositioninformation.cpp<sp/>-<sp/>GnssPositionInformation</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>1.12.2020</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2020<sp/>by<sp/>David<sp/>Signer</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>david<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gnsspositioninformation.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QCoreApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFileInfo&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QIODevice&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QStringList&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QTime&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><ref refid="classGnssPositionInformation_1aa3c7c5cc1adabff38bd63457c8af8ec9" kindref="member">GnssPositionInformation::GnssPositionInformation</ref>(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>latitude,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>longitude,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classelevation" kindref="compound">elevation</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>speed,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>direction,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QgsSatelliteInfo&gt;<sp/>&amp;satellitesInView,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>pdop,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>hdop,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vdop,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>hacc,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vacc,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QDateTime<sp/>utcDateTime,<sp/>QChar<sp/>fixMode,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fixType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>quality,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>satellitesUsed,<sp/>QChar<sp/>status,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;int&gt;<sp/>&amp;satPrn,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>satInfoComplete,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>verticalSpeed,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>magneticVariation,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>averagedCount,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;sourceName,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>imuCorrection,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>imuRoll,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>imuPitch,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>imuHeading,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>imuSteering,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>orientation<sp/>)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>:<sp/>mLatitude(<sp/>latitude<sp/>)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>,<sp/>mLongitude(<sp/>longitude<sp/>)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>,<sp/>mElevation(<sp/><ref refid="classelevation" kindref="compound">elevation</ref><sp/>)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>,<sp/>mSpeed(<sp/>speed<sp/>)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>,<sp/>mDirection(<sp/>direction<sp/>)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>,<sp/>mSatellitesInView(<sp/>satellitesInView<sp/>)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>,<sp/>mPdop(<sp/>pdop<sp/>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>,<sp/>mHdop(<sp/>hdop<sp/>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>,<sp/>mVdop(<sp/>vdop<sp/>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>,<sp/>mHacc(<sp/>hacc<sp/>)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>,<sp/>mVacc(<sp/>vacc<sp/>)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>,<sp/>mHvacc(<sp/>sqrt(<sp/>(<sp/>pow(<sp/>hacc,<sp/>2<sp/>)<sp/>+<sp/>pow(<sp/>hacc,<sp/>2<sp/>)<sp/>+<sp/>pow(<sp/>vacc,<sp/>2<sp/>)<sp/>)<sp/>/<sp/>3<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>,<sp/>mUtcDateTime(<sp/>utcDateTime<sp/>)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>,<sp/>mFixMode(<sp/>fixMode<sp/>)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>,<sp/>mFixType(<sp/>fixType<sp/>)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>,<sp/>mQuality(<sp/>quality<sp/>)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>,<sp/>mSatellitesUsed(<sp/>satellitesUsed<sp/>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>,<sp/>mStatus(<sp/>status<sp/>)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>,<sp/>mSatPrn(<sp/>satPrn<sp/>)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>,<sp/>mSatInfoComplete(<sp/>satInfoComplete<sp/>)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>,<sp/>mVerticalSpeed(<sp/>verticalSpeed<sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>,<sp/>mMagneticVariation(<sp/>magneticVariation<sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>,<sp/>mAveragedCount(<sp/>averagedCount<sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>,<sp/>mSourceName(<sp/>sourceName<sp/>)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>,<sp/>mImuCorrection(<sp/>imuCorrection<sp/>)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>,<sp/>mImuRoll(<sp/>imuRoll<sp/>)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>,<sp/>mImuPitch(<sp/>imuPitch<sp/>)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>,<sp/>mImuHeading(<sp/>imuHeading<sp/>)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>,<sp/>mImuSteering(<sp/>imuSteering<sp/>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>,<sp/>mOrientation(<sp/>orientation<sp/>)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>GnssPositionInformation::operator==(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref><sp/>&amp;other<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="64"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>clang-format<sp/>off</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mLatitude<sp/>==<sp/>other.mLatitude<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mLongitude<sp/>==<sp/>other.mLongitude<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mElevation<sp/>==<sp/>other.mElevation<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mSpeed<sp/>==<sp/>other.mSpeed<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mDirection<sp/>==<sp/>other.mDirection<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mPdop<sp/>==<sp/>other.mPdop<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mHdop<sp/>==<sp/>other.mHdop<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mVdop<sp/>==<sp/>other.mVdop<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mHacc<sp/>==<sp/>other.mHacc<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mVacc<sp/>==<sp/>other.mVacc<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mUtcDateTime<sp/>==<sp/>other.mUtcDateTime<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mFixMode<sp/>==<sp/>other.mFixMode<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mQuality<sp/>==<sp/>other.mQuality<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mStatus<sp/>==<sp/>other.mStatus<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mSatPrn<sp/>==<sp/>other.mSatPrn<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mSatInfoComplete<sp/>==<sp/>other.mSatInfoComplete<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mVerticalSpeed<sp/>==<sp/>other.mVerticalSpeed<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mMagneticVariation<sp/>==<sp/>other.mMagneticVariation<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mSourceName<sp/>==<sp/>other.mSourceName<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mImuCorrection==<sp/>other.mImuCorrection<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mImuRoll<sp/>==<sp/>other.mImuRoll<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mImuPitch<sp/>==<sp/>other.mImuPitch<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mImuHeading<sp/>==<sp/>other.mImuHeading<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mImuSteering<sp/>==<sp/>other.mImuSteering<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mOrientation<sp/>==<sp/>other.mOrientation;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>clang-format<sp/>on</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>GnssPositionInformation::isValid()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="95"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>valid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mStatus<sp/>==<sp/></highlight><highlight class="charliteral">&apos;V&apos;</highlight><highlight class="normal"><sp/>||<sp/>mFixType<sp/>==<sp/>NMEA_FIX_BAD<sp/>||<sp/>mQuality<sp/>==<sp/>0<sp/>)<sp/></highlight><highlight class="comment">//<sp/>some<sp/>sources<sp/>say<sp/>that<sp/>&apos;V&apos;<sp/>indicates<sp/>position<sp/>fix,<sp/>but<sp/>is<sp/>below<sp/>acceptable<sp/>quality</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>valid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFixType<sp/>==<sp/>NMEA_FIX_2D<sp/>)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>valid<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mStatus<sp/>==<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>||<sp/>mFixType<sp/>==<sp/>NMEA_FIX_3D<sp/>||<sp/>mQuality<sp/>&gt;<sp/>0<sp/>)<sp/></highlight><highlight class="comment">//<sp/>good</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>valid<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><ref refid="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642" kindref="member">GnssPositionInformation::FixStatus</ref><sp/>GnssPositionInformation::fixStatus()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="114"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><ref refid="classGnssPositionInformation_1aecf0fd0634f1a789fdfd252e7e9da642" kindref="member">FixStatus</ref><sp/>fixStatus<sp/>=<sp/>NoData;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>no<sp/>fix<sp/>if<sp/>any<sp/>of<sp/>the<sp/>three<sp/>report<sp/>bad;<sp/>default<sp/>values<sp/>are<sp/>invalid<sp/>values<sp/>and<sp/>won&apos;t<sp/>be<sp/>changed<sp/>if<sp/>the<sp/>corresponding<sp/>NMEA<sp/>msg<sp/>is<sp/>not<sp/>received</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mStatus<sp/>==<sp/></highlight><highlight class="charliteral">&apos;V&apos;</highlight><highlight class="normal"><sp/>||<sp/>mFixType<sp/>==<sp/>NMEA_FIX_BAD<sp/>||<sp/>mQuality<sp/>==<sp/>0<sp/>)<sp/></highlight><highlight class="comment">//<sp/>some<sp/>sources<sp/>say<sp/>that<sp/>&apos;V&apos;<sp/>indicates<sp/>position<sp/>fix,<sp/>but<sp/>is<sp/>below<sp/>acceptable<sp/>quality</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>fixStatus<sp/>=<sp/>NoFix;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFixType<sp/>==<sp/>NMEA_FIX_2D<sp/>)<sp/></highlight><highlight class="comment">//<sp/>2D<sp/>indication<sp/>(from<sp/>GGA)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>fixStatus<sp/>=<sp/>Fix2D;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mStatus<sp/>==<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>||<sp/>mFixType<sp/>==<sp/>NMEA_FIX_3D<sp/>||<sp/>mQuality<sp/>&gt;<sp/>0<sp/>)<sp/></highlight><highlight class="comment">//<sp/>good</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>fixStatus<sp/>=<sp/>Fix3D;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fixStatus;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal">QString<sp/>GnssPositionInformation::qualityDescription()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="134"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>QString<sp/>quality;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<sp/>mQuality<sp/>)</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>8:</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>quality<sp/>=<sp/>QCoreApplication::translate(<sp/></highlight><highlight class="stringliteral">&quot;QgsGpsInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Simulation<sp/>mode&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>7:</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>quality<sp/>=<sp/>QCoreApplication::translate(<sp/></highlight><highlight class="stringliteral">&quot;QgsGpsInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Manual<sp/>input<sp/>mode&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>6:</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>quality<sp/>=<sp/>QCoreApplication::translate(<sp/></highlight><highlight class="stringliteral">&quot;QgsGpsInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Estimated&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>5:</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>quality<sp/>=<sp/>QCoreApplication::translate(<sp/></highlight><highlight class="stringliteral">&quot;QgsGpsInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Float<sp/>RTK&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>4:</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>quality<sp/>=<sp/>QCoreApplication::translate(<sp/></highlight><highlight class="stringliteral">&quot;QgsGpsInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Fixed<sp/>RTK&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>3:</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>quality<sp/>=<sp/>QCoreApplication::translate(<sp/></highlight><highlight class="stringliteral">&quot;QgsGpsInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;PPS&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>quality<sp/>=<sp/>QCoreApplication::translate(<sp/></highlight><highlight class="stringliteral">&quot;QgsGpsInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;DGPS&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>quality<sp/>=<sp/>QCoreApplication::translate(<sp/></highlight><highlight class="stringliteral">&quot;QgsGpsInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Autonomous&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>quality<sp/>=<sp/>QCoreApplication::translate(<sp/></highlight><highlight class="stringliteral">&quot;QgsGpsInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Invalid&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>quality<sp/>=<sp/>QCoreApplication::translate(<sp/></highlight><highlight class="stringliteral">&quot;QgsGpsInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Unknown<sp/>(%1)&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>QString::number(<sp/>mQuality<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mImuCorrection<sp/>)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>quality.append(<sp/>QCoreApplication::translate(<sp/></highlight><highlight class="stringliteral">&quot;QgsGpsInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>IMU&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>quality;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">QString<sp/>GnssPositionInformation::fixStatusDescription()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="176"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QString(<sp/>QMetaEnum::fromType&lt;FixStatus&gt;().valueToKey(<sp/>fixStatus()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal">QDataStream<sp/>&amp;operator&lt;&lt;(<sp/>QDataStream<sp/>&amp;stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGnssPositionDetails" kindref="compound">GnssPositionDetails</ref><sp/>&amp;positionDetails<sp/>)</highlight></codeline>
+<codeline lineno="181"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>stream<sp/>&lt;&lt;<sp/>positionDetails.mNames<sp/>&lt;&lt;<sp/>positionDetails.mValues;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="comment">//cppcheck-suppress<sp/>constParameter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal">QDataStream<sp/>&amp;operator&gt;&gt;(<sp/>QDataStream<sp/>&amp;stream,<sp/><ref refid="classGnssPositionDetails" kindref="compound">GnssPositionDetails</ref><sp/>&amp;positionDetails<sp/>)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>stream<sp/>&gt;&gt;<sp/>positionDetails.mNames<sp/>&gt;&gt;<sp/>positionDetails.mValues;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal">QDataStream<sp/>&amp;operator&lt;&lt;(<sp/>QDataStream<sp/>&amp;stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref><sp/>&amp;position<sp/>)</highlight></codeline>
+<codeline lineno="192"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>stream<sp/>&lt;&lt;<sp/>position.mLatitude<sp/>&lt;&lt;<sp/>position.mLongitude<sp/>&lt;&lt;<sp/>position.mElevation<sp/>&lt;&lt;<sp/>position.mSpeed<sp/>&lt;&lt;<sp/>position.mDirection</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>position.mSatellitesInView<sp/>&lt;&lt;<sp/>position.mHdop<sp/>&lt;&lt;<sp/>position.mVdop<sp/>&lt;&lt;<sp/>position.mPdop</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>position.mHacc<sp/>&lt;&lt;<sp/>position.mVacc<sp/>&lt;&lt;<sp/>position.mHvacc<sp/>&lt;&lt;<sp/>position.mUtcDateTime</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>position.mFixMode<sp/>&lt;&lt;<sp/>position.mFixType<sp/>&lt;&lt;<sp/>position.mQuality</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>position.mSatellitesUsed<sp/>&lt;&lt;<sp/>position.mStatus<sp/>&lt;&lt;<sp/>position.mSatPrn<sp/>&lt;&lt;<sp/>position.mSatInfoComplete</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>position.mVerticalSpeed<sp/>&lt;&lt;<sp/>position.mMagneticVariation<sp/>&lt;&lt;<sp/>position.mSourceName</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>position.mAveragedCount<sp/>&lt;&lt;<sp/>position.mImuCorrection<sp/>&lt;&lt;<sp/>position.mImuRoll<sp/>&lt;&lt;<sp/>position.mImuPitch<sp/>&lt;&lt;<sp/>position.mImuHeading<sp/>&lt;&lt;<sp/>position.mImuSteering</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>position.mOrientation;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="comment">//cppcheck-suppress<sp/>constParameter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal">QDataStream<sp/>&amp;operator&gt;&gt;(<sp/>QDataStream<sp/>&amp;stream,<sp/><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref><sp/>&amp;position<sp/>)</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>stream<sp/>&gt;&gt;<sp/>position.mLatitude<sp/>&gt;&gt;<sp/>position.mLongitude<sp/>&gt;&gt;<sp/>position.mElevation<sp/>&gt;&gt;<sp/>position.mSpeed<sp/>&gt;&gt;<sp/>position.mDirection</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>position.mSatellitesInView<sp/>&gt;&gt;<sp/>position.mHdop<sp/>&gt;&gt;<sp/>position.mVdop<sp/>&gt;&gt;<sp/>position.mPdop</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>position.mHacc<sp/>&gt;&gt;<sp/>position.mVacc<sp/>&gt;&gt;<sp/>position.mHvacc<sp/>&gt;&gt;<sp/>position.mUtcDateTime</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>position.mFixMode<sp/>&gt;&gt;<sp/>position.mFixType<sp/>&gt;&gt;<sp/>position.mQuality</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>position.mSatellitesUsed<sp/>&gt;&gt;<sp/>position.mStatus<sp/>&gt;&gt;<sp/>position.mSatPrn<sp/>&gt;&gt;<sp/>position.mSatInfoComplete</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>position.mVerticalSpeed<sp/>&gt;&gt;<sp/>position.mMagneticVariation<sp/>&gt;&gt;<sp/>position.mSourceName</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>position.mAveragedCount<sp/>&gt;&gt;<sp/>position.mImuCorrection<sp/>&gt;&gt;<sp/>position.mImuRoll<sp/>&gt;&gt;<sp/>position.mImuPitch<sp/>&gt;&gt;<sp/>position.mImuHeading<sp/>&gt;&gt;<sp/>position.mImuSteering</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>position.mOrientation;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal">QDataStream<sp/>&amp;operator&lt;&lt;(<sp/>QDataStream<sp/>&amp;stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsSatelliteInfo<sp/>&amp;satelliteInfo<sp/>)</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>stream<sp/>&lt;&lt;<sp/>satelliteInfo.azimuth<sp/>&lt;&lt;<sp/>satelliteInfo.elevation<sp/>&lt;&lt;<sp/>satelliteInfo.id<sp/>&lt;&lt;<sp/>satelliteInfo.inUse<sp/>&lt;&lt;<sp/>satelliteInfo.satType<sp/>&lt;&lt;<sp/>satelliteInfo.signal;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight><highlight class="comment">//cppcheck-suppress<sp/>constParameter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal">QDataStream<sp/>&amp;operator&gt;&gt;(<sp/>QDataStream<sp/>&amp;stream,<sp/>QgsSatelliteInfo<sp/>&amp;satelliteInfo<sp/>)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>stream<sp/>&gt;&gt;<sp/>satelliteInfo.azimuth<sp/>&gt;&gt;<sp/>satelliteInfo.elevation<sp/>&gt;&gt;<sp/>satelliteInfo.id<sp/>&gt;&gt;<sp/>satelliteInfo.inUse<sp/>&gt;&gt;<sp/>satelliteInfo.satType<sp/>&gt;&gt;<sp/>satelliteInfo.signal;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/positioning/gnsspositioninformation.cpp"/>
+  </compounddef>
+</doxygen>

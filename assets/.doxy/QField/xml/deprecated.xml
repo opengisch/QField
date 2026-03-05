@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="deprecated" kind="page">
+    <compoundname>deprecated</compoundname>
+    <title>Deprecated List</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><variablelist>
+<varlistentry><term>Member <ref refid="classPlatformUtilities_1a42736927292710893354309a23cfd6c7" kindref="member">PlatformUtilities::checkCameraPermissions</ref>  () const</term></varlistentry>
+<listitem><para><anchor id="deprecated_1_deprecated000002"/>Since QField 3.1  </para>
+</listitem>
+<varlistentry><term>Member <ref refid="classPlatformUtilities_1a53b694b5814d9bc065496094e73f8b22" kindref="member">PlatformUtilities::checkMicrophonePermissions</ref>  () const</term></varlistentry>
+<listitem><para><anchor id="deprecated_1_deprecated000003"/>Since QField 3.1  </para>
+</listitem>
+<varlistentry><term>Member <ref refid="classPlatformUtilities_1a7300d931a3cd7d546ab217e6a0ac1adb" kindref="member">PlatformUtilities::checkPositioningPermissions</ref>  () const</term></varlistentry>
+<listitem><para><anchor id="deprecated_1_deprecated000001"/>Since QField 3.1 </para>
+</listitem>
+</variablelist>
+</para>
+    </detaileddescription>
+    <location file="deprecated"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,310 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPluginProxyModel" kind="class" language="C++" prot="public">
+    <compoundname>PluginProxyModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classPluginProxyModel_1a71ddc4d3c12b4d8f92c124bf106be53e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>PluginFilter</name>
+        <qualifiedname>PluginProxyModel::PluginFilter</qualifiedname>
+        <enumvalue id="classPluginProxyModel_1a71ddc4d3c12b4d8f92c124bf106be53ea83af4a6b58ce4fad53b630349014f67e" prot="public">
+          <name>LocalPlugin</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginProxyModel_1a71ddc4d3c12b4d8f92c124bf106be53eae2b9fd6acf4d70bea6b3b1c87b4f9061" prot="public">
+          <name>RemotePlugin</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="144" column="5" bodyfile="src/core/pluginmodel.h" bodystart="145" bodyend="148"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPluginProxyModel_1a26d153784284f2eb43a9b7ee294de439" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PluginProxyModel::searchTerm</definition>
+        <argsstring></argsstring>
+        <name>searchTerm</name>
+        <qualifiedname>PluginProxyModel::searchTerm</qualifiedname>
+        <read>searchTerm</read>
+        <write>setSearchTerm</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="140" column="5" bodyfile="src/core/pluginmodel.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPluginProxyModel_1a4244ebfaf1b425e8d4a716ffdb1a7a4d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>PluginFilter</type>
+        <definition>PluginFilter PluginProxyModel::filter</definition>
+        <argsstring></argsstring>
+        <name>filter</name>
+        <qualifiedname>PluginProxyModel::filter</qualifiedname>
+        <read>filter</read>
+        <write>setFilter</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="141" column="5" bodyfile="src/core/pluginmodel.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPluginProxyModel_1a4499ec4be2125dac473e7e559807862a" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString PluginProxyModel::mSearchTerm</definition>
+        <argsstring></argsstring>
+        <name>mSearchTerm</name>
+        <qualifiedname>PluginProxyModel::mSearchTerm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="182" column="13" bodyfile="src/core/pluginmodel.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginProxyModel_1a5032e0ffcaead11928a77966500a126a" prot="private" static="no" mutable="no">
+        <type>PluginFilter</type>
+        <definition>PluginFilter PluginProxyModel::mFilter</definition>
+        <argsstring></argsstring>
+        <name>mFilter</name>
+        <qualifiedname>PluginProxyModel::mFilter</qualifiedname>
+        <initializer>= LocalPlugin</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="183" column="18" bodyfile="src/core/pluginmodel.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPluginProxyModel_1adbe8c5084acc6f8f1aa642815df02488" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PluginProxyModel::PluginProxyModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>PluginProxyModel</name>
+        <qualifiedname>PluginProxyModel::PluginProxyModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="151" column="14" bodyfile="src/core/pluginmodel.cpp" bodystart="423" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginProxyModel_1aaecbbf4723d69d58bd0562e8f6130671" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PluginProxyModel::searchTerm</definition>
+        <argsstring>() const</argsstring>
+        <name>searchTerm</name>
+        <qualifiedname>PluginProxyModel::searchTerm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current search term used to filter items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="156" column="13" bodyfile="src/core/pluginmodel.cpp" bodystart="431" bodyend="434"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginProxyModel_1a32a2575f38c0cb136196b7b8030441fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginProxyModel::setSearchTerm</definition>
+        <argsstring>(const QString &amp;searchTerm)</argsstring>
+        <name>setSearchTerm</name>
+        <qualifiedname>PluginProxyModel::setSearchTerm</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>searchTerm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the search term for filtering and updates the filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="161" column="10" bodyfile="src/core/pluginmodel.cpp" bodystart="436" bodyend="444"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginProxyModel_1a27c2920280932785108d4186987b3ece" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>PluginFilter</type>
+        <definition>PluginProxyModel::PluginFilter PluginProxyModel::filter</definition>
+        <argsstring>() const</argsstring>
+        <name>filter</name>
+        <qualifiedname>PluginProxyModel::filter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current plugin filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="166" column="18" bodyfile="src/core/pluginmodel.cpp" bodystart="490" bodyend="493"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginProxyModel_1a1698187da3367ba3358a055acd3a36dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginProxyModel::setFilter</definition>
+        <argsstring>(PluginFilter filter)</argsstring>
+        <name>setFilter</name>
+        <qualifiedname>PluginProxyModel::setFilter</qualifiedname>
+        <param>
+          <type>PluginFilter</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the plugin <emphasis>filter</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="171" column="10" bodyfile="src/core/pluginmodel.cpp" bodystart="469" bodyend="480"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classPluginProxyModel_1a7508b70de59e6f1ce391ba25985439cf" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PluginProxyModel::filterAcceptsRow</definition>
+        <argsstring>(int sourceRow, const QModelIndex &amp;sourceParent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>PluginProxyModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceParent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="174" column="10" bodyfile="src/core/pluginmodel.cpp" bodystart="446" bodyend="466"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginProxyModel_1a6c0cc49d8e041601375475d130b3c5b9" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PluginProxyModel::lessThan</definition>
+        <argsstring>(const QModelIndex &amp;sourceLeft, const QModelIndex &amp;sourceRight) const override</argsstring>
+        <name>lessThan</name>
+        <qualifiedname>PluginProxyModel::lessThan</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceRight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="175" column="10" bodyfile="src/core/pluginmodel.cpp" bodystart="482" bodyend="488"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classPluginProxyModel_1aeaae0dd596d1b15927250f43d7f39ba1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginProxyModel::searchTermChanged</definition>
+        <argsstring>()</argsstring>
+        <name>searchTermChanged</name>
+        <qualifiedname>PluginProxyModel::searchTermChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="178" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPluginProxyModel_1addca4309db5730558d0c7c933ade4eb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginProxyModel::filterChanged</definition>
+        <argsstring>()</argsstring>
+        <name>filterChanged</name>
+        <qualifiedname>PluginProxyModel::filterChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="179" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PluginProxyModel</label>
+        <link refid="classPluginProxyModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PluginProxyModel</label>
+        <link refid="classPluginProxyModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/pluginmodel.h" line="137" column="1" bodyfile="src/core/pluginmodel.h" bodystart="138" bodyend="184"/>
+    <listofallmembers>
+      <member refid="classPluginProxyModel_1a4244ebfaf1b425e8d4a716ffdb1a7a4d" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>filter</name></member>
+      <member refid="classPluginProxyModel_1a27c2920280932785108d4186987b3ece" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>filter</name></member>
+      <member refid="classPluginProxyModel_1a7508b70de59e6f1ce391ba25985439cf" prot="protected" virt="non-virtual"><scope>PluginProxyModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classPluginProxyModel_1addca4309db5730558d0c7c933ade4eb4" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>filterChanged</name></member>
+      <member refid="classPluginProxyModel_1a6c0cc49d8e041601375475d130b3c5b9" prot="protected" virt="non-virtual"><scope>PluginProxyModel</scope><name>lessThan</name></member>
+      <member refid="classPluginProxyModel_1a71ddc4d3c12b4d8f92c124bf106be53ea83af4a6b58ce4fad53b630349014f67e" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>LocalPlugin</name></member>
+      <member refid="classPluginProxyModel_1a5032e0ffcaead11928a77966500a126a" prot="private" virt="non-virtual"><scope>PluginProxyModel</scope><name>mFilter</name></member>
+      <member refid="classPluginProxyModel_1a4499ec4be2125dac473e7e559807862a" prot="private" virt="non-virtual"><scope>PluginProxyModel</scope><name>mSearchTerm</name></member>
+      <member refid="classPluginProxyModel_1a71ddc4d3c12b4d8f92c124bf106be53e" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>PluginFilter</name></member>
+      <member refid="classPluginProxyModel_1adbe8c5084acc6f8f1aa642815df02488" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>PluginProxyModel</name></member>
+      <member refid="classPluginProxyModel_1a71ddc4d3c12b4d8f92c124bf106be53eae2b9fd6acf4d70bea6b3b1c87b4f9061" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>RemotePlugin</name></member>
+      <member refid="classPluginProxyModel_1a26d153784284f2eb43a9b7ee294de439" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>searchTerm</name></member>
+      <member refid="classPluginProxyModel_1aaecbbf4723d69d58bd0562e8f6130671" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>searchTerm</name></member>
+      <member refid="classPluginProxyModel_1aeaae0dd596d1b15927250f43d7f39ba1" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>searchTermChanged</name></member>
+      <member refid="classPluginProxyModel_1a1698187da3367ba3358a055acd3a36dd" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>setFilter</name></member>
+      <member refid="classPluginProxyModel_1a32a2575f38c0cb136196b7b8030441fe" prot="public" virt="non-virtual"><scope>PluginProxyModel</scope><name>setSearchTerm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

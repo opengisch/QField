@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfProgrerssRing" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfProgrerssRing</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ProgressBar</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfProgrerssRing_1afcf0f5459a10e2a6f6df2b3b79666c37" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfProgrerssRing::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>Theme::QfProgrerssRing::size</qualifiedname>
+        <read>dummyGetter_size_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfProgrerssRing.qml" line="14" column="1" bodyfile="src/qml/imports/Theme/QfProgrerssRing.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfProgrerssRing_1a00c5c1027ffb266096d938dd3b718df6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfProgrerssRing::strokeWidth</definition>
+        <argsstring></argsstring>
+        <name>strokeWidth</name>
+        <qualifiedname>Theme::QfProgrerssRing::strokeWidth</qualifiedname>
+        <read>dummyGetter_strokeWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfProgrerssRing.qml" line="16" column="1" bodyfile="src/qml/imports/Theme/QfProgrerssRing.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfProgrerssRing_1a1ab20684b7e0fa47646c2a6a145ee8d5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color Theme::QfProgrerssRing::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Theme::QfProgrerssRing::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfProgrerssRing.qml" line="18" column="1" bodyfile="src/qml/imports/Theme/QfProgrerssRing.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfProgrerssRing_1a9b394dd205d4dee403dc16fcbecf11e2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color Theme::QfProgrerssRing::backgroundColor</definition>
+        <argsstring></argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>Theme::QfProgrerssRing::backgroundColor</qualifiedname>
+        <read>dummyGetter_backgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfProgrerssRing.qml" line="20" column="1" bodyfile="src/qml/imports/Theme/QfProgrerssRing.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfProgrerssRing_1ae299f80377844911f00ec72610229622" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfProgrerssRing::implicitWidth</definition>
+        <argsstring></argsstring>
+        <name>implicitWidth</name>
+        <qualifiedname>Theme::QfProgrerssRing::implicitWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfProgrerssRing.qml" line="22" column="5" bodyfile="src/qml/imports/Theme/QfProgrerssRing.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfProgrerssRing_1ad90b233eb016c4a7eb30d3dc17f1382c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfProgrerssRing::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>Theme::QfProgrerssRing::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfProgrerssRing.qml" line="23" column="5" bodyfile="src/qml/imports/Theme/QfProgrerssRing.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfProgrerssRing_1ac233d1b673336b31129c498cf21fae40" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfProgrerssRing::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>Theme::QfProgrerssRing::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfProgrerssRing.qml" line="24" column="5" bodyfile="src/qml/imports/Theme/QfProgrerssRing.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfProgrerssRing_1a61d5b108464d039fc6e7668f767e90a3" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfProgrerssRing::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>Theme::QfProgrerssRing::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfProgrerssRing.qml" line="25" column="5" bodyfile="src/qml/imports/Theme/QfProgrerssRing.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ProgressBar</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfProgrerssRing</label>
+        <link refid="classTheme_1_1QfProgrerssRing"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ProgressBar</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfProgrerssRing</label>
+        <link refid="classTheme_1_1QfProgrerssRing"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfProgrerssRing.qml" line="11" column="1" bodyfile="src/qml/imports/Theme/QfProgrerssRing.qml" bodystart="11" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfProgrerssRing_1ac233d1b673336b31129c498cf21fae40" prot="private" virt="non-virtual"><scope>Theme::QfProgrerssRing</scope><name>background</name></member>
+      <member refid="classTheme_1_1QfProgrerssRing_1a9b394dd205d4dee403dc16fcbecf11e2" prot="public" virt="non-virtual"><scope>Theme::QfProgrerssRing</scope><name>backgroundColor</name></member>
+      <member refid="classTheme_1_1QfProgrerssRing_1a1ab20684b7e0fa47646c2a6a145ee8d5" prot="public" virt="non-virtual"><scope>Theme::QfProgrerssRing</scope><name>color</name></member>
+      <member refid="classTheme_1_1QfProgrerssRing_1a61d5b108464d039fc6e7668f767e90a3" prot="private" virt="non-virtual"><scope>Theme::QfProgrerssRing</scope><name>contentItem</name></member>
+      <member refid="classTheme_1_1QfProgrerssRing_1ad90b233eb016c4a7eb30d3dc17f1382c" prot="private" virt="non-virtual"><scope>Theme::QfProgrerssRing</scope><name>implicitHeight</name></member>
+      <member refid="classTheme_1_1QfProgrerssRing_1ae299f80377844911f00ec72610229622" prot="private" virt="non-virtual"><scope>Theme::QfProgrerssRing</scope><name>implicitWidth</name></member>
+      <member refid="classTheme_1_1QfProgrerssRing_1afcf0f5459a10e2a6f6df2b3b79666c37" prot="public" virt="non-virtual"><scope>Theme::QfProgrerssRing</scope><name>size</name></member>
+      <member refid="classTheme_1_1QfProgrerssRing_1a00c5c1027ffb266096d938dd3b718df6" prot="public" virt="non-virtual"><scope>Theme::QfProgrerssRing</scope><name>strokeWidth</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

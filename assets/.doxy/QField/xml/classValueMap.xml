@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classValueMap" kind="class" language="C++" prot="public">
+    <compoundname>ValueMap</compoundname>
+    <basecompoundref refid="classEditorWidgetBase" prot="public" virt="non-virtual">EditorWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classValueMap_1a9898cb9c0b2c9ff8aed052a7b4fac619" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var ValueMap::currentKeyValue</definition>
+        <argsstring></argsstring>
+        <name>currentKeyValue</name>
+        <qualifiedname>ValueMap::currentKeyValue</qualifiedname>
+        <read>dummyGetter_currentKeyValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueMap.qml" line="10" column="1" bodyfile="src/qml/editorwidgets/ValueMap.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classValueMap_1aa863f008c50251a70d60580780b7387f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ValueMap::onCurrentKeyValueChanged</definition>
+        <argsstring></argsstring>
+        <name>onCurrentKeyValueChanged</name>
+        <qualifiedname>ValueMap::onCurrentKeyValueChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueMap.qml" line="12" column="5" bodyfile="src/qml/editorwidgets/ValueMap.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueMap_1a58264e02000191e5943f38525d47aa2b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ValueMap::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>ValueMap::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueMap.qml" line="13" column="5" bodyfile="src/qml/editorwidgets/ValueMap.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueMap_1a014d1bf155ebb4da541fd1966100c926" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ValueMap::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>ValueMap::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueMap.qml" line="14" column="5" bodyfile="src/qml/editorwidgets/ValueMap.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classValueMap_1a12cc353e14e27ee1bfcfbbd39de72042" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ValueMap::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>ValueMap::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/ValueMap.qml" line="15" column="5" bodyfile="src/qml/editorwidgets/ValueMap.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ValueMap</label>
+        <link refid="classValueMap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ValueMap</label>
+        <link refid="classValueMap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/ValueMap.qml" line="7" column="1" bodyfile="src/qml/editorwidgets/ValueMap.qml" bodystart="7" bodyend="16"/>
+    <listofallmembers>
+      <member refid="classValueMap_1a9898cb9c0b2c9ff8aed052a7b4fac619" prot="public" virt="non-virtual"><scope>ValueMap</scope><name>currentKeyValue</name></member>
+      <member refid="classValueMap_1a014d1bf155ebb4da541fd1966100c926" prot="private" virt="non-virtual"><scope>ValueMap</scope><name>enabled</name></member>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>ValueMap</scope><name>hasMenu</name></member>
+      <member refid="classValueMap_1a58264e02000191e5943f38525d47aa2b" prot="private" virt="non-virtual"><scope>ValueMap</scope><name>height</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>ValueMap</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>ValueMap</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>ValueMap</scope><name>isNull</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>ValueMap</scope><name>menu</name></member>
+      <member refid="classValueMap_1aa863f008c50251a70d60580780b7387f" prot="private" virt="non-virtual"><scope>ValueMap</scope><name>onCurrentKeyValueChanged</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>ValueMap</scope><name>requestBarcode</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>ValueMap</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>ValueMap</scope><name>requestJumpToPoint</name></member>
+      <member refid="classValueMap_1a12cc353e14e27ee1bfcfbbd39de72042" prot="private" virt="non-virtual"><scope>ValueMap</scope><name>states</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>ValueMap</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

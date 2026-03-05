@@ -1,0 +1,612 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPluginModel" kind="class" language="C++" prot="public">
+    <compoundname>PluginModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10" prot="public" static="no" strong="no">
+        <type></type>
+        <name>PluginRoles</name>
+        <qualifiedname>PluginModel::PluginRoles</qualifiedname>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a9a3b9f6f1a11aaf2bddb0537306328fd" prot="public">
+          <name>UuidRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10ae31d7fe5123e45b58b9bf315bbcd852a" prot="public">
+          <name>TrustedRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a2a13fb1a8764fd89dcf7ba6f4cbc4583" prot="public">
+          <name>BundledRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a64a39a6242418a8c4f9dbc0fff93d99f" prot="public">
+          <name>EnabledRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a0a7ff750b0440c21daacc032ef665618" prot="public">
+          <name>ConfigurableRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a52f209142d7b92051e5f88fded0e6d63" prot="public">
+          <name>NameRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a0932488295aa36f68e1be4f9f6d25d78" prot="public">
+          <name>DescriptionRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a0445ee268316ffd25a32025a8392585a" prot="public">
+          <name>AuthorRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a0e7a8a0c02d128d9eb05c13aab513323" prot="public">
+          <name>HomepageRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a7c19e4ec9f62680e4f0de6d04566586f" prot="public">
+          <name>IconRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a9261cd4113df136df8d4917751818e18" prot="public">
+          <name>VersionRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a886fcbfc4f5dae5a49bfed77ba267d9b" prot="public">
+          <name>InstalledLocallyRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10aee7ebb9417dda11aa6440db7965864a0" prot="public">
+          <name>AvailableRemotelyRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10ab806a0a72337855a69ac71c70f9b9835" prot="public">
+          <name>AvailableUpdateRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="34" column="5" bodyfile="src/core/pluginmodel.h" bodystart="35" bodyend="50"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPluginModel_1a736926070520ee5be88e71ecf9da312d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PluginModel::isRefreshing</definition>
+        <argsstring></argsstring>
+        <name>isRefreshing</name>
+        <qualifiedname>PluginModel::isRefreshing</qualifiedname>
+        <read>isRefreshing</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="31" column="5" bodyfile="src/core/pluginmodel.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPluginModel_1aab5357b6caf158188726d9a3eaca812b" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classPluginInformation" kindref="compound">PluginInformation</ref> &gt;</type>
+        <definition>QList&lt;PluginInformation&gt; PluginModel::mPlugins</definition>
+        <argsstring></argsstring>
+        <name>mPlugins</name>
+        <qualifiedname>PluginModel::mPlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="129" column="11" bodyfile="src/core/pluginmodel.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginModel_1ac405d12faaf0046aeda4c7028d666c0b" prot="private" static="no" mutable="no">
+        <type><ref refid="classPluginManager" kindref="compound">PluginManager</ref> *</type>
+        <definition>PluginManager* PluginModel::mManager</definition>
+        <argsstring></argsstring>
+        <name>mManager</name>
+        <qualifiedname>PluginModel::mManager</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="130" column="19" bodyfile="src/core/pluginmodel.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPluginModel_1a32f9a56a22f1bb2f0600533a8b955f60" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PluginModel::mIsRefreshing</definition>
+        <argsstring></argsstring>
+        <name>mIsRefreshing</name>
+        <qualifiedname>PluginModel::mIsRefreshing</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="131" column="10" bodyfile="src/core/pluginmodel.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPluginModel_1ab6a91d0ef44e54fdb23931f87bc9e091" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PluginModel::PluginModel</definition>
+        <argsstring>(PluginManager *manager, QObject *parent=nullptr)</argsstring>
+        <name>PluginModel</name>
+        <qualifiedname>PluginModel::PluginModel</qualifiedname>
+        <param>
+          <type><ref refid="classPluginManager" kindref="compound">PluginManager</ref> *</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a <ref refid="classPluginModel" kindref="compound">PluginModel</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="56" column="14" bodyfile="src/core/pluginmodel.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1a1693f6ec28af8d1b8ea0791b817d22c7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PluginModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>PluginModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of plugins in the model. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="61" column="9" bodyfile="src/core/pluginmodel.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1a9e9dba5e093bca4af10ed90cb804baa1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant PluginModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>PluginModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the data for <emphasis>index</emphasis> and <emphasis>role</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="66" column="14" bodyfile="src/core/pluginmodel.cpp" bodystart="41" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1acbb73f5eca0ae9f4898388d0c97507c1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; PluginModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>PluginModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the role names used by this model. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="71" column="11" bodyfile="src/core/pluginmodel.cpp" bodystart="83" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1a03a03665e45433921df651b6953ea41e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PluginModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>PluginModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the data for <emphasis>index</emphasis> and <emphasis>role</emphasis> to <emphasis>value</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="76" column="10" bodyfile="src/core/pluginmodel.cpp" bodystart="102" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1a552dcd4e8615cef1c09ddc40bcb0577d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="classPluginInformation" kindref="compound">PluginInformation</ref> &gt;</type>
+        <definition>QList&lt; PluginInformation &gt; PluginModel::availableAppPlugins</definition>
+        <argsstring>() const</argsstring>
+        <name>availableAppPlugins</name>
+        <qualifiedname>PluginModel::availableAppPlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of available app plugins installed locally. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="81" column="11" bodyfile="src/core/pluginmodel.cpp" bodystart="132" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1a9c52ef7dfe5955aaae671e8f92f0955f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PluginModel::hasPluginInformation</definition>
+        <argsstring>(const QString &amp;uuid) const</argsstring>
+        <name>hasPluginInformation</name>
+        <qualifiedname>PluginModel::hasPluginInformation</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns true if the model contains a plugin with the given <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="86" column="10" bodyfile="src/core/pluginmodel.cpp" bodystart="404" bodyend="407"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1a7069a54b699b4fb8836d38655802b898" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classPluginInformation" kindref="compound">PluginInformation</ref></type>
+        <definition>PluginInformation PluginModel::pluginInformation</definition>
+        <argsstring>(const QString &amp;uuid) const</argsstring>
+        <name>pluginInformation</name>
+        <qualifiedname>PluginModel::pluginInformation</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the pluginInformation information for the pluginInformation identified by <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="91" column="23" bodyfile="src/core/pluginmodel.cpp" bodystart="409" bodyend="416"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1a8afca1a0fa550881efd1f255f044291b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PluginModel::updatePluginEnabledStateByUuid</definition>
+        <argsstring>(const QString &amp;uuid, bool enabled, bool configurable)</argsstring>
+        <name>updatePluginEnabledStateByUuid</name>
+        <qualifiedname>PluginModel::updatePluginEnabledStateByUuid</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>configurable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates the enabled and configurable state of the plugin with <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="96" column="22" bodyfile="src/core/pluginmodel.cpp" bodystart="145" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1ab9e65218e9d6991231b8f95e806a955c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PluginModel::refresh</definition>
+        <argsstring>(bool fetchRemote=false)</argsstring>
+        <name>refresh</name>
+        <qualifiedname>PluginModel::refresh</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>fetchRemote</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Refreshes the model. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fetchRemote</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE to fetch remotely available plugins </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="102" column="22" bodyfile="src/core/pluginmodel.cpp" bodystart="240" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1a457097c43df9bdfdef739b23a3c6fd49" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PluginModel::isRefreshing</definition>
+        <argsstring>() const</argsstring>
+        <name>isRefreshing</name>
+        <qualifiedname>PluginModel::isRefreshing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns true if the model is currently fetching remote plugins. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="107" column="10" bodyfile="src/core/pluginmodel.cpp" bodystart="418" bodyend="421"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classPluginModel_1af54145580ce39b6ec98722a27ccdfc90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginModel::isRefreshingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isRefreshingChanged</name>
+        <qualifiedname>PluginModel::isRefreshingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="110" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPluginModel_1a5964a66e547a29d9e6442c45dc4ef08b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginModel::remoteFetched</definition>
+        <argsstring>()</argsstring>
+        <name>remoteFetched</name>
+        <qualifiedname>PluginModel::remoteFetched</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="111" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classPluginModel_1a95c3f658ea6d76179e2f10c2a1700c56" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginModel::fetchRemotePlugins</definition>
+        <argsstring>()</argsstring>
+        <name>fetchRemotePlugins</name>
+        <qualifiedname>PluginModel::fetchRemotePlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="114" column="10" bodyfile="src/core/pluginmodel.cpp" bodystart="254" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1aedc5e1231ed3b178e529d34fe8dac46b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginModel::populateLocalPlugins</definition>
+        <argsstring>()</argsstring>
+        <name>populateLocalPlugins</name>
+        <qualifiedname>PluginModel::populateLocalPlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="116" column="10" bodyfile="src/core/pluginmodel.cpp" bodystart="344" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1a3731605fa379820cde37761a12131b5f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginModel::populateRemotePlugins</definition>
+        <argsstring>()</argsstring>
+        <name>populateRemotePlugins</name>
+        <qualifiedname>PluginModel::populateRemotePlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="117" column="10" bodyfile="src/core/pluginmodel.cpp" bodystart="293" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1ac6614d983b254f95a1caeae33ed99bbd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classPluginInformation" kindref="compound">PluginInformation</ref></type>
+        <definition>PluginInformation PluginModel::readPluginMetadata</definition>
+        <argsstring>(const QFileInfo &amp;pluginDir)</argsstring>
+        <name>readPluginMetadata</name>
+        <qualifiedname>PluginModel::readPluginMetadata</qualifiedname>
+        <param>
+          <type>const QFileInfo &amp;</type>
+          <declname>pluginDir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the metadata (from metadata.txt) and prepares a <ref refid="classPluginInformation" kindref="compound">PluginInformation</ref> for a given plugin directory.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pluginDir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The QFileInfo representing the plugin directory. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The filled <ref refid="classPluginInformation" kindref="compound">PluginInformation</ref> structure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="125" column="23" bodyfile="src/core/pluginmodel.cpp" bodystart="368" bodyend="402"/>
+      </memberdef>
+      <memberdef kind="function" id="classPluginModel_1a83f06c82032ec3fbff61d1e46212376e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PluginModel::insertPluginsInformation</definition>
+        <argsstring>(QMap&lt; QString, PluginInformation &gt; &amp;pluginsInformation, bool isLocal)</argsstring>
+        <name>insertPluginsInformation</name>
+        <qualifiedname>PluginModel::insertPluginsInformation</qualifiedname>
+        <param>
+          <type>QMap&lt; QString, <ref refid="classPluginInformation" kindref="compound">PluginInformation</ref> &gt; &amp;</type>
+          <declname>pluginsInformation</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isLocal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/pluginmodel.h" line="127" column="10" bodyfile="src/core/pluginmodel.cpp" bodystart="159" bodyend="238"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PluginModel</label>
+        <link refid="classPluginModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PluginModel</label>
+        <link refid="classPluginModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/pluginmodel.h" line="28" column="1" bodyfile="src/core/pluginmodel.h" bodystart="29" bodyend="132"/>
+    <listofallmembers>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a0445ee268316ffd25a32025a8392585a" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>AuthorRole</name></member>
+      <member refid="classPluginModel_1a552dcd4e8615cef1c09ddc40bcb0577d" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>availableAppPlugins</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10aee7ebb9417dda11aa6440db7965864a0" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>AvailableRemotelyRole</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10ab806a0a72337855a69ac71c70f9b9835" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>AvailableUpdateRole</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a2a13fb1a8764fd89dcf7ba6f4cbc4583" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>BundledRole</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a0a7ff750b0440c21daacc032ef665618" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>ConfigurableRole</name></member>
+      <member refid="classPluginModel_1a9e9dba5e093bca4af10ed90cb804baa1" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>data</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a0932488295aa36f68e1be4f9f6d25d78" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>DescriptionRole</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a64a39a6242418a8c4f9dbc0fff93d99f" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>EnabledRole</name></member>
+      <member refid="classPluginModel_1a95c3f658ea6d76179e2f10c2a1700c56" prot="private" virt="non-virtual"><scope>PluginModel</scope><name>fetchRemotePlugins</name></member>
+      <member refid="classPluginModel_1a9c52ef7dfe5955aaae671e8f92f0955f" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>hasPluginInformation</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a0e7a8a0c02d128d9eb05c13aab513323" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>HomepageRole</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a7c19e4ec9f62680e4f0de6d04566586f" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>IconRole</name></member>
+      <member refid="classPluginModel_1a83f06c82032ec3fbff61d1e46212376e" prot="private" virt="non-virtual"><scope>PluginModel</scope><name>insertPluginsInformation</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a886fcbfc4f5dae5a49bfed77ba267d9b" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>InstalledLocallyRole</name></member>
+      <member refid="classPluginModel_1a736926070520ee5be88e71ecf9da312d" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>isRefreshing</name></member>
+      <member refid="classPluginModel_1a457097c43df9bdfdef739b23a3c6fd49" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>isRefreshing</name></member>
+      <member refid="classPluginModel_1af54145580ce39b6ec98722a27ccdfc90" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>isRefreshingChanged</name></member>
+      <member refid="classPluginModel_1a32f9a56a22f1bb2f0600533a8b955f60" prot="private" virt="non-virtual"><scope>PluginModel</scope><name>mIsRefreshing</name></member>
+      <member refid="classPluginModel_1ac405d12faaf0046aeda4c7028d666c0b" prot="private" virt="non-virtual"><scope>PluginModel</scope><name>mManager</name></member>
+      <member refid="classPluginModel_1aab5357b6caf158188726d9a3eaca812b" prot="private" virt="non-virtual"><scope>PluginModel</scope><name>mPlugins</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a52f209142d7b92051e5f88fded0e6d63" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>NameRole</name></member>
+      <member refid="classPluginModel_1a7069a54b699b4fb8836d38655802b898" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>pluginInformation</name></member>
+      <member refid="classPluginModel_1ab6a91d0ef44e54fdb23931f87bc9e091" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>PluginModel</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>PluginRoles</name></member>
+      <member refid="classPluginModel_1aedc5e1231ed3b178e529d34fe8dac46b" prot="private" virt="non-virtual"><scope>PluginModel</scope><name>populateLocalPlugins</name></member>
+      <member refid="classPluginModel_1a3731605fa379820cde37761a12131b5f" prot="private" virt="non-virtual"><scope>PluginModel</scope><name>populateRemotePlugins</name></member>
+      <member refid="classPluginModel_1ac6614d983b254f95a1caeae33ed99bbd" prot="private" virt="non-virtual"><scope>PluginModel</scope><name>readPluginMetadata</name></member>
+      <member refid="classPluginModel_1ab9e65218e9d6991231b8f95e806a955c" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>refresh</name></member>
+      <member refid="classPluginModel_1a5964a66e547a29d9e6442c45dc4ef08b" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>remoteFetched</name></member>
+      <member refid="classPluginModel_1acbb73f5eca0ae9f4898388d0c97507c1" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>roleNames</name></member>
+      <member refid="classPluginModel_1a1693f6ec28af8d1b8ea0791b817d22c7" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>rowCount</name></member>
+      <member refid="classPluginModel_1a03a03665e45433921df651b6953ea41e" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>setData</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10ae31d7fe5123e45b58b9bf315bbcd852a" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>TrustedRole</name></member>
+      <member refid="classPluginModel_1a8afca1a0fa550881efd1f255f044291b" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>updatePluginEnabledStateByUuid</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a9a3b9f6f1a11aaf2bddb0537306328fd" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>UuidRole</name></member>
+      <member refid="classPluginModel_1a975173ff7c572ae16a6ae9e2704b2e10a9261cd4113df136df8d4917751818e18" prot="public" virt="non-virtual"><scope>PluginModel</scope><name>VersionRole</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

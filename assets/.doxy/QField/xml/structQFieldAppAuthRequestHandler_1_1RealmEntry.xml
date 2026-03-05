@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQFieldAppAuthRequestHandler_1_1RealmEntry" kind="struct" language="C++" prot="private">
+    <compoundname>QFieldAppAuthRequestHandler::RealmEntry</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQFieldAppAuthRequestHandler_1_1RealmEntry_1ad98ddab0c11747e6a4ef0ffdd0d47e1e" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldAppAuthRequestHandler::RealmEntry::realm</definition>
+        <argsstring></argsstring>
+        <name>realm</name>
+        <qualifiedname>QFieldAppAuthRequestHandler::RealmEntry::realm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldappauthrequesthandler.h" line="107" column="17" bodyfile="src/core/qfieldappauthrequesthandler.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQFieldAppAuthRequestHandler_1_1RealmEntry_1aac02ae0273dc6dc6d44c1b36b6e02b55" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QFieldAppAuthRequestHandler::RealmEntry::canceled</definition>
+        <argsstring></argsstring>
+        <name>canceled</name>
+        <qualifiedname>QFieldAppAuthRequestHandler::RealmEntry::canceled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldappauthrequesthandler.h" line="108" column="14" bodyfile="src/core/qfieldappauthrequesthandler.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQFieldAppAuthRequestHandler_1_1RealmEntry_1abdb985bf365807590eed09ca3bbccf83" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QFieldAppAuthRequestHandler::RealmEntry::RealmEntry</definition>
+        <argsstring>(const QString &amp;realm, bool canceled=false)</argsstring>
+        <name>RealmEntry</name>
+        <qualifiedname>QFieldAppAuthRequestHandler::RealmEntry::RealmEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>realm</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>canceled</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldappauthrequesthandler.h" line="102" column="18" bodyfile="src/core/qfieldappauthrequesthandler.h" bodystart="102" bodyend="105"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>the realms that are not (yet) successfully logged in into </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldappauthrequesthandler.h" line="100" column="5" bodyfile="src/core/qfieldappauthrequesthandler.h" bodystart="101" bodyend="109"/>
+    <listofallmembers>
+      <member refid="structQFieldAppAuthRequestHandler_1_1RealmEntry_1aac02ae0273dc6dc6d44c1b36b6e02b55" prot="public" virt="non-virtual"><scope>QFieldAppAuthRequestHandler::RealmEntry</scope><name>canceled</name></member>
+      <member refid="structQFieldAppAuthRequestHandler_1_1RealmEntry_1ad98ddab0c11747e6a4ef0ffdd0d47e1e" prot="public" virt="non-virtual"><scope>QFieldAppAuthRequestHandler::RealmEntry</scope><name>realm</name></member>
+      <member refid="structQFieldAppAuthRequestHandler_1_1RealmEntry_1abdb985bf365807590eed09ca3bbccf83" prot="public" virt="non-virtual"><scope>QFieldAppAuthRequestHandler::RealmEntry</scope><name>RealmEntry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

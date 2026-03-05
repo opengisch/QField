@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfToggleButtonGroup" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfToggleButtonGroup</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfToggleButtonGroup_1a62864ae4fb2d4eb04190b3fb652044ae" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfToggleButtonGroup::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="16" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToggleButtonGroup_1a32def8020abc5c145c707e814ad39db9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Theme::QfToggleButtonGroup::textRole</definition>
+        <argsstring></argsstring>
+        <name>textRole</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::textRole</qualifiedname>
+        <read>dummyGetter_textRole_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="18" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToggleButtonGroup_1a0bb5dc629cf2bc7c2c12e0b9b0eeba9f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Theme::QfToggleButtonGroup::checkedRole</definition>
+        <argsstring></argsstring>
+        <name>checkedRole</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::checkedRole</qualifiedname>
+        <read>dummyGetter_checkedRole_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="20" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToggleButtonGroup_1ab8b018adf57ec77601bb9c9438f077a1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfToggleButtonGroup::selectedIndex</definition>
+        <argsstring></argsstring>
+        <name>selectedIndex</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::selectedIndex</qualifiedname>
+        <read>dummyGetter_selectedIndex_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="22" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToggleButtonGroup_1a60052b61d8d3bf665f4f3c0aa32414bc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfToggleButtonGroup::editing</definition>
+        <argsstring></argsstring>
+        <name>editing</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::editing</qualifiedname>
+        <read>dummyGetter_editing_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="24" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToggleButtonGroup_1a98e6cd648cc5824c4056465fd05f9da7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfToggleButtonGroup::editable</definition>
+        <argsstring></argsstring>
+        <name>editable</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::editable</qualifiedname>
+        <read>dummyGetter_editable_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="26" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToggleButtonGroup_1a47c91659880fdcbdff98ea588263ecb1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfToggleButtonGroup::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::font</qualifiedname>
+        <read>dummyGetter_font_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="28" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToggleButtonGroup_1a3ddf0712e5888b029e545f5e6deeebf1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfToggleButtonGroup::allowDeselect</definition>
+        <argsstring></argsstring>
+        <name>allowDeselect</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::allowDeselect</qualifiedname>
+        <read>dummyGetter_allowDeselect_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When true, clicking on an already-selected button will deselect it, setting selectedIndex to -1 and emitting the deselected() signal. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="33" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToggleButtonGroup_1aa575413fc73f09b10f7fda6a634879cc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfToggleButtonGroup::allowMultipleSelection</definition>
+        <argsstring></argsstring>
+        <name>allowMultipleSelection</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::allowMultipleSelection</qualifiedname>
+        <read>dummyGetter_allowMultipleSelection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When true, multiple items can be selected, the checkedRole mdoel value will define whether a given index is selected or not. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="38" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToggleButtonGroup_1a94babab7db078a9e86254208daeef8a2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfToggleButtonGroup::buttonMininumWidth</definition>
+        <argsstring></argsstring>
+        <name>buttonMininumWidth</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::buttonMininumWidth</qualifiedname>
+        <read>dummyGetter_buttonMininumWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Minimum width for buttons to handle empty text gracefully </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="42" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToggleButtonGroup_1ad6e21aa99a9d8cec53d8374e8914b881" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfToggleButtonGroup::buttonSpacing</definition>
+        <argsstring></argsstring>
+        <name>buttonSpacing</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::buttonSpacing</qualifiedname>
+        <read>dummyGetter_buttonSpacing_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Spacing between buttons </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="46" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfToggleButtonGroup_1a821e36d707f574b3cdc946a2431744b4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfToggleButtonGroup::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="59" column="5" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfToggleButtonGroup_1a0a6f38de385d54647c18ff07621284df" prot="private" static="no" mutable="no">
+        <type>Flow</type>
+        <definition>Flow Theme::QfToggleButtonGroup::flow</definition>
+        <argsstring></argsstring>
+        <name>flow</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::flow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="60" column="6" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfToggleButtonGroup_1ae934d43b1c72a59744c6b7d9e07dfca4" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater Theme::QfToggleButtonGroup::repeater</definition>
+        <argsstring></argsstring>
+        <name>repeater</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::repeater</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="61" column="10" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfToggleButtonGroup_1ad42c66529c31a53dc818877711a0dcbd" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics Theme::QfToggleButtonGroup::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="62" column="13" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTheme_1_1QfToggleButtonGroup_1a61ec7174ec52f4725cd4c0494d3a2de2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfToggleButtonGroup::itemSelected</definition>
+        <argsstring>(int index, var modelData)</argsstring>
+        <name>itemSelected</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::itemSelected</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>var</type>
+          <declname>modelData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when user selects a button <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the selected item </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>modelData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The model data for the selected item </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="52" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTheme_1_1QfToggleButtonGroup_1a12b3528060772d4ae43f24a39549a409" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfToggleButtonGroup::itemDeselected</definition>
+        <argsstring>()</argsstring>
+        <name>itemDeselected</name>
+        <qualifiedname>Theme::QfToggleButtonGroup::itemDeselected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the user deselects the currently selected item (only when allowDeselect is true). The selectedIndex will be -1 after this signal is emitted. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="57" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides a consistent UI for selecting single values from a list of options. <linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfToggleButtonGroup</label>
+        <link refid="classTheme_1_1QfToggleButtonGroup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfToggleButtonGroup</label>
+        <link refid="classTheme_1_1QfToggleButtonGroup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfToggleButtonGroup.qml" line="13" column="1" bodyfile="src/qml/imports/Theme/QfToggleButtonGroup.qml" bodystart="13" bodyend="63"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a3ddf0712e5888b029e545f5e6deeebf1" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>allowDeselect</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1aa575413fc73f09b10f7fda6a634879cc" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>allowMultipleSelection</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a94babab7db078a9e86254208daeef8a2" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>buttonMininumWidth</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1ad6e21aa99a9d8cec53d8374e8914b881" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>buttonSpacing</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a0bb5dc629cf2bc7c2c12e0b9b0eeba9f" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>checkedRole</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a98e6cd648cc5824c4056465fd05f9da7" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>editable</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a60052b61d8d3bf665f4f3c0aa32414bc" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>editing</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a0a6f38de385d54647c18ff07621284df" prot="private" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>flow</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a47c91659880fdcbdff98ea588263ecb1" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>font</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1ad42c66529c31a53dc818877711a0dcbd" prot="private" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>fontMetrics</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a821e36d707f574b3cdc946a2431744b4" prot="private" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>height</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a12b3528060772d4ae43f24a39549a409" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>itemDeselected</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a61ec7174ec52f4725cd4c0494d3a2de2" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>itemSelected</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a62864ae4fb2d4eb04190b3fb652044ae" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>model</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1ae934d43b1c72a59744c6b7d9e07dfca4" prot="private" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>repeater</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1ab8b018adf57ec77601bb9c9438f077a1" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>selectedIndex</name></member>
+      <member refid="classTheme_1_1QfToggleButtonGroup_1a32def8020abc5c145c707e814ad39db9" prot="public" virt="non-virtual"><scope>Theme::QfToggleButtonGroup</scope><name>textRole</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

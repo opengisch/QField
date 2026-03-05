@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfSearchBar" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfSearchBar</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfSearchBar_1a0c7539591d284f0f92a94f6c3d30cb9f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfSearchBar::searchTerm</definition>
+        <argsstring></argsstring>
+        <name>searchTerm</name>
+        <qualifiedname>Theme::QfSearchBar::searchTerm</qualifiedname>
+        <read>dummyGetter_searchTerm_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSearchBar.qml" line="13" column="1" bodyfile="src/qml/imports/Theme/QfSearchBar.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfSearchBar_1a15019468aca4949c520b09926be36e59" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Theme::QfSearchBar::placeHolderText</definition>
+        <argsstring></argsstring>
+        <name>placeHolderText</name>
+        <qualifiedname>Theme::QfSearchBar::placeHolderText</qualifiedname>
+        <read>dummyGetter_placeHolderText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSearchBar.qml" line="15" column="1" bodyfile="src/qml/imports/Theme/QfSearchBar.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfSearchBar_1a060fb2eb8aee02666c18873ccd0b4703" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfSearchBar::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Theme::QfSearchBar::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSearchBar.qml" line="19" column="5" bodyfile="src/qml/imports/Theme/QfSearchBar.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfSearchBar_1a2955086f8d10c2dc2837d8e162d75c3d" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Theme::QfSearchBar::clearButton</definition>
+        <argsstring></argsstring>
+        <name>clearButton</name>
+        <qualifiedname>Theme::QfSearchBar::clearButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSearchBar.qml" line="20" column="14" bodyfile="src/qml/imports/Theme/QfSearchBar.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfSearchBar_1ac52df2948146b9df4c1b377e3c3a05d3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Theme::QfSearchBar::searchButton</definition>
+        <argsstring></argsstring>
+        <name>searchButton</name>
+        <qualifiedname>Theme::QfSearchBar::searchButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSearchBar.qml" line="21" column="14" bodyfile="src/qml/imports/Theme/QfSearchBar.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfSearchBar_1a5d0ce57197b0e34ccb3f48d0aa0411c4" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField Theme::QfSearchBar::searchField</definition>
+        <argsstring></argsstring>
+        <name>searchField</name>
+        <qualifiedname>Theme::QfSearchBar::searchField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSearchBar.qml" line="22" column="11" bodyfile="src/qml/imports/Theme/QfSearchBar.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTheme_1_1QfSearchBar_1a8ff8b432a733292d1ab0ec82bb06c3ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfSearchBar::returnPressed</definition>
+        <argsstring>()</argsstring>
+        <name>returnPressed</name>
+        <qualifiedname>Theme::QfSearchBar::returnPressed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSearchBar.qml" line="17" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTheme_1_1QfSearchBar_1aac1a556061b385589f8f269dae98603e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfSearchBar::focusOnTextField</definition>
+        <argsstring>()</argsstring>
+        <name>focusOnTextField</name>
+        <qualifiedname>Theme::QfSearchBar::focusOnTextField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSearchBar.qml" line="25" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classTheme_1_1QfSearchBar_1ae3622d295f7ef8350682af0eaf427bbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfSearchBar::setSearchTerm</definition>
+        <argsstring>(term)</argsstring>
+        <name>setSearchTerm</name>
+        <qualifiedname>Theme::QfSearchBar::setSearchTerm</qualifiedname>
+        <param>
+          <type>term</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSearchBar.qml" line="27" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classTheme_1_1QfSearchBar_1a040bb53a9f30628604d15ed64db52dc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfSearchBar::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>Theme::QfSearchBar::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfSearchBar.qml" line="29" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfSearchBar</label>
+        <link refid="classTheme_1_1QfSearchBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfSearchBar</label>
+        <link refid="classTheme_1_1QfSearchBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfSearchBar.qml" line="10" column="1" bodyfile="src/qml/imports/Theme/QfSearchBar.qml" bodystart="10" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfSearchBar_1a040bb53a9f30628604d15ed64db52dc3" prot="public" virt="non-virtual"><scope>Theme::QfSearchBar</scope><name>clear</name></member>
+      <member refid="classTheme_1_1QfSearchBar_1a2955086f8d10c2dc2837d8e162d75c3d" prot="private" virt="non-virtual"><scope>Theme::QfSearchBar</scope><name>clearButton</name></member>
+      <member refid="classTheme_1_1QfSearchBar_1aac1a556061b385589f8f269dae98603e" prot="public" virt="non-virtual"><scope>Theme::QfSearchBar</scope><name>focusOnTextField</name></member>
+      <member refid="classTheme_1_1QfSearchBar_1a060fb2eb8aee02666c18873ccd0b4703" prot="private" virt="non-virtual"><scope>Theme::QfSearchBar</scope><name>height</name></member>
+      <member refid="classTheme_1_1QfSearchBar_1a15019468aca4949c520b09926be36e59" prot="public" virt="non-virtual"><scope>Theme::QfSearchBar</scope><name>placeHolderText</name></member>
+      <member refid="classTheme_1_1QfSearchBar_1a8ff8b432a733292d1ab0ec82bb06c3ae" prot="public" virt="non-virtual"><scope>Theme::QfSearchBar</scope><name>returnPressed</name></member>
+      <member refid="classTheme_1_1QfSearchBar_1ac52df2948146b9df4c1b377e3c3a05d3" prot="private" virt="non-virtual"><scope>Theme::QfSearchBar</scope><name>searchButton</name></member>
+      <member refid="classTheme_1_1QfSearchBar_1a5d0ce57197b0e34ccb3f48d0aa0411c4" prot="private" virt="non-virtual"><scope>Theme::QfSearchBar</scope><name>searchField</name></member>
+      <member refid="classTheme_1_1QfSearchBar_1a0c7539591d284f0f92a94f6c3d30cb9f" prot="public" virt="non-virtual"><scope>Theme::QfSearchBar</scope><name>searchTerm</name></member>
+      <member refid="classTheme_1_1QfSearchBar_1ae3622d295f7ef8350682af0eaf427bbf" prot="public" virt="non-virtual"><scope>Theme::QfSearchBar</scope><name>setSearchTerm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

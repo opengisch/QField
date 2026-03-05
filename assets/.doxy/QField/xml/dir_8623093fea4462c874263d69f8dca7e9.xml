@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_8623093fea4462c874263d69f8dca7e9" kind="dir">
+    <compoundname>src/core/3d</compoundname>
+    <innerfile refid="quick3dmaptexturedata_8cpp">quick3dmaptexturedata.cpp</innerfile>
+    <innerfile refid="quick3dmaptexturedata_8h">quick3dmaptexturedata.h</innerfile>
+    <innerfile refid="quick3drubberbandgeometry_8cpp">quick3drubberbandgeometry.cpp</innerfile>
+    <innerfile refid="quick3drubberbandgeometry_8h">quick3drubberbandgeometry.h</innerfile>
+    <innerfile refid="quick3dterraingeometry_8cpp">quick3dterraingeometry.cpp</innerfile>
+    <innerfile refid="quick3dterraingeometry_8h">quick3dterraingeometry.h</innerfile>
+    <innerfile refid="quick3dterrainprovider_8cpp">quick3dterrainprovider.cpp</innerfile>
+    <innerfile refid="quick3dterrainprovider_8h">quick3dterrainprovider.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/3d/"/>
+  </compounddef>
+</doxygen>

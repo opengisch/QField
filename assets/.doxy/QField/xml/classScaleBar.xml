@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classScaleBar" kind="class" language="C++" prot="public">
+    <compoundname>ScaleBar</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classScaleBar_1ad581e19c48477602efb2337c67c64908" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings ScaleBar::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>ScaleBar::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScaleBar.qml" line="11" column="1" bodyfile="src/qml/ScaleBar.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classScaleBar_1a1f4b1819a539a0be883deea6845853b3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double ScaleBar::lineWidth</definition>
+        <argsstring></argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>ScaleBar::lineWidth</qualifiedname>
+        <read>dummyGetter_lineWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScaleBar.qml" line="13" column="1" bodyfile="src/qml/ScaleBar.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classScaleBar_1a6d1939f2492497f55050a10172aeb23f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ScaleBar::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>ScaleBar::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScaleBar.qml" line="15" column="5" bodyfile="src/qml/ScaleBar.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScaleBar_1a5d828bd425e98e170989a771653d5e31" prot="private" static="no" mutable="no">
+        <type><ref refid="classScaleBarMeasurement" kindref="compound">ScaleBarMeasurement</ref></type>
+        <definition>ScaleBarMeasurement ScaleBar::measurement</definition>
+        <argsstring></argsstring>
+        <name>measurement</name>
+        <qualifiedname>ScaleBar::measurement</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScaleBar.qml" line="16" column="21" bodyfile="src/qml/ScaleBar.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScaleBar_1a85dc1e576112fc30369f7ac09533f335" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text ScaleBar::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <qualifiedname>ScaleBar::label</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScaleBar.qml" line="17" column="6" bodyfile="src/qml/ScaleBar.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScaleBar_1a700a7bf0b3bde42298106502b7b77976" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape ScaleBar::bar</definition>
+        <argsstring></argsstring>
+        <name>bar</name>
+        <qualifiedname>ScaleBar::bar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScaleBar.qml" line="18" column="7" bodyfile="src/qml/ScaleBar.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScaleBar_1afb5309e2f272b4da9771feb800425546" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath ScaleBar::barLine</definition>
+        <argsstring></argsstring>
+        <name>barLine</name>
+        <qualifiedname>ScaleBar::barLine</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ScaleBar.qml" line="19" column="11" bodyfile="src/qml/ScaleBar.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ScaleBar</label>
+        <link refid="classScaleBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ScaleBar</label>
+        <link refid="classScaleBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/ScaleBar.qml" line="8" column="1" bodyfile="src/qml/ScaleBar.qml" bodystart="8" bodyend="20"/>
+    <listofallmembers>
+      <member refid="classScaleBar_1a700a7bf0b3bde42298106502b7b77976" prot="private" virt="non-virtual"><scope>ScaleBar</scope><name>bar</name></member>
+      <member refid="classScaleBar_1afb5309e2f272b4da9771feb800425546" prot="private" virt="non-virtual"><scope>ScaleBar</scope><name>barLine</name></member>
+      <member refid="classScaleBar_1a6d1939f2492497f55050a10172aeb23f" prot="private" virt="non-virtual"><scope>ScaleBar</scope><name>height</name></member>
+      <member refid="classScaleBar_1a85dc1e576112fc30369f7ac09533f335" prot="private" virt="non-virtual"><scope>ScaleBar</scope><name>label</name></member>
+      <member refid="classScaleBar_1a1f4b1819a539a0be883deea6845853b3" prot="public" virt="non-virtual"><scope>ScaleBar</scope><name>lineWidth</name></member>
+      <member refid="classScaleBar_1ad581e19c48477602efb2337c67c64908" prot="public" virt="non-virtual"><scope>ScaleBar</scope><name>mapSettings</name></member>
+      <member refid="classScaleBar_1a5d828bd425e98e170989a771653d5e31" prot="private" virt="non-virtual"><scope>ScaleBar</scope><name>measurement</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

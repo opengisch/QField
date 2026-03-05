@@ -1,0 +1,997 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQuick3DTerrainProvider" kind="class" language="C++" prot="public">
+    <compoundname>Quick3DTerrainProvider</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="quick3dterrainprovider_8h" local="no">quick3dterrainprovider.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQuick3DTerrainProvider_1aaa81af8da891ed1e680eca78825bbe88" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * Quick3DTerrainProvider::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>Quick3DTerrainProvider::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+<para>The project from which to read the terrain configuration and DEM layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="53" column="5" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DTerrainProvider_1a32f8c1e49b084c4c9dc1d5abffcbf770" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * Quick3DTerrainProvider::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>Quick3DTerrainProvider::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+<para>The map settings from which to get extent for terrain generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="56" column="5" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DTerrainProvider_1af83ad4b942c9327f99e9169a4491172e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QSize</type>
+        <definition>QSize Quick3DTerrainProvider::gridSize</definition>
+        <argsstring></argsstring>
+        <name>gridSize</name>
+        <qualifiedname>Quick3DTerrainProvider::gridSize</qualifiedname>
+        <read>gridSize</read>
+        <briefdescription>
+<para>Grid dimensions (width x height) for terrain sampling. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="59" column="5" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DTerrainProvider_1af1a547b2c606ba361d7f384f4eb42410" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle Quick3DTerrainProvider::extent</definition>
+        <argsstring></argsstring>
+        <name>extent</name>
+        <qualifiedname>Quick3DTerrainProvider::extent</qualifiedname>
+        <read>extent</read>
+        <briefdescription>
+<para>Geographic extent used for terrain data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="62" column="5" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DTerrainProvider_1a7f8c7f24929dbf638a9240b4d912d60c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QSizeF</type>
+        <definition>QSizeF Quick3DTerrainProvider::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>Quick3DTerrainProvider::size</qualifiedname>
+        <read>size</read>
+        <briefdescription>
+<para>Size of the terrain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="65" column="5" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DTerrainProvider_1a5d1e249f8f0c1248ae64318194d7e8f7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Quick3DTerrainProvider::forceSquareSize</definition>
+        <argsstring></argsstring>
+        <name>forceSquareSize</name>
+        <qualifiedname>Quick3DTerrainProvider::forceSquareSize</qualifiedname>
+        <read>forceSquareSize</read>
+        <write>setForceSquareSize</write>
+        <briefdescription>
+<para>Whether the extent&apos;s shorter side will be expanded to form a square terrain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="68" column="5" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DTerrainProvider_1a98d2226aa667eef202fcb3a37fd4e9aa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantList</type>
+        <definition>QVariantList Quick3DTerrainProvider::normalizedData</definition>
+        <argsstring></argsstring>
+        <name>normalizedData</name>
+        <qualifiedname>Quick3DTerrainProvider::normalizedData</qualifiedname>
+        <read>normalizedData</read>
+        <briefdescription>
+<para>Normalized height data array [0.0-1.0] for terrain mesh generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="71" column="5" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DTerrainProvider_1ac6513478ff4215ecd8565c2a1b214f19" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Quick3DTerrainProvider::isLoading</definition>
+        <argsstring></argsstring>
+        <name>isLoading</name>
+        <qualifiedname>Quick3DTerrainProvider::isLoading</qualifiedname>
+        <read>isLoading</read>
+        <briefdescription>
+<para>Whether terrain data is currently being loaded. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="74" column="5" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1aa762abd8ec4b46cadbe146802b60118d" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* Quick3DTerrainProvider::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>Quick3DTerrainProvider::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="168" column="16" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1a705925750ec5442ff3858c0dea16b331" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* Quick3DTerrainProvider::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>Quick3DTerrainProvider::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="169" column="25" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1a129d6216cd7200f586257d6e977087d3" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsAbstractTerrainProvider &gt;</type>
+        <definition>std::unique_ptr&lt;QgsAbstractTerrainProvider&gt; Quick3DTerrainProvider::mTerrainProvider</definition>
+        <argsstring></argsstring>
+        <name>mTerrainProvider</name>
+        <qualifiedname>Quick3DTerrainProvider::mTerrainProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="171" column="21" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1acfb2e0a7915b0a5331bd93e6cd05a344" prot="private" static="no" mutable="no">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle Quick3DTerrainProvider::mExtent</definition>
+        <argsstring></argsstring>
+        <name>mExtent</name>
+        <qualifiedname>Quick3DTerrainProvider::mExtent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="173" column="18" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1af0084e6204b9a78697dcf034b72565e9" prot="private" static="no" mutable="no">
+        <type>QSizeF</type>
+        <definition>QSizeF Quick3DTerrainProvider::mSize</definition>
+        <argsstring></argsstring>
+        <name>mSize</name>
+        <qualifiedname>Quick3DTerrainProvider::mSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="174" column="12" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1a9aa3ecdc209f2db1962903f0ffb625bc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Quick3DTerrainProvider::mForceSquareSize</definition>
+        <argsstring></argsstring>
+        <name>mForceSquareSize</name>
+        <qualifiedname>Quick3DTerrainProvider::mForceSquareSize</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="175" column="10" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1ae61158849be329e78e161e1a6d8f89c7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Quick3DTerrainProvider::mBaseSize</definition>
+        <argsstring></argsstring>
+        <name>mBaseSize</name>
+        <qualifiedname>Quick3DTerrainProvider::mBaseSize</qualifiedname>
+        <initializer>= 2000.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="176" column="12" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1a2406c1de3524c570abb5838a00922795" prot="private" static="no" mutable="no">
+        <type>QSize</type>
+        <definition>QSize Quick3DTerrainProvider::mGridSize</definition>
+        <argsstring></argsstring>
+        <name>mGridSize</name>
+        <qualifiedname>Quick3DTerrainProvider::mGridSize</qualifiedname>
+        <initializer>= QSize( 64, 64 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="178" column="11" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1a07de9b8c1372255a9b4f8dc892e21db2" prot="private" static="no" mutable="no">
+        <type>QVariantList</type>
+        <definition>QVariantList Quick3DTerrainProvider::mNormalizedData</definition>
+        <argsstring></argsstring>
+        <name>mNormalizedData</name>
+        <qualifiedname>Quick3DTerrainProvider::mNormalizedData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="179" column="18" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1a5ca1ee402929f101c446f86fc0532c4d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Quick3DTerrainProvider::mMinRealHeight</definition>
+        <argsstring></argsstring>
+        <name>mMinRealHeight</name>
+        <qualifiedname>Quick3DTerrainProvider::mMinRealHeight</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="181" column="12" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1ac7138af74c33a7cd10d77727a1157f0b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Quick3DTerrainProvider::mMaxRealHeight</definition>
+        <argsstring></argsstring>
+        <name>mMaxRealHeight</name>
+        <qualifiedname>Quick3DTerrainProvider::mMaxRealHeight</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="182" column="12" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1a3c23169b3ba5c32ff81a28b5e670c1f5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Quick3DTerrainProvider::mIsLoading</definition>
+        <argsstring></argsstring>
+        <name>mIsLoading</name>
+        <qualifiedname>Quick3DTerrainProvider::mIsLoading</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="184" column="10" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DTerrainProvider_1a36432d54db2b472857d505dd3e6f52ee" prot="private" static="no" mutable="no">
+        <type>QFutureWatcher&lt; QVector&lt; double &gt; &gt; *</type>
+        <definition>QFutureWatcher&lt;QVector&lt;double&gt; &gt;* Quick3DTerrainProvider::mFutureWatcher</definition>
+        <argsstring></argsstring>
+        <name>mFutureWatcher</name>
+        <qualifiedname>Quick3DTerrainProvider::mFutureWatcher</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="185" column="20" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1af139c7271863fb9ad5f52e7e7905cddb" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Quick3DTerrainProvider::Quick3DTerrainProvider</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Quick3DTerrainProvider</name>
+        <qualifiedname>Quick3DTerrainProvider::Quick3DTerrainProvider</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Creates a new terrain provider. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="78" column="14" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="32" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a61b5f1f127868bd125c85147d1484065" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Quick3DTerrainProvider::~Quick3DTerrainProvider</definition>
+        <argsstring>() override</argsstring>
+        <name>~Quick3DTerrainProvider</name>
+        <qualifiedname>Quick3DTerrainProvider::~Quick3DTerrainProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="79" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a0c7ee52f311106dd8fff93691f861e2f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * Quick3DTerrainProvider::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>Quick3DTerrainProvider::project</qualifiedname>
+        <briefdescription>
+<para>Returns the project from which to read terrain configuration and DEM layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="82" column="16" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1ac358c3c327dd6eab9921d9b7ed43d70b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>Quick3DTerrainProvider::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Sets the project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="85" column="10" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="46" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1ab676d90d1f3af9e03835cf395903ba2c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * Quick3DTerrainProvider::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>Quick3DTerrainProvider::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Returns the map settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="88" column="25" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1ad058ac83847fb7459250b32fcbded2ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>Quick3DTerrainProvider::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+<para>Sets the map settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="91" column="10" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="74" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1adbeb1fd9ebebbc90e0f50f9e60891270" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Quick3DTerrainProvider::forceSquareSize</definition>
+        <argsstring>() const</argsstring>
+        <name>forceSquareSize</name>
+        <qualifiedname>Quick3DTerrainProvider::forceSquareSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="93" column="10" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1ae3da3cc24dc8990fdfac6a113a840594" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::setForceSquareSize</definition>
+        <argsstring>(bool forceSquareSize)</argsstring>
+        <name>setForceSquareSize</name>
+        <qualifiedname>Quick3DTerrainProvider::setForceSquareSize</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>forceSquareSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="95" column="10" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="92" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a07ea36e96ad31e0c8d24b9d608af1234" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QSize</type>
+        <definition>QSize Quick3DTerrainProvider::gridSize</definition>
+        <argsstring>() const</argsstring>
+        <name>gridSize</name>
+        <qualifiedname>Quick3DTerrainProvider::gridSize</qualifiedname>
+        <briefdescription>
+<para>Returns the grid dimensions for terrain sampling. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="98" column="11" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a5152d2bd8f175f2c4732c54585255976" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle Quick3DTerrainProvider::extent</definition>
+        <argsstring>() const</argsstring>
+        <name>extent</name>
+        <qualifiedname>Quick3DTerrainProvider::extent</qualifiedname>
+        <briefdescription>
+<para>Returns the geographic extent for terrain data retrieval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="101" column="18" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a7df2fcf5ac81e9c2a89a1712ce395813" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QSizeF</type>
+        <definition>QSizeF Quick3DTerrainProvider::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <qualifiedname>Quick3DTerrainProvider::size</qualifiedname>
+        <briefdescription>
+<para>Returns the size of the terrain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="104" column="12" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a127d5cadb7bfb7576aab9cce73d13030" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariantList</type>
+        <definition>QVariantList Quick3DTerrainProvider::normalizedData</definition>
+        <argsstring>() const</argsstring>
+        <name>normalizedData</name>
+        <qualifiedname>Quick3DTerrainProvider::normalizedData</qualifiedname>
+        <briefdescription>
+<para>Returns the normalized height data array [0.0-1.0]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="107" column="18" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="204" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a7eb49da6f1c6df44875cc7107a0c2e80" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Quick3DTerrainProvider::isLoading</definition>
+        <argsstring>() const</argsstring>
+        <name>isLoading</name>
+        <qualifiedname>Quick3DTerrainProvider::isLoading</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if terrain data is currently being loaded. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="110" column="10" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="440" bodyend="443"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a05ca942feae55737de9537da6c493968" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double Quick3DTerrainProvider::heightAt</definition>
+        <argsstring>(double x, double y) const</argsstring>
+        <name>heightAt</name>
+        <qualifiedname>Quick3DTerrainProvider::heightAt</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the real height value at the specified map coordinates. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X coordinate in map CRS </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y coordinate in map CRS </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Height in map units, or 0 if outside extent </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="118" column="24" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="209" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1aefc451b50679cd58182859be317158ee" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double Quick3DTerrainProvider::normalizedHeightAt</definition>
+        <argsstring>(double x, double y) const</argsstring>
+        <name>normalizedHeightAt</name>
+        <qualifiedname>Quick3DTerrainProvider::normalizedHeightAt</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the normalized height value [0.0-1.0] at the specified map coordinates. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X coordinate in map CRS </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y coordinate in map CRS </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Normalized height between 0 and 1, or 0 if outside extent </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="126" column="24" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="223" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a6bc47b419a6c747654aacfcf2130d1e5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVector3D</type>
+        <definition>QVector3D Quick3DTerrainProvider::geoTo3D</definition>
+        <argsstring>(double geoX, double geoY, float heightOffset=0.0f) const</argsstring>
+        <name>geoTo3D</name>
+        <qualifiedname>Quick3DTerrainProvider::geoTo3D</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>geoX</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>geoY</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>heightOffset</declname>
+          <defval>0.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts geographic coordinates to a 3D scene position. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>geoX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X coordinate in map CRS </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>geoY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y coordinate in map CRS </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>heightOffset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>additional vertical offset (default 0) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>3D position in scene space, or a null vector if the extent is invalid </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="135" column="27" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="231" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1ac6cac132f715d68d948fb18d4dd1c726" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double Quick3DTerrainProvider::calculateVisualExaggeration</definition>
+        <argsstring>() const</argsstring>
+        <name>calculateVisualExaggeration</name>
+        <qualifiedname>Quick3DTerrainProvider::calculateVisualExaggeration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates recommended vertical exaggeration factor based on terrain height range. <simplesect kind="return"><para>Exaggeration multiplier to enhance terrain visibility </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="141" column="24" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="258" bodyend="270"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQuick3DTerrainProvider_1a10df3c11ec30e6c1fb6be85d928bf18e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>Quick3DTerrainProvider::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="144" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DTerrainProvider_1abdd3316fea09f95a725234cc1e3e4b8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>Quick3DTerrainProvider::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="145" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DTerrainProvider_1afe9feefe80e9c2d44577e224de279269" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::forceSquareSizeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>forceSquareSizeChanged</name>
+        <qualifiedname>Quick3DTerrainProvider::forceSquareSizeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="146" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DTerrainProvider_1a980d4000404cbe6029e85ea2fc3b235d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::gridSizeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>gridSizeChanged</name>
+        <qualifiedname>Quick3DTerrainProvider::gridSizeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="147" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DTerrainProvider_1a4a92fe9c70902e643fd532f29cc02fe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::extentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>extentChanged</name>
+        <qualifiedname>Quick3DTerrainProvider::extentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="148" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DTerrainProvider_1a1ec86013f2e1d9c9fca7766a4c208161" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::terrainDataReady</definition>
+        <argsstring>()</argsstring>
+        <name>terrainDataReady</name>
+        <qualifiedname>Quick3DTerrainProvider::terrainDataReady</qualifiedname>
+        <briefdescription>
+<para>Emitted when terrain data has been successfully loaded and is ready for use. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="151" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DTerrainProvider_1a04ed8e6e01c18283a09ab6eebb66ec54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::normalizedDataChanged</definition>
+        <argsstring>()</argsstring>
+        <name>normalizedDataChanged</name>
+        <qualifiedname>Quick3DTerrainProvider::normalizedDataChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="153" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DTerrainProvider_1a0620f85eac5ba39774fa0e8106edef91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::isLoadingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isLoadingChanged</name>
+        <qualifiedname>Quick3DTerrainProvider::isLoadingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="154" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a31ab4570799c733f49c1f95b4eb5e05b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::updateTerrainProvider</definition>
+        <argsstring>()</argsstring>
+        <name>updateTerrainProvider</name>
+        <qualifiedname>Quick3DTerrainProvider::updateTerrainProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="157" column="10" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="418" bodyend="438"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a2722be57ec9feb3d7d6b7f9a5b0ec572" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::updateFromMapSettings</definition>
+        <argsstring>()</argsstring>
+        <name>updateFromMapSettings</name>
+        <qualifiedname>Quick3DTerrainProvider::updateFromMapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="158" column="10" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="120" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a2d855c9b10f30030fa6dc40f16a910c4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::calculateResolution</definition>
+        <argsstring>()</argsstring>
+        <name>calculateResolution</name>
+        <qualifiedname>Quick3DTerrainProvider::calculateResolution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="159" column="10" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="167" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a5aa014a7ec9060804d2f0f380eaa8720" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::calcNormalizedData</definition>
+        <argsstring>()</argsstring>
+        <name>calcNormalizedData</name>
+        <qualifiedname>Quick3DTerrainProvider::calcNormalizedData</qualifiedname>
+        <briefdescription>
+<para>Calculates terrain heights asynchronously in a worker thread and normalizes the data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="162" column="10" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="272" bodyend="391"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1ac958d60b82c3daaf8aeb8b42187e73b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DTerrainProvider::onTerrainDataCalculated</definition>
+        <argsstring>()</argsstring>
+        <name>onTerrainDataCalculated</name>
+        <qualifiedname>Quick3DTerrainProvider::onTerrainDataCalculated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="164" column="10" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="445" bodyend="473"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DTerrainProvider_1a8e1397f1eb399f9b2d8374d1b75f8fe1" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Quick3DTerrainProvider::sampleHeightFromTerrainProvider</definition>
+        <argsstring>(double x, double y) const</argsstring>
+        <name>sampleHeightFromTerrainProvider</name>
+        <qualifiedname>Quick3DTerrainProvider::sampleHeightFromTerrainProvider</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dterrainprovider.h" line="165" column="12" bodyfile="src/core/3d/quick3dterrainprovider.cpp" bodystart="393" bodyend="416"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides terrain elevation data for 3D visualization from DEM raster layers or online elevation services.</para>
+<para>This class handles elevation data retrieval from either a project&apos;s DEM raster layer or falls back to QGIS terrain providers (e.g., online Terrarium tiles) when no DEM is available. The data is normalized and provided as height samples for terrain mesh generation in Qt Quick 3D.</para>
+<para><simplesect kind="note"><para>QML Type: <ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>Quick3DTerrainProvider</label>
+        <link refid="classQuick3DTerrainProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>Quick3DTerrainProvider</label>
+        <link refid="classQuick3DTerrainProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/3d/quick3dterrainprovider.h" line="48" column="1" bodyfile="src/core/3d/quick3dterrainprovider.h" bodystart="49" bodyend="186"/>
+    <listofallmembers>
+      <member refid="classQuick3DTerrainProvider_1a5aa014a7ec9060804d2f0f380eaa8720" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>calcNormalizedData</name></member>
+      <member refid="classQuick3DTerrainProvider_1a2d855c9b10f30030fa6dc40f16a910c4" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>calculateResolution</name></member>
+      <member refid="classQuick3DTerrainProvider_1ac6cac132f715d68d948fb18d4dd1c726" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>calculateVisualExaggeration</name></member>
+      <member refid="classQuick3DTerrainProvider_1af1a547b2c606ba361d7f384f4eb42410" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>extent</name></member>
+      <member refid="classQuick3DTerrainProvider_1a5152d2bd8f175f2c4732c54585255976" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>extent</name></member>
+      <member refid="classQuick3DTerrainProvider_1a4a92fe9c70902e643fd532f29cc02fe4" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>extentChanged</name></member>
+      <member refid="classQuick3DTerrainProvider_1a5d1e249f8f0c1248ae64318194d7e8f7" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>forceSquareSize</name></member>
+      <member refid="classQuick3DTerrainProvider_1adbeb1fd9ebebbc90e0f50f9e60891270" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>forceSquareSize</name></member>
+      <member refid="classQuick3DTerrainProvider_1afe9feefe80e9c2d44577e224de279269" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>forceSquareSizeChanged</name></member>
+      <member refid="classQuick3DTerrainProvider_1a6bc47b419a6c747654aacfcf2130d1e5" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>geoTo3D</name></member>
+      <member refid="classQuick3DTerrainProvider_1af83ad4b942c9327f99e9169a4491172e" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>gridSize</name></member>
+      <member refid="classQuick3DTerrainProvider_1a07ea36e96ad31e0c8d24b9d608af1234" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>gridSize</name></member>
+      <member refid="classQuick3DTerrainProvider_1a980d4000404cbe6029e85ea2fc3b235d" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>gridSizeChanged</name></member>
+      <member refid="classQuick3DTerrainProvider_1a05ca942feae55737de9537da6c493968" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>heightAt</name></member>
+      <member refid="classQuick3DTerrainProvider_1ac6513478ff4215ecd8565c2a1b214f19" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>isLoading</name></member>
+      <member refid="classQuick3DTerrainProvider_1a7eb49da6f1c6df44875cc7107a0c2e80" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>isLoading</name></member>
+      <member refid="classQuick3DTerrainProvider_1a0620f85eac5ba39774fa0e8106edef91" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>isLoadingChanged</name></member>
+      <member refid="classQuick3DTerrainProvider_1a32f8c1e49b084c4c9dc1d5abffcbf770" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mapSettings</name></member>
+      <member refid="classQuick3DTerrainProvider_1ab676d90d1f3af9e03835cf395903ba2c" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mapSettings</name></member>
+      <member refid="classQuick3DTerrainProvider_1abdd3316fea09f95a725234cc1e3e4b8d" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQuick3DTerrainProvider_1ae61158849be329e78e161e1a6d8f89c7" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mBaseSize</name></member>
+      <member refid="classQuick3DTerrainProvider_1acfb2e0a7915b0a5331bd93e6cd05a344" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mExtent</name></member>
+      <member refid="classQuick3DTerrainProvider_1a9aa3ecdc209f2db1962903f0ffb625bc" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mForceSquareSize</name></member>
+      <member refid="classQuick3DTerrainProvider_1a36432d54db2b472857d505dd3e6f52ee" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mFutureWatcher</name></member>
+      <member refid="classQuick3DTerrainProvider_1a2406c1de3524c570abb5838a00922795" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mGridSize</name></member>
+      <member refid="classQuick3DTerrainProvider_1a3c23169b3ba5c32ff81a28b5e670c1f5" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mIsLoading</name></member>
+      <member refid="classQuick3DTerrainProvider_1a705925750ec5442ff3858c0dea16b331" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mMapSettings</name></member>
+      <member refid="classQuick3DTerrainProvider_1ac7138af74c33a7cd10d77727a1157f0b" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mMaxRealHeight</name></member>
+      <member refid="classQuick3DTerrainProvider_1a5ca1ee402929f101c446f86fc0532c4d" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mMinRealHeight</name></member>
+      <member refid="classQuick3DTerrainProvider_1a07de9b8c1372255a9b4f8dc892e21db2" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mNormalizedData</name></member>
+      <member refid="classQuick3DTerrainProvider_1aa762abd8ec4b46cadbe146802b60118d" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mProject</name></member>
+      <member refid="classQuick3DTerrainProvider_1af0084e6204b9a78697dcf034b72565e9" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mSize</name></member>
+      <member refid="classQuick3DTerrainProvider_1a129d6216cd7200f586257d6e977087d3" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>mTerrainProvider</name></member>
+      <member refid="classQuick3DTerrainProvider_1a98d2226aa667eef202fcb3a37fd4e9aa" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>normalizedData</name></member>
+      <member refid="classQuick3DTerrainProvider_1a127d5cadb7bfb7576aab9cce73d13030" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>normalizedData</name></member>
+      <member refid="classQuick3DTerrainProvider_1a04ed8e6e01c18283a09ab6eebb66ec54" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>normalizedDataChanged</name></member>
+      <member refid="classQuick3DTerrainProvider_1aefc451b50679cd58182859be317158ee" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>normalizedHeightAt</name></member>
+      <member refid="classQuick3DTerrainProvider_1ac958d60b82c3daaf8aeb8b42187e73b7" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>onTerrainDataCalculated</name></member>
+      <member refid="classQuick3DTerrainProvider_1aaa81af8da891ed1e680eca78825bbe88" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>project</name></member>
+      <member refid="classQuick3DTerrainProvider_1a0c7ee52f311106dd8fff93691f861e2f" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>project</name></member>
+      <member refid="classQuick3DTerrainProvider_1a10df3c11ec30e6c1fb6be85d928bf18e" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>projectChanged</name></member>
+      <member refid="classQuick3DTerrainProvider_1af139c7271863fb9ad5f52e7e7905cddb" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>Quick3DTerrainProvider</name></member>
+      <member refid="classQuick3DTerrainProvider_1a8e1397f1eb399f9b2d8374d1b75f8fe1" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>sampleHeightFromTerrainProvider</name></member>
+      <member refid="classQuick3DTerrainProvider_1ae3da3cc24dc8990fdfac6a113a840594" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>setForceSquareSize</name></member>
+      <member refid="classQuick3DTerrainProvider_1ad058ac83847fb7459250b32fcbded2ad" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>setMapSettings</name></member>
+      <member refid="classQuick3DTerrainProvider_1ac358c3c327dd6eab9921d9b7ed43d70b" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>setProject</name></member>
+      <member refid="classQuick3DTerrainProvider_1a7f8c7f24929dbf638a9240b4d912d60c" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>size</name></member>
+      <member refid="classQuick3DTerrainProvider_1a7df2fcf5ac81e9c2a89a1712ce395813" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>size</name></member>
+      <member refid="classQuick3DTerrainProvider_1a1ec86013f2e1d9c9fca7766a4c208161" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>terrainDataReady</name></member>
+      <member refid="classQuick3DTerrainProvider_1a2722be57ec9feb3d7d6b7f9a5b0ec572" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>updateFromMapSettings</name></member>
+      <member refid="classQuick3DTerrainProvider_1a31ab4570799c733f49c1f95b4eb5e05b" prot="private" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>updateTerrainProvider</name></member>
+      <member refid="classQuick3DTerrainProvider_1a61b5f1f127868bd125c85147d1484065" prot="public" virt="non-virtual"><scope>Quick3DTerrainProvider</scope><name>~Quick3DTerrainProvider</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

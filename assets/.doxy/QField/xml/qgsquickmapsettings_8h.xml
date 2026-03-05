@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qgsquickmapsettings_8h" kind="file" language="C++">
+    <compoundname>qgsquickmapsettings.h</compoundname>
+    <includes local="yes">qfield_core_export.h</includes>
+    <includes local="no">QObject</includes>
+    <includes local="no">qgscoordinatetransformcontext.h</includes>
+    <includes local="no">qgsmaplayer.h</includes>
+    <includes local="no">qgsmapsettings.h</includes>
+    <includes local="no">qgsmapthemecollection.h</includes>
+    <includes local="no">qgspoint.h</includes>
+    <includes local="no">qgsrectangle.h</includes>
+    <includedby refid="quick3dmaptexturedata_8cpp" local="yes">src/core/3d/quick3dmaptexturedata.cpp</includedby>
+    <includedby refid="quick3dmaptexturedata_8h" local="yes">src/core/3d/quick3dmaptexturedata.h</includedby>
+    <includedby refid="quick3dterrainprovider_8cpp" local="yes">src/core/3d/quick3dterrainprovider.cpp</includedby>
+    <includedby refid="quick3dterrainprovider_8h" local="yes">src/core/3d/quick3dterrainprovider.h</includedby>
+    <includedby refid="bookmarkmodel_8h" local="yes">src/core/bookmarkmodel.h</includedby>
+    <includedby refid="cogoexecutor_8h" local="yes">src/core/cogo/cogoexecutor.h</includedby>
+    <includedby refid="cogooperation_8h" local="yes">src/core/cogo/cogooperation.h</includedby>
+    <includedby refid="digitizinglogger_8h" local="yes">src/core/digitizinglogger.h</includedby>
+    <includedby refid="expressionevaluator_8h" local="yes">src/core/expressionevaluator.h</includedby>
+    <includedby refid="featurelistextentcontroller_8h" local="yes">src/core/featurelistextentcontroller.h</includedby>
+    <includedby refid="featuremodel_8cpp" local="yes">src/core/featuremodel.cpp</includedby>
+    <includedby refid="gridmodel_8h" local="yes">src/core/gridmodel.h</includedby>
+    <includedby refid="identifytool_8cpp" local="yes">src/core/identifytool.cpp</includedby>
+    <includedby refid="layertreemapcanvasbridge_8cpp" local="yes">src/core/layertreemapcanvasbridge.cpp</includedby>
+    <includedby refid="layertreemodel_8cpp" local="no">src/core/layertreemodel.cpp</includedby>
+    <includedby refid="legendimageprovider_8h" local="yes">src/core/legendimageprovider.h</includedby>
+    <includedby refid="linepolygonshape_8h" local="yes">src/core/linepolygonshape.h</includedby>
+    <includedby refid="activelayerfeatureslocatorfilter_8cpp" local="yes">src/core/locator/activelayerfeatureslocatorfilter.cpp</includedby>
+    <includedby refid="featureslocatorfilter_8cpp" local="yes">src/core/locator/featureslocatorfilter.cpp</includedby>
+    <includedby refid="finlandlocatorfilter_8cpp" local="yes">src/core/locator/finlandlocatorfilter.cpp</includedby>
+    <includedby refid="gotolocatorfilter_8cpp" local="yes">src/core/locator/gotolocatorfilter.cpp</includedby>
+    <includedby refid="locatormodelsuperbridge_8cpp" local="yes">src/core/locator/locatormodelsuperbridge.cpp</includedby>
+    <includedby refid="maptoscreen_8h" local="yes">src/core/maptoscreen.h</includedby>
+    <includedby refid="navigation_8h" local="yes">src/core/navigation.h</includedby>
+    <includedby refid="projectinfo_8h" local="yes">src/core/projectinfo.h</includedby>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <includedby refid="qgsquickmapcanvasmap_8cpp" local="yes">src/core/qgsquick/qgsquickmapcanvasmap.cpp</includedby>
+    <includedby refid="qgsquickmapcanvasmap_8h" local="yes">src/core/qgsquick/qgsquickmapcanvasmap.h</includedby>
+    <includedby refid="qgsquickmapsettings_8cpp" local="yes">src/core/qgsquick/qgsquickmapsettings.cpp</includedby>
+    <includedby refid="qgsquickmaptransform_8cpp" local="yes">src/core/qgsquick/qgsquickmaptransform.cpp</includedby>
+    <includedby refid="rubberbandshape_8cpp" local="yes">src/core/rubberbandshape.cpp</includedby>
+    <includedby refid="scalebarmeasurement_8h" local="no">src/core/scalebarmeasurement.h</includedby>
+    <includedby refid="featureutils_8cpp" local="yes">src/core/utils/featureutils.cpp</includedby>
+    <includedby refid="snappingutils_8cpp" local="yes">src/core/utils/snappingutils.cpp</includedby>
+    <includedby refid="vertexmodel_8cpp" local="yes">src/core/vertexmodel.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/qgsquick/qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="2">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="4">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="5">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="6">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="7">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="8">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="9">
+        <label>qgsrectangle.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/core/3d/quick3dmaptexturedata.h</label>
+        <link refid="quick3dmaptexturedata_8h_source"/>
+      </node>
+      <node id="4">
+        <label>src/core/3d/quick3drubberbandgeometry.h</label>
+        <link refid="quick3drubberbandgeometry_8h_source"/>
+      </node>
+      <node id="3">
+        <label>src/core/3d/quick3dterrainprovider.h</label>
+        <link refid="quick3dterrainprovider_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/core/bookmarkmodel.h</label>
+        <link refid="bookmarkmodel_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/core/cogo/cogoexecutor.h</label>
+        <link refid="cogoexecutor_8h_source"/>
+      </node>
+      <node id="10">
+        <label>src/core/cogo/cogooperation.h</label>
+        <link refid="cogooperation_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/core/cogo/cogoregistry.h</label>
+        <link refid="cogoregistry_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>src/core/digitizinglogger.h</label>
+        <link refid="digitizinglogger_8h_source"/>
+      </node>
+      <node id="13">
+        <label>src/core/expressionevaluator.h</label>
+        <link refid="expressionevaluator_8h_source"/>
+      </node>
+      <node id="14">
+        <label>src/core/featurelistextentcontroller.h</label>
+        <link refid="featurelistextentcontroller_8h_source"/>
+      </node>
+      <node id="15">
+        <label>src/core/gridmodel.h</label>
+        <link refid="gridmodel_8h_source"/>
+      </node>
+      <node id="16">
+        <label>src/core/legendimageprovider.h</label>
+        <link refid="legendimageprovider_8h_source"/>
+      </node>
+      <node id="17">
+        <label>src/core/linepolygonshape.h</label>
+        <link refid="linepolygonshape_8h_source"/>
+      </node>
+      <node id="6">
+        <label>src/core/locator/locatormodelsuperbridge.h</label>
+        <link refid="locatormodelsuperbridge_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/core/locator/qfieldlocatorfilter.h</label>
+        <link refid="qfieldlocatorfilter_8h_source"/>
+      </node>
+      <node id="18">
+        <label>src/core/maptoscreen.h</label>
+        <link refid="maptoscreen_8h_source"/>
+      </node>
+      <node id="19">
+        <label>src/core/navigation.h</label>
+        <link refid="navigation_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>src/core/projectinfo.h</label>
+        <link refid="projectinfo_8h_source"/>
+      </node>
+      <node id="8">
+        <label>src/core/qgismobileapp.h</label>
+        <link refid="qgismobileapp_8h_source"/>
+      </node>
+      <node id="21">
+        <label>src/core/qgsquick/qgsquickmapcanvasmap.h</label>
+        <link refid="qgsquickmapcanvasmap_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/qgsquick/qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>src/core/scalebarmeasurement.h</label>
+        <link refid="scalebarmeasurement_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classQgsQuickMapSettings" prot="public">QgsQuickMapSettings</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>qgsquickmapsettings.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>--------------------------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>Date<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>27.12.2014</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>Copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2014<sp/>by<sp/>Matthias<sp/>Kuhn</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>Email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>matthias<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QGSQUICKMAPSETTINGS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QGSQUICKMAPSETTINGS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfield_core_export.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgscoordinatetransformcontext.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmaplayer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmapsettings.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmapthemecollection.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgspoint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsrectangle.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QgsProject;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="classQgsQuickMapSettings" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QFIELD_CORE_EXPORT<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classQgsQuickMapSettings_1af9342d711e05f92f1a20ae42ee114acb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsProject<sp/>*project<sp/>READ<sp/>project<sp/>WRITE<sp/>setProject<sp/>NOTIFY<sp/>projectChanged<sp/>)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61" refid="classQgsQuickMapSettings_1aeba1702a5790dcf64a71dec06f941e45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsPoint<sp/>center<sp/>READ<sp/>getCenter<sp/>WRITE<sp/>setCenter<sp/>NOTIFY<sp/>extentChanged<sp/>)</highlight></codeline>
+<codeline lineno="70" refid="classQgsQuickMapSettings_1a1fae7b1cc02972fbdb36c05b331d1cb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsRectangle<sp/>extent<sp/>READ<sp/>extent<sp/>WRITE<sp/>setExtent<sp/>NOTIFY<sp/>extentChanged<sp/>)</highlight></codeline>
+<codeline lineno="72" refid="classQgsQuickMapSettings_1a4c918426a29c03035ba8aa670549dbcb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsRectangle<sp/>visibleExtent<sp/>READ<sp/>visibleExtent<sp/>NOTIFY<sp/>visibleExtentChanged<sp/>)</highlight></codeline>
+<codeline lineno="74" refid="classQgsQuickMapSettings_1ad379f5b63eefd0cc2f6f2424735719e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scale<sp/>READ<sp/>scale<sp/>NOTIFY<sp/>extentChanged<sp/>)</highlight></codeline>
+<codeline lineno="76" refid="classQgsQuickMapSettings_1aa04c21ca7d0aab10e65d1bc6b0f4313d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mapUnitsPerPoint<sp/>READ<sp/>mapUnitsPerPoint<sp/>NOTIFY<sp/>mapUnitsPerPointChanged<sp/>)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classQgsQuickMapSettings_1a1f111f2e3247c552c77519c698ea3719" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rotation<sp/>READ<sp/>rotation<sp/>WRITE<sp/>setRotation<sp/>NOTIFY<sp/>rotationChanged<sp/>)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="classQgsQuickMapSettings_1a8e9229ba9bbff78bae72934b13cdf51a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QColor<sp/>backgroundColor<sp/>READ<sp/>backgroundColor<sp/>WRITE<sp/>setBackgroundColor<sp/>NOTIFY<sp/>backgroundColorChanged<sp/>)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="classQgsQuickMapSettings_1ad37b44f94ac4b34469468c5586f76ada" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QSize<sp/>outputSize<sp/>READ<sp/>outputSize<sp/>WRITE<sp/>setOutputSize<sp/>NOTIFY<sp/>outputSizeChanged<sp/>)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="classQgsQuickMapSettings_1a08181add28740e8762bee7ee5a93307f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>outputDpi<sp/>READ<sp/>outputDpi<sp/>WRITE<sp/>setOutputDpi<sp/>NOTIFY<sp/>outputDpiChanged<sp/>)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="classQgsQuickMapSettings_1abc3e11f665b5972a8f84b25270ddd49a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsCoordinateReferenceSystem<sp/>destinationCrs<sp/>READ<sp/>destinationCrs<sp/>WRITE<sp/>setDestinationCrs<sp/>NOTIFY<sp/>destinationCrsChanged<sp/>)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="classQgsQuickMapSettings_1abf1d5b544debb49d3f886b75b5f18294" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>layers<sp/>READ<sp/>layers<sp/>WRITE<sp/>setLayers<sp/>NOTIFY<sp/>layersChanged<sp/>)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="classQgsQuickMapSettings_1a4b103fcf5ffc8a440aee6950a7ca4d90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isTemporal<sp/>READ<sp/>isTemporal<sp/>WRITE<sp/>setIsTemporal<sp/>NOTIFY<sp/>temporalStateChanged<sp/>)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="classQgsQuickMapSettings_1a2b883afc5dcc3dc73978288790b4e8b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QDateTime<sp/>temporalBegin<sp/>READ<sp/>temporalBegin<sp/>WRITE<sp/>setTemporalBegin<sp/>NOTIFY<sp/>temporalStateChanged<sp/>)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="classQgsQuickMapSettings_1abcf4b768670a784d288e2d0cac03de73" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QDateTime<sp/>temporalEnd<sp/>READ<sp/>temporalEnd<sp/>WRITE<sp/>setTemporalEnd<sp/>NOTIFY<sp/>temporalStateChanged<sp/>)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139" refid="classQgsQuickMapSettings_1a2402e1c03adb13cc19314e860f4099f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zRangeLower<sp/>READ<sp/>zRangeLower<sp/>WRITE<sp/>setZRangeLower<sp/>NOTIFY<sp/>zRangeChanged<sp/>)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="classQgsQuickMapSettings_1a88d4eccce8a4aa6cbcedbbab23bec5d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zRangeUpper<sp/>READ<sp/>zRangeUpper<sp/>WRITE<sp/>setZRangeUpper<sp/>NOTIFY<sp/>zRangeChanged<sp/>)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="classQgsQuickMapSettings_1a6a959fc142ddec4ec31981192257fbcd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bottomMargin<sp/>READ<sp/>bottomMargin<sp/>WRITE<sp/>setBottomMargin<sp/>NOTIFY<sp/>bottomMarginChanged<sp/>)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154" refid="classQgsQuickMapSettings_1ae1ba0e3f2a070ee404bd36e563cac4b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rightMargin<sp/>READ<sp/>rightMargin<sp/>WRITE<sp/>setRightMargin<sp/>NOTIFY<sp/>rightMarginChanged<sp/>)</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref>()<sp/>=<sp/>default;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsMapSettings<sp/>mapSettings()<sp/>const;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsRectangle<sp/>extent()<sp/>const;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setExtent(<sp/>const<sp/>QgsRectangle<sp/>&amp;extent,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>handleMargins<sp/>=<sp/>false<sp/>);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setProject(<sp/>QgsProject<sp/>*project<sp/>);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsProject<sp/>*project()<sp/>const;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QgsPoint<sp/>getCenter(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>handleMargins<sp/>=<sp/>false<sp/>)<sp/>const;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCenter(<sp/>const<sp/>QgsPoint<sp/>&amp;center,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>handleMargins<sp/>=<sp/>false<sp/>);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCenter(<sp/>const<sp/>QPointF<sp/>&amp;center,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>handleMargins<sp/>=<sp/>false<sp/>);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCenterToLayer(<sp/>QgsMapLayer<sp/>*layer,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>shouldZoom<sp/>=<sp/>true<sp/>);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setExtentFromPoints(<sp/>const<sp/>QVariantList<sp/>&amp;points,<sp/>const<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;minimumScale<sp/>=<sp/>0,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>handleMargins<sp/>=<sp/>false<sp/>);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mapUnitsPerPoint()<sp/>const;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsRectangle<sp/>visibleExtent()<sp/>const;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scale()<sp/>const;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QgsCoordinateTransformContext<sp/>transformContext()<sp/>const;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QPointF<sp/>coordinateToScreen(<sp/>const<sp/>QgsPoint<sp/>&amp;<ref refid="classpoint" kindref="compound">point</ref><sp/>)<sp/>const;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QgsPoint<sp/>screenToCoordinate(<sp/>const<sp/>QPointF<sp/>&amp;<ref refid="classpoint" kindref="compound">point</ref><sp/>)<sp/>const;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>computeScaleForExtent(<sp/>const<sp/>QgsRectangle<sp/>&amp;extent,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>handleMargins<sp/>=<sp/>false<sp/>);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239" refid="classQgsQuickMapSettings_1a1494d4b98a251d161b22360124a753a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTransformContext(<sp/>const<sp/>QgsCoordinateTransformContext<sp/>&amp;context<sp/>);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rotation()<sp/>const;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setRotation(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rotation<sp/>);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>backgroundColor()<sp/>const;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setBackgroundColor(<sp/>const<sp/>QColor<sp/>&amp;color<sp/>);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>QSize<sp/>outputSize()<sp/>const;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setOutputSize(<sp/>QSize<sp/>outputSize<sp/>);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>outputDpi()<sp/>const;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setOutputDpi(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>outputDpi<sp/>);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsCoordinateReferenceSystem<sp/>destinationCrs()<sp/>const;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setDestinationCrs(<sp/>const<sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs<sp/>);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>layers()<sp/>const;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setLayers(<sp/>const<sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>&amp;layers<sp/>);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>devicePixelRatio()<sp/>const;</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setDevicePixelRatio(<sp/>const<sp/>qreal<sp/>&amp;devicePixelRatio<sp/>);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isTemporal()<sp/>const;</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setIsTemporal(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>temporal<sp/>);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/>QDateTime<sp/>temporalBegin()<sp/>const;</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTemporalBegin(<sp/>const<sp/>QDateTime<sp/>&amp;begin<sp/>);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/>QDateTime<sp/>temporalEnd()<sp/>const;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTemporalEnd(<sp/>const<sp/>QDateTime<sp/>&amp;end<sp/>);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zRangeLower()<sp/>const;</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setZRangeLower(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lower<sp/>);</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zRangeUpper()<sp/>const;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setZRangeUpper(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>upper<sp/>);</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bottomMargin()<sp/>const;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setBottomMargin(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bottomMargin<sp/>);</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rightMargin()<sp/>const;</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setRightMargin(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rightMargin<sp/>);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="350" refid="classQgsQuickMapSettings_1a3944b588e676c13880af329fe10ed686" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectChanged();</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight></codeline>
+<codeline lineno="353" refid="classQgsQuickMapSettings_1a1956e57291066171d306c1981691f5be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>extentChanged();</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="356" refid="classQgsQuickMapSettings_1a5bbaee0bf1722dc39bd5b3c62e2ba7d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>destinationCrsChanged();</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"></highlight></codeline>
+<codeline lineno="359" refid="classQgsQuickMapSettings_1a17f499848a3b70f57c9a7b19361e911d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mapUnitsPerPointChanged();</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"></highlight></codeline>
+<codeline lineno="362" refid="classQgsQuickMapSettings_1adbaa9fe6328d1267c71dc5887808ec65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rotationChanged();</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"></highlight></codeline>
+<codeline lineno="365" refid="classQgsQuickMapSettings_1ad58ca29e2bb36fb162039e33ed27e8e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>backgroundColorChanged();</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"></highlight></codeline>
+<codeline lineno="368" refid="classQgsQuickMapSettings_1a629128b24007f86bc9a978a6a58f63c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>visibleExtentChanged();</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight></codeline>
+<codeline lineno="371" refid="classQgsQuickMapSettings_1a2024918fa14e5d9859b894ed33786bdf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>outputSizeChanged();</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight></codeline>
+<codeline lineno="374" refid="classQgsQuickMapSettings_1a534acbc9d4a6e9ef73708233f97efc92" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>outputDpiChanged();</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight></codeline>
+<codeline lineno="377" refid="classQgsQuickMapSettings_1a551323cbaf98c6c1da70cc35721a45df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>layersChanged();</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight></codeline>
+<codeline lineno="380" refid="classQgsQuickMapSettings_1a62d7172a3898e29d941d2ad8e443e486" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>temporalStateChanged();</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"></highlight></codeline>
+<codeline lineno="383" refid="classQgsQuickMapSettings_1ad6bc6b14c95ef5dcd4174e7ccb948947" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>zRangeChanged();</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"></highlight></codeline>
+<codeline lineno="386" refid="classQgsQuickMapSettings_1a588224da8e3f0627fb29d96c0a8c79d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>bottomMarginChanged();</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"></highlight></codeline>
+<codeline lineno="389" refid="classQgsQuickMapSettings_1ad638469210ff44815256cea8d7e6b18d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rightMarginChanged();</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"></highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/>private<sp/>slots:</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"></highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onReadProject(<sp/>const<sp/>QDomDocument<sp/>&amp;doc<sp/>);</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"></highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onCrsChanged();</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"></highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/>private:</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>applyExtent(<sp/>QgsMapSettings<sp/>&amp;mapSettings,<sp/>const<sp/>QgsRectangle<sp/>&amp;extent,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>handleMargins<sp/>=<sp/>false<sp/>);</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"></highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsProject<sp/>*mProject<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsMapSettings<sp/>mMapSettings;</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>mDevicePixelRatio<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mBottomMargin<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mRightMargin<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="413"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"></highlight></codeline>
+<codeline lineno="415"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QGSQUICKMAPSETTINGS_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/qgsquick/qgsquickmapsettings.h"/>
+  </compounddef>
+</doxygen>

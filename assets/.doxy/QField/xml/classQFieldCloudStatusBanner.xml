@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldCloudStatusBanner" kind="class" language="C++" prot="public">
+    <compoundname>QFieldCloudStatusBanner</compoundname>
+    <basecompoundref refid="classTheme_1_1QfCollapsibleMessage" prot="public" virt="non-virtual">Theme::QfCollapsibleMessage</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldCloudStatusBanner_1a0f9b08e63dd2eef55910002be09a0a39" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQFieldCloudStatus" kindref="compound">QFieldCloudStatus</ref></type>
+        <definition>QFieldCloudStatus QFieldCloudStatusBanner::cloudServiceStatus</definition>
+        <argsstring></argsstring>
+        <name>cloudServiceStatus</name>
+        <qualifiedname>QFieldCloudStatusBanner::cloudServiceStatus</qualifiedname>
+        <read>dummyGetter_cloudServiceStatus_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudStatusBanner.qml" line="13" column="1" bodyfile="src/qml/QFieldCloudStatusBanner.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldCloudStatusBanner_1a663d63ade1cff25e8702cb98c5231813" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudStatusBanner::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>QFieldCloudStatusBanner::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudStatusBanner.qml" line="15" column="5" bodyfile="src/qml/QFieldCloudStatusBanner.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatusBanner_1ad5a96245dc96cf375deb3cea101211c4" prot="private" static="no" mutable="no">
+        <type>var Layout</type>
+        <definition>var Layout QFieldCloudStatusBanner::fillWidth</definition>
+        <argsstring></argsstring>
+        <name>fillWidth</name>
+        <qualifiedname>QFieldCloudStatusBanner::fillWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudStatusBanner.qml" line="16" column="11" bodyfile="src/qml/QFieldCloudStatusBanner.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatusBanner_1a2b553c436346ad6d5df1a2be9a631b13" prot="private" static="no" mutable="no">
+        <type>var Layout</type>
+        <definition>var Layout QFieldCloudStatusBanner::minimumHeight</definition>
+        <argsstring></argsstring>
+        <name>minimumHeight</name>
+        <qualifiedname>QFieldCloudStatusBanner::minimumHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudStatusBanner.qml" line="17" column="11" bodyfile="src/qml/QFieldCloudStatusBanner.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatusBanner_1ad3e4fe443bb67772d9b63dda39832793" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudStatusBanner::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QFieldCloudStatusBanner::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudStatusBanner.qml" line="18" column="5" bodyfile="src/qml/QFieldCloudStatusBanner.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatusBanner_1acec91ded04be7d3599e220f01d6b85f3" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudStatusBanner::detailsColor</definition>
+        <argsstring></argsstring>
+        <name>detailsColor</name>
+        <qualifiedname>QFieldCloudStatusBanner::detailsColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudStatusBanner.qml" line="19" column="5" bodyfile="src/qml/QFieldCloudStatusBanner.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatusBanner_1ae560c21c8358c51cdae9997ba61e690d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudStatusBanner::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>QFieldCloudStatusBanner::font</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudStatusBanner.qml" line="20" column="5" bodyfile="src/qml/QFieldCloudStatusBanner.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatusBanner_1a6b831285388faf1ad13a0603b0a4539f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudStatusBanner::titleText</definition>
+        <argsstring></argsstring>
+        <name>titleText</name>
+        <qualifiedname>QFieldCloudStatusBanner::titleText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudStatusBanner.qml" line="21" column="5" bodyfile="src/qml/QFieldCloudStatusBanner.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatusBanner_1a907342c63e245d925bc1399b1fca8814" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudStatusBanner::detailsText</definition>
+        <argsstring></argsstring>
+        <name>detailsText</name>
+        <qualifiedname>QFieldCloudStatusBanner::detailsText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudStatusBanner.qml" line="22" column="5" bodyfile="src/qml/QFieldCloudStatusBanner.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudStatusBanner_1a548711e8a78c22012dae4d2b31896da0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudStatusBanner::externalLink</definition>
+        <argsstring></argsstring>
+        <name>externalLink</name>
+        <qualifiedname>QFieldCloudStatusBanner::externalLink</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudStatusBanner.qml" line="23" column="5" bodyfile="src/qml/QFieldCloudStatusBanner.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A reusable banner that displays the current QFieldCloud service status. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QFieldCloudStatusBanner</label>
+        <link refid="classQFieldCloudStatusBanner"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfCollapsibleMessage</label>
+        <link refid="classTheme_1_1QfCollapsibleMessage"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QFieldCloudStatusBanner</label>
+        <link refid="classQFieldCloudStatusBanner"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfCollapsibleMessage</label>
+        <link refid="classTheme_1_1QfCollapsibleMessage"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/QFieldCloudStatusBanner.qml" line="10" column="1" bodyfile="src/qml/QFieldCloudStatusBanner.qml" bodystart="10" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classQFieldCloudStatusBanner_1a0f9b08e63dd2eef55910002be09a0a39" prot="public" virt="non-virtual"><scope>QFieldCloudStatusBanner</scope><name>cloudServiceStatus</name></member>
+      <member refid="classTheme_1_1QfCollapsibleMessage_1a502423aaace7d088b49c44431249433a" prot="public" virt="non-virtual"><scope>QFieldCloudStatusBanner</scope><name>collapsed</name></member>
+      <member refid="classQFieldCloudStatusBanner_1ad3e4fe443bb67772d9b63dda39832793" prot="private" virt="non-virtual"><scope>QFieldCloudStatusBanner</scope><name>color</name></member>
+      <member refid="classQFieldCloudStatusBanner_1acec91ded04be7d3599e220f01d6b85f3" prot="private" virt="non-virtual"><scope>QFieldCloudStatusBanner</scope><name>detailsColor</name></member>
+      <member refid="classQFieldCloudStatusBanner_1a907342c63e245d925bc1399b1fca8814" prot="private" virt="non-virtual"><scope>QFieldCloudStatusBanner</scope><name>detailsText</name></member>
+      <member refid="classQFieldCloudStatusBanner_1a548711e8a78c22012dae4d2b31896da0" prot="private" virt="non-virtual"><scope>QFieldCloudStatusBanner</scope><name>externalLink</name></member>
+      <member refid="classQFieldCloudStatusBanner_1ad5a96245dc96cf375deb3cea101211c4" prot="private" virt="non-virtual"><scope>QFieldCloudStatusBanner</scope><name>fillWidth</name></member>
+      <member refid="classQFieldCloudStatusBanner_1ae560c21c8358c51cdae9997ba61e690d" prot="private" virt="non-virtual"><scope>QFieldCloudStatusBanner</scope><name>font</name></member>
+      <member refid="classQFieldCloudStatusBanner_1a2b553c436346ad6d5df1a2be9a631b13" prot="private" virt="non-virtual"><scope>QFieldCloudStatusBanner</scope><name>minimumHeight</name></member>
+      <member refid="classQFieldCloudStatusBanner_1a6b831285388faf1ad13a0603b0a4539f" prot="private" virt="non-virtual"><scope>QFieldCloudStatusBanner</scope><name>titleText</name></member>
+      <member refid="classQFieldCloudStatusBanner_1a663d63ade1cff25e8702cb98c5231813" prot="private" virt="non-virtual"><scope>QFieldCloudStatusBanner</scope><name>visible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
