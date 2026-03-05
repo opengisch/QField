@@ -16,7 +16,7 @@ concurrency:
 
 env:
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-  IOS_SDK_VERSION: 16.1
+  IOS_SDK_VERSION: 18.2
 
 jobs:
   build:
@@ -63,7 +63,7 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1.6.0
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
-          xcode-version: 16.2
+          xcode-version: 16.1
 
       - name: 🍹 Prepare ios build env
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
