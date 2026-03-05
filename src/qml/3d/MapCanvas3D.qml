@@ -130,7 +130,7 @@ Item {
       mapTerrainGeometry.size: mapTerrainProvider.size
       mapTerrainGeometry.heightData: mapArea.shouldFlattenTerrain ? mapArea.flatHeightData : mapTerrainProvider.normalizedData
       texture: mapTexture
-      textureReady: mapTextureData.ready && !mapArea.isTransitioning
+      textureReady: mapTextureData.ready
     }
 
     Node {
@@ -261,8 +261,8 @@ Item {
   property bool isTransitioning: false
   property var flatHeightData: new Float32Array(0)
 
-  // Helper property: should we show flat terrain?
-  readonly property bool shouldFlattenTerrain: isPanning || isTransitioning
+  // Helper property: should we show flat terrain? (only during pan gesture, not during render)
+  readonly property bool shouldFlattenTerrain: isPanning
 
   TouchCameraController {
     id: cameraController
@@ -288,11 +288,11 @@ Item {
     onExtentPanFinished: {
       const savedX = panOffsetX;
       const savedZ = panOffsetZ;
+      // Keep isPanning true to flatten terrain during reload
       isTransitioning = true;
       applyExtentShift(savedX, savedZ);
     }
     onExtentZoomRequested: function (factor) {
-      // Apply zoom immediately without preview
       isTransitioning = true;
       applyExtentZoom(factor);
     }
@@ -389,7 +389,6 @@ Item {
   // factor < 1.0 means zoom IN (smaller extent), factor > 1.0 means zoom OUT (larger extent)
   function applyExtentZoom(factor) {
     const ext = mapTerrainProvider.extent;
-    const oldWidth = ext.width;
     const cx = (ext.xMinimum + ext.xMaximum) / 2;
     const cy = (ext.yMinimum + ext.yMaximum) / 2;
     let halfW = ext.width / 2 * factor;
@@ -401,7 +400,6 @@ Item {
     halfW = Math.max(minHalfExtent, Math.min(maxHalfExtent, halfW));
     halfH = Math.max(minHalfExtent, Math.min(maxHalfExtent, halfH));
 
-    console.log("[Zoom] factor:", factor, "oldWidth:", oldWidth, "newWidth:", halfW * 2);
     mapTerrainProvider.setCustomExtent(cx - halfW, cy - halfH, cx + halfW, cy + halfH);
   }
 }

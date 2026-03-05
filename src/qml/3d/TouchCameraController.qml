@@ -314,7 +314,6 @@ Item {
         // If no x movement, fallback to y (for non-macOS or different setups)
         const delta = wheel.angleDelta.x !== 0 ? wheel.angleDelta.x : wheel.angleDelta.y;
         const factor = delta > 0 ? 0.8 : 1.25;
-        console.log("[Zoom] angleDelta x/y:", wheel.angleDelta.x, "/", wheel.angleDelta.y, "→ factor:", factor);
         root.extentZoomRequested(factor);
         wheel.accepted = true;
       } else {
