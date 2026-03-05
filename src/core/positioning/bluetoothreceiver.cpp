@@ -159,7 +159,7 @@ void BluetoothReceiver::handleErrorOccurred( QBluetoothSocket::SocketError error
   if ( mSocket->isOpen() )
   {
     emitMessage = true;
-    mSocket->close();
+    QTimer::singleShot( 0, mSocket, &QBluetoothSocket::close );
   }
 
   if ( mConnectionFailureCount > 10 )
