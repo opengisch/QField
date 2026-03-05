@@ -185,8 +185,18 @@ void Quick3DMapTextureData::render()
     renderSettings.setExtent( mExtent );
 
     const double mupp = mMapSettings->mapSettings().mapUnitsPerPixel();
-    const int outputWidth = mExtent.width() / mupp;
-    const int outputHeight = mExtent.height() / mupp;
+    int outputWidth = mExtent.width() / mupp;
+    int outputHeight = mExtent.height() / mupp;
+
+    // Clamp texture size to avoid GPU limits (max 16384, but we create 3x3 metagrid)
+    constexpr int maxDim = 5000;
+    if ( outputWidth > maxDim || outputHeight > maxDim )
+    {
+      const double scale = qMin( maxDim / static_cast<double>( outputWidth ), maxDim / static_cast<double>( outputHeight ) );
+      outputWidth = static_cast<int>( outputWidth * scale );
+      outputHeight = static_cast<int>( outputHeight * scale );
+    }
+
     renderSettings.setOutputSize( QSize( outputWidth, outputHeight ) );
   }
 
