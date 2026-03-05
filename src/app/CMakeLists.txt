@@ -11,10 +11,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set_source_files_properties(${qfield_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION
                                                         "Resources")
   list(APPEND RESOURCES ${qfield_ICON})
-
-  # Génère le Info.plist macOS depuis le template commun
-  set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_BINARY_DIR}/Info.plist")
-  configure_file(${CMAKE_SOURCE_DIR}/platform/macos/Info.plist.in "${MACOSX_BUNDLE_INFO_PLIST}" @ONLY)
 endif()
 
 # lrelease .ts files
@@ -150,7 +146,9 @@ function(create_executable)
              Qt6::QDarwinLocationPermissionPlugin
              Qt6::QDarwinBluetoothPermissionPlugin)
     qt_import_plugins(
-      ${exe_TARGET} INCLUDE Qt6::QDarwinCameraPermissionPlugin
+      ${exe_TARGET}
+      INCLUDE
+      Qt6::QDarwinCameraPermissionPlugin
       Qt6::QDarwinMicrophonePermissionPlugin
       Qt6::QDarwinLocationPermissionPlugin
       Qt6::QDarwinBluetoothPermissionPlugin)
@@ -176,7 +174,8 @@ function(create_executable)
                  "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}"
                  MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}"
                  MACOSX_BUNDLE_COPYRIGHT "Copyright (c) OPENGIS.ch"
-                 MACOSX_BUNDLE_INFO_PLIST "${MACOSX_BUNDLE_INFO_PLIST}")
+                 MACOSX_BUNDLE_INFO_PLIST
+                 "${CMAKE_SOURCE_DIR}/platform/macos/Info.plist.in")
   endif()
 endfunction()
 
