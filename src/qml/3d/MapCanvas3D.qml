@@ -38,32 +38,11 @@ Item {
         return;
       }
 
-      // Build 3x3 metagrid of heights (center block = real DEM, sides = flat)
-      const gridW = gridSize.width;
-      const gridH = gridSize.height;
-      mapArea.metagridWidth = gridW * 3;
-      mapArea.metagridHeight = gridH * 3;
-      
-      const metagrid = [];
-      const totalSize = mapArea.metagridWidth * mapArea.metagridHeight;
-      
-      // Initialize all to 0 (flat gray areas around the edges)
-      for (let i = 0; i < totalSize; i++) {
-        metagrid[i] = 0;
+      // Build and store metagrid inside C++ geometry object (no large array crosses QML boundary)
+      if (terrainGeometry) {
+        terrainGeometry.buildMetagridFromProvider(mapTerrainProvider);
+        mapArea.metagridReady = true;
       }
-      
-      // Copy only center block with real DEM heights
-      for (let z = 0; z < gridH; z++) {
-        for (let x = 0; x < gridW; x++) {
-          const srcIdx = z * gridW + x;
-          const dstX = gridW + x;  // Center block starts at gridW
-          const dstZ = gridH + z;  // Center block starts at gridH
-          const dstIdx = dstZ * mapArea.metagridWidth + dstX;
-          metagrid[dstIdx] = normalizedData[srcIdx];
-        }
-      }
-      
-      mapArea.metagridHeights = metagrid;
 
       // Don't reset pan offsets here — wait until texture is ready
       mapTextureData.render();
@@ -282,23 +261,23 @@ Item {
   property bool isPanning: false
   property bool isTransitioning: false
 
+  // Metagrid state (data stored inside C++ Quick3DTerrainGeometry)
+  property bool metagridReady: false
+  
+  // Direct reference to terrain geometry for fast access
+  readonly property var terrainGeometry: terrainMesh ? terrainMesh.mapTerrainGeometry : null
+
   // Explicitly update heights when panning state changes
   onIsPanningChanged: {
     if (isPanning) {
-      updateTerrainHeights(terrainMesh.mapTerrainGeometry.getShiftedHeights(metagridHeights, metagridWidth, metagridHeight, panOffsetX, panOffsetZ));
+      if (metagridReady && terrainGeometry) {
+        terrainGeometry.applyShiftedHeights(panOffsetX, panOffsetZ);
+      }
     } else {
-      updateTerrainHeights(mapTerrainProvider.normalizedData);
+      if (terrainGeometry) {
+        terrainGeometry.heightData = mapTerrainProvider.normalizedData;
+      }
     }
-  }
-
-  // Metagrid: 3x3 array of heights for smooth panning
-  property var metagridHeights: []
-  property int metagridWidth: 0
-  property int metagridHeight: 0
-
-  // Helper to update terrain heights
-  function updateTerrainHeights(newHeights) {
-    terrainMesh.mapTerrainGeometry.heightData = newHeights;
   }
 
   TouchCameraController {
@@ -318,11 +297,14 @@ Item {
       mapArea.cameraInteractionDetected();
     }
     onExtentPanMoved: function (sceneX, sceneZ) {
-      if (!isPanning) isPanning = true;
+      if (!isPanning) {
+        isPanning = true;
+      }
       panOffsetX += sceneX;
       panOffsetZ += sceneZ;
-      // Update heights immediately as we pan
-      updateTerrainHeights(terrainMesh.mapTerrainGeometry.getShiftedHeights(metagridHeights, metagridWidth, metagridHeight, panOffsetX, panOffsetZ));
+      if (metagridReady && terrainGeometry) {
+        terrainGeometry.applyShiftedHeights(panOffsetX, panOffsetZ);
+      }
     }
     onExtentPanFinished: {
       const savedX = panOffsetX;

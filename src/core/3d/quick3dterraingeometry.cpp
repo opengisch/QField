@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "quick3dterraingeometry.h"
+#include "quick3dterrainprovider.h"
 
 #include <algorithm>
 
@@ -40,7 +41,7 @@ void Quick3DTerrainGeometry::setGridSize( const QSize &size )
   updateGeometry();
 }
 
-void Quick3DTerrainGeometry::setSize( QSizeF size )
+void Quick3DTerrainGeometry::setSize( const QSizeF &size )
 {
   if ( mSize == size )
   {
@@ -79,15 +80,61 @@ void Quick3DTerrainGeometry::setHeightData( const QVariantList &data )
   updateGeometry();
 }
 
-QVariantList Quick3DTerrainGeometry::getShiftedHeights( const QVariantList &metagridHeights, int metagridWidth, int metagridHeight, float panOffsetX, float panOffsetZ )
+void Quick3DTerrainGeometry::buildMetagridFromProvider( const Quick3DTerrainProvider *provider )
 {
-  if ( metagridHeights.isEmpty() )
+  if ( !provider )
   {
-    return QVariantList();
+    return;
+  }
+
+  const QVariantList &normalizedData = provider->normalizedData();
+  const QSize gridSize = provider->gridSize();
+  const int gridW = gridSize.width();
+  const int gridH = gridSize.height();
+
+  if ( normalizedData.isEmpty() || gridW <= 0 || gridH <= 0 )
+  {
+    return;
+  }
+
+  // Build 3x3 metagrid: center = DEM, surrounding = 0
+  mMetagridWidth = gridW * 3;
+  mMetagridHeight = gridH * 3;
+  const int totalSize = mMetagridWidth * mMetagridHeight;
+
+  mMetagridHeights.resize( totalSize );
+  mMetagridHeights.fill( 0.0f );
+
+  // Copy center block
+  for ( int z = 0; z < gridH; ++z )
+  {
+    for ( int x = 0; x < gridW; ++x )
+    {
+      const int srcIdx = z * gridW + x;
+      const int dstIdx = ( gridH + z ) * mMetagridWidth + ( gridW + x );
+      if ( srcIdx < normalizedData.size() )
+      {
+        mMetagridHeights[dstIdx] = normalizedData[srcIdx].toFloat();
+      }
+    }
+  }
+}
+
+void Quick3DTerrainGeometry::applyShiftedHeights( float panOffsetX, float panOffsetZ )
+{
+  if ( mMetagridHeights.isEmpty() || mMetagridWidth <= 0 || mMetagridHeight <= 0 )
+  {
+    return;
   }
 
   const int gridW = mGridSize.width();
   const int gridH = mGridSize.height();
+
+  if ( gridW <= 0 || gridH <= 0 )
+  {
+    return;
+  }
+
   const float cellW = mSize.width() / std::max( 1, gridW - 1 );
   const float cellH = mSize.height() / std::max( 1, gridH - 1 );
 
@@ -95,9 +142,8 @@ QVariantList Quick3DTerrainGeometry::getShiftedHeights( const QVariantList &meta
   const int offsetX = -qRound( panOffsetX / cellW );
   const int offsetZ = -qRound( panOffsetZ / cellH );
 
-  // Create shifted array
-  QVariantList shifted;
-  shifted.reserve( gridW * gridH );
+  const int expectedSize = gridW * gridH;
+  mHeights.resize( expectedSize );
 
   for ( int z = 0; z < gridH; ++z )
   {
@@ -106,21 +152,30 @@ QVariantList Quick3DTerrainGeometry::getShiftedHeights( const QVariantList &meta
       // Source position in metagrid (offset to center block = gridW, gridH)
       const int srcX = gridW + x + offsetX;
       const int srcZ = gridH + z + offsetZ;
+      const int dstIdx = z * gridW + x;
 
-      // If outside metagrid bounds → use 0 (flat gray area)
-      if ( srcX < 0 || srcX >= metagridWidth || srcZ < 0 || srcZ >= metagridHeight )
+      if ( srcX < 0 || srcX >= mMetagridWidth || srcZ < 0 || srcZ >= mMetagridHeight )
       {
-        shifted.append( 0.0f );
+        mHeights[dstIdx] = 0.0f;
       }
       else
       {
-        const int srcIdx = srcZ * metagridWidth + srcX;
-        shifted.append( metagridHeights[srcIdx] );
+        const int srcIdx = srcZ * mMetagridWidth + srcX;
+        if ( srcIdx >= 0 && srcIdx < mMetagridHeights.size() )
+        {
+          mHeights[dstIdx] = mMetagridHeights[srcIdx];
+        }
+        else
+        {
+          mHeights[dstIdx] = 0.0f;
+        }
       }
     }
   }
 
-  return shifted;
+  mDirty = true;
+  emit heightDataChanged();
+  updateGeometry();
 }
 
 float Quick3DTerrainGeometry::getHeight( int x, int z ) const
