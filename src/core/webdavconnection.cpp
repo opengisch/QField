@@ -770,7 +770,10 @@ void WebdavConnection::putLocalItems()
     emit progressChanged();
 
     QFile *file = new QFile( itemPath );
-    file->open( QFile::ReadOnly );
+    if ( !file->open( QFile::ReadOnly ) )
+    {
+      return;
+    }
     QNetworkReply *reply = mWebdavConnection.put( remoteItemPath, file );
     file->setParent( reply );
 
