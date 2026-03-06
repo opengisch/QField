@@ -19,6 +19,7 @@
 
 #include <QQuick3DGeometry>
 #include <QSize>
+#include <QTimer>
 #include <QVector3D>
 #include <QVector>
 
@@ -105,6 +106,11 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     QVector<float> mMetagridHeights;
     int mMetagridWidth = 0;
     int mMetagridHeight = 0;
+
+    QTimer mPanThrottleTimer;
+    float mPendingPanOffsetX = 0.0f;
+    float mPendingPanOffsetZ = 0.0f;
+    bool mPanUpdatePending = false;
 
     bool mDirty = true;
 };
