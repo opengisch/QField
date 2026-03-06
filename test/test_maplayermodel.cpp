@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#define QFIELDTEST_MAIN
 #include "catch2.h"
 #include "maplayermodel.h"
 #include "trackingmodel.h"
@@ -217,6 +218,21 @@ TEST_CASE( "MapLayerModel" )
     REQUIRE( model.rowCount( QModelIndex() ) == 3 );
     model.setFilters( Qgis::LayerFilter::All );
     REQUIRE( model.rowCount( QModelIndex() ) == 4 );
+  }
+
+
+  SECTION( "WritableLayer filter excludes read-only layers" )
+  {
+    QgsProject project;
+    QgsVectorLayer *writable = makeLayer( QStringLiteral( "Writable" ) );
+    QgsVectorLayer *readOnly = makeLayer( QStringLiteral( "ReadOnly" ) );
+    readOnly->setReadOnly( true );
+    project.addMapLayers( { writable, readOnly } );
+    MapLayerModel model;
+    model.setProject( &project );
+    model.setFilters( Qgis::LayerFilter::WritableLayer | Qgis::LayerFilter::All );
+    REQUIRE( model.rowCount( QModelIndex() ) == 1 );
+    REQUIRE( model.index( 0, 0 ).data( MapLayerModel::NameRole ).toString() == QStringLiteral( "Writable" ) );
   }
 
   SECTION( "setFilters emits filtersChanged only on actual change" )
