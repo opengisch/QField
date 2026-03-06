@@ -22,6 +22,7 @@
 #include <qgsmaprendererparalleljob.h>
 #include <qgsmapsettings.h>
 
+#include <QPainter>
 #include <algorithm>
 
 Quick3DMapTextureData::Quick3DMapTextureData( QQuick3DObject *parent )
@@ -272,6 +273,28 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
   const int h = rgbaImage.height();
   QImage metagrid( w * 3, h * 3, QImage::Format_RGBA8888 );
   metagrid.fill( QColor( 180, 180, 180 ) );
+
+  // Draw crosshatch grid pattern on the gray areas
+  {
+    QPainter painter( &metagrid );
+    const QColor lineColor( 160, 160, 160 );
+    painter.setPen( QPen( lineColor, 1 ) );
+    const int spacing = 40;
+    const int totalW = w * 3;
+    const int totalH = h * 3;
+
+    // Horizontal lines
+    for ( int y = 0; y < totalH; y += spacing )
+    {
+      painter.drawLine( 0, y, totalW, y );
+    }
+    // Vertical lines
+    for ( int x = 0; x < totalW; x += spacing )
+    {
+      painter.drawLine( x, 0, x, totalH );
+    }
+    painter.end();
+  }
 
   // Copy rendered map into the center block
   for ( int y = 0; y < h; ++y )
