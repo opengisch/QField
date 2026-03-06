@@ -25,6 +25,7 @@
 #include <qgsproject.h>
 #include <qgsrectangle.h>
 
+
 static void setupMapSettings( QgsQuickMapSettings &ms )
 {
   ms.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
@@ -127,7 +128,7 @@ TEST_CASE( "ScaleBarMeasurement" )
     REQUIRE_FALSE( sbm.label().isEmpty() );
   }
 
-  SECTION( "label contains a distance unit abbreviation" )
+  SECTION( "label contains correct numeric value and km unit for projected CRS" )
   {
     ScaleBarMeasurement sbm;
     QgsProject project;
@@ -136,8 +137,16 @@ TEST_CASE( "ScaleBarMeasurement" )
     setupMapSettings( ms );
     sbm.setProject( &project );
     sbm.setMapSettings( &ms );
-    // label must contain a space separating value from unit eg "50km"
-    REQUIRE( sbm.label().contains( QStringLiteral( " " ) ) );
+    // label format is "%value %unit" like "50 km"
+    const QString label = sbm.label();
+    REQUIRE_FALSE( label.isEmpty() );
+    const QStringList parts = label.split( QStringLiteral( " " ) );
+    REQUIRE( parts.size() == 2 );
+    bool ok = false;
+    parts[0].toDouble( &ok );
+    REQUIRE( ok );
+    // for a metre-based CRS at 100km-wide extent the unit must be km
+    REQUIRE( parts[1] == QStringLiteral( "km" ) );
   }
 
   SECTION( "changing extent triggers measure and updates screenLength" )
