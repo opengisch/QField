@@ -68,6 +68,9 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     //! Sets the height data array.
     void setHeightData( const QVariantList &data );
 
+    //! Calculates shifted heights from metagrid based on pan offsets
+    Q_INVOKABLE QVariantList getShiftedHeights( const QVariantList &metagridHeights, int metagridWidth, int metagridHeight, float panOffsetX, float panOffsetZ );
+
   signals:
     void gridSizeChanged();
     void sizeChanged();

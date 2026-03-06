@@ -79,6 +79,50 @@ void Quick3DTerrainGeometry::setHeightData( const QVariantList &data )
   updateGeometry();
 }
 
+QVariantList Quick3DTerrainGeometry::getShiftedHeights( const QVariantList &metagridHeights, int metagridWidth, int metagridHeight, float panOffsetX, float panOffsetZ )
+{
+  if ( metagridHeights.isEmpty() )
+  {
+    return QVariantList();
+  }
+
+  const int gridW = mGridSize.width();
+  const int gridH = mGridSize.height();
+  const float cellW = mSize.width() / std::max( 1, gridW - 1 );
+  const float cellH = mSize.height() / std::max( 1, gridH - 1 );
+
+  // Calculate offset in grid cells (negated to match texture direction)
+  const int offsetX = -qRound( panOffsetX / cellW );
+  const int offsetZ = -qRound( panOffsetZ / cellH );
+
+  // Create shifted array
+  QVariantList shifted;
+  shifted.reserve( gridW * gridH );
+
+  for ( int z = 0; z < gridH; ++z )
+  {
+    for ( int x = 0; x < gridW; ++x )
+    {
+      // Source position in metagrid (offset to center block = gridW, gridH)
+      const int srcX = gridW + x + offsetX;
+      const int srcZ = gridH + z + offsetZ;
+
+      // If outside metagrid bounds → use 0 (flat gray area)
+      if ( srcX < 0 || srcX >= metagridWidth || srcZ < 0 || srcZ >= metagridHeight )
+      {
+        shifted.append( 0.0f );
+      }
+      else
+      {
+        const int srcIdx = srcZ * metagridWidth + srcX;
+        shifted.append( metagridHeights[srcIdx] );
+      }
+    }
+  }
+
+  return shifted;
+}
+
 float Quick3DTerrainGeometry::getHeight( int x, int z ) const
 {
   if ( mHeights.isEmpty() )

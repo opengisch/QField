@@ -38,10 +38,32 @@ Item {
         return;
       }
 
-      // Create flat height array once when terrain size is known
-      if (flatHeightData.length !== normalizedData.length) {
-        flatHeightData = new Float32Array(normalizedData.length);
+      // Build 3x3 metagrid of heights (center block = real DEM, sides = flat)
+      const gridW = gridSize.width;
+      const gridH = gridSize.height;
+      mapArea.metagridWidth = gridW * 3;
+      mapArea.metagridHeight = gridH * 3;
+      
+      const metagrid = [];
+      const totalSize = mapArea.metagridWidth * mapArea.metagridHeight;
+      
+      // Initialize all to 0 (flat gray areas around the edges)
+      for (let i = 0; i < totalSize; i++) {
+        metagrid[i] = 0;
       }
+      
+      // Copy only center block with real DEM heights
+      for (let z = 0; z < gridH; z++) {
+        for (let x = 0; x < gridW; x++) {
+          const srcIdx = z * gridW + x;
+          const dstX = gridW + x;  // Center block starts at gridW
+          const dstZ = gridH + z;  // Center block starts at gridH
+          const dstIdx = dstZ * mapArea.metagridWidth + dstX;
+          metagrid[dstIdx] = normalizedData[srcIdx];
+        }
+      }
+      
+      mapArea.metagridHeights = metagrid;
 
       // Don't reset pan offsets here — wait until texture is ready
       mapTextureData.render();
@@ -87,10 +109,10 @@ Item {
     tilingModeVertical: Texture.ClampToEdge
     pivotU: 0.5
     pivotV: 0.5
-    // The texture is a 3x3 metagrid; base scale 1/3 maps UVs to the center block only.
+    // Texture is 3x3 metagrid; scale 1/3 maps UVs to center block only
     scaleU: (1.0 / 3.0)
     scaleV: (1.0 / 3.0)
-    // Convert scene-space pan offset to UV offset within the metagrid (1/3 = one map width)
+    // Shift texture position during pan to show adjacent blocks
     positionU: mapTerrainProvider.size.width > 0 ? -(mapArea.panOffsetX / mapTerrainProvider.size.width) * (1.0 / 3.0) : 0
     positionV: mapTerrainProvider.size.height > 0 ? -(mapArea.panOffsetZ / mapTerrainProvider.size.height) * (1.0 / 3.0) : 0
   }
@@ -128,7 +150,7 @@ Item {
       id: terrainMesh
       mapTerrainGeometry.gridSize: mapTerrainProvider.gridSize
       mapTerrainGeometry.size: mapTerrainProvider.size
-      mapTerrainGeometry.heightData: mapArea.shouldFlattenTerrain ? mapArea.flatHeightData : mapTerrainProvider.normalizedData
+      mapTerrainGeometry.heightData: mapTerrainProvider.normalizedData
       texture: mapTexture
       textureReady: mapTextureData.ready
     }
@@ -259,10 +281,25 @@ Item {
   property real panOffsetZ: 0
   property bool isPanning: false
   property bool isTransitioning: false
-  property var flatHeightData: new Float32Array(0)
 
-  // Helper property: should we show flat terrain? (only during pan gesture, not during render)
-  readonly property bool shouldFlattenTerrain: isPanning
+  // Explicitly update heights when panning state changes
+  onIsPanningChanged: {
+    if (isPanning) {
+      updateTerrainHeights(terrainMesh.mapTerrainGeometry.getShiftedHeights(metagridHeights, metagridWidth, metagridHeight, panOffsetX, panOffsetZ));
+    } else {
+      updateTerrainHeights(mapTerrainProvider.normalizedData);
+    }
+  }
+
+  // Metagrid: 3x3 array of heights for smooth panning
+  property var metagridHeights: []
+  property int metagridWidth: 0
+  property int metagridHeight: 0
+
+  // Helper to update terrain heights
+  function updateTerrainHeights(newHeights) {
+    terrainMesh.mapTerrainGeometry.heightData = newHeights;
+  }
 
   TouchCameraController {
     id: cameraController
@@ -284,11 +321,13 @@ Item {
       if (!isPanning) isPanning = true;
       panOffsetX += sceneX;
       panOffsetZ += sceneZ;
+      // Update heights immediately as we pan
+      updateTerrainHeights(terrainMesh.mapTerrainGeometry.getShiftedHeights(metagridHeights, metagridWidth, metagridHeight, panOffsetX, panOffsetZ));
     }
     onExtentPanFinished: {
       const savedX = panOffsetX;
       const savedZ = panOffsetZ;
-      // Keep isPanning true to flatten terrain during reload
+      // Texture stays shifted until reload completes; terrain stays flat during drag
       isTransitioning = true;
       applyExtentShift(savedX, savedZ);
     }
