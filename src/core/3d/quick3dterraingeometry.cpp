@@ -24,6 +24,17 @@ Quick3DTerrainGeometry::Quick3DTerrainGeometry( QQuick3DObject *parent )
 {
   mHeights.resize( static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
   mHeights.fill( 0.0f );
+
+  mPanThrottleTimer.setSingleShot( true );
+  mPanThrottleTimer.setInterval( 10 );
+  connect( &mPanThrottleTimer, &QTimer::timeout, this, [this]() {
+    if ( mPanUpdatePending )
+    {
+      mPanUpdatePending = false;
+      applyShiftedHeights( mPendingPanOffsetX, mPendingPanOffsetZ );
+    }
+  } );
+
   updateGeometry();
 }
 
@@ -117,6 +128,15 @@ void Quick3DTerrainGeometry::applyShiftedHeights( float panOffsetX, float panOff
     return;
   }
 
+  // Throttle: if timer is running, store pending offsets and return
+  if ( mPanThrottleTimer.isActive() )
+  {
+    mPendingPanOffsetX = panOffsetX;
+    mPendingPanOffsetZ = panOffsetZ;
+    mPanUpdatePending = true;
+    return;
+  }
+
   const int gridW = mGridSize.width();
   const int gridH = mGridSize.height();
 
@@ -166,6 +186,8 @@ void Quick3DTerrainGeometry::applyShiftedHeights( float panOffsetX, float panOff
   mDirty = true;
   emit heightDataChanged();
   updateGeometry();
+
+  mPanThrottleTimer.start();
 }
 
 float Quick3DTerrainGeometry::getHeight( int x, int z ) const
@@ -229,7 +251,7 @@ void Quick3DTerrainGeometry::updateGeometry()
   float *vptr = reinterpret_cast<float *>( vertexData.data() );
 
   QByteArray indexData;
-  indexData.resize( indexCount * sizeof( quint32 ) );
+  indexData.resize( indexCount * static_cast<int>( sizeof( quint32 ) ) );
   quint32 *iptr = reinterpret_cast<quint32 *>( indexData.data() );
 
   const float cellWidth = mSize.width() / ( gridWidth - 1 );
