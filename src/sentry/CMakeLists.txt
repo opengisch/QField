@@ -19,6 +19,7 @@ endif()
 target_link_libraries(qfield_sentry PRIVATE Qt::Core)
 
 if(ANDROID)
+  find_package(Qt6 REQUIRED COMPONENTS CorePrivate)
   target_link_libraries(qfield_sentry PRIVATE Qt::CorePrivate android log)
 endif()
 
