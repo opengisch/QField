@@ -115,7 +115,17 @@
     },
     "qtkeychain-qt6",
     "qtlocation",
-    "qtmultimedia",
+    {
+      "name": "qtmultimedia",
+      "default-features": false,
+      "features": [
+        {
+          "name": "ffmpeg",
+          "platform": "linux | android | windows"
+        },
+        "qml"
+      ]
+    },
     "qtsvg",
     {
       "name": "qttools",
