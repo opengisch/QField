@@ -69,11 +69,14 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     //! Sets the height data array.
     void setHeightData( const QVariantList &data );
 
-    //! Builds and stores a 3x3 metagrid from the provider's normalized data (all in C++, no QML marshalling)
+    //! Builds and stores a 3x3 metagrid from the provider's normalized data
     Q_INVOKABLE void buildMetagridFromProvider( const Quick3DTerrainProvider *provider );
 
-    //! Applies shifted heights from stored metagrid based on pan offsets directly into geometry
+    //! Applies shifted heights from stored metagrid based on pan offsets
     Q_INVOKABLE void applyShiftedHeights( float panOffsetX, float panOffsetZ );
+
+    //! Restores the original height data from the provider
+    Q_INVOKABLE void restoreHeightsFromProvider( const Quick3DTerrainProvider *provider );
 
   signals:
     void gridSizeChanged();
