@@ -108,7 +108,6 @@ void Quick3DTerrainGeometry::buildMetagridFromProvider( const Quick3DTerrainProv
     return;
   }
 
-  // Build 3x3 metagrid: center = DEM, surrounding = 0
   mMetagridWidth = gridW * 3;
   mMetagridHeight = gridH * 3;
   const int totalSize = mMetagridWidth * mMetagridHeight;
@@ -116,7 +115,6 @@ void Quick3DTerrainGeometry::buildMetagridFromProvider( const Quick3DTerrainProv
   mMetagridHeights.resize( totalSize );
   mMetagridHeights.fill( 0.0f );
 
-  // Copy center block
   for ( int z = 0; z < gridH; ++z )
   {
     for ( int x = 0; x < gridW; ++x )
@@ -138,7 +136,6 @@ void Quick3DTerrainGeometry::applyShiftedHeights( float panOffsetX, float panOff
     return;
   }
 
-  // Throttle: if timer is running, store pending offsets and return
   if ( mPanThrottleTimer.isActive() )
   {
     mPendingPanOffsetX = panOffsetX;
@@ -158,7 +155,6 @@ void Quick3DTerrainGeometry::applyShiftedHeights( float panOffsetX, float panOff
   const float cellW = mSize.width() / std::max( 1, gridW - 1 );
   const float cellH = mSize.height() / std::max( 1, gridH - 1 );
 
-  // Calculate offset in grid cells (negated to match texture direction)
   const int offsetX = -qRound( panOffsetX / cellW );
   const int offsetZ = -qRound( panOffsetZ / cellH );
 
@@ -169,7 +165,6 @@ void Quick3DTerrainGeometry::applyShiftedHeights( float panOffsetX, float panOff
   {
     for ( int x = 0; x < gridW; ++x )
     {
-      // Source position in metagrid (offset to center block = gridW, gridH)
       const int srcX = gridW + x + offsetX;
       const int srcZ = gridH + z + offsetZ;
       const int dstIdx = z * gridW + x;
@@ -198,6 +193,27 @@ void Quick3DTerrainGeometry::applyShiftedHeights( float panOffsetX, float panOff
   updateGeometry();
 
   mPanThrottleTimer.start();
+}
+
+void Quick3DTerrainGeometry::restoreHeightsFromProvider( const Quick3DTerrainProvider *provider )
+{
+  if ( !provider )
+  {
+    return;
+  }
+
+  const QVariantList &normalizedData = provider->normalizedData();
+  mHeights.clear();
+  mHeights.reserve( normalizedData.size() );
+
+  for ( const QVariant &v : normalizedData )
+  {
+    mHeights.append( v.toFloat() );
+  }
+
+  mDirty = true;
+  emit heightDataChanged();
+  updateGeometry();
 }
 
 float Quick3DTerrainGeometry::getHeight( int x, int z ) const

@@ -189,7 +189,7 @@ void Quick3DMapTextureData::render()
     int outputWidth = mExtent.width() / mupp;
     int outputHeight = mExtent.height() / mupp;
 
-    // Clamp texture size to avoid GPU limits (max 16384, but we create 3x3 metagrid)
+    // Clamp texture size to avoid GPU limits
     constexpr int maxDim = 5000;
     if ( outputWidth > maxDim || outputHeight > maxDim )
     {
@@ -265,10 +265,6 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
 {
   QImage rgbaImage = image.convertToFormat( QImage::Format_RGBA8888 );
 
-  // Create a 3x3 metagrid: the center block is the rendered map,
-  // surrounding blocks are a neutral gray representing non-rendered areas.
-  // This allows panning via Texture positionU/V to reveal gray edges
-  // instead of stretched pixels from ClampToEdge.
   const int w = rgbaImage.width();
   const int h = rgbaImage.height();
   QImage metagrid( w * 3, h * 3, QImage::Format_RGBA8888 );
@@ -283,12 +279,10 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
     const int totalW = w * 3;
     const int totalH = h * 3;
 
-    // Horizontal lines
     for ( int y = 0; y < totalH; y += spacing )
     {
       painter.drawLine( 0, y, totalW, y );
     }
-    // Vertical lines
     for ( int x = 0; x < totalW; x += spacing )
     {
       painter.drawLine( x, 0, x, totalH );
@@ -296,7 +290,6 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
     painter.end();
   }
 
-  // Copy rendered map into the center block
   for ( int y = 0; y < h; ++y )
   {
     memcpy( metagrid.scanLine( y + h ) + w * 4, rgbaImage.constScanLine( y ), w * 4 );

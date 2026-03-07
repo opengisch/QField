@@ -38,13 +38,11 @@ Item {
         return;
       }
 
-      // Build and store metagrid inside C++ geometry object (no large array crosses QML boundary)
       if (terrainGeometry) {
         terrainGeometry.buildMetagridFromProvider(mapTerrainProvider);
         mapArea.metagridReady = true;
       }
 
-      // Don't reset pan offsets here — wait until texture is ready
       mapTextureData.render();
 
       if (isFirstLoad) {
@@ -91,7 +89,6 @@ Item {
     // Texture is 3x3 metagrid; scale 1/3 maps UVs to center block only
     scaleU: (1.0 / 3.0)
     scaleV: (1.0 / 3.0)
-    // Shift texture position during pan to show adjacent blocks
     positionU: mapTerrainProvider.size.width > 0 ? -(mapArea.panOffsetX / mapTerrainProvider.size.width) * (1.0 / 3.0) : 0
     positionV: mapTerrainProvider.size.height > 0 ? -(mapArea.panOffsetZ / mapTerrainProvider.size.height) * (1.0 / 3.0) : 0
   }
@@ -255,19 +252,15 @@ Item {
     }
   }
 
-  // Pan/zoom preview state
   property real panOffsetX: 0
   property real panOffsetZ: 0
   property bool isPanning: false
   property bool isTransitioning: false
 
-  // Metagrid state (data stored inside C++ Quick3DTerrainGeometry)
   property bool metagridReady: false
-  
-  // Direct reference to terrain geometry for fast access
+
   readonly property var terrainGeometry: terrainMesh ? terrainMesh.mapTerrainGeometry : null
 
-  // Explicitly update heights when panning state changes
   onIsPanningChanged: {
     if (isPanning) {
       if (metagridReady && terrainGeometry) {
@@ -275,7 +268,7 @@ Item {
       }
     } else {
       if (terrainGeometry) {
-        terrainGeometry.heightData = mapTerrainProvider.normalizedData;
+        terrainGeometry.restoreHeightsFromProvider(mapTerrainProvider);
       }
     }
   }
@@ -309,7 +302,6 @@ Item {
     onExtentPanFinished: {
       const savedX = panOffsetX;
       const savedZ = panOffsetZ;
-      // Texture stays shifted until reload completes; terrain stays flat during drag
       isTransitioning = true;
       applyExtentShift(savedX, savedZ);
     }
@@ -415,7 +407,6 @@ Item {
     let halfW = ext.width / 2 * factor;
     let halfH = ext.height / 2 * factor;
 
-    // Clamp extent size
     const minHalfExtent = 50;
     const maxHalfExtent = 50000;
     halfW = Math.max(minHalfExtent, Math.min(maxHalfExtent, halfW));

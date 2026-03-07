@@ -104,7 +104,7 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Emitted when texture rendering is complete and data is ready
     void readyChanged();
 
-    //! Emitted every time texture data has been updated (unlike readyChanged which only fires once)
+    //! Emitted every time texture data has been updated
     void textureUpdated();
 
     //! Emitted when incremental rendering setting changes
@@ -119,6 +119,12 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     void layerRepaintRequested();
 
   private:
+
+    /**
+     * Create a 3x3 metagrid: the center block is the rendered map,
+     * surrounding blocks are a neutral gray representing non-rendered areas.
+     * This allows panning via Texture positionU/V to reveal gray edges
+     */
     void updateTextureData( const QImage &image );
     void refresh();
 
