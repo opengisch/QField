@@ -68,6 +68,7 @@ QfOverlayContainer {
             let pv = cogoOperationSettings.parameterValues;
             pv[parameter.parameterName] = value;
             cogoOperationSettings.parameterValues = pv;
+            cogoOperationSettings.parameterValuesChanged();
           }
 
           function onRequestPosition(item, fromCoordinateLocator) {
