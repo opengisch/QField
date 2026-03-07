@@ -57,7 +57,7 @@ void FileReceiver::handleConnectDevice()
   }
 
   qInfo() << QStringLiteral( "FileReceiver: Initiating replay of logs %1" ).arg( mLogs.fileName() );
-  if ( !mLogs.open( QIODevice::ReadOnly ) )
+  if ( mLogs.open( QIODevice::ReadOnly ) )
   {
     mBuffer->open( QIODevice::ReadWrite );
     setSocketState( QAbstractSocket::ConnectedState );
