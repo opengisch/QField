@@ -9,6 +9,10 @@ Item {
   signal singleTapped(real x, real y)
   signal userInteractionStarted
 
+  signal extentPanMoved(real sceneX, real sceneZ)
+  signal extentPanFinished
+  signal extentZoomRequested(real factor)
+
   property vector3d target: Qt.vector3d(0, 100, 0)
 
   property real distance: root.defaultDistance
@@ -167,7 +171,7 @@ Item {
     acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedModifiers: Qt.NoModifier
 
-    property var lastPoint
+    property point lastPoint
 
     onActiveChanged: {
       if (active) {
@@ -196,7 +200,7 @@ Item {
     acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedModifiers: Qt.NoModifier
 
-    property var lastPoint
+    property point lastPoint
 
     onActiveChanged: {
       if (active) {
@@ -221,7 +225,7 @@ Item {
     dragThreshold: 5
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
 
-    property var lastPoint
+    property point lastPoint
 
     onActiveChanged: {
       if (active) {
@@ -296,14 +300,58 @@ Item {
     }
   }
 
-  WheelHandler {
+  MouseArea {
     id: wheelHandler
-    target: null
-    acceptedDevices: PointerDevice.AllDevices
+    anchors.fill: parent
+    acceptedButtons: Qt.NoButton
+    propagateComposedEvents: true
 
-    onWheel: function (event) {
+    onWheel: function (wheel) {
       root.userInteractionStarted();
-      root.distance = clampDistance(distance - event.angleDelta.y * 0.5);
+      if (wheel.modifiers & Qt.ShiftModifier) {
+        const delta = wheel.angleDelta.x !== 0 ? wheel.angleDelta.x : wheel.angleDelta.y;
+        const factor = delta > 0 ? 0.8 : 1.25;
+        root.extentZoomRequested(factor);
+        wheel.accepted = true;
+      } else {
+        root.distance = clampDistance(distance - wheel.angleDelta.y * 0.5);
+        wheel.accepted = true;
+      }
+    }
+  }
+
+  DragHandler {
+    id: extentPanHandler
+    target: null
+    acceptedButtons: Qt.LeftButton
+    acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
+    acceptedModifiers: Qt.ShiftModifier
+
+    property point lastPoint
+
+    onActiveChanged: {
+      if (active) {
+        lastPoint = centroid.position;
+        root.userInteractionStarted();
+      } else {
+        root.extentPanFinished();
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        const dx = centroid.position.x - lastPoint.x;
+        const dy = centroid.position.y - lastPoint.y;
+        lastPoint = centroid.position;
+
+        // Convert pixel delta to scene-space displacement
+        const s = root.distance * 0.0025;
+        const yawRad = -root.yaw * Math.PI / 180.0;
+        const sceneX = (dx * s * Math.cos(yawRad) - dy * s * Math.sin(yawRad));
+        const sceneZ = (dx * s * Math.sin(yawRad) + dy * s * Math.cos(yawRad));
+
+        root.extentPanMoved(sceneX, sceneZ);
+      }
     }
   }
 }

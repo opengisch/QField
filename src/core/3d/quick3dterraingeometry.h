@@ -19,8 +19,11 @@
 
 #include <QQuick3DGeometry>
 #include <QSize>
+#include <QTimer>
 #include <QVector3D>
 #include <QVector>
+
+class Quick3DTerrainProvider;
 
 /**
  * Custom Qt Quick 3D geometry for rendering terrain meshes with height data.
@@ -61,10 +64,19 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     QSizeF size() const { return mSize; }
 
     //! Sets the terrain width.
-    void setSize( QSizeF size );
+    void setSize( const QSizeF &size );
 
     //! Sets the height data array.
     void setHeightData( const QVariantList &data );
+
+    //! Builds and stores a 3x3 metagrid from the provider's normalized data
+    Q_INVOKABLE void buildMetagridFromProvider( const Quick3DTerrainProvider *provider );
+
+    //! Applies shifted heights from stored metagrid based on pan offsets
+    Q_INVOKABLE void applyShiftedHeights( float panOffsetX, float panOffsetZ );
+
+    //! Restores the original height data from the provider
+    Q_INVOKABLE void restoreHeightsFromProvider( const Quick3DTerrainProvider *provider );
 
   signals:
     void gridSizeChanged();
@@ -91,6 +103,16 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     QSizeF mSize;
 
     QVector<float> mHeights;
+
+    QVector<float> mMetagridHeights;
+    int mMetagridWidth = 0;
+    int mMetagridHeight = 0;
+
+    QTimer mPanThrottleTimer;
+    float mPendingPanOffsetX = 0.0f;
+    float mPendingPanOffsetZ = 0.0f;
+    bool mPanUpdatePending = false;
+
     bool mDirty = true;
 };
 

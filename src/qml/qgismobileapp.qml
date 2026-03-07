@@ -332,6 +332,13 @@ ApplicationWindow {
   }
 
   onClose3DView: {
+    // Sync 2D map to the 3D extent so we land on the same area
+    if (mapCanvas3DLoader.item) {
+      const ext = mapCanvas3DLoader.item.terrainExtent;
+      if (ext && ext.width > 0 && ext.height > 0) {
+        mapCanvas.mapSettings.extent = ext;
+      }
+    }
     changeMode(stateMachine.lastState);
   }
 
@@ -737,7 +744,7 @@ ApplicationWindow {
       id: loadingOverlay
       anchors.fill: parent
       color: "#80000000"
-      visible: stateMachine.state === '3d' && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading
+      visible: stateMachine.state === '3d' && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && mapCanvas3DLoader.item.isFirstLoad
       z: 1000
 
       Column {
@@ -2633,7 +2640,7 @@ ApplicationWindow {
       anchors.top: mainToolbar.bottom
       width: menuButton.width + 10
       height: width
-      running: mapCanvasMap.isRendering
+      running: mapCanvasMap.isRendering || (stateMachine.state === '3d' && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && !mapCanvas3DLoader.item.isFirstLoad)
     }
 
     Column {
