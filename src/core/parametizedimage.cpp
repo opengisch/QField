@@ -122,6 +122,7 @@ void ParametizedImage::setParameters( const QVariantMap &parameters )
   if ( mParameters == parameters )
     return;
 
+  mParameters = parameters;
   mPreparedParameters.clear();
   const QStringList keys = parameters.keys();
   for ( const QString &key : keys )
