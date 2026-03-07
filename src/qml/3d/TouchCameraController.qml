@@ -171,7 +171,7 @@ Item {
     acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedModifiers: Qt.NoModifier
 
-    property var lastPoint
+    property point lastPoint
 
     onActiveChanged: {
       if (active) {
@@ -200,7 +200,7 @@ Item {
     acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedModifiers: Qt.NoModifier
 
-    property var lastPoint
+    property point lastPoint
 
     onActiveChanged: {
       if (active) {
@@ -225,7 +225,7 @@ Item {
     dragThreshold: 5
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
 
-    property var lastPoint
+    property point lastPoint
 
     onActiveChanged: {
       if (active) {
@@ -327,7 +327,7 @@ Item {
     acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedModifiers: Qt.ShiftModifier
 
-    property var lastPoint
+    property point lastPoint
 
     onActiveChanged: {
       if (active) {

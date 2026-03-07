@@ -8,12 +8,12 @@ import Theme
 Item {
   id: mapArea
   focus: true
-  visible: !mapTerrainProvider.isFirstLoad || !isLoading
+  visible: !isFirstLoad || !isLoading
 
   property alias mapSettings: mapTerrainProvider.mapSettings
   property alias terrainExtent: mapTerrainProvider.extent
   property bool isLoading: mapTerrainProvider.isLoading
-  property bool isFirstLoad: mapTerrainProvider.isFirstLoad
+  property bool isFirstLoad: true
   property bool wireframeMode: false
 
   property bool gnssActive: false
@@ -30,8 +30,6 @@ Item {
     project: qgisProject
     mapSettings: mapArea.mapSettings
     forceSquareSize: true
-
-    property bool isFirstLoad: true
 
     onTerrainDataReady: {
       if (normalizedData.length === 0) {
@@ -259,14 +257,10 @@ Item {
 
   property bool metagridReady: false
 
-  readonly property var terrainGeometry: terrainMesh ? terrainMesh.mapTerrainGeometry : null
+  readonly property Quick3DTerrainGeometry terrainGeometry: terrainMesh ? terrainMesh.mapTerrainGeometry : null
 
   onIsPanningChanged: {
-    if (isPanning) {
-      if (metagridReady && terrainGeometry) {
-        terrainGeometry.applyShiftedHeights(panOffsetX, panOffsetZ);
-      }
-    } else {
+    if (!isPanning) {
       if (terrainGeometry) {
         terrainGeometry.restoreHeightsFromProvider(mapTerrainProvider);
       }
@@ -408,7 +402,7 @@ Item {
     let halfH = ext.height / 2 * factor;
 
     const minHalfExtent = 50;
-    const maxHalfExtent = 50000;
+    const maxHalfExtent = 500000;
     halfW = Math.max(minHalfExtent, Math.min(maxHalfExtent, halfW));
     halfH = Math.max(minHalfExtent, Math.min(maxHalfExtent, halfH));
 
