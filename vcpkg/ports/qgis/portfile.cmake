@@ -1,5 +1,5 @@
-set(QGIS_REF bc4c5b7fb2d4ee8ab52ae95116dba9ae45c4ac70)
-set(QGIS_SHA512 c51a03a00fc4735fbf9e7e291236f6bbc6d0eec6d1924bb7008f94857f4308d51bec099b03e2f83e0cd605b3257426b63b335f4f0fc60d21bebed8658d3d4ab1)
+set(QGIS_REF final-4_0_0)
+set(QGIS_SHA512 8904f1701b6b2dc6887649c0c4f0c132c691dac5ab8c9073a52b80eead7ae2763192e9063fb1e91e8fe4b132fb195b016dc492216f0e19bccb1b0c201d562b02)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -13,6 +13,7 @@ vcpkg_from_github(
         crssync-no-install.patch
         include-qthread.patch
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
+        processing_process.patch # Needed to aovid iOS build failure due to absence Qt process feature support
         mesh.patch
 )
 
