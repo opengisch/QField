@@ -135,6 +135,12 @@ void Quick3DTerrainProvider::setCustomExtent( double xMin, double yMin, double x
     return;
   }
 
+  QgsRectangle rect( xMin, yMin, xMax, yMax );
+  if ( rect.isEmpty() )
+  {
+    return;
+  }
+
   applyExtent( QgsRectangle( xMin, yMin, xMax, yMax ) );
 }
 
