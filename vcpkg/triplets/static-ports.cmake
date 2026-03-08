@@ -3,6 +3,7 @@ set(STATIC_PORTS
     catch2
     libiconv
     freexl
+    ffmpeg
     libspatialite
     qhull
     harfbuzz
@@ -11,4 +12,5 @@ set(STATIC_PORTS
     qca # OSSL plugin not discovered unless static
     qgis
     poppler
+    hdf5
 )
