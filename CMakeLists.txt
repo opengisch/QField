@@ -21,6 +21,8 @@ string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
+
 # Platform specific fixes (android, macos, ...)
 include(Platform)
 # Obtain git revision
