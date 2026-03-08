@@ -30,24 +30,26 @@ class RecentProjectListModel : public QAbstractListModel
     {
       LocalProject,
       CloudProject,
+      LinkProject,
       LocalDataset,
     };
+    Q_ENUM( ProjectType )
 
     struct RecentProject
     {
         RecentProject() = default;
 
-        RecentProject( ProjectType type, const QString &title, const QString &path, bool sample )
+        RecentProject( ProjectType type, const QString &title, const QString &path, const QString &thumbnail = QString() )
           : type( type )
           , title( title )
           , path( path )
-          , sample( sample )
+          , thumbnail( thumbnail )
         {}
 
         ProjectType type = ProjectType::LocalProject;
         QString title;
         QString path;
-        bool sample = false;
+        QString thumbnail;
     };
 
     /*!
@@ -58,7 +60,7 @@ class RecentProjectListModel : public QAbstractListModel
       ProjectTypeRole = Qt::UserRole, //! the project type (e.g., local, cloud, etc.)
       ProjectTitleRole,               //! the project title
       ProjectPathRole,                //! the project path
-      ProjectSampleRole,              //! if the project is a sample project
+      ProjectThumbnailRole,           //! the project thumbnail
     };
     Q_ENUM( Role )
 
@@ -71,6 +73,12 @@ class RecentProjectListModel : public QAbstractListModel
     QVariant data( const QModelIndex &index, int role ) const override;
 
     Q_INVOKABLE void reloadModel();
+
+    Q_INVOKABLE static void removeRecentProject( const QString &path );
+
+    static QList<RecentProject> recentProjects( bool skipNonExistent = false );
+
+    static void saveRecentProjects( const QList<RecentProject> &projects );
 
   signals:
     void projectChanged();

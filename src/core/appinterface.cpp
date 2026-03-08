@@ -130,11 +130,6 @@ QObject *AppInterface::positioning() const
   return nullptr;
 }
 
-void AppInterface::removeRecentProject( const QString &path )
-{
-  return mApp->removeRecentProject( path );
-}
-
 bool AppInterface::hasProjectOnLaunch() const
 {
   if ( PlatformUtilities::instance()->hasQgsProject() )
@@ -345,7 +340,7 @@ void AppInterface::clearProject() const
   mApp->clearProject();
 }
 
-void AppInterface::importUrl( const QString &url, bool loadOnImport )
+void AppInterface::importUrl( const QString &url, const QString &title, bool loadOnImport )
 {
   QString sanitizedUrl = url.trimmed();
   if ( sanitizedUrl.isEmpty() )
@@ -365,7 +360,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
   QNetworkRequest request( ( QUrl( sanitizedUrl ) ) );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
 
-  emit importTriggered( request.url().fileName() );
+  emit importTriggered( !title.isEmpty() ? title : request.url().fileName() );
 
   QNetworkReply *reply = manager->get( request );
 
@@ -385,7 +380,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
     }
   } );
 
-  connect( reply, &QNetworkReply::finished, this, [this, reply, temporaryFile, applicationDirectory, loadOnImport]() {
+  connect( reply, &QNetworkReply::finished, this, [this, url, reply, temporaryFile, applicationDirectory, loadOnImport]() {
     if ( reply->error() == QNetworkReply::NoError )
     {
       QString fileName = reply->url().fileName();
@@ -452,7 +447,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
               }
 
               // Project archive successfully imported
-              emit importEnded( loadOnImport && projectFilePaths.size() == 1 ? projectFilePaths.at( 0 ) : zipDirectory );
+              emit importEnded( loadOnImport && projectFilePaths.size() == 1 ? projectFilePaths.at( 0 ) : zipDirectory, url );
               return;
             }
             else
@@ -470,7 +465,8 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
         // Dataset successfully imported
         QFileInfo fi( filePath );
         emit importEnded( loadOnImport ? fi.absoluteFilePath() : fi.isFile() ? fi.absolutePath()
-                                                                             : fi.absoluteFilePath() );
+                                                                             : fi.absoluteFilePath(),
+                          url );
         return;
       }
     }
