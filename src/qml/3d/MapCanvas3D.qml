@@ -15,6 +15,7 @@ Item {
   property bool isLoading: mapTerrainProvider.isLoading
   property bool isFirstLoad: true
   property bool wireframeMode: false
+  property alias extentMode: cameraController.extentMode
 
   property bool gnssActive: false
   property var gnssPosition: null

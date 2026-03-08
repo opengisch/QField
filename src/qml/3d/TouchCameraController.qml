@@ -13,6 +13,8 @@ Item {
   signal extentPanFinished
   signal extentZoomRequested(real factor)
 
+  property bool extentMode: false
+
   property vector3d target: Qt.vector3d(0, 100, 0)
 
   property real distance: root.defaultDistance
@@ -231,6 +233,8 @@ Item {
       if (active) {
         lastPoint = centroid.position;
         root.userInteractionStarted();
+      } else if (root.extentMode) {
+        root.extentPanFinished();
       }
     }
 
@@ -238,11 +242,18 @@ Item {
       if (active) {
         const dx = centroid.position.x - lastPoint.x;
         const dy = centroid.position.y - lastPoint.y;
-
-        root.yaw -= dx * orbitSensitivity;
-        root.pitch = clampPitch(pitch + dy * orbitSensitivity);
-
         lastPoint = centroid.position;
+
+        if (root.extentMode) {
+          const s = root.distance * 0.0025;
+          const yawRad = -root.yaw * Math.PI / 180.0;
+          const sceneX = (dx * s * Math.cos(yawRad) - dy * s * Math.sin(yawRad));
+          const sceneZ = (dx * s * Math.sin(yawRad) + dy * s * Math.cos(yawRad));
+          root.extentPanMoved(sceneX, sceneZ);
+        } else {
+          root.yaw -= dx * orbitSensitivity;
+          root.pitch = clampPitch(pitch + dy * orbitSensitivity);
+        }
       }
     }
   }
@@ -282,7 +293,12 @@ Item {
 
     onActiveScaleChanged: {
       if (active) {
-        root.distance = clampDistance(root.distance * (oldScale / pinchHandler.activeScale));
+        if (root.extentMode) {
+          const factor = oldScale / pinchHandler.activeScale;
+          root.extentZoomRequested(factor);
+        } else {
+          root.distance = clampDistance(root.distance * (oldScale / pinchHandler.activeScale));
+        }
         oldScale = pinchHandler.activeScale;
       }
     }
