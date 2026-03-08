@@ -192,6 +192,7 @@ class Quick3DTerrainProvider : public QObject
     double mMaxRealHeight = 0.0;
 
     bool mIsLoading = false;
+    bool mRecalcPending = false;
     QFutureWatcher<QVector<double>> *mFutureWatcher = nullptr;
 };
 

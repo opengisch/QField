@@ -304,8 +304,8 @@ void Quick3DTerrainProvider::calcNormalizedData()
 
   if ( mFutureWatcher->isRunning() )
   {
-    mFutureWatcher->cancel();
-    mFutureWatcher->waitForFinished();
+    mRecalcPending = true;
+    return;
   }
 
   mIsLoading = true;
@@ -493,4 +493,10 @@ void Quick3DTerrainProvider::onTerrainDataCalculated()
 
   emit normalizedDataChanged();
   emit terrainDataReady();
+
+  if ( mRecalcPending )
+  {
+    mRecalcPending = false;
+    calcNormalizedData();
+  }
 }
