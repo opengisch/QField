@@ -181,15 +181,17 @@ void MultiFeatureListModel::toggleSelectedItem( int item )
   mSourceModel->toggleSelectedItem( sourceItem.row() );
   if ( mSourceModel->selectedCount() > 0 && mFilterLayer == nullptr )
   {
+    beginFilterChange();
     mFilterLayer = mSourceModel->data( sourceItem, MultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
+    endFilterChange( QSortFilterProxyModel::Direction::Rows );
     emit selectedLayerChanged();
-    invalidateFilter();
   }
   else if ( mSourceModel->selectedCount() == 0 && mFilterLayer != nullptr )
   {
+    beginFilterChange();
     mFilterLayer = nullptr;
+    endFilterChange( QSortFilterProxyModel::Direction::Rows );
     emit selectedLayerChanged();
-    invalidateFilter();
   }
 }
 
@@ -197,15 +199,17 @@ void MultiFeatureListModel::adjustFilterToSelectedCount()
 {
   if ( mSourceModel->selectedCount() > 0 && mFilterLayer == nullptr )
   {
+    beginFilterChange();
     mFilterLayer = mSourceModel->selectedLayer();
+    endFilterChange( QSortFilterProxyModel::Direction::Rows );
     emit selectedLayerChanged();
-    invalidateFilter();
   }
   else if ( mSourceModel->selectedCount() == 0 && mFilterLayer != nullptr )
   {
+    beginFilterChange();
     mFilterLayer = nullptr;
+    endFilterChange( QSortFilterProxyModel::Direction::Rows );
     emit selectedLayerChanged();
-    invalidateFilter();
   }
   emit selectedCountChanged();
 }

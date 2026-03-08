@@ -54,6 +54,16 @@ void Quick3DTerrainGeometry::setSize( QSizeF size )
   updateGeometry();
 }
 
+QVariantList Quick3DTerrainGeometry::heightData() const
+{
+  QVariantList heights;
+  for ( const float &h : mHeights )
+  {
+    heights << h;
+  }
+  return heights;
+}
+
 void Quick3DTerrainGeometry::setHeightData( const QVariantList &data )
 {
   mHeights.clear();

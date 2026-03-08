@@ -371,7 +371,11 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
 
   QTemporaryFile *temporaryFile = new QTemporaryFile( reply );
   temporaryFile->setFileTemplate( QStringLiteral( "%1/XXXXXXXXXXXX" ).arg( applicationDirectory ) );
-  temporaryFile->open();
+  if ( !temporaryFile->open() )
+  {
+    reply->abort();
+    return;
+  }
 
   connect( reply, &QNetworkReply::downloadProgress, this, [this, reply, temporaryFile]( qint64 bytesReceived, qint64 bytesTotal ) {
     temporaryFile->write( reply->readAll() );

@@ -22,7 +22,7 @@
 CogoOperationsModel::CogoOperationsModel( QObject *parent )
   : QAbstractListModel( parent )
 {
-  connect( CogoRegistry::instance(), &CogoRegistry::operationAdded, this, [=]() { buildModel(); } );
+  connect( CogoRegistry::instance(), &CogoRegistry::operationAdded, this, [this]() { buildModel(); } );
 
   buildModel();
 }

@@ -96,7 +96,7 @@ Pane {
         return parent.height;
       } else {
         const defaultMin = Math.min(Math.max(200, parent.height / 2), parent.height);
-        var minContentHeight = featureForm.visible ? defaultMin : featureListToolBar.height + (globalFeaturesList.contentHeight + globalFeaturesList.anchors.bottomMargin) + 25;
+        var minContentHeight = featureFormList.state !== "FeatureList" ? defaultMin : featureListToolBar.height + (globalFeaturesList.contentHeight + globalFeaturesList.anchors.bottomMargin) + 25;
         const newHeight = Math.min(minContentHeight, defaultMin);
         lastHeight = newHeight;
         return newHeight;

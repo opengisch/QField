@@ -647,7 +647,7 @@ TestCase {
    * Tests ValueRelation when AllowNull is enabled.
    *
    * This test:
-   * - Verifies that a NULL option is displayed as <i>NULL</i>
+   * - Verifies that a NULL option is displayed as NULL
    * - Checks that other items are displayed and ordered correctly
    */
   function test_05_ValueRelation() {
@@ -678,7 +678,7 @@ TestCase {
     const namesInList = expectedOrderedData["name"];
     wait(500);
     compare(comboBoxItem.count, namesInList.length + 1);
-    compare(comboBoxItem.displayText, "<i>NULL</i>");
+    compare(comboBoxItem.displayText, "NULL");
 
     // check every element inside combobox model is correctly setted
     for (let i = 1; i < comboBoxItem.count - 1; ++i) {

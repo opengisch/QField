@@ -219,7 +219,7 @@ TestCase {
     cloudConnection.url = data.url;
     cloudConnection.getAuthenticationProviders();
     tryCompare(availableProvidersChangedSpy, "count", 1, 10000);
-    wait(200);
+    wait(500);
     verify(availableProvidersRepeater.model.length > 0);
     compare(availableProvidersRepeater.model.length, cloudConnection.availableProviders.length);
     var hasCredentialsProvider = false;

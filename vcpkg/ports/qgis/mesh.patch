@@ -1,12 +1,12 @@
 diff --git a/src/core/mesh/qgstopologicalmesh.h b/src/core/mesh/qgstopologicalmesh.h
-index 8b487e3471f..9466bfe93a8 100644
+index d1dc6448095..6e8cce94b48 100644
 --- a/src/core/mesh/qgstopologicalmesh.h
 +++ b/src/core/mesh/qgstopologicalmesh.h
 @@ -20,12 +20,6 @@
  
- #include "qgsmeshdataprovider.h"
+ #include <QSet>
  
--#if defined(_MSC_VER)
+-#if defined( _MSC_VER )
 -template CORE_EXPORT QVector<int> SIP_SKIP;
 -template CORE_EXPORT QList<int> SIP_SKIP;
 -template CORE_EXPORT QVector<QVector<int>> SIP_SKIP;
