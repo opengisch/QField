@@ -687,56 +687,6 @@ void QgisMobileapp::loadProjectQuirks()
     mLayerTreeCanvasBridge->setAutoSetupOnFirstLayer( true );
 }
 
-void QgisMobileapp::removeRecentProject( const QString &path )
-{
-  QList<QPair<QString, QString>> projects = recentProjects();
-  for ( int idx = 0; idx < projects.count(); idx++ )
-  {
-    if ( projects.at( idx ).second == path )
-    {
-      projects.removeAt( idx );
-      break;
-    }
-  }
-  saveRecentProjects( projects );
-}
-
-QList<QPair<QString, QString>> QgisMobileapp::recentProjects()
-{
-  QSettings settings;
-  QList<QPair<QString, QString>> projects;
-
-  settings.beginGroup( "/qgis/recentProjects" );
-  const QStringList projectKeysList = settings.childGroups();
-  QList<int> projectKeys;
-  // This is overdoing it since we're clipping the recent projects list to five items at the moment, but might as well be futureproof
-  for ( const QString &key : projectKeysList )
-  {
-    projectKeys.append( key.toInt() );
-  }
-  for ( int i = 0; i < projectKeys.count(); i++ )
-  {
-    settings.beginGroup( QString::number( projectKeys.at( i ) ) );
-    projects << qMakePair( settings.value( QStringLiteral( "title" ) ).toString(), settings.value( QStringLiteral( "path" ) ).toString() );
-    settings.endGroup();
-  }
-  settings.endGroup();
-  return projects;
-}
-
-void QgisMobileapp::saveRecentProjects( const QList<QPair<QString, QString>> &projects )
-{
-  QSettings settings;
-  settings.remove( QStringLiteral( "/qgis/recentProjects" ) );
-  for ( int idx = 0; idx < projects.count() && idx < 5; idx++ )
-  {
-    settings.beginGroup( QStringLiteral( "/qgis/recentProjects/%1" ).arg( idx ) );
-    settings.setValue( QStringLiteral( "title" ), projects.at( idx ).first );
-    settings.setValue( QStringLiteral( "path" ), projects.at( idx ).second );
-    settings.endGroup();
-  }
-}
-
 void QgisMobileapp::onAfterFirstRendering()
 {
   // This should get triggered exactly once, so we disconnect it right away
@@ -913,18 +863,17 @@ void QgisMobileapp::readProjectFile()
     title = mProject->title().isEmpty() ? mProjectFileName : mProject->title();
   }
 
-  QList<QPair<QString, QString>> projects = recentProjects();
+  QList<RecentProjectListModel::RecentProject> projects = RecentProjectListModel::recentProjects();
   for ( int idx = 0; idx < projects.count(); idx++ )
   {
-    if ( projects.at( idx ).second == mProjectFilePath )
+    if ( projects.at( idx ).path == mProjectFilePath )
     {
       projects.removeAt( idx );
       break;
     }
   }
-  QPair<QString, QString> project = qMakePair( title, mProjectFilePath );
-  projects.insert( 0, project );
-  saveRecentProjects( projects );
+  projects.insert( 0, RecentProjectListModel::RecentProject( RecentProjectListModel::LocalProject, title, mProjectFilePath ) );
+  RecentProjectListModel::saveRecentProjects( projects );
 
   QList<QgsMapLayer *> vectorLayers;
   QList<QgsMapLayer *> rasterLayers;

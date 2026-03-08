@@ -48,10 +48,11 @@ class AppInterface : public QObject
     /**
      * Imports a compressed project from a given URL and place the content into the Imported Projects
      * folder.
-     * \param url the URL where the compressed project ZIP file is
+     * \param url the http/https URL where the project's compressed ZIP file is
+     * \param url the title of the project being imported
      * \param loadOnImport set to TRUE to load the project on successful import
      */
-    Q_INVOKABLE void importUrl( const QString &url, bool loadOnImport = false );
+    Q_INVOKABLE void importUrl( const QString &url, const QString &title = QString(), bool loadOnImport = false );
 
     //! Returns TRUE is a project was passed on when launching QField.
     Q_INVOKABLE bool hasProjectOnLaunch() const;
@@ -66,8 +67,6 @@ class AppInterface : public QObject
 
     //! Reloads the currently opened project.
     Q_INVOKABLE void reloadProject();
-    //! Removes a given project \a path from the recent projects list.
-    Q_INVOKABLE void removeRecentProject( const QString &path );
 
     /**
      * Reads a string from the specified scope and key.
@@ -247,7 +246,7 @@ class AppInterface : public QObject
      * \param path the path within which the imported dataset or project has been copied into
      * \note if the import was not successful, the path value will be an empty string
      */
-    void importEnded( const QString &path = QString() );
+    void importEnded( const QString &path = QString(), const QString &originalUrl = QString() );
 
     /**
      * Emitted when a project has begin loading.

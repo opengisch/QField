@@ -4562,12 +4562,14 @@ ApplicationWindow {
       busyOverlay.progress = progress;
     }
 
-    function onImportEnded(path) {
+    function onImportEnded(path, originalUrl) {
       busyOverlay.state = "hidden";
       if (path !== '') {
         if (FileUtils.fileExists(path)) {
           // A project or dataset path is provided, load it
           iface.loadFile(path);
+          welcomeScreen.model.removeRecentProject(originalUrl);
+          welcomeScreen.model.reloadModel();
         } else {
           // A directory path is provided, display it
           qfieldLocalDataPickerScreen.model.currentPath = path;
@@ -5297,7 +5299,7 @@ ApplicationWindow {
     }
 
     onAccepted: {
-      iface.importUrl(importPermissionDialog.url, true);
+      iface.importUrl(importPermissionDialog.url, "", true);
     }
 
     standardButtons: Dialog.Yes | Dialog.No
