@@ -2633,6 +2633,27 @@ ApplicationWindow {
       }
     }
 
+    QfToolButton {
+      id: extentModeButton
+      visible: stateMachine.state === '3d' && mapCanvas3DLoader.item
+      anchors.left: mainMenuBar.left
+      anchors.leftMargin: mainWindow.sceneLeftMargin + 4
+      anchors.top: mainMenuBar.bottom
+      anchors.topMargin: 4
+      round: true
+      iconSource: Theme.getThemeVectorIcon("ic_move_white_24dp")
+      iconColor: checked ? "white" : Theme.toolButtonColor
+      bgcolor: checked ? Theme.mainColor : Theme.toolButtonBackgroundColor
+      checkable: true
+      checked: mapCanvas3DLoader.item ? mapCanvas3DLoader.item.extentMode : false
+
+      onClicked: {
+        if (mapCanvas3DLoader.item) {
+          mapCanvas3DLoader.item.extentMode = !mapCanvas3DLoader.item.extentMode;
+        }
+      }
+    }
+
     BusyIndicator {
       id: busyIndicator
       anchors.left: mainMenuBar.left
