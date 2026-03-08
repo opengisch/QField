@@ -166,15 +166,17 @@ QList<GnssPositionInformation> PositioningSource::getBackgroundPositionInformati
   QFile file( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) );
   if ( file.exists() )
   {
-    file.open( QFile::ReadOnly );
-    QDataStream stream( &file );
-    while ( !stream.atEnd() )
+    if ( file.open( QFile::ReadOnly ) )
     {
-      GnssPositionInformation positionInformation;
-      stream >> positionInformation;
-      positionInformationList << positionInformation;
+      QDataStream stream( &file );
+      while ( !stream.atEnd() )
+      {
+        GnssPositionInformation positionInformation;
+        stream >> positionInformation;
+        positionInformationList << positionInformation;
+      }
+      file.close();
     }
-    file.close();
   }
 
   return positionInformationList;
@@ -334,10 +336,12 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
   else
   {
     QFile file( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) );
-    file.open( QFile::Append );
-    QDataStream stream( &file );
-    stream << mPositionInformation;
-    file.close();
+    if ( file.open( QFile::Append ) )
+    {
+      QDataStream stream( &file );
+      stream << mPositionInformation;
+      file.close();
+    }
   }
 }
 

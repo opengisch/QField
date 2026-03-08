@@ -107,8 +107,10 @@ void NmeaGnssReceiver::handleStartLogging( const QString &path )
       handleStopLogging();
 
     mLogFile.setFileName( QStringLiteral( "%1/nmea-%2.log" ).arg( path, QDateTime::currentDateTime().toString( QStringLiteral( "yyyy-MM-ddThh:mm:ss" ) ) ) );
-    mLogFile.open( QIODevice::WriteOnly );
-    mLogStream.setDevice( &mLogFile );
+    if ( mLogFile.open( QIODevice::WriteOnly ) )
+    {
+      mLogStream.setDevice( &mLogFile );
+    }
   }
 }
 

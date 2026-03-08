@@ -1,0 +1,173 @@
+diff --git a/src/analysis/processing/pdal/qgsalgorithmpdalcreatecopc.cpp b/src/analysis/processing/pdal/qgsalgorithmpdalcreatecopc.cpp
+index 9588eba636e..734bbe75ce0 100644
+--- a/src/analysis/processing/pdal/qgsalgorithmpdalcreatecopc.cpp
++++ b/src/analysis/processing/pdal/qgsalgorithmpdalcreatecopc.cpp
+@@ -95,7 +95,7 @@ bool QgsPdalCreateCopcAlgorithm::prepareAlgorithm( const QVariantMap &parameters
+ 
+ QVariantMap QgsPdalCreateCopcAlgorithm::processAlgorithm( const QVariantMap &parameters, QgsProcessingContext &context, QgsProcessingFeedback *feedback )
+ {
+-#ifdef HAVE_PDAL_QGIS
++#if defined( HAVE_PDAL_QGIS ) && QT_CONFIG( process )
+   const QList<QgsMapLayer *> layers = parameterAsLayerList( parameters, u"LAYERS"_s, context, QgsProcessing::LayerOptionsFlag::SkipIndexGeneration );
+   if ( layers.empty() )
+   {
+@@ -209,7 +209,11 @@ QVariantMap QgsPdalCreateCopcAlgorithm::processAlgorithm( const QVariantMap &par
+   Q_UNUSED( parameters )
+   Q_UNUSED( context )
+   Q_UNUSED( feedback )
++#if QT_CONFIG( process )
+   throw QgsProcessingException( QObject::tr( "This algorithm requires a QGIS installation with PDAL support enabled." ) );
++#else
++  throw QgsProcessingException( QObject::tr( "This algorithm requires a QGIS installation with Qt process feature enabled" ) );
++#endif
+ #endif
+ }
+ 
+diff --git a/src/analysis/processing/pdal/qgsalgorithmpdalinformation.cpp b/src/analysis/processing/pdal/qgsalgorithmpdalinformation.cpp
+index 8408bb728ad..ac60c20519e 100644
+--- a/src/analysis/processing/pdal/qgsalgorithmpdalinformation.cpp
++++ b/src/analysis/processing/pdal/qgsalgorithmpdalinformation.cpp
+@@ -74,6 +74,7 @@ void QgsPdalInformationAlgorithm::initAlgorithm( const QVariantMap & )
+ 
+ QVariantMap QgsPdalInformationAlgorithm::processAlgorithm( const QVariantMap &parameters, QgsProcessingContext &context, QgsProcessingFeedback *feedback )
+ {
++#if QT_CONFIG( process )
+   const QStringList processArgs = createArgumentLists( parameters, context, feedback );
+   const QString wrenchPath = wrenchExecutableBinary();
+ 
+@@ -82,9 +83,7 @@ QVariantMap QgsPdalInformationAlgorithm::processAlgorithm( const QVariantMap &pa
+   QStringList commandOutput;
+ 
+   QgsBlockingProcess wrenchProcess( wrenchPath, processArgs );
+-  wrenchProcess.setStdErrHandler( [feedback]( const QByteArray &ba ) {
+-    feedback->reportError( ba.trimmed() );
+-  } );
++  wrenchProcess.setStdErrHandler( [feedback]( const QByteArray &ba ) { feedback->reportError( ba.trimmed() ); } );
+   wrenchProcess.setStdOutHandler( [feedback, &commandOutput]( const QByteArray &ba ) {
+     feedback->pushConsoleInfo( ba.trimmed() );
+     commandOutput << ba;
+@@ -129,6 +128,12 @@ QVariantMap QgsPdalInformationAlgorithm::processAlgorithm( const QVariantMap &pa
+   outputs.insert( u"OUTPUT"_s, outputFile );
+ 
+   return outputs;
++#else
++  Q_UNUSED( parameters )
++  Q_UNUSED( context )
++  Q_UNUSED( feedback )
++  throw QgsProcessingException( QObject::tr( "This algorithm requires a QGIS installation with Qt process feature enabled" ) );
++#endif
+ }
+ 
+ QStringList QgsPdalInformationAlgorithm::createArgumentLists( const QVariantMap &parameters, QgsProcessingContext &context, QgsProcessingFeedback *feedback )
+diff --git a/src/analysis/processing/pdal/qgspdalalgorithmbase.cpp b/src/analysis/processing/pdal/qgspdalalgorithmbase.cpp
+index 5899261fa7b..10fa93136e6 100644
+--- a/src/analysis/processing/pdal/qgspdalalgorithmbase.cpp
++++ b/src/analysis/processing/pdal/qgspdalalgorithmbase.cpp
+@@ -47,6 +47,7 @@ void QgsPdalAlgorithmBase::enableElevationPropertiesPostProcessor( bool enable )
+ 
+ QString QgsPdalAlgorithmBase::wrenchExecutableBinary() const
+ {
++#if QT_CONFIG( process )
+   QString wrenchExecutable = QProcessEnvironment::systemEnvironment().value( u"QGIS_WRENCH_EXECUTABLE"_s );
+   if ( wrenchExecutable.isEmpty() )
+   {
+@@ -57,6 +58,9 @@ QString QgsPdalAlgorithmBase::wrenchExecutableBinary() const
+ #endif
+   }
+   return QString( wrenchExecutable );
++#else
++  return QString();
++#endif
+ }
+ 
+ void QgsPdalAlgorithmBase::createCommonParameters()
+@@ -74,7 +78,12 @@ void QgsPdalAlgorithmBase::createVpcOutputFormatParameter()
+ {
+   const QStringList outputFormats { u"COPC"_s, u"LAZ"_s, u"LAS"_s };
+   auto paramVpcOutputFormat = std::make_unique<QgsProcessingParameterEnum>( u"VPC_OUTPUT_FORMAT"_s, QObject::tr( "VPC Output Format" ), outputFormats, false, u"COPC"_s );
+-  paramVpcOutputFormat->setHelp( QObject::tr( "Specify the underlying format in which data are stored for VPC output.\nSelect COPC if you need to render the output VPC in QGIS. LAZ/LAS may be faster to process, however only allow rendering of the point cloud extents." ) );
++  paramVpcOutputFormat->setHelp(
++    QObject::tr(
++      "Specify the underlying format in which data are stored for VPC output.\nSelect COPC if you need to render the output VPC in QGIS. LAZ/LAS may be faster to process, however only allow "
++      "rendering of the point cloud extents."
++    )
++  );
+   paramVpcOutputFormat->setFlags( paramVpcOutputFormat->flags() | Qgis::ProcessingParameterFlag::Advanced );
+   addParameter( paramVpcOutputFormat.release() );
+ }
+@@ -93,20 +102,12 @@ void QgsPdalAlgorithmBase::applyCommonParameters( QStringList &arguments, QgsCoo
+     if ( crs.isValid() )
+     {
+       const QgsRectangle extent = parameterAsExtent( parameters, u"FILTER_EXTENT"_s, context, crs );
+-      arguments << u"--bounds=([%1, %2], [%3, %4])"_s
+-                     .arg( extent.xMinimum() )
+-                     .arg( extent.xMaximum() )
+-                     .arg( extent.yMinimum() )
+-                     .arg( extent.yMaximum() );
++      arguments << u"--bounds=([%1, %2], [%3, %4])"_s.arg( extent.xMinimum() ).arg( extent.xMaximum() ).arg( extent.yMinimum() ).arg( extent.yMaximum() );
+     }
+     else
+     {
+       const QgsRectangle extent = parameterAsExtent( parameters, u"FILTER_EXTENT"_s, context );
+-      arguments << u"--bounds=([%1, %2], [%3, %4])"_s
+-                     .arg( extent.xMinimum() )
+-                     .arg( extent.xMaximum() )
+-                     .arg( extent.yMinimum() )
+-                     .arg( extent.yMaximum() );
++      arguments << u"--bounds=([%1, %2], [%3, %4])"_s.arg( extent.xMinimum() ).arg( extent.xMaximum() ).arg( extent.yMinimum() ).arg( extent.yMaximum() );
+     }
+   }
+ }
+@@ -148,8 +149,10 @@ void QgsPdalAlgorithmBase::checkOutputFormat( const QString &inputFileName, cons
+   bool outputIsVpc = outputFileName.endsWith( u".vpc"_s, Qt::CaseInsensitive );
+   if ( !inputIsVpc && outputIsVpc )
+     throw QgsProcessingException(
+-      QObject::tr( "This algorithm does not support output to VPC if input is not a VPC. Please use LAS or LAZ as the output format. "
+-                   "To create a VPC please use \"Build virtual point cloud (VPC)\" algorithm." )
++      QObject::tr(
++        "This algorithm does not support output to VPC if input is not a VPC. Please use LAS or LAZ as the output format. "
++        "To create a VPC please use \"Build virtual point cloud (VPC)\" algorithm."
++      )
+     );
+ }
+ 
+@@ -187,6 +190,7 @@ QVariantMap QgsPdalAlgorithmBase::processAlgorithm( const QVariantMap &parameter
+ 
+ void QgsPdalAlgorithmBase::runWrenchProcess( const QStringList &processArgs, QgsProcessingFeedback *feedback )
+ {
++#if QT_CONFIG( process )
+   const QString wrenchPath = wrenchExecutableBinary();
+ 
+   if ( !QFileInfo::exists( wrenchPath ) )
+@@ -214,9 +218,7 @@ void QgsPdalAlgorithmBase::runWrenchProcess( const QStringList &processArgs, Qgs
+   QString buffer;
+ 
+   QgsBlockingProcess wrenchProcess( wrenchPath, processArgs );
+-  wrenchProcess.setStdErrHandler( [feedback]( const QByteArray &ba ) {
+-    feedback->reportError( ba.trimmed() );
+-  } );
++  wrenchProcess.setStdErrHandler( [feedback]( const QByteArray &ba ) { feedback->reportError( ba.trimmed() ); } );
+   wrenchProcess.setStdOutHandler( [feedback, &progress, &buffer]( const QByteArray &ba ) {
+     QString data( ba );
+ 
+@@ -279,6 +281,9 @@ void QgsPdalAlgorithmBase::runWrenchProcess( const QStringList &processArgs, Qgs
+   {
+     throw QgsProcessingException( QObject::tr( "Process returned error code %1" ).arg( res ) );
+   }
++#else
++  throw QgsProcessingException( QObject::tr( "This algorithm requires a QGIS installation with Qt process feature enabled" ) );
++#endif
+ }
+ 
+ QVariantMap QgsPdalAlgorithmBase::getOutputs( const QVariantMap &parameters, QgsProcessingContext &context )
+@@ -359,7 +364,9 @@ void QgsPdalAlgorithmBase::applyVpcOutputFormatParameter( const QString &outputF
+ 
+     if ( vpcOutputFormat == "LAZ"_L1 || vpcOutputFormat == "LAS"_L1 )
+     {
+-      feedback->pushWarning( QObject::tr( "The VPC file will contain LAS or LAZ files. Such files cannot be properly rendered in QGIS, only the point cloud extents will be displayed. Use COPC as VPC Output Format for proper rendering." ) );
++      feedback->pushWarning(
++        QObject::tr( "The VPC file will contain LAS or LAZ files. Such files cannot be properly rendered in QGIS, only the point cloud extents will be displayed. Use COPC as VPC Output Format for proper rendering." )
++      );
+     }
+ 
+     arguments << u"--vpc-output-format=%1"_s.arg( vpcOutputFormat.toLower() );

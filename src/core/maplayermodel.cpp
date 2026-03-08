@@ -249,7 +249,8 @@ void MapLayerModel::setTrackingModel( TrackingModel *trackingModel )
 
   if ( mRequiresTrackingAvailability && enabled() )
   {
-    invalidateFilter();
+    beginFilterChange();
+    endFilterChange( QSortFilterProxyModel::Direction::Rows );
   }
 }
 
@@ -260,10 +261,11 @@ void MapLayerModel::setFilters( Qgis::LayerFilters filters )
     return;
   }
 
+  beginFilterChange();
   mFilters = filters;
-  emit filtersChanged();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
-  invalidateFilter();
+  emit filtersChanged();
 }
 
 void MapLayerModel::setRequiresTrackingAvailability( bool requiresTrackingAvailability )
@@ -273,10 +275,11 @@ void MapLayerModel::setRequiresTrackingAvailability( bool requiresTrackingAvaila
     return;
   }
 
+  beginFilterChange();
   mRequiresTrackingAvailability = requiresTrackingAvailability;
-  emit requiresTrackingAvailabilityChanged();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
-  invalidateFilter();
+  emit requiresTrackingAvailabilityChanged();
 }
 
 int MapLayerModel::findLayer( QgsMapLayer *layer ) const

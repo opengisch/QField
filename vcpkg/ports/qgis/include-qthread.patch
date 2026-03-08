@@ -1,12 +1,12 @@
 diff --git a/src/providers/wfs/qgsbasenetworkrequest.h b/src/providers/wfs/qgsbasenetworkrequest.h
-index dd33441e5b6..e9b28c49216 100644
+index 1d6e27f1b4c..01cce5873e4 100644
 --- a/src/providers/wfs/qgsbasenetworkrequest.h
 +++ b/src/providers/wfs/qgsbasenetworkrequest.h
-@@ -22,6 +22,7 @@
+@@ -23,6 +23,7 @@
  #include <QNetworkReply>
- #include <QUrl>
- #include <QAuthenticator>
+ #include <QNetworkRequest>
+ #include <QObject>
 +#include <QThread>
+ #include <QUrl>
  
- #include "qgsauthorizationsettings.h"
- 
+ //! Abstract base class for a WFS request.

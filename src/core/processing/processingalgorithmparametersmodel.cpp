@@ -41,10 +41,11 @@ void ProcessingAlgorithmParametersModel::setFilters( ProcessingAlgorithmParamete
     return;
   }
 
+  beginFilterChange();
   mFilters = filters;
-  emit filtersChanged();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
-  invalidateFilter();
+  emit filtersChanged();
 }
 
 QString ProcessingAlgorithmParametersModel::algorithmId() const

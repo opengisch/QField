@@ -437,9 +437,10 @@ void PluginProxyModel::setSearchTerm( const QString &searchTerm )
 {
   if ( mSearchTerm != searchTerm )
   {
+    beginFilterChange();
     mSearchTerm = searchTerm;
+    endFilterChange( QSortFilterProxyModel::Direction::Rows );
     emit searchTermChanged();
-    invalidateFilter();
   }
 }
 
@@ -471,8 +472,9 @@ void PluginProxyModel::setFilter( PluginFilter filter )
   if ( mFilter == filter )
     return;
 
+  beginFilterChange();
   mFilter = filter;
-  invalidateFilter();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
   emit filterChanged();
 

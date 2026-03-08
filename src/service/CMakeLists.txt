@@ -18,6 +18,8 @@ set_target_properties(qfield_service PROPERTIES AUTOMOC TRUE)
 
 target_link_libraries(qfield_service PRIVATE qfield_core ${QGIS_CORE_LIBRARY})
 
+find_package(Qt6 REQUIRED COMPONENTS CorePrivate)
+
 target_link_libraries(qfield_service PUBLIC Qt::Core Qt::Positioning
                                             Qt::CorePrivate)
 
