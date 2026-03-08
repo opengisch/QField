@@ -1,5 +1,5 @@
 /***************************************************************************
- parametizedimage.cpp - ParametizedImage
+ parameterizedimage.cpp - parameterizedImage
 
  ---------------------
  begin                : 21.05.2024
@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "parametizedimage.h"
+#include "parameterizedimage.h"
 
 #include <QPainter>
 #include <QQuickWindow>
@@ -23,17 +23,17 @@
 #include <qgsimagecache.h>
 #include <qgssvgcache.h>
 
-ParametizedImage::ParametizedImage( QQuickItem *parent )
+ParameterizedImage::ParameterizedImage( QQuickItem *parent )
   : QQuickPaintedItem( parent )
 {
 }
 
-QString ParametizedImage::source() const
+QString ParameterizedImage::source() const
 {
   return mSource;
 }
 
-void ParametizedImage::setSource( const QString &source )
+void ParameterizedImage::setSource( const QString &source )
 {
   const QString adjustedSource = source.startsWith( QStringLiteral( "qrc:" ) ) ? source.mid( 3 ) : source;
   if ( mSource == adjustedSource )
@@ -61,12 +61,12 @@ void ParametizedImage::setSource( const QString &source )
   }
 }
 
-QColor ParametizedImage::fillColor() const
+QColor ParameterizedImage::fillColor() const
 {
   return mFillColor;
 }
 
-void ParametizedImage::setFillColor( const QColor &color )
+void ParameterizedImage::setFillColor( const QColor &color )
 {
   if ( mFillColor == color )
     return;
@@ -78,12 +78,12 @@ void ParametizedImage::setFillColor( const QColor &color )
     update();
 }
 
-QColor ParametizedImage::strokeColor() const
+QColor ParameterizedImage::strokeColor() const
 {
   return mStrokeColor;
 }
 
-void ParametizedImage::setStrokeColor( const QColor &color )
+void ParameterizedImage::setStrokeColor( const QColor &color )
 {
   if ( mStrokeColor == color )
     return;
@@ -95,12 +95,12 @@ void ParametizedImage::setStrokeColor( const QColor &color )
     update();
 }
 
-double ParametizedImage::strokeWidth() const
+double ParameterizedImage::strokeWidth() const
 {
   return mStrokeWidth;
 }
 
-void ParametizedImage::setStrokeWidth( double width )
+void ParameterizedImage::setStrokeWidth( double width )
 {
   if ( mStrokeWidth == width )
     return;
@@ -112,12 +112,12 @@ void ParametizedImage::setStrokeWidth( double width )
     update();
 }
 
-QVariantMap ParametizedImage::parameters() const
+QVariantMap ParameterizedImage::parameters() const
 {
   return mParameters;
 }
 
-void ParametizedImage::setParameters( const QVariantMap &parameters )
+void ParameterizedImage::setParameters( const QVariantMap &parameters )
 {
   if ( mParameters == parameters )
     return;
@@ -138,7 +138,7 @@ void ParametizedImage::setParameters( const QVariantMap &parameters )
     update();
 }
 
-void ParametizedImage::paint( QPainter *painter )
+void ParameterizedImage::paint( QPainter *painter )
 {
   if ( !mIsValid )
     return;

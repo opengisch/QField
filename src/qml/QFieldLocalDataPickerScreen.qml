@@ -212,7 +212,7 @@ Page {
               height: 48
             }
 
-            ParametizedImage {
+            ParameterizedImage {
               id: type
               Layout.alignment: Qt.AlignVCenter
               Layout.topMargin: 5

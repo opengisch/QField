@@ -94,7 +94,7 @@ Rectangle {
         bottomPadding: 3
         spacing: 0
 
-        ParametizedImage {
+        ParameterizedImage {
           id: type
           anchors.verticalCenter: parent.verticalCenter
           width: 40

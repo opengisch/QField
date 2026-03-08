@@ -3,10 +3,10 @@ import QtTest
 import org.qfield
 
 TestCase {
-  name: "ParametizedImage"
+  name: "ParameterizedImage"
   when: windowShown
 
-  ParametizedImage {
+  ParameterizedImage {
     id: img
     width: 100
     height: 100
