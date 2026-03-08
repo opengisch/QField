@@ -23,6 +23,16 @@ INVERTED_FEATURES
     "vaapi"         CMAKE_DISABLE_FIND_PACKAGE_VAAPI # not in vpckg
 )
 
+list(APPEND FEATURE_OPTIONS "-DCMAKE_DISABLE_FIND_PACKAGE_ALSA=ON")
+
+# Force all gstreamer extra features to off to not poison the cache
+# since enabling them is done depening on how gstreamer was built
+list(APPEND FEATURE_OPTIONS "-DFEATURE_gstreamer_gl=OFF")
+list(APPEND FEATURE_OPTIONS "-DFEATURE_gstreamer_gl_wayland=OFF")
+list(APPEND FEATURE_OPTIONS "-DFEATURE_gstreamer_gl_egl=OFF")
+list(APPEND FEATURE_OPTIONS "-DFEATURE_gstreamer_gl_x11=OFF")
+list(APPEND FEATURE_OPTIONS "-DFEATURE_gstreamer_photography=OFF")
+
 set(unused "")
 if("gstreamer" IN_LIST FEATURES)
     list(APPEND FEATURE_OPTIONS "-DINPUT_gstreamer='yes'")
@@ -30,12 +40,26 @@ else()
     list(APPEND FEATURE_OPTIONS "-DINPUT_gstreamer='no'")
 endif()
 
+if(VCPKG_TARGET_IS_WINDOWS)
+    list(APPEND FEATURE_OPTIONS "-DFEATURE_wmf=ON")
+else()
+    list(APPEND FEATURE_OPTIONS "-DFEATURE_wmf=OFF")
+endif()
+
 if("ffmpeg" IN_LIST FEATURES)
     # Note: Requires pulsadio on linux and wmfsdk on windows
     list(APPEND FEATURE_OPTIONS "-DINPUT_ffmpeg='yes'")
+    if(VCPKG_TARGET_IS_LINUX)
+        list(APPEND FEATURE_OPTIONS "-DINPUT_pulseaudio='yes'")
+    else()
+        list(APPEND FEATURE_OPTIONS "-DINPUT_pulseaudio='no'")
+    endif()
 else()
     list(APPEND FEATURE_OPTIONS "-DINPUT_ffmpeg='no'")
+    list(APPEND FEATURE_OPTIONS "-DINPUT_pulseaudio='no'")
 endif()
+
+list(APPEND FEATURE_OPTIONS "-DINPUT_pipewire='no'")
 
 qt_install_submodule(PATCHES    ${${PORT}_PATCHES}
                      CONFIGURE_OPTIONS
