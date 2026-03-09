@@ -75,8 +75,13 @@ void RecentProjectListModel::reloadModel()
       if ( sampleProjectsJsonIsValid )
       {
         const QJsonArray values = doc.array();
-        for ( const QJsonValue &value : values )
+        for ( const QJsonValueConstRef &value : values )
         {
+          if ( !value.isObject() )
+          {
+            continue;
+          }
+
           const QJsonObject valueObject = value.toObject();
           mRecentProjects.append( RecentProject( LinkProject,
                                                  valueObject.value( QStringLiteral( "title" ) ).toString(),
