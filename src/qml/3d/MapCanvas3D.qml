@@ -112,18 +112,26 @@ Item {
       mapTextureData: mapTextureData
     }
 
+    MapToScreen3D {
+      id: gnssMapToScreen3D
+      terrainProvider: mapTerrainProvider
+      heightOffset: 15
+    }
+
+    Connections {
+      target: mapArea
+      function onGnssPositionChanged() {
+        if (mapArea.gnssPosition) {
+          gnssMapToScreen3D.mapPoint = mapArea.gnssPosition;
+        }
+      }
+    }
+
     Node {
       id: gnssMarker
-      visible: pos3d !== null
+      visible: mapArea.gnssActive && mapArea.gnssPosition && !isNaN(gnssMapToScreen3D.scenePoint.x)
 
-      property var pos3d: {
-        if (!mapArea.gnssActive || !mapArea.gnssPosition) {
-          return null;
-        }
-        return mapArea.geoTo3D(mapArea.gnssPosition.x, mapArea.gnssPosition.y);
-      }
-
-      position: pos3d || Qt.vector3d(0, 0, 0)
+      position: gnssMapToScreen3D.scenePoint
       eulerRotation: mapArea.gnssSpeed > 0 && mapArea.gnssDirection >= 0 ? Qt.vector3d(0, -mapArea.gnssDirection, 0) : Qt.vector3d(0, 0, 0)
 
       Model {
@@ -239,11 +247,8 @@ Item {
     camera: camera
     onSingleTapped: function (x, y) {
       const pickResult = view3d.pick(x, y);
-      if (pickResult.objectHit) {
-        const pos3d = gnssMarker.pos3d;
-        if (pos3d) {
-          cameraController.lookAtPoint(pos3d, 500);
-        }
+      if (pickResult.objectHit && gnssMarker.visible) {
+        cameraController.lookAtPoint(gnssMapToScreen3D.scenePoint, 500);
       }
     }
     onUserInteractionStarted: {
