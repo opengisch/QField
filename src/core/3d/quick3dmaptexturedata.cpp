@@ -17,12 +17,12 @@
 #include "qgsquick/qgsquickmapsettings.h"
 #include "quick3dmaptexturedata.h"
 
+#include <QPainter>
 #include <qgis.h>
 #include <qgsmaplayer.h>
 #include <qgsmaprendererparalleljob.h>
 #include <qgsmapsettings.h>
 
-#include <QPainter>
 #include <algorithm>
 
 Quick3DMapTextureData::Quick3DMapTextureData( QQuick3DObject *parent )
@@ -185,19 +185,9 @@ void Quick3DMapTextureData::render()
     renderSettings.setRotation( 0 );
     renderSettings.setExtent( mExtent );
 
-    const double mupp = mMapSettings->mapSettings().mapUnitsPerPixel();
-    int outputWidth = mExtent.width() / mupp;
-    int outputHeight = mExtent.height() / mupp;
-
-    // Clamp texture size to avoid GPU limits
-    constexpr int maxDim = 5000;
-    if ( outputWidth > maxDim || outputHeight > maxDim )
-    {
-      const double scale = qMin( maxDim / static_cast<double>( outputWidth ), maxDim / static_cast<double>( outputHeight ) );
-      outputWidth = static_cast<int>( outputWidth * scale );
-      outputHeight = static_cast<int>( outputHeight * scale );
-    }
-
+    const double mupp = renderSettings.mapUnitsPerPixel();
+    const int outputWidth = mExtent.width() / mupp;
+    const int outputHeight = mExtent.height() / mupp;
     renderSettings.setOutputSize( QSize( outputWidth, outputHeight ) );
   }
 

@@ -25,16 +25,6 @@ Quick3DTerrainGeometry::Quick3DTerrainGeometry( QQuick3DObject *parent )
   mHeights.resize( static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
   mHeights.fill( 0.0f );
 
-  mPanThrottleTimer.setSingleShot( true );
-  mPanThrottleTimer.setInterval( 10 );
-  connect( &mPanThrottleTimer, &QTimer::timeout, this, [this]() {
-    if ( mPanUpdatePending )
-    {
-      mPanUpdatePending = false;
-      applyShiftedHeights( mPendingPanOffsetX, mPendingPanOffsetZ );
-    }
-  } );
-
   updateGeometry();
 }
 
@@ -129,18 +119,50 @@ void Quick3DTerrainGeometry::buildMetagridFromProvider( const Quick3DTerrainProv
   }
 }
 
-void Quick3DTerrainGeometry::applyShiftedHeights( float panOffsetX, float panOffsetZ )
+void Quick3DTerrainGeometry::pan( double x, double z )
 {
-  if ( mMetagridHeights.isEmpty() || mMetagridWidth <= 0 || mMetagridHeight <= 0 )
+  if ( qgsDoubleNear( x, 0.0 ) && qgsDoubleNear( z, 0.0 ) )
   {
     return;
   }
 
-  if ( mPanThrottleTimer.isActive() )
+  mOffsetX += x;
+  mOffsetZ += z;
+
+  applyShiftedHeights();
+
+  offsetXChanged();
+  offsetZChanged();
+}
+
+void Quick3DTerrainGeometry::zoom( double factor )
+{
+  if ( qgsDoubleNear( factor, 0.0 ) )
   {
-    mPendingPanOffsetX = panOffsetX;
-    mPendingPanOffsetZ = panOffsetZ;
-    mPanUpdatePending = true;
+    return;
+  }
+
+  double scale = mOffsetScale + ( 1 - factor );
+  if ( scale < 0.05 )
+  {
+    scale = 0.05;
+  }
+  else if ( scale > 1.95 )
+  {
+    scale = 1.95;
+  }
+
+  if ( mOffsetScale != scale )
+  {
+    mOffsetScale = scale;
+    offsetScaleChanged();
+  }
+}
+
+void Quick3DTerrainGeometry::applyShiftedHeights()
+{
+  if ( mMetagridHeights.isEmpty() || mMetagridWidth <= 0 || mMetagridHeight <= 0 )
+  {
     return;
   }
 
@@ -155,8 +177,8 @@ void Quick3DTerrainGeometry::applyShiftedHeights( float panOffsetX, float panOff
   const float cellW = mSize.width() / std::max( 1, gridW - 1 );
   const float cellH = mSize.height() / std::max( 1, gridH - 1 );
 
-  const int offsetX = -qRound( panOffsetX / cellW );
-  const int offsetZ = -qRound( panOffsetZ / cellH );
+  const int offsetX = -qRound( mOffsetX / cellW );
+  const int offsetZ = -qRound( mOffsetZ / cellH );
 
   const int expectedSize = gridW * gridH;
   mHeights.resize( expectedSize );
@@ -191,8 +213,6 @@ void Quick3DTerrainGeometry::applyShiftedHeights( float panOffsetX, float panOff
   mDirty = true;
   emit heightDataChanged();
   updateGeometry();
-
-  mPanThrottleTimer.start();
 }
 
 void Quick3DTerrainGeometry::restoreHeightsFromProvider( const Quick3DTerrainProvider *provider )
@@ -214,6 +234,14 @@ void Quick3DTerrainGeometry::restoreHeightsFromProvider( const Quick3DTerrainPro
   mDirty = true;
   emit heightDataChanged();
   updateGeometry();
+
+  mOffsetX = 0.0;
+  mOffsetZ = 0.0;
+  mOffsetScale = 1.0;
+
+  offsetXChanged();
+  offsetZChanged();
+  offsetScaleChanged();
 }
 
 float Quick3DTerrainGeometry::getHeight( int x, int z ) const

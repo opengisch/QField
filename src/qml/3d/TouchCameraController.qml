@@ -9,9 +9,11 @@ Item {
   signal singleTapped(real x, real y)
   signal userInteractionStarted
 
-  signal extentPanMoved(real sceneX, real sceneZ)
+  signal extentPan(real sceneX, real sceneZ)
   signal extentPanFinished
-  signal extentZoomRequested(real factor)
+
+  signal extentZoom(real factor)
+  signal extentZoomFinished
 
   property bool extentMode: false
 
@@ -249,7 +251,7 @@ Item {
           const yawRad = -root.yaw * Math.PI / 180.0;
           const sceneX = (dx * s * Math.cos(yawRad) - dy * s * Math.sin(yawRad));
           const sceneZ = (dx * s * Math.sin(yawRad) + dy * s * Math.cos(yawRad));
-          root.extentPanMoved(sceneX, sceneZ);
+          root.extentPan(sceneX, sceneZ);
         } else {
           root.yaw -= dx * orbitSensitivity;
           root.pitch = clampPitch(pitch + dy * orbitSensitivity);
@@ -280,6 +282,8 @@ Item {
         rotationThresholdReached = false;
         oldPos = centroid.position;
         root.userInteractionStarted();
+      } else {
+        root.extentZoomFinished();
       }
     }
 
@@ -295,11 +299,11 @@ Item {
       if (active) {
         if (root.extentMode) {
           const factor = oldScale / pinchHandler.activeScale;
-          root.extentZoomRequested(factor);
+          root.extentZoom(factor);
         } else {
           root.distance = clampDistance(root.distance * (oldScale / pinchHandler.activeScale));
+          oldScale = pinchHandler.activeScale;
         }
-        oldScale = pinchHandler.activeScale;
       }
     }
 
@@ -316,8 +320,18 @@ Item {
     }
   }
 
+  Timer {
+    id: mouseAreaTimer
+    interval: 200
+    repeat: false
+
+    onTriggered: {
+      root.extentZoomFinished();
+    }
+  }
+
   MouseArea {
-    id: wheelHandler
+    id: mouseArea
     anchors.fill: parent
     acceptedButtons: Qt.NoButton
     propagateComposedEvents: true
@@ -327,7 +341,8 @@ Item {
       if (wheel.modifiers & Qt.ShiftModifier) {
         const delta = wheel.angleDelta.x !== 0 ? wheel.angleDelta.x : wheel.angleDelta.y;
         const factor = delta > 0 ? 0.8 : 1.25;
-        root.extentZoomRequested(factor);
+        root.extentZoom(factor);
+        mouseAreaTimer.restart();
         wheel.accepted = true;
       } else {
         root.distance = clampDistance(distance - wheel.angleDelta.y * 0.5);
@@ -366,7 +381,7 @@ Item {
         const sceneX = (dx * s * Math.cos(yawRad) - dy * s * Math.sin(yawRad));
         const sceneZ = (dx * s * Math.sin(yawRad) + dy * s * Math.cos(yawRad));
 
-        root.extentPanMoved(sceneX, sceneZ);
+        root.extentPan(sceneX, sceneZ);
       }
     }
   }

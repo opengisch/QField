@@ -50,6 +50,15 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     //! Height data array for terrain elevation values
     Q_PROPERTY( QVariantList heightData READ heightData WRITE setHeightData NOTIFY heightDataChanged )
 
+    //! Returns the X offset from the generated terrein heights
+    Q_PROPERTY( double offsetX READ offsetX NOTIFY offsetXChanged )
+
+    //! Returns the Z offset from the generated terrein heights
+    Q_PROPERTY( double offsetZ READ offsetZ NOTIFY offsetZChanged )
+
+    //! Returns the scale from the generated terrain heights
+    Q_PROPERTY( double offsetScale READ offsetScale NOTIFY offsetScaleChanged )
+
   public:
     //! Creates a new terrain geometry
     explicit Quick3DTerrainGeometry( QQuick3DObject *parent = nullptr );
@@ -66,16 +75,26 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     //! Sets the terrain width.
     void setSize( const QSizeF &size );
 
+    //! Returns the heigh data in a QML-friendly QVariantList
     QVariantList heightData() const;
 
     //! Sets the height data array.
     void setHeightData( const QVariantList &data );
 
-    //! Builds and stores a 3x3 metagrid from the provider's normalized data
-    Q_INVOKABLE void buildMetagridFromProvider( const Quick3DTerrainProvider *provider );
+    double offsetX() const { return mOffsetX; }
+
+    double offsetZ() const { return mOffsetZ; }
+
+    double offsetScale() const { return mOffsetScale; }
 
     //! Applies shifted heights from stored metagrid based on pan offsets
-    Q_INVOKABLE void applyShiftedHeights( float panOffsetX, float panOffsetZ );
+    Q_INVOKABLE void pan( double x, double z );
+
+    //! Zooms in/out of the geometry
+    Q_INVOKABLE void zoom( double factor );
+
+    //! Builds and stores a 3x3 metagrid from the provider's normalized data
+    Q_INVOKABLE void buildMetagridFromProvider( const Quick3DTerrainProvider *provider );
 
     //! Restores the original height data from the provider
     Q_INVOKABLE void restoreHeightsFromProvider( const Quick3DTerrainProvider *provider );
@@ -84,6 +103,9 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     void gridSizeChanged();
     void sizeChanged();
     void heightDataChanged();
+    void offsetXChanged();
+    void offsetZChanged();
+    void offsetScaleChanged();
 
   private:
     /**
@@ -98,6 +120,8 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
      */
     void updateGeometry();
 
+    void applyShiftedHeights();
+
     QVector3D calculateNormal( int x, int z ) const;
     float getHeight( int x, int z ) const;
 
@@ -110,10 +134,9 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     int mMetagridWidth = 0;
     int mMetagridHeight = 0;
 
-    QTimer mPanThrottleTimer;
-    float mPendingPanOffsetX = 0.0f;
-    float mPendingPanOffsetZ = 0.0f;
-    bool mPanUpdatePending = false;
+    double mOffsetX = 0.0;
+    double mOffsetZ = 0.0;
+    double mOffsetScale = 1.0;
 
     bool mDirty = true;
 };
