@@ -174,6 +174,7 @@ Item {
     acceptedButtons: Qt.LeftButton
     acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedModifiers: Qt.NoModifier
+    enabled: !root.extentMode
 
     property point lastPoint
 
@@ -338,7 +339,8 @@ Item {
 
     onWheel: function (wheel) {
       root.userInteractionStarted();
-      if (wheel.modifiers & Qt.ShiftModifier) {
+      const shiftHeld = !!(wheel.modifiers & Qt.ShiftModifier);
+      if (root.extentMode || shiftHeld) {
         const delta = wheel.angleDelta.x !== 0 ? wheel.angleDelta.x : wheel.angleDelta.y;
         const factor = delta > 0 ? 0.8 : 1.25;
         root.extentZoom(factor);
@@ -356,7 +358,7 @@ Item {
     target: null
     acceptedButtons: Qt.LeftButton
     acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
-    acceptedModifiers: Qt.ShiftModifier
+    acceptedModifiers: root.extentMode ? Qt.KeyboardModifierMask : Qt.ShiftModifier
 
     property point lastPoint
 
