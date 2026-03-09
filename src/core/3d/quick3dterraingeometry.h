@@ -50,14 +50,8 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     //! Height data array for terrain elevation values
     Q_PROPERTY( QVariantList heightData READ heightData WRITE setHeightData NOTIFY heightDataChanged )
 
-    //! Returns the X offset from the generated terrein heights
-    Q_PROPERTY( double offsetX READ offsetX NOTIFY offsetXChanged )
-
-    //! Returns the Z offset from the generated terrein heights
-    Q_PROPERTY( double offsetZ READ offsetZ NOTIFY offsetZChanged )
-
-    //! Returns the scale from the generated terrain heights
-    Q_PROPERTY( double offsetScale READ offsetScale NOTIFY offsetScaleChanged )
+    //! Returns the offset vector from the generated terrein heights
+    Q_PROPERTY( QVector3D offsetVector READ offsetVector WRITE setOffsetVector NOTIFY offsetVectorChanged )
 
   public:
     //! Creates a new terrain geometry
@@ -81,17 +75,9 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     //! Sets the height data array.
     void setHeightData( const QVariantList &data );
 
-    double offsetX() const { return mOffsetX; }
+    QVector3D offsetVector() const { return mOffsetVector; }
 
-    double offsetZ() const { return mOffsetZ; }
-
-    double offsetScale() const { return mOffsetScale; }
-
-    //! Applies shifted heights from stored metagrid based on pan offsets
-    Q_INVOKABLE void pan( double x, double z );
-
-    //! Zooms in/out of the geometry
-    Q_INVOKABLE void zoom( double factor );
+    void setOffsetVector( QVector3D offsetvector );
 
     //! Builds and stores a 3x3 metagrid from the provider's normalized data
     Q_INVOKABLE void buildMetagridFromProvider( const Quick3DTerrainProvider *provider );
@@ -103,9 +89,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     void gridSizeChanged();
     void sizeChanged();
     void heightDataChanged();
-    void offsetXChanged();
-    void offsetZChanged();
-    void offsetScaleChanged();
+    void offsetVectorChanged();
 
   private:
     /**
@@ -134,9 +118,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     int mMetagridWidth = 0;
     int mMetagridHeight = 0;
 
-    double mOffsetX = 0.0;
-    double mOffsetZ = 0.0;
-    double mOffsetScale = 1.0;
+    QVector3D mOffsetVector;
 
     bool mDirty = true;
 };

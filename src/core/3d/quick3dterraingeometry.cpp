@@ -119,44 +119,16 @@ void Quick3DTerrainGeometry::buildMetagridFromProvider( const Quick3DTerrainProv
   }
 }
 
-void Quick3DTerrainGeometry::pan( double x, double z )
+void Quick3DTerrainGeometry::setOffsetVector( QVector3D offsetVector )
 {
-  if ( qgsDoubleNear( x, 0.0 ) && qgsDoubleNear( z, 0.0 ) )
-  {
+  if ( mOffsetVector == offsetVector )
     return;
-  }
 
-  mOffsetX += x;
-  mOffsetZ += z;
+  mOffsetVector = offsetVector;
 
   applyShiftedHeights();
 
-  offsetXChanged();
-  offsetZChanged();
-}
-
-void Quick3DTerrainGeometry::zoom( double factor )
-{
-  if ( qgsDoubleNear( factor, 0.0 ) )
-  {
-    return;
-  }
-
-  double scale = mOffsetScale + ( 1 - factor );
-  if ( scale < 0.05 )
-  {
-    scale = 0.05;
-  }
-  else if ( scale > 1.95 )
-  {
-    scale = 1.95;
-  }
-
-  if ( mOffsetScale != scale )
-  {
-    mOffsetScale = scale;
-    offsetScaleChanged();
-  }
+  offsetVectorChanged();
 }
 
 void Quick3DTerrainGeometry::applyShiftedHeights()
@@ -177,8 +149,8 @@ void Quick3DTerrainGeometry::applyShiftedHeights()
   const float cellW = mSize.width() / std::max( 1, gridW - 1 );
   const float cellH = mSize.height() / std::max( 1, gridH - 1 );
 
-  const int offsetX = -qRound( mOffsetX / cellW );
-  const int offsetZ = -qRound( mOffsetZ / cellH );
+  const int offsetX = -qRound( mOffsetVector.x() / cellW );
+  const int offsetZ = -qRound( mOffsetVector.z() / cellH );
 
   const int expectedSize = gridW * gridH;
   mHeights.resize( expectedSize );
@@ -234,14 +206,6 @@ void Quick3DTerrainGeometry::restoreHeightsFromProvider( const Quick3DTerrainPro
   mDirty = true;
   emit heightDataChanged();
   updateGeometry();
-
-  mOffsetX = 0.0;
-  mOffsetZ = 0.0;
-  mOffsetScale = 1.0;
-
-  offsetXChanged();
-  offsetZChanged();
-  offsetScaleChanged();
 }
 
 float Quick3DTerrainGeometry::getHeight( int x, int z ) const

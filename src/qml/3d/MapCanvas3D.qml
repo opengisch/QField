@@ -10,8 +10,6 @@ Item {
   focus: true
   visible: !isFirstLoad || !isLoading
 
-  property bool isTransitioning: false
-
   property alias mapSettings: mapTerrainProvider.mapSettings
   property alias terrainExtent: mapTerrainProvider.extent
   property alias terrainGeometry: terrainMesh.mapTerrainGeometry
@@ -59,17 +57,11 @@ Item {
     incrementalRendering: true
     forceDeferredLayersRepaint: mapArea.trackingModel ? mapArea.trackingModel.count > 0 : false
 
-    onReadyChanged: {
-      if (ready && mapArea.isTransitioning) {
-        mapArea.isTransitioning = false;
-      }
-    }
-
     onTextureUpdated: {
-      if (mapArea.isTransitioning) {
-        // Reset offsets and scale now that new texture is ready
+      if (mapTerrainProvider.isTransitioning) {
+        // Apply offsets and scale now that new texture is ready
         terrainGeometry.restoreHeightsFromProvider(mapTerrainProvider);
-        mapArea.isTransitioning = false;
+        mapTerrainProvider.endTransition();
       }
     }
   }
@@ -105,9 +97,18 @@ Item {
 
     TerrainMesh {
       id: terrainMesh
+
       mapTerrainGeometry.gridSize: mapTerrainProvider.gridSize
       mapTerrainGeometry.size: mapTerrainProvider.size
       mapTerrainGeometry.heightData: mapTerrainProvider.normalizedData
+      mapTerrainGeometry.offsetVector: mapTerrainProvider.offsetVector
+
+      // Texture is 3x3 metagrid; scale 1/3 maps UVs to center block only
+      mapTexture.scaleU: (1.0 * mapTerrainProvider.offsetScale / 3.0)
+      mapTexture.scaleV: (1.0 * mapTerrainProvider.offsetScale / 3.0)
+      mapTexture.positionU: mapTerrainProvider.size.width > 0 ? -(mapTerrainProvider.offsetVector.x / mapTerrainProvider.size.width) * (1.0 / 3.0) : 0
+      mapTexture.positionV: mapTerrainProvider.size.height > 0 ? -(mapTerrainProvider.offsetVector.z / mapTerrainProvider.size.height) * (1.0 / 3.0) : 0
+
       mapTextureData: mapTextureData
     }
 
@@ -251,22 +252,20 @@ Item {
 
     onExtentPan: function (sceneX, sceneZ) {
       if (mapTerrainProvider.terrainDataReady) {
-        terrainGeometry.pan(sceneX, sceneZ);
+        mapTerrainProvider.pan(sceneX, sceneZ);
       }
     }
     onExtentPanFinished: {
-      isTransitioning = true;
-      applyExtentPan();
+      mapTerrainProvider.beginTransition();
     }
 
     onExtentZoom: function (factor) {
       if (mapTerrainProvider.terrainDataReady) {
-        terrainGeometry.zoom(factor);
+        mapTerrainProvider.zoom(factor);
       }
     }
     onExtentZoomFinished: {
-      isTransitioning = true;
-      applyExtentZoom();
+      mapTerrainProvider.beginTransition();
     }
   }
 
@@ -342,32 +341,5 @@ Item {
 
   function zoomOut() {
     cameraController.distance = cameraController.clampDistance(cameraController.distance * 1.25);
-  }
-
-  // Converts scene displacement to a geo offset.
-  function applyExtentPan() {
-    const ext = mapTerrainProvider.extent;
-    const sz = mapTerrainProvider.size;
-    const geoPerSceneX = ext.width / sz.width;
-    const geoPerSceneY = ext.height / sz.height;
-    const geoOffsetX = -terrainGeometry.offsetX * geoPerSceneX;
-    const geoOffsetY = terrainGeometry.offsetZ * geoPerSceneY;
-    mapTerrainProvider.setCustomExtent(ext.xMinimum + geoOffsetX, ext.yMinimum + geoOffsetY, ext.xMaximum + geoOffsetX, ext.yMaximum + geoOffsetY);
-  }
-
-  // Scales the extent around its center by the given factor, then regenerates.
-  function applyExtentZoom() {
-    const ext = mapTerrainProvider.extent;
-    const cx = (ext.xMinimum + ext.xMaximum) / 2;
-    const cy = (ext.yMinimum + ext.yMaximum) / 2;
-    let halfW = ext.width / 2 * terrainGeometry.offsetScale;
-    let halfH = ext.height / 2 * terrainGeometry.offsetScale;
-
-    const minHalfExtent = 50;
-    const maxHalfExtent = 500000;
-    halfW = Math.max(minHalfExtent, Math.min(maxHalfExtent, halfW));
-    halfH = Math.max(minHalfExtent, Math.min(maxHalfExtent, halfH));
-
-    mapTerrainProvider.setCustomExtent(cx - halfW, cy - halfH, cx + halfW, cy + halfH);
   }
 }

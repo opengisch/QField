@@ -127,23 +127,6 @@ void Quick3DTerrainProvider::updateFromMapSettings()
   applyExtent( mMapSettings->visibleExtent() );
 }
 
-
-void Quick3DTerrainProvider::setCustomExtent( double xMin, double yMin, double xMax, double yMax )
-{
-  if ( !mProject )
-  {
-    return;
-  }
-
-  QgsRectangle rect( xMin, yMin, xMax, yMax );
-  if ( rect.isEmpty() )
-  {
-    return;
-  }
-
-  applyExtent( QgsRectangle( xMin, yMin, xMax, yMax ) );
-}
-
 void Quick3DTerrainProvider::applyExtent( const QgsRectangle &extent )
 {
   QgsRectangle adjustedExtent = extent;
@@ -297,8 +280,10 @@ void Quick3DTerrainProvider::calcNormalizedData()
   if ( mExtent.isEmpty() || !mTerrainProvider )
   {
     mNormalizedData.fill( 0.0, static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
+
     emit normalizedDataChanged();
     emit terrainDataReady();
+
     return;
   }
 
@@ -357,6 +342,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
   if ( ( !rasterProvider && !terrainProvider ) || extent.isEmpty() )
   {
     mNormalizedData.fill( 0.0, static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
+
     emit normalizedDataChanged();
     emit terrainDataReady();
 
@@ -498,5 +484,73 @@ void Quick3DTerrainProvider::onTerrainDataCalculated()
   {
     mRecalcPending = false;
     calcNormalizedData();
+  }
+}
+
+void Quick3DTerrainProvider::beginTransition()
+{
+  mIsTransitioning = true;
+  emit isTransitioningChanged();
+
+  QgsRectangle modifiedExtent = mExtent;
+  if ( mOffsetVector.x() != 0 || mOffsetVector.y() != 0 )
+  {
+    const double mupp = mExtent.width() / mSize.width();
+    QgsVector panVector( -mOffsetVector.x() * mupp, mOffsetVector.z() * mupp );
+    modifiedExtent += panVector;
+  }
+  else if ( !qgsDoubleNear( mOffsetScale, 0.0 ) )
+  {
+    modifiedExtent.scale( mOffsetScale );
+  }
+
+  applyExtent( modifiedExtent );
+}
+
+void Quick3DTerrainProvider::endTransition()
+{
+  mOffsetVector = QVector3D( 0, 0, 0 );
+  mOffsetScale = 1.0;
+  emit offsetVectorChanged();
+  emit offsetScaleChanged();
+
+  mIsTransitioning = false;
+  emit isTransitioningChanged();
+}
+
+void Quick3DTerrainProvider::pan( double x, double z )
+{
+  if ( qgsDoubleNear( x, 0.0 ) && qgsDoubleNear( z, 0.0 ) )
+  {
+    return;
+  }
+
+  mOffsetVector.setX( mOffsetVector.x() + x );
+  mOffsetVector.setZ( mOffsetVector.z() + z );
+
+  offsetVectorChanged();
+}
+
+void Quick3DTerrainProvider::zoom( double factor )
+{
+  if ( qgsDoubleNear( factor, 0.0 ) )
+  {
+    return;
+  }
+
+  double scale = mOffsetScale + ( 1 - factor );
+  if ( scale < 0.05 )
+  {
+    scale = 0.05;
+  }
+  else if ( scale > 1.95 )
+  {
+    scale = 1.95;
+  }
+
+  if ( mOffsetScale != scale )
+  {
+    mOffsetScale = scale;
+    offsetScaleChanged();
   }
 }

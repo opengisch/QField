@@ -6,6 +6,7 @@ Node {
   id: root
 
   property alias mapTerrainGeometry: mapTerrainGeometry
+  property alias mapTexture: mapTexture
   property var mapTextureData: undefined
 
   Texture {
@@ -34,11 +35,6 @@ Node {
     tilingModeVertical: Texture.ClampToEdge
     pivotU: 0.5
     pivotV: 0.5
-    // Texture is 3x3 metagrid; scale 1/3 maps UVs to center block only
-    scaleU: (1.0 * terrainGeometry.offsetScale / 3.0)
-    scaleV: (1.0 * terrainGeometry.offsetScale / 3.0)
-    positionU: mapTerrainProvider.size.width > 0 ? -(terrainGeometry.offsetX / mapTerrainProvider.size.width) * (1.0 / 3.0) : 0
-    positionV: mapTerrainProvider.size.height > 0 ? -(terrainGeometry.offsetZ / mapTerrainProvider.size.height) * (1.0 / 3.0) : 0
   }
 
   Model {

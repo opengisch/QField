@@ -70,6 +70,15 @@ class Quick3DTerrainProvider : public QObject
     //! Normalized height data array [0.0-1.0] for terrain mesh generation
     Q_PROPERTY( QVariantList normalizedData READ normalizedData NOTIFY normalizedDataChanged )
 
+    //! Returns the offset vector from the last generated terrain data
+    Q_PROPERTY( QVector3D offsetVector READ offsetVector NOTIFY offsetVectorChanged )
+
+    //! Returns the offset scale from the last generated terrain data
+    Q_PROPERTY( double offsetScale READ offsetScale NOTIFY offsetScaleChanged )
+
+    //! Whether a transition to apply pan/zoom offsets has begun
+    Q_PROPERTY( bool isTransitioning READ isTransitioning NOTIFY isTransitioningChanged )
+
     //! Whether terrain data is currently being loaded
     Q_PROPERTY( bool isLoading READ isLoading NOTIFY isLoadingChanged )
 
@@ -106,6 +115,14 @@ class Quick3DTerrainProvider : public QObject
     //! Returns the normalized height data array [0.0-1.0].
     QVariantList normalizedData() const;
 
+    //! Returns the offset scale from the last generated terrain data
+    QVector3D offsetVector() const { return mOffsetVector; }
+
+    //! Returns the offset scale from the last generated terrain data
+    double offsetScale() const { return mOffsetScale; }
+
+    bool isTransitioning() const { return mIsTransitioning; }
+
     //! Returns TRUE if terrain data is currently being loaded.
     bool isLoading() const;
 
@@ -140,14 +157,17 @@ class Quick3DTerrainProvider : public QObject
      */
     Q_INVOKABLE double calculateVisualExaggeration() const;
 
-    /**
-     * Sets a custom geographic extent, regenerating terrain and emitting extentChanged.
-     * \param xMin Minimum X (west) in map CRS
-     * \param yMin Minimum Y (south) in map CRS
-     * \param xMax Maximum X (east) in map CRS
-     * \param yMax Maximum Y (north) in map CRS
-     */
-    Q_INVOKABLE void setCustomExtent( double xMin, double yMin, double xMax, double yMax );
+    //! Regenerates the extent and terrain data from current offset
+    Q_INVOKABLE void beginTransition();
+
+    //! Applies offsets and reset values to zeros
+    Q_INVOKABLE void endTransition();
+
+    //! Applies X/Z offsets to the stored terrain based on pan action
+    Q_INVOKABLE void pan( double x, double z );
+
+    //! Applies scale offset to the stored terrain absed on zoom action
+    Q_INVOKABLE void zoom( double factor );
 
   signals:
     void projectChanged();
@@ -160,6 +180,10 @@ class Quick3DTerrainProvider : public QObject
     void terrainDataReady();
 
     void normalizedDataChanged();
+    void offsetVectorChanged();
+    void offsetScaleChanged();
+    void isTransitioningChanged();
+
     void isLoadingChanged();
 
   private:
@@ -187,6 +211,10 @@ class Quick3DTerrainProvider : public QObject
 
     QSize mGridSize = QSize( 64, 64 );
     QVariantList mNormalizedData;
+
+    bool mIsTransitioning = false;
+    QVector3D mOffsetVector = QVector3D( 0, 0, 0 );
+    double mOffsetScale = 1.0;
 
     double mMinRealHeight = 0.0;
     double mMaxRealHeight = 0.0;
