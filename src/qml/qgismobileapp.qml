@@ -2638,8 +2638,7 @@ ApplicationWindow {
       visible: stateMachine.state === '3d' && mapCanvas3DLoader.item
       anchors.left: mainMenuBar.left
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
-      anchors.top: mainMenuBar.bottom
-      anchors.topMargin: 4
+      anchors.top: mainToolbar.bottom
       round: true
       iconSource: Theme.getThemeVectorIcon("ic_move_white_24dp")
       iconColor: checked ? "white" : Theme.toolButtonColor
@@ -2658,7 +2657,7 @@ ApplicationWindow {
       id: busyIndicator
       anchors.left: mainMenuBar.left
       anchors.leftMargin: mainWindow.sceneLeftMargin
-      anchors.top: mainToolbar.bottom
+      anchors.top: extentModeButton.bottom
       width: menuButton.width + 10
       height: width
       running: mapCanvasMap.isRendering || (stateMachine.state === '3d' && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && !mapCanvas3DLoader.item.isFirstLoad)
