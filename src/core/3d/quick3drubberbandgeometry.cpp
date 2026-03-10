@@ -72,7 +72,7 @@ void Quick3DRubberbandGeometry::setTerrainProvider( Quick3DTerrainProvider *prov
 
   if ( mTerrainProvider )
   {
-    connect( mTerrainProvider, &Quick3DTerrainProvider::terrainDataReady, this, &Quick3DRubberbandGeometry::markDirtyAndUpdate );
+    connect( mTerrainProvider, &Quick3DTerrainProvider::extentChanged, this, &Quick3DRubberbandGeometry::markDirtyAndUpdate );
   }
 
   mDirty = true;

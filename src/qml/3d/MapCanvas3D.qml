@@ -53,7 +53,7 @@ Item {
   Quick3DMapTextureData {
     id: mapTextureData
     mapSettings: mapArea.mapSettings
-    extent: mapTerrainProvider.extent
+    extent: mapTerrainProvider.normalizedDataExtent
     incrementalRendering: true
     forceDeferredLayersRepaint: mapArea.trackingModel ? mapArea.trackingModel.count > 0 : false
 
@@ -61,6 +61,7 @@ Item {
       if (mapTerrainProvider.isTransitioning) {
         // Apply offsets and scale now that new texture is ready
         terrainGeometry.restoreHeightsFromProvider(mapTerrainProvider);
+        console.log('ending...');
         mapTerrainProvider.endTransition();
       }
     }
@@ -114,9 +115,9 @@ Item {
 
     Node {
       id: gnssMarker
-      visible: mapArea.gnssActive && mapArea.gnssPosition && !isNaN(gnssMapToScreen3D.scenePoint.x)
+      visible: mapArea.gnssActive && mapArea.gnssPosition && !isNaN(gnssMarkerMapToScreen3D.viewPoint.x)
 
-      position: gnssMarkerMapToScreen3D.scenePoint
+      position: gnssMarkerMapToScreen3D.viewPoint
       eulerRotation: mapArea.gnssSpeed > 0 && mapArea.gnssDirection >= 0 ? Qt.vector3d(0, -mapArea.gnssDirection, 0) : Qt.vector3d(0, 0, 0)
 
       MapToView3D {

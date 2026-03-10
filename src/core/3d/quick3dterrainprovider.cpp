@@ -102,21 +102,6 @@ void Quick3DTerrainProvider::setForceSquareSize( bool forceSquareSize )
   updateFromMapSettings();
 }
 
-QSize Quick3DTerrainProvider::gridSize() const
-{
-  return mGridSize;
-}
-
-QgsRectangle Quick3DTerrainProvider::extent() const
-{
-  return mExtent;
-}
-
-QSizeF Quick3DTerrainProvider::size() const
-{
-  return mSize;
-}
-
 void Quick3DTerrainProvider::updateFromMapSettings()
 {
   if ( !mMapSettings || !mProject )
@@ -124,12 +109,7 @@ void Quick3DTerrainProvider::updateFromMapSettings()
     return;
   }
 
-  applyExtent( mMapSettings->visibleExtent() );
-}
-
-void Quick3DTerrainProvider::applyExtent( const QgsRectangle &extent )
-{
-  QgsRectangle adjustedExtent = extent;
+  QgsRectangle adjustedExtent = mMapSettings->mapSettings().visibleExtent();
   if ( mForceSquareSize )
   {
     if ( adjustedExtent.width() >= adjustedExtent.height() )
@@ -146,22 +126,29 @@ void Quick3DTerrainProvider::applyExtent( const QgsRectangle &extent )
     }
   }
 
-  if ( mExtent == adjustedExtent )
+  if ( mExtent != adjustedExtent )
   {
-    return;
+    mExtent = adjustedExtent;
+
+    if ( mExtent.width() >= mExtent.height() )
+    {
+      mSize = QSizeF( mBaseSize, mExtent.height() * mBaseSize / mExtent.width() );
+    }
+    else
+    {
+      mSize = QSizeF( mExtent.width() * mBaseSize / mExtent.height(), mBaseSize );
+    }
+
+    emit extentChanged();
+    qDebug() << mExtent.asPolygon();
+    qDebug() << mSize;
   }
 
-  mExtent = adjustedExtent;
-  if ( mExtent.width() >= mExtent.height() )
-  {
-    mSize = QSizeF( mBaseSize, mExtent.height() * mBaseSize / mExtent.width() );
-  }
-  else
-  {
-    mSize = QSizeF( mExtent.width() * mBaseSize / mExtent.height(), mBaseSize );
-  }
-  emit extentChanged();
+  generateData();
+}
 
+void Quick3DTerrainProvider::generateData()
+{
   calculateResolution();
 
   if ( mTerrainProvider )
@@ -280,6 +267,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
   if ( mExtent.isEmpty() || !mTerrainProvider )
   {
     mNormalizedData.fill( 0.0, static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
+    mNormalizedDataExtent = mExtent;
 
     emit normalizedDataChanged();
     emit terrainDataReady();
@@ -342,6 +330,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
   if ( ( !rasterProvider && !terrainProvider ) || extent.isEmpty() )
   {
     mNormalizedData.fill( 0.0, static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
+    mNormalizedDataExtent = mExtent;
 
     emit normalizedDataChanged();
     emit terrainDataReady();
@@ -473,6 +462,7 @@ void Quick3DTerrainProvider::onTerrainDataCalculated()
   {
     mNormalizedData.append( ( h - mMinRealHeight ) * scale );
   }
+  mNormalizedDataExtent = mExtent;
 
   mIsLoading = false;
   emit isLoadingChanged();
@@ -487,12 +477,9 @@ void Quick3DTerrainProvider::onTerrainDataCalculated()
   }
 }
 
-void Quick3DTerrainProvider::beginTransition()
+void Quick3DTerrainProvider::updateExtentFromOffsets()
 {
-  mIsTransitioning = true;
-  emit isTransitioningChanged();
-
-  QgsRectangle modifiedExtent = mExtent;
+  QgsRectangle modifiedExtent = mNormalizedDataExtent;
   if ( mOffsetVector.x() != 0 || mOffsetVector.y() != 0 )
   {
     const double mupp = mExtent.width() / mSize.width();
@@ -504,7 +491,19 @@ void Quick3DTerrainProvider::beginTransition()
     modifiedExtent.scale( mOffsetScale );
   }
 
-  applyExtent( modifiedExtent );
+  if ( modifiedExtent != mExtent )
+  {
+    mExtent = modifiedExtent;
+    emit extentChanged();
+  }
+}
+
+void Quick3DTerrainProvider::beginTransition()
+{
+  mIsTransitioning = true;
+  emit isTransitioningChanged();
+
+  generateData();
 }
 
 void Quick3DTerrainProvider::endTransition()
@@ -529,6 +528,7 @@ void Quick3DTerrainProvider::pan( double x, double z )
   mOffsetVector.setZ( mOffsetVector.z() + z );
 
   offsetVectorChanged();
+  updateExtentFromOffsets();
 }
 
 void Quick3DTerrainProvider::zoom( double factor )
@@ -541,7 +541,7 @@ void Quick3DTerrainProvider::zoom( double factor )
   double scale = mOffsetScale + ( 1 - factor );
   if ( scale < 0.05 )
   {
-    scale = 0.05;
+    scale = 0.55;
   }
   else if ( scale > 1.95 )
   {
@@ -552,5 +552,6 @@ void Quick3DTerrainProvider::zoom( double factor )
   {
     mOffsetScale = scale;
     offsetScaleChanged();
+    updateExtentFromOffsets();
   }
 }

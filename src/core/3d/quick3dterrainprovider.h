@@ -70,6 +70,9 @@ class Quick3DTerrainProvider : public QObject
     //! Normalized height data array [0.0-1.0] for terrain mesh generation
     Q_PROPERTY( QVariantList normalizedData READ normalizedData NOTIFY normalizedDataChanged )
 
+    //! Geographic extent used for terrain data
+    Q_PROPERTY( QgsRectangle normalizedDataExtent READ normalizedDataExtent NOTIFY normalizedDataChanged )
+
     //! Returns the offset vector from the last generated terrain data
     Q_PROPERTY( QVector3D offsetVector READ offsetVector NOTIFY offsetVectorChanged )
 
@@ -104,13 +107,16 @@ class Quick3DTerrainProvider : public QObject
     void setForceSquareSize( bool forceSquareSize );
 
     //! Returns the grid dimensions for terrain sampling.
-    QSize gridSize() const;
+    QSize gridSize() const { return mGridSize; }
 
-    //! Returns the geographic extent for terrain data retrieval.
-    QgsRectangle extent() const;
+    //! Returns the current extent taking into account offsets.
+    QgsRectangle extent() const { return mExtent; }
+
+    //! Returns the geographic extent for the retrieved terrain data.
+    QgsRectangle normalizedDataExtent() const { return mNormalizedDataExtent; }
 
     //! Returns the size of the terrain.
-    QSizeF size() const;
+    QSizeF size() const { return mSize; }
 
     //! Returns the normalized height data array [0.0-1.0].
     QVariantList normalizedData() const;
@@ -189,8 +195,9 @@ class Quick3DTerrainProvider : public QObject
   private:
     void updateTerrainProvider();
     void updateFromMapSettings();
+    void updateExtentFromOffsets();
     void calculateResolution();
-    void applyExtent( const QgsRectangle &extent );
+    void generateData();
 
     //! Calculates terrain heights asynchronously in a worker thread and normalizes the data
     void calcNormalizedData();
@@ -211,6 +218,7 @@ class Quick3DTerrainProvider : public QObject
 
     QSize mGridSize = QSize( 64, 64 );
     QVariantList mNormalizedData;
+    QgsRectangle mNormalizedDataExtent;
 
     bool mIsTransitioning = false;
     QVector3D mOffsetVector = QVector3D( 0, 0, 0 );
