@@ -26,7 +26,7 @@ NtripClient::NtripClient( QObject *parent )
 {
 }
 
-NtripClient::~NtripClient()
+NtripClient::~NtripClient() noexcept
 {
   stop();
 }
