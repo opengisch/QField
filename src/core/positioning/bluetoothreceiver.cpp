@@ -120,6 +120,10 @@ void BluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state 
   QAbstractSocket::SocketState currentState;
   switch ( state )
   {
+    case QBluetoothSocket::SocketState::ServiceLookupState:
+      // Service discovery is part of the connection handshake, do not treat it as disconnected.
+      currentState = QAbstractSocket::ConnectingState;
+      break;
     case QBluetoothSocket::SocketState::UnconnectedState:
       currentState = QAbstractSocket::UnconnectedState;
       break;
@@ -227,6 +231,17 @@ void BluetoothReceiver::handleErrorOccurred( QBluetoothSocket::SocketError error
 
 void BluetoothReceiver::doConnectDevice()
 {
+  if ( !mSocket )
+    return;
+
+  if ( mSocket->state() == QBluetoothSocket::SocketState::ServiceLookupState
+       || mSocket->state() == QBluetoothSocket::SocketState::ConnectingState
+       || mSocket->state() == QBluetoothSocket::SocketState::ConnectedState )
+  {
+    qInfo() << "BluetoothReceiver: Skipping connect attempt, socket busy in state" << mSocket->state();
+    return;
+  }
+
   if ( mLocalDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff )
   {
     qInfo() << QStringLiteral( "BluetoothReceiver: Powering on local device" );
