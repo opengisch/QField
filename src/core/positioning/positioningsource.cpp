@@ -225,6 +225,24 @@ void PositioningSource::setNtripPort( int ntripPort )
   emit ntripPortChanged();
 }
 
+void PositioningSource::setNtripVersion( int ntripVersion )
+{
+  const int clampedVersion = ( ntripVersion == 2 ) ? 2 : 1;
+  if ( mNtripVersion == clampedVersion )
+    return;
+
+  mNtripVersion = clampedVersion;
+
+  // Restart NTRIP client if enabled and parameters changed
+  if ( mEnableNtripClient && mNtripClient )
+  {
+    stopNtripClient();
+    startNtripClient();
+  }
+
+  emit ntripVersionChanged();
+}
+
 void PositioningSource::setNtripMountpoint( const QString &ntripMountpoint )
 {
   if ( mNtripMountpoint == ntripMountpoint )
@@ -543,7 +561,7 @@ void PositioningSource::startNtripClient()
     emit ntripBytesReceivedChanged();
 
     setNtripState( NtripState::Disconnected );
-    mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword );
+    mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword, mNtripVersion );
 
     // Connect to receiver if it supports RTK corrections
 #ifdef WITH_BLUETOOTH

@@ -98,6 +98,7 @@ void Positioning::setupSource()
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripSendNmeaChanged() ), this, SIGNAL( ntripSendNmeaChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripHostChanged() ), this, SIGNAL( ntripHostChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripPortChanged() ), this, SIGNAL( ntripPortChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripVersionChanged() ), this, SIGNAL( ntripVersionChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripMountpointChanged() ), this, SIGNAL( ntripMountpointChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripUsernameChanged() ), this, SIGNAL( ntripUsernameChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripPasswordChanged() ), this, SIGNAL( ntripPasswordChanged() ) );
@@ -587,6 +588,11 @@ int Positioning::ntripPort() const
   return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripPort" ) : mProperties.value( "ntripPort", 2101 ) ).toInt();
 }
 
+int Positioning::ntripVersion() const
+{
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripVersion" ) : mProperties.value( "ntripVersion", 1 ) ).toInt();
+}
+
 void Positioning::setNtripPort( int ntripPort )
 {
   if ( isSourceAvailable() )
@@ -597,6 +603,20 @@ void Positioning::setNtripPort( int ntripPort )
   {
     mProperties["ntripPort"] = ntripPort;
     emit ntripPortChanged();
+  }
+}
+
+void Positioning::setNtripVersion( int ntripVersion )
+{
+  const int clampedVersion = ( ntripVersion == 2 ) ? 2 : 1;
+  if ( isSourceAvailable() )
+  {
+    mPositioningSourceReplica->setProperty( "ntripVersion", clampedVersion );
+  }
+  else
+  {
+    mProperties["ntripVersion"] = clampedVersion;
+    emit ntripVersionChanged();
   }
 }
 

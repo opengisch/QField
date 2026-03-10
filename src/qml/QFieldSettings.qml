@@ -2156,7 +2156,7 @@ Page {
                       enabled: !ntripFetcher.fetching
 
                       onClicked: {
-                        ntripFetcher.fetch(positioningSettings.ntripHost, positioningSettings.ntripPort, positioningSettings.ntripUsername, positioningSettings.ntripPassword, 1);
+                        ntripFetcher.fetch(positioningSettings.ntripHost, positioningSettings.ntripPort, positioningSettings.ntripUsername, positioningSettings.ntripPassword, positioningSettings.ntripVersion);
                       }
 
                       BusyIndicator {
@@ -2176,6 +2176,35 @@ Page {
                     font: Theme.tipFont
                     color: Theme.errorColor
                     wrapMode: Text.WordWrap
+                  }
+                }
+              }
+
+              ColumnLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 8
+                spacing: 4
+
+                Label {
+                  text: qsTr("NTRIP Version")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                }
+
+                QfComboBox {
+                  id: ntripVersion
+                  Layout.fillWidth: true
+                  model: ["1", "2"]
+
+                  Component.onCompleted: {
+                    currentIndex = positioningSettings.ntripVersion === 2 ? 1 : 0;
+                  }
+
+                  onCurrentIndexChanged: {
+                    positioningSettings.ntripVersion = currentIndex === 1 ? 2 : 1;
                   }
                 }
               }

@@ -370,6 +370,7 @@ ApplicationWindow {
     ntripSendNmea: positioningSettings.ntripSendNmea
     ntripHost: positioningSettings.ntripHost
     ntripPort: positioningSettings.ntripPort
+    ntripVersion: positioningSettings.ntripVersion
     ntripMountpoint: positioningSettings.ntripMountpoint
     ntripUsername: positioningSettings.ntripUsername
     ntripPassword: positioningSettings.ntripPassword

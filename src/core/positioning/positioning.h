@@ -73,6 +73,7 @@ class Positioning : public QObject
     Q_PROPERTY( bool ntripSendNmea READ ntripSendNmea WRITE setNtripSendNmea NOTIFY ntripSendNmeaChanged )
     Q_PROPERTY( QString ntripHost READ ntripHost WRITE setNtripHost NOTIFY ntripHostChanged )
     Q_PROPERTY( int ntripPort READ ntripPort WRITE setNtripPort NOTIFY ntripPortChanged )
+    Q_PROPERTY( int ntripVersion READ ntripVersion WRITE setNtripVersion NOTIFY ntripVersionChanged )
     Q_PROPERTY( QString ntripMountpoint READ ntripMountpoint WRITE setNtripMountpoint NOTIFY ntripMountpointChanged )
     Q_PROPERTY( QString ntripUsername READ ntripUsername WRITE setNtripUsername NOTIFY ntripUsernameChanged )
     Q_PROPERTY( QString ntripPassword READ ntripPassword WRITE setNtripPassword NOTIFY ntripPasswordChanged )
@@ -322,9 +323,19 @@ class Positioning : public QObject
     int ntripPort() const;
 
     /**
+     * Returns the NTRIP protocol version (1 or 2).
+     */
+    int ntripVersion() const;
+
+    /**
      * Sets the NTRIP server port.
      */
     void setNtripPort( int ntripPort );
+
+    /**
+     * Sets the NTRIP protocol version (1 or 2).
+     */
+    void setNtripVersion( int ntripVersion );
 
     /**
      * Returns the NTRIP mountpoint.
@@ -420,6 +431,7 @@ class Positioning : public QObject
     void ntripSendNmeaChanged();
     void ntripHostChanged();
     void ntripPortChanged();
+    void ntripVersionChanged();
     void ntripMountpointChanged();
     void ntripUsernameChanged();
     void ntripPasswordChanged();
