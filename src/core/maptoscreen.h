@@ -22,6 +22,8 @@
 #include <QPointF>
 #include <qgspoint.h>
 
+#include <limits>
+
 /**
  * @brief The MapToScreen class transform a map point to screen coordinates.
  * The map point CRS is the one from the map settings.
@@ -88,7 +90,7 @@ class MapToScreen : public QObject
     QgsPoint mMapPoint = QgsPoint();
     double mMapDistance = 0.0;
     QPointF mScreenPoint = QPointF();
-    double mScreenDistance = 0.0;
+    double mScreenDistance = std::numeric_limits<double>::quiet_NaN();
 };
 
 #endif // MAPTOSCREEN_H
