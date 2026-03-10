@@ -87,6 +87,7 @@
 #include "locatormodelsuperbridge.h"
 #include "maplayermodel.h"
 #include "maptoscreen.h"
+#include "maptoview3d.h"
 #include "messagelogmodel.h"
 #include "navigation.h"
 #include "navigationmodel.h"
@@ -126,7 +127,6 @@
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
 #include "qgsquickmaptransform.h"
-#include "maptoscreen3d.h"
 #include "quick3dmaptexturedata.h"
 #include "quick3drubberbandgeometry.h"
 #include "quick3dterraingeometry.h"
@@ -472,7 +472,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<Quick3DTerrainGeometry>( "org.qfield", 1, 0, "Quick3DTerrainGeometry" );
   qmlRegisterType<Quick3DTerrainProvider>( "org.qfield", 1, 0, "Quick3DTerrainProvider" );
   qmlRegisterType<Quick3DMapTextureData>( "org.qfield", 1, 0, "Quick3DMapTextureData" );
-  qmlRegisterType<MapToScreen3D>( "org.qfield", 1, 0, "MapToScreen3D" );
+  qmlRegisterType<MapToView3D>( "org.qfield", 1, 0, "MapToView3D" );
 
   // Register QField QML types
   qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );

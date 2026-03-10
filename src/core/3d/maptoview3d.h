@@ -1,5 +1,5 @@
 /***************************************************************************
-  maptoscreen3d.h - MapToScreen3D
+  maptoview3d.h - MapToView3D
 
  ---------------------
  begin                : 9.3.2026
@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef MAPTOSCREEN3D_H
-#define MAPTOSCREEN3D_H
+#ifndef MAPTOVIEW3D_H
+#define MAPTOVIEW3D_H
 
 #include "quick3dterrainprovider.h"
 
@@ -25,15 +25,15 @@
 #include <qqmlintegration.h>
 
 /**
- * Transforms a map point to a 3D scene position using a terrain provider.
+ * Transforms a map point to a 3D position using a terrain provider.
  *
- * The scene point is automatically updated when the map point or terrain
+ * The 3D point is automatically updated when the map point or terrain
  * provider extent changes, enabling dynamic positioning of 3D elements.
  *
- * \note QML Type: MapToScreen3D
+ * \note QML Type: MapToView3D
  * \ingroup core
  */
-class MapToScreen3D : public QObject
+class MapToView3D : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
@@ -47,11 +47,11 @@ class MapToScreen3D : public QObject
     //! Additional vertical offset above the terrain surface
     Q_PROPERTY( float heightOffset READ heightOffset WRITE setHeightOffset NOTIFY heightOffsetChanged )
 
-    //! The point in 3D scene coordinates
-    Q_PROPERTY( QVector3D scenePoint READ scenePoint NOTIFY scenePointChanged )
+    //! The point in 3D coordinates
+    Q_PROPERTY( QVector3D viewPoint READ viewPoint NOTIFY viewPointChanged )
 
   public:
-    explicit MapToScreen3D( QObject *parent = nullptr );
+    explicit MapToView3D( QObject *parent = nullptr );
 
     Quick3DTerrainProvider *terrainProvider() const;
     void setTerrainProvider( Quick3DTerrainProvider *provider );
@@ -62,13 +62,13 @@ class MapToScreen3D : public QObject
     float heightOffset() const;
     void setHeightOffset( float offset );
 
-    QVector3D scenePoint() const;
+    QVector3D viewPoint() const;
 
   signals:
     void terrainProviderChanged();
     void mapPointChanged();
     void heightOffsetChanged();
-    void scenePointChanged();
+    void viewPointChanged();
 
   private slots:
     void transformPoint();
@@ -77,7 +77,7 @@ class MapToScreen3D : public QObject
     Quick3DTerrainProvider *mTerrainProvider = nullptr;
     QgsPoint mMapPoint;
     float mHeightOffset = 0.0f;
-    QVector3D mScenePoint;
+    QVector3D mViewPoint;
 };
 
-#endif // MAPTOSCREEN3D_H
+#endif // MAPTOVIEW3D_H

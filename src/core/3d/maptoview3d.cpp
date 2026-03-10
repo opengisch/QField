@@ -1,5 +1,5 @@
 /***************************************************************************
-  maptoscreen3d.cpp - MapToScreen3D
+  maptoview3d.h - MapToView3D
 
  ---------------------
  begin                : 9.3.2026
@@ -14,19 +14,19 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "maptoscreen3d.h"
+#include "maptoview3d.h"
 
-MapToScreen3D::MapToScreen3D( QObject *parent )
+MapToView3D::MapToView3D( QObject *parent )
   : QObject( parent )
 {
 }
 
-Quick3DTerrainProvider *MapToScreen3D::terrainProvider() const
+Quick3DTerrainProvider *MapToView3D::terrainProvider() const
 {
   return mTerrainProvider;
 }
 
-void MapToScreen3D::setTerrainProvider( Quick3DTerrainProvider *provider )
+void MapToView3D::setTerrainProvider( Quick3DTerrainProvider *provider )
 {
   if ( mTerrainProvider == provider )
   {
@@ -35,26 +35,26 @@ void MapToScreen3D::setTerrainProvider( Quick3DTerrainProvider *provider )
 
   if ( mTerrainProvider )
   {
-    disconnect( mTerrainProvider, &Quick3DTerrainProvider::extentChanged, this, &MapToScreen3D::transformPoint );
+    disconnect( mTerrainProvider, &Quick3DTerrainProvider::extentChanged, this, &MapToView3D::transformPoint );
   }
 
   mTerrainProvider = provider;
 
   if ( mTerrainProvider )
   {
-    connect( mTerrainProvider, &Quick3DTerrainProvider::extentChanged, this, &MapToScreen3D::transformPoint );
+    connect( mTerrainProvider, &Quick3DTerrainProvider::extentChanged, this, &MapToView3D::transformPoint );
   }
 
   emit terrainProviderChanged();
   transformPoint();
 }
 
-QgsPoint MapToScreen3D::mapPoint() const
+QgsPoint MapToView3D::mapPoint() const
 {
   return mMapPoint;
 }
 
-void MapToScreen3D::setMapPoint( const QgsPoint &point )
+void MapToView3D::setMapPoint( const QgsPoint &point )
 {
   if ( mMapPoint == point )
   {
@@ -66,12 +66,12 @@ void MapToScreen3D::setMapPoint( const QgsPoint &point )
   transformPoint();
 }
 
-float MapToScreen3D::heightOffset() const
+float MapToView3D::heightOffset() const
 {
   return mHeightOffset;
 }
 
-void MapToScreen3D::setHeightOffset( float offset )
+void MapToView3D::setHeightOffset( float offset )
 {
   if ( qFuzzyCompare( mHeightOffset, offset ) )
   {
@@ -83,12 +83,12 @@ void MapToScreen3D::setHeightOffset( float offset )
   transformPoint();
 }
 
-QVector3D MapToScreen3D::scenePoint() const
+QVector3D MapToView3D::viewPoint() const
 {
-  return mScenePoint;
+  return mViewPoint;
 }
 
-void MapToScreen3D::transformPoint()
+void MapToView3D::transformPoint()
 {
   QVector3D newPoint;
   if ( mTerrainProvider && !mMapPoint.isEmpty() )
@@ -96,9 +96,9 @@ void MapToScreen3D::transformPoint()
     newPoint = mTerrainProvider->geoTo3D( mMapPoint.x(), mMapPoint.y(), mHeightOffset );
   }
 
-  if ( mScenePoint != newPoint )
+  if ( mViewPoint != newPoint )
   {
-    mScenePoint = newPoint;
-    emit scenePointChanged();
+    mViewPoint = newPoint;
+    emit viewPointChanged();
   }
 }

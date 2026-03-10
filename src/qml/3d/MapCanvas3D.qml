@@ -112,27 +112,19 @@ Item {
       mapTextureData: mapTextureData
     }
 
-    MapToScreen3D {
-      id: gnssMapToScreen3D
-      terrainProvider: mapTerrainProvider
-      heightOffset: 15
-    }
-
-    Connections {
-      target: mapArea
-      function onGnssPositionChanged() {
-        if (mapArea.gnssPosition) {
-          gnssMapToScreen3D.mapPoint = mapArea.gnssPosition;
-        }
-      }
-    }
-
     Node {
       id: gnssMarker
       visible: mapArea.gnssActive && mapArea.gnssPosition && !isNaN(gnssMapToScreen3D.scenePoint.x)
 
-      position: gnssMapToScreen3D.scenePoint
+      position: gnssMarkerMapToScreen3D.scenePoint
       eulerRotation: mapArea.gnssSpeed > 0 && mapArea.gnssDirection >= 0 ? Qt.vector3d(0, -mapArea.gnssDirection, 0) : Qt.vector3d(0, 0, 0)
+
+      MapToView3D {
+        id: gnssMarkerMapToScreen3D
+        terrainProvider: mapTerrainProvider
+        mapPoint: mapArea.gnssPosition
+        heightOffset: 15
+      }
 
       Model {
         source: "#Sphere"
