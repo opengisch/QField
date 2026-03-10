@@ -214,7 +214,7 @@ double Quick3DTerrainProvider::heightAt( double x, double y ) const
 double Quick3DTerrainProvider::normalizedHeightAt( double x, double y ) const
 {
   const double realHeight = heightAt( x, y );
-  const double extentSize = std::max( mExtent.width(), mExtent.height() );
+  const double extentSize = std::max( mNormalizedDataExtent.width(), mNormalizedDataExtent.height() );
   const double scale = ( mBaseSize / extentSize ) * calculateVisualExaggeration();
   return ( realHeight - mMinRealHeight ) * scale;
 }
@@ -248,6 +248,8 @@ QVector3D Quick3DTerrainProvider::geoTo3D( double geoX, double geoY, float heigh
 
 double Quick3DTerrainProvider::calculateVisualExaggeration() const
 {
+  return 1.0;
+
   const double extentSize = std::max( mExtent.width(), mExtent.height() );
   if ( extentSize > 100000 )
   {
