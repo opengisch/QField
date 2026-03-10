@@ -2641,8 +2641,8 @@ ApplicationWindow {
       anchors.top: mainToolbar.bottom
       round: true
       iconSource: Theme.getThemeVectorIcon("ic_move_white_24dp")
-      iconColor: checked ? "white" : Theme.toolButtonColor
-      bgcolor: checked ? Theme.mainColor : Theme.toolButtonBackgroundColor
+      iconColor: checked ? Theme.mainColor : Theme.toolButtonColor
+      bgcolor: checked ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
       checkable: true
       checked: mapCanvas3DLoader.item ? mapCanvas3DLoader.item.extentMode : false
 
