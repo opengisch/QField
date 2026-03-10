@@ -119,7 +119,7 @@ void Quick3DTerrainGeometry::buildMetagridFromProvider( const Quick3DTerrainProv
   }
 }
 
-void Quick3DTerrainGeometry::setOffsetVector( QVector3D offsetVector )
+void Quick3DTerrainGeometry::setOffsetVector( const QVector3D &offsetVector )
 {
   if ( mOffsetVector == offsetVector )
   {

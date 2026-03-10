@@ -280,9 +280,10 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
     painter.end();
   }
 
+  const qsizetype bytesPerRow = static_cast<qsizetype>( w ) * 4;
   for ( int y = 0; y < h; ++y )
   {
-    memcpy( metagrid.scanLine( y + h ) + w * 4, rgbaImage.constScanLine( y ), w * 4 );
+    memcpy( metagrid.scanLine( y + h ) + bytesPerRow, rgbaImage.constScanLine( y ), bytesPerRow );
   }
 
   setSize( metagrid.size() );

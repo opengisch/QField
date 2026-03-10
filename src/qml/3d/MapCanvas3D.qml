@@ -241,7 +241,7 @@ Item {
     onSingleTapped: function (x, y) {
       const pickResult = view3d.pick(x, y);
       if (pickResult.objectHit && gnssMarker.visible) {
-        cameraController.lookAtPoint(gnssMapToScreen3D.scenePoint, 500);
+        cameraController.lookAtPoint(gnssMarkerMapToScreen3D.viewPoint, 500);
       }
     }
     onUserInteractionStarted: {
@@ -249,18 +249,14 @@ Item {
     }
 
     onExtentPan: function (sceneX, sceneZ) {
-      if (mapTerrainProvider.terrainDataReady) {
-        mapTerrainProvider.pan(sceneX, sceneZ);
-      }
+      mapTerrainProvider.pan(sceneX, sceneZ);
     }
     onExtentPanFinished: {
       mapTerrainProvider.beginTransition();
     }
 
     onExtentZoom: function (factor) {
-      if (mapTerrainProvider.terrainDataReady) {
-        mapTerrainProvider.zoom(factor);
-      }
+      mapTerrainProvider.zoom(factor);
     }
     onExtentZoomFinished: {
       mapTerrainProvider.beginTransition();

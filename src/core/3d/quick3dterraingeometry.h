@@ -80,7 +80,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
 
     QVector3D offsetVector() const { return mOffsetVector; }
 
-    void setOffsetVector( QVector3D offsetVector );
+    void setOffsetVector( const QVector3D &offsetVector );
 
     double offsetScale() const { return mOffsetScale; }
 
