@@ -342,7 +342,7 @@ Item {
       const shiftHeld = !!(wheel.modifiers & Qt.ShiftModifier);
       if (root.extentMode || shiftHeld) {
         const delta = wheel.angleDelta.x !== 0 ? wheel.angleDelta.x : wheel.angleDelta.y;
-        const factor = delta > 0 ? 0.8 : 1.25;
+        const factor = delta > 0 ? 0.9 : 1.1;
         root.extentZoom(factor);
         mouseAreaTimer.restart();
         wheel.accepted = true;
