@@ -2154,7 +2154,7 @@ Page {
                       enabled: !ntripFetcher.fetching
 
                       onClicked: {
-                        ntripFetcher.fetch(positioningSettings.ntripHost, positioningSettings.ntripPort, positioningSettings.ntripUsername, positioningSettings.ntripPassword);
+                        ntripFetcher.fetch(positioningSettings.ntripHost, positioningSettings.ntripPort, positioningSettings.ntripUsername, positioningSettings.ntripPassword, 1);
                       }
 
                       BusyIndicator {
