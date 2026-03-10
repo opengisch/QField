@@ -836,12 +836,13 @@ Page {
               }
 
               Label {
-                text: qsTr("Proxy type:")
+                text: qsTr("Type")
                 font: Theme.defaultFont
                 color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
+                Layout.leftMargin: 8
                 visible: proxyEnabledSwitch.checked
               }
 
@@ -851,6 +852,7 @@ Page {
                 visible: proxyEnabledSwitch.checked
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
+                Layout.leftMargin: 8
                 Layout.alignment: Qt.AlignVCenter
                 font: Theme.defaultFont
 
@@ -892,11 +894,12 @@ Page {
               }
 
               Label {
-                text: qsTr("Host:")
+                text: qsTr("Host")
                 font: Theme.defaultFont
                 color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
+                Layout.leftMargin: 8
                 visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
               }
 
@@ -913,11 +916,12 @@ Page {
               }
 
               Label {
-                text: qsTr("Port:")
+                text: qsTr("Port")
                 font: Theme.defaultFont
                 color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
+                Layout.leftMargin: 8
                 visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
               }
 
@@ -926,8 +930,8 @@ Page {
                 enabled: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
                 visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
                 font: Theme.defaultFont
-                Layout.preferredWidth: 100
-                horizontalAlignment: TextInput.AlignHCenter
+                Layout.fillWidth: true
+                placeholderText: qsTr("e.g. 8888")
                 inputMethodHints: Qt.ImhDigitsOnly
                 validator: IntValidator {
                   bottom: 0
@@ -938,11 +942,12 @@ Page {
               }
 
               Label {
-                text: qsTr("Username:")
+                text: qsTr("Username")
                 font: Theme.defaultFont
                 color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
+                Layout.leftMargin: 8
                 visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
               }
 
@@ -958,11 +963,12 @@ Page {
               }
 
               Label {
-                text: qsTr("Password:")
+                text: qsTr("Password")
                 font: Theme.defaultFont
                 color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
+                Layout.leftMargin: 8
                 visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
               }
 
@@ -979,12 +985,13 @@ Page {
               }
 
               Label {
-                text: qsTr("Excluded URLs (comma-separated):")
+                text: qsTr("URLs excluded from proxy (comma-separated)")
                 font: Theme.defaultFont
                 color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
+                Layout.leftMargin: 8
                 visible: proxyEnabledSwitch.checked
               }
 
@@ -995,6 +1002,7 @@ Page {
                 font: Theme.defaultFont
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
+                Layout.leftMargin: 8
                 placeholderText: qsTr("e.g. localhost, 192.168.*")
                 text: proxyExcludedUrls
                 onTextChanged: proxyExcludedUrls = text
