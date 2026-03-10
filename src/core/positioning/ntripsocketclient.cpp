@@ -42,10 +42,10 @@ NtripSocketClient::NtripSocketClient( QObject *parent )
 {
   mSocket->setSocketOption( QAbstractSocket::LowDelayOption, true );
 
-  connect( mSocket, SIGNAL( connected() ), this, SLOT( onConnected() ) );
-  connect( mSocket, SIGNAL( readyRead() ), this, SLOT( onReadyRead() ) );
-  connect( mSocket, SIGNAL( disconnected() ), this, SLOT( onDisconnected() ) );
-  connect( mSocket, SIGNAL( error( QAbstractSocket::SocketError ) ), this, SLOT( onSocketError( QAbstractSocket::SocketError ) ) );
+    connect( mSocket, &QTcpSocket::connected, this, &NtripSocketClient::onConnected );
+    connect( mSocket, &QTcpSocket::readyRead, this, &NtripSocketClient::onReadyRead );
+    connect( mSocket, &QTcpSocket::disconnected, this, &NtripSocketClient::onDisconnected );
+    connect( mSocket, &QAbstractSocket::errorOccurred, this, &NtripSocketClient::onSocketError );
 }
 
 NtripSocketClient::~NtripSocketClient() noexcept

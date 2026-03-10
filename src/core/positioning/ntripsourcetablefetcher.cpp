@@ -33,10 +33,10 @@ void NtripSourceTableFetcher::fetch( const QString &host, int port, const QStrin
   mHeadersParsed = false;
 
   mSocket = new QTcpSocket( this );
-  connect( mSocket, SIGNAL( connected() ), this, SLOT( onConnected() ) );
-  connect( mSocket, SIGNAL( readyRead() ), this, SLOT( onReadyRead() ) );
-  connect( mSocket, SIGNAL( disconnected() ), this, SLOT( onDisconnected() ) );
-  connect( mSocket, SIGNAL( error( QAbstractSocket::SocketError ) ), this, SLOT( onSocketError( QAbstractSocket::SocketError ) ) );
+  connect( mSocket, &QTcpSocket::connected, this, &NtripSourceTableFetcher::onSocketConnected );
+  connect( mSocket, &QTcpSocket::readyRead, this, &NtripSourceTableFetcher::onSocketReadyRead );
+  connect( mSocket, &QTcpSocket::disconnected, this, &NtripSourceTableFetcher::onSocketDisconnected );
+  connect( mSocket, &QAbstractSocket::errorOccurred, this, &NtripSourceTableFetcher::onSocketError );
 
   mFetching = true;
   emit fetchingChanged();
