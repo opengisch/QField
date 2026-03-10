@@ -38,15 +38,14 @@ namespace
 } // namespace
 
 NtripSocketClient::NtripSocketClient( QObject *parent )
-  : QObject( parent ),
-    mSocket( new QTcpSocket( this ) )
+  : QObject( parent ), mSocket( new QTcpSocket( this ) )
 {
   mSocket->setSocketOption( QAbstractSocket::LowDelayOption, true );
 
   connect( mSocket, SIGNAL( connected() ), this, SLOT( onConnected() ) );
   connect( mSocket, SIGNAL( readyRead() ), this, SLOT( onReadyRead() ) );
   connect( mSocket, SIGNAL( disconnected() ), this, SLOT( onDisconnected() ) );
-  connect( mSocket, SIGNAL( error(QAbstractSocket::SocketError) ), this, SLOT( onSocketError(QAbstractSocket::SocketError) ) );
+  connect( mSocket, SIGNAL( error( QAbstractSocket::SocketError ) ), this, SLOT( onSocketError( QAbstractSocket::SocketError ) ) );
 }
 
 NtripSocketClient::~NtripSocketClient() noexcept

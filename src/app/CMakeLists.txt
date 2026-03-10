@@ -14,7 +14,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 
   # Génère le Info.plist macOS depuis le template commun
   set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_BINARY_DIR}/Info.plist")
-  configure_file(${CMAKE_SOURCE_DIR}/platform/macos/Info.plist.in "${MACOSX_BUNDLE_INFO_PLIST}" @ONLY)
+  configure_file(${CMAKE_SOURCE_DIR}/platform/macos/Info.plist.in 
+                 "${MACOSX_BUNDLE_INFO_PLIST}" @ONLY)
 endif()
 
 # lrelease .ts files

@@ -112,10 +112,9 @@ void NtripClient::startLogging( const QString &path )
   if ( !QFileInfo::exists( path ) )
     return;
 
-  const QString timestamp =
-    QDateTime::currentDateTime().toString("yyyy-MM-ddThh-mm-ss");
+  const QString timestamp = QDateTime::currentDateTime().toString("yyyy-MM-ddThh-mm-ss");
 
-  mLogFile.setFileName(path + "/rtcm-" + timestamp + ".bin");
+  mLogFile.setFileName( path + "/rtcm-" + timestamp + ".bin" );
 
   if ( !mLogFile.open( QIODevice::WriteOnly ) )
   {

@@ -20,7 +20,7 @@ NtripSourceTableFetcher::NtripSourceTableFetcher( QObject *parent )
 {
 }
 
-void NtripSourceTableFetcher::fetch( const QString &host, int port, const QString &username, const QString &password, int version)
+void NtripSourceTableFetcher::fetch( const QString &host, int port, const QString &username, const QString &password, int version )
 {
   cancel();
 
@@ -36,7 +36,7 @@ void NtripSourceTableFetcher::fetch( const QString &host, int port, const QStrin
   connect( mSocket, SIGNAL( connected() ), this, SLOT( onConnected() ) );
   connect( mSocket, SIGNAL( readyRead() ), this, SLOT( onReadyRead() ) );
   connect( mSocket, SIGNAL( disconnected() ), this, SLOT( onDisconnected() ) );
-  connect( mSocket, SIGNAL( error(QAbstractSocket::SocketError) ), this, SLOT( onSocketError(QAbstractSocket::SocketError) ) );
+  connect( mSocket, SIGNAL( error( QAbstractSocket::SocketError ) ), this, SLOT( onSocketError( QAbstractSocket::SocketError ) ) );
 
   mFetching = true;
   emit fetchingChanged();

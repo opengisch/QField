@@ -83,15 +83,15 @@ Page {
     id: ntripFetcher
     onMountpointsChanged: {
       // Preserve edited mountpoint text after model update
-      var savedText = positioningSettings.ntripMountpoint
-      Qt.callLater( function() {
-        if ( ntripMountpointCombo.editText !== savedText )
-          ntripMountpointCombo.editText = savedText
-      } )
+      var savedText = positioningSettings.ntripMountpoint;
+      Qt.callLater(function () {
+        if (ntripMountpointCombo.editText !== savedText)
+          ntripMountpointCombo.editText = savedText;
+      });
     }
-    onFetchError: function( message ) {
-      ntripFetchErrorLabel.text = message
-      ntripFetchErrorLabel.visible = true
+    onFetchError: function (message) {
+      ntripFetchErrorLabel.text = message;
+      ntripFetchErrorLabel.visible = true;
     }
   }
 
@@ -2132,21 +2132,21 @@ Page {
                       model: ntripFetcher.mountpoints
 
                       Component.onCompleted: {
-                        editText = positioningSettings.ntripMountpoint || ""
+                        editText = positioningSettings.ntripMountpoint || "";
                       }
 
                       onEditTextChanged: {
-                        ntripFetchErrorLabel.visible = false
-                        positioningSettings.ntripMountpoint = editText
+                        ntripFetchErrorLabel.visible = false;
+                        positioningSettings.ntripMountpoint = editText;
                       }
 
                       onActivated: {
-                        positioningSettings.ntripMountpoint = currentText
+                        positioningSettings.ntripMountpoint = currentText;
                       }
                     }
 
                     QfToolButton {
-                      iconSource: Theme.getThemeVectorIcon( "refresh_24dp" )
+                      iconSource: Theme.getThemeVectorIcon("refresh_24dp")
                       iconColor: Theme.mainTextColor
                       bgcolor: "transparent"
                       width: 36
@@ -2155,12 +2155,7 @@ Page {
                       enabled: !ntripFetcher.fetching
 
                       onClicked: {
-                        ntripFetcher.fetch(
-                          positioningSettings.ntripHost,
-                          positioningSettings.ntripPort,
-                          positioningSettings.ntripUsername,
-                          positioningSettings.ntripPassword
-                        )
+                        ntripFetcher.fetch(positioningSettings.ntripHost, positioningSettings.ntripPort, positioningSettings.ntripUsername, positioningSettings.ntripPassword);
                       }
 
                       BusyIndicator {
