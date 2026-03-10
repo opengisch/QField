@@ -24,6 +24,8 @@
 #include <qgspoint.h>
 #include <qgsrectangle.h>
 
+#include <cmath>
+
 static void setupMapSettings( QgsQuickMapSettings &ms )
 {
   ms.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
@@ -34,11 +36,11 @@ static void setupMapSettings( QgsQuickMapSettings &ms )
 
 TEST_CASE( "MapToScreen" )
 {
-  SECTION( "default state: screenPoint is null and screenDistance is 0" )
+  SECTION( "default state: screenPoint is null and screenDistance is NaN" )
   {
     MapToScreen mts;
     REQUIRE( mts.screenPoint() == QPointF() );
-    REQUIRE( mts.screenDistance() == 0.0 );
+    REQUIRE( std::isnan( mts.screenDistance() ) );
     REQUIRE( mts.mapSettings() == nullptr );
     REQUIRE( mts.mapDistance() == 0.0 );
   }
@@ -105,11 +107,11 @@ TEST_CASE( "MapToScreen" )
     REQUIRE( mts.screenPoint() == QPointF() );
   }
 
-  SECTION( "without mapSettings, screenDistance is 0 regardless of mapDistance" )
+  SECTION( "without mapSettings, screenDistance is NaN" )
   {
     MapToScreen mts;
     mts.setMapDistance( 100.0 );
-    REQUIRE( mts.screenDistance() == 0.0 );
+    REQUIRE( std::isnan( mts.screenDistance() ) );
   }
 
   SECTION( "center map point transforms to center screen point" )
@@ -137,7 +139,7 @@ TEST_CASE( "MapToScreen" )
     REQUIRE( qgsDoubleNear( mts.screenDistance(), 100.0, 1.0 ) );
   }
 
-  SECTION( "mapDistance of 0 produces screenDistance of 0" )
+  SECTION( "with mapSettings and zero mapDistance, screenDistance is 0.0 not NaN" )
   {
     MapToScreen mts;
     QgsQuickMapSettings ms;

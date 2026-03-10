@@ -105,7 +105,11 @@ double MapToScreen::screenDistance() const
 
 void MapToScreen::transformDistance()
 {
-  if ( !mMapSettings || qgsDoubleNear( mMapDistance, 0.0 ) || qgsDoubleNear( mMapSettings->mapUnitsPerPoint(), 0.0 ) )
+  if ( !mMapSettings )
+  {
+    mScreenDistance = std::numeric_limits<double>::quiet_NaN();
+  }
+  else if ( qgsDoubleNear( mMapDistance, 0.0 ) || qgsDoubleNear( mMapSettings->mapUnitsPerPoint(), 0.0 ) )
   {
     mScreenDistance = 0.0;
   }
