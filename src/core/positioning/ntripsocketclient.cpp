@@ -38,16 +38,18 @@ namespace
 } // namespace
 
 NtripSocketClient::NtripSocketClient( QObject *parent )
-  : QObject( parent )
+  : QObject( parent ),
+    mSocket( new QTcpSocket( this ) )
 {
-  connect( &mSocket, &QTcpSocket::connected, this, &NtripSocketClient::onConnected );
-  connect( &mSocket, &QTcpSocket::readyRead, this, &NtripSocketClient::onReadyRead );
-  connect( &mSocket, &QTcpSocket::disconnected, this, &NtripSocketClient::onDisconnected );
-  connect( &mSocket, QOverload<QAbstractSocket::SocketError>::of( &QTcpSocket::errorOccurred ),
-           this, &NtripSocketClient::onSocketError );
+  mSocket->setSocketOption( QAbstractSocket::LowDelayOption, true );
+
+  connect( mSocket, SIGNAL( connected() ), this, SLOT( onConnected() ) );
+  connect( mSocket, SIGNAL( readyRead() ), this, SLOT( onReadyRead() ) );
+  connect( mSocket, SIGNAL( disconnected() ), this, SLOT( onDisconnected() ) );
+  connect( mSocket, SIGNAL( error(QAbstractSocket::SocketError) ), this, SLOT( onSocketError(QAbstractSocket::SocketError) ) );
 }
 
-NtripSocketClient::~NtripSocketClient()
+NtripSocketClient::~NtripSocketClient() noexcept
 {
   stop();
 }
@@ -73,10 +75,10 @@ qint64 NtripSocketClient::start(
   mChunkBuffer.clear();
   mChunkRemaining = -1;
 
-  if ( mSocket.isOpen() )
+  if ( mSocket->isOpen() )
     stop();
 
-  mSocket.connectToHost( mHost, mPort );
+  mSocket->connectToHost( mHost, mPort );
 
   return estimateRequestSize();
 }
@@ -91,7 +93,7 @@ qint64 NtripSocketClient::estimateRequestSize() const
 
 qint64 NtripSocketClient::sendNmeaSentence( const QByteArray &sentence )
 {
-  if ( !mSocket.isOpen() || mSocket.state() != QAbstractSocket::ConnectedState )
+  if ( !mSocket->isOpen() || mSocket->state() != QAbstractSocket::ConnectedState )
   {
     return -1;
   }
@@ -102,14 +104,14 @@ qint64 NtripSocketClient::sendNmeaSentence( const QByteArray &sentence )
     payload.append( "\r\n" );
   }
 
-  return mSocket.write( payload );
+  return mSocket->write( payload );
 }
 
 void NtripSocketClient::stop()
 {
-  if ( mSocket.isOpen() )
+  if ( mSocket->isOpen() )
   {
-    mSocket.abort();
+    mSocket->abort();
   }
   mHeadersSent = false;
 }
@@ -148,13 +150,13 @@ void NtripSocketClient::onConnected()
     request.append( "\r\n" );
   }
 
-  mSocket.write( request );
-  mSocket.flush();
+  mSocket->write( request );
+  mSocket->flush();
 }
 
 void NtripSocketClient::onReadyRead()
 {
-  QByteArray data = mSocket.readAll();
+  QByteArray data = mSocket->readAll();
 
   // If headers not processed yet, accumulate data until we find the header end marker
   if ( !mHeadersSent )
@@ -172,11 +174,12 @@ void NtripSocketClient::onReadyRead()
       if ( headerBlock.startsWith( "SOURCETABLE" ) )
       {
         mPendingError = true;
-        emit errorOccurred( QString( "NTRIP mountpoint '%1' not found on %2:%3 (received SOURCETABLE)" )
-                              .arg( mMountpoint, mHost )
-                              .arg( mPort ),
+        emit errorOccurred( QStringLiteral( "NTRIP mountpoint '" ) + mMountpoint
+                              + QStringLiteral( "' not found on " ) + mHost
+                              + QStringLiteral( ":" ) + QString::number( mPort )
+                              + QStringLiteral( " (received SOURCETABLE)" ),
                             true );
-        mSocket.abort();
+        mSocket->abort();
         return;
       }
 
@@ -209,34 +212,32 @@ void NtripSocketClient::onReadyRead()
       else if ( statusCode > 0 && isPermanentHttpError( statusCode ) )
       {
         mPendingError = true;
-        emit errorOccurred( QString( "NTRIP caster %1:%2 (%3) returned HTTP %4" )
-                              .arg( mHost )
-                              .arg( mPort )
-                              .arg( mMountpoint )
-                              .arg( statusCode ),
+        emit errorOccurred( QStringLiteral( "NTRIP caster " ) + mHost
+                              + QStringLiteral( ":" ) + QString::number( mPort )
+                              + QStringLiteral( " (" ) + mMountpoint
+                              + QStringLiteral( ") returned HTTP " ) + QString::number( statusCode ),
                             true );
-        mSocket.abort();
+        mSocket->abort();
       }
       else if ( statusCode > 0 )
       {
         mPendingError = true;
-        emit errorOccurred( QString( "NTRIP caster %1:%2 (%3) returned HTTP %4" )
-                              .arg( mHost )
-                              .arg( mPort )
-                              .arg( mMountpoint )
-                              .arg( statusCode ),
+        emit errorOccurred( QStringLiteral( "NTRIP caster " ) + mHost
+                              + QStringLiteral( ":" ) + QString::number( mPort )
+                              + QStringLiteral( " (" ) + mMountpoint
+                              + QStringLiteral( ") returned HTTP " ) + QString::number( statusCode ),
                             false );
-        mSocket.abort();
+        mSocket->abort();
       }
       else
       {
         mPendingError = true;
-        emit errorOccurred( QString( "NTRIP caster %1:%2 (%3) returned unparsable response" )
-                              .arg( mHost )
-                              .arg( mPort )
-                              .arg( mMountpoint ),
+        emit errorOccurred( QStringLiteral( "NTRIP caster " ) + mHost
+                              + QStringLiteral( ":" ) + QString::number( mPort )
+                              + QStringLiteral( " (" ) + mMountpoint
+                              + QStringLiteral( ") returned unparsable response" ),
                             false );
-        mSocket.abort();
+        mSocket->abort();
       }
     }
     return;
@@ -321,21 +322,19 @@ void NtripSocketClient::onDisconnected()
   else if ( !mPendingError )
   {
     // Connection failed or disconnected before headers were processed
-    emit errorOccurred( QString( "Disconnected from NTRIP caster %1:%2 (%3)" )
-                          .arg( mHost )
-                          .arg( mPort )
-                          .arg( mMountpoint ),
+    emit errorOccurred( QStringLiteral( "Disconnected from NTRIP caster " ) + mHost
+                          + QStringLiteral( ":" ) + QString::number( mPort )
+                          + QStringLiteral( " (" ) + mMountpoint + QStringLiteral( ")" ),
                         false );
   }
 }
 
 void NtripSocketClient::onSocketError( QAbstractSocket::SocketError error )
 {
-  emit errorOccurred( QString( "NTRIP socket error on %1:%2 (%3): %4 (%5)" )
-                        .arg( mHost )
-                        .arg( mPort )
-                        .arg( mMountpoint )
-                        .arg( error )
-                        .arg( mSocket.errorString() ),
+  emit errorOccurred( QStringLiteral( "NTRIP socket error on " ) + mHost
+                        + QStringLiteral( ":" ) + QString::number( mPort )
+                        + QStringLiteral( " (" ) + mMountpoint
+                        + QStringLiteral( "): " ) + QString::number( static_cast<int>( error ) )
+                        + QStringLiteral( " (" ) + mSocket->errorString() + QStringLiteral( ")" ),
                       false );
 }

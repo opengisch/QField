@@ -24,7 +24,7 @@ class NtripSocketClient : public QObject
     Q_OBJECT
   public:
     explicit NtripSocketClient( QObject *parent = nullptr );
-    ~NtripSocketClient();
+    ~NtripSocketClient() noexcept override;
 
     qint64 start(
       const QString &host,
@@ -54,7 +54,7 @@ class NtripSocketClient : public QObject
   private:
     void processChunkedData( const QByteArray &data );
 
-    QTcpSocket mSocket;
+    QTcpSocket *mSocket;
     bool mHeadersSent = false;
     QByteArray mHeaderBuffer;
     QString mHost;
