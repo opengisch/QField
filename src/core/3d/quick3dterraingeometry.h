@@ -19,7 +19,6 @@
 
 #include <QQuick3DGeometry>
 #include <QSize>
-#include <QTimer>
 #include <QVector3D>
 #include <QVector>
 
@@ -50,7 +49,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     //! Height data array for terrain elevation values
     Q_PROPERTY( QVariantList heightData READ heightData WRITE setHeightData NOTIFY heightDataChanged )
 
-    //! Returns the offset vector from the generated terrein heights
+    //! Returns the offset vector from the generated terrain heights
     Q_PROPERTY( QVector3D offsetVector READ offsetVector WRITE setOffsetVector NOTIFY offsetVectorChanged )
 
     //! Returns the offset scale from the last generated terrain data
@@ -72,7 +71,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     //! Sets the terrain width.
     void setSize( const QSizeF &size );
 
-    //! Returns the heigh data in a QML-friendly QVariantList
+    //! Returns the height data in a QML-friendly QVariantList
     QVariantList heightData() const;
 
     //! Sets the height data array.

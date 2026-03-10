@@ -135,7 +135,7 @@ void Quick3DTerrainGeometry::setOffsetVector( const QVector3D &offsetVector )
 
 void Quick3DTerrainGeometry::setOffsetScale( double offsetScale )
 {
-  if ( mOffsetScale == offsetScale )
+  if ( qgsDoubleNear( mOffsetScale, offsetScale ) )
   {
     return;
   }

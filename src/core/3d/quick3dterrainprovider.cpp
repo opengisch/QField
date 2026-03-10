@@ -248,8 +248,6 @@ QVector3D Quick3DTerrainProvider::geoTo3D( double geoX, double geoY, float heigh
 
 double Quick3DTerrainProvider::calculateVisualExaggeration() const
 {
-  return 1.0;
-
   const double extentSize = std::max( mExtent.width(), mExtent.height() );
   if ( extentSize > 100000 )
   {

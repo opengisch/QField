@@ -172,7 +172,7 @@ class Quick3DTerrainProvider : public QObject
     //! Applies X/Z offsets to the stored terrain based on pan action
     Q_INVOKABLE void pan( double x, double z );
 
-    //! Applies scale offset to the stored terrain absed on zoom action
+    //! Applies scale offset to the stored terrain based on zoom action
     Q_INVOKABLE void zoom( double factor );
 
   signals:
