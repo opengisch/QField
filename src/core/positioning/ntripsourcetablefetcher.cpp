@@ -33,10 +33,10 @@ void NtripSourceTableFetcher::fetch( const QString &host, int port, const QStrin
   mHeadersParsed = false;
 
   mSocket = new QTcpSocket( this );
-  QObject::connect( mSocket, SIGNAL( connected() ), this, SLOT( onConnected() ) );
-  QObject::connect( mSocket, SIGNAL( readyRead() ), this, SLOT( onReadyRead() ) );
-  QObject::connect( mSocket, SIGNAL( disconnected() ), this, SLOT( onDisconnected() ) );
-  QObject::connect( mSocket, SIGNAL( error(QAbstractSocket::SocketError) ), this, SLOT( onSocketError(QAbstractSocket::SocketError) ) );
+  connect( mSocket, SIGNAL( connected() ), this, SLOT( onConnected() ) );
+  connect( mSocket, SIGNAL( readyRead() ), this, SLOT( onReadyRead() ) );
+  connect( mSocket, SIGNAL( disconnected() ), this, SLOT( onDisconnected() ) );
+  connect( mSocket, SIGNAL( error(QAbstractSocket::SocketError) ), this, SLOT( onSocketError(QAbstractSocket::SocketError) ) );
 
   mFetching = true;
   emit fetchingChanged();
@@ -101,8 +101,8 @@ void NtripSourceTableFetcher::onSocketConnected()
     request.append( "\r\n" );
   }
 
-  mSocket.write( request );
-  mSocket.flush();
+  mSocket->write( request );
+  mSocket->flush();
 }
 
 void NtripSourceTableFetcher::onSocketReadyRead()

@@ -28,6 +28,7 @@ class NtripSourceTableFetcher : public QObject
 
   public:
     explicit NtripSourceTableFetcher( QObject *parent = nullptr );
+    ~NtripSourceTableFetcher() noexcept override = default;
 
     bool fetching() const { return mFetching; }
     QStringList mountpoints() const { return mMountpoints; }
