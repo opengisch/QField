@@ -32,7 +32,7 @@ class NtripSourceTableFetcher : public QObject
     bool fetching() const { return mFetching; }
     QStringList mountpoints() const { return mMountpoints; }
 
-    Q_INVOKABLE void fetch( const QString &host, int port, const QString &username, const QString &password );
+    Q_INVOKABLE void fetch( const QString &host, int port, const QString &username, const QString &password, int version );
     Q_INVOKABLE void cancel();
 
   signals:

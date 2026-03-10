@@ -20,7 +20,7 @@ NtripSourceTableFetcher::NtripSourceTableFetcher( QObject *parent )
 {
 }
 
-void NtripSourceTableFetcher::fetch( const QString &host, int port, const QString &username, const QString &password, int version )
+void NtripSourceTableFetcher::fetch( const QString &host, int port, const QString &username, const QString &password, int version)
 {
   cancel();
 
