@@ -12,9 +12,9 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
                                                         "Resources")
   list(APPEND RESOURCES ${qfield_ICON})
 
-  # Génère le Info.plist macOS depuis le template commun
+  # Generates the macOS Info.plist from the common template
   set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_BINARY_DIR}/Info.plist")
-  configure_file(${CMAKE_SOURCE_DIR}/platform/macos/Info.plist.in 
+  configure_file(${CMAKE_SOURCE_DIR}/platform/macos/Info.plist.in
                  "${MACOSX_BUNDLE_INFO_PLIST}" @ONLY)
 endif()
 
