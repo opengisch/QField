@@ -570,7 +570,7 @@ void Quick3DTerrainProvider::zoom( double factor )
   double scale = mOffsetScale + ( 1 - factor );
   if ( scale < 0.05 )
   {
-    scale = 0.55;
+    scale = 0.05;
   }
   else if ( scale > 1.95 )
   {
