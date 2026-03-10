@@ -2071,7 +2071,6 @@ Page {
                     positioningSettings.ntripUsername = text;
                   }
                 }
-
               }
 
               RowLayout {
