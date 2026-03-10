@@ -4003,6 +4003,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Port NTRIP</translation>
     </message>
     <message>
+        <source>NTRIP Version</source>
+        <translation>Version NTRIP</translation>
+    </message>
+    <message>
         <source>NTRIP Username</source>
         <translation>Nom d&apos;utilisateur NTRIP</translation>
     </message>
