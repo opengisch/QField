@@ -341,7 +341,9 @@ void Quick3DTerrainProvider::calcNormalizedData()
 
   QSize gridSize = mGridSize;
   QFuture<QVector<double>> future = QtConcurrent::run( [terrainProvider, rasterProvider, extent, gridSize, scale, offset]() {
-    QVector<double> heights( static_cast<qsizetype>( gridSize.width() ) * gridSize.height(), 0.0 );
+    QVector<double> heights( static_cast<qsizetype>( gridSize.width() ) * gridSize.height(), std::numeric_limits<double>::quiet_NaN() );
+    double lowestHeight = std::numeric_limits<double>::max();
+    QVector<int> missingValueIndexes;
     if ( rasterProvider )
     {
       std::unique_ptr<QgsRasterBlock> block( rasterProvider->block( 1, extent, gridSize.width(), gridSize.height() ) );
@@ -356,6 +358,14 @@ void Quick3DTerrainProvider::calcNormalizedData()
             if ( !isNoData && !std::isnan( value ) )
             {
               heights[row * gridSize.width() + col] = value * scale + offset;
+              if ( lowestHeight > heights[row * gridSize.width() + col] )
+              {
+                lowestHeight = heights[row * gridSize.width() + col];
+              }
+            }
+            else
+            {
+              missingValueIndexes << row * gridSize.width() + col;
             }
           }
         }
@@ -374,10 +384,31 @@ void Quick3DTerrainProvider::calcNormalizedData()
           if ( !std::isnan( value ) )
           {
             heights[row * gridSize.width() + col] = value * scale + offset;
+            if ( lowestHeight > heights[row * gridSize.width() + col] )
+            {
+              lowestHeight = heights[row * gridSize.width() + col];
+            }
+          }
+          else
+          {
+            missingValueIndexes << row * gridSize.width() + col;
           }
         }
       }
       delete terrainProvider;
+    }
+
+    if ( !missingValueIndexes.isEmpty() )
+    {
+      if ( lowestHeight == std::numeric_limits<double>::max() )
+      {
+        lowestHeight = 0;
+      }
+
+      for ( int missingValueIndex : missingValueIndexes )
+      {
+        heights[missingValueIndex] = lowestHeight;
+      }
     }
 
     return heights;
