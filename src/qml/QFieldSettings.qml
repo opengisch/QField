@@ -1995,23 +1995,24 @@ Page {
                 }
               }
 
-              RowLayout {
+              ColumnLayout {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 Layout.topMargin: 8
-                spacing: 10
+                spacing: 4
 
                 Label {
                   text: qsTr("NTRIP Host")
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
                   wrapMode: Text.WordWrap
-                  Layout.preferredWidth: 200
+                  Layout.fillWidth: true
                 }
 
                 QfTextField {
                   id: ntripHost
                   Layout.fillWidth: true
+                  Layout.topMargin: 4
                   text: positioningSettings.ntripHost || "crtk.net"
                   placeholderText: qsTr("e.g. crtk.net")
                   onTextChanged: {
@@ -2020,23 +2021,24 @@ Page {
                 }
               }
 
-              RowLayout {
+              ColumnLayout {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 Layout.topMargin: 8
-                spacing: 10
+                spacing: 4
 
                 Label {
                   text: qsTr("NTRIP Port")
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
                   wrapMode: Text.WordWrap
-                  Layout.preferredWidth: 200
+                  Layout.fillWidth: true
                 }
 
                 QfTextField {
                   id: ntripPort
                   Layout.fillWidth: true
+                  Layout.topMargin: 4
                   text: positioningSettings.ntripPort || "2101"
                   placeholderText: qsTr("default 2101")
                   validator: IntValidator {
@@ -2049,18 +2051,18 @@ Page {
                 }
               }
 
-              RowLayout {
+              ColumnLayout {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 Layout.topMargin: 8
-                spacing: 10
+                spacing: 4
 
                 Label {
                   text: qsTr("NTRIP Username")
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
                   wrapMode: Text.WordWrap
-                  Layout.preferredWidth: 200
+                  Layout.fillWidth: true
                 }
 
                 QfTextField {
@@ -2073,18 +2075,18 @@ Page {
                 }
               }
 
-              RowLayout {
+              ColumnLayout {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 Layout.topMargin: 8
-                spacing: 10
+                spacing: 4
 
                 Label {
                   text: qsTr("NTRIP Password")
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
                   wrapMode: Text.WordWrap
-                  Layout.preferredWidth: 200
+                  Layout.fillWidth: true
                 }
 
                 QfTextField {
@@ -2098,18 +2100,18 @@ Page {
                 }
               }
 
-              RowLayout {
+              ColumnLayout {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 Layout.topMargin: 8
-                spacing: 10
+                spacing: 4
 
                 Label {
                   text: qsTr("NTRIP Mountpoint")
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
                   wrapMode: Text.WordWrap
-                  Layout.preferredWidth: 200
+                  Layout.fillWidth: true
                 }
 
                 ColumnLayout {
