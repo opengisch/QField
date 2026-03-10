@@ -29,15 +29,30 @@ CogoParameterWidgetBase {
 
       Label {
         Layout.fillWidth: true
-        color: Theme.secondaryTextColor
+        color: Theme.mainTextColor
         font: Theme.tipFont
         text: parameterLabel
+      }
+    }
+
+    QfToggleButtonGroup {
+      id: enumToggleButtonGroup
+      Layout.fillWidth: true
+      visible: !!parameterConfiguration["toggle"]
+      model: parameterConfiguration["options"]
+      font: Theme.tipFont
+      buttonMininumWidth: parent.width / 2 - buttonSpacing
+      selectedIndex: 0
+
+      onSelectedIndexChanged: {
+        processValue();
       }
     }
 
     QfComboBox {
       id: enumComboBox
       Layout.fillWidth: true
+      visible: !!!parameterConfiguration["toggle"]
       model: parameterConfiguration["options"]
 
       onCurrentValueChanged: {
@@ -47,6 +62,6 @@ CogoParameterWidgetBase {
   }
 
   function processValue() {
-    valueChangeRequested(enumComboBox.currentValue);
+    valueChangeRequested(enumComboBox.visible ? enumComboBox.currentValue : enumToggleButtonGroup.model[enumToggleButtonGroup.selectedIndex]);
   }
 }

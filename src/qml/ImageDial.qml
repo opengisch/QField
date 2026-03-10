@@ -7,7 +7,7 @@ import QtQuick.Controls
 Dial {
   id: control
 
-  property string source: "qrc:/images/qfield_logo.svg"
+  property string source: "qrc:/images/app_logo.svg"
   property int rotationOffset: 0
 
   background: Rectangle {

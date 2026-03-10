@@ -16,7 +16,7 @@ concurrency:
 jobs:
   build:
     name: build (linux)
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
       - name: 🐣 Checkout
@@ -50,6 +50,15 @@ jobs:
           ruby-version: '3.4' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
+      - name: 🐵 Install Mono
+        run: |
+          sudo apt install ca-certificates gnupg
+          sudo gpg --homedir /tmp --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/mono-official-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+          sudo chmod +r /usr/share/keyrings/mono-official-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/mono-official-archive-keyring.gpg] https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+          sudo apt update
+          sudo apt install mono-devel
+
       - name: 🐩 Install CMake and Ninja
         uses: lukka/get-cmake@latest
         with:
@@ -58,7 +67,7 @@ jobs:
       - name: 🔨 Prepare build env
         run: |
           sudo apt-get update
-          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libsm-dev libegl1-mesa libegl1-mesa-dev libgl1-mesa-dev libglu1-mesa-dev mesa-common-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libxrandr-dev libxxf86vm-dev autoconf-archive libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0 libfuse2 libpulse-dev libcups2-dev nasm python3-tk
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libsm-dev libegl1 libegl1-mesa-dev libgl1-mesa-dev libglu1-mesa-dev mesa-common-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libxrandr-dev libxxf86vm-dev autoconf-archive libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0 gstreamer1.0-pipewire libfuse2 libpulse-dev libcups2-dev nasm python3-tk libltdl-dev
           wget https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-linux-x86_64.sh -O /tmp/cmakeinstall.sh
           chmod +x /tmp/cmakeinstall.sh
           sudo /tmp/cmakeinstall.sh --prefix=/usr/local --exclude-subdir
@@ -97,12 +106,71 @@ jobs:
                 -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
       - name: 📑 Upload dep build logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: build-logs-x64-linux
           path: |
             build/**/*.log
+
+      - name: Setup QFieldCloud
+        run: |
+          QFC_DIR=/tmp/qfieldcloud
+          git clone --depth 1 https://github.com/opengisch/QFieldCloud.git $QFC_DIR
+          cd $QFC_DIR
+          cp .env.example .env
+          export COMPOSE_FILE=docker-compose.yml:docker-compose.override.standalone.yml
+
+          sed -i \
+            -e 's|^WEB_HTTP_PORT=80$|WEB_HTTP_PORT=8080|' \
+            -e 's|^WEB_HTTPS_PORT=443$|WEB_HTTPS_PORT=8443|' \
+            -e 's|^MINIO_BROWSER_PORT=8010$|MINIO_BROWSER_PORT=8013|' \
+            -e 's|^DEBUG_APP_DEBUGPY_PORT=5678$|DEBUG_APP_DEBUGPY_PORT=""|' \
+            -e 's|^DEBUG_WORKER_WRAPPER_DEBUGPY_PORT=5679$|DEBUG_WORKER_WRAPPER_DEBUGPY_PORT=""|' \
+            .env
+
+          docker compose -p qfc up -d db minio memcached mkcert
+
+          echo "Waiting for database..."
+          for i in $(seq 1 30); do
+            docker compose -p qfc exec -T db pg_isready -q 2>/dev/null && break
+            [ "$i" -eq 30 ] && { docker compose -p qfc logs db --tail=20; exit 1; }
+            sleep 2
+          done
+
+          docker compose -p qfc up -d --build app
+          echo "Waiting for app..."
+          for i in $(seq 1 20); do
+            docker compose -p qfc exec -T app python -c "print('ok')" 2>/dev/null && break
+            [ "$i" -eq 20 ] && { docker compose -p qfc logs app --tail=20; exit 1; }
+            sleep 2
+          done
+
+          docker compose -p qfc exec -T app python manage.py migrate --no-input
+          docker compose -p qfc exec -T app python manage.py collectstatic --no-input
+          docker compose -p qfc exec -T app python manage.py createuser --username admin --email admin@localhost.local --password admin123 --superuser
+
+          docker compose -p qfc up -d --build nginx
+          echo "Waiting for nginx..."
+          for i in $(seq 1 40); do
+            curl -k -s -f https://localhost:8443/api/v1/status/ > /dev/null 2>&1 && break
+            [ "$i" -eq 40 ] && { docker compose -p qfc logs nginx --tail=20; docker compose -p qfc logs mkcert --tail=10; exit 1; }
+            sleep 3
+          done
+
+          docker compose -p qfc ps
+
+      - name: Test QFieldCloud
+        run: |
+          curl -k -s https://localhost:8443/api/v1/status/ | grep -q '"database":"ok"'
+
+          TOKEN=$(curl -k -s -X POST https://localhost:8443/api/v1/auth/login/ \
+            -H "Content-Type: application/json" \
+            -d '{"username":"admin","password":"admin123"}' | jq -r '.token')
+          [ "$TOKEN" != "null" ] && [ -n "$TOKEN" ] || { echo "Login failed"; exit 1; }
+
+          curl -k -s -H "Authorization: Token $TOKEN" https://localhost:8443/api/v1/users/admin/ | grep -q '"username":"admin"'
+          echo "QFieldCloud is ready"
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
@@ -113,7 +181,7 @@ jobs:
         run: |
           xvfb-run cmake --build build --config ${{ env.BUILD_TYPE }}
 
-      - uses: ZedThree/clang-tidy-review@v0.23.0
+      - uses: ZedThree/clang-tidy-review@v0.23.1
         id: review
         if: github.event_name == 'pull_request'
         with:
@@ -131,7 +199,7 @@ jobs:
 
       - name: 📦 Upload package
         if: ${{ env.ARTIFACT_NAME != null }}
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         id: artifact-linux
         with:
           name: ${{ env.ARTIFACT_PACKAGE_NAME }}
@@ -140,12 +208,16 @@ jobs:
       - name: 🧫 Test
         env:
           PROJ_LIB: ${{ github.workspace }}/build/vcpkg_installed/x64-linux/share/proj
-          QFIELDCLOUD_TEST_USERNAME: ${{ secrets.QFIELDCLOUD_TEST_USERNAME }}
-          QFIELDCLOUD_TEST_PASSWORD: ${{ secrets.QFIELDCLOUD_TEST_PASSWORD }}
-          QFIELDCLOUD_TEST_SERVER_URL: ${{ secrets.QFIELDCLOUD_TEST_SERVER_URL }}
+          QFIELDCLOUD_URL: https://localhost:8443
+          QFIELDCLOUD_USERNAME: admin
+          QFIELDCLOUD_PASSWORD: admin123
+          QFIELDCLOUD_REMOTE_URL: ${{ secrets.QFIELDCLOUD_TEST_SERVER_URL }}
+          QFIELDCLOUD_REMOTE_USERNAME: ${{ secrets.QFIELDCLOUD_TEST_USERNAME }}
+          QFIELDCLOUD_REMOTE_PASSWORD: ${{ secrets.QFIELDCLOUD_TEST_PASSWORD }}
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" up -d
+
           echo "[test-clientssl]" >> ~/.pg_service.conf
           echo "host=localhost" >> ~/.pg_service.conf
           echo "port=5440" >> ~/.pg_service.conf
@@ -164,15 +236,24 @@ jobs:
           chmod 700 ${{ github.workspace }}/test/postgis_docker/cert_keys/server.crt
 
           cd build
-          export QFIELDCLOUD_TEST_USERNAME="${QFIELDCLOUD_TEST_USERNAME}"
-          export QFIELDCLOUD_TEST_PASSWORD="${QFIELDCLOUD_TEST_PASSWORD}"
-          export QFIELDCLOUD_TEST_SERVER_URL="${QFIELDCLOUD_TEST_SERVER_URL}"
+          export QFIELDCLOUD_URL="${QFIELDCLOUD_URL}"
+          export QFIELDCLOUD_USERNAME="${QFIELDCLOUD_USERNAME}"
+          export QFIELDCLOUD_PASSWORD="${QFIELDCLOUD_PASSWORD}"
+          export QFIELDCLOUD_REMOTE_URL="${QFIELDCLOUD_REMOTE_URL}"
+          export QFIELDCLOUD_REMOTE_USERNAME="${QFIELDCLOUD_REMOTE_USERNAME}"
+          export QFIELDCLOUD_REMOTE_PASSWORD="${QFIELDCLOUD_REMOTE_PASSWORD}"
           xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
 
-          docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down
+      - name: Docker cleanup
+        if: always()
+        run: |
+          cd /tmp/qfieldcloud
+          export COMPOSE_FILE=docker-compose.yml:docker-compose.override.standalone.yml
+          docker compose -p qfc down 2>/dev/null || true
+          docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" down 2>/dev/null || true
 
       - name: 📑 Upload package logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: package-logs-x64-linux
@@ -180,7 +261,7 @@ jobs:
 
       - name: 📊 Upload test report
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: "test-report-x64-linux-${{ env.BUILD_TYPE }}"
           path: "build/report"

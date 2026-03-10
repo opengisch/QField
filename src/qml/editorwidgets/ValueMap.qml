@@ -87,13 +87,17 @@ EditorWidgetBase {
 
       model: listModel
       textRole: "value"
+      allowDeselect: true
       editing: isEditing
       editable: isEditable
       enabled: isEnabled
-      allowDeselect: false
 
       onItemSelected: function (index, itemModel) {
         valueChangeRequested(itemModel !== undefined ? itemModel.key : "", false);
+      }
+
+      onItemDeselected: function () {
+        valueChangeRequested("", false);
       }
     }
 

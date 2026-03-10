@@ -142,3 +142,18 @@ QString UrlUtils::createActionUrl( const QString &scheme, const QString &type, c
 
   return url.toString();
 }
+
+QString UrlUtils::createEncodedUrl( const QVariantMap &parameters )
+{
+  QUrlQuery url;
+
+  const QStringList keys = parameters.keys();
+  for ( const QString &key : keys )
+  {
+    // Exclusion of : and / characters needed to generate URIs compatible with QGIS < 4
+    url.addQueryItem( key, QUrl::toPercentEncoding( parameters[key].toString(), ":/?" ) );
+  }
+
+  const QString encodedUrl = url.toString( QUrl::FullyEncoded );
+  return encodedUrl.isEmpty() ? QByteArray( "" ) : encodedUrl.toLatin1();
+}

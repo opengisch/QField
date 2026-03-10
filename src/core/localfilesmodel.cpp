@@ -303,7 +303,7 @@ void LocalFilesModel::reloadModel()
           }
           else if ( suffix == QStringLiteral( "qgs" ) || suffix == QStringLiteral( "qgz" ) )
           {
-            QRegularExpression re( QStringLiteral( "(.*)_[A-Za-z]{2}" ) );
+            QRegularExpression re( QStringLiteral( "^(.*)_[A-Za-z]{2}$" ) );
             QRegularExpressionMatch match = re.match( fi.completeBaseName() );
             if ( match.hasMatch() )
             {

@@ -36,7 +36,7 @@ Drawer {
   width: {
     if (dragWidthAdjustment != 0) {
       return lastWidth - dragWidthAdjustment;
-    } else if (overlayFeatureFormDrawer.fullScreenView || parent.width < parent.height || parent.width < 300 || width >= 0.95 * parent.width) {
+    } else if (overlayFeatureFormDrawer.fullScreenView || parent.width <= parent.height || parent.width < 300 || width >= 0.95 * parent.width) {
       lastWidth = parent.width;
       return parent.width;
     } else {

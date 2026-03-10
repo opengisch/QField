@@ -647,7 +647,7 @@ TestCase {
    * Tests ValueRelation when AllowNull is enabled.
    *
    * This test:
-   * - Verifies that a NULL option is displayed as <i>NULL</i>
+   * - Verifies that a NULL option is displayed as NULL
    * - Checks that other items are displayed and ordered correctly
    */
   function test_05_ValueRelation() {
@@ -678,7 +678,7 @@ TestCase {
     const namesInList = expectedOrderedData["name"];
     wait(500);
     compare(comboBoxItem.count, namesInList.length + 1);
-    compare(comboBoxItem.displayText, "<i>NULL</i>");
+    compare(comboBoxItem.displayText, "NULL");
 
     // check every element inside combobox model is correctly setted
     for (let i = 1; i < comboBoxItem.count - 1; ++i) {
@@ -862,12 +862,14 @@ TestCase {
 
     // write in search bar
     searchTextField.text = "o";
+    wait(500);
 
     // only Olivia, Noah, Sophia, Mason
     compare(valueRelationRepeater.count, 4);
 
     // write in search bar
     searchTextField.text = "ia";
+    wait(500);
 
     // only Olivia, Sophia, Liam
     compare(valueRelationRepeater.count, 3);
@@ -939,9 +941,13 @@ TestCase {
       compare(expectedOrderedData[i], value);
     }
     searchBarTextField.text = "ai";
+    wait(500);
     compare(searchFeatureResultsList.count, 0);
+
     searchBarTextField.text = "ia";
+    wait(500);
     const expectedOrderedData2 = ["Olivia", "Liam", "Sophia"];
+
     compare(searchFeatureResultsList.count, expectedOrderedData2.length);
     for (let j = 0; j < searchFeatureResultsList.count; ++j) {
       const value = featureListModel.dataFromRowIndex(j, FeatureListModel.DisplayStringRole);
@@ -949,7 +955,7 @@ TestCase {
     }
     wait(500);
     const itemToClick = searchFeatureResultsList.itemAtIndex(2);
-    compare(itemToClick.children[0].children[2].text, "Soph<span style=\"text-decoration:underline;color:#000000\">ia</span>"); // `Sophia` highlighted!
+    compare(itemToClick.children[0].children[2].text, "Soph<span style=\"text-decoration:underline;color:#1c1b1f\">ia</span>"); // `Sophia` highlighted!
     const clickX = itemToClick.x + itemToClick.width / 2;
     const clickY = itemToClick.y + itemToClick.height / 2;
     mouseClick(searchFeatureResultsList, clickX, clickY);

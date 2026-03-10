@@ -38,6 +38,7 @@
 #include <qgsapplication.h>
 #include <qgsauthmanager.h>
 #include <qgsmessagelog.h>
+#include <qgsnetworkaccessmanager.h>
 #include <qgsproject.h>
 #include <qgsruntimeprofiler.h>
 #include <qgsziputils.h>
@@ -130,11 +131,6 @@ QObject *AppInterface::positioning() const
   return nullptr;
 }
 
-void AppInterface::removeRecentProject( const QString &path )
-{
-  return mApp->removeRecentProject( path );
-}
-
 bool AppInterface::hasProjectOnLaunch() const
 {
   if ( PlatformUtilities::instance()->hasQgsProject() )
@@ -210,6 +206,26 @@ bool AppInterface::printAtlasFeatures( const QString &layoutName, const QList<lo
 void AppInterface::setScreenDimmerTimeout( int timeoutSeconds )
 {
   mApp->setScreenDimmerTimeout( timeoutSeconds );
+}
+
+void AppInterface::setupNetworkProxy() const
+{
+  // The QML layer stores excluded URLs as a plain comma-separated string to
+  // avoid passing JS arrays across the QML/C++ boundary (Qt 6 serialization
+  // limitation).  Parse and re-write as QStringList so that
+  // setupDefaultProxyAndCache() can read it correctly via QgsSettings.
+  QSettings settings;
+  const QString raw = settings.value( QStringLiteral( "proxy/proxyExcludedUrls" ) ).toString();
+  if ( !raw.isEmpty() )
+  {
+    const QStringList parts = raw.split( QLatin1Char( ',' ), Qt::SkipEmptyParts );
+    QStringList trimmed;
+    for ( const QString &part : parts )
+      trimmed.append( part.trimmed() );
+    settings.setValue( QStringLiteral( "proxy/proxyExcludedUrls" ), trimmed );
+  }
+
+  QgsNetworkAccessManager::instance()->setupDefaultProxyAndCache();
 }
 
 QVariantMap AppInterface::availableLanguages() const
@@ -345,7 +361,7 @@ void AppInterface::clearProject() const
   mApp->clearProject();
 }
 
-void AppInterface::importUrl( const QString &url, bool loadOnImport )
+void AppInterface::importUrl( const QString &url, const QString &title, bool loadOnImport )
 {
   QString sanitizedUrl = url.trimmed();
   if ( sanitizedUrl.isEmpty() )
@@ -365,13 +381,17 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
   QNetworkRequest request( ( QUrl( sanitizedUrl ) ) );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
 
-  emit importTriggered( request.url().fileName() );
+  emit importTriggered( !title.isEmpty() ? title : request.url().fileName() );
 
   QNetworkReply *reply = manager->get( request );
 
   QTemporaryFile *temporaryFile = new QTemporaryFile( reply );
   temporaryFile->setFileTemplate( QStringLiteral( "%1/XXXXXXXXXXXX" ).arg( applicationDirectory ) );
-  temporaryFile->open();
+  if ( !temporaryFile->open() )
+  {
+    reply->abort();
+    return;
+  }
 
   connect( reply, &QNetworkReply::downloadProgress, this, [this, reply, temporaryFile]( qint64 bytesReceived, qint64 bytesTotal ) {
     temporaryFile->write( reply->readAll() );
@@ -381,7 +401,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
     }
   } );
 
-  connect( reply, &QNetworkReply::finished, this, [this, reply, temporaryFile, applicationDirectory, loadOnImport]() {
+  connect( reply, &QNetworkReply::finished, this, [this, url, reply, temporaryFile, applicationDirectory, loadOnImport]() {
     if ( reply->error() == QNetworkReply::NoError )
     {
       QString fileName = reply->url().fileName();
@@ -419,7 +439,6 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
         {
           // Check if this is a compressed project and handle accordingly
           QStringList zipFiles = QgsZipUtils::files( filePath );
-          qDebug() << zipFiles;
           const bool isCompressedProject = std::find_if( zipFiles.begin(),
                                                          zipFiles.end(),
                                                          []( const QString &zipFile ) {
@@ -449,7 +468,7 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
               }
 
               // Project archive successfully imported
-              emit importEnded( loadOnImport && projectFilePaths.size() == 1 ? projectFilePaths.at( 0 ) : zipDirectory );
+              emit importEnded( loadOnImport && projectFilePaths.size() == 1 ? projectFilePaths.at( 0 ) : zipDirectory, url );
               return;
             }
             else
@@ -467,7 +486,8 @@ void AppInterface::importUrl( const QString &url, bool loadOnImport )
         // Dataset successfully imported
         QFileInfo fi( filePath );
         emit importEnded( loadOnImport ? fi.absoluteFilePath() : fi.isFile() ? fi.absolutePath()
-                                                                             : fi.absoluteFilePath() );
+                                                                             : fi.absoluteFilePath(),
+                          url );
         return;
       }
     }

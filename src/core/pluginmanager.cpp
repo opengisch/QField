@@ -215,22 +215,33 @@ void PluginManager::clearPluginPermissions()
 
 void PluginManager::restoreAppPlugins()
 {
+  QStringList checkedPluginUUids;
   QSettings settings;
   settings.beginGroup( QStringLiteral( "/qfield/plugins/" ) );
   const QStringList pluginKeys = settings.childGroups();
   for ( const QString &pluginKey : pluginKeys )
   {
     const QString uuid = settings.value( QStringLiteral( "%1/uuid" ).arg( pluginKey ) ).toString();
+    checkedPluginUUids << uuid;
     const PluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
     if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
     {
       if ( mPluginModel->hasPluginInformation( uuid ) )
       {
-        loadPlugin( mPluginModel->pluginInformation( uuid ).path, mPluginModel->pluginInformation( uuid ).name, pluginInformation.remotelyAvailable );
+        loadPlugin( mPluginModel->pluginInformation( uuid ).path, mPluginModel->pluginInformation( uuid ).name, pluginInformation.bundled || pluginInformation.remotelyAvailable );
       }
     }
   }
   settings.endGroup();
+
+  const QList<PluginInformation> plugins = availableAppPlugins();
+  for ( const PluginInformation &plugin : plugins )
+  {
+    if ( plugin.bundled && !checkedPluginUUids.contains( plugin.uuid ) )
+    {
+      loadPlugin( plugin.path, plugin.name, true );
+    }
+  }
 }
 
 void PluginManager::enableAppPlugin( const QString &uuid )
@@ -245,13 +256,13 @@ void PluginManager::enableAppPlugin( const QString &uuid )
       pluginKey.replace( QChar( '/' ), QChar( '_' ) );
       settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
       settings.setValue( QStringLiteral( "uuid" ), uuid );
-      if ( settings.value( QStringLiteral( "permissionGranted" ), false ).toBool() || pluginInformation.remotelyAvailable )
+      if ( settings.value( QStringLiteral( "permissionGranted" ), false ).toBool() || pluginInformation.bundled || pluginInformation.remotelyAvailable )
       {
         settings.setValue( QStringLiteral( "userEnabled" ), true );
       }
       settings.endGroup();
 
-      loadPlugin( pluginInformation.path, pluginInformation.name, pluginInformation.remotelyAvailable );
+      loadPlugin( pluginInformation.path, pluginInformation.name, pluginInformation.bundled || pluginInformation.remotelyAvailable );
 
       if ( mLoadedPlugins.contains( pluginInformation.path ) )
       {
@@ -268,10 +279,12 @@ void PluginManager::disableAppPlugin( const QString &uuid )
   {
     if ( mLoadedPlugins.contains( mPluginModel->pluginInformation( uuid ).path ) )
     {
-      QSettings settings;
       QString pluginKey = mPluginModel->pluginInformation( uuid ).path;
       pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+
+      QSettings settings;
       settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+      settings.setValue( QStringLiteral( "uuid" ), uuid );
       settings.setValue( QStringLiteral( "userEnabled" ), false );
       settings.endGroup();
 

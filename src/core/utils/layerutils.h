@@ -152,9 +152,9 @@ class LayerUtils : public QObject
      * \param project the project holding information on relationships
      * \param layer the layer from which the feature will be deleted
      * \param fid the feature ID to be deleted
-     * \param shouldWriteChanges set to TRUE to immediately save the edit buffer
+     * \param flushBuffer set to TRUE to immediately save the edit buffer
      */
-    static Q_INVOKABLE bool deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges = true );
+    static Q_INVOKABLE bool deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool flushBuffer = true );
 
     /**
      * Duplicates a given \a feature within the provided vector \a layer. If successful, the function will

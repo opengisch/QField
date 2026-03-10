@@ -159,8 +159,20 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
         // Intersect fallback for polygon
         if ( isPolygon )
         {
+          if ( !otherGeometry.intersects( selectedGeometry ) )
+          {
+            // No intersection, moving on
+            continue;
+          }
+
           otherGeometry = otherFeature.geometry();
           QgsGeometry otherGeometryDifference = otherGeometry.difference( selectedGeometry );
+          if ( otherGeometryDifference.equals( otherGeometry ) )
+          {
+            // No change to geometry, moving on
+            continue;
+          }
+
           if ( QgsWkbTypes::isMultiType( otherGeometryDifference.wkbType() ) && !QgsWkbTypes::isMultiType( layer->wkbType() ) )
           {
             QVector<QgsGeometry> otherGeometryDifferenceCollection = otherGeometryDifference.asGeometryCollection();

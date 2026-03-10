@@ -50,10 +50,11 @@ void ProcessingAlgorithmsModel::setFilters( ProcessingAlgorithmsModel::Filters f
     return;
   }
 
+  beginFilterChange();
   mFilters = filters;
-  emit filtersChanged();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
-  invalidateFilter();
+  emit filtersChanged();
 }
 
 void ProcessingAlgorithmsModel::setInPlaceLayer( QgsVectorLayer *layer )
@@ -63,10 +64,11 @@ void ProcessingAlgorithmsModel::setInPlaceLayer( QgsVectorLayer *layer )
     return;
   }
 
+  beginFilterChange();
   mInPlaceLayer = layer;
-  emit inPlaceLayerChanged();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
-  invalidateFilter();
+  emit inPlaceLayerChanged();
 }
 
 bool ProcessingAlgorithmsModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const

@@ -24,6 +24,7 @@ import org.qgis
  */
 Item {
   id: mapArea
+
   /// type:QgsQuickMapCanvasMap
   property alias mapCanvasWrapper: mapCanvasWrapper
   /// type:QgsQuickMapSettings

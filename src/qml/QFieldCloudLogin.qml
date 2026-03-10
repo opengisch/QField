@@ -13,6 +13,7 @@ Item {
   property bool hasCredentialsAuthentication: true
   property bool isServerUrlEditingActive: false
   property bool isVisible: false
+  property QFieldCloudStatus cloudServiceStatus: null
 
   width: parent.width
   height: connectionSettings.childrenRect.height
@@ -136,9 +137,9 @@ Item {
         onTextChanged: {
           const cleanedText = text.replace(/\s+/g, '');
           if (cleanedText !== cloudConnection.url) {
-            getAuthenticationProvidersTimer.restart();
+            applyUrlTimer.restart();
           } else {
-            getAuthenticationProvidersTimer.stop();
+            applyUrlTimer.stop();
           }
           return cleanedText;
         }
@@ -151,7 +152,7 @@ Item {
       }
 
       Timer {
-        id: getAuthenticationProvidersTimer
+        id: applyUrlTimer
         interval: 500
         repeat: false
         running: false
@@ -159,6 +160,7 @@ Item {
         onTriggered: {
           cloudConnection.url = serverUrlField.text !== '' && prefixUrlWithProtocol(serverUrlField.text) !== cloudConnection.defaultUrl ? prefixUrlWithProtocol(serverUrlField.text) : cloudConnection.defaultUrl;
           cloudConnection.getAuthenticationProviders();
+          qfieldCloudStatus.refresh();
         }
       }
     }
@@ -217,6 +219,10 @@ Item {
       }
     }
 
+    QFieldCloudStatusBanner {
+      cloudServiceStatus: qfieldCloudLogin.cloudServiceStatus
+    }
+
     QfButton {
       Layout.fillWidth: true
       text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
@@ -247,7 +253,7 @@ Item {
 
         bgcolor: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_fill : modelData.details.styles.light.color_fill : Theme.mainColor
         borderColor: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_stroke : modelData.details.styles.light.color_stroke : Theme.mainColor
-        color: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_text : modelData.details.styles.light.color_text : Theme.buttonTextColor
+        color: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_text : modelData.details.styles.light.color_text : Theme.buttonColor
         icon.source: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.logo : modelData.details.styles.light.logo : ""
         icon.color: "transparent"
 

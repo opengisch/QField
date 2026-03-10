@@ -22,12 +22,16 @@
         <translation>Menu koppelingen</translation>
     </message>
     <message>
-        <source>QField app directories</source>
-        <translation>QField app-mappen</translation>
+        <source>Powered by QField</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>QField app directory</source>
-        <translation>QField app-map</translation>
+        <source>%1 app directories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -841,10 +845,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation>Schets iets</translation>
     </message>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>Meer info</translation>
     </message>
@@ -859,6 +859,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>NULL</source>
         <translation>NULL</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2535,10 +2539,6 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Learn more about QFieldCloud here</source>
         <translation type="unfinished"/>
     </message>
@@ -2548,6 +2548,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>My Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3596,6 +3600,29 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
 </context>
 <context>
+    <name>QFieldCloudStatus</name>
+    <message>
+        <source>QFieldCloud server is not reachable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server at %1 could not be reached. Please check your internet connection.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is under maintenance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud service is degraded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There is an ongoing incident</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3963,7 +3990,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>Indien uitgeschakeld, gebruikt QField een minimalistische interne camera in plaats van de camera-app op het apparaat.&lt;br&gt;Tip: Schakel deze optie in en installeer de open camera-app om foto&apos;s met geotags te maken.</translation>
+        <translation type="vanished">Indien uitgeschakeld, gebruikt QField een minimalistische interne camera in plaats van de camera-app op het apparaat.&lt;br&gt;Tip: Schakel deze optie in en installeer de open camera-app om foto&apos;s met geotags te maken.</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -3995,7 +4022,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>Indien ingeschakeld, worden geanonimiseerde statistieken verzameld en verzonden om QField voor iedereen te helpen verbeteren.</translation>
+        <translation type="vanished">Indien ingeschakeld, worden geanonimiseerde statistieken verzameld en verzonden om QField voor iedereen te helpen verbeteren.</translation>
     </message>
     <message>
         <source>General</source>
@@ -4157,7 +4184,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField instellingen</translation>
+        <translation type="vanished">QField instellingen</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -4270,10 +4297,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>Een lagere kwaliteit verruilt rendering kwaliteit voor een lager geheugengebruik en kortere rendering tijd.</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation>Met deze waarde wordt de Z waarde afkomstig van het plaatsbepalingsapparaat aangepast. Als de waarde 1,6 is ingevuld, dan trekt QField automatisch 1,6 af van elke gemeten waarde. Vul hier de waarde in die hoort bij de antenne hoogte.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -4413,6 +4436,22 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4746,6 +4785,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Map printed on %1 using QField</source>
         <translation>Kaart afgedrukt op %1 met QField</translation>
+    </message>
+    <message>
+        <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5555,6 +5598,62 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Failed to upload file %1 due to network error (%2)</source>
         <translation>Kan bestand %1 niet uploaden vanwege netwerkfout (%2)</translation>
     </message>
+    <message>
+        <source>Upload finished.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local paths provided.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV is busy.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not a WebDAV imported project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV config is missing required fields.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No stored password available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Selected items belong to different WebDAV projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Nothing to upload.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local changes detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload cancelled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload skipped.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload is locked by another process.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to read WebDAV config file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid WebDAV config JSON.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>WelcomeScreen</name>
@@ -5568,7 +5667,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation>Hallo, wat vind je van je ervaring met QField tot nu toe?</translation>
+        <translation type="vanished">Hallo, wat vind je van je ervaring met QField tot nu toe?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
@@ -5584,7 +5683,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation>Om de stabiliteit voor iedereen te verbeteren, verzamelt en verzendt QField geanonimiseerde statistieken.</translation>
+        <translation type="vanished">Om de stabiliteit voor iedereen te verbeteren, verzamelt en verzendt QField geanonimiseerde statistieken.</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -5628,7 +5727,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>Welkom terug bij QField.</translation>
+        <translation type="vanished">Welkom terug bij QField.</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -5659,10 +5758,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation>Recente wijzigingen</translation>
     </message>
     <message>
-        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation>Welkom bij QField! Is dit je eerste gebruik van de app? Probeer dan een van de demoprojecten in de lijst hieronder.</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Dat is geweldig! We zouden het leuk vinden als je op de onderstaande knop klikt en een review in de store achterlaat.</translation>
     </message>
@@ -5687,6 +5782,26 @@ projecten</translation>
 project</source>
         <translation>Maak een nieuw
 project</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome back to %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6027,7 +6142,7 @@ project</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation>Over QField</translation>
+        <translation type="vanished">Over QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -6478,10 +6593,6 @@ project</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Plugin Permission</source>
         <translation type="unfinished"/>
     </message>
@@ -6660,6 +6771,26 @@ to show actions</source>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to load 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading terrain...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
         <translation type="unfinished"/>
     </message>
 </context>

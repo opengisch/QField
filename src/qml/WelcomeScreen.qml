@@ -88,7 +88,7 @@ Page {
         Layout.preferredWidth: Math.min(138, mainWindow.height / 8)
         Layout.preferredHeight: Math.min(138, mainWindow.height / 8)
 
-        source: "qrc:/images/qfield_logo.svg"
+        source: "qrc:/images/app_logo.svg"
         rotationOffset: 220
       }
 
@@ -197,7 +197,7 @@ Page {
               Layout.margins: 6
               Layout.topMargin: 12
               Layout.maximumWidth: feedbackView.width - 12
-              text: qsTr("Hey there, how do you like your experience with QField so far?")
+              text: qsTr("Hey there, how do you like your experience with %1 so far?").arg(appName)
               font: Theme.defaultFont
               color: Theme.mainTextColor
               horizontalAlignment: Text.AlignHCenter
@@ -383,7 +383,7 @@ Page {
               Layout.margins: 6
               Layout.topMargin: 12
               Layout.maximumWidth: collectionView.width - 12
-              text: qsTr("To improve stability for everyone, QField collects and sends anonymized metrics.")
+              text: qsTr("To improve stability for everyone, %1 collects and sends anonymized metrics.").arg(appName)
               font: Theme.defaultFont
               color: Theme.mainTextColor
               horizontalAlignment: Text.AlignHCenter
@@ -470,7 +470,7 @@ Page {
               model: [
                 {
                   "icon": Theme.getThemeVectorIcon("ic_cloud_active_24dp"),
-                  "iconColor": "transparent",
+                  "iconColor": Theme.cloudColor,
                   "action": function () {
                     showQFieldCloudScreen();
                   }
@@ -523,6 +523,7 @@ Page {
 
           Text {
             id: recentText
+            visible: table.count > 0
             text: qsTr("Recent Projects")
             font.pointSize: Theme.tipFont.pointSize
             font.bold: true
@@ -564,9 +565,11 @@ Page {
                   }
                   return 0;
                 }
+                readonly property bool showSync: isOutdated
+                readonly property bool showPush: changesCount > 0
 
                 objectName: "loadProjectItem_1" // todo, suffix with e.g. ProjectTitle
-                previewImageSource: welcomeScreen.visible ? 'image://projects/' + ProjectPath : ''
+                previewImageSource: welcomeScreen.visible ? ProjectThumbnail !== "" ? UrlUtils.fromString(ProjectThumbnail) : 'image://projects/' + ProjectPath : ''
                 showType: true
 
                 primaryBadge.badgeText.text: changesCount > 0 ? changesCount : ''
@@ -577,16 +580,13 @@ Page {
                 primaryBadge.border.width: 1
                 primaryBadge.enableGradient: showSync && showPush
 
-                readonly property bool showSync: isOutdated
-                readonly property bool showPush: changesCount > 0
-
                 projectTypeSource: switch (ProjectType) {
                 case 0:
-                  return Theme.getThemeVectorIcon('ic_map_green_48dp');     // local project
+                  return Theme.getThemeVectorIcon('ic_map_param_48dp');     // local project
                 case 1:
-                  return Theme.getThemeVectorIcon('ic_cloud_project_48dp'); // cloud project
+                  return Theme.getThemeVectorIcon('ic_cloud_project_param_48dp'); // cloud project
                 case 2:
-                  return Theme.getThemeVectorIcon('ic_file_green_48dp');    // local dataset
+                  return Theme.getThemeVectorIcon('ic_file_param_48dp');    // local dataset
                 default:
                   return '';
                 }
@@ -618,10 +618,19 @@ Page {
                 onClicked: mouse => {
                   var item = table.itemAt(mouse.x, mouse.y);
                   if (item) {
-                    if (item.type === 1 && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
-                      cloudConnection.login();
+                    switch (item.type) {
+                    case RecentProjectListModel.CloudProject:
+                    case RecentProjectListModel.LocalProject:
+                    case RecentProjectListModel.LocalDataset:
+                      if (item.type === RecentProjectListModel.CloudProject && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
+                        cloudConnection.login();
+                      }
+                      iface.loadFile(item.path, item.projectTitle.text);
+                      break;
+                    case RecentProjectListModel.LinkProject:
+                      iface.importUrl(item.path, item.projectTitle.text, true);
+                      break;
                     }
-                    iface.loadFile(item.path, item.projectTitle.text);
                   }
                 }
                 onPressed: mouse => {
@@ -714,7 +723,7 @@ Page {
 
                   text: qsTr("Remove from Recent Projects")
                   onTriggered: {
-                    iface.removeRecentProject(recentProjectActions.recentProjectPath);
+                    model.removeRecentProject(recentProjectActions.recentProjectPath);
                     model.reloadModel();
                   }
                 }
@@ -919,15 +928,15 @@ Page {
   function adjustWelcomeScreen() {
     if (visible) {
       if (firstShown) {
-        welcomeText.text = " ";
+        welcomeText.text = "";
       } else {
         var firstRun = !settings.valueBool("/QField/FirstRunDone", false);
         if (firstRun) {
-          welcomeText.text = qsTr("Welcome to QField. First time using this application? Try the sample projects listed below.");
+          welcomeText.text = qsTr("Welcome to %1.").arg(appName) + (table.count > 0 ? qsTr("First time using this application? Try the sample projects listed below.") : "");
           settings.setValue("/QField/FirstRunDone", true);
           settings.setValue("/QField/showMapCanvasGuide", true);
         } else {
-          welcomeText.text = qsTr("Welcome back to QField.");
+          welcomeText.text = qsTr("Welcome back to %1.").arg(appName);
         }
       }
     }
@@ -945,7 +954,9 @@ Page {
         var daysToPrompt = 30;
         var runsToPrompt = 5;
         if (runCount >= runsToPrompt && (now - dt) >= (daysToPrompt * 24 * 60 * 60 * 1000)) {
-          feedbackView.visible = true;
+          if (appName === "QField") {
+            feedbackView.visible = true;
+          }
           settings.setValue("/QField/FeedbackFormShown", true);
         }
       } else {
@@ -968,8 +979,8 @@ Page {
   }
 
   onVisibleChanged: {
-    adjustWelcomeScreen();
     if (!visible) {
+      welcomeText.text = "";
       feedbackView.visible = false;
       collectionView.visible = false;
       firstShown = true;

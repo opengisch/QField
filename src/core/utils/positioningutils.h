@@ -61,9 +61,10 @@ class QFIELD_CORE_EXPORT PositioningUtils : public QObject
     static Q_INVOKABLE double bearingTrueNorth( const QgsPoint &position, const QgsCoordinateReferenceSystem &crs );
 
     /**
-     * Returns a reasonable default extent derived from a device's timezone and positioning if available.
+     * Returns a reasonable default extent derived from a device's timezone and positioning if available. The extent
+     * can optionally be clipped to a QgsRectangle.
      */
-    static Q_INVOKABLE QgsRectangle createExtentForDevice( const GnssPositionInformation &positionInformation, const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem::fromEpsgId( 4326 ) );
+    static Q_INVOKABLE QgsRectangle createExtentForDevice( const GnssPositionInformation &positionInformation, const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem::fromEpsgId( 4326 ), const QgsRectangle &withinRectangle = QgsRectangle() );
 
   private:
     static void initTimeZones();

@@ -180,7 +180,8 @@ bool ProcessingAlgorithm::run( bool previewMode )
                                                                                                       QStringLiteral( "@id IN (%1)" ).arg( featureIds.join( ',' ) ) );
       parameters[QStringLiteral( "OUTPUT" )] = QStringLiteral( "memory:" );
 
-      if ( !previewMode )
+      const bool wasEditing = mInPlaceLayer->editBuffer();
+      if ( !previewMode && !wasEditing )
       {
         mInPlaceLayer->startEditing();
       }
@@ -264,7 +265,7 @@ bool ProcessingAlgorithm::run( bool previewMode )
         }
       }
 
-      mInPlaceLayer->commitChanges();
+      mInPlaceLayer->commitChanges( !wasEditing );
     }
     else
     {
@@ -313,10 +314,11 @@ bool ProcessingAlgorithm::run( bool previewMode )
 
             outputFeatures = QgsVectorLayerUtils::makeFeaturesCompatible( outputFeatures, inPlaceLayer, regeneratePrimaryKey ? QgsFeatureSink::SinkFlag::RegeneratePrimaryKey : QgsFeatureSink::SinkFlags() );
 
+            const bool wasEditing = inPlaceLayer->editBuffer();
             inPlaceLayer->startEditing();
             inPlaceLayer->deleteFeatures( inPlaceFeatureIds );
             inPlaceLayer->addFeatures( outputFeatures );
-            inPlaceLayer->commitChanges();
+            inPlaceLayer->commitChanges( !wasEditing );
           }
         }
       }

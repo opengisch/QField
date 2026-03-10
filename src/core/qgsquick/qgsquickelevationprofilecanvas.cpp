@@ -63,7 +63,7 @@ inline QgsWeakMapLayerPointerList _qgis_listRawToQPointer( const QList<QgsMapLay
 }
 
 
-class QgsElevationProfilePlotItem : public Qgs2DPlot
+class QgsElevationProfilePlotItem : public Qgs2DXyPlot
 {
   public:
     explicit QgsElevationProfilePlotItem( QgsQuickElevationProfileCanvas *canvas )
@@ -111,12 +111,13 @@ class QgsElevationProfilePlotItem : public Qgs2DPlot
       QgsRenderContext context;
       context.setScaleFactor( ( mCanvas->window()->screen()->physicalDotsPerInch() * mCanvas->window()->screen()->devicePixelRatio() ) / 25.4 );
 
-      calculateOptimisedIntervals( context );
-      mPlotArea = interiorPlotArea( context );
+      QgsPlotRenderContext plotRenderContext;
+      calculateOptimisedIntervals( context, plotRenderContext );
+      mPlotArea = interiorPlotArea( context, plotRenderContext );
       return mPlotArea;
     }
 
-    void renderContent( QgsRenderContext &rc, const QRectF &plotArea ) override
+    void renderContent( QgsRenderContext &rc, QgsPlotRenderContext &plotContext, const QRectF &plotArea, const QgsPlotData &plotData = QgsPlotData() ) override
     {
       mPlotArea = plotArea;
 
@@ -339,8 +340,9 @@ void QgsQuickElevationProfileCanvas::generationFinished()
   rc.expressionContext().appendScope( QgsExpressionContextUtils::globalScope() );
   rc.expressionContext().appendScope( QgsExpressionContextUtils::projectScope( mProject ) );
 
-  mPlotItem->calculateOptimisedIntervals( rc );
-  mPlotItem->render( rc );
+  QgsPlotRenderContext plotRenderContext;
+  mPlotItem->calculateOptimisedIntervals( rc, plotRenderContext );
+  mPlotItem->render( rc, plotRenderContext );
   imagePainter.end();
 
   mDirty = true;

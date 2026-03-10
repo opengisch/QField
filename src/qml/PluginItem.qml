@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import org.qfield
 import Theme
 
 /**
@@ -148,7 +149,7 @@ Rectangle {
         font: Theme.tipFont
         color: Theme.secondaryTextColor
         wrapMode: Text.WordWrap
-        visible: InstalledLocally
+        visible: InstalledLocally && !Bundled
 
         onLinkActivated: link => {
           uninstallConfirmationClicked();

@@ -103,7 +103,6 @@
         <file>Changelog.qml</file>
         <file>Nyuki.qml</file>
         <file>LayerLoginDialog.qml</file>
-        <file>imports/Theme/Theme.qml</file>
         <file>imports/Theme/QfActionButton.qml</file>
         <file>imports/Theme/QfComboBox.qml</file>
         <file>imports/Theme/QfDropShadow.qml</file>
@@ -145,6 +144,7 @@
         <file>QFieldCloudLogin.qml</file>
         <file>QFieldCloudScreen.qml</file>
         <file>QFieldCloudPopup.qml</file>
+        <file>QFieldCloudStatusBanner.qml</file>
         <file>QFieldCloudDeltaHistory.qml</file>
         <file>QFieldCloudPackageLayersFeedback.qml</file>
         <file>QFieldCloudProjectDetails.qml</file>
@@ -154,5 +154,9 @@
         <file>PluginItem.qml</file>
         <file>InformationDrawer.qml</file>
         <file>QFieldGuide.qml</file>
+        <file>3d/MapCanvas3D.qml</file>
+        <file>3d/TouchCameraController.qml</file>
+        <file>3d/TerrainMesh.qml</file>
+        <file>3d/Rubberband3D.qml</file>
     </qresource>
 </RCC>

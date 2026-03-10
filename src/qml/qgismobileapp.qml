@@ -92,6 +92,19 @@ ApplicationWindow {
     }
   }
 
+  palette {
+    link: Theme.mainColor
+    linkVisited: Theme.mainColor
+  }
+
+  Connections {
+    target: Theme
+
+    function onDarkThemeChanged() {
+      Application.styleHints.colorScheme = Theme.darkTheme ? Qt.ColorScheme.Dark : Qt.ColorScheme.Light;
+    }
+  }
+
   LocatorModelSuperBridge {
     id: locatorBridge
     objectName: "locatorBridge"
@@ -217,6 +230,8 @@ ApplicationWindow {
   property QgsGpkgFlusher gpkgFlusherAlias: gpkgFlusher
 
   signal closeMeasureTool
+  signal close3DView
+
   signal changeMode(string mode)
   signal toggleDigitizeMode
 
@@ -255,9 +270,12 @@ ApplicationWindow {
           currentRubberband: measuringTool.measuringRubberband
         }
         PropertyChanges {
-          target: featureForm
+          target: featureListForm
           state: "Hidden"
         }
+      },
+      State {
+        name: '3d'
       }
     ]
     state: "browse"
@@ -276,9 +294,12 @@ ApplicationWindow {
   }
 
   onChangeMode: mode => {
-    if (stateMachine.state === mode)
+    if (stateMachine.state === mode) {
       return;
-    stateMachine.lastState = stateMachine.state;
+    }
+    if (stateMachine.state !== 'measure' && stateMachine.state !== '3d') {
+      stateMachine.lastState = stateMachine.state;
+    }
     stateMachine.state = mode;
     switch (stateMachine.state) {
     case 'browse':
@@ -301,11 +322,16 @@ ApplicationWindow {
       informationDrawer.elevationProfile.populateLayersFromProject();
       displayToast(qsTr('You are now in measure mode'));
       break;
+    case '3d':
+      break;
     }
   }
 
   onCloseMeasureTool: {
-    overlayFeatureFormDrawer.close();
+    changeMode(stateMachine.lastState);
+  }
+
+  onClose3DView: {
     changeMode(stateMachine.lastState);
   }
 
@@ -368,10 +394,23 @@ ApplicationWindow {
         }
         bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
-          gnssButton.followLocation(false);
-          // Call followOrientation for movement direction mode
-          if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
-            gnssButton.followOrientation();
+          if (stateMachine.state === '3d') {
+            if (mapCanvas3DLoader.item) {
+              const pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
+              if (pos3d !== null) {
+                mapCanvas3DLoader.item.lookAtPoint(pos3d, 1000);
+              } else {
+                // We're now out of the 3D map extent, unfollow
+                mapCanvasMap.unfreeze('follow');
+                gnssButton.followActive = false;
+              }
+            }
+          } else {
+            gnssButton.followLocation(false);
+            // Call followOrientation for movement direction mode
+            if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
+              gnssButton.followOrientation();
+            }
           }
         }
       }
@@ -661,6 +700,86 @@ ApplicationWindow {
       color: mapCanvas.mapSettings.backgroundColor
     }
 
+    Loader {
+      id: mapCanvas3DLoader
+      anchors.fill: parent
+      active: stateMachine.state === '3d'
+      visible: active ? true : false
+      z: 100
+      opacity: active ? 1.0 : 0.0
+
+      Behavior on opacity {
+        NumberAnimation {
+          duration: 300
+          easing.type: Easing.Linear
+        }
+      }
+
+      source: "qrc:/qml/3d/MapCanvas3D.qml"
+
+      onActiveChanged: {
+        if (active) {
+          mapCanvasMap.freeze('3d');
+        } else {
+          mapCanvasMap.unfreeze('3d');
+        }
+      }
+
+      onLoaded: {
+        item.mapSettings = mapCanvas.mapSettings;
+        item.trackingModel = trackingModel;
+
+        // Bind GNSS position updates
+        item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);
+        item.gnssPosition = Qt.binding(() => positionSource.projectedPosition);
+        item.gnssSpeed = Qt.binding(() => positionSource.positionInformation && positionSource.positionInformation.speedValid ? positionSource.positionInformation.speed : -1);
+        item.gnssDirection = Qt.binding(() => positionSource.positionInformation && positionSource.positionInformation.directionValid ? positionSource.positionInformation.direction : -1);
+
+        // Connect camera interaction signal to deactivate soft lock
+        item.cameraInteractionDetected.connect(function () {
+          if (gnssButton.followActive) {
+            mapCanvasMap.unfreeze('follow');
+            gnssButton.followActive = false;
+          }
+        });
+      }
+
+      onStatusChanged: {
+        if (status === Loader.Error) {
+          close3DView();
+          displayToast(qsTr("Failed to load 3D view"));
+        }
+      }
+    }
+
+    Rectangle {
+      id: loadingOverlay
+      anchors.fill: parent
+      color: "#80000000"
+      visible: stateMachine.state === '3d' && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading
+      z: 1000
+
+      Column {
+        anchors.centerIn: parent
+        spacing: 20
+
+        BusyIndicator {
+          anchors.horizontalCenter: parent.horizontalCenter
+          running: parent.parent.visible
+          width: 64
+          height: 64
+        }
+
+        Text {
+          anchors.horizontalCenter: parent.horizontalCenter
+          text: qsTr("Loading terrain...")
+          color: "white"
+          font.pixelSize: 16
+          font.bold: true
+        }
+      }
+    }
+
     GridRenderer {
       mapSettings: mapCanvas.mapSettings
       enabled: !gridDecoration.enabled
@@ -674,7 +793,7 @@ ApplicationWindow {
       id: mapCanvasMap
       objectName: "mapCanvas"
 
-      property bool isEnabled: !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
+      property bool isEnabled: !mapCanvas3DLoader.active && !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
 
       interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
@@ -1798,7 +1917,7 @@ ApplicationWindow {
     QfToolButton {
       id: compassArrow
       rotation: mapCanvas.mapSettings.rotation
-      visible: rotation !== 0
+      visible: rotation !== 0 && stateMachine.state !== '3d'
       anchors.left: parent.left
       anchors.bottom: parent.bottom
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
@@ -1864,15 +1983,22 @@ ApplicationWindow {
       }
 
       onClicked: {
-        if (gnssButton.followActive && gnssButton.followOrientationActive) {
-          gnssButton.click();
+        if (gnssButton.followActive) {
+          mapCanvasMap.unfreeze('follow');
+          gnssButton.followActive = false;
+          if (gnssButton.autoRefollow) {
+            showAutoLockToast();
+          }
+        } else if (gnssButton.autoRefollow) {
+          showAutoLockToast();
         }
+
         mapCanvas.mapSettings.rotation = 0;
       }
     }
 
     ScaleBar {
-      visible: qfieldSettings.showScaleBar
+      visible: qfieldSettings.showScaleBar && stateMachine.state !== '3d'
       mapSettings: mapCanvas.mapSettings
       anchors.left: parent.left
       anchors.bottom: parent.bottom
@@ -1912,13 +2038,19 @@ ApplicationWindow {
         height: 36
 
         onClicked: {
-          if (gnssButton.followActive) {
-            gnssButton.followActiveSkipExtentChanged = true;
-          }
-          mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
-          if (gnssButton.followActive) {
-            // Trigger a mao redraw
-            gnssButton.followLocation(true);
+          if (stateMachine.state === '3d') {
+            if (mapCanvas3DLoader.item) {
+              mapCanvas3DLoader.item.zoomIn();
+            }
+          } else {
+            if (gnssButton.followActive) {
+              gnssButton.followActiveSkipExtentChanged = true;
+            }
+            mapCanvasMap.zoomIn(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
+            if (gnssButton.followActive) {
+              // Trigger a map redraw
+              gnssButton.followLocation(true);
+            }
           }
         }
       }
@@ -1935,13 +2067,19 @@ ApplicationWindow {
         height: 36
 
         onClicked: {
-          if (gnssButton.followActive) {
-            gnssButton.followActiveSkipExtentChanged = true;
-          }
-          mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
-          if (gnssButton.followActive) {
-            // Trigger a mao redraw
-            gnssButton.followLocation(true);
+          if (stateMachine.state === '3d') {
+            if (mapCanvas3DLoader.item) {
+              mapCanvas3DLoader.item.zoomOut();
+            }
+          } else {
+            if (gnssButton.followActive) {
+              gnssButton.followActiveSkipExtentChanged = true;
+            }
+            mapCanvasMap.zoomOut(Qt.point(mapCanvas.x + (mapCanvas.width - mapCanvasMap.rightMargin) / 2, mapCanvas.y + (mapCanvas.height - mapCanvasMap.bottomMargin) / 2));
+            if (gnssButton.followActive) {
+              // Trigger a map redraw
+              gnssButton.followLocation(true);
+            }
           }
         }
       }
@@ -1995,7 +2133,8 @@ ApplicationWindow {
         id: menuButton
         round: true
         iconSource: Theme.getThemeVectorIcon("ic_menu_white_24dp")
-        bgcolor: dashBoard.opened ? Theme.mainColor : Theme.darkGray
+        iconColor: Theme.toolButtonColor
+        bgcolor: dashBoard.opened ? Theme.mainColor : Theme.toolButtonBackgroundColor
 
         onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
 
@@ -2021,6 +2160,23 @@ ApplicationWindow {
         toolText: qsTr('Close measure tool')
 
         onClicked: mainWindow.closeMeasureTool()
+      }
+
+      QfActionButton {
+        id: close3DView
+        visible: stateMachine.state === '3d'
+        toolImage: Theme.getThemeVectorIcon("ic_3d_24dp")
+        toolText: qsTr('Close 3D view')
+
+        onClicked: {
+          if (mapCanvas3DLoader.item && mapCanvas3DLoader.item.playClosingAnimation) {
+            mapCanvas3DLoader.item.playClosingAnimation(function () {
+              mainWindow.close3DView();
+            });
+          } else {
+            mainWindow.close3DView();
+          }
+        }
       }
 
       QfActionButton {
@@ -2329,7 +2485,7 @@ ApplicationWindow {
                   text: qsTr("%1°").arg(modelData)
                   font: parent.selected ? Theme.strongTipFont : Theme.tipFont
                   anchors.centerIn: parent
-                  color: parent.selected ? Theme.buttonTextColor : Theme.mainTextColor
+                  color: parent.selected ? Theme.buttonColor : Theme.mainTextColor
                 }
 
                 Ripple {
@@ -2406,7 +2562,7 @@ ApplicationWindow {
                   text: modelData
                   font: parent.selected ? Theme.strongTipFont : Theme.tipFont
                   anchors.centerIn: parent
-                  color: tolorenceDelegate.selected ? Theme.buttonTextColor : Theme.mainTextColor
+                  color: tolorenceDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
                   elide: Text.ElideRight
                   width: parent.width
                   horizontalAlignment: Text.AlignHCenter
@@ -2617,8 +2773,16 @@ ApplicationWindow {
         property bool jumpedOnce: false
 
         function jumpToLocation() {
+          const is3D = stateMachine.state === '3d';
+          if (is3D) {
+            const pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
+            if (pos3d === null) {
+              return;
+            }
+          }
+
           let targetScale = -1;
-          if (!jumpedOnce) {
+          if (!jumpedOnce && !is3D) {
             // The scale range and speed range aims at providing an adequate default
             // value for a range of scenarios from people walking to people being driven
             // in trains
@@ -2771,12 +2935,12 @@ ApplicationWindow {
           if (gnssButton.followActive) {
             if (gnssButton.followActiveSkipExtentChanged) {
               gnssButton.followActiveSkipExtentChanged = false;
-            } else {
-              mapCanvasMap.unfreeze('follow');
-              gnssButton.followActive = false;
-              if (gnssButton.autoRefollow) {
-                showAutoLockToast();
-              }
+              return;
+            }
+            mapCanvasMap.unfreeze('follow');
+            gnssButton.followActive = false;
+            if (gnssButton.autoRefollow) {
+              showAutoLockToast();
             }
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
@@ -2787,16 +2951,16 @@ ApplicationWindow {
           if (mapCanvasMap.jumping) {
             return;
           }
-          if (gnssButton.followActive && gnssButton.followOrientationActive) {
-            if (gnssButton.followActiveSkipRotationChanged) {
+          if (gnssButton.followActive) {
+            if (gnssButton.followOrientationActive && gnssButton.followActiveSkipRotationChanged) {
               gnssButton.followActiveSkipRotationChanged = false;
               return;
             }
-          }
-          if (gnssButton.followActive && gnssButton.autoRefollow) {
             mapCanvasMap.unfreeze('follow');
             gnssButton.followActive = false;
-            showAutoLockToast();
+            if (gnssButton.autoRefollow) {
+              showAutoLockToast();
+            }
           } else if (gnssButton.autoRefollow) {
             showAutoLockToast();
           }
@@ -3101,6 +3265,9 @@ ApplicationWindow {
         shouldReturnHome = true;
       } else if (!shouldReturnHome) {
         openWelcomeScreen();
+        if (stateMachine.state === '3d') {
+          mainWindow.close3DView();
+        }
       }
     }
 
@@ -3109,6 +3276,7 @@ ApplicationWindow {
     }
 
     onShowCloudPopup: {
+      qfieldCloudStatus.refresh();
       dashBoard.close();
       qfieldCloudPopup.show();
     }
@@ -3119,6 +3287,10 @@ ApplicationWindow {
       } else {
         activateMeasurementMode();
       }
+    }
+
+    onToggle3DView: {
+      activate3DMode();
     }
 
     onShowPrintLayouts: p => {
@@ -3187,6 +3359,14 @@ ApplicationWindow {
     mainMenu.close();
     dashBoard.close();
     changeMode('measure');
+  }
+
+  function activate3DMode() {
+    mainMenu.close();
+    dashBoard.close();
+    if (stateMachine.state !== '3d') {
+      changeMode('3d');
+    }
   }
 
   QfMenu {
@@ -3390,12 +3570,12 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("About QField")
+      text: qsTr("About %1").arg(appName)
 
       font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_qfield_black_24dp")
+      icon.source: appName === "QField" ? Theme.getThemeVectorIcon("ic_qfield_black_24dp") : ""
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: appName === "QField" ? Theme.menuItemLeftPadding : Theme.menuItemIconlessLeftPadding
 
       onTriggered: {
         dashBoard.close();
@@ -4416,12 +4596,14 @@ ApplicationWindow {
       busyOverlay.progress = progress;
     }
 
-    function onImportEnded(path) {
+    function onImportEnded(path, originalUrl) {
       busyOverlay.state = "hidden";
       if (path !== '') {
         if (FileUtils.fileExists(path)) {
           // A project or dataset path is provided, load it
           iface.loadFile(path);
+          welcomeScreen.model.removeRecentProject(originalUrl);
+          welcomeScreen.model.reloadModel();
         } else {
           // A directory path is provided, display it
           qfieldLocalDataPickerScreen.model.currentPath = path;
@@ -4773,6 +4955,7 @@ ApplicationWindow {
     onStatusChanged: {
       if (cloudConnection.status === QFieldCloudConnection.Disconnected && previousStatus === QFieldCloudConnection.LoggedIn) {
         displayToast(qsTr('Signed out'));
+        cloudStatus.refresh();
       } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
         displayToast(qsTr('Connecting...'));
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
@@ -4788,7 +4971,9 @@ ApplicationWindow {
       }
       previousStatus = cloudConnection.status;
     }
+
     onLoginFailed: function (reason) {
+      qfieldCloudStatus.refresh();
       displayToast(reason);
     }
   }
@@ -4799,12 +4984,18 @@ ApplicationWindow {
     layerObserver: layerObserverAlias
     gpkgFlusher: gpkgFlusherAlias
 
-    onProjectDownloaded: function (projectId, projectName, hasError, errorString) {
-      return hasError ? displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error') : displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
+    onProjectDownloaded: (projectId, projectName, hasError, errorString) => {
+      if (hasError) {
+        cloudStatus.refresh();
+        displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error');
+      } else {
+        displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
+      }
     }
 
-    onPushFinished: function (projectId, isDownloadingProject, hasError, errorString) {
+    onPushFinished: (projectId, isDownloadingProject, hasError, errorString) => {
       if (hasError) {
+        cloudStatus.refresh();
         displayToast(qsTr("Changes failed to reach QFieldCloud: %1").arg(errorString), 'error');
         return;
       }
@@ -4819,7 +5010,7 @@ ApplicationWindow {
 
     onWarning: message => displayToast(message)
 
-    onDeltaListModelChanged: function () {
+    onDeltaListModelChanged: () => {
       qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProject.deltaListModel;
     }
   }
@@ -4830,6 +5021,11 @@ ApplicationWindow {
     modal: true
     closePolicy: Popup.CloseOnEscape
     parent: Overlay.overlay
+  }
+
+  QFieldCloudStatus {
+    id: qfieldCloudStatus
+    url: cloudConnection.url
   }
 
   WelcomeScreen {
@@ -4850,6 +5046,7 @@ ApplicationWindow {
     }
 
     onShowQFieldCloudScreen: {
+      qfieldCloudStatus.refresh();
       qfieldCloudScreen.visible = true;
     }
 
@@ -4959,11 +5156,13 @@ ApplicationWindow {
     parent: Overlay.overlay
 
     Component.onCompleted: {
-      const changelogVersion = settings.value("/QField/ChangelogVersion", "");
-      if (changelogVersion === "") {
-        settings.setValue("/QField/ChangelogVersion", appVersion);
-      } else if (changelogVersion !== appVersion) {
-        open();
+      if (appName === "QField") {
+        const changelogVersion = settings.value("/QField/ChangelogVersion", "");
+        if (changelogVersion === "") {
+          settings.setValue("/QField/ChangelogVersion", appVersion);
+        } else if (changelogVersion !== appVersion) {
+          open();
+        }
       }
     }
   }
@@ -5050,6 +5249,7 @@ ApplicationWindow {
 
   BusyOverlay {
     id: busyOverlay
+    objectName: 'busyOverlay'
     state: iface.hasProjectOnLaunch() ? "visible" : "hidden"
   }
 
@@ -5128,12 +5328,12 @@ ApplicationWindow {
       Label {
         width: parent.width
         wrapMode: Text.WordWrap
-        text: qsTr("Do you want to import <b>%1</b> from <b>%2</b> into QField?").arg(importPermissionDialog.fileName).arg(importPermissionDialog.serverName)
+        text: qsTr("Do you want to import <b>%1</b> from <b>%2</b> into %3?").arg(importPermissionDialog.fileName).arg(importPermissionDialog.serverName).arg(appName)
       }
     }
 
     onAccepted: {
-      iface.importUrl(importPermissionDialog.url, true);
+      iface.importUrl(importPermissionDialog.url, "", true);
     }
 
     standardButtons: Dialog.Yes | Dialog.No

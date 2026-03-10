@@ -35,10 +35,11 @@ QString ParametizedImage::source() const
 
 void ParametizedImage::setSource( const QString &source )
 {
-  if ( mSource == source )
+  const QString adjustedSource = source.startsWith( QStringLiteral( "qrc:" ) ) ? source.mid( 3 ) : source;
+  if ( mSource == adjustedSource )
     return;
 
-  mSource = source;
+  mSource = adjustedSource;
   emit sourceChanged();
 
   QFileInfo fi( mSource );
@@ -111,6 +112,31 @@ void ParametizedImage::setStrokeWidth( double width )
     update();
 }
 
+QVariantMap ParametizedImage::parameters() const
+{
+  return mParameters;
+}
+
+void ParametizedImage::setParameters( const QVariantMap &parameters )
+{
+  if ( mParameters == parameters )
+    return;
+
+  mPreparedParameters.clear();
+  const QStringList keys = parameters.keys();
+  for ( const QString &key : keys )
+  {
+    if ( parameters[key].canConvert<QString>() )
+    {
+      mPreparedParameters[key] = parameters[key].toString();
+    }
+  }
+  emit parametersChanged();
+
+  if ( mIsValid && !mIsRaster )
+    update();
+}
+
 void ParametizedImage::paint( QPainter *painter )
 {
   if ( !mIsValid )
@@ -131,7 +157,7 @@ void ParametizedImage::paint( QPainter *painter )
   else
   {
     const double drawnWidth = sourceRatio >= itemRatio ? size().width() : size().height() * sourceRatio;
-    QPicture sourcePicture = QgsApplication::instance()->svgCache()->svgAsPicture( mSource, drawnWidth, mFillColor, mStrokeColor, mStrokeWidth, 1, fitsInCache, 0, true );
+    QPicture sourcePicture = QgsApplication::instance()->svgCache()->svgAsPicture( mSource, drawnWidth, mFillColor, mStrokeColor, mStrokeWidth, 1, fitsInCache, 0, true, mPreparedParameters );
     painter->drawPicture( size().width() / 2, size().height() / 2, sourcePicture );
   }
 }

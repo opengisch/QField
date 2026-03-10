@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 import org.qfield
-import Theme
 
 EditorWidgetBase {
   id: binaryItem

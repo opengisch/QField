@@ -209,9 +209,6 @@ void AsyncLegendImageResponse::handleFinish( const QImage &image )
 
   mImage = image;
   emit finished();
-
-  mFetcher->deleteLater();
-  mFetcher.release();
 }
 
 void AsyncLegendImageResponse::handleError( const QString & )
@@ -224,9 +221,6 @@ void AsyncLegendImageResponse::handleError( const QString & )
 
   mImage = QImage();
   emit finished();
-
-  mFetcher->deleteLater();
-  mFetcher.release();
 }
 
 QQuickTextureFactory *AsyncLegendImageResponse::textureFactory() const

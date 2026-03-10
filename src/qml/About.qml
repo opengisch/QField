@@ -62,7 +62,7 @@ Item {
               width: parent.width
               height: parent.height
               fillMode: Image.PreserveAspectFit
-              source: "qrc:/images/qfield_logo.svg"
+              source: "qrc:/images/app_logo.svg"
               sourceSize.width: width * screen.devicePixelRatio
               sourceSize.height: height * screen.devicePixelRatio
             }
@@ -80,14 +80,20 @@ Item {
 
             text: {
               let links = '<a href="https://github.com/opengisch/QField/commit/' + gitRev + '">' + gitRev.substr(0, 7) + '</a>';
-              if (appVersion && appVersion !== '1.0.0') {
+              if (appVersion && appVersion !== '1.0.0' && appVersion !== '0') {
                 links += ' <a href="https://github.com/opengisch/QField/releases/tag/' + appVersion + '">' + appVersion + '</a>';
               }
+
+              let title = appName;
+              if (appName === "QField") {
+                title += "<br>" + appVersionStr + " (" + links + ")";
+              } else {
+                title += "<br>" + qsTr("Powered by QField") + " (" + links + ")";
+              }
+
               // the `qgisVersion` has the format `<int>.<int>.<int>-<any text>`, so we get everything before the first `-`
-              const qgisVersionWithoutName = qgisVersion.split("-", 1)[0];
-              const dependencies = [["QGIS", qgisVersionWithoutName], ["GDAL/OGR", gdalVersion], ["Qt", qVersion]];
-              const dependenciesStr = dependencies.map(pair => pair.join(" ")).join(" | ");
-              return "QField<br>" + appVersionStr + " (" + links + ")<br>" + dependenciesStr;
+              const dependencies = [["QGIS", qgisVersion.split("-", 1)[0]], ["GDAL/OGR", gdalVersion], ["Qt", qVersion]];
+              return title + "<br>" + dependencies.map(pair => pair.join(" ")).join(" | ");
             }
 
             onLinkActivated: link => Qt.openUrlExternally(link)
@@ -146,7 +152,7 @@ Item {
         let isDesktopPlatform = Qt.platform.os !== "ios" && Qt.platform.os !== "android";
         let dataDirs = platformUtilities.appDataDirs();
         if (dataDirs.length > 0) {
-          label = dataDirs.length > 1 ? qsTr('QField app directories') : qsTr('QField app directory');
+          label = dataDirs.length > 1 ? qsTr('%1 app directories').arg(appName) : qsTr('%1 app directory').arg(appName);
           for (let dataDir of dataDirs) {
             if (isDesktopPlatform) {
               label += '<br><a href="' + UrlUtils.fromString(dataDir) + '">' + dataDir + '</a>';
@@ -165,6 +171,8 @@ Item {
       id: sponsorshipButton
       Layout.fillWidth: true
       icon.source: Theme.getThemeVectorIcon('ic_sponsor_white_24dp')
+      enabled: appName === "QField"
+      visible: enabled
 
       text: qsTr('Support QField')
       onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")
@@ -172,7 +180,7 @@ Item {
 
     QfButton {
       id: linksButton
-      dropdown: true
+      dropdown: appName === "QField"
       Layout.fillWidth: true
       icon.source: Theme.getThemeVectorIcon('ic_book_white_24dp')
 

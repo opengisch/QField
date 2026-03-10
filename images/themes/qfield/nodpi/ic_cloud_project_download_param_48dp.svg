@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(0 -280.07)">
+  <g transform="translate(0 -.258)" fill="none" stroke="#222" stroke-width=".397">
+   <g stroke="#fff" stroke-opacity=".5" stroke-width="1.0583">
+    <g>
+     <path d="m9.243 283.65-2.628-0.67-3.97 1.057v10.055l3.97-1.059 3.968 1.059 3.97-1.059v-6.085" stroke-linecap="round"/>
+     <path d="m6.615 293.03v-10.054"/>
+     <path d="m10.583 294.09v-7.144"/>
+    </g>
+    <circle cx="12.568" cy="284.04" r="1.191" fill-opacity=".627" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="m12.561 287.36c-0.845-1.171-2.637-1.861-2.465-3.593 0.381-3.124 4.669-3.053 4.932 0.012 0.149 1.737-1.631 2.398-2.467 3.581z"/>
+   </g>
+   <g>
+    <path d="m9.243 283.65-2.628-0.67-3.97 1.057v10.055l3.97-1.059 3.968 1.059 3.97-1.059v-6.085" stroke-linecap="round"/>
+    <path d="m6.615 293.03v-10.054"/>
+    <path d="m10.583 294.09v-7.144"/>
+   </g>
+   <circle cx="12.568" cy="284.04" r="1.191" fill-opacity=".627" stroke-linecap="round" stroke-linejoin="round"/>
+   <path d="M12.561 287.356c-.845-1.171-2.637-1.861-2.465-3.593.381-3.124 4.669-3.053 4.932.012.149 1.737-1.631 2.398-2.467 3.581z"/>
+  </g>
+  <path d="M12.7 292.37a4.113 4.113 0 00-4.101-4.101 4.1 4.1 0 00-3.973 3.101c-1.23.205-2.179 1.256-2.179 2.538a2.57 2.57 0 002.564 2.563H12.7c1.128 0 2.05-.923 2.05-2.05 0-1.128-.922-2.051-2.05-2.051z" fill="param(cloud) #4c6dac" stroke-width=".265"/>
+  <g fill="#fff" font-family="sans-serif" font-size="10.583" font-weight="400" letter-spacing="0" stroke-width=".265" word-spacing="0" aria-label="↓">
+   <path d="M9.061 289.91h-.924v3.585a2.064 2.064 0 00-.508-.642l-.819-.748-.564.6 2.35 2.124 2.356-2.124-.564-.6-.819.748c-.24.219-.374.381-.508.642z" fill="#fff" font-family="Fira Sans" font-size="7.056" font-style="italic" font-weight="600" stroke-width=".265"/>
+  </g>
+ </g>
+ <style type="text/css"/>
+</svg>

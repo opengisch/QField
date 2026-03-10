@@ -1,8 +1,8 @@
 import QtQuick
 import QtQuick.Controls
-import Theme
 import org.qgis
 import org.qfield
+import Theme
 import ".."
 
 QfVisibilityFadingRow {

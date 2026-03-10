@@ -3,7 +3,6 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import org.qgis
 import org.qfield
-import Theme
 
 /**
  * \ingroup qml

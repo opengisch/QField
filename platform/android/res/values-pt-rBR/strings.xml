@@ -62,7 +62,7 @@ QGIS pode ser executado a partir do armazenamento interno, mas isso não é reco
     <string name="import_project_wait">Aguarde enquanto o QField está importando o projeto</string>
     <string name="import_dataset_wait">Aguarde enquanto o QField está importando o(s) conjunto(s) de dados</string>
     <string name="update_project_wait">Aguarde enquanto o QField está atualizando o projeto local</string>
-    <string name="upload_pending_attachments">Atualmente, você está carregando anexos para a QFieldCloud</string>
+    <string name="upload_pending_attachments">Carregando anexos para a QFieldCloud</string>
     <string name="operation_unsupported">Operação não suportada</string>
     <string name="import_operation_unsupported">Seu dispositivo não é compatível com essa operação de importação.</string>
     <string name="export_operation_unsupported">Seu dispositivo não é compatível com essa operação de exportação.</string>

@@ -36,6 +36,7 @@ class PluginInformation
     Q_PROPERTY( QString homepage MEMBER homepage )
     Q_PROPERTY( QString icon MEMBER icon )
     Q_PROPERTY( QString version MEMBER version )
+    Q_PROPERTY( bool bundled MEMBER bundled )
 
   public:
     PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &homepage = QString(), const QString &icon = QString() )
@@ -64,6 +65,7 @@ class PluginInformation
     QString downloadLink;
     QString remoteVersion;
 
+    bool bundled = false;
     bool trusted = false;
     bool enabled = false;
     bool configurable = false;

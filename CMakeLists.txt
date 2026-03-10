@@ -2,17 +2,20 @@
 # CMake settings
 cmake_minimum_required(VERSION 3.19)
 
-set(VCPKG_TAG 604697b05b6bf8c75518d2c133a149ff7ecb3c8b)
+set(VCPKG_TAG 57987637aac17d62bac535bc839baca3754490e6)
 
 set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
 set(CMAKE_COLOR_MAKEFILE ON)
 set(APP_NAME "QField" CACHE STRING "Application Name")
-set(APP_ICON "qfield_logo" CACHE STRING "Application Icon")
+set(APP_ICON "qfield_logo" CACHE STRING "Application Icon (must exist as images/icons/{APP_ICON}.svg and platform/android/res/drawable/{APP_ICON}_vector.xml)")
+set(APP_ICON_PATH "" CACHE PATH "Path to custom icon assets. Structure: {APP_ICON}.svg at root, android/drawable-*/{APP_ICON}.png, android/drawable/{APP_ICON}_vector.xml")
+set(APP_THEME_PATH "" CACHE PATH "Path to a custom theme.json file. When set, the Theme engine will load colours from this file instead of the built-in default. Structure must match src/core/theme/theme.json.")
 set(APK_VERSION_CODE "1" CACHE STRING "Apk Version Code (Example: 1)")
 set(APP_VERSION "0" CACHE STRING "Application Version (Example: v1.0.0)")
 set(APP_VERSION_STR "local - dev" CACHE STRING "Application Version Name (Example: 1.0.0 - Homerun)")
 set(APP_PACKAGE_NAME "qfield" CACHE STRING "Package name suffix. E.g. qfield --> ch.opengis.qfield")
+set(APP_BUNDLED_PLUGINS "" CACHE STRING "Application bundled plugins path")
 
 string(REGEX REPLACE "v" "" CLEAN_APP_VERSION "${APP_VERSION}")
 
@@ -71,8 +74,6 @@ if(WITH_CCACHE)
   include(ccache)
 endif()
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield)
-
 set(WITH_BLUETOOTH
     ON
     CACHE BOOL "Enable bluetooth support")
@@ -92,6 +93,19 @@ else()
   set(WITH_SENTRY 0)
 endif()
 
+set(WITH_SAMPLE_PROJECTS
+    ON
+    CACHE BOOL "Enable sample projects")
+
+if (WITH_SAMPLE_PROJECTS)
+  install(DIRECTORY ${CMAKE_SOURCE_DIR}/resources/sample_projects DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield)
+endif()
+
+if (APP_BUNDLED_PLUGINS)
+  file(MAKE_DIRECTORY ${CMAKE_INSTALL_DATADIR}/qfield/plugins)
+  install(DIRECTORY APP_BUNDLED_PLUGINS DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield/plugins)
+endif()
+
 set(QT_MIN_VERSION 6.6.0)
 
 if (ANDROID)
@@ -109,6 +123,44 @@ if (ANDROID)
   list(APPEND CMAKE_FIND_ROOT_PATH /)
 
   set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_BINARY_DIR}/android-template)
+  set(ANDROID_DRAWABLE_DENSITIES mdpi hdpi xhdpi xxhdpi xxxhdpi)
+
+  foreach(DENSITY ${ANDROID_DRAWABLE_DENSITIES})
+    set(DST_DIR "${ANDROID_PACKAGE_SOURCE_DIR}/res/drawable-${DENSITY}")
+    file(MAKE_DIRECTORY "${DST_DIR}")
+
+    if(APP_ICON_PATH AND EXISTS "${APP_ICON_PATH}/android/drawable-${DENSITY}/${APP_ICON}.png")
+      message(STATUS "Using custom icon [${DENSITY}]: ${APP_ICON_PATH}/android/drawable-${DENSITY}/${APP_ICON}.png")
+      file(COPY
+            "${APP_ICON_PATH}/android/drawable-${DENSITY}/${APP_ICON}.png"
+            DESTINATION "${DST_DIR}"
+          )
+    else()
+      message(STATUS "Using default icon [${DENSITY}]: qfield_logo.png -> ${APP_ICON}.png")
+      file(COPY
+            "${CMAKE_SOURCE_DIR}/platform/android/res/drawable-${DENSITY}/${APP_ICON}.png"
+            DESTINATION "${DST_DIR}"
+          )
+    endif()
+  endforeach()
+
+  set(DST_DRAWABLE_DIR "${ANDROID_PACKAGE_SOURCE_DIR}/res/drawable")
+  file(MAKE_DIRECTORY "${DST_DRAWABLE_DIR}")
+
+  if(APP_ICON_PATH AND EXISTS "${APP_ICON_PATH}/android/drawable/${APP_ICON}_vector.xml")
+    message(STATUS "Using custom vector drawable: ${APP_ICON_PATH}/android/drawable/${APP_ICON}_vector.xml")
+    file(COPY
+        "${APP_ICON_PATH}/android/drawable/${APP_ICON}_vector.xml"
+        DESTINATION "${DST_DRAWABLE_DIR}"
+      )
+  else()
+    message(STATUS "Using default vector drawable: qfield_logo_vector.xml -> ${APP_ICON}_vector.xml")
+    file(COPY
+        "${CMAKE_SOURCE_DIR}/platform/android/res/drawable/${APP_ICON}_vector.xml"
+        DESTINATION "${DST_DRAWABLE_DIR}"
+      )
+  endif()
+
 endif()
 
 find_package(Qt6 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg Sql Sensors WebView Multimedia Bluetooth Nfc RemoteObjects WebSockets Quick3D REQUIRED)
@@ -257,7 +309,7 @@ if(WITH_VCPKG)
     COMMAND ${CMAKE_COMMAND} -E make_directory "${SHARE_DIR}/qgis/svg"
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/qgis/resources" "${SHARE_DIR}/qgis/resources"
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${VCPKG_BASE_DIR}/share/qgis/svg" "${SHARE_DIR}/qgis/svg"
-    COMMAND ${CMAKE_COMMAND} -E rm -- "${SHARE_DIR}/qgis/resources/data/world_map.gpkg"
+    COMMAND ${CMAKE_COMMAND} -E rm -R -- "${SHARE_DIR}/qgis/resources/data"
     COMMAND ${CMAKE_COMMAND} -E rm -R -- "${SHARE_DIR}/qgis/resources/cpt-city-qgis-min"
   )
 
@@ -269,7 +321,15 @@ if(WITH_VCPKG)
 
   copy_resource("${PROJ_DATA_PATH}" "proj")
   copy_resource("${VCPKG_BASE_DIR}/share/gdal" "gdal")
-  copy_resource("${CMAKE_SOURCE_DIR}/resources/" "qfield")
+
+  if (WITH_SAMPLE_PROJECTS)
+    copy_resource("${CMAKE_SOURCE_DIR}/resources/sample_projects" "qfield/sample_projects")
+  endif()
+
+  if (APP_BUNDLED_PLUGINS)
+    copy_resource("${APP_BUNDLED_PLUGINS}" "qfield/plugins")
+  endif()
+
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/resources/" DESTINATION "${CMAKE_INSTALL_DATADIR}/qgis/resources")
   install(DIRECTORY "${VCPKG_BASE_DIR}/share/qgis/svg/" DESTINATION "${CMAKE_INSTALL_DATADIR}/qgis/svg")
   install(DIRECTORY "${PROJ_DATA_PATH}/" DESTINATION "${CMAKE_INSTALL_DATADIR}/proj/")

@@ -80,21 +80,6 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     ~QgisMobileapp() override;
 
     /**
-     * Returns a list of recent projects.
-     */
-    QList<QPair<QString, QString>> recentProjects();
-
-    /**
-     * Saves a list of recent \a projects.
-     */
-    void saveRecentProjects( const QList<QPair<QString, QString>> &projects );
-
-    /**
-     * Removes the project with a given \a path from the list of recent projects
-     */
-    void removeRecentProject( const QString &path );
-
-    /**
      * Set the project or dataset file path to be loaded.
      *
      * \param path The project or dataset file to load
@@ -254,7 +239,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     std::unique_ptr<CogoRegistry> mCogoRegistry;
 
     // Dummy objects. We are not able to call static functions from QML, so we need something here.
-    QgsCoordinateReferenceSystem mCrsFactory;
+    QgsWkbTypes mWkbTypes;
     QgsUnitTypes mUnitTypes;
     QgsExifTools mExifTools;
 

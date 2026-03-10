@@ -44,6 +44,7 @@ FileReceiver::FileReceiver( const QString &filePath, const int interval, QObject
 
 FileReceiver::~FileReceiver()
 {
+  disconnectDevice();
   mBuffer->deleteLater();
   mBuffer = nullptr;
 }
@@ -56,12 +57,12 @@ void FileReceiver::handleConnectDevice()
   }
 
   qInfo() << QStringLiteral( "FileReceiver: Initiating replay of logs %1" ).arg( mLogs.fileName() );
-  mLogs.open( QIODevice::ReadOnly );
-  mBuffer->open( QIODevice::ReadWrite );
-
-  setSocketState( QAbstractSocket::ConnectedState );
-
-  mTimer.start();
+  if ( mLogs.open( QIODevice::ReadOnly ) )
+  {
+    mBuffer->open( QIODevice::ReadWrite );
+    setSocketState( QAbstractSocket::ConnectedState );
+    mTimer.start();
+  }
 }
 
 void FileReceiver::handleDisconnectDevice()

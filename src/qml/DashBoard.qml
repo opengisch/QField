@@ -18,6 +18,7 @@ Drawer {
   signal showCloudPopup
   signal showProjectFolder
   signal toggleMeasurementTool
+  signal toggle3DView
   signal returnHome
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
@@ -137,6 +138,20 @@ Drawer {
           }
 
           QfToolButton {
+            id: view3DButton
+            objectName: "View3DButton"
+            anchors.verticalCenter: parent.verticalCenter
+            round: true
+            iconSource: Theme.getThemeVectorIcon("ic_3d_24dp")
+            iconColor: Theme.mainTextColor
+            bgcolor: "transparent"
+            onClicked: {
+              toggle3DView();
+              highlighted = false;
+            }
+          }
+
+          QfToolButton {
             id: printItemButton
             objectName: "PrintItemButton"
             anchors.verticalCenter: parent.verticalCenter
@@ -184,7 +199,7 @@ Drawer {
               if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject) {
                 return Theme.mainTextColor;
               } else {
-                return "transparent";
+                return Theme.cloudColor;
               }
             }
             bgcolor: "transparent"

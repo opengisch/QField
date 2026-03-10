@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
-import Theme
+import org.qfield
 
 /**
  * \ingroup qml
@@ -80,8 +80,8 @@ ToolButton {
       horizontalAlignment: Image.AlignHCenter
       verticalAlignment: Image.AlignVCenter
       source: Theme.getThemeVectorIcon("ic_close_white_24dp")
-      sourceSize.width: 24 * screen.devicePixelRatio
-      sourceSize.height: 24 * screen.devicePixelRatio
+      sourceSize.width: 24 * Screen.devicePixelRatio
+      sourceSize.height: 24 * Screen.devicePixelRatio
       visible: true
     }
   }

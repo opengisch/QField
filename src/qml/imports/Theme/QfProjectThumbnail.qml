@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls.Material.impl
 import QtQuick.Layouts
+import org.qfield
 
 /**
  * \ingroup qml
@@ -93,13 +94,15 @@ Rectangle {
         bottomPadding: 3
         spacing: 0
 
-        Image {
+        ParametizedImage {
           id: type
           anchors.verticalCenter: parent.verticalCenter
-          sourceSize.width: 80
-          sourceSize.height: 80
           width: 40
           height: visible ? 40 : 0
+          strokeColor: Theme.mainColor
+          parameters: {
+            "cloud": Theme.cloudColor
+          }
           visible: source !== ""
 
           QfBadge {
@@ -185,8 +188,8 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectCrop
             source: "qrc:/themes/qfield/nodpi/ic_check_white_24dp.svg"
-            sourceSize.width: width * screen.devicePixelRatio
-            sourceSize.height: height * screen.devicePixelRatio
+            sourceSize.width: width * Screen.devicePixelRatio
+            sourceSize.height: height * Screen.devicePixelRatio
           }
         }
       }

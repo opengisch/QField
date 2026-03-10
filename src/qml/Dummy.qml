@@ -1,4 +1,5 @@
 // This file is used to add extra imports for the qml import scanner to add additional modules
+import QtQuick
 import QtQuick3D
 import QtQuick3D.AssetUtils
 import QtQuick3D.Helpers

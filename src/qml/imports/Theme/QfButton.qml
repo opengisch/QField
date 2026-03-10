@@ -5,6 +5,7 @@ import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import QtQuick.Effects
 import QtQuick.Shapes
+import org.qfield
 
 /**
  * \ingroup qml
@@ -12,8 +13,8 @@ import QtQuick.Shapes
 Button {
   id: button
 
-  property color bgcolor: Theme.mainColor
-  property color color: button.enabled ? Theme.buttonTextColor : Theme.mainTextDisabledColor
+  property color bgcolor: Theme.buttonBackgroundColor
+  property color color: button.enabled ? Theme.buttonColor : Theme.mainTextDisabledColor
   property alias radius: backgroundRectangle.radius
   property alias borderColor: backgroundRectangle.border.color
   property bool dropdown: false

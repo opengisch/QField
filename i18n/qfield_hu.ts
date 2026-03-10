@@ -22,12 +22,16 @@
         <translation>Linkek menü</translation>
     </message>
     <message>
-        <source>QField app directories</source>
-        <translation>QField alkalmazás könyvtárak</translation>
+        <source>Powered by QField</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>QField app directory</source>
-        <translation>QField alkalmazás könyvtár</translation>
+        <source>%1 app directories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -841,10 +845,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Rajzolj egy vázlatot</translation>
     </message>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation>A külső tároló bejelentkezési azonosító beállítása elveszett, győződj meg róla, hogy importálásra került a QField-be</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>Tudjon meg többet</translation>
     </message>
@@ -859,6 +859,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>NULL</source>
         <translation>NULL</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2534,10 +2538,6 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Learn more about QFieldCloud here</source>
         <translation type="unfinished"/>
     </message>
@@ -2547,6 +2547,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>My Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3590,6 +3594,29 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
 </context>
 <context>
+    <name>QFieldCloudStatus</name>
+    <message>
+        <source>QFieldCloud server is not reachable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server at %1 could not be reached. Please check your internet connection.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is under maintenance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud service is degraded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There is an ongoing incident</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3957,7 +3984,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>Ha letiltják, a QField a minimalista belső kamerát használja az egység kamara alkalmazása helyett. &lt;br&gt;Tipp: Engedélyezze ezt a beállítást és telepítse a nyílt kamera alkalmazást geo taggelt képek készítéséhez. </translation>
+        <translation type="vanished">Ha letiltják, a QField a minimalista belső kamerát használja az egység kamara alkalmazása helyett. &lt;br&gt;Tipp: Engedélyezze ezt a beállítást és telepítse a nyílt kamera alkalmazást geo taggelt képek készítéséhez. </translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -3989,7 +4016,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>Ha engedélyezve van, a rendszer anonimizált mérőszámokat gyűjt és küld el, hogy  javítsa a QField szolgáltatást.</translation>
+        <translation type="vanished">Ha engedélyezve van, a rendszer anonimizált mérőszámokat gyűjt és küld el, hogy  javítsa a QField szolgáltatást.</translation>
     </message>
     <message>
         <source>General</source>
@@ -4152,7 +4179,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField beállítások</translation>
+        <translation type="vanished">QField beállítások</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -4265,10 +4292,6 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>Az alacsonyabb minőségű megjelenítés a kisebb memóriahasználatot és a gyorsabb frissítést részesíti előnyban a pontosság hátrányára.</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation>Ez az érték pontosítja a helymeghatározó eszközzel rögzített Z értéket. Ha 1.6 értéket ad meg, a QField automatikusan levon 1.6-et minden rögzített értékből. Győződjön meg róla, hogy a tényleges antenna magasságot adja meg, pl. az árbóc magassága + antenna fázis centrum külpontossága.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -4409,6 +4432,22 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4741,6 +4780,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not load resource font: %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5551,6 +5594,62 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <source>Failed to upload file %1 due to network error (%2)</source>
         <translation>%1 fájl sikertelen feltöltés hálózati hiba miatt (%2) </translation>
     </message>
+    <message>
+        <source>Upload finished.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local paths provided.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV is busy.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not a WebDAV imported project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV config is missing required fields.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No stored password available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Selected items belong to different WebDAV projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Nothing to upload.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local changes detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload cancelled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload skipped.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload is locked by another process.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to read WebDAV config file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid WebDAV config JSON.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>WelcomeScreen</name>
@@ -5564,7 +5663,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation>Üdvözöllek, hogy tetszettek a QFielddel kapcsolatos eddigi tapasztalataid?</translation>
+        <translation type="vanished">Üdvözöllek, hogy tetszettek a QFielddel kapcsolatos eddigi tapasztalataid?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
@@ -5580,7 +5679,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation>A stabilitás növelése érdekében a QField névtelen mérőszámokat gyűjt és küld.</translation>
+        <translation type="vanished">A stabilitás növelése érdekében a QField névtelen mérőszámokat gyűjt és küld.</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -5624,7 +5723,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>Üdvözöljük újra a QField-ben.</translation>
+        <translation type="vanished">Üdvözöljük újra a QField-ben.</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -5655,10 +5754,6 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <translation>Korábbi projekt műveletek</translation>
     </message>
     <message>
-        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation>Üdvözöljük a QField-ben. Először használja a programot? Próbálja ki a lentebb listázott projekteket.</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Ez nagyszerű! Szeretnénk, ha az alábbi gombra kattintana, és leírná a véleményét.</translation>
     </message>
@@ -5679,6 +5774,26 @@ projects</source>
     <message>
         <source>Create new
 project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome back to %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6020,7 +6135,7 @@ project</source>
     </message>
     <message>
         <source>About QField</source>
-        <translation>QField névjegy</translation>
+        <translation type="vanished">QField névjegy</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -6471,10 +6586,6 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Plugin Permission</source>
         <translation type="unfinished"/>
     </message>
@@ -6653,6 +6764,26 @@ to show actions</source>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to load 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading terrain...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -50,6 +50,8 @@ void Positioning::setupSource()
   if ( mPositioningSource )
   {
     mHost.disableRemoting( mPositioningSource );
+    // Don't rely on deleteLater(), insure any device is disconnected prior to switching source
+    mPositioningSource->setActive( false );
     mPositioningSource->deleteLater();
     mPositioningSource = nullptr;
   }
@@ -110,7 +112,23 @@ void Positioning::setupSource()
   const QList<QString> properties = mProperties.keys();
   for ( const QString &property : properties )
   {
-    mPositioningSourceReplica->setProperty( property.toLatin1(), mProperties[property] );
+    if ( property != QStringLiteral( "active" ) )
+    {
+      mPositioningSourceReplica->setProperty( property.toLatin1(), mProperties[property] );
+    }
+  }
+
+  // Give the OS 2 seconds to fully release the Bluetooth adapter from the dying local/remote source
+  if ( mProperties.contains( "active" ) )
+  {
+    QTimer::singleShot( 2000, this, [this]() {
+      if ( mPositioningSourceReplica && mProperties.contains( "active" ) )
+      {
+        const bool actualActiveValue = mProperties["active"].toBool();
+        mProperties.remove( "active" );
+        mPositioningSourceReplica->setProperty( "active", actualActiveValue );
+      }
+    } );
   }
 }
 
@@ -121,7 +139,7 @@ bool Positioning::isSourceAvailable() const
 
 void Positioning::onApplicationStateChanged( Qt::ApplicationState state )
 {
-#ifdef Q_OS_ANDROID
+#if defined( Q_OS_ANDROID ) || defined( Q_OS_IOS )
   // Google Play policy only allows for background access if it's explicitly stated and justified
   // Not stopping on Activity::onPause is detected as violation
   if ( mServiceMode )
@@ -488,8 +506,10 @@ void Positioning::setBackgroundMode( bool enabled )
   QFile backgroundFile( PositioningSource::backgroundFilePath );
   if ( mBackgroundMode )
   {
-    backgroundFile.open( QFile::WriteOnly );
-    backgroundFile.close();
+    if ( backgroundFile.open( QFile::WriteOnly ) )
+    {
+      backgroundFile.close();
+    }
   }
   else
   {

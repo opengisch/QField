@@ -141,9 +141,16 @@ class FeatureModel : public QAbstractListModel
     void setCurrentLayer( QgsVectorLayer *layer );
     QgsVectorLayer *layer() const;
 
-    //! Returns the geometry object that will drive the feature geometry.
+    /**
+     * Returns the geometry object that will drive the feature geometry.
+     */
     Geometry *geometry();
-    //! Sets the geometry object that will drive the feature geometry.
+
+    /**
+     * Sets the geometry object that will drive the feature geometry.
+     * \note This is not the QgsGeometry of the feature. To change that,
+     * use the changeGeometry function.
+     */
     void setGeometry( Geometry *geometry );
 
     //! Returns the vertex model is used to highlight vertices on the map.
@@ -162,12 +169,20 @@ class FeatureModel : public QAbstractListModel
     bool setData( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole ) override;
 
     /**
+     * Sets the \a geometry of the feature.
+     */
+    Q_INVOKABLE bool changeGeometry( const QgsGeometry &geometry );
+
+    /**
      * Will commit the edit buffer of this layer.
      * May change in the future to only commit the changes buffered in this model.
      *
-     * @return Success of the operation
+     * By setting \a flushBuffer to FALSE, the edits made to the feature will remain
+     * in the edit buffer provided the vector layer was already in editing mode.
+     *
+     * \return TRUE if a feature was successfully saved
      */
-    Q_INVOKABLE bool save();
+    Q_INVOKABLE bool save( bool flushBuffer = true );
 
     /**
      * Will reset the feature to the original values and dismiss any buffered edits.
@@ -181,8 +196,15 @@ class FeatureModel : public QAbstractListModel
 
     /**
      * Will create this feature as a new feature on the data source.
+     *
+     * By setting \a flushBuffer to FALSE, the created feature will remain
+     * in the edit buffer provided the vector layer was already in editing mode.
+     * The flushBuffer parameter will be ignored for layers containing
+     * relationships.
+     *
+     * \return TRUE if a feature was successfully created
      */
-    Q_INVOKABLE bool create();
+    Q_INVOKABLE bool create( bool flushBuffer = true );
 
     /**
      * Deletes the current feature from the data source.
@@ -310,8 +332,10 @@ class FeatureModel : public QAbstractListModel
     QgsFeatureIds applyVertexModelTopography();
     void applyGeometryTopography( const QgsGeometry &geometry );
 
-    bool commit();
+    bool commit( bool stopEditing = true );
     bool startEditing();
+    bool isEditing() const;
+
     void setLinkedFeatureValues();
     void updateDefaultValues();
     void updatePermissions();
@@ -346,7 +370,9 @@ class FeatureModel : public QAbstractListModel
     SnappingResult mTopSnappingResult;
     QgsProject *mProject = nullptr;
     QString mTempName;
+
     bool mBatchMode = false;
+    bool mBatchModeWasEditing = false;
 };
 
 #endif // FEATUREMODEL_H

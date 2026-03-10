@@ -465,7 +465,7 @@ Popup {
               id: captureButton
 
               anchors.centerIn: parent
-              visible: captureLoader.item && (captureLoader.item.camera.cameraStatus === Camera.ActiveStatus || captureLoader.item.camera.cameraStatus === Camera.LoadedStatus || captureLoader.item.camera.cameraStatus === Camera.StandbyStatus)
+              visible: captureLoader.status == Loader.Ready && captureLoader.item
 
               round: true
               roundborder: true

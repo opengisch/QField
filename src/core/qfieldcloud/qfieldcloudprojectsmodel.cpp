@@ -128,7 +128,10 @@ void QFieldCloudProjectsModel::setCurrentProjectId( const QString &currentProjec
   mCurrentProjectId = currentProjectId;
   mCurrentProject = findProject( mCurrentProjectId );
 
-  mLayerObserver->setDeltaFileWrapper( mCurrentProject ? mCurrentProject->deltaFileWrapper() : nullptr );
+  if ( mLayerObserver )
+  {
+    mLayerObserver->setDeltaFileWrapper( mCurrentProject ? mCurrentProject->deltaFileWrapper() : nullptr );
+  }
 
   emit currentProjectIdChanged();
   emit currentProjectChanged();
@@ -1140,8 +1143,9 @@ void QFieldCloudProjectsFilterModel::setFilter( ProjectsFilter filter )
     return;
   }
 
+  beginFilterChange();
   mFilter = filter;
-  invalidateFilter();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
   emit filterChanged();
 }
@@ -1158,8 +1162,9 @@ void QFieldCloudProjectsFilterModel::setShowLocalOnly( bool showLocalOnly )
     return;
   }
 
+  beginFilterChange();
   mShowLocalOnly = showLocalOnly;
-  invalidateFilter();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
   emit showLocalOnlyChanged();
 }
@@ -1239,8 +1244,12 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
   {
     return;
   }
+
+  beginFilterChange();
   mTextFilter = text;
-  invalidateFilter();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
+
+  emit textFilterChanged();
 }
 
 QString QFieldCloudProjectsFilterModel::textFilter() const
@@ -1255,8 +1264,11 @@ void QFieldCloudProjectsFilterModel::setShowInValidProjects( bool showInValidPro
     return;
   }
 
+  beginFilterChange();
   mShowInValidProjects = showInValidProjects;
-  invalidateFilter();
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
+
+  emit showInValidProjectsChanged();
 }
 
 

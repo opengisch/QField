@@ -22,7 +22,7 @@ MessageLogModel::MessageLogModel( QObject *parent )
   : QAbstractListModel( parent )
   , mMessageLog( QgsApplication::messageLog() )
 {
-  connect( mMessageLog, static_cast<void ( QgsMessageLog::* )( const QString &message, const QString &tag, Qgis::MessageLevel level )>( &QgsMessageLog::messageReceived ), this, &MessageLogModel::onMessageReceived );
+  connect( mMessageLog, static_cast<void ( QgsMessageLog::* )( const QString &message, const QString &tag, Qgis::MessageLevel level, Qgis::StringFormat format )>( &QgsMessageLog::messageReceivedWithFormat ), this, &MessageLogModel::onMessageReceived );
 }
 
 QHash<int, QByteArray> MessageLogModel::roleNames() const
@@ -106,7 +106,7 @@ void MessageLogModel::clear()
   endResetModel();
 }
 
-void MessageLogModel::onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level )
+void MessageLogModel::onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level, Qgis::StringFormat format )
 {
   if ( tag == QLatin1String( "3D" ) )
   {

@@ -13,6 +13,7 @@ Popup {
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
 
+  property QFieldCloudStatus cloudServiceStatus: null
   property string pendingAction: ""
   property string pendingCreationTitle: ""
   property string pendingUploadPath: ""
@@ -152,6 +153,11 @@ Popup {
               }
             }
           }
+        }
+
+        QFieldCloudStatusBanner {
+          cloudServiceStatus: popup.cloudServiceStatus
+          Layout.margins: 10
         }
 
         Text {
@@ -657,6 +663,7 @@ Popup {
               id: qfieldCloudLogin
               isVisible: connectionSettings.visible
               width: parent.parent.width
+              cloudServiceStatus: popup.cloudServiceStatus
             }
           }
 

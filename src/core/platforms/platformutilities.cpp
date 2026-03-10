@@ -67,8 +67,10 @@ PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
 
 void PlatformUtilities::copySampleProjects()
 {
-  const bool success = FileUtils::copyRecursively( systemSharedDataLocation() + QLatin1String( "/qfield/sample_projects" ), systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
-  Q_ASSERT( success );
+  if ( QFileInfo::exists( systemSharedDataLocation() + QLatin1String( "/qfield/sample_projects" ) ) )
+  {
+    FileUtils::copyRecursively( systemSharedDataLocation() + QLatin1String( "/qfield/sample_projects" ), systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
+  }
 }
 
 void PlatformUtilities::initSystem()
@@ -87,9 +89,11 @@ void PlatformUtilities::initSystem()
     afterUpdate();
     copySampleProjects();
 
-    gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate );
-    gitRevFile.write( appGitRev );
-    gitRevFile.close();
+    if ( gitRevFile.open( QIODevice::WriteOnly | QIODevice::Truncate ) )
+    {
+      gitRevFile.write( appGitRev );
+      gitRevFile.close();
+    }
   }
 }
 

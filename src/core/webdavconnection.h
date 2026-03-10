@@ -18,13 +18,23 @@
 #ifndef WEBDAVCONNECTION_H
 #define WEBDAVCONNECTION_H
 
+#include <QByteArray>
+#include <QDateTime>
+#include <QFileInfo>
+#include <QList>
 #include <QObject>
+#include <QStringList>
+#include <QVariantMap>
 #include <QtWebDAV/qwebdav.h>
 #include <QtWebDAV/qwebdavdirparser.h>
 
+#include <memory>
+
+class QLockFile;
+
 /**
- * The webdav connection objects allows for connection to and push/pull
- * operations of content.
+ * The WebDAV connection object allows connecting to a WebDAV endpoint and performing
+ * push/pull operations for imported content.
  * \ingroup core
  */
 class WebdavConnection : public QObject
@@ -164,15 +174,23 @@ class WebdavConnection : public QObject
     Q_INVOKABLE void downloadPath( const QString &localPath );
 
     /**
-     * Upload one or more file and/or folder to a WebDAV endpoint tied to the imported remote path.
-     * \a localPaths a list of files and folder parented to a local path within which a remote path was imported into
-     * \note This is not a synchronization process; files removed locally will *not* be removed
-     * remotely. Furthermore, all files modified locally will overwrite remotely-stored files.
+     * Uploads one or more local files and/or folders to the WebDAV endpoint associated with a project
+     * previously imported via WebDAV. The provided \a localPaths must all belong to the same imported
+     * project (i.e. share the same WebDAV configuration); otherwise no upload is started and lastError()
+     * is set.
+     *
+     * \note This is not a synchronization process; files removed locally will not be removed remotely.
+     * Modified local files will overwrite their remote versions. Hidden dot-folders are ignored, and the
+     * WebDAV configuration and lock files are never uploaded.
+     *
+     * Before the upload starts, confirmationRequested() is emitted so the UI can ask the user to confirm.
+     * Call confirmRequest() to proceed or cancelRequest() to abort.
      */
     Q_INVOKABLE void uploadPaths( const QStringList &localPaths );
 
     /**
-     * Launches a requested download or upload operation.
+     * Launches a requested download or upload operation after the user has confirmed they want to proceed.
+     * This is typically called in response to confirmationRequested().
      * \see confirmationRequested
      * \see isDownloadingPath
      * \see isUploadingPath
@@ -180,12 +198,25 @@ class WebdavConnection : public QObject
     Q_INVOKABLE void confirmRequest();
 
     /**
-     * Cancels a requested download or upload operation.
+     * Cancels a requested download or upload operation. If an upload is active, the per-project upload lock
+     * is released. For automatic uploads, uploadFinished() is emitted with a failure status.
      * \see confirmationRequested
      * \see isDownloadingPath
      * \see isUploadingPath
      */
     Q_INVOKABLE void cancelRequest();
+
+    /**
+     * Requests an automatic upload for the WebDAV imported project that contains \a projectPath. This is intended
+     * for background or scheduled upload workflows and will not prompt the user for credentials. The upload is
+     * skipped if the project is not WebDAV imported, if another upload is already running for the same project
+     * (upload lock), if no stored password is available, or if no local changes are detected since the last
+     * successful automatic upload (unless \a force is TRUE).
+     *
+     * If the upload does not start, uploadSkipped() is emitted with the reason. If it starts, uploadFinished()
+     * is emitted when the upload completes.
+     */
+    Q_INVOKABLE void requestUpload( const QString &projectPath, bool force = false );
 
     /**
      * Returns TRUE if a given path contains a WebDAV configuration JSON file or is parented
@@ -197,6 +228,20 @@ class WebdavConnection : public QObject
      * Returns a list of import history.
      */
     Q_INVOKABLE static QVariantMap importHistory();
+
+    /**
+     * Scans a directory recursively and returns all folders containing a WebDAV configuration file.
+     * \param basePath the directory to scan
+     * \return list of absolute paths to WebDAV project folders
+     */
+    Q_INVOKABLE static QStringList findWebdavProjectFolders( const QString &basePath );
+
+    /**
+     * Finds the WebDAV project root by walking up from the given path.
+     * \param path the file or folder path to start from
+     * \return the project root path, or empty string if not found
+     */
+    Q_INVOKABLE static QString findWebdavRootForPath( const QString &path );
 
     Q_INVOKABLE static void forgetHistory( const QString &url = QString(), const QString &username = QString() );
 
@@ -219,6 +264,9 @@ class WebdavConnection : public QObject
 
     void importSuccessful( const QString &path );
 
+    void uploadFinished( bool success, const QString &message );
+    void uploadSkipped( const QString &reason );
+
   private slots:
     void processDirParserFinished();
     void processConnectionError( const QString &error );
@@ -230,9 +278,48 @@ class WebdavConnection : public QObject
     void setupConnection();
     void getWebdavItems();
     void putLocalItems();
+    /**
+     * Common upload completion handler.
+     * Cleans up auto-upload state and emits appropriate signals.
+     */
+    void finishUpload( bool success, const QString &errorMessage );
 
     ///! Computes the common path between two given paths.
     QString getCommonPath( const QString &addressA, const QString &addressB );
+
+    //! Returns TRUE if the relative path is inside a hidden dot-folder.
+    bool isInHiddenDotFolder( const QString &relativePath ) const;
+
+    //! Ensures the path ends with a trailing slash.
+    QString ensureTrailingSlash( QString path ) const;
+
+    /**
+     * Reads and parses the WebDAV config JSON stored at on rootPath.
+     * On failure returns FALSE and sets the errorMessage.
+     */
+    bool readWebdavConfig( const QString &rootPath, QVariantMap &outConfig, QString &errorMessage ) const;
+
+    /**
+     * Computes a deterministic signature of the local project tree under on rootPath.
+     *
+     * The signature is based on each file's relative path, size, and modification time
+     * (not file contents). Hidden dot-folders are ignored, and the WebDAV configuration
+     * and lock files are excluded.
+     *
+     * Used to detect local changes for auto-upload.
+     */
+    QByteArray computeLocalSignature( const QString &rootPath ) const;
+
+
+    //! Resolves the WebDAV config root for the given localPaths, loads and validates the WebDAV configuration
+    bool uploadPathsInternal( const QStringList &localPaths, bool requireConfirmation, bool autoUpload, bool force, QString *errorMessage );
+
+    //! Initializes upload progress state and transitions into "uploading" mode.
+    void beginUpload( bool requireConfirmation );
+
+    //! per-project upload lock
+    bool tryLockUpload( const QString &root, QString *errorMessage );
+    void unlockUpload();
 
     QString mUrl;
     QString mUsername;
@@ -261,9 +348,18 @@ class WebdavConnection : public QObject
     qint64 mBytesProcessed = 0;
     qint64 mBytesTotal = 0;
 
+    qint64 mCurrentUploadFileSize = 0;
+    qint64 mCurrentUploadBytesSentMax = 0;
+
     QWebdav mWebdavConnection;
     QWebdavDirParser mWebdavDirParser;
     QString mLastError;
+
+    bool mAutoUploadActive = false;
+    QString mAutoUploadRoot;
+    QByteArray mAutoUploadSignature;
+    QString mAutoUploadSignatureRoot;
+    std::unique_ptr<QLockFile> mUploadLock;
 };
 
 #endif // WEBDAVCONNECTION_H

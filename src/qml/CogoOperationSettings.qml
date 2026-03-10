@@ -1,8 +1,8 @@
 import QtQuick
 import QtQuick.Controls
-import Theme
 import org.qgis
 import org.qfield
+import Theme
 
 QfOverlayContainer {
   id: cogoOperationSettings
@@ -12,7 +12,7 @@ QfOverlayContainer {
   property var parameterValues: ({})
 
   property var positionInformations: ({})
-  property GnssPositionInformation positionInformation: PositioningUtils.createEmptyGnssPositionInformation()
+  property gnssPositionInformation positionInformation: PositioningUtils.createEmptyGnssPositionInformation()
 
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
@@ -68,6 +68,7 @@ QfOverlayContainer {
             let pv = cogoOperationSettings.parameterValues;
             pv[parameter.parameterName] = value;
             cogoOperationSettings.parameterValues = pv;
+            cogoOperationSettings.parameterValuesChanged();
           }
 
           function onRequestPosition(item, fromCoordinateLocator) {

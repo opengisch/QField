@@ -22,12 +22,16 @@
         <translation>リンクメニュー</translation>
     </message>
     <message>
-        <source>QField app directories</source>
-        <translation>QFieldアプリディレクトリ</translation>
+        <source>Powered by QField</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>QField app directory</source>
-        <translation>QFieldアプリディレクトリ</translation>
+        <source>%1 app directories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -841,10 +845,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>スケッチする</translation>
     </message>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation>外部ストレージの認証IDの設定が不足しています。それがQFieldにインポートされたものであるか確認してください。</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>詳細はこちら</translation>
     </message>
@@ -859,6 +859,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>NULL</source>
         <translation>NULL</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2533,10 +2537,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Learn more about QFieldCloud here</source>
         <translation type="unfinished"/>
     </message>
@@ -2546,6 +2546,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>My Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3594,6 +3598,29 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudStatus</name>
+    <message>
+        <source>QFieldCloud server is not reachable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server at %1 could not be reached. Please check your internet connection.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is under maintenance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud service is degraded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There is an ongoing incident</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3961,7 +3988,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>オフの場合, QFieldはデバイスのカメラアプリではなく、内部に搭載のカメラ機能を使用します。&lt;br&gt;参考: このオプションをオンにするとカメラアプリを起動してジオタグ写真を撮影するようになります。</translation>
+        <translation type="vanished">オフの場合, QFieldはデバイスのカメラアプリではなく、内部に搭載のカメラ機能を使用します。&lt;br&gt;参考: このオプションをオンにするとカメラアプリを起動してジオタグ写真を撮影するようになります。</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -3993,7 +4020,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>有効にすると、匿名化されたメトリクスが収集され、送信され、他の利用者のためにQFieldを改善するのに役立ちます。</translation>
+        <translation type="vanished">有効にすると、匿名化されたメトリクスが収集され、送信され、他の利用者のためにQFieldを改善するのに役立ちます。</translation>
     </message>
     <message>
         <source>General</source>
@@ -4155,7 +4182,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField設定</translation>
+        <translation type="vanished">QField設定</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -4268,10 +4295,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>低く設定すると、描画精度と引き換えに、メモリ使用量と描画にかかる時間を削減できます。</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation>この値は、測位デバイスから記録されたZ値を補正します。1.6の値が入力された場合、QFieldは記録された各値から自動的に1.6を差し引きます。有効アンテナ高、すなわちポール長＋アンテナ位置のオフセットを必ず入力してください。</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -4411,6 +4434,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4744,6 +4783,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Map printed on %1 using QField</source>
         <translation>QFieldを利用して %1 に地図を印刷しました</translation>
+    </message>
+    <message>
+        <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5553,6 +5596,62 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to upload file %1 due to network error (%2)</source>
         <translation>ネットワークエラー (%2)によりファイル %1 のアップロードに失敗しました</translation>
     </message>
+    <message>
+        <source>Upload finished.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local paths provided.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV is busy.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not a WebDAV imported project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV config is missing required fields.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No stored password available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Selected items belong to different WebDAV projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Nothing to upload.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local changes detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload cancelled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload skipped.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload is locked by another process.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to read WebDAV config file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid WebDAV config JSON.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>WelcomeScreen</name>
@@ -5566,7 +5665,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation>QFieldを使ってみて気に入っていただけましたか？</translation>
+        <translation type="vanished">QFieldを使ってみて気に入っていただけましたか？</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
@@ -5582,7 +5681,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation>利用者の安定性を高めるため、QFieldでは匿名化されたメトリクスを収集し、送信しています。</translation>
+        <translation type="vanished">利用者の安定性を高めるため、QFieldでは匿名化されたメトリクスを収集し、送信しています。</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -5626,7 +5725,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>QFieldへようこそ。</translation>
+        <translation type="vanished">QFieldへようこそ。</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -5657,10 +5756,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>最近使用したプロジェクトのアクション</translation>
     </message>
     <message>
-        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation>QFieldへようこそ。このアプリケーションを使うのは初めてですか？下記のサンプルプロジェクトをお試しください。</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>ありがとうございます！下のボタンからレビューを残していただけると嬉しいです。</translation>
     </message>
@@ -5681,6 +5776,26 @@ projects</source>
     <message>
         <source>Create new
 project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome back to %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6022,7 +6137,7 @@ project</source>
     </message>
     <message>
         <source>About QField</source>
-        <translation>QFieldについて</translation>
+        <translation type="vanished">QFieldについて</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -6473,10 +6588,6 @@ project</source>
         <translation>インポートの確認</translation>
     </message>
     <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation>&lt;b&gt;%1&lt;/b&gt;を&lt;b&gt;%2&lt;/b&gt;からQFieldへインポートしますか？</translation>
-    </message>
-    <message>
         <source>Plugin Permission</source>
         <translation>プラグインの権限</translation>
     </message>
@@ -6655,6 +6766,26 @@ to show actions</source>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to load 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading terrain...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
         <translation type="unfinished"/>
     </message>
 </context>

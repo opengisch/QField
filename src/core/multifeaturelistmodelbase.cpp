@@ -623,7 +623,8 @@ bool MultiFeatureListModelBase::mergeSelection()
 
   if ( isSuccess )
   {
-    if ( !vlayer->startEditing() )
+    const bool wasEditing = vlayer->editBuffer();
+    if ( !wasEditing && !vlayer->startEditing() )
     {
       QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
       return false;
@@ -649,7 +650,7 @@ bool MultiFeatureListModelBase::mergeSelection()
     if ( isSuccess )
     {
       // commit changes
-      isSuccess = vlayer->commitChanges();
+      isSuccess = vlayer->commitChanges( !wasEditing );
       mSelectedFeatures.clear();
       emit dataChanged( index( 0, 0 ), index( rowCount( QModelIndex() ) - 1, 0 ), QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
       emit selectedCountChanged();
@@ -657,7 +658,9 @@ bool MultiFeatureListModelBase::mergeSelection()
     else
     {
       if ( !vlayer->rollBack() )
+      {
         QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+      }
     }
   }
 
@@ -675,7 +678,8 @@ bool MultiFeatureListModelBase::deleteSelection()
     return false;
 
   QgsVectorLayer *vlayer = selectedLayer();
-  if ( !vlayer->startEditing() )
+  const bool wasEditing = vlayer->editBuffer();
+  if ( !wasEditing && !vlayer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return false;
@@ -693,13 +697,15 @@ bool MultiFeatureListModelBase::deleteSelection()
   if ( isSuccess )
   {
     // commit changes
-    isSuccess = vlayer->commitChanges();
+    isSuccess = vlayer->commitChanges( !wasEditing );
   }
 
   if ( !isSuccess )
   {
     if ( !vlayer->rollBack() )
+    {
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+    }
   }
 
   return isSuccess;
@@ -761,7 +767,8 @@ bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
     return false;
 
   QgsVectorLayer *vlayer = selectedLayer();
-  if ( !vlayer->startEditing() )
+  const bool wasEditing = vlayer->editBuffer();
+  if ( !wasEditing && !vlayer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return false;
@@ -784,13 +791,15 @@ bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
   if ( isSuccess )
   {
     // commit changes
-    isSuccess = vlayer->commitChanges();
+    isSuccess = vlayer->commitChanges( !wasEditing );
   }
 
   if ( !isSuccess )
   {
     if ( !vlayer->rollBack() )
+    {
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+    }
   }
 
   return isSuccess;
@@ -802,7 +811,8 @@ bool MultiFeatureListModelBase::rotateSelection( const double angle )
     return false;
 
   QgsVectorLayer *vlayer = selectedLayer();
-  if ( !vlayer->startEditing() )
+  const bool wasEditing = vlayer->editBuffer();
+  if ( !wasEditing && !vlayer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return false;
@@ -825,12 +835,14 @@ bool MultiFeatureListModelBase::rotateSelection( const double angle )
   if ( isSuccess )
   {
     // commit changes
-    isSuccess = vlayer->commitChanges();
+    isSuccess = vlayer->commitChanges( !wasEditing );
   }
   else
   {
     if ( !vlayer->rollBack() )
+    {
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+    }
   }
 
   return isSuccess;

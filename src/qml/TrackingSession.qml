@@ -3,7 +3,6 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import org.qgis
 import org.qfield
-import Theme
 
 /**
  * \ingroup qml
@@ -63,7 +62,7 @@ Item {
     visible: tracker.visible
     freeze: tracker.isReplaying
 
-    color: Qt.rgba(Math.min(0.75, Math.random()), Math.min(0.75, Math.random()), Math.min(0.75, Math.random()), 0.6)
+    color: tracker.color
     geometryType: Qgis.GeometryType.Line
 
     mapSettings: mapCanvas.mapSettings

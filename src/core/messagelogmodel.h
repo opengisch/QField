@@ -73,7 +73,7 @@ class MessageLogModel : public QAbstractListModel
     Q_INVOKABLE void clear();
 
   private slots:
-    void onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level );
+    void onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level, Qgis::StringFormat format );
 
   private:
     QgsMessageLog *mMessageLog = nullptr;

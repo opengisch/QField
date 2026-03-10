@@ -9,6 +9,16 @@ TestCase {
   name: "QFieldCloudLoginUI"
   when: windowShown
 
+  // QFieldCloud local credentials
+  property string localUrl: typeof (qfcUrl) !== "undefined" ? qfcUrl : ""
+  property string localUsername: typeof (qfcUsername) !== "undefined" ? qfcUsername : ""
+  property string localPassword: typeof (qfcPassword) !== "undefined" ? qfcPassword : ""
+
+  // QFieldCloud remote credentials
+  property string remoteUrl: typeof (qfcRemoteUrl) !== "undefined" ? qfcRemoteUrl : ""
+  property string remoteUsername: typeof (qfcRemoteUsername) !== "undefined" ? qfcRemoteUsername : ""
+  property string remotePassword: typeof (qfcRemotePassword) !== "undefined" ? qfcRemotePassword : ""
+
   // Dummy mainWindow required by some components
   Item {
     id: mainWindow
@@ -43,8 +53,8 @@ TestCase {
   property var usernameField: connectionSettings.children[5]
   property var passwordField: connectionSettings.children[6]
   property var showPasswordButton: passwordField.children[1]
-  property var availableProvidersRepeater: connectionSettings.children[9]
-  property var cloudRegisterLabel: connectionSettings.children[10]
+  property var availableProvidersRepeater: connectionSettings.children[10]
+  property var cloudRegisterLabel: connectionSettings.children[11]
 
   SignalSpy {
     id: loginFailedSpy
@@ -56,6 +66,32 @@ TestCase {
     id: availableProvidersChangedSpy
     target: cloudConnection
     signalName: "availableProvidersChanged"
+  }
+
+  // Returns all available server configurations (local always, remote if provided)
+  function serverConfigs() {
+    var configs = [
+      {
+        tag: "local",
+        url: localUrl,
+        username: localUsername,
+        password: localPassword
+      }
+    ];
+    if (remoteUrl && remoteUsername && remotePassword) {
+      configs.push({
+        tag: "remote",
+        url: remoteUrl,
+        username: remoteUsername,
+        password: remotePassword
+      });
+    }
+    return configs;
+  }
+
+  // QFieldCloud credentials must always be available
+  function init() {
+    verify(localUrl && localUsername && localPassword, "QFieldCloud local credentials are required");
   }
 
   // This function is called after each test function that is executed in the TestCase type.
@@ -70,7 +106,6 @@ TestCase {
     qfieldCloudLogin.hasCredentialsAuthentication = true;
     qfieldCloudLogin.isServerUrlEditingActive = false;
 
-    // Clear spies
     loginFailedSpy.clear();
     availableProvidersChangedSpy.clear();
   }
@@ -80,15 +115,18 @@ TestCase {
    *
    * Scenario: Fields should be visible when disconnected, hidden when logged in
    */
-  function test_01_fieldsVisibilityByConnectionStatus() {
+  function test_01_fieldsVisibilityByConnectionStatus_data() {
+    return serverConfigs();
+  }
+  function test_01_fieldsVisibilityByConnectionStatus(data) {
     compare(cloudConnection.status, QFieldCloudConnection.Disconnected);
     verify(usernameField.visible);
     verify(passwordField.visible);
     verify(cloudRegisterLabel.visible);
-    cloudConnection.url = qfcTestServerUrl;
-    cloudConnection.username = qfcTestUsername;
-    cloudConnection.login(qfcTestPassword);
-    wait(5000); // Give it some time
+    cloudConnection.url = data.url;
+    cloudConnection.username = data.username;
+    cloudConnection.login(data.password);
+    wait(5000);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     compare(usernameField.visible, false);
     compare(passwordField.visible, false);
@@ -115,11 +153,14 @@ TestCase {
   /**
    * Tests login feedback label visibility and content on login failure.
    *
-   * Scenario: Error message should appear when login fails and Error message should clear when attempting new login
+   * Scenario: Error message should appear when login fails and clear on successful login
    */
-  function test_03_loginFeedbackOnFailure() {
+  function test_03_loginFeedbackOnFailure_data() {
+    return serverConfigs();
+  }
+  function test_03_loginFeedbackOnFailure(data) {
     compare(loginFeedbackLabel.visible, false);
-    cloudConnection.url = qfcTestServerUrl;
+    cloudConnection.url = data.url;
     cloudConnection.username = "wrong_user_name";
     cloudConnection.login("wrong_password_12345");
     tryCompare(loginFailedSpy, "count", 1, 15000);
@@ -127,8 +168,8 @@ TestCase {
     verify(loginFeedbackLabel.visible);
     verify(loginFeedbackLabel.text.length > 0);
     loginFailedSpy.clear();
-    cloudConnection.username = qfcTestUsername;
-    cloudConnection.login(qfcTestPassword);
+    cloudConnection.username = data.username;
+    cloudConnection.login(data.password);
     wait(2000);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     compare(loginFeedbackLabel.visible, false);
@@ -169,13 +210,16 @@ TestCase {
    * Scenario: availableProvidersRepeater.model updates when providers are fetched
    * and hasCredentialsAuthentication is set based on whether credentials provider exists
    */
-  function test_06_authProvidersRepeaterModelUpdate() {
+  function test_06_authProvidersRepeaterModelUpdate_data() {
+    return serverConfigs();
+  }
+  function test_06_authProvidersRepeaterModelUpdate(data) {
     var initialCount = availableProvidersRepeater.model.length;
     availableProvidersChangedSpy.clear();
-    cloudConnection.url = qfcTestServerUrl;
+    cloudConnection.url = data.url;
     cloudConnection.getAuthenticationProviders();
     tryCompare(availableProvidersChangedSpy, "count", 1, 10000);
-    wait(200);
+    wait(500);
     verify(availableProvidersRepeater.model.length > 0);
     compare(availableProvidersRepeater.model.length, cloudConnection.availableProviders.length);
     var hasCredentialsProvider = false;
@@ -207,11 +251,14 @@ TestCase {
    *
    * Scenario: After login, username field should show the logged-in username
    */
-  function test_08_usernameFieldSyncsAfterLogin() {
+  function test_08_usernameFieldSyncsAfterLogin_data() {
+    return serverConfigs();
+  }
+  function test_08_usernameFieldSyncsAfterLogin(data) {
     usernameField.text = "";
-    cloudConnection.url = qfcTestServerUrl;
-    cloudConnection.username = qfcTestUsername;
-    cloudConnection.login(qfcTestPassword);
+    cloudConnection.url = data.url;
+    cloudConnection.username = data.username;
+    cloudConnection.login(data.password);
     tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
     compare(usernameField.text, cloudConnection.username);
   }

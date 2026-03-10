@@ -35,7 +35,7 @@ QHash<int, QByteArray> RecentProjectListModel::roleNames() const
   roles[ProjectTypeRole] = "ProjectType";
   roles[ProjectTitleRole] = "ProjectTitle";
   roles[ProjectPathRole] = "ProjectPath";
-  roles[ProjectSampleRole] = "ProjectSample";
+  roles[ProjectThumbnailRole] = "ProjectThumbnail";
 
   return roles;
 }
@@ -46,87 +46,57 @@ void RecentProjectListModel::reloadModel()
   mRecentProjects.clear();
 
   QSettings settings;
-  settings.beginGroup( "/qgis/recentProjects" );
-  const QStringList projectKeysList = settings.childGroups();
-  QList<int> projectKeys;
-  // This is overdoing it since we're clipping the recent projects list to five items at the moment, but might as well be futureproof
-  for ( const QString &key : projectKeysList )
-  {
-    projectKeys.append( key.toInt() );
-  }
-  for ( int i = 0; i < projectKeys.count(); i++ )
-  {
-    settings.beginGroup( QString::number( projectKeys.at( i ) ) );
+  mRecentProjects = recentProjects( true );
 
-    QString path = settings.value( QStringLiteral( "path" ) ).toString();
-    QFileInfo fi( path );
-    if ( fi.exists() && fi.isReadable() )
+  const bool sampleProjectsAdded = settings.value( QStringLiteral( "QField/recentProjectsAdded" ), false ).toBool();
+  if ( !sampleProjectsAdded )
+  {
+    const QString sampleProjectsDirectory = PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) );
+    const QString sampleProjectsJson = QStringLiteral( "%1/sample_projects.json" ).arg( sampleProjectsDirectory );
+    if ( QFileInfo::exists( sampleProjectsJson ) )
     {
-      ProjectType projectType = path.startsWith( QFieldCloudUtils::localCloudDirectory() )
-                                  ? CloudProject
-                                : SUPPORTED_PROJECT_EXTENSIONS.contains( fi.suffix() )
-                                  ? LocalProject
-                                  : LocalDataset;
-      mRecentProjects.append( RecentProject( projectType,
-                                             settings.value( QStringLiteral( "title" ) ).toString(),
-                                             path,
-                                             settings.value( QStringLiteral( "sample" ), false ).toBool() ) );
-    }
-
-    settings.endGroup();
-  }
-  settings.endGroup();
-
-  // add/update sample projects
-  const bool recentProjectsAdded = settings.value( QStringLiteral( "QField/recentProjectsAdded" ), false ).toBool();
-  const QList<RecentProject> sampleProjects {
-    RecentProject( LocalProject, QStringLiteral( "Bee Farming Sample Project" ), QStringLiteral( "/bees.qgz" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Wasterwater Management Sample Project" ), QStringLiteral( "/wastewater.qgz" ), true ),
-    RecentProject( LocalProject, QStringLiteral( "Live QField Users Survey" ), QStringLiteral( "/live_qfield_users_survey.qgs" ), true ) };
-  for ( const RecentProject &sampleProject : sampleProjects )
-  {
-    bool recentProjectsContainsSampleProject = false;
-    QMutableListIterator<RecentProject> recentProject( mRecentProjects );
-    QString sampleProjectPath( PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) ) + sampleProject.path );
-
-    while ( recentProject.hasNext() )
-    {
-      recentProject.next();
-
-      if ( recentProject.value().path.endsWith( sampleProject.path ) )
+      bool sampleProjectsJsonIsValid = true;
+      QFile sampleProjectsFile( sampleProjectsJson );
+      QJsonDocument doc;
+      if ( sampleProjectsFile.open( QIODevice::ReadOnly ) )
       {
-#ifdef Q_OS_IOS
-        // update path: on iOS the path seems to change at each run time
-        recentProject.value().path = sampleProjectPath;
-#endif
-        recentProject.value().sample = true;
-        recentProjectsContainsSampleProject = true;
-        break;
+        QJsonParseError error;
+        doc = QJsonDocument::fromJson( sampleProjectsFile.readAll(), &error );
+        if ( doc.isNull() || !doc.isArray() )
+        {
+          sampleProjectsJsonIsValid = false;
+        }
+      }
+      else
+      {
+        sampleProjectsJsonIsValid = false;
+      }
+
+      if ( sampleProjectsJsonIsValid )
+      {
+        const QJsonArray values = doc.array();
+        for ( const QJsonValueConstRef &value : values )
+        {
+          if ( !value.isObject() )
+          {
+            continue;
+          }
+
+          const QJsonObject valueObject = value.toObject();
+          mRecentProjects.append( RecentProject( LinkProject,
+                                                 valueObject.value( QStringLiteral( "title" ) ).toString(),
+                                                 valueObject.value( QStringLiteral( "link" ) ).toString(),
+                                                 QStringLiteral( "%1/%2" ).arg( sampleProjectsDirectory, valueObject.value( QStringLiteral( "thumbnail" ) ).toString() ) ) );
+
+          settings.beginGroup( QStringLiteral( "/qgis/recentProjects/%1" ).arg( mRecentProjects.count() ) );
+          settings.setValue( QStringLiteral( "title" ), mRecentProjects.last().title );
+          settings.setValue( QStringLiteral( "path" ), mRecentProjects.last().path );
+          settings.setValue( QStringLiteral( "thumbnail" ), mRecentProjects.last().thumbnail );
+          settings.endGroup();
+        }
       }
     }
-    if ( !recentProjectsAdded && !recentProjectsContainsSampleProject )
-    {
-      settings.beginGroup( QStringLiteral( "/qgis/recentProjects/%1" ).arg( mRecentProjects.count() ) );
-      settings.setValue( QStringLiteral( "title" ), sampleProject.title );
-      settings.setValue( QStringLiteral( "path" ), sampleProjectPath );
-      settings.endGroup();
-
-      mRecentProjects << sampleProject;
-      mRecentProjects.last().path = sampleProjectPath;
-    }
-  }
-  if ( !recentProjectsAdded )
-  {
     settings.setValue( QStringLiteral( "QField/recentProjectsAdded" ), true );
-  }
-
-  QMutableListIterator<RecentProject> recentProject( mRecentProjects );
-  while ( recentProject.hasNext() )
-  {
-    recentProject.next();
-
-    if ( !QFile::exists( recentProject.value().path ) )
-      recentProject.remove();
   }
 
   endResetModel();
@@ -150,9 +120,96 @@ QVariant RecentProjectListModel::data( const QModelIndex &index, int role ) cons
       return mRecentProjects.at( index.row() ).title;
     case ProjectPathRole:
       return mRecentProjects.at( index.row() ).path;
-    case ProjectSampleRole:
-      return mRecentProjects.at( index.row() ).sample;
+    case ProjectThumbnailRole:
+      return mRecentProjects.at( index.row() ).thumbnail;
   }
 
   return QVariant();
+}
+
+void RecentProjectListModel::removeRecentProject( const QString &path )
+{
+  QList<RecentProject> projects = recentProjects();
+  bool removed = false;
+  for ( int idx = 0; idx < projects.count(); idx++ )
+  {
+    if ( projects.at( idx ).path == path )
+    {
+      projects.removeAt( idx );
+      removed = true;
+      break;
+    }
+  }
+  if ( removed )
+  {
+    saveRecentProjects( projects );
+  }
+}
+
+QList<RecentProjectListModel::RecentProject> RecentProjectListModel::recentProjects( bool skipNonExistent )
+{
+  QSettings settings;
+  QList<RecentProject> projects;
+
+  settings.beginGroup( "/qgis/recentProjects" );
+
+  const QStringList projectKeysList = settings.childGroups();
+  QList<int> projectKeys;
+  // This is overdoing it since we're clipping the recent projects list to five items at the moment, but might as well be futureproof
+  for ( const QString &key : projectKeysList )
+  {
+    projectKeys.append( key.toInt() );
+  }
+  for ( int i = 0; i < projectKeys.count(); i++ )
+  {
+    settings.beginGroup( QString::number( projectKeys.at( i ) ) );
+
+    const QString path = settings.value( QStringLiteral( "path" ) ).toString();
+    const QFileInfo fi( path );
+
+    ProjectType type = LocalDataset;
+    if ( path.startsWith( QFieldCloudUtils::localCloudDirectory() ) )
+    {
+      type = CloudProject;
+    }
+    else if ( path.startsWith( "http://", Qt::CaseInsensitive ) || path.startsWith( "https://", Qt::CaseInsensitive ) )
+    {
+      type = LinkProject;
+    }
+    else if ( SUPPORTED_PROJECT_EXTENSIONS.contains( fi.suffix() ) )
+    {
+      type = LocalProject;
+    }
+    else
+    {
+      type = LocalDataset;
+    }
+
+    if ( !skipNonExistent || type == LinkProject || fi.exists() )
+    {
+      projects.append( RecentProject( type,
+                                      settings.value( QStringLiteral( "title" ) ).toString(),
+                                      path,
+                                      settings.value( QStringLiteral( "thumbnail" ) ).toString() ) );
+    }
+
+    settings.endGroup();
+  }
+  settings.endGroup();
+
+  return projects;
+}
+
+void RecentProjectListModel::saveRecentProjects( const QList<RecentProject> &projects )
+{
+  QSettings settings;
+  settings.remove( QStringLiteral( "/qgis/recentProjects" ) );
+  for ( int idx = 0; idx < projects.count() && idx < 5; idx++ )
+  {
+    settings.beginGroup( QStringLiteral( "/qgis/recentProjects/%1" ).arg( idx ) );
+    settings.setValue( QStringLiteral( "title" ), projects.at( idx ).title );
+    settings.setValue( QStringLiteral( "path" ), projects.at( idx ).path );
+    settings.setValue( QStringLiteral( "thumbnail" ), projects.at( idx ).thumbnail );
+    settings.endGroup();
+  }
 }

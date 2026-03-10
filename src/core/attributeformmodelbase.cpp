@@ -116,7 +116,7 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
     {
       case AttributeFormModel::AttributeAllowEdit:
       {
-        int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
+        const int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
         mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeAllowEdit );
         item->setData( value, AttributeFormModel::AttributeAllowEdit );
         updateVisibilityAndConstraints( fieldIndex );
@@ -125,7 +125,7 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
 
       case AttributeFormModel::RememberValue:
       {
-        int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
+        const int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
         mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::RememberAttribute );
         item->setData( value, AttributeFormModel::RememberValue );
         break;
@@ -133,8 +133,8 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
 
       case AttributeFormModel::AttributeValue:
       {
-        int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
-        bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
+        const int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
+        const bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
         if ( changed )
         {
           mExpressionContext.popScope();
@@ -1102,8 +1102,44 @@ QVariant AttributeFormModelBase::attribute( const QString &name )
   if ( !mLayer )
     return QVariant();
 
-  int idx = mLayer->fields().indexOf( name );
-  return mFeatureModel->data( mFeatureModel->index( idx ), FeatureModel::AttributeValue );
+  const int fieldIndex = mLayer->fields().indexOf( name );
+  return mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeValue );
+}
+
+bool AttributeFormModelBase::changeAttribute( const QString &name, const QVariant &value )
+{
+  if ( !mLayer || !mFeatureModel )
+    return false;
+
+  const int fieldIndex = mLayer->fields().indexOf( name );
+  const bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
+  if ( changed )
+  {
+    mExpressionContext.popScope();
+    mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
+    synchronizeFieldValue( fieldIndex, value );
+    updateDefaultValues( fieldIndex );
+    updateVisibilityAndConstraints( fieldIndex );
+  }
+
+  return changed;
+}
+
+bool AttributeFormModelBase::changeGeometry( const QgsGeometry &geometry )
+{
+  if ( !mLayer || !mFeatureModel )
+    return false;
+
+  const bool changed = mFeatureModel->changeGeometry( geometry );
+  if ( changed )
+  {
+    mExpressionContext.popScope();
+    mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
+    updateDefaultValues();
+    updateVisibilityAndConstraints();
+  }
+
+  return changed;
 }
 
 void AttributeFormModelBase::setConstraintsHardValid( bool constraintsHardValid )
