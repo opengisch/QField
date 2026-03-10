@@ -165,8 +165,8 @@ void Quick3DTerrainGeometry::applyShiftedHeights()
   const float cellW = mSize.width() / std::max( 1, gridW - 1 );
   const float cellH = mSize.height() / std::max( 1, gridH - 1 );
 
-  const int offsetX = -qRound( mOffsetVector.x() / cellW );
-  const int offsetZ = -qRound( mOffsetVector.z() / cellH );
+  const int offsetX = -std::round( mOffsetVector.x() / cellW );
+  const int offsetZ = -std::round( mOffsetVector.z() / cellH );
 
   const int expectedSize = gridW * gridH;
   mHeights.resize( expectedSize );
@@ -179,8 +179,8 @@ void Quick3DTerrainGeometry::applyShiftedHeights()
       int srcZ = gridH + z + offsetZ;
       if ( !qgsDoubleNear( mOffsetScale, 1.0 ) )
       {
-        srcX += ( srcX - qRound( static_cast<double>( mMetagridWidth ) / 2 ) ) * ( mOffsetScale - 1.0 );
-        srcZ += ( srcZ - qRound( static_cast<double>( mMetagridHeight ) / 2 ) ) * ( mOffsetScale - 1.0 );
+        srcX += ( srcX - std::round( static_cast<double>( mMetagridWidth ) / 2 ) ) * ( mOffsetScale - 1.0 );
+        srcZ += ( srcZ - std::round( static_cast<double>( mMetagridHeight ) / 2 ) ) * ( mOffsetScale - 1.0 );
       }
 
       const int dstIdx = z * gridW + x;
