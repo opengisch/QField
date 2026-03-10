@@ -122,13 +122,29 @@ void Quick3DTerrainGeometry::buildMetagridFromProvider( const Quick3DTerrainProv
 void Quick3DTerrainGeometry::setOffsetVector( QVector3D offsetVector )
 {
   if ( mOffsetVector == offsetVector )
+  {
     return;
+  }
 
   mOffsetVector = offsetVector;
 
   applyShiftedHeights();
 
-  offsetVectorChanged();
+  emit offsetVectorChanged();
+}
+
+void Quick3DTerrainGeometry::setOffsetScale( double offsetScale )
+{
+  if ( mOffsetScale == offsetScale )
+  {
+    return;
+  }
+
+  mOffsetScale = offsetScale;
+
+  applyShiftedHeights();
+
+  emit offsetScaleChanged();
 }
 
 void Quick3DTerrainGeometry::applyShiftedHeights()
@@ -159,10 +175,15 @@ void Quick3DTerrainGeometry::applyShiftedHeights()
   {
     for ( int x = 0; x < gridW; ++x )
     {
-      const int srcX = gridW + x + offsetX;
-      const int srcZ = gridH + z + offsetZ;
-      const int dstIdx = z * gridW + x;
+      int srcX = gridW + x + offsetX;
+      int srcZ = gridH + z + offsetZ;
+      if ( !qgsDoubleNear( mOffsetScale, 1.0 ) )
+      {
+        srcX += ( srcX - qRound( static_cast<double>( mMetagridWidth ) / 2 ) ) * ( mOffsetScale - 1.0 );
+        srcZ += ( srcZ - qRound( static_cast<double>( mMetagridHeight ) / 2 ) ) * ( mOffsetScale - 1.0 );
+      }
 
+      const int dstIdx = z * gridW + x;
       if ( srcX < 0 || srcX >= mMetagridWidth || srcZ < 0 || srcZ >= mMetagridHeight )
       {
         mHeights[dstIdx] = 0.0f;

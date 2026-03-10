@@ -60,9 +60,8 @@ Item {
     onTextureUpdated: {
       if (mapTerrainProvider.isTransitioning) {
         // Apply offsets and scale now that new texture is ready
-        terrainGeometry.restoreHeightsFromProvider(mapTerrainProvider);
-        console.log('ending...');
         mapTerrainProvider.endTransition();
+        terrainGeometry.restoreHeightsFromProvider(mapTerrainProvider);
       }
     }
   }
@@ -103,6 +102,7 @@ Item {
       mapTerrainGeometry.size: mapTerrainProvider.size
       mapTerrainGeometry.heightData: mapTerrainProvider.normalizedData
       mapTerrainGeometry.offsetVector: mapTerrainProvider.offsetVector
+      mapTerrainGeometry.offsetScale: mapTerrainProvider.offsetScale
 
       // Texture is 3x3 metagrid; scale 1/3 maps UVs to center block only
       mapTexture.scaleU: (1.0 * mapTerrainProvider.offsetScale / 3.0)

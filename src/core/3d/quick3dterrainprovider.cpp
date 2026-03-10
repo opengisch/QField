@@ -140,8 +140,6 @@ void Quick3DTerrainProvider::updateFromMapSettings()
     }
 
     emit extentChanged();
-    qDebug() << mExtent.asPolygon();
-    qDebug() << mSize;
   }
 
   generateData();
@@ -527,7 +525,7 @@ void Quick3DTerrainProvider::pan( double x, double z )
   mOffsetVector.setX( mOffsetVector.x() + x );
   mOffsetVector.setZ( mOffsetVector.z() + z );
 
-  offsetVectorChanged();
+  emit offsetVectorChanged();
   updateExtentFromOffsets();
 }
 
@@ -551,7 +549,7 @@ void Quick3DTerrainProvider::zoom( double factor )
   if ( mOffsetScale != scale )
   {
     mOffsetScale = scale;
-    offsetScaleChanged();
+    emit offsetScaleChanged();
     updateExtentFromOffsets();
   }
 }

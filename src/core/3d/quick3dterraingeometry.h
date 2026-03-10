@@ -53,6 +53,9 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     //! Returns the offset vector from the generated terrein heights
     Q_PROPERTY( QVector3D offsetVector READ offsetVector WRITE setOffsetVector NOTIFY offsetVectorChanged )
 
+    //! Returns the offset scale from the last generated terrain data
+    Q_PROPERTY( double offsetScale READ offsetScale WRITE setOffsetScale NOTIFY offsetScaleChanged )
+
   public:
     //! Creates a new terrain geometry
     explicit Quick3DTerrainGeometry( QQuick3DObject *parent = nullptr );
@@ -79,6 +82,10 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
 
     void setOffsetVector( QVector3D offsetvector );
 
+    double offsetScale() const { return mOffsetScale; }
+
+    void setOffsetScale( double offsetScale );
+
     //! Builds and stores a 3x3 metagrid from the provider's normalized data
     Q_INVOKABLE void buildMetagridFromProvider( const Quick3DTerrainProvider *provider );
 
@@ -90,6 +97,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     void sizeChanged();
     void heightDataChanged();
     void offsetVectorChanged();
+    void offsetScaleChanged();
 
   private:
     /**
@@ -119,6 +127,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     int mMetagridHeight = 0;
 
     QVector3D mOffsetVector;
+    double mOffsetScale = 1.0;
 
     bool mDirty = true;
 };
