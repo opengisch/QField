@@ -11,11 +11,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   set_source_files_properties(${qfield_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION
                                                         "Resources")
   list(APPEND RESOURCES ${qfield_ICON})
-
-  # Generates the macOS Info.plist from the common template
-  set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_BINARY_DIR}/Info.plist")
-  configure_file(${CMAKE_SOURCE_DIR}/platform/macos/Info.plist.in
-                 "${MACOSX_BUNDLE_INFO_PLIST}" @ONLY)
 endif()
 
 # lrelease .ts files
