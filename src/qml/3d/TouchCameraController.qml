@@ -305,8 +305,8 @@ Item {
           root.extentZoom(factor);
         } else {
           root.distance = clampDistance(root.distance * (oldScale / pinchHandler.activeScale));
-          oldScale = pinchHandler.activeScale;
         }
+        oldScale = pinchHandler.activeScale;
       }
     }
 
