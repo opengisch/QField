@@ -284,12 +284,14 @@ Item {
         oldPos = centroid.position;
         root.userInteractionStarted();
       } else {
-        root.extentZoomFinished();
+        if (root.extentMode) {
+          root.extentZoomFinished();
+        }
       }
     }
 
     onCentroidChanged: {
-      if (active) {
+      if (active && !root.extentMode) {
         const previousPos = oldPos;
         oldPos = centroid.position;
         applyPan(centroid.position.x - previousPos.x, centroid.position.y - previousPos.y);
@@ -309,7 +311,7 @@ Item {
     }
 
     onRotationChanged: {
-      if (active) {
+      if (active && !root.extentMode) {
         if (rotationThresholdReached) {
           root.yaw += (rotation - oldRotation);
           oldRotation = rotation;
