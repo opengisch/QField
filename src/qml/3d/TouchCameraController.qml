@@ -9,6 +9,14 @@ Item {
   signal singleTapped(real x, real y)
   signal userInteractionStarted
 
+  signal extentPan(real sceneX, real sceneZ)
+  signal extentPanFinished
+
+  signal extentZoom(real factor)
+  signal extentZoomFinished
+
+  property bool extentMode: false
+
   property vector3d target: Qt.vector3d(0, 100, 0)
 
   property real distance: root.defaultDistance
@@ -166,8 +174,9 @@ Item {
     acceptedButtons: Qt.LeftButton
     acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedModifiers: Qt.NoModifier
+    enabled: !root.extentMode
 
-    property var lastPoint
+    property point lastPoint
 
     onActiveChanged: {
       if (active) {
@@ -196,7 +205,7 @@ Item {
     acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
     acceptedModifiers: Qt.NoModifier
 
-    property var lastPoint
+    property point lastPoint
 
     onActiveChanged: {
       if (active) {
@@ -221,12 +230,14 @@ Item {
     dragThreshold: 5
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
 
-    property var lastPoint
+    property point lastPoint
 
     onActiveChanged: {
       if (active) {
         lastPoint = centroid.position;
         root.userInteractionStarted();
+      } else if (root.extentMode) {
+        root.extentPanFinished();
       }
     }
 
@@ -234,11 +245,18 @@ Item {
       if (active) {
         const dx = centroid.position.x - lastPoint.x;
         const dy = centroid.position.y - lastPoint.y;
-
-        root.yaw -= dx * orbitSensitivity;
-        root.pitch = clampPitch(pitch + dy * orbitSensitivity);
-
         lastPoint = centroid.position;
+
+        if (root.extentMode) {
+          const s = root.distance * 0.0025;
+          const yawRad = -root.yaw * Math.PI / 180.0;
+          const sceneX = (dx * s * Math.cos(yawRad) - dy * s * Math.sin(yawRad));
+          const sceneZ = (dx * s * Math.sin(yawRad) + dy * s * Math.cos(yawRad));
+          root.extentPan(sceneX, sceneZ);
+        } else {
+          root.yaw -= dx * orbitSensitivity;
+          root.pitch = clampPitch(pitch + dy * orbitSensitivity);
+        }
       }
     }
   }
@@ -265,11 +283,15 @@ Item {
         rotationThresholdReached = false;
         oldPos = centroid.position;
         root.userInteractionStarted();
+      } else {
+        if (root.extentMode) {
+          root.extentZoomFinished();
+        }
       }
     }
 
     onCentroidChanged: {
-      if (active) {
+      if (active && !root.extentMode) {
         const previousPos = oldPos;
         oldPos = centroid.position;
         applyPan(centroid.position.x - previousPos.x, centroid.position.y - previousPos.y);
@@ -278,13 +300,18 @@ Item {
 
     onActiveScaleChanged: {
       if (active) {
-        root.distance = clampDistance(root.distance * (oldScale / pinchHandler.activeScale));
+        if (root.extentMode) {
+          const factor = oldScale / pinchHandler.activeScale;
+          root.extentZoom(factor);
+        } else {
+          root.distance = clampDistance(root.distance * (oldScale / pinchHandler.activeScale));
+        }
         oldScale = pinchHandler.activeScale;
       }
     }
 
     onRotationChanged: {
-      if (active) {
+      if (active && !root.extentMode) {
         if (rotationThresholdReached) {
           root.yaw += (rotation - oldRotation);
           oldRotation = rotation;
@@ -296,14 +323,70 @@ Item {
     }
   }
 
-  WheelHandler {
-    id: wheelHandler
-    target: null
-    acceptedDevices: PointerDevice.AllDevices
+  Timer {
+    id: mouseAreaTimer
+    interval: 200
+    repeat: false
 
-    onWheel: function (event) {
+    onTriggered: {
+      root.extentZoomFinished();
+    }
+  }
+
+  MouseArea {
+    id: mouseArea
+    anchors.fill: parent
+    acceptedButtons: Qt.NoButton
+    propagateComposedEvents: true
+
+    onWheel: function (wheel) {
       root.userInteractionStarted();
-      root.distance = clampDistance(distance - event.angleDelta.y * 0.5);
+      const shiftHeld = !!(wheel.modifiers & Qt.ShiftModifier);
+      if (root.extentMode || shiftHeld) {
+        const delta = wheel.angleDelta.x !== 0 ? wheel.angleDelta.x : wheel.angleDelta.y;
+        const factor = delta > 0 ? 0.9 : 1.1;
+        root.extentZoom(factor);
+        mouseAreaTimer.restart();
+        wheel.accepted = true;
+      } else {
+        root.distance = clampDistance(distance - wheel.angleDelta.y * 0.5);
+        wheel.accepted = true;
+      }
+    }
+  }
+
+  DragHandler {
+    id: extentPanHandler
+    target: null
+    acceptedButtons: Qt.LeftButton
+    acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
+    acceptedModifiers: root.extentMode ? Qt.KeyboardModifierMask : Qt.ShiftModifier
+
+    property point lastPoint
+
+    onActiveChanged: {
+      if (active) {
+        lastPoint = centroid.position;
+        root.userInteractionStarted();
+      } else {
+        root.extentPanFinished();
+      }
+    }
+
+    onCentroidChanged: {
+      if (active) {
+        const dx = centroid.position.x - lastPoint.x;
+        const dy = centroid.position.y - lastPoint.y;
+        lastPoint = centroid.position;
+
+        // Convert pixel delta to scene-space displacement
+        const s = root.distance * 0.0025;
+        const yawRad = -root.yaw * Math.PI / 180.0;
+        const sceneX = (dx * s * Math.cos(yawRad) - dy * s * Math.sin(yawRad));
+        const sceneZ = (dx * s * Math.sin(yawRad) + dy * s * Math.cos(yawRad));
+
+        root.extentPan(sceneX, sceneZ);
+      }
     }
   }
 }
