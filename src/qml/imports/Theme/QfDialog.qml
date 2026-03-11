@@ -15,19 +15,19 @@ Dialog {
   y: (mainWindow.height - height) / 2
 
   onAboutToShow: {
-    var okBtn = standardButton(Dialog.Ok);
+    const okBtn = standardButton(Dialog.Ok);
     if (okBtn)
       okBtn.text = qsTr("OK");
-    var cancelBtn = standardButton(Dialog.Cancel);
+    const cancelBtn = standardButton(Dialog.Cancel);
     if (cancelBtn)
       cancelBtn.text = qsTr("Cancel");
-    var yesBtn = standardButton(Dialog.Yes);
+    const yesBtn = standardButton(Dialog.Yes);
     if (yesBtn)
       yesBtn.text = qsTr("Yes");
-    var noBtn = standardButton(Dialog.No);
+    const noBtn = standardButton(Dialog.No);
     if (noBtn)
       noBtn.text = qsTr("No");
-    var closeBtn = standardButton(Dialog.Close);
+    const closeBtn = standardButton(Dialog.Close);
     if (closeBtn)
       closeBtn.text = qsTr("Close");
   }
