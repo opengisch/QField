@@ -13,7 +13,9 @@ EditorWidgetBase {
   enabled: true
 
   readonly property int toggleButtonsThreshold: currentLayer && currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') !== undefined ? currentLayer.customProperty('QFieldSync/value_map_button_interface_threshold') : 0
-  property bool useToggleButtons: !listModel.groupField && (!listModel.allowMulti ? valueRelationCombobox.count : repeater.count) < toggleButtonsThreshold
+  property bool useToggleButtons: false
+  property bool useToggleButtonsChecked: false
+
   state: useToggleButtons ? "toggleButtonsView" : "defaultView"
 
   states: [
@@ -90,6 +92,11 @@ EditorWidgetBase {
     sortCheckedFirst: allowMulti && !isEnabled
 
     onListUpdated: {
+      if (!useToggleButtonsChecked) {
+        useToggleButtons = (!listModel.groupField && (!listModel.allowMulti ? valueRelationCombobox.count : repeater.count) < toggleButtonsThreshold);
+        useToggleButtonsChecked = true;
+      }
+
       valueChangeRequested(attributeValue, attributeValue === "");
     }
 
