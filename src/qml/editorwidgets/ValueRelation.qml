@@ -195,7 +195,7 @@ EditorWidgetBase {
           anchors.left: parent.left
           anchors.right: parent.right
           anchors.top: parent.top
-          columns: config['NofColumns'] && !listModel.groupField === "" ? Math.min(config['NofColumns'], parent.width / 100) : 1
+          columns: config['NofColumns'] && listModel.groupField === "" ? Math.min(config['NofColumns'], parent.width / 100) : 1
           columnSpacing: 1
           rowSpacing: 0
 
