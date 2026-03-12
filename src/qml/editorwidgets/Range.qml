@@ -65,8 +65,19 @@ EditorWidgetBase {
 
       onTextChanged: {
         if (text !== "") {
-          if (!isNaN(parseFloat(text))) {
-            valueChangeRequested(text, false);
+          const parsedValue = parseFloat(text);
+          if (!isNaN(parsedValue)) {
+            let clampedValue = parsedValue;
+            if (Number.isFinite(rangeItem.min) && parsedValue < rangeItem.min) {
+              clampedValue = rangeItem.min;
+            } else if (Number.isFinite(rangeItem.max) && parsedValue > rangeItem.max) {
+              clampedValue = rangeItem.max;
+            }
+
+            valueChangeRequested(clampedValue, false);
+            text = Qt.binding(function () {
+              return isNull ? '' : value;
+            });
           }
         } else if (!isNull) {
           valueChangeRequested(text, true);
@@ -167,7 +178,8 @@ EditorWidgetBase {
     let newValue;
     if (!isNaN(currentValue)) {
       newValue = roundValue(currentValue - rangeItem.step, rangeItem.precision);
-      valueChangeRequested(Math.max(rangeItem.min, newValue), false);
+      newValue = Math.max(rangeItem.min, Math.min(rangeItem.max, newValue));
+      valueChangeRequested(newValue, false);
     } else {
       newValue = 0;
       valueChangeRequested(newValue, false);
@@ -179,7 +191,8 @@ EditorWidgetBase {
     let newValue;
     if (!isNaN(currentValue)) {
       newValue = roundValue(currentValue + rangeItem.step, rangeItem.precision);
-      valueChangeRequested(Math.min(rangeItem.max, newValue), false);
+      newValue = Math.min(rangeItem.max, Math.max(rangeItem.min, newValue));
+      valueChangeRequested(newValue, false);
     } else {
       newValue = 0;
       valueChangeRequested(newValue, false);
