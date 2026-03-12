@@ -309,7 +309,7 @@ EditorWidgetBase {
       horizontalAlignment: Image.AlignHCenter
       verticalAlignment: Image.AlignVCenter
 
-      source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
+      source: ''
       cache: false
 
       layer.enabled: true
@@ -411,7 +411,7 @@ EditorWidgetBase {
       id: sketchButton
       anchors.top: image.top
       anchors.right: image.right
-      visible: image.source != '' && image.status === Image.Ready && isEnabled
+      visible: image.source !== '' && image.status === Image.Ready && isEnabled
 
       round: true
       iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
