@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "quick3dterraingeometry.h"
+#include "quick3dterrainprovider.h"
 
 #include <algorithm>
 
@@ -23,6 +24,7 @@ Quick3DTerrainGeometry::Quick3DTerrainGeometry( QQuick3DObject *parent )
 {
   mHeights.resize( static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
   mHeights.fill( 0.0f );
+
   updateGeometry();
 }
 
@@ -40,7 +42,7 @@ void Quick3DTerrainGeometry::setGridSize( const QSize &size )
   updateGeometry();
 }
 
-void Quick3DTerrainGeometry::setSize( QSizeF size )
+void Quick3DTerrainGeometry::setSize( const QSizeF &size )
 {
   if ( mSize == size )
   {
@@ -70,6 +72,154 @@ void Quick3DTerrainGeometry::setHeightData( const QVariantList &data )
   mHeights.reserve( data.size() );
 
   for ( const QVariant &v : data )
+  {
+    mHeights.append( v.toFloat() );
+  }
+
+  mDirty = true;
+  emit heightDataChanged();
+  updateGeometry();
+}
+
+void Quick3DTerrainGeometry::buildMetagridFromProvider( const Quick3DTerrainProvider *provider )
+{
+  if ( !provider )
+  {
+    return;
+  }
+
+  const QVariantList &normalizedData = provider->normalizedData();
+  const QSize gridSize = provider->gridSize();
+  const int gridW = gridSize.width();
+  const int gridH = gridSize.height();
+
+  if ( normalizedData.isEmpty() || gridW <= 0 || gridH <= 0 )
+  {
+    return;
+  }
+
+  mMetagridWidth = gridW * 3;
+  mMetagridHeight = gridH * 3;
+  const int totalSize = mMetagridWidth * mMetagridHeight;
+
+  mMetagridHeights.resize( totalSize );
+  mMetagridHeights.fill( 0.0f );
+
+  for ( int z = 0; z < gridH; ++z )
+  {
+    for ( int x = 0; x < gridW; ++x )
+    {
+      const int srcIdx = z * gridW + x;
+      const int dstIdx = ( gridH + z ) * mMetagridWidth + ( gridW + x );
+      if ( srcIdx < normalizedData.size() )
+      {
+        mMetagridHeights[dstIdx] = normalizedData[srcIdx].toFloat();
+      }
+    }
+  }
+}
+
+void Quick3DTerrainGeometry::setOffsetVector( const QVector3D &offsetVector )
+{
+  if ( mOffsetVector == offsetVector )
+  {
+    return;
+  }
+
+  mOffsetVector = offsetVector;
+
+  applyShiftedHeights();
+
+  emit offsetVectorChanged();
+}
+
+void Quick3DTerrainGeometry::setOffsetScale( double offsetScale )
+{
+  if ( qgsDoubleNear( mOffsetScale, offsetScale ) )
+  {
+    return;
+  }
+
+  mOffsetScale = offsetScale;
+
+  applyShiftedHeights();
+
+  emit offsetScaleChanged();
+}
+
+void Quick3DTerrainGeometry::applyShiftedHeights()
+{
+  if ( mMetagridHeights.isEmpty() || mMetagridWidth <= 0 || mMetagridHeight <= 0 )
+  {
+    return;
+  }
+
+  const int gridW = mGridSize.width();
+  const int gridH = mGridSize.height();
+
+  if ( gridW <= 0 || gridH <= 0 )
+  {
+    return;
+  }
+
+  const float cellW = mSize.width() / std::max( 1, gridW - 1 );
+  const float cellH = mSize.height() / std::max( 1, gridH - 1 );
+
+  const int offsetX = -std::round( mOffsetVector.x() / cellW );
+  const int offsetZ = -std::round( mOffsetVector.z() / cellH );
+
+  const int expectedSize = gridW * gridH;
+  mHeights.resize( expectedSize );
+
+  for ( int z = 0; z < gridH; ++z )
+  {
+    for ( int x = 0; x < gridW; ++x )
+    {
+      int srcX = gridW + x + offsetX;
+      int srcZ = gridH + z + offsetZ;
+      if ( !qgsDoubleNear( mOffsetScale, 1.0 ) )
+      {
+        srcX += ( srcX - std::round( static_cast<double>( mMetagridWidth ) / 2 ) ) * ( mOffsetScale - 1.0 );
+        srcZ += ( srcZ - std::round( static_cast<double>( mMetagridHeight ) / 2 ) ) * ( mOffsetScale - 1.0 );
+      }
+
+      const int dstIdx = z * gridW + x;
+      if ( srcX < 0 || srcX >= mMetagridWidth || srcZ < 0 || srcZ >= mMetagridHeight )
+      {
+        mHeights[dstIdx] = 0.0f;
+      }
+      else
+      {
+        const int srcIdx = srcZ * mMetagridWidth + srcX;
+        if ( srcIdx >= 0 && srcIdx < mMetagridHeights.size() )
+        {
+          mHeights[dstIdx] = mMetagridHeights[srcIdx];
+        }
+        else
+        {
+          mHeights[dstIdx] = 0.0f;
+        }
+      }
+    }
+  }
+
+  mDirty = true;
+  emit heightDataChanged();
+  updateGeometry();
+}
+
+void Quick3DTerrainGeometry::restoreHeightsFromProvider( const Quick3DTerrainProvider *provider )
+{
+  if ( !provider )
+  {
+    return;
+  }
+
+  const QVariantList &normalizedData = provider->normalizedData();
+  mHeights.clear();
+  mHeights.reserve( normalizedData.size() );
+
+  for ( const QVariant &v : normalizedData )
   {
     mHeights.append( v.toFloat() );
   }
@@ -140,7 +290,7 @@ void Quick3DTerrainGeometry::updateGeometry()
   float *vptr = reinterpret_cast<float *>( vertexData.data() );
 
   QByteArray indexData;
-  indexData.resize( indexCount * sizeof( quint32 ) );
+  indexData.resize( indexCount * static_cast<int>( sizeof( quint32 ) ) );
   quint32 *iptr = reinterpret_cast<quint32 *>( indexData.data() );
 
   const float cellWidth = mSize.width() / ( gridWidth - 1 );

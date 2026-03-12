@@ -6,9 +6,8 @@ Node {
   id: root
 
   property alias mapTerrainGeometry: mapTerrainGeometry
-
-  property var texture: null
-  property bool textureReady: false
+  property alias mapTexture: mapTexture
+  property var mapTextureData: undefined
 
   Texture {
     id: neutralTexture
@@ -27,6 +26,17 @@ Node {
     }
   }
 
+  Texture {
+    id: mapTexture
+    textureData: root.mapTextureData
+    generateMipmaps: false
+    mipFilter: Texture.None
+    tilingModeHorizontal: Texture.ClampToEdge
+    tilingModeVertical: Texture.ClampToEdge
+    pivotU: 0.5
+    pivotV: 0.5
+  }
+
   Model {
     id: terrainModel
 
@@ -37,10 +47,10 @@ Node {
     materials: [
       PrincipledMaterial {
         id: terrainMaterial
-        baseColorMap: root.textureReady ? root.texture : neutralTexture
-        roughness: root.textureReady ? 0.9 : 0.85
+        baseColorMap: root.mapTextureData && root.mapTextureData.ready ? mapTexture : neutralTexture
+        roughness: root.mapTextureData && root.mapTextureData.ready ? 0.9 : 0.85
         metalness: 0.0
-        normalStrength: root.textureReady ? 0.0 : 0.3
+        normalStrength: root.mapTextureData && root.mapTextureData.ready ? 0.0 : 0.3
       }
     ]
   }

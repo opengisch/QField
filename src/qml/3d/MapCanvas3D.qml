@@ -8,11 +8,16 @@ import Theme
 Item {
   id: mapArea
   focus: true
-  visible: !isLoading
+  visible: !isFirstLoad || !isLoading
 
   property alias mapSettings: mapTerrainProvider.mapSettings
+  property alias terrainExtent: mapTerrainProvider.extent
+  property alias terrainGeometry: terrainMesh.mapTerrainGeometry
+
   property bool isLoading: mapTerrainProvider.isLoading
+  property bool isFirstLoad: true
   property bool wireframeMode: false
+  property alias extentMode: cameraController.extentMode
 
   property bool gnssActive: false
   property var gnssPosition: null
@@ -34,26 +39,31 @@ Item {
         return;
       }
 
-      positionCameraForTerrain();
+      terrainGeometry.buildMetagridFromProvider(mapTerrainProvider);
       mapTextureData.render();
 
-      Qt.callLater(mapArea.playOpeningAnimation);
+      if (isFirstLoad) {
+        isFirstLoad = false;
+        positionCameraForTerrain();
+        Qt.callLater(mapArea.playOpeningAnimation);
+      }
     }
   }
 
   Quick3DMapTextureData {
     id: mapTextureData
     mapSettings: mapArea.mapSettings
-    extent: mapTerrainProvider.extent
+    extent: mapTerrainProvider.normalizedDataExtent
     incrementalRendering: true
     forceDeferredLayersRepaint: mapArea.trackingModel ? mapArea.trackingModel.count > 0 : false
-  }
 
-  Texture {
-    id: mapTexture
-    textureData: mapTextureData
-    generateMipmaps: true
-    mipFilter: Texture.Linear
+    onTextureUpdated: {
+      if (mapTerrainProvider.isTransitioning) {
+        // Apply offsets and scale now that new texture is ready
+        mapTerrainProvider.endTransition();
+        terrainGeometry.restoreHeightsFromProvider(mapTerrainProvider);
+      }
+    }
   }
 
   View3D {
@@ -87,26 +97,35 @@ Item {
 
     TerrainMesh {
       id: terrainMesh
+
       mapTerrainGeometry.gridSize: mapTerrainProvider.gridSize
       mapTerrainGeometry.size: mapTerrainProvider.size
       mapTerrainGeometry.heightData: mapTerrainProvider.normalizedData
-      texture: mapTexture
-      textureReady: mapTextureData.ready
+      mapTerrainGeometry.offsetVector: mapTerrainProvider.offsetVector
+      mapTerrainGeometry.offsetScale: mapTerrainProvider.offsetScale
+
+      // Texture is 3x3 metagrid; scale 1/3 maps UVs to center block only
+      mapTexture.scaleU: (1.0 * mapTerrainProvider.offsetScale / 3.0)
+      mapTexture.scaleV: (1.0 * mapTerrainProvider.offsetScale / 3.0)
+      mapTexture.positionU: mapTerrainProvider.size.width > 0 ? -(mapTerrainProvider.offsetVector.x / mapTerrainProvider.size.width) * (1.0 / 3.0) : 0
+      mapTexture.positionV: mapTerrainProvider.size.height > 0 ? -(mapTerrainProvider.offsetVector.z / mapTerrainProvider.size.height) * (1.0 / 3.0) : 0
+
+      mapTextureData: mapTextureData
     }
 
     Node {
       id: gnssMarker
-      visible: pos3d !== null
+      visible: mapArea.gnssActive && mapArea.gnssPosition && !isNaN(gnssMarkerMapToScreen3D.viewPoint.x)
 
-      property var pos3d: {
-        if (!mapArea.gnssActive || !mapArea.gnssPosition) {
-          return null;
-        }
-        return mapArea.geoTo3D(mapArea.gnssPosition.x, mapArea.gnssPosition.y);
-      }
-
-      position: pos3d || Qt.vector3d(0, 0, 0)
+      position: gnssMarkerMapToScreen3D.viewPoint
       eulerRotation: mapArea.gnssSpeed > 0 && mapArea.gnssDirection >= 0 ? Qt.vector3d(0, -mapArea.gnssDirection, 0) : Qt.vector3d(0, 0, 0)
+
+      MapToView3D {
+        id: gnssMarkerMapToScreen3D
+        terrainProvider: mapTerrainProvider
+        mapPoint: mapArea.gnssPosition
+        heightOffset: 15
+      }
 
       Model {
         source: "#Sphere"
@@ -221,15 +240,26 @@ Item {
     camera: camera
     onSingleTapped: function (x, y) {
       const pickResult = view3d.pick(x, y);
-      if (pickResult.objectHit) {
-        const pos3d = gnssMarker.pos3d;
-        if (pos3d) {
-          cameraController.lookAtPoint(pos3d, 500);
-        }
+      if (pickResult.objectHit && gnssMarker.visible) {
+        cameraController.lookAtPoint(gnssMarkerMapToScreen3D.viewPoint, 500);
       }
     }
     onUserInteractionStarted: {
       mapArea.cameraInteractionDetected();
+    }
+
+    onExtentPan: function (sceneX, sceneZ) {
+      mapTerrainProvider.pan(sceneX, sceneZ);
+    }
+    onExtentPanFinished: {
+      mapTerrainProvider.beginTransition();
+    }
+
+    onExtentZoom: function (factor) {
+      mapTerrainProvider.zoom(factor);
+    }
+    onExtentZoomFinished: {
+      mapTerrainProvider.beginTransition();
     }
   }
 
