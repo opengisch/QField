@@ -202,6 +202,7 @@ void Quick3DMapTextureData::render()
 
   renderSettings.setFlag( Qgis::MapSettingsFlag::UseRenderingOptimization );
   renderSettings.setFlag( Qgis::MapSettingsFlag::RenderPartialOutput, mIncrementalRendering );
+  renderSettings.setOutputImageFormat( QImage::Format_RGBA8888 );
 
   mRenderJob.reset( new QgsMapRendererParallelJob( renderSettings ) );
 
@@ -253,10 +254,8 @@ void Quick3DMapTextureData::onRenderFinished()
 
 void Quick3DMapTextureData::updateTextureData( const QImage &image )
 {
-  QImage rgbaImage = image.convertToFormat( QImage::Format_RGBA8888 );
-
-  const int w = rgbaImage.width();
-  const int h = rgbaImage.height();
+  const int w = image.width();
+  const int h = image.height();
   QImage metagrid( w * 3, h * 3, QImage::Format_RGBA8888 );
   metagrid.fill( QColor( 180, 180, 180 ) );
 
@@ -283,7 +282,7 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
   const qsizetype bytesPerRow = static_cast<qsizetype>( w ) * 4;
   for ( int y = 0; y < h; ++y )
   {
-    memcpy( metagrid.scanLine( y + h ) + bytesPerRow, rgbaImage.constScanLine( y ), bytesPerRow );
+    memcpy( metagrid.scanLine( y + h ) + bytesPerRow, image.constScanLine( y ), bytesPerRow );
   }
 
   setSize( metagrid.size() );
