@@ -598,7 +598,7 @@ void PositioningSource::startNtripClient()
                emit ntripBytesReceivedChanged();
              } );
 
-    if ( auto nmeaReceiver = dynamic_cast<NmeaGnssReceiver *>( mReceiver.get() ) )
+    if ( const NmeaGnssReceiver *nmeaReceiver = dynamic_cast<const NmeaGnssReceiver *>( mReceiver.get() ) )
     {
       connect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, [this]( const QString &sentence ) {
         if ( !mNtripClient )
