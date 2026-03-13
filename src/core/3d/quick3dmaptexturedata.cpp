@@ -23,14 +23,13 @@
 #include <qgsmaprendererparalleljob.h>
 #include <qgsmapsettings.h>
 
-#include <algorithm>
 
 Quick3DMapTextureData::Quick3DMapTextureData( QQuick3DObject *parent )
   : QQuick3DTextureData( parent )
 {
   connect( &mMapUpdateTimer, &QTimer::timeout, this, &Quick3DMapTextureData::onRenderJobUpdated );
   mMapUpdateTimer.setSingleShot( false );
-  mMapUpdateTimer.setInterval( 250 );
+  mMapUpdateTimer.setInterval( 500 );
 
   connect( &mRefreshTimer, &QTimer::timeout, this, &Quick3DMapTextureData::render );
   mRefreshTimer.setSingleShot( true );
@@ -213,7 +212,6 @@ void Quick3DMapTextureData::render()
 
   if ( mIncrementalRendering )
   {
-    connect( mRenderJob.get(), &QgsMapRendererJob::renderingLayersFinished, this, &Quick3DMapTextureData::onRenderJobUpdated );
     mMapUpdateTimer.start();
   }
 

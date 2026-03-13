@@ -54,7 +54,7 @@ Item {
     id: mapTextureData
     mapSettings: mapArea.mapSettings
     extent: mapTerrainProvider.normalizedDataExtent
-    incrementalRendering: true
+    incrementalRendering: !isFirstLoad
     forceDeferredLayersRepaint: mapArea.trackingModel ? mapArea.trackingModel.count > 0 : false
 
     onTextureUpdated: {
