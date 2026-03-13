@@ -26,6 +26,7 @@
 
 #include <memory>
 
+class QSGSimpleTextureNode;
 class QgsMapRendererParallelJob;
 class QgsMapRendererQImageJob;
 class QgsMapRendererCache;
@@ -318,6 +319,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     void zoomToFullExtent();
     void clearTemporalCache();
     void clearElevationCache();
+    void clearPreviews();
 
     std::unique_ptr<QgsQuickMapSettings> mMapSettings;
     bool mPinching = false;
@@ -347,6 +349,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     QTimer mPreviewTimer;
     QMetaObject::Connection mPreviewTimerConnection;
     QMap<int, QImage> mPreviewImages;
+    QList<QSGSimpleTextureNode *> mPreviewNodes;
 
     QQuickWindow *mWindow = nullptr;
 };
