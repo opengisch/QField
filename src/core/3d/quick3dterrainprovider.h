@@ -73,10 +73,10 @@ class Quick3DTerrainProvider : public QObject
     //! Geographic extent used for terrain data
     Q_PROPERTY( QgsRectangle normalizedDataExtent READ normalizedDataExtent NOTIFY normalizedDataChanged )
 
-    //! Returns the offset vector from the last generated terrain data
+    //! Offset vector from the last generated terrain data
     Q_PROPERTY( QVector3D offsetVector READ offsetVector NOTIFY offsetVectorChanged )
 
-    //! Returns the offset scale from the last generated terrain data
+    //! Offset scale from the last generated terrain data
     Q_PROPERTY( double offsetScale READ offsetScale NOTIFY offsetScaleChanged )
 
     //! Whether a transition to apply pan/zoom offsets has begun

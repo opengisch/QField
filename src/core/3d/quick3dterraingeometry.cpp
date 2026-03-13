@@ -301,7 +301,7 @@ void Quick3DTerrainGeometry::updateGeometry()
   const float halfDepth = mSize.height() / 2.0f;
 
   double lowestHeight = std::numeric_limits<double>::max();
-  double highestHeight = std::numeric_limits<double>::min();
+  double highestHeight = std::numeric_limits<double>::lowest();
 
   for ( int z = 0; z < gridHeight; ++z )
   {

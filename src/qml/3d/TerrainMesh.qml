@@ -46,7 +46,7 @@ Node {
     materials: [
       CustomMaterial {
         property TextureInput materialTexture: TextureInput {
-          texture: mapTexture
+          texture:  root.mapTextureData.ready ? mapTexture : neutralTexture
         }
         property real gridDensity: 40.0
         property real materialScale: 1 / mapTerrainGeometry.offsetScale
