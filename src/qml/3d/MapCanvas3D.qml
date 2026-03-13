@@ -86,7 +86,7 @@ Item {
 
     DirectionalLight {
       eulerRotation: Qt.vector3d(-45, -45, 0)
-      brightness: 1.0
+      brightness: 1
       ambientColor: Qt.rgba(0.3, 0.3, 0.35, 1.0)
     }
 
@@ -103,12 +103,6 @@ Item {
       mapTerrainGeometry.heightData: mapTerrainProvider.normalizedData
       mapTerrainGeometry.offsetVector: mapTerrainProvider.offsetVector
       mapTerrainGeometry.offsetScale: mapTerrainProvider.offsetScale
-
-      // Texture is 3x3 metagrid; scale 1/3 maps UVs to center block only
-      mapTexture.scaleU: (1.0 * mapTerrainProvider.offsetScale / 3.0)
-      mapTexture.scaleV: (1.0 * mapTerrainProvider.offsetScale / 3.0)
-      mapTexture.positionU: mapTerrainProvider.size.width > 0 ? -(mapTerrainProvider.offsetVector.x / mapTerrainProvider.size.width) * (1.0 / 3.0) : 0
-      mapTexture.positionV: mapTerrainProvider.size.height > 0 ? -(mapTerrainProvider.offsetVector.z / mapTerrainProvider.size.height) * (1.0 / 3.0) : 0
 
       mapTextureData: mapTextureData
     }

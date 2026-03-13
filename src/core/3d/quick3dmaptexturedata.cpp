@@ -33,6 +33,9 @@ Quick3DMapTextureData::Quick3DMapTextureData( QQuick3DObject *parent )
 
   connect( &mRefreshTimer, &QTimer::timeout, this, &Quick3DMapTextureData::render );
   mRefreshTimer.setSingleShot( true );
+
+  setFormat( QQuick3DTextureData::RGBA8 );
+  setHasTransparency( true );
 }
 
 Quick3DMapTextureData::~Quick3DMapTextureData()
@@ -257,43 +260,10 @@ void Quick3DMapTextureData::onRenderFinished()
 
 void Quick3DMapTextureData::updateTextureData( const QImage &image )
 {
-  const int w = image.width();
-  const int h = image.height();
-  QImage metagrid( w * 3, h * 3, QImage::Format_RGBA8888 );
-  metagrid.fill( QColor( 180, 180, 180 ) );
+  const qsizetype dataSize = image.sizeInBytes();
+  QByteArray textureData( reinterpret_cast<const char *>( image.constBits() ), dataSize );
 
-  // Draw crosshatch grid pattern on the gray areas
-  {
-    QPainter painter( &metagrid );
-    const QColor lineColor( 160, 160, 160 );
-    painter.setPen( QPen( lineColor, 1 ) );
-    const int spacing = 40;
-    const int totalW = w * 3;
-    const int totalH = h * 3;
-
-    for ( int y = 0; y < totalH; y += spacing )
-    {
-      painter.drawLine( 0, y, totalW, y );
-    }
-    for ( int x = 0; x < totalW; x += spacing )
-    {
-      painter.drawLine( x, 0, x, totalH );
-    }
-    painter.end();
-  }
-
-  const qsizetype bytesPerRow = static_cast<qsizetype>( w ) * 4;
-  for ( int y = 0; y < h; ++y )
-  {
-    memcpy( metagrid.scanLine( y + h ) + bytesPerRow, image.constScanLine( y ), bytesPerRow );
-  }
-
-  setSize( metagrid.size() );
-  setFormat( QQuick3DTextureData::RGBA8 );
-  setHasTransparency( true );
-
-  const qsizetype dataSize = metagrid.sizeInBytes();
-  QByteArray textureData( reinterpret_cast<const char *>( metagrid.constBits() ), dataSize );
+  setSize( image.size() );
   setTextureData( textureData );
 
   if ( !mReady )

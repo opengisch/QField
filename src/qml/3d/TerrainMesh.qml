@@ -33,8 +33,6 @@ Node {
     mipFilter: Texture.None
     tilingModeHorizontal: Texture.ClampToEdge
     tilingModeVertical: Texture.ClampToEdge
-    pivotU: 0.5
-    pivotV: 0.5
   }
 
   Model {
@@ -46,12 +44,15 @@ Node {
     }
 
     materials: [
-      PrincipledMaterial {
-        id: terrainMaterial
-        baseColorMap: root.mapTextureData && root.mapTextureData.ready ? mapTexture : neutralTexture
-        roughness: root.mapTextureData && root.mapTextureData.ready ? 0.9 : 0.85
-        metalness: 0.0
-        normalStrength: root.mapTextureData && root.mapTextureData.ready ? 0.0 : 0.3
+      CustomMaterial {
+        property TextureInput materialTexture: TextureInput {
+          texture: mapTexture
+        }
+        property real gridDensity: 40.0
+        property real materialScale: 1 / mapTerrainGeometry.offsetScale
+        property vector2d materialCenter: Qt.vector2d(0.5 + mapTerrainGeometry.offsetVector.x / 2000, 0.5 + mapTerrainGeometry.offsetVector.z / 2000)
+
+        fragmentShader: "qrc:/3d/terrain_material.frag"
       }
     ]
   }
