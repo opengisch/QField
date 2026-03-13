@@ -180,20 +180,25 @@ void Quick3DMapTextureData::render()
     return;
   }
 
+  QSize outputSize = renderSettings.outputSize();
+  if ( outputSize.height() > outputSize.width() )
+  {
+    outputSize.setWidth( outputSize.height() * mExtent.width() / mExtent.height() );
+  }
+  else
+  {
+    outputSize.setHeight( outputSize.width() * mExtent.height() / mExtent.width() );
+  }
+
   if ( !mExtent.isEmpty() )
   {
     renderSettings.setRotation( 0 );
     renderSettings.setExtent( mExtent );
-
-    const double mupp = renderSettings.mapUnitsPerPixel();
-    const int outputWidth = mExtent.width() / mupp;
-    const int outputHeight = mExtent.height() / mupp;
-    renderSettings.setOutputSize( QSize( outputWidth, outputHeight ) );
+    renderSettings.setOutputSize( outputSize );
   }
 
   if ( renderSettings.layers().isEmpty() )
   {
-    const QSize outputSize = renderSettings.outputSize();
     QImage fallbackImage( outputSize, QImage::Format_RGBA8888 );
     fallbackImage.fill( QColor( 100, 140, 100 ) );
     updateTextureData( fallbackImage );
