@@ -301,7 +301,7 @@ Item {
     onActiveScaleChanged: {
       if (active) {
         if (root.extentMode) {
-          const factor = oldScale / pinchHandler.activeScale;
+          const factor = pinchHandler.activeScale / oldScale;
           root.extentZoom(factor);
         } else {
           root.distance = clampDistance(root.distance * (oldScale / pinchHandler.activeScale));
@@ -344,7 +344,7 @@ Item {
       const shiftHeld = !!(wheel.modifiers & Qt.ShiftModifier);
       if (root.extentMode || shiftHeld) {
         const delta = wheel.angleDelta.x !== 0 ? wheel.angleDelta.x : wheel.angleDelta.y;
-        const factor = delta > 0 ? 0.9 : 1.1;
+        const factor = delta < 0 ? 0.9 : 1.1;
         root.extentZoom(factor);
         mouseAreaTimer.restart();
         wheel.accepted = true;
