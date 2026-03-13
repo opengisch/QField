@@ -527,7 +527,7 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
   {
     node = new QSGSimpleTextureNode();
     node->setFiltering( QSGTexture::Linear );
-    QSGTexture *texture = window()->createTextureFromImage( mImage );
+    QSGTexture *texture = window()->createTextureFromImage( mImage, QQuickWindow::TextureIsOpaque );
     node->setTexture( texture );
     node->setOwnsTexture( true );
     node->setRect( rect );
@@ -536,7 +536,7 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
     {
       QSGSimpleTextureNode *childNode = new QSGSimpleTextureNode();
       childNode->setFiltering( QSGTexture::Linear );
-      texture = window()->createTextureFromImage( previewImage );
+      texture = window()->createTextureFromImage( previewImage, QQuickWindow::TextureIsOpaque );
       childNode->setTexture( texture );
       childNode->setOwnsTexture( true );
       node->appendChildNode( childNode );
