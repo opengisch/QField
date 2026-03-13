@@ -79,6 +79,8 @@ void Quick3DTerrainGeometry::setHeightData( const QVariantList &data )
   mDirty = true;
   emit heightDataChanged();
   updateGeometry();
+
+  emit boundsMinMaxChanged();
 }
 
 void Quick3DTerrainGeometry::buildMetagridFromProvider( const Quick3DTerrainProvider *provider )
@@ -298,6 +300,9 @@ void Quick3DTerrainGeometry::updateGeometry()
   const float halfWidth = mSize.width() / 2.0f;
   const float halfDepth = mSize.height() / 2.0f;
 
+  double lowestHeight = std::numeric_limits<double>::max();
+  double highestHeight = std::numeric_limits<double>::min();
+
   for ( int z = 0; z < gridHeight; ++z )
   {
     for ( int x = 0; x < gridWidth; ++x )
@@ -305,6 +310,15 @@ void Quick3DTerrainGeometry::updateGeometry()
       const float px = x * cellWidth - halfWidth;
       const float py = getHeight( x, z );
       const float pz = z * cellDepth - halfDepth;
+
+      if ( lowestHeight > py )
+      {
+        lowestHeight = py;
+      }
+      if ( highestHeight < py )
+      {
+        highestHeight = py;
+      }
 
       *vptr++ = px;
       *vptr++ = py;
@@ -351,8 +365,8 @@ void Quick3DTerrainGeometry::updateGeometry()
 
   setPrimitiveType( QQuick3DGeometry::PrimitiveType::Triangles );
 
-  const QVector3D minBound( -halfWidth, 0, -halfDepth );
-  const QVector3D maxBound( halfWidth, 1, halfDepth );
+  const QVector3D minBound( -halfWidth, lowestHeight, -halfDepth );
+  const QVector3D maxBound( halfWidth, highestHeight, halfDepth );
   setBounds( minBound, maxBound );
 
   mDirty = false;

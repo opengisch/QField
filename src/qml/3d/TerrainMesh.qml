@@ -39,6 +39,7 @@ Node {
 
   Model {
     id: terrainModel
+    position: Qt.vector3d(0, -(mapTerrainGeometry.boundsMax.y - mapTerrainGeometry.boundsMin.y) / 2, 0)
 
     geometry: Quick3DTerrainGeometry {
       id: mapTerrainGeometry
