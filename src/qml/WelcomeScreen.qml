@@ -517,6 +517,7 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
                 color: Theme.mainTextColor
+                font: Theme.tipFont
               }
             }
           }
