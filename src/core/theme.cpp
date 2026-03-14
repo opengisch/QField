@@ -30,10 +30,11 @@ email                : kaustuv@opengis.ch
 Theme::Theme( QObject *parent )
   : QObject( parent )
 {
-  loadFromJson();
+  mFontScale = std::clamp( QSettings().value( QStringLiteral( "fontScale" ), 1.0 ).toReal(), 0.2, 5.0 );
+  mAppearance = QSettings().value( QStringLiteral( "appearance" ), QStringLiteral( "system" ) ).toString();
 
+  loadFromJson();
   applyAppearance();
-  applyFontScale();
 }
 
 void Theme::loadFromJson()
@@ -106,35 +107,46 @@ void Theme::loadFromJson()
   emit themeDataLoaded();
 }
 
+void Theme::setAppearance( const QString &appearance )
+{
+  if ( mAppearance == appearance )
+  {
+    return;
+  }
+
+  mAppearance = appearance;
+  emit appearanceChanged();
+
+  QSettings().setValue( QStringLiteral( "appearance" ), appearance );
+  applyAppearance();
+}
+
 void Theme::applyAppearance( const QVariantMap &extraColors, BaseAppearance baseAppearance )
 {
-  BaseAppearance appearance = baseAppearance;
-
-  if ( appearance == UseSettingsAppearance )
+  if ( baseAppearance == UseSettingsAppearance )
   {
-    const QString settingsAppearance = QSettings().value( QStringLiteral( "appearance" ), QStringLiteral( "system" ) ).toString();
-    if ( settingsAppearance == QStringLiteral( "dark" ) )
+    if ( mAppearance == QStringLiteral( "dark" ) )
     {
-      appearance = DarkAppearance;
+      baseAppearance = DarkAppearance;
     }
-    else if ( settingsAppearance == QStringLiteral( "light" ) )
+    else if ( mAppearance == QStringLiteral( "light" ) )
     {
-      appearance = LightAppearance;
+      baseAppearance = LightAppearance;
     }
     else
     {
-      appearance = SystemAppearance;
+      baseAppearance = SystemAppearance;
     }
   }
 
   bool darkTheme = false;
-  if ( appearance == SystemAppearance )
+  if ( baseAppearance == SystemAppearance )
   {
     darkTheme = PlatformUtilities::instance()->isSystemDarkTheme();
   }
   else
   {
-    darkTheme = ( appearance == DarkAppearance );
+    darkTheme = ( baseAppearance == DarkAppearance );
   }
 
   if ( mDarkTheme != darkTheme )
@@ -181,12 +193,6 @@ void Theme::applyColors( const QVariantMap &colors )
 
     prop.write( this, color );
   }
-}
-
-void Theme::applyFontScale()
-{
-  const qreal scale = QSettings().value( QStringLiteral( "fontScale" ), 1.0 ).toReal();
-  setFontScale( scale );
 }
 
 void Theme::setSystemFontPointSize( qreal size )
@@ -472,10 +478,13 @@ void Theme::setDarkTheme( bool dark )
 
 void Theme::setFontScale( qreal scale )
 {
-  if ( !qFuzzyCompare( mFontScale, scale ) )
+  scale = std::clamp( scale, 0.2, 5.0 );
+  if ( qFuzzyCompare( mFontScale, scale ) )
   {
     return;
   }
+
+  QSettings().setValue( QStringLiteral( "fontScale" ), scale );
 
   mFontScale = scale;
   emit fontScaleChanged();
