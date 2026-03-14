@@ -79,8 +79,7 @@ EditorWidgetBase {
     if (currentValue != undefined && currentValue !== '') {
       const isHttp = value.startsWith('http://') || value.startsWith('https://');
       var fullValue = isHttp ? value : prefixToRelativePath + value;
-      const fullValueExists = FileUtils.fileExists(fullValue);
-      if (!fullValueExists) {
+      if (!isHttp && !FileUtils.fileExists(fullValue)) {
         prepareValue("");
         if (externalStorage.type != "") {
           if (config["StorageAuthConfigId"] !== "" && !iface.isAuthenticationConfigurationAvailable(config["StorageAuthConfigId"])) {
