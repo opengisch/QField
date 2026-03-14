@@ -185,14 +185,27 @@ QfPopup {
           text: qsTr("Install plugin from URL")
 
           onClicked: {
-            if (!popup.availablePluginsFetched) {
-              pluginManager.pluginModel.refresh(true);
-            }
+            installFromUrlInput.text = '';
             installFromUrlDialog.open();
           }
 
           onDropdownClicked: {
             pluginsManagementMenu.popup(installFromUrlButton.width - pluginsManagementMenu.width + 10, installFromUrlButton.y + 10);
+          }
+        }
+
+        QfToolButton {
+          id: scanProjectBtn
+          enabled: !pluginManager.pluginModel.isRefreshing
+          visible: enabled
+
+          bgcolor: "transparent"
+          iconSource: Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
+          iconColor: Theme.mainTextColor
+
+          onClicked: {
+            codeReaderConnection.enabled = true;
+            codeReader.open();
           }
         }
 
@@ -278,8 +291,10 @@ QfPopup {
     parent: mainWindow.contentItem
 
     onAboutToShow: {
-      installFromUrlDialog.standardButton(Dialog.Ok).enabled = popup.availablePluginsFetched;
-      installFromUrlInput.text = '';
+      if (!popup.availablePluginsFetched) {
+        pluginManager.pluginModel.refresh(true);
+      }
+      installFromUrlDialog.standardButton(Dialog.Ok).enabled = Qt.binding(() => popup.availablePluginsFetched);
     }
 
     Column {
@@ -302,9 +317,10 @@ QfPopup {
         color: Theme.mainTextColor
       }
 
-      TextField {
+      TextArea {
         id: installFromUrlInput
         width: installFromUrlLabel.width
+        wrapMode: TextEdit.WrapAnywhere
       }
     }
 
@@ -344,6 +360,24 @@ QfPopup {
 
     onAccepted: {
       pluginManager.uninstall(pluginUuid);
+    }
+  }
+
+  Connections {
+    id: codeReaderConnection
+    target: codeReader
+    enabled: false
+
+    function onDecoded(string) {
+      if (string.toLowerCase().startsWith("http://") || string.toLowerCase().startsWith("https://")) {
+        codeReader.close();
+        installFromUrlInput.text = string;
+        installFromUrlDialog.open();
+      }
+    }
+
+    function onAboutToHide() {
+      codeReaderConnection.enabled = false;
     }
   }
 
