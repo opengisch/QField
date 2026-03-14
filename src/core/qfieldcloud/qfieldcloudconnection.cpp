@@ -674,7 +674,7 @@ void QFieldCloudConnection::setToken( const QByteArray &token )
     QgsAuthMethodConfig config;
     if ( QgsApplication::authManager()->availableAuthMethodConfigs().contains( mTokenConfigId ) )
     {
-      QgsApplication::authManager()->loadAuthenticationConfig( mProviderConfigId, config, true );
+      QgsApplication::authManager()->loadAuthenticationConfig( mTokenConfigId, config, true );
     }
     else
     {
