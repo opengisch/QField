@@ -393,14 +393,14 @@ void PluginManager::installFromUrl( const QString &url )
           }
           if ( zipFiles.contains( QStringLiteral( "%1main.qml" ).arg( !pluginDirectoryName.isEmpty() ? pluginDirectoryName + "/" : QString() ) ) )
           {
-            // Insure no previous version is running
-            disableAppPlugin( fileInfo.completeBaseName() );
-
-            // Remove the .zip suffix as well as version information (e.g. myplugin-v1.0.zip becomes myplugin)
             if ( !pluginDirectoryWithinZip )
             {
-              pluginDirectoryName = fileName.replace( QRegularExpression( "(-v?\\d+(\\.\\d+)*)?.zIP$", QRegularExpression::CaseInsensitiveOption ), QString() );
+              // Remove the .zip suffix as well as version information (e.g. myplugin-v1.0.zip becomes myplugin)
+              pluginDirectoryName = fileName.replace( QRegularExpression( "(-v?\\d+(\\.\\d+)*)?.zip$", QRegularExpression::CaseInsensitiveOption ), QString() );
             }
+
+            // Insure no previous version is running
+            disableAppPlugin( pluginDirectoryName );
 
             if ( mPluginModel->hasPluginInformation( pluginDirectoryName ) )
             {
