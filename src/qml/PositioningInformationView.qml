@@ -73,9 +73,12 @@ Rectangle {
           anchors.right: parent.right
 
           Text {
+            Layout.maximumWidth: parent.width * 0.66
             font: Theme.tipFont
             color: Theme.secondaryTextColor
             text: Name
+            verticalAlignment: Text.AlignVCenter
+            elide: Text.ElideRight
           }
 
           Text {
