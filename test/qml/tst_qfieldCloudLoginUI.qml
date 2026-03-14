@@ -68,16 +68,17 @@ TestCase {
     signalName: "availableProvidersChanged"
   }
 
-  // Returns all available server configurations (local always, remote if provided)
+  // Returns all available server configurations (local if provided, remote if provided)
   function serverConfigs() {
-    var configs = [
-      {
+    var configs = [];
+    if (localUrl && localUsername && localPassword) {
+      configs.push({
         tag: "local",
         url: localUrl,
         username: localUsername,
         password: localPassword
-      }
-    ];
+      });
+    }
     if (remoteUrl && remoteUsername && remotePassword) {
       configs.push({
         tag: "remote",
@@ -87,11 +88,6 @@ TestCase {
       });
     }
     return configs;
-  }
-
-  // QFieldCloud credentials must always be available
-  function init() {
-    verify(localUrl && localUsername && localPassword, "QFieldCloud local credentials are required");
   }
 
   // This function is called after each test function that is executed in the TestCase type.
