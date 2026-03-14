@@ -81,8 +81,8 @@ repos:
   hooks:
     - id: qmlformat
       # args: ["--check"]
-      # additional_dependencies:
-      #   - PySide6-Essentials==6.8.3
+      additional_dependencies:
+        - PySide6-Essentials==6.10.2
 
 - repo: https://github.com/open-vcpkg/pre-commit
   rev: v1.0.1

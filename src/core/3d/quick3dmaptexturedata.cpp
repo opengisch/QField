@@ -104,7 +104,7 @@ void Quick3DMapTextureData::setExtent( const QgsRectangle &extent )
 
 bool Quick3DMapTextureData::isReady() const
 {
-  return mReady;
+  return mIsReady;
 }
 
 bool Quick3DMapTextureData::incrementalRendering() const
@@ -220,6 +220,8 @@ void Quick3DMapTextureData::render()
 
   connect( mRenderJob.get(), &QgsMapRendererJob::finished, this, &Quick3DMapTextureData::onRenderFinished );
   mRenderJob->start();
+
+  emit isRenderingChanged();
 }
 
 void Quick3DMapTextureData::onRenderJobUpdated()
@@ -245,6 +247,7 @@ void Quick3DMapTextureData::onRenderFinished()
 
   QImage renderedImage = mRenderJob->renderedImage();
   mRenderJob.reset();
+  emit isRenderingChanged();
 
   if ( !renderedImage.isNull() )
   {
@@ -258,6 +261,11 @@ void Quick3DMapTextureData::onRenderFinished()
   }
 }
 
+bool Quick3DMapTextureData::isRendering() const
+{
+  return mRenderJob && mRenderJob->isActive();
+}
+
 void Quick3DMapTextureData::updateTextureData( const QImage &image )
 {
   const qsizetype dataSize = image.sizeInBytes();
@@ -266,10 +274,10 @@ void Quick3DMapTextureData::updateTextureData( const QImage &image )
   setSize( image.size() );
   setTextureData( textureData );
 
-  if ( !mReady )
+  if ( !mIsReady )
   {
-    mReady = true;
-    emit readyChanged();
+    mIsReady = true;
+    emit isReadyChanged();
   }
 
   emit textureUpdated();

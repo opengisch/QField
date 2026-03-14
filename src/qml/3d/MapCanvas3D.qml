@@ -14,7 +14,7 @@ Item {
   property alias terrainExtent: mapTerrainProvider.extent
   property alias terrainGeometry: terrainMesh.mapTerrainGeometry
 
-  property bool isLoading: mapTerrainProvider.isLoading
+  property bool isLoading: mapTerrainProvider.isLoading || mapTextureData.isRendering
   property bool isFirstLoad: true
   property bool wireframeMode: false
   property alias extentMode: cameraController.extentMode
@@ -54,7 +54,7 @@ Item {
     id: mapTextureData
     mapSettings: mapArea.mapSettings
     extent: mapTerrainProvider.normalizedDataExtent
-    incrementalRendering: !isFirstLoad
+    incrementalRendering: true
     forceDeferredLayersRepaint: mapArea.trackingModel ? mapArea.trackingModel.count > 0 : false
 
     onTextureUpdated: {
