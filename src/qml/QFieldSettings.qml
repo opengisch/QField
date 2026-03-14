@@ -671,14 +671,12 @@ Page {
 
                 onCurrentValueChanged: {
                   if (initialized) {
-                    settings.setValue("appearance", currentValue);
-                    Theme.applyAppearance();
+                    Theme.appearance = currentValue;
                   }
                 }
 
                 Component.onCompleted: {
-                  var appearance = settings.value("appearance", 'system');
-                  currentIndex = indexOfValue(appearance);
+                  currentIndex = indexOfValue(Theme.appearance);
                   initialized = true;
                 }
               }
@@ -728,14 +726,12 @@ Page {
 
                 onCurrentValueChanged: {
                   if (initialized) {
-                    settings.setValue("fontScale", currentValue);
-                    Theme.applyFontScale();
+                    Theme.fontScale = currentValue;
                   }
                 }
 
                 Component.onCompleted: {
-                  var fontScale = settings.value("fontScale", 1.0);
-                  currentIndex = indexOfValue(fontScale);
+                  currentIndex = indexOfValue(Theme.fontScale);
                   initialized = true;
                 }
               }

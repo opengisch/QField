@@ -37,6 +37,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     Q_OBJECT
 
     Q_PROPERTY( bool darkTheme READ darkTheme WRITE setDarkTheme NOTIFY darkThemeChanged )
+    Q_PROPERTY( QString appearance READ appearance WRITE setAppearance NOTIFY appearanceChanged )
 
     // Palette tables, exposed for QML code that reads them directly
     Q_PROPERTY( QVariantMap darkThemeColors READ darkThemeColors CONSTANT )
@@ -142,11 +143,6 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
    * Only writable properties are touched; invalid colors and unknown keys are skipped.
    */
     Q_INVOKABLE void applyColors( const QVariantMap &colors );
-
-    /**
-   * Reads \c fontScale from QSettings and updates all font properties.
-   */
-    Q_INVOKABLE void applyFontScale();
 
     /**
    * Returns the raster icon resource path for \a name, selecting the density
@@ -285,6 +281,9 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QColor vertexNewColorSemiOpaque() const { return mVertexNewColorSemiOpaque; }
     QColor processingPreview() const { return mProcessingPreview; }
 
+    QString appearance() const { return mAppearance; }
+    void setAppearance( const QString &appearance );
+
     bool darkTheme() const { return mDarkTheme; }
     void setDarkTheme( bool dark );
 
@@ -330,6 +329,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     void goodColorChanged();
     void warningColorChanged();
     void errorColorChanged();
+    void appearanceChanged();
     void darkThemeChanged();
     void fontScaleChanged();
     void themeDataLoaded();
@@ -399,6 +399,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QColor mVertexNewColorSemiOpaque;
     QColor mProcessingPreview;
 
+    QString mAppearance;
     bool mDarkTheme = false;
     qreal mFontScale = 1.0;
     qreal mSystemFontPointSize = 14.0;
