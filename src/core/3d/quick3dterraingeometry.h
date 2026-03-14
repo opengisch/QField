@@ -49,10 +49,16 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     //! Height data array for terrain elevation values
     Q_PROPERTY( QVariantList heightData READ heightData WRITE setHeightData NOTIFY heightDataChanged )
 
-    //! Returns the offset vector from the generated terrain heights
+    //! Minimum bounds of the geometry
+    Q_PROPERTY( QVector3D boundsMin READ boundsMin NOTIFY boundsMinMaxChanged )
+
+    //! Maximum bounds of the geometry
+    Q_PROPERTY( QVector3D boundsMax READ boundsMax NOTIFY boundsMinMaxChanged )
+
+    //! Offset vector from the generated terrain heights
     Q_PROPERTY( QVector3D offsetVector READ offsetVector WRITE setOffsetVector NOTIFY offsetVectorChanged )
 
-    //! Returns the offset scale from the last generated terrain data
+    //! Pffset scale from the last generated terrain data
     Q_PROPERTY( double offsetScale READ offsetScale WRITE setOffsetScale NOTIFY offsetScaleChanged )
 
   public:
@@ -95,6 +101,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     void gridSizeChanged();
     void sizeChanged();
     void heightDataChanged();
+    void boundsMinMaxChanged();
     void offsetVectorChanged();
     void offsetScaleChanged();
 

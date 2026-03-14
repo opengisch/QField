@@ -189,7 +189,8 @@ void QgsQuickMapCanvasMap::renderJobUpdated()
 
   mImage = mJob->renderedImage();
   mImageMapSettings = mJob->mapSettings();
-  mPreviewImages.clear();
+  clearPreviews();
+
   mDirty = true;
   // Temporarily freeze the canvas, we only need to reset the geometry but not trigger a repaint
   bool freeze = mFreeze;
@@ -218,7 +219,7 @@ void QgsQuickMapCanvasMap::renderJobFinished()
 
   mImage = mJob->renderedImage();
   mImageMapSettings = mJob->mapSettings();
-  mPreviewImages.clear();
+  clearPreviews();
 
   // now we are in a slot called from mJob - do not delete it immediately
   // so the class is still valid when the execution returns to the class
@@ -491,22 +492,18 @@ bool QgsQuickMapCanvasMap::isRendering() const
 
 QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::UpdatePaintNodeData * )
 {
-  if ( mDirty )
-  {
-    delete oldNode;
-    oldNode = nullptr;
-    mDirty = false;
-  }
-
   if ( mImage.isNull() )
   {
+    delete oldNode;
     return nullptr;
   }
 
   QRectF rect( boundingRect() );
   QSizeF size = mImage.size();
   if ( !size.isEmpty() )
+  {
     size /= mMapSettings->devicePixelRatio();
+  }
 
   // Check for resizes that change the w/h ratio
   if ( !rect.isEmpty() && !size.isEmpty() && !qgsDoubleNear( rect.width() / rect.height(), ( size.width() ) / static_cast<double>( size.height() ), 3 ) )
@@ -522,25 +519,13 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
   }
 
   QSGSimpleTextureNode *node = static_cast<QSGSimpleTextureNode *>( oldNode );
-  bool setChildRects = !node;
+  bool setChildRects = false;
   if ( !node )
   {
     node = new QSGSimpleTextureNode();
     node->setFiltering( QSGTexture::Linear );
-    QSGTexture *texture = window()->createTextureFromImage( mImage );
-    node->setTexture( texture );
-    node->setOwnsTexture( true );
     node->setRect( rect );
-
-    for ( auto [number, previewImage] : mPreviewImages.asKeyValueRange() )
-    {
-      QSGSimpleTextureNode *childNode = new QSGSimpleTextureNode();
-      childNode->setFiltering( QSGTexture::Linear );
-      texture = window()->createTextureFromImage( previewImage );
-      childNode->setTexture( texture );
-      childNode->setOwnsTexture( true );
-      node->appendChildNode( childNode );
-    }
+    setChildRects = true;
   }
   else if ( node->rect() != rect )
   {
@@ -548,37 +533,65 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
     setChildRects = true;
   }
 
+  if ( mDirty )
+  {
+    QSGTexture *texture = window()->createTextureFromImage( mImage, QQuickWindow::TextureIsOpaque );
+    node->setTexture( texture );
+    node->setOwnsTexture( true );
+    mDirty = false;
+  }
+
+  if ( !mPreviewImages.isEmpty() )
+  {
+    for ( auto previewImagesIterator = mPreviewImages.constBegin(); previewImagesIterator != mPreviewImages.constEnd(); ++previewImagesIterator )
+    {
+      const int quadrant = previewImagesIterator.key();
+      const int childIndex = quadrant > 3 ? quadrant - 1 : quadrant;
+      mPreviewNodes[childIndex] = new QSGSimpleTextureNode();
+      QSGTexture *texture = window()->createTextureFromImage( previewImagesIterator.value(), QQuickWindow::TextureIsOpaque );
+      mPreviewNodes[childIndex]->setTexture( texture );
+      mPreviewNodes[childIndex]->setOwnsTexture( true );
+      node->appendChildNode( mPreviewNodes[childIndex] );
+    }
+    mPreviewImages.clear();
+    setChildRects = true;
+  }
+
   if ( setChildRects )
   {
-    const QList<int> numbers = mPreviewImages.keys();
-    for ( int i = 0; i < node->childCount(); i++ )
+    for ( int i = 0; i < mPreviewNodes.size(); i++ )
     {
-      const int number = numbers[i];
+      if ( !mPreviewNodes[i] )
+      {
+        continue;
+      }
+
+      const int quadrant = i > 3 ? i + 1 : i;
       QRectF childRect( rect );
       // Adjust left/right
-      if ( number == 0 || number == 3 || number == 6 )
+      if ( quadrant == 0 || quadrant == 3 || quadrant == 6 )
       {
         childRect.setLeft( rect.left() - rect.width() );
         childRect.setRight( rect.right() - rect.width() );
       }
-      else if ( number == 2 || number == 5 || number == 8 )
+      else if ( quadrant == 2 || quadrant == 5 || quadrant == 8 )
       {
         childRect.setLeft( rect.left() + rect.width() );
         childRect.setRight( rect.right() + rect.width() );
       }
       //Adjust top/bottom
-      if ( number < 3 )
+      if ( quadrant < 3 )
       {
         childRect.setTop( rect.top() - rect.height() );
         childRect.setBottom( rect.bottom() - rect.height() );
       }
-      else if ( number > 5 )
+      else if ( quadrant > 5 )
       {
         childRect.setTop( rect.top() + rect.height() );
         childRect.setBottom( rect.bottom() + rect.height() );
       }
 
-      static_cast<QSGSimpleTextureNode *>( node->childAtIndex( i ) )->setRect( childRect );
+      mPreviewNodes[i]->setRect( childRect );
     }
   }
 
@@ -813,9 +826,16 @@ void QgsQuickMapCanvasMap::setPreviewJobsEnabled( bool enabled )
 
   if ( !mPreviewJobsEnabled )
   {
-    // Clear previously stored preview images
-    mPreviewImages.clear();
+    clearPreviews();
   }
+}
+
+void QgsQuickMapCanvasMap::clearPreviews()
+{
+  mPreviewImages.clear();
+  qDeleteAll( mPreviewNodes );
+  mPreviewNodes.clear();
+  mPreviewNodes.resize( 8 );
 }
 
 QList<int> QgsQuickMapCanvasMap::previewJobsQuadrants() const
@@ -835,7 +855,7 @@ void QgsQuickMapCanvasMap::setPreviewJobsQuadrants( const QList<int> &quadrants 
 void QgsQuickMapCanvasMap::startPreviewJobs()
 {
   stopPreviewJobs();
-  mPreviewImages.clear();
+  clearPreviews();
 
   if ( mImage.isNull() || mPreviewJobsQuadrants.isEmpty() )
   {
@@ -963,6 +983,5 @@ void QgsQuickMapCanvasMap::previewJobFinished()
   }
   delete job;
 
-  mDirty = true;
   update();
 }

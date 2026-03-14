@@ -47,8 +47,11 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Optional custom extent to render. If not set, uses mapSettings extent
     Q_PROPERTY( QgsRectangle extent READ extent WRITE setExtent NOTIFY extentChanged )
 
+    //! Whether the texture data is being rendered
+    Q_PROPERTY( bool isRendering READ isRendering NOTIFY isRenderingChanged )
+
     //! Whether the texture data is ready to use
-    Q_PROPERTY( bool ready READ isReady NOTIFY readyChanged )
+    Q_PROPERTY( bool isReady READ isReady NOTIFY isReadyChanged )
 
     //! When the incrementalRendering property is set to true, the incremental refresh of the terrain data during rendering is allowed
     Q_PROPERTY( bool incrementalRendering READ incrementalRendering WRITE setIncrementalRendering NOTIFY incrementalRenderingChanged )
@@ -73,6 +76,9 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Sets a custom extent for rendering.
     void setExtent( const QgsRectangle &extent );
 
+    //! Returns true while a rendering job is pending for this texture data.
+    bool isRendering() const;
+
     //! Returns whether the texture data is ready to use.
     bool isReady() const;
 
@@ -90,7 +96,6 @@ class Quick3DMapTextureData : public QQuick3DTextureData
 
     /**
      * Starts the asynchronous map rendering process.
-     * The readyChanged signal is emitted when rendering completes.
      */
     Q_INVOKABLE void render();
 
@@ -101,8 +106,11 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     //! Emitted when extent changes
     void extentChanged();
 
+    //! Emitted when the texture data is being rendered
+    void isRenderingChanged();
+
     //! Emitted when texture rendering is complete and data is ready
-    void readyChanged();
+    void isReadyChanged();
 
     //! Emitted every time texture data has been updated
     void textureUpdated();
@@ -135,7 +143,7 @@ class Quick3DMapTextureData : public QQuick3DTextureData
     bool mIncrementalRendering = false;
     bool mForceDeferredLayersRepaint = false;
     bool mDeferredRefreshPending = false;
-    bool mReady = false;
+    bool mIsReady = false;
     QVector<QMetaObject::Connection> mLayerConnections;
 };
 
