@@ -541,6 +541,14 @@ QSGNode *QgsQuickMapCanvasMap::updatePaintNode( QSGNode *oldNode, QQuickItem::Up
     mDirty = false;
   }
 
+  if ( mDirtyPreviewNodes )
+  {
+    node->removeAllChildNodes();
+    qDeleteAll( mPreviewNodes );
+    mPreviewNodes.fill( nullptr, 8 );
+    mDirtyPreviewNodes = false;
+  }
+
   if ( !mPreviewImages.isEmpty() )
   {
     for ( auto previewImagesIterator = mPreviewImages.constBegin(); previewImagesIterator != mPreviewImages.constEnd(); ++previewImagesIterator )
@@ -833,9 +841,7 @@ void QgsQuickMapCanvasMap::setPreviewJobsEnabled( bool enabled )
 void QgsQuickMapCanvasMap::clearPreviews()
 {
   mPreviewImages.clear();
-  qDeleteAll( mPreviewNodes );
-  mPreviewNodes.clear();
-  mPreviewNodes.resize( 8 );
+  mDirtyPreviewNodes = true;
 }
 
 QList<int> QgsQuickMapCanvasMap::previewJobsQuadrants() const

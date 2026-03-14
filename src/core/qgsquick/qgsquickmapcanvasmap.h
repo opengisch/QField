@@ -350,6 +350,7 @@ class QgsQuickMapCanvasMap : public QQuickItem
     QMetaObject::Connection mPreviewTimerConnection;
     QMap<int, QImage> mPreviewImages;
     QList<QSGSimpleTextureNode *> mPreviewNodes;
+    bool mDirtyPreviewNodes = false;
 
     QQuickWindow *mWindow = nullptr;
 };
