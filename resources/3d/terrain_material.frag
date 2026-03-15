@@ -36,4 +36,8 @@ void MAIN() {
             BASE_COLOR = bgColor;
         }
     }
+
+    ROUGHNESS = 0.9;
+    SPECULAR_AMOUNT = 0.0;
+    METALNESS = 0.0;
 }
