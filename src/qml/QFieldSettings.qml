@@ -79,6 +79,22 @@ Page {
     iface.setupNetworkProxy();
   }
 
+  NtripSourceTableFetcher {
+    id: ntripFetcher
+    onMountpointsChanged: {
+      // Preserve edited mountpoint text after model update
+      var savedText = positioningSettings.ntripMountpoint;
+      Qt.callLater(function () {
+        if (ntripMountpointCombo.editText !== savedText)
+          ntripMountpointCombo.editText = savedText;
+      });
+    }
+    onFetchError: function (message) {
+      ntripFetchErrorLabel.text = message;
+      ntripFetchErrorLabel.visible = true;
+    }
+  }
+
   Settings {
     id: registry
     property bool showScaleBar: true
@@ -1891,6 +1907,309 @@ Page {
                 checked: positioningSettings.logging
                 onCheckedChanged: {
                   positioningSettings.logging = checked;
+                }
+              }
+
+              Label {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 20
+                Layout.bottomMargin: 10
+                text: qsTr("NTRIP Client")
+                font: Theme.strongFont
+                color: Theme.mainColor
+              }
+
+              Rectangle {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.bottomMargin: 10
+                height: 1
+                color: Theme.mainColor
+              }
+
+              RowLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                spacing: 10
+
+                Label {
+                  text: qsTr("Enable NTRIP client")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.preferredWidth: 120
+
+                  MouseArea {
+                    anchors.fill: parent
+                    onClicked: enableNtripClient.toggle()
+                  }
+                }
+
+                RowLayout {
+                  Layout.fillWidth: true
+                  spacing: 10
+
+                  Label {
+                    text: positioningSettings.ntripStatus || ""
+                    font: Theme.tipFont
+                    color: Theme.secondaryTextColor
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                  }
+
+                  Label {
+                    text: positioningSettings.enableNtripClient ? qsTr("↑%1 ↓%2").arg(positioningSettings.ntripBytesSent).arg(positioningSettings.ntripBytesReceived) : ""
+                    font: Theme.tipFont
+                    color: Theme.secondaryTextColor
+                  }
+                }
+
+                QfSwitch {
+                  id: enableNtripClient
+                  Layout.preferredWidth: implicitContentWidth
+                  Layout.alignment: Qt.AlignTop
+                  checked: positioningSettings.enableNtripClient
+                  onCheckedChanged: {
+                    positioningSettings.enableNtripClient = checked;
+                  }
+                }
+              }
+
+              Label {
+                text: qsTr("Send NMEA sentences to caster")
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: ntripSendNmea.toggle()
+                }
+              }
+
+              QfSwitch {
+                id: ntripSendNmea
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                checked: positioningSettings.ntripSendNmea
+                onCheckedChanged: {
+                  positioningSettings.ntripSendNmea = checked;
+                }
+              }
+
+              ColumnLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 8
+                spacing: 4
+
+                Label {
+                  text: qsTr("NTRIP Host")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                }
+
+                QfTextField {
+                  id: ntripHost
+                  Layout.fillWidth: true
+                  Layout.topMargin: 4
+                  text: positioningSettings.ntripHost || "crtk.net"
+                  placeholderText: qsTr("e.g. crtk.net")
+                  onTextChanged: {
+                    positioningSettings.ntripHost = text;
+                  }
+                }
+              }
+
+              ColumnLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 8
+                spacing: 4
+
+                Label {
+                  text: qsTr("NTRIP Port")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                }
+
+                QfTextField {
+                  id: ntripPort
+                  Layout.fillWidth: true
+                  Layout.topMargin: 4
+                  text: positioningSettings.ntripPort || "2101"
+                  placeholderText: qsTr("default 2101")
+                  validator: IntValidator {
+                    bottom: 1
+                    top: 65535
+                  }
+                  onTextChanged: {
+                    positioningSettings.ntripPort = parseInt(text) || 2101;
+                  }
+                }
+              }
+
+              ColumnLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 8
+                spacing: 4
+
+                Label {
+                  text: qsTr("NTRIP Username")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                }
+
+                QfTextField {
+                  id: ntripUsername
+                  Layout.fillWidth: true
+                  text: positioningSettings.ntripUsername
+                  onTextChanged: {
+                    positioningSettings.ntripUsername = text;
+                  }
+                }
+              }
+
+              ColumnLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 8
+                spacing: 4
+
+                Label {
+                  text: qsTr("NTRIP Password")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                }
+
+                QfTextField {
+                  id: ntripPassword
+                  Layout.fillWidth: true
+                  text: positioningSettings.ntripPassword
+                  echoMode: TextInput.Password
+                  onTextChanged: {
+                    positioningSettings.ntripPassword = text;
+                  }
+                }
+              }
+
+              ColumnLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 8
+                spacing: 4
+
+                Label {
+                  text: qsTr("NTRIP Mountpoint")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                }
+
+                ColumnLayout {
+                  Layout.fillWidth: true
+                  spacing: 2
+
+                  RowLayout {
+                    Layout.fillWidth: true
+                    spacing: 4
+
+                    QfComboBox {
+                      id: ntripMountpointCombo
+                      Layout.fillWidth: true
+                      font: Theme.defaultFont
+                      popup.font: Theme.defaultFont
+                      popup.topMargin: mainWindow.sceneTopMargin
+                      popup.bottomMargin: mainWindow.sceneBottomMargin
+                      editable: true
+                      model: ntripFetcher.mountpoints
+
+                      Component.onCompleted: {
+                        editText = positioningSettings.ntripMountpoint || "";
+                      }
+
+                      onEditTextChanged: {
+                        ntripFetchErrorLabel.visible = false;
+                        positioningSettings.ntripMountpoint = editText;
+                      }
+
+                      onActivated: {
+                        positioningSettings.ntripMountpoint = currentText;
+                      }
+                    }
+
+                    QfToolButton {
+                      iconSource: Theme.getThemeVectorIcon("refresh_24dp")
+                      iconColor: Theme.mainTextColor
+                      bgcolor: "transparent"
+                      width: 36
+                      height: 36
+                      padding: 0
+                      enabled: !ntripFetcher.fetching
+
+                      onClicked: {
+                        ntripFetcher.fetch(positioningSettings.ntripHost, positioningSettings.ntripPort, positioningSettings.ntripUsername, positioningSettings.ntripPassword, positioningSettings.ntripVersion);
+                      }
+
+                      BusyIndicator {
+                        anchors.centerIn: parent
+                        running: ntripFetcher.fetching
+                        visible: running
+                        width: 24
+                        height: 24
+                      }
+                    }
+                  }
+
+                  Label {
+                    id: ntripFetchErrorLabel
+                    Layout.fillWidth: true
+                    visible: false
+                    font: Theme.tipFont
+                    color: Theme.errorColor
+                    wrapMode: Text.WordWrap
+                  }
+                }
+              }
+
+              ColumnLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.topMargin: 8
+                spacing: 4
+
+                Label {
+                  text: qsTr("NTRIP Version")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+                }
+
+                QfComboBox {
+                  id: ntripVersion
+                  Layout.fillWidth: true
+                  model: ["1", "2"]
+
+                  Component.onCompleted: {
+                    currentIndex = positioningSettings.ntripVersion === 2 ? 1 : 0;
+                  }
+
+                  onCurrentIndexChanged: {
+                    positioningSettings.ntripVersion = currentIndex === 1 ? 2 : 1;
+                  }
                 }
               }
             }
