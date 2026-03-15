@@ -63,6 +63,25 @@ BluetoothReceiver::~BluetoothReceiver()
   mSocket = nullptr;
 }
 
+void BluetoothReceiver::onCorrectionDataReceived( const QByteArray &data )
+{
+  if ( !mSocket || !mSocket->isOpen() )
+  {
+    qWarning() << "Bluetooth socket not open—cannot forward corrections.";
+    return;
+  }
+
+  qint64 bytesWritten = mSocket->write( data );
+  if ( bytesWritten == -1 )
+  {
+    qWarning() << "Failed to write corrections to Bluetooth socket:" << mSocket->errorString();
+  }
+  else
+  {
+    qDebug() << "Forwarded" << bytesWritten << "bytes of correction data to Bluetooth.";
+  }
+}
+
 void BluetoothReceiver::handleDisconnectDevice()
 {
   if ( mSocket->state() != QBluetoothSocket::SocketState::UnconnectedState )
@@ -100,6 +119,9 @@ void BluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state 
   QAbstractSocket::SocketState currentState;
   switch ( state )
   {
+    case QBluetoothSocket::SocketState::ServiceLookupState:
+      currentState = QAbstractSocket::ConnectingState;
+      break;
     case QBluetoothSocket::SocketState::UnconnectedState:
       currentState = QAbstractSocket::UnconnectedState;
       break;
@@ -211,7 +233,7 @@ void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
     case QBluetoothLocalDevice::Paired:
     case QBluetoothLocalDevice::AuthorizedPaired:
     {
-      mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadOnly );
+      mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadWrite );
       break;
     }
 
@@ -233,7 +255,7 @@ void BluetoothReceiver::pairingFinished( const QBluetoothAddress &address, QBlue
       case QBluetoothLocalDevice::Paired:
       case QBluetoothLocalDevice::AuthorizedPaired:
       {
-        mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadOnly );
+        mSocket->connectToService( address, QBluetoothUuid( QBluetoothUuid::ServiceClassUuid::SerialPort ), QBluetoothSocket::ReadWrite );
         break;
       }
 
