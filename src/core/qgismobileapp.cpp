@@ -93,7 +93,7 @@
 #include "navigationmodel.h"
 #include "nearfieldreader.h"
 #include "orderedrelationmodel.h"
-#include "parametizedimage.h"
+#include "parameterizedimage.h"
 #include "permissions.h"
 #include "platformutilities.h"
 #include "pluginmodel.h"
@@ -519,7 +519,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
   qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
   qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
-  qmlRegisterType<ParametizedImage>( "org.qfield", 1, 0, "ParametizedImage" );
+  qmlRegisterType<ParameterizedImage>( "org.qfield", 1, 0, "ParameterizedImage" );
   qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
   qmlRegisterType<VertexModel>( "org.qfield", 1, 0, "VertexModel" );
   qmlRegisterType<MapLayerModel>( "org.qfield", 1, 0, "MapLayerModel" );

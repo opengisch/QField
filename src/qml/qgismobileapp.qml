@@ -1834,7 +1834,7 @@ ApplicationWindow {
       }
     }
 
-    ParametizedImage {
+    ParameterizedImage {
       id: imageDecoration
 
       visible: source != ''

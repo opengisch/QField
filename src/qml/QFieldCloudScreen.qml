@@ -312,7 +312,7 @@ Page {
                 bottomPadding: 8
                 spacing: 2
 
-                ParametizedImage {
+                ParameterizedImage {
                   id: type
                   anchors.verticalCenter: line.verticalCenter
 

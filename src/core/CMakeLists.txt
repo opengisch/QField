@@ -108,7 +108,7 @@ set(QFIELD_CORE_SRCS
     navigationmodel.cpp
     nearfieldreader.cpp
     orderedrelationmodel.cpp
-    parametizedimage.cpp
+    parameterizedimage.cpp
     peliasgeocoder.cpp
     pluginmanager.cpp
     pluginmodel.cpp
@@ -254,7 +254,7 @@ set(QFIELD_CORE_HDRS
     navigationmodel.h
     nearfieldreader.h
     orderedrelationmodel.h
-    parametizedimage.h
+    parameterizedimage.h
     peliasgeocoder.h
     pluginmanager.h
     pluginmodel.h

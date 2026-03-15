@@ -1,5 +1,5 @@
 /***************************************************************************
- parametizedimage.h - ParametizedImage
+ parameterizedimage.h - ParameterizedImage
 
  ---------------------
  begin                : 21.05.2024
@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef PARAMETIZEDIMAGE_H
-#define PARAMETIZEDIMAGE_H
+#ifndef PARAMETERIZEDIMAGE_H
+#define PARAMETERIZEDIMAGE_H
 
 #include <QObject>
 #include <QQuickPaintedItem>
@@ -25,7 +25,7 @@
 /**
  * \ingroup core
  */
-class ParametizedImage : public QQuickPaintedItem
+class ParameterizedImage : public QQuickPaintedItem
 {
     Q_OBJECT
 
@@ -36,58 +36,58 @@ class ParametizedImage : public QQuickPaintedItem
 
     /**
      * The fill color used to paint an image.
-     * \note Compatible with parametized SVG images only.
+     * \note Compatible with parameterized SVG images only.
      */
     Q_PROPERTY( QColor fillColor READ fillColor WRITE setFillColor NOTIFY fillColorChanged )
 
     /**
      * The stroke color used to paint an image.
-     * \note Compatible with parametized SVG images only.
+     * \note Compatible with parameterized SVG images only.
      */
     Q_PROPERTY( QColor strokeColor READ strokeColor WRITE setStrokeColor NOTIFY strokeColorChanged )
 
     /**
      * The stroke width used to paint an image.
-     * \note Compatible with parametized SVG images only.
+     * \note Compatible with parameterized SVG images only.
      */
     Q_PROPERTY( double strokeWidth READ strokeWidth WRITE setStrokeWidth NOTIFY strokeWidthChanged )
 
     /**
      * The parameters used to paint an image.
-     * \note Compatible with parametized SVG images only.
+     * \note Compatible with parameterized SVG images only.
      */
     Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
 
   public:
-    ParametizedImage( QQuickItem *parent = nullptr );
-    ~ParametizedImage() = default;
+    ParameterizedImage( QQuickItem *parent = nullptr );
+    ~ParameterizedImage() = default;
 
     void paint( QPainter *painter ) override;
 
-    //! \copydoc ParametizedImage::source
+    //! \copydoc ParameterizedImage::source
     QString source() const;
-    //! \copydoc ParametizedImage::source
+    //! \copydoc ParameterizedImage::source
     void setSource( const QString &source );
 
-    //! \copydoc ParametizedImage::fillColor
+    //! \copydoc ParameterizedImage::fillColor
     QColor fillColor() const;
-    //! \copydoc ParametizedImage::fillColor
+    //! \copydoc ParameterizedImage::fillColor
     void setFillColor( const QColor &color );
 
-    //! \copydoc ParametizedImage::strokeColor
+    //! \copydoc ParameterizedImage::strokeColor
     QColor strokeColor() const;
-    //! \copydoc ParametizedImage::strokeColor
+    //! \copydoc ParameterizedImage::strokeColor
     void setStrokeColor( const QColor &color );
 
-    //! \copydoc ParametizedImage::strokeWidth
+    //! \copydoc ParameterizedImage::strokeWidth
     double strokeWidth() const;
-    //! \copydoc ParametizedImage::strokeWidth
+    //! \copydoc ParameterizedImage::strokeWidth
     void setStrokeWidth( double width );
 
-    //! \copydoc ParametizedImage::parameters
+    //! \copydoc ParameterizedImage::parameters
     QVariantMap parameters() const;
 
-    //! \copydoc ParametizedImage::parameters
+    //! \copydoc ParameterizedImage::parameters
     void setParameters( const QVariantMap &parameters );
 
   signals:
@@ -112,4 +112,4 @@ class ParametizedImage : public QQuickPaintedItem
     QMap<QString, QString> mPreparedParameters;
 };
 
-#endif // PARAMETIZEDIMAGE_H
+#endif // PARAMETERIZEDIMAGE_H
