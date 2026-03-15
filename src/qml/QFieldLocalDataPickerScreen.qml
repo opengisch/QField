@@ -1052,14 +1052,55 @@ Page {
         color: Theme.mainTextColor
       }
 
-      TextField {
+      TextArea {
         id: importUrlInput
         width: importUrlLabel.width
+        rightPadding: scanCodeBtn.width
+        wrapMode: TextEdit.WrapAnywhere
+
+        QfToolButton {
+          id: scanCodeBtn
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
+
+          bgcolor: "transparent"
+          iconSource: Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
+          iconColor: Theme.mainTextColor
+
+          onClicked: {
+            codeReaderConnection.enabled = true;
+            codeReader.open();
+          }
+        }
       }
     }
 
     onAccepted: {
       iface.importUrl(importUrlInput.text);
+    }
+  }
+
+  Connections {
+    id: codeReaderConnection
+    target: codeReader
+    enabled: false
+
+    function onDecoded(string) {
+      if (string.toLowerCase().startsWith("http://") || string.toLowerCase().startsWith("https://")) {
+        codeReader.close();
+        importUrlInput.text = string;
+        importUrlDialog.accept();
+      } else {
+        const details = UrlUtils.getActionDetails(string);
+        if (details.type === "local" && details.import !== undefined && details.import !== "") {
+          importUrlInput.text = details.import;
+          importUrlDialog.accept();
+        }
+      }
+    }
+
+    function onAboutToHide() {
+      codeReaderConnection.enabled = false;
     }
   }
 
