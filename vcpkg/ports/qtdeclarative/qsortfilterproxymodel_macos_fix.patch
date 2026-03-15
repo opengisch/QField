@@ -1,0 +1,114 @@
+From 3658e792b89cc3bf8d01106c8421ea0cad949c25 Mon Sep 17 00:00:00 2001
+From: Sze Howe Koh <szehowe.koh@gmail.com>
+Date: Fri, 26 Dec 2025 14:49:25 +0800
+Subject: [PATCH] Fix ODR violation in QSortFilterProxyModel(Greater|Less)Than
+
+Amends 9efc1fb4ac7982f105a13781fccff74a61907601 -- Qt Core has a
+different definition of QSortFilterProxyModel(Greater|Less)Than
+
+Change-Id: I88ff852d3c427f4847479a6a6bbdb3da959c7b14
+Fixes: QTBUG-141830
+Reviewed-by: Santhosh Kumar <santhosh.kumar.selvaraj@qt.io>
+(cherry picked from commit d968532e67ac68d7a1176b9e2439002ab970d86a)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+(cherry picked from commit 1cc1215a96a3e6423c96a584b2a196636bc11856)
+---
+ src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp  |  4 ++--
+ src/qmlmodels/sfpm/qqmlsortfilterproxymodel_p.h  |  8 ++++----
+ .../sfpm/qsortfilterproxymodelhelper_p.h         | 16 ++++++++--------
+ 3 files changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp b/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp
+index d9a51d74388..5634ba0bd85 100644
+--- a/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp
++++ b/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp
+@@ -936,10 +936,10 @@ void QQmlSortFilterProxyModelPrivate::sort_source_rows(
+ {
+     if (m_primarySortColumn >= 0) {
+         if (m_sortOrder == Qt::AscendingOrder) {
+-            QSortFilterProxyModelLessThan lt(m_primarySortColumn, source_parent, model, this);
++            QQmlSortFilterProxyModelLessThan lt(m_primarySortColumn, source_parent, model, this);
+             std::stable_sort(source_rows.begin(), source_rows.end(), lt);
+         } else {
+-            QSortFilterProxyModelGreaterThan gt(m_primarySortColumn, source_parent, model, this);
++            QQmlSortFilterProxyModelGreaterThan gt(m_primarySortColumn, source_parent, model, this);
+             std::stable_sort(source_rows.begin(), source_rows.end(), gt);
+         }
+     } else if (m_sortOrder == Qt::AscendingOrder) {
+diff --git a/src/qmlmodels/sfpm/qqmlsortfilterproxymodel_p.h b/src/qmlmodels/sfpm/qqmlsortfilterproxymodel_p.h
+index 5361da7fb78..da4cfce706b 100644
+--- a/src/qmlmodels/sfpm/qqmlsortfilterproxymodel_p.h
++++ b/src/qmlmodels/sfpm/qqmlsortfilterproxymodel_p.h
+@@ -30,8 +30,8 @@ class QQmlFilterCompositor;
+ class QQmlSorterBase;
+ class QQmlSorterCompositor;
+ class QQmlSortFilterProxyModelPrivate;
+-class QSortFilterProxyModelLessThan;
+-class QSortFilterProxyModelGreaterThan;
++class QQmlSortFilterProxyModelLessThan;
++class QQmlSortFilterProxyModelGreaterThan;
+ 
+ class Q_QMLMODELS_EXPORT QQmlSortFilterProxyModel : public QAbstractProxyModel, public QQmlParserStatus
+ {
+@@ -132,8 +132,8 @@ class Q_QMLMODELS_EXPORT QQmlSortFilterProxyModel : public QAbstractProxyModel,
+     Q_DISABLE_COPY(QQmlSortFilterProxyModel)
+     Q_DECLARE_PRIVATE(QQmlSortFilterProxyModel)
+ 
+-    friend class QSortFilterProxyModelLessThan;
+-    friend class QSortFilterProxyModelGreaterThan;
++    friend class QQmlSortFilterProxyModelLessThan;
++    friend class QQmlSortFilterProxyModelGreaterThan;
+ };
+ 
+ QT_END_NAMESPACE
+diff --git a/src/qmlmodels/sfpm/qsortfilterproxymodelhelper_p.h b/src/qmlmodels/sfpm/qsortfilterproxymodelhelper_p.h
+index f270c752841..5c92370f9aa 100644
+--- a/src/qmlmodels/sfpm/qsortfilterproxymodelhelper_p.h
++++ b/src/qmlmodels/sfpm/qsortfilterproxymodelhelper_p.h
+@@ -22,16 +22,16 @@
+ 
+ QT_BEGIN_NAMESPACE
+ 
+-class QSortFilterProxyModelLessThan;
+-class QSortFilterProxyModelGreaterThan;
++class QQmlSortFilterProxyModelLessThan;
++class QQmlSortFilterProxyModelGreaterThan;
+ class QQmlSortFilterProxyModel;
+ 
+ using QModelIndexPairList = QList<std::pair<QModelIndex, QPersistentModelIndex>>;
+ 
+ class Q_QMLMODELS_EXPORT QSortFilterProxyModelHelper
+ {
+-    friend class QSortFilterProxyModelGreaterThan;
+-    friend class QSortFilterProxyModelLessThan;
++    friend class QQmlSortFilterProxyModelGreaterThan;
++    friend class QQmlSortFilterProxyModelLessThan;
+ 
+ public:
+     QSortFilterProxyModelHelper();
+@@ -154,10 +154,10 @@ struct QSortFilterProxyModelDataChanged
+     QModelIndex bottomRight;
+ };
+ 
+-class QSortFilterProxyModelLessThan
++class QQmlSortFilterProxyModelLessThan
+ {
+ public:
+-    inline QSortFilterProxyModelLessThan(int column, const QModelIndex &parent,
++    inline QQmlSortFilterProxyModelLessThan(int column, const QModelIndex &parent,
+                                          const QAbstractItemModel *source,
+                                          const QSortFilterProxyModelHelper *helper)
+         : sort_column(column), source_parent(parent), source_model(source), proxy_model(helper) {}
+@@ -176,10 +176,10 @@ class QSortFilterProxyModelLessThan
+     const QSortFilterProxyModelHelper *proxy_model;
+ };
+ 
+-class QSortFilterProxyModelGreaterThan
++class QQmlSortFilterProxyModelGreaterThan
+ {
+ public:
+-    inline QSortFilterProxyModelGreaterThan(int column, const QModelIndex &parent,
++    inline QQmlSortFilterProxyModelGreaterThan(int column, const QModelIndex &parent,
+                                             const QAbstractItemModel *source,
+                                             const QSortFilterProxyModelHelper *helper)
+         : sort_column(column), source_parent(parent),
