@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGnssPositionDetails" kind="class" language="C++" prot="public">
+    <compoundname>GnssPositionDetails</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGnssPositionDetails_1a88fc066927d184474a271d09386c4ce0" prot="private" static="no" mutable="no">
+        <type>QList&lt; QString &gt;</type>
+        <definition>QList&lt;QString&gt; GnssPositionDetails::mNames</definition>
+        <argsstring></argsstring>
+        <name>mNames</name>
+        <qualifiedname>GnssPositionDetails::mNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="424" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="424" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnssPositionDetails_1a78eb0561ecb54ebd411e24cddcedb465" prot="private" static="no" mutable="no">
+        <type>QList&lt; QVariant &gt;</type>
+        <definition>QList&lt;QVariant&gt; GnssPositionDetails::mValues</definition>
+        <argsstring></argsstring>
+        <name>mValues</name>
+        <qualifiedname>GnssPositionDetails::mValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="425" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="425" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGnssPositionDetails_1a5e94ae65b9ce7ed3928431ee6e29117c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GnssPositionDetails::GnssPositionDetails</definition>
+        <argsstring>()</argsstring>
+        <name>GnssPositionDetails</name>
+        <qualifiedname>GnssPositionDetails::GnssPositionDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="412" column="5" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="412" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionDetails_1aa38eb1d752f4edac3a9e8de6e1e1df5b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GnssPositionDetails::append</definition>
+        <argsstring>(const QString &amp;name, const QVariant &amp;value)</argsstring>
+        <name>append</name>
+        <qualifiedname>GnssPositionDetails::append</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="414" column="10" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="414" bodyend="418"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionDetails_1a535fea49d482371925e3f8880d882e77" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; QString &gt;</type>
+        <definition>QList&lt; QString &gt; GnssPositionDetails::names</definition>
+        <argsstring>() const</argsstring>
+        <name>names</name>
+        <qualifiedname>GnssPositionDetails::names</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="420" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="420" bodyend="420"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnssPositionDetails_1ada6387442fd8e18d4b3c6e8ff3d802ce" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; QVariant &gt;</type>
+        <definition>QList&lt; QVariant &gt; GnssPositionDetails::values</definition>
+        <argsstring>() const</argsstring>
+        <name>values</name>
+        <qualifiedname>GnssPositionDetails::values</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="421" column="11" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="421" bodyend="421"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classGnssPositionDetails_1a3d57c9f2c6281e67d6563d60769b9220" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;stream, const GnssPositionDetails &amp;position)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>GnssPositionDetails::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classGnssPositionDetails" kindref="compound">GnssPositionDetails</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="427" column="12" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="180" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="friend" id="classGnssPositionDetails_1af549e07047f67f18eaacbdfabcb2bbfa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;stream, GnssPositionDetails &amp;position)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>GnssPositionDetails::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classGnssPositionDetails" kindref="compound">GnssPositionDetails</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/gnsspositioninformation.h" line="428" column="24" bodyfile="src/core/positioning/gnsspositioninformation.cpp" bodystart="186" bodyend="189"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/positioning/gnsspositioninformation.h" line="407" column="1" bodyfile="src/core/positioning/gnsspositioninformation.h" bodystart="408" bodyend="429"/>
+    <listofallmembers>
+      <member refid="classGnssPositionDetails_1aa38eb1d752f4edac3a9e8de6e1e1df5b" prot="public" virt="non-virtual"><scope>GnssPositionDetails</scope><name>append</name></member>
+      <member refid="classGnssPositionDetails_1a5e94ae65b9ce7ed3928431ee6e29117c" prot="public" virt="non-virtual"><scope>GnssPositionDetails</scope><name>GnssPositionDetails</name></member>
+      <member refid="classGnssPositionDetails_1a88fc066927d184474a271d09386c4ce0" prot="private" virt="non-virtual"><scope>GnssPositionDetails</scope><name>mNames</name></member>
+      <member refid="classGnssPositionDetails_1a78eb0561ecb54ebd411e24cddcedb465" prot="private" virt="non-virtual"><scope>GnssPositionDetails</scope><name>mValues</name></member>
+      <member refid="classGnssPositionDetails_1a535fea49d482371925e3f8880d882e77" prot="public" virt="non-virtual"><scope>GnssPositionDetails</scope><name>names</name></member>
+      <member refid="classGnssPositionDetails_1a3d57c9f2c6281e67d6563d60769b9220" prot="private" virt="non-virtual"><scope>GnssPositionDetails</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classGnssPositionDetails_1af549e07047f67f18eaacbdfabcb2bbfa" prot="private" virt="non-virtual"><scope>GnssPositionDetails</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classGnssPositionDetails_1ada6387442fd8e18d4b3c6e8ff3d802ce" prot="public" virt="non-virtual"><scope>GnssPositionDetails</scope><name>values</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

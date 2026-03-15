@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTextEdit" kind="class" language="C++" prot="public">
+    <compoundname>TextEdit</compoundname>
+    <basecompoundref refid="classEditorWidgetBase" prot="public" virt="non-virtual">EditorWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTextEdit_1a715ba88430efed03faff631b5cc9981b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool TextEdit::isEditable</definition>
+        <argsstring></argsstring>
+        <name>isEditable</name>
+        <qualifiedname>TextEdit::isEditable</qualifiedname>
+        <read>dummyGetter_isEditable_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="10" column="1" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTextEdit_1aaa1ed2c1e207f991e192607671e7a442" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var TextEdit::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>TextEdit::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="12" column="5" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTextEdit_1a58df3ef4a76b9e9e4da5347ba1005b33" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label TextEdit::textReadonlyValue</definition>
+        <argsstring></argsstring>
+        <name>textReadonlyValue</name>
+        <qualifiedname>TextEdit::textReadonlyValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="14" column="7" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTextEdit_1af53ba108f7617fc6e63da539956ea312" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField TextEdit::textField</definition>
+        <argsstring></argsstring>
+        <name>textField</name>
+        <qualifiedname>TextEdit::textField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="15" column="11" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTextEdit_1aabdc6de5431c03b603318bcb35ee0a9a" prot="private" static="no" mutable="no">
+        <type>IntValidator</type>
+        <definition>IntValidator TextEdit::intValidator</definition>
+        <argsstring></argsstring>
+        <name>intValidator</name>
+        <qualifiedname>TextEdit::intValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="16" column="14" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTextEdit_1a248c8408630053c983274760e0dfc13c" prot="private" static="no" mutable="no">
+        <type>DoubleValidator</type>
+        <definition>DoubleValidator TextEdit::doubleValidator</definition>
+        <argsstring></argsstring>
+        <name>doubleValidator</name>
+        <qualifiedname>TextEdit::doubleValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="17" column="17" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTextEdit_1a825552ea3fca4cd247fdc08e5694ea15" prot="private" static="no" mutable="no">
+        <type>TextArea</type>
+        <definition>TextArea TextEdit::textArea</definition>
+        <argsstring></argsstring>
+        <name>textArea</name>
+        <qualifiedname>TextEdit::textArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="18" column="10" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTextEdit_1aae09897571418b694d8a024e58cf44da" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics TextEdit::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>TextEdit::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="19" column="13" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTextEdit_1adefc4293603df1d0badee28062cc7399" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component TextEdit::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>TextEdit::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="20" column="14" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTextEdit_1a2ac2f2ef57b7c3500c620bb393aa05b4" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem TextEdit::copyTextItem</definition>
+        <argsstring></argsstring>
+        <name>copyTextItem</name>
+        <qualifiedname>TextEdit::copyTextItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="21" column="10" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTextEdit_1a5647930a650991197d532f62de2f70b0" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem TextEdit::pasteTextItem</definition>
+        <argsstring></argsstring>
+        <name>pasteTextItem</name>
+        <qualifiedname>TextEdit::pasteTextItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="22" column="10" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTextEdit_1a9bf85cac4958d09092e1ed2618c44c5d" prot="private" static="no" mutable="no">
+        <type>MenuSeparator</type>
+        <definition>MenuSeparator TextEdit::separatorItem</definition>
+        <argsstring></argsstring>
+        <name>separatorItem</name>
+        <qualifiedname>TextEdit::separatorItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="23" column="15" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTextEdit_1aa70e5f71e5ff5de599b36b07aad18060" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem TextEdit::scanCodeItem</definition>
+        <argsstring></argsstring>
+        <name>scanCodeItem</name>
+        <qualifiedname>TextEdit::scanCodeItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="24" column="10" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTextEdit_1a8da6cc9b6ee5076c3892ef4a8f9eb9e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TextEdit::requestedBarcodeReceived</definition>
+        <argsstring>(string)</argsstring>
+        <name>requestedBarcodeReceived</name>
+        <qualifiedname>TextEdit::requestedBarcodeReceived</qualifiedname>
+        <param>
+          <type>string</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/TextEdit.qml" line="27" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>TextEdit</label>
+        <link refid="classTextEdit"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>TextEdit</label>
+        <link refid="classTextEdit"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/TextEdit.qml" line="6" column="1" bodyfile="src/qml/editorwidgets/TextEdit.qml" bodystart="6" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classTextEdit_1a2ac2f2ef57b7c3500c620bb393aa05b4" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>copyTextItem</name></member>
+      <member refid="classTextEdit_1a248c8408630053c983274760e0dfc13c" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>doubleValidator</name></member>
+      <member refid="classTextEdit_1aae09897571418b694d8a024e58cf44da" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>fontMetrics</name></member>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>TextEdit</scope><name>hasMenu</name></member>
+      <member refid="classTextEdit_1aaa1ed2c1e207f991e192607671e7a442" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>height</name></member>
+      <member refid="classTextEdit_1aabdc6de5431c03b603318bcb35ee0a9a" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>intValidator</name></member>
+      <member refid="classTextEdit_1a715ba88430efed03faff631b5cc9981b" prot="public" virt="non-virtual"><scope>TextEdit</scope><name>isEditable</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>TextEdit</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>TextEdit</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>TextEdit</scope><name>isNull</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>TextEdit</scope><name>menu</name></member>
+      <member refid="classTextEdit_1adefc4293603df1d0badee28062cc7399" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>onCompleted</name></member>
+      <member refid="classTextEdit_1a5647930a650991197d532f62de2f70b0" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>pasteTextItem</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>TextEdit</scope><name>requestBarcode</name></member>
+      <member refid="classTextEdit_1a8da6cc9b6ee5076c3892ef4a8f9eb9e7" prot="public" virt="non-virtual"><scope>TextEdit</scope><name>requestedBarcodeReceived</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>TextEdit</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>TextEdit</scope><name>requestJumpToPoint</name></member>
+      <member refid="classTextEdit_1aa70e5f71e5ff5de599b36b07aad18060" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>scanCodeItem</name></member>
+      <member refid="classTextEdit_1a9bf85cac4958d09092e1ed2618c44c5d" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>separatorItem</name></member>
+      <member refid="classTextEdit_1a825552ea3fca4cd247fdc08e5694ea15" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>textArea</name></member>
+      <member refid="classTextEdit_1af53ba108f7617fc6e63da539956ea312" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>textField</name></member>
+      <member refid="classTextEdit_1a58df3ef4a76b9e9e4da5347ba1005b33" prot="private" virt="non-virtual"><scope>TextEdit</scope><name>textReadonlyValue</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>TextEdit</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

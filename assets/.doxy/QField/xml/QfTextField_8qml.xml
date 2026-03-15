@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfTextField_8qml" kind="file" language="C++">
+    <compoundname>QfTextField.qml</compoundname>
+    <innerclass refid="classTheme_1_1QfTextField" prot="public">Theme::QfTextField</innerclass>
+    <innernamespace refid="namespaceTheme">Theme</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Controls</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">TextField<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>id:<sp/>textField</highlight></codeline>
+<codeline lineno="10" refid="classTheme_1_1QfTextField" refkind="compound"><highlight class="normal"><sp/><sp/>echoMode:<sp/>TextInput.Normal</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>passwordMaskDelay:<sp/>Qt.platform.os<sp/>===<sp/>&quot;ios&quot;<sp/>||<sp/>Qt.platform.os<sp/>===<sp/></highlight><highlight class="stringliteral">&quot;android&quot;</highlight><highlight class="normal"><sp/>?<sp/>1000<sp/>:<sp/>0</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>font:<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.defaultFont</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>rightPadding:<sp/>showPasswordButton.visible<sp/>?<sp/>showPasswordButton.width<sp/>:<sp/>leftPadding</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>inputMethodHints:<sp/>Qt.ImhNone</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>showPasswordButton</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">property</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>originalEchoMode:<sp/>TextInput.Normal</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>z:<sp/>1</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>visible:<sp/>(!!textField.echoMode<sp/>&amp;&amp;<sp/>textField.echoMode<sp/>!==<sp/>TextInput.Normal)<sp/>||<sp/>originalEchoMode<sp/>!==<sp/>TextInput.Normal</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>iconSource:<sp/>textField.echoMode<sp/>===<sp/>TextInput.Normal<sp/>?<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.<ref refid="classTheme_1a051a0115893f572981d6c4dfe7ffdd37" kindref="member">getThemeVectorIcon</ref>(</highlight><highlight class="stringliteral">&apos;ic_hide_green_48dp&apos;</highlight><highlight class="normal">)<sp/>:<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.<ref refid="classTheme_1a051a0115893f572981d6c4dfe7ffdd37" kindref="member">getThemeVectorIcon</ref>(</highlight><highlight class="stringliteral">&apos;ic_show_green_48dp&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>iconColor:<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.mainColor</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>anchors.right:<sp/>textField.right</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>anchors.verticalCenter:<sp/>textField.verticalCenter</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>opacity:<sp/>textField.text.length<sp/>&gt;<sp/>0<sp/>?<sp/>1<sp/>:<sp/>0.25</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>onClicked:<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(textField.echoMode<sp/>!==<sp/>TextInput.Normal)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>originalEchoMode<sp/>=<sp/>textField.echoMode;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>textField.echoMode<sp/>=<sp/>TextInput.Normal;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>textField.echoMode<sp/>=<sp/>originalEchoMode;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>FontMetrics<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>fontMetrics</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>font:<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.defaultFont</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/imports/Theme/QfTextField.qml"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qgsquickcoordinatetransformer_8h" kind="file" language="C++">
+    <compoundname>qgsquickcoordinatetransformer.h</compoundname>
+    <includes local="no">QGeoCoordinate</includes>
+    <includes local="no">QObject</includes>
+    <includes local="no">qgscoordinatereferencesystem.h</includes>
+    <includes local="no">qgscoordinatetransform.h</includes>
+    <includes local="no">qgscoordinatetransformcontext.h</includes>
+    <includes local="no">qgspoint.h</includes>
+    <includedby refid="positioning_8h" local="yes">src/core/positioning/positioning.h</includedby>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <includedby refid="qgsquickcoordinatetransformer_8cpp" local="yes">src/core/qgsquick/qgsquickcoordinatetransformer.cpp</includedby>
+    <includedby refid="tracker_8cpp" local="yes">src/core/tracker.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/qgsquick/qgsquickcoordinatetransformer.h</label>
+        <link refid="qgsquickcoordinatetransformer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QGeoCoordinate</label>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="4">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="5">
+        <label>qgscoordinatetransform.h</label>
+      </node>
+      <node id="6">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="7">
+        <label>qgspoint.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/core/positioning/positioning.h</label>
+        <link refid="positioning_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/core/positioning/positioninginformationmodel.h</label>
+        <link refid="positioninginformationmodel_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/core/qgsquick/qgsquickcoordinatetransformer.h</label>
+        <link refid="qgsquickcoordinatetransformer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classQgsQuickCoordinateTransformer" prot="public">QgsQuickCoordinateTransformer</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>qgsquickcoordinatetransformer.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>--------------------------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>Date<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>1.6.2017</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>Copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2017<sp/>by<sp/>Matthias<sp/>Kuhn</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>Email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><sp/>matthias<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QGSQUICKCOORDINATETRANSFORMER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QGSQUICKCOORDINATETRANSFORMER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QGeoCoordinate&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgscoordinatereferencesystem.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgscoordinatetransform.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgscoordinatetransformcontext.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgspoint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="classQgsQuickCoordinateTransformer" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="classQgsQuickCoordinateTransformer_1aa39caa792efa25c9dc2002b3c338638b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsPoint<sp/><ref refid="classQgsQuickCoordinateTransformer_1aa39caa792efa25c9dc2002b3c338638b" kindref="member">projectedPosition</ref><sp/>READ<sp/><ref refid="classQgsQuickCoordinateTransformer_1aa39caa792efa25c9dc2002b3c338638b" kindref="member">projectedPosition</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickCoordinateTransformer_1a569d1ed7f852f897e1f653b3d7fe6e35" kindref="member">projectedPositionChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44" refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsPoint<sp/><ref refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" kindref="member">sourcePosition</ref><sp/>READ<sp/><ref refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" kindref="member">sourcePosition</ref><sp/>WRITE<sp/><ref refid="classQgsQuickCoordinateTransformer_1ae435e0863eaec99208da771e95f3b965" kindref="member">setSourcePosition</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickCoordinateTransformer_1a5e479377a90e4c7495093113f647a2ed" kindref="member">sourcePositionChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QGeoCoordinate<sp/><ref refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" kindref="member">sourceCoordinate</ref><sp/>READ<sp/><ref refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" kindref="member">sourceCoordinate</ref><sp/>WRITE<sp/><ref refid="classQgsQuickCoordinateTransformer_1a893e5b32957725336ec64e8db48657a4" kindref="member">setSourceCoordinate</ref><sp/>NOTIFY<sp/>sourceCoordinateChanged<sp/>)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classQgsQuickCoordinateTransformer_1a2b27d5e0b59d0bb0654e3d665c96a871" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsCoordinateReferenceSystem<sp/><ref refid="classQgsQuickCoordinateTransformer_1a2b27d5e0b59d0bb0654e3d665c96a871" kindref="member">destinationCrs</ref><sp/>READ<sp/><ref refid="classQgsQuickCoordinateTransformer_1a2b27d5e0b59d0bb0654e3d665c96a871" kindref="member">destinationCrs</ref><sp/>WRITE<sp/><ref refid="classQgsQuickCoordinateTransformer_1aff225d016c5d2b4e17fcfb1861999c39" kindref="member">setDestinationCrs</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickCoordinateTransformer_1adfb6d92017b0cb8c04795e7d791fd2eb" kindref="member">destinationCrsChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classQgsQuickCoordinateTransformer_1a20fa24709da8ca1c1fb224cdc9706116" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsCoordinateReferenceSystem<sp/><ref refid="classQgsQuickCoordinateTransformer_1a20fa24709da8ca1c1fb224cdc9706116" kindref="member">sourceCrs</ref><sp/>READ<sp/><ref refid="classQgsQuickCoordinateTransformer_1a20fa24709da8ca1c1fb224cdc9706116" kindref="member">sourceCrs</ref><sp/>WRITE<sp/><ref refid="classQgsQuickCoordinateTransformer_1aa2de9e6a954b9d94723d5b43b19728b5" kindref="member">setSourceCrs</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickCoordinateTransformer_1a9878a22575c503fda354cc48f8640f2a" kindref="member">sourceCrsChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classQgsQuickCoordinateTransformer_1a77a386b53eae71b769bbf7cf53016a3b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsCoordinateTransformContext<sp/><ref refid="classQgsQuickCoordinateTransformer_1a77a386b53eae71b769bbf7cf53016a3b" kindref="member">transformContext</ref><sp/>READ<sp/><ref refid="classQgsQuickCoordinateTransformer_1a77a386b53eae71b769bbf7cf53016a3b" kindref="member">transformContext</ref><sp/>WRITE<sp/><ref refid="classQgsQuickCoordinateTransformer_1a69c51b0b2fa5ebf6084c73124087919d" kindref="member">setTransformContext</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickCoordinateTransformer_1a3a83cf812a6620052a6be0413454b50b" kindref="member">transformContextChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="classQgsQuickCoordinateTransformer_1a70a06031705612e9cca6e9292594454a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>qreal<sp/><ref refid="classQgsQuickCoordinateTransformer_1a70a06031705612e9cca6e9292594454a" kindref="member">deltaZ</ref><sp/>READ<sp/><ref refid="classQgsQuickCoordinateTransformer_1a70a06031705612e9cca6e9292594454a" kindref="member">deltaZ</ref><sp/>WRITE<sp/><ref refid="classQgsQuickCoordinateTransformer_1aa9f5b3fec7d2aae7523328af30f20349" kindref="member">setDeltaZ</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickCoordinateTransformer_1a56e9c389b2a7847eda19dcd36e682d83" kindref="member">deltaZChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="classQgsQuickCoordinateTransformer_1add3801dcf826302c9e6b99037a46b242" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1add3801dcf826302c9e6b99037a46b242" kindref="member">skipAltitudeTransformation</ref><sp/>READ<sp/><ref refid="classQgsQuickCoordinateTransformer_1add3801dcf826302c9e6b99037a46b242" kindref="member">skipAltitudeTransformation</ref><sp/>WRITE<sp/><ref refid="classQgsQuickCoordinateTransformer_1a7f8a2609622503a21806a867d6907627" kindref="member">setSkipAltitudeTransformation</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickCoordinateTransformer_1ae46a3058b15ae134f350ed7b25eaf7b4" kindref="member">skipAltitudeTransformationChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="classQgsQuickCoordinateTransformer_1ad5007c583c3a208a878ea97e17cecf15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classQgsQuickCoordinateTransformer_1ad5007c583c3a208a878ea97e17cecf15" kindref="member">verticalGrid</ref><sp/>READ<sp/><ref refid="classQgsQuickCoordinateTransformer_1ad5007c583c3a208a878ea97e17cecf15" kindref="member">verticalGrid</ref><sp/>WRITE<sp/><ref refid="classQgsQuickCoordinateTransformer_1a82a4116ce97773f566c1e701056ee4bc" kindref="member">setVerticalGrid</ref><sp/>NOTIFY<sp/><ref refid="classQgsQuickCoordinateTransformer_1afd8e8540536a198cf4419d28b3525b88" kindref="member">verticalGridChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/><ref refid="classQgsQuickCoordinateTransformer_1aa39caa792efa25c9dc2002b3c338638b" kindref="member">projectedPosition</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/><ref refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" kindref="member">sourcePosition</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1ae435e0863eaec99208da771e95f3b965" kindref="member">setSourcePosition</ref>(<sp/>const<sp/>QgsPoint<sp/>&amp;<ref refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" kindref="member">sourcePosition</ref><sp/>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsCoordinateReferenceSystem<sp/><ref refid="classQgsQuickCoordinateTransformer_1a2b27d5e0b59d0bb0654e3d665c96a871" kindref="member">destinationCrs</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1aff225d016c5d2b4e17fcfb1861999c39" kindref="member">setDestinationCrs</ref>(<sp/>const<sp/>QgsCoordinateReferenceSystem<sp/>&amp;<ref refid="classQgsQuickCoordinateTransformer_1a2b27d5e0b59d0bb0654e3d665c96a871" kindref="member">destinationCrs</ref><sp/>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsCoordinateReferenceSystem<sp/><ref refid="classQgsQuickCoordinateTransformer_1a20fa24709da8ca1c1fb224cdc9706116" kindref="member">sourceCrs</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1aa2de9e6a954b9d94723d5b43b19728b5" kindref="member">setSourceCrs</ref>(<sp/>const<sp/>QgsCoordinateReferenceSystem<sp/>&amp;<ref refid="classQgsQuickCoordinateTransformer_1a20fa24709da8ca1c1fb224cdc9706116" kindref="member">sourceCrs</ref><sp/>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a69c51b0b2fa5ebf6084c73124087919d" kindref="member">setTransformContext</ref>(<sp/>const<sp/>QgsCoordinateTransformContext<sp/>&amp;context<sp/>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsCoordinateTransformContext<sp/><ref refid="classQgsQuickCoordinateTransformer_1a77a386b53eae71b769bbf7cf53016a3b" kindref="member">transformContext</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/><ref refid="classQgsQuickCoordinateTransformer_1a70a06031705612e9cca6e9292594454a" kindref="member">deltaZ</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1aa9f5b3fec7d2aae7523328af30f20349" kindref="member">setDeltaZ</ref>(<sp/>const<sp/>qreal<sp/>&amp;<ref refid="classQgsQuickCoordinateTransformer_1a70a06031705612e9cca6e9292594454a" kindref="member">deltaZ</ref><sp/>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>QGeoCoordinate<sp/><ref refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" kindref="member">sourceCoordinate</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a893e5b32957725336ec64e8db48657a4" kindref="member">setSourceCoordinate</ref>(<sp/>const<sp/>QGeoCoordinate<sp/>&amp;<ref refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" kindref="member">sourceCoordinate</ref><sp/>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1add3801dcf826302c9e6b99037a46b242" kindref="member">skipAltitudeTransformation</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a7f8a2609622503a21806a867d6907627" kindref="member">setSkipAltitudeTransformation</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1add3801dcf826302c9e6b99037a46b242" kindref="member">skipAltitudeTransformation</ref><sp/>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQgsQuickCoordinateTransformer_1ad5007c583c3a208a878ea97e17cecf15" kindref="member">verticalGrid</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a82a4116ce97773f566c1e701056ee4bc" kindref="member">setVerticalGrid</ref>(<sp/>const<sp/>QString<sp/>&amp;grid<sp/>);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QgsPoint<sp/>transformPosition(<sp/>const<sp/>QgsPoint<sp/>&amp;position<sp/>)<sp/>const;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="133" refid="classQgsQuickCoordinateTransformer_1a569d1ed7f852f897e1f653b3d7fe6e35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a569d1ed7f852f897e1f653b3d7fe6e35" kindref="member">projectedPositionChanged</ref>();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="classQgsQuickCoordinateTransformer_1a5e479377a90e4c7495093113f647a2ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a5e479377a90e4c7495093113f647a2ed" kindref="member">sourcePositionChanged</ref>();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sourceCoordinateChanged();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="classQgsQuickCoordinateTransformer_1adfb6d92017b0cb8c04795e7d791fd2eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1adfb6d92017b0cb8c04795e7d791fd2eb" kindref="member">destinationCrsChanged</ref>();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="classQgsQuickCoordinateTransformer_1a9878a22575c503fda354cc48f8640f2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a9878a22575c503fda354cc48f8640f2a" kindref="member">sourceCrsChanged</ref>();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="classQgsQuickCoordinateTransformer_1a3a83cf812a6620052a6be0413454b50b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a3a83cf812a6620052a6be0413454b50b" kindref="member">transformContextChanged</ref>();</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="classQgsQuickCoordinateTransformer_1a56e9c389b2a7847eda19dcd36e682d83" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a56e9c389b2a7847eda19dcd36e682d83" kindref="member">deltaZChanged</ref>();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="classQgsQuickCoordinateTransformer_1ae46a3058b15ae134f350ed7b25eaf7b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1ae46a3058b15ae134f350ed7b25eaf7b4" kindref="member">skipAltitudeTransformationChanged</ref>();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156" refid="classQgsQuickCoordinateTransformer_1afd8e8540536a198cf4419d28b3525b88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1afd8e8540536a198cf4419d28b3525b88" kindref="member">verticalGridChanged</ref>();</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>private:</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updatePosition();</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/>processPosition(<sp/>const<sp/>QgsPoint<sp/>&amp;position<sp/>)<sp/>const;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/>mProjectedPosition;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/>mSourcePosition;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsCoordinateTransform<sp/>mCoordinateTransform;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsCoordinateTransform<sp/>mCoordinateVerticalGridTransform;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>mDeltaZ<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mSkipAltitudeTransformation<sp/>=<sp/>true;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mVerticalGrid;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mVerticalGridPath;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QGSQUICKCOORDINATETRANSFORMER_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h"/>
+  </compounddef>
+</doxygen>

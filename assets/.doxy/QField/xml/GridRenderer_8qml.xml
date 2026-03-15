@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="GridRenderer_8qml" kind="file" language="C++">
+    <compoundname>GridRenderer.qml</compoundname>
+    <innerclass refid="classGridRenderer" prot="public">GridRenderer</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Shapes</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">Item<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>id:<sp/>gridRenderer</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>enabled:<sp/>gridModel.enabled</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>mapSettings:<sp/>gridModel.mapSettings</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>indeterminate:<sp/>gridModel.indeterminate</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>xInterval:<sp/>gridModel.xInterval</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>yInterval:<sp/>gridModel.yInterval</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>xOffset:<sp/>gridModel.xOffset</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>yOffset:<sp/>gridModel.yOffset</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>autoColor:<sp/>gridModel.autoColor</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>majorLineColor:<sp/>gridModel.majorLineColor</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>minorLineColor:<sp/>gridModel.minorLineColor</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>markerColor:<sp/>gridModel.markerColor</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>annotationColor:<sp/>gridModel.annotationColor</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>annotationOutlineColor:<sp/>gridModel.annotationOutlineColor</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>annotationHasOutline:<sp/>gridModel.annotationHasOutline</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>annotationPrecision:<sp/>gridModel.annotationPrecision</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>prepareLines:<sp/>gridModel.prepareLines</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>prepareMarkers:<sp/>gridModel.prepareMarkers</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>prepareAnnotations:<sp/>gridModel.prepareAnnotations</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>GridModel<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>gridModel</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>onMajorLinesChanged:<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>let<sp/>svgPath<sp/>=<sp/>&quot;&quot;;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(const<sp/>line<sp/>of<sp/>majorLines)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>svgPath<sp/>+=<sp/>&quot;M<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(line[0].x)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(line[0].y)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/>L<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(line[1].x)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(line[1].y)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;;</highlight></codeline>
+<codeline lineno="42"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>majorLineSvgPath.path<sp/>=<sp/>svgPath;</highlight></codeline>
+<codeline lineno="44"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="46"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>onMinorLinesChanged:<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>let<sp/>svgPath<sp/>=<sp/>&quot;</highlight><highlight class="stringliteral">&quot;;</highlight></codeline>
+<codeline lineno="48"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(const<sp/>line<sp/>of<sp/>minorLines)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>svgPath<sp/>+=<sp/>&quot;</highlight><highlight class="normal">M<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(line[0].x)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(line[0].y)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/>L<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(line[1].x)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(line[1].y)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;;</highlight></codeline>
+<codeline lineno="50"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>minorLineSvgPath.path<sp/>=<sp/>svgPath;</highlight></codeline>
+<codeline lineno="52"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>onMarkersChanged:<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>let<sp/>svgPath<sp/>=<sp/>&quot;</highlight><highlight class="stringliteral">&quot;;</highlight></codeline>
+<codeline lineno="56"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(const<sp/>marker<sp/>of<sp/>markers)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>svgPath<sp/>+=<sp/>&quot;</highlight><highlight class="normal">M<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(marker.x)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(marker.y<sp/>-<sp/>5)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/>L<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(marker.x)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(marker.y<sp/>+<sp/>5)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>&quot;</highlight><highlight class="normal">M<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(marker.x<sp/>-<sp/>5)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(marker.y)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/>L<sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(marker.x<sp/>+<sp/>5)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;<sp/>+<sp/>(marker.y)<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;;</highlight></codeline>
+<codeline lineno="58"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>markerSvgPath.path<sp/>=<sp/>svgPath;</highlight></codeline>
+<codeline lineno="60"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="stringliteral"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="63"><highlight class="stringliteral"><sp/><sp/>Shape<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>id:<sp/>minorLinesContainer</highlight></codeline>
+<codeline lineno="65"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>visible:<sp/>gridModel.prepareLines<sp/>&amp;&amp;<sp/>gridModel.minorLines.length<sp/>&gt;<sp/>0</highlight></codeline>
+<codeline lineno="66"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>anchors.fill:<sp/>parent</highlight></codeline>
+<codeline lineno="67"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="68"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>ShapePath<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>minorLinesPath</highlight></codeline>
+<codeline lineno="70"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>strokeColor:<sp/>minorLineColor</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>strokeWidth:<sp/>1</highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>strokeStyle:<sp/>ShapePath.SolidLine</highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>fillColor:<sp/>&quot;</highlight><highlight class="normal">transparent</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>joinStyle:<sp/>ShapePath.RoundJoin</highlight></codeline>
+<codeline lineno="75"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>capStyle:<sp/>ShapePath.RoundCap</highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="77"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>PathSvg<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>minorLineSvgPath</highlight></codeline>
+<codeline lineno="79"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>path:<sp/>&quot;</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="80"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="stringliteral"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="84"><highlight class="stringliteral"><sp/><sp/>Shape<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>id:<sp/>majorLinesContainer</highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>visible:<sp/>gridModel.prepareLines<sp/>&amp;&amp;<sp/>gridModel.majorLines.length<sp/>&gt;<sp/>0</highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>anchors.fill:<sp/>parent</highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="89"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>ShapePath<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>majorLinesPath</highlight></codeline>
+<codeline lineno="91"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>strokeColor:<sp/>majorLineColor</highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>strokeWidth:<sp/>1</highlight></codeline>
+<codeline lineno="93"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>strokeStyle:<sp/>ShapePath.SolidLine</highlight></codeline>
+<codeline lineno="94"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>fillColor:<sp/>&quot;</highlight><highlight class="normal">transparent</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="95"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>joinStyle:<sp/>ShapePath.RoundJoin</highlight></codeline>
+<codeline lineno="96"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>capStyle:<sp/>ShapePath.RoundCap</highlight></codeline>
+<codeline lineno="97"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="98"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>PathSvg<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>majorLineSvgPath</highlight></codeline>
+<codeline lineno="100"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>path:<sp/>&quot;</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="101"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="stringliteral"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="105"><highlight class="stringliteral"><sp/><sp/>Shape<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>id:<sp/>markersContainer</highlight></codeline>
+<codeline lineno="107"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>visible:<sp/>gridModel.prepareMarkers<sp/>&amp;&amp;<sp/>gridModel.markers.length<sp/>&gt;<sp/>0</highlight></codeline>
+<codeline lineno="108"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>anchors.fill:<sp/>parent</highlight></codeline>
+<codeline lineno="109"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="110"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>ShapePath<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>markerPath</highlight></codeline>
+<codeline lineno="112"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>strokeColor:<sp/>markerColor</highlight></codeline>
+<codeline lineno="113"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>strokeWidth:<sp/>2</highlight></codeline>
+<codeline lineno="114"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>strokeStyle:<sp/>ShapePath.SolidLine</highlight></codeline>
+<codeline lineno="115"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>fillColor:<sp/>&quot;</highlight><highlight class="normal">transparent</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="116"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>joinStyle:<sp/>ShapePath.RoundJoin</highlight></codeline>
+<codeline lineno="117"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>capStyle:<sp/>ShapePath.RoundCap</highlight></codeline>
+<codeline lineno="118"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="119"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>PathSvg<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>markerSvgPath</highlight></codeline>
+<codeline lineno="121"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>path:<sp/>&quot;</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="122"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="stringliteral"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="126"><highlight class="stringliteral"><sp/><sp/>Repeater<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>id:<sp/>annotationsContainer</highlight></codeline>
+<codeline lineno="128"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>model:<sp/>gridModel.annotations</highlight></codeline>
+<codeline lineno="129"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="130"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Rectangle<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>x:<sp/>modelData.coordinate.x<sp/>-<sp/>width<sp/>/<sp/>2</highlight></codeline>
+<codeline lineno="132"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>y:<sp/>modelData.coordinate.y<sp/>-<sp/>height<sp/>/<sp/>2</highlight></codeline>
+<codeline lineno="133"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="134"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>width:<sp/>1</highlight></codeline>
+<codeline lineno="135"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>height:<sp/>1</highlight></codeline>
+<codeline lineno="136"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="137"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>color:<sp/>majorLineColor</highlight></codeline>
+<codeline lineno="138"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="139"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Text<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>annotation</highlight></codeline>
+<codeline lineno="141"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>anchors.top:<sp/>modelData.position<sp/>===<sp/>GridAnnotation.Top<sp/>?<sp/>parent.bottom<sp/>:<sp/>undefined</highlight></codeline>
+<codeline lineno="142"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>anchors.bottom:<sp/>modelData.position<sp/>===<sp/>GridAnnotation.Bottom<sp/>?<sp/>parent.top<sp/>:<sp/>undefined</highlight></codeline>
+<codeline lineno="143"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>anchors.left:<sp/>modelData.position<sp/>===<sp/>GridAnnotation.Left<sp/>?<sp/>parent.right<sp/>:<sp/>undefined</highlight></codeline>
+<codeline lineno="144"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>anchors.right:<sp/>modelData.position<sp/>===<sp/>GridAnnotation.Right<sp/>?<sp/>parent.left<sp/>:<sp/>undefined</highlight></codeline>
+<codeline lineno="145"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>anchors.horizontalCenter:<sp/>modelData.position<sp/>===<sp/>GridAnnotation.Top<sp/>||<sp/>modelData.position<sp/>===<sp/>GridAnnotation.Bottom<sp/>?<sp/>parent.horizontalCenter<sp/>:<sp/>undefined</highlight></codeline>
+<codeline lineno="146"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>anchors.verticalCenter:<sp/>modelData.position<sp/>===<sp/>GridAnnotation.Left<sp/>||<sp/>modelData.position<sp/>===<sp/>GridAnnotation.Right<sp/>?<sp/>parent.verticalCenter<sp/>:<sp/>undefined</highlight></codeline>
+<codeline lineno="147"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="148"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>font:<sp/>Theme.tinyFont</highlight></codeline>
+<codeline lineno="149"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>color:<sp/>annotationColor</highlight></codeline>
+<codeline lineno="150"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>style:<sp/>annotationHasOutline<sp/>?<sp/>Text.Outline<sp/>:<sp/>Text.Normal</highlight></codeline>
+<codeline lineno="151"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>styleColor:<sp/>annotationOutlineColor</highlight></codeline>
+<codeline lineno="152"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="153"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>text:<sp/>Number(modelData.value).toLocaleString(Qt.locale(),<sp/>&apos;f&apos;,<sp/>annotationPrecision)</highlight></codeline>
+<codeline lineno="154"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="stringliteral"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="stringliteral">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/GridRenderer.qml"/>
+  </compounddef>
+</doxygen>

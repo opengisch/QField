@@ -1,0 +1,825 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningInformationModel" kind="class" language="C++" prot="public">
+    <compoundname>PositioningInformationModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QStandardItemModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classPositioningInformationModel_1a4370280c303ac5d014a08816e9c59fb1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>PositioningInformationModel::Roles</qualifiedname>
+        <enumvalue id="classPositioningInformationModel_1a4370280c303ac5d014a08816e9c59fb1ae96e6fb2fcd65ebfba3d2886985a27ba" prot="public">
+          <name>NameRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningInformationModel_1a4370280c303ac5d014a08816e9c59fb1ac1e1ccba03757182e1d346a8a9075205" prot="public">
+          <name>ValueRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="22" column="5" bodyfile="src/core/positioning/positioninginformationmodel.h" bodystart="23" bodyend="26"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPositioningInformationModel_1a38cbf9243d0746f065d7861e6f0be18c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classPositioning" kindref="compound">Positioning</ref> *</type>
+        <definition>Positioning * PositioningInformationModel::positioningSource</definition>
+        <argsstring></argsstring>
+        <name>positioningSource</name>
+        <qualifiedname>PositioningInformationModel::positioningSource</qualifiedname>
+        <read>positioningSource</read>
+        <write>setPositioningSource</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="16" column="5" bodyfile="src/core/positioning/positioninginformationmodel.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningInformationModel_1acf78b0aa0f43b28f03f6bf0812007602" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningInformationModel::antennaHeight</definition>
+        <argsstring></argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>PositioningInformationModel::antennaHeight</qualifiedname>
+        <read>antennaHeight</read>
+        <write>setAntennaHeight</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="17" column="5" bodyfile="src/core/positioning/positioninginformationmodel.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningInformationModel_1a52bf8ba928b2102643579b110ead6cee" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit PositioningInformationModel::distanceUnits</definition>
+        <argsstring></argsstring>
+        <name>distanceUnits</name>
+        <qualifiedname>PositioningInformationModel::distanceUnits</qualifiedname>
+        <read>distanceUnits</read>
+        <write>setDistanceUnits</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="18" column="5" bodyfile="src/core/positioning/positioninginformationmodel.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningInformationModel_1a5a7aa58fa715da46876f1571c7607082" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem PositioningInformationModel::coordinateDisplayCrs</definition>
+        <argsstring></argsstring>
+        <name>coordinateDisplayCrs</name>
+        <qualifiedname>PositioningInformationModel::coordinateDisplayCrs</qualifiedname>
+        <read>coordinateDisplayCrs</read>
+        <write>setCoordinateDisplayCrs</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="19" column="5" bodyfile="src/core/positioning/positioninginformationmodel.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPositioningInformationModel_1aa2bdbe5fc5eb80d7c62d807ef8533262" prot="private" static="no" mutable="no">
+        <type><ref refid="classPositioning" kindref="compound">Positioning</ref> *</type>
+        <definition>Positioning* PositioningInformationModel::mPositioningSource</definition>
+        <argsstring></argsstring>
+        <name>mPositioningSource</name>
+        <qualifiedname>PositioningInformationModel::mPositioningSource</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="119" column="17" bodyfile="src/core/positioning/positioninginformationmodel.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningInformationModel_1a2844a0473e5876a45697c4a84d0ea340" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PositioningInformationModel::mAntennaHeight</definition>
+        <argsstring></argsstring>
+        <name>mAntennaHeight</name>
+        <qualifiedname>PositioningInformationModel::mAntennaHeight</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="120" column="12" bodyfile="src/core/positioning/positioninginformationmodel.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningInformationModel_1a7e1470244c501c894be37d6ea362937e" prot="private" static="no" mutable="no">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit PositioningInformationModel::mDistanceUnits</definition>
+        <argsstring></argsstring>
+        <name>mDistanceUnits</name>
+        <qualifiedname>PositioningInformationModel::mDistanceUnits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="121" column="24" bodyfile="src/core/positioning/positioninginformationmodel.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningInformationModel_1a9e4fbdc5e8f09754687d78964df26fbe" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem PositioningInformationModel::mCoordinateDisplayCrs</definition>
+        <argsstring></argsstring>
+        <name>mCoordinateDisplayCrs</name>
+        <qualifiedname>PositioningInformationModel::mCoordinateDisplayCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="122" column="34" bodyfile="src/core/positioning/positioninginformationmodel.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningInformationModel_1aa76a2331de7a46176f64c7a697237385" prot="private" static="no" mutable="no">
+        <type>QMetaObject::Connection</type>
+        <definition>QMetaObject::Connection PositioningInformationModel::positioningSourceConnection</definition>
+        <argsstring></argsstring>
+        <name>positioningSourceConnection</name>
+        <qualifiedname>PositioningInformationModel::positioningSourceConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="123" column="29" bodyfile="src/core/positioning/positioninginformationmodel.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPositioningInformationModel_1a2b3651886b4bd558590772d0ebe08c9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PositioningInformationModel::PositioningInformationModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>PositioningInformationModel</name>
+        <qualifiedname>PositioningInformationModel::PositioningInformationModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="28" column="5" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="8" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a71fb4dced0a3183309c06cb7619c8f8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PositioningInformationModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>PositioningInformationModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+<para>Sets the data for the given index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index to set the data for </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>role</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The role of the data </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="36" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="179" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a296cb6918381d4b574c31b1859621f8d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; PositioningInformationModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>PositioningInformationModel::roleNames</qualifiedname>
+        <briefdescription>
+<para>Returns the names of the roles used by the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="41" column="11" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="215" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1abfe4ee198d0403af8b2c71b3e0606939" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::refreshData</definition>
+        <argsstring>()</argsstring>
+        <name>refreshData</name>
+        <qualifiedname>PositioningInformationModel::refreshData</qualifiedname>
+        <briefdescription>
+<para>Refreshes the data in the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="46" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="14" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a9c06439cb9615de78819f4e87d3601d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::updateInfo</definition>
+        <argsstring>(const QString &amp;name, const QVariant &amp;value)</argsstring>
+        <name>updateInfo</name>
+        <qualifiedname>PositioningInformationModel::updateInfo</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Updates the information in the model with the given name and value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the information to update </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="53" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="130" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1ac4691a50e3c45746d76258cc66819205" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classPositioning" kindref="compound">Positioning</ref> *</type>
+        <definition>Positioning * PositioningInformationModel::positioningSource</definition>
+        <argsstring>() const</argsstring>
+        <name>positioningSource</name>
+        <qualifiedname>PositioningInformationModel::positioningSource</qualifiedname>
+        <briefdescription>
+<para>Returns the positioning source. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="58" column="17" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="229" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1ad761c79a1e2ab8bd2dbd9a30e9439e32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::setPositioningSource</definition>
+        <argsstring>(Positioning *positioningSource)</argsstring>
+        <name>setPositioningSource</name>
+        <qualifiedname>PositioningInformationModel::setPositioningSource</qualifiedname>
+        <param>
+          <type><ref refid="classPositioning" kindref="compound">Positioning</ref> *</type>
+          <declname>positioningSource</declname>
+        </param>
+        <briefdescription>
+<para>Updates the positioning source and reconnects the positionInformationChanged signal to refreshData, while disconnecting the previous connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>positioningSource</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new positioning source to update with </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="64" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="234" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a40b41dfda3bbbeeefff604ba1312ecb1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PositioningInformationModel::antennaHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>PositioningInformationModel::antennaHeight</qualifiedname>
+        <briefdescription>
+<para>Returns the antenna height. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="69" column="12" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="262" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a3bb69a42556267946d8798ea862ac458" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::setAntennaHeight</definition>
+        <argsstring>(double antennaHeight)</argsstring>
+        <name>setAntennaHeight</name>
+        <qualifiedname>PositioningInformationModel::setAntennaHeight</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>antennaHeight</declname>
+        </param>
+        <briefdescription>
+<para>Sets the antenna height. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>antennaHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new antenna height </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="75" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="267" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a2cb4c1cf6a88a6387d3fd56aeee735a8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit PositioningInformationModel::distanceUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>distanceUnits</name>
+        <qualifiedname>PositioningInformationModel::distanceUnits</qualifiedname>
+        <briefdescription>
+<para>Returns the distance units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="80" column="24" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="280" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a985aa397ba6f7b14aadca331f7155680" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::setDistanceUnits</definition>
+        <argsstring>(Qgis::DistanceUnit distanceUnits)</argsstring>
+        <name>setDistanceUnits</name>
+        <qualifiedname>PositioningInformationModel::setDistanceUnits</qualifiedname>
+        <param>
+          <type>Qgis::DistanceUnit</type>
+          <declname>distanceUnits</declname>
+        </param>
+        <briefdescription>
+<para>Sets the distance units. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>distanceUnits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new distance units </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="86" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="285" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a670b954f65a0bb6066207ec3b9a7f8f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem PositioningInformationModel::coordinateDisplayCrs</definition>
+        <argsstring>() const</argsstring>
+        <name>coordinateDisplayCrs</name>
+        <qualifiedname>PositioningInformationModel::coordinateDisplayCrs</qualifiedname>
+        <briefdescription>
+<para>Returns the coordinate display CRS. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="91" column="34" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="293" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a43758d6bc2ff0637c12ada0997daed0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::setCoordinateDisplayCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;coordinateDisplayCrs)</argsstring>
+        <name>setCoordinateDisplayCrs</name>
+        <qualifiedname>PositioningInformationModel::setCoordinateDisplayCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>coordinateDisplayCrs</declname>
+        </param>
+        <briefdescription>
+<para>Sets the coordinate display CRS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coordinateDisplayCrs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new CRS </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="97" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="298" bodyend="306"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classPositioningInformationModel_1a18d5586ed3c631f840f1eb4da55bff84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::positioningSourceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positioningSourceChanged</name>
+        <qualifiedname>PositioningInformationModel::positioningSourceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="100" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningInformationModel_1a805496d889d3f91ff35b932446d1fe5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::antennaHeightChanged</definition>
+        <argsstring>()</argsstring>
+        <name>antennaHeightChanged</name>
+        <qualifiedname>PositioningInformationModel::antennaHeightChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="101" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningInformationModel_1a913ebc3b30e14096f948e7a4e294182e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::distanceUnitsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>distanceUnitsChanged</name>
+        <qualifiedname>PositioningInformationModel::distanceUnitsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="102" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classPositioningInformationModel_1a12437501c287c2925b53485d5f1db2eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::coordinateDisplayCrsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>coordinateDisplayCrsChanged</name>
+        <qualifiedname>PositioningInformationModel::coordinateDisplayCrsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="103" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classPositioningInformationModel_1a41ca9e70793079cdbf76aa7f0907a8de" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::onDataChanged</definition>
+        <argsstring>(const QModelIndex &amp;topLeft, const QModelIndex &amp;bottomRight, const QVector&lt; int &gt; &amp;roles)</argsstring>
+        <name>onDataChanged</name>
+        <qualifiedname>PositioningInformationModel::onDataChanged</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>topLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>bottomRight</declname>
+        </param>
+        <param>
+          <type>const QVector&lt; int &gt; &amp;</type>
+          <declname>roles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="106" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="223" bodyend="227"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classPositioningInformationModel_1a4093d348eb1f05c2c0108cb3de7904ac" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::getCoordinateLabels</definition>
+        <argsstring>(QString &amp;coord1Label, QString &amp;coord2Label, bool coordinatesIsXY, bool isGeographic)</argsstring>
+        <name>getCoordinateLabels</name>
+        <qualifiedname>PositioningInformationModel::getCoordinateLabels</qualifiedname>
+        <param>
+          <type>QString &amp;</type>
+          <declname>coord1Label</declname>
+        </param>
+        <param>
+          <type>QString &amp;</type>
+          <declname>coord2Label</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>coordinatesIsXY</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isGeographic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="109" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="45" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1aa5c1fd425310b1981dd69c5debc1e627" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::getCoordinateValues</definition>
+        <argsstring>(QString &amp;coord1Value, QString &amp;coord2Value, const QgsPoint &amp;coordinates, bool coordinatesIsXY, bool isGeographic)</argsstring>
+        <name>getCoordinateValues</name>
+        <qualifiedname>PositioningInformationModel::getCoordinateValues</qualifiedname>
+        <param>
+          <type>QString &amp;</type>
+          <declname>coord1Value</declname>
+        </param>
+        <param>
+          <type>QString &amp;</type>
+          <declname>coord2Value</declname>
+        </param>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>coordinates</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>coordinatesIsXY</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isGeographic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="110" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="59" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a3e8462a7f2161ef23bd40a60dc8ba902" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::softReset</definition>
+        <argsstring>()</argsstring>
+        <name>softReset</name>
+        <qualifiedname>PositioningInformationModel::softReset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="111" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="256" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1ab19e18c0c89673ffb86ae91614388652" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningInformationModel::updateCoordinates</definition>
+        <argsstring>()</argsstring>
+        <name>updateCoordinates</name>
+        <qualifiedname>PositioningInformationModel::updateCoordinates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="112" column="10" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="150" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1aca5ccc9f3775f053ceca238f44958622" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PositioningInformationModel::getAltitude</definition>
+        <argsstring>(double distanceUnitFactor, const QString &amp;distanceUnitAbbreviation)</argsstring>
+        <name>getAltitude</name>
+        <qualifiedname>PositioningInformationModel::getAltitude</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>distanceUnitFactor</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>distanceUnitAbbreviation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="113" column="13" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="87" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1aee56df9126f3dceabab2513dd2aa441f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PositioningInformationModel::getSpeed</definition>
+        <argsstring>()</argsstring>
+        <name>getSpeed</name>
+        <qualifiedname>PositioningInformationModel::getSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="114" column="13" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a475a98fc123479af9c06d60cb8b01e15" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PositioningInformationModel::getHorizontalAccuracy</definition>
+        <argsstring>(double distanceUnitFactor, const QString &amp;distanceUnitAbbreviation)</argsstring>
+        <name>getHorizontalAccuracy</name>
+        <qualifiedname>PositioningInformationModel::getHorizontalAccuracy</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>distanceUnitFactor</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>distanceUnitAbbreviation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="115" column="13" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningInformationModel_1a305d8a43cec240a49017e7acf37f9f1b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PositioningInformationModel::getVerticalAccuracy</definition>
+        <argsstring>(double distanceUnitFactor, const QString &amp;distanceUnitAbbreviation)</argsstring>
+        <name>getVerticalAccuracy</name>
+        <qualifiedname>PositioningInformationModel::getVerticalAccuracy</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>distanceUnitFactor</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>distanceUnitAbbreviation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioninginformationmodel.h" line="116" column="13" bodyfile="src/core/positioning/positioninginformationmodel.cpp" bodystart="125" bodyend="128"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PositioningInformationModel</label>
+        <link refid="classPositioningInformationModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PositioningInformationModel</label>
+        <link refid="classPositioningInformationModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/positioninginformationmodel.h" line="12" column="1" bodyfile="src/core/positioning/positioninginformationmodel.h" bodystart="13" bodyend="124"/>
+    <listofallmembers>
+      <member refid="classPositioningInformationModel_1acf78b0aa0f43b28f03f6bf0812007602" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>antennaHeight</name></member>
+      <member refid="classPositioningInformationModel_1a40b41dfda3bbbeeefff604ba1312ecb1" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>antennaHeight</name></member>
+      <member refid="classPositioningInformationModel_1a805496d889d3f91ff35b932446d1fe5a" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>antennaHeightChanged</name></member>
+      <member refid="classPositioningInformationModel_1a5a7aa58fa715da46876f1571c7607082" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>coordinateDisplayCrs</name></member>
+      <member refid="classPositioningInformationModel_1a670b954f65a0bb6066207ec3b9a7f8f6" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>coordinateDisplayCrs</name></member>
+      <member refid="classPositioningInformationModel_1a12437501c287c2925b53485d5f1db2eb" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>coordinateDisplayCrsChanged</name></member>
+      <member refid="classPositioningInformationModel_1a52bf8ba928b2102643579b110ead6cee" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>distanceUnits</name></member>
+      <member refid="classPositioningInformationModel_1a2cb4c1cf6a88a6387d3fd56aeee735a8" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>distanceUnits</name></member>
+      <member refid="classPositioningInformationModel_1a913ebc3b30e14096f948e7a4e294182e" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>distanceUnitsChanged</name></member>
+      <member refid="classPositioningInformationModel_1aca5ccc9f3775f053ceca238f44958622" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>getAltitude</name></member>
+      <member refid="classPositioningInformationModel_1a4093d348eb1f05c2c0108cb3de7904ac" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>getCoordinateLabels</name></member>
+      <member refid="classPositioningInformationModel_1aa5c1fd425310b1981dd69c5debc1e627" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>getCoordinateValues</name></member>
+      <member refid="classPositioningInformationModel_1a475a98fc123479af9c06d60cb8b01e15" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>getHorizontalAccuracy</name></member>
+      <member refid="classPositioningInformationModel_1aee56df9126f3dceabab2513dd2aa441f" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>getSpeed</name></member>
+      <member refid="classPositioningInformationModel_1a305d8a43cec240a49017e7acf37f9f1b" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>getVerticalAccuracy</name></member>
+      <member refid="classPositioningInformationModel_1a2844a0473e5876a45697c4a84d0ea340" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>mAntennaHeight</name></member>
+      <member refid="classPositioningInformationModel_1a9e4fbdc5e8f09754687d78964df26fbe" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>mCoordinateDisplayCrs</name></member>
+      <member refid="classPositioningInformationModel_1a7e1470244c501c894be37d6ea362937e" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>mDistanceUnits</name></member>
+      <member refid="classPositioningInformationModel_1aa2bdbe5fc5eb80d7c62d807ef8533262" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>mPositioningSource</name></member>
+      <member refid="classPositioningInformationModel_1a4370280c303ac5d014a08816e9c59fb1ae96e6fb2fcd65ebfba3d2886985a27ba" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>NameRole</name></member>
+      <member refid="classPositioningInformationModel_1a41ca9e70793079cdbf76aa7f0907a8de" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>onDataChanged</name></member>
+      <member refid="classPositioningInformationModel_1a2b3651886b4bd558590772d0ebe08c9e" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>PositioningInformationModel</name></member>
+      <member refid="classPositioningInformationModel_1a38cbf9243d0746f065d7861e6f0be18c" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>positioningSource</name></member>
+      <member refid="classPositioningInformationModel_1ac4691a50e3c45746d76258cc66819205" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>positioningSource</name></member>
+      <member refid="classPositioningInformationModel_1a18d5586ed3c631f840f1eb4da55bff84" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>positioningSourceChanged</name></member>
+      <member refid="classPositioningInformationModel_1aa76a2331de7a46176f64c7a697237385" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>positioningSourceConnection</name></member>
+      <member refid="classPositioningInformationModel_1abfe4ee198d0403af8b2c71b3e0606939" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>refreshData</name></member>
+      <member refid="classPositioningInformationModel_1a296cb6918381d4b574c31b1859621f8d" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>roleNames</name></member>
+      <member refid="classPositioningInformationModel_1a4370280c303ac5d014a08816e9c59fb1" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>Roles</name></member>
+      <member refid="classPositioningInformationModel_1a3bb69a42556267946d8798ea862ac458" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>setAntennaHeight</name></member>
+      <member refid="classPositioningInformationModel_1a43758d6bc2ff0637c12ada0997daed0f" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>setCoordinateDisplayCrs</name></member>
+      <member refid="classPositioningInformationModel_1a71fb4dced0a3183309c06cb7619c8f8b" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>setData</name></member>
+      <member refid="classPositioningInformationModel_1a985aa397ba6f7b14aadca331f7155680" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>setDistanceUnits</name></member>
+      <member refid="classPositioningInformationModel_1ad761c79a1e2ab8bd2dbd9a30e9439e32" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>setPositioningSource</name></member>
+      <member refid="classPositioningInformationModel_1a3e8462a7f2161ef23bd40a60dc8ba902" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>softReset</name></member>
+      <member refid="classPositioningInformationModel_1ab19e18c0c89673ffb86ae91614388652" prot="private" virt="non-virtual"><scope>PositioningInformationModel</scope><name>updateCoordinates</name></member>
+      <member refid="classPositioningInformationModel_1a9c06439cb9615de78819f4e87d3601d3" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>updateInfo</name></member>
+      <member refid="classPositioningInformationModel_1a4370280c303ac5d014a08816e9c59fb1ac1e1ccba03757182e1d346a8a9075205" prot="public" virt="non-virtual"><scope>PositioningInformationModel</scope><name>ValueRole</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceTheme" kind="namespace" language="C++">
+    <compoundname>Theme</compoundname>
+    <innerclass refid="classTheme_1_1QfActionButton" prot="public">Theme::QfActionButton</innerclass>
+    <innerclass refid="classTheme_1_1QfBadge" prot="public">Theme::QfBadge</innerclass>
+    <innerclass refid="classTheme_1_1QfButton" prot="public">Theme::QfButton</innerclass>
+    <innerclass refid="classTheme_1_1QfCalendarItem" prot="public">Theme::QfCalendarItem</innerclass>
+    <innerclass refid="classTheme_1_1QfCalendarPanel" prot="public">Theme::QfCalendarPanel</innerclass>
+    <innerclass refid="classTheme_1_1QfCollapsibleMessage" prot="public">Theme::QfCollapsibleMessage</innerclass>
+    <innerclass refid="classTheme_1_1QfComboBox" prot="public">Theme::QfComboBox</innerclass>
+    <innerclass refid="classTheme_1_1QfDialog" prot="public">Theme::QfDialog</innerclass>
+    <innerclass refid="classTheme_1_1QfDropShadow" prot="public">Theme::QfDropShadow</innerclass>
+    <innerclass refid="classTheme_1_1QfExpandableGroupBox" prot="public">Theme::QfExpandableGroupBox</innerclass>
+    <innerclass refid="classTheme_1_1QfMenu" prot="public">Theme::QfMenu</innerclass>
+    <innerclass refid="classTheme_1_1QfOpacityMask" prot="public">Theme::QfOpacityMask</innerclass>
+    <innerclass refid="classTheme_1_1QfOverlayContainer" prot="public">Theme::QfOverlayContainer</innerclass>
+    <innerclass refid="classTheme_1_1QfPageHeader" prot="public">Theme::QfPageHeader</innerclass>
+    <innerclass refid="classTheme_1_1QfPopup" prot="public">Theme::QfPopup</innerclass>
+    <innerclass refid="classTheme_1_1QfProgrerssRing" prot="public">Theme::QfProgrerssRing</innerclass>
+    <innerclass refid="classTheme_1_1QfProjectThumbnail" prot="public">Theme::QfProjectThumbnail</innerclass>
+    <innerclass refid="classTheme_1_1QfScrollBar" prot="public">Theme::QfScrollBar</innerclass>
+    <innerclass refid="classTheme_1_1QfSearchBar" prot="public">Theme::QfSearchBar</innerclass>
+    <innerclass refid="classTheme_1_1QfSlider" prot="public">Theme::QfSlider</innerclass>
+    <innerclass refid="classTheme_1_1QfSwipeAnimator" prot="public">Theme::QfSwipeAnimator</innerclass>
+    <innerclass refid="classTheme_1_1QfSwitch" prot="public">Theme::QfSwitch</innerclass>
+    <innerclass refid="classTheme_1_1QfTabBar" prot="public">Theme::QfTabBar</innerclass>
+    <innerclass refid="classTheme_1_1QfTextField" prot="public">Theme::QfTextField</innerclass>
+    <innerclass refid="classTheme_1_1QfTimeItem" prot="public">Theme::QfTimeItem</innerclass>
+    <innerclass refid="classTheme_1_1QfToggleButtonGroup" prot="public">Theme::QfToggleButtonGroup</innerclass>
+    <innerclass refid="classTheme_1_1QfToolButton" prot="public">Theme::QfToolButton</innerclass>
+    <innerclass refid="classTheme_1_1QfToolButtonDrawer" prot="public">Theme::QfToolButtonDrawer</innerclass>
+    <innerclass refid="classTheme_1_1QfToolButtonPie" prot="public">Theme::QfToolButtonPie</innerclass>
+    <innerclass refid="classTheme_1_1QfVisibilityFadingRow" prot="public">Theme::QfVisibilityFadingRow</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/qml/imports/Theme/QfActionButton.qml" line="6" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMapToView3D" kind="class" language="C++" prot="public">
+    <compoundname>MapToView3D</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="maptoview3d_8h" local="no">maptoview3d.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classMapToView3D_1a8102bcbc926d5e709b7dbbb6a0de24d7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QML_ELEMENT <ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref> *</type>
+        <definition>QML_ELEMENT Quick3DTerrainProvider * MapToView3D::terrainProvider</definition>
+        <argsstring></argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>MapToView3D::terrainProvider</qualifiedname>
+        <read>terrainProvider</read>
+        <write>setTerrainProvider</write>
+        <briefdescription>
+<para>The terrain provider used for geo-to-3D coordinate conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="42" column="5" bodyfile="src/core/3d/maptoview3d.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapToView3D_1adf947ea202115ab6f0342fe1906b2bda" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint MapToView3D::mapPoint</definition>
+        <argsstring></argsstring>
+        <name>mapPoint</name>
+        <qualifiedname>MapToView3D::mapPoint</qualifiedname>
+        <read>mapPoint</read>
+        <write>setMapPoint</write>
+        <briefdescription>
+<para>The point in map coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="45" column="5" bodyfile="src/core/3d/maptoview3d.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapToView3D_1a7ca964279b00834dc131676e26d1b4d1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float MapToView3D::heightOffset</definition>
+        <argsstring></argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>MapToView3D::heightOffset</qualifiedname>
+        <read>heightOffset</read>
+        <write>setHeightOffset</write>
+        <briefdescription>
+<para>Additional vertical offset above the terrain surface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="48" column="5" bodyfile="src/core/3d/maptoview3d.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMapToView3D_1a428e40110ee37dd22d0f345f5faae3fa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVector3D</type>
+        <definition>QVector3D MapToView3D::viewPoint</definition>
+        <argsstring></argsstring>
+        <name>viewPoint</name>
+        <qualifiedname>MapToView3D::viewPoint</qualifiedname>
+        <read>viewPoint</read>
+        <briefdescription>
+<para>The point in 3D coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="51" column="5" bodyfile="src/core/3d/maptoview3d.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMapToView3D_1af7d048d3cd33628131e6313a927825a6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref> *</type>
+        <definition>Quick3DTerrainProvider* MapToView3D::mTerrainProvider</definition>
+        <argsstring></argsstring>
+        <name>mTerrainProvider</name>
+        <qualifiedname>MapToView3D::mTerrainProvider</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="77" column="28" bodyfile="src/core/3d/maptoview3d.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapToView3D_1a628894c678233517da19fc7fa21e03d8" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint MapToView3D::mMapPoint</definition>
+        <argsstring></argsstring>
+        <name>mMapPoint</name>
+        <qualifiedname>MapToView3D::mMapPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="78" column="14" bodyfile="src/core/3d/maptoview3d.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapToView3D_1a9bca2a072594ed61039eb1854787519a" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float MapToView3D::mHeightOffset</definition>
+        <argsstring></argsstring>
+        <name>mHeightOffset</name>
+        <qualifiedname>MapToView3D::mHeightOffset</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="79" column="11" bodyfile="src/core/3d/maptoview3d.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMapToView3D_1ab7ab1fc2cb03fa7e8113efea42a98f58" prot="private" static="no" mutable="no">
+        <type>QVector3D</type>
+        <definition>QVector3D MapToView3D::mViewPoint</definition>
+        <argsstring></argsstring>
+        <name>mViewPoint</name>
+        <qualifiedname>MapToView3D::mViewPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="80" column="15" bodyfile="src/core/3d/maptoview3d.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMapToView3D_1ae28eac9710ea46baa9ef4f6fb4ffab73" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MapToView3D::MapToView3D</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>MapToView3D</name>
+        <qualifiedname>MapToView3D::MapToView3D</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="54" column="14" bodyfile="src/core/3d/maptoview3d.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToView3D_1a0affe74cf4a1e1580ad7a61deaf5c053" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref> *</type>
+        <definition>Quick3DTerrainProvider * MapToView3D::terrainProvider</definition>
+        <argsstring>() const</argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>MapToView3D::terrainProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="56" column="28" bodyfile="src/core/3d/maptoview3d.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToView3D_1a27ef04437c0009f0ce420b9a43f94f47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToView3D::setTerrainProvider</definition>
+        <argsstring>(Quick3DTerrainProvider *provider)</argsstring>
+        <name>setTerrainProvider</name>
+        <qualifiedname>MapToView3D::setTerrainProvider</qualifiedname>
+        <param>
+          <type><ref refid="classQuick3DTerrainProvider" kindref="compound">Quick3DTerrainProvider</ref> *</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="57" column="10" bodyfile="src/core/3d/maptoview3d.cpp" bodystart="29" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToView3D_1ab054ed4e845ccd80bca0f13b5ff80b0c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint MapToView3D::mapPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>mapPoint</name>
+        <qualifiedname>MapToView3D::mapPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="59" column="14" bodyfile="src/core/3d/maptoview3d.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToView3D_1a2c230593de672a47e72ed880243c5456" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToView3D::setMapPoint</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>setMapPoint</name>
+        <qualifiedname>MapToView3D::setMapPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="60" column="10" bodyfile="src/core/3d/maptoview3d.cpp" bodystart="57" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToView3D_1ab2ace33bfca43cde8a3e872cac41de9f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float MapToView3D::heightOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>MapToView3D::heightOffset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="62" column="11" bodyfile="src/core/3d/maptoview3d.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToView3D_1addb85b7391bc3b801f98a5cab4481d75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToView3D::setHeightOffset</definition>
+        <argsstring>(float offset)</argsstring>
+        <name>setHeightOffset</name>
+        <qualifiedname>MapToView3D::setHeightOffset</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="63" column="10" bodyfile="src/core/3d/maptoview3d.cpp" bodystart="74" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classMapToView3D_1a6e905f51add4fcc22ef6a4a284af7398" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector3D</type>
+        <definition>QVector3D MapToView3D::viewPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>viewPoint</name>
+        <qualifiedname>MapToView3D::viewPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="65" column="15" bodyfile="src/core/3d/maptoview3d.cpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classMapToView3D_1ad8a27dce25eeeb1509207718e99f3b1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToView3D::terrainProviderChanged</definition>
+        <argsstring>()</argsstring>
+        <name>terrainProviderChanged</name>
+        <qualifiedname>MapToView3D::terrainProviderChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapToView3D_1a01adddf882aced2f2899474aa7f98f81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToView3D::mapPointChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapPointChanged</name>
+        <qualifiedname>MapToView3D::mapPointChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="69" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapToView3D_1a205c08d2390fcf5c074e62e1c2b8f4b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToView3D::heightOffsetChanged</definition>
+        <argsstring>()</argsstring>
+        <name>heightOffsetChanged</name>
+        <qualifiedname>MapToView3D::heightOffsetChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="70" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMapToView3D_1a3349cbf841b03c857c8f40a0bd551856" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToView3D::viewPointChanged</definition>
+        <argsstring>()</argsstring>
+        <name>viewPointChanged</name>
+        <qualifiedname>MapToView3D::viewPointChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="71" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classMapToView3D_1ae5ce889f9a6b32200101295cfc37d368" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MapToView3D::transformPoint</definition>
+        <argsstring>()</argsstring>
+        <name>transformPoint</name>
+        <qualifiedname>MapToView3D::transformPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/maptoview3d.h" line="74" column="10" bodyfile="src/core/3d/maptoview3d.cpp" bodystart="91" bodyend="104"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Transforms a map point to a 3D position using a terrain provider.</para>
+<para>The 3D point is automatically updated when the map point or terrain provider extent changes, enabling dynamic positioning of 3D elements.</para>
+<para><simplesect kind="note"><para>QML Type: <ref refid="classMapToView3D" kindref="compound">MapToView3D</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MapToView3D</label>
+        <link refid="classMapToView3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MapToView3D</label>
+        <link refid="classMapToView3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/3d/maptoview3d.h" line="36" column="1" bodyfile="src/core/3d/maptoview3d.h" bodystart="37" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classMapToView3D_1a7ca964279b00834dc131676e26d1b4d1" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>heightOffset</name></member>
+      <member refid="classMapToView3D_1ab2ace33bfca43cde8a3e872cac41de9f" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>heightOffset</name></member>
+      <member refid="classMapToView3D_1a205c08d2390fcf5c074e62e1c2b8f4b2" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>heightOffsetChanged</name></member>
+      <member refid="classMapToView3D_1adf947ea202115ab6f0342fe1906b2bda" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>mapPoint</name></member>
+      <member refid="classMapToView3D_1ab054ed4e845ccd80bca0f13b5ff80b0c" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>mapPoint</name></member>
+      <member refid="classMapToView3D_1a01adddf882aced2f2899474aa7f98f81" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>mapPointChanged</name></member>
+      <member refid="classMapToView3D_1ae28eac9710ea46baa9ef4f6fb4ffab73" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>MapToView3D</name></member>
+      <member refid="classMapToView3D_1a9bca2a072594ed61039eb1854787519a" prot="private" virt="non-virtual"><scope>MapToView3D</scope><name>mHeightOffset</name></member>
+      <member refid="classMapToView3D_1a628894c678233517da19fc7fa21e03d8" prot="private" virt="non-virtual"><scope>MapToView3D</scope><name>mMapPoint</name></member>
+      <member refid="classMapToView3D_1af7d048d3cd33628131e6313a927825a6" prot="private" virt="non-virtual"><scope>MapToView3D</scope><name>mTerrainProvider</name></member>
+      <member refid="classMapToView3D_1ab7ab1fc2cb03fa7e8113efea42a98f58" prot="private" virt="non-virtual"><scope>MapToView3D</scope><name>mViewPoint</name></member>
+      <member refid="classMapToView3D_1addb85b7391bc3b801f98a5cab4481d75" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>setHeightOffset</name></member>
+      <member refid="classMapToView3D_1a2c230593de672a47e72ed880243c5456" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>setMapPoint</name></member>
+      <member refid="classMapToView3D_1a27ef04437c0009f0ce420b9a43f94f47" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>setTerrainProvider</name></member>
+      <member refid="classMapToView3D_1a8102bcbc926d5e709b7dbbb6a0de24d7" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>terrainProvider</name></member>
+      <member refid="classMapToView3D_1a0affe74cf4a1e1580ad7a61deaf5c053" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>terrainProvider</name></member>
+      <member refid="classMapToView3D_1ad8a27dce25eeeb1509207718e99f3b1b" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>terrainProviderChanged</name></member>
+      <member refid="classMapToView3D_1ae5ce889f9a6b32200101295cfc37d368" prot="private" virt="non-virtual"><scope>MapToView3D</scope><name>transformPoint</name></member>
+      <member refid="classMapToView3D_1a428e40110ee37dd22d0f345f5faae3fa" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>viewPoint</name></member>
+      <member refid="classMapToView3D_1a6e905f51add4fcc22ef6a4a284af7398" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>viewPoint</name></member>
+      <member refid="classMapToView3D_1a3349cbf841b03c857c8f40a0bd551856" prot="public" virt="non-virtual"><scope>MapToView3D</scope><name>viewPointChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

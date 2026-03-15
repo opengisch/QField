@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProjectUtils" kind="class" language="C++" prot="public">
+    <compoundname>ProjectUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classProjectUtils_1ad85c1900c68efd2f1fa7c9d5b51e1ea6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ProjectUtils::ProjectUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ProjectUtils</name>
+        <qualifiedname>ProjectUtils::ProjectUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/projectutils.h" line="33" column="14" bodyfile="src/core/utils/projectutils.cpp" bodystart="30" bodyend="33"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classProjectUtils_1a6e17ca56569ff89ae621a6d80585240e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap ProjectUtils::mapLayers</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>mapLayers</name>
+        <qualifiedname>ProjectUtils::mapLayers</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a map of all registered layers by layer ID. <simplesect kind="note"><para>This function mimics QgsProject::mapLayers with a return type that is QML compatible. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/projectutils.h" line="40" column="36" bodyfile="src/core/utils/projectutils.cpp" bodystart="35" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classProjectUtils_1a6ab58b5e62638a0db8070b78af1c53e0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool ProjectUtils::addMapLayer</definition>
+        <argsstring>(QgsProject *project, QgsMapLayer *layer)</argsstring>
+        <name>addMapLayer</name>
+        <qualifiedname>ProjectUtils::addMapLayer</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a map <emphasis>layer</emphasis> to a <emphasis>project</emphasis> layers registry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/projectutils.h" line="45" column="29" bodyfile="src/core/utils/projectutils.cpp" bodystart="50" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classProjectUtils_1a6adfe5bff6ac44d73aa243c9b96f50da" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ProjectUtils::removeMapLayer</definition>
+        <argsstring>(QgsProject *project, QgsMapLayer *layer)</argsstring>
+        <name>removeMapLayer</name>
+        <qualifiedname>ProjectUtils::removeMapLayer</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes a map <emphasis>layer</emphasis> from a <emphasis>project</emphasis> layers registry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/projectutils.h" line="50" column="29" bodyfile="src/core/utils/projectutils.cpp" bodystart="58" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classProjectUtils_1a61fa51ae6aeec4afffcd1288a7ddc1f2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ProjectUtils::removeMapLayer</definition>
+        <argsstring>(QgsProject *project, const QString &amp;layerId)</argsstring>
+        <name>removeMapLayer</name>
+        <qualifiedname>ProjectUtils::removeMapLayer</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes a map layer from a project layers registry matching a given layer ID. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the project </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>layerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layer ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/projectutils.h" line="57" column="29" bodyfile="src/core/utils/projectutils.cpp" bodystart="66" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classProjectUtils_1ae2b95f1d7128543d579044cc16f88114" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE Qgis::TransactionMode</type>
+        <definition>Qgis::TransactionMode ProjectUtils::transactionMode</definition>
+        <argsstring>(QgsProject *project=nullptr)</argsstring>
+        <name>transactionMode</name>
+        <qualifiedname>ProjectUtils::transactionMode</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the transaction mode for a given <emphasis>project</emphasis>. <simplesect kind="note"><para>To be removed when QField updates to QGIS 3.38. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/projectutils.h" line="63" column="46" bodyfile="src/core/utils/projectutils.cpp" bodystart="74" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classProjectUtils_1afdc3732bd7e858a5c14d6eeb06e9403d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString ProjectUtils::title</definition>
+        <argsstring>(QgsProject *project=nullptr)</argsstring>
+        <name>title</name>
+        <qualifiedname>ProjectUtils::title</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <emphasis>project</emphasis> title. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/projectutils.h" line="68" column="32" bodyfile="src/core/utils/projectutils.cpp" bodystart="82" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classProjectUtils_1a287c1b3f09fce3b65eb4d7e2fb428641" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString ProjectUtils::createProject</definition>
+        <argsstring>(const QVariantMap &amp;options, const GnssPositionInformation &amp;positionInformation=GnssPositionInformation())</argsstring>
+        <name>createProject</name>
+        <qualifiedname>ProjectUtils::createProject</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+          <defval><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new project and return the local path of the project file.</para>
+<para>The available <emphasis>options</emphasis> are:<itemizedlist>
+<listitem><para>title: the project title</para>
+</listitem><listitem><para>basemap: the basemap type (color, lightgray, darkgray, custom, blank)</para>
+</listitem><listitem><para>basemap_url: a custom basemap URL (XYZ raster layer or vector tile layer style JSON)</para>
+</listitem><listitem><para>notes: set to TRUE to add a notes layer</para>
+</listitem><listitem><para>camera_capture: set to TRUE to add an image/video capture field to the notes layer</para>
+</listitem><listitem><para>tracks: set to TRUE to add a tracks layer</para>
+</listitem><listitem><para>track_on_launch: set to TRUE to start tracking position on project launch </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/projectutils.h" line="82" column="32" bodyfile="src/core/utils/projectutils.cpp" bodystart="91" bodyend="428"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ProjectUtils</label>
+        <link refid="classProjectUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProjectUtils</label>
+        <link refid="classProjectUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/projectutils.h" line="28" column="1" bodyfile="src/core/utils/projectutils.h" bodystart="29" bodyend="83"/>
+    <listofallmembers>
+      <member refid="classProjectUtils_1a6ab58b5e62638a0db8070b78af1c53e0" prot="public" virt="non-virtual"><scope>ProjectUtils</scope><name>addMapLayer</name></member>
+      <member refid="classProjectUtils_1a287c1b3f09fce3b65eb4d7e2fb428641" prot="public" virt="non-virtual"><scope>ProjectUtils</scope><name>createProject</name></member>
+      <member refid="classProjectUtils_1a6e17ca56569ff89ae621a6d80585240e" prot="public" virt="non-virtual"><scope>ProjectUtils</scope><name>mapLayers</name></member>
+      <member refid="classProjectUtils_1ad85c1900c68efd2f1fa7c9d5b51e1ea6" prot="public" virt="non-virtual"><scope>ProjectUtils</scope><name>ProjectUtils</name></member>
+      <member refid="classProjectUtils_1a6adfe5bff6ac44d73aa243c9b96f50da" prot="public" virt="non-virtual"><scope>ProjectUtils</scope><name>removeMapLayer</name></member>
+      <member refid="classProjectUtils_1a61fa51ae6aeec4afffcd1288a7ddc1f2" prot="public" virt="non-virtual"><scope>ProjectUtils</scope><name>removeMapLayer</name></member>
+      <member refid="classProjectUtils_1afdc3732bd7e858a5c14d6eeb06e9403d" prot="public" virt="non-virtual"><scope>ProjectUtils</scope><name>title</name></member>
+      <member refid="classProjectUtils_1ae2b95f1d7128543d579044cc16f88114" prot="public" virt="non-virtual"><scope>ProjectUtils</scope><name>transactionMode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

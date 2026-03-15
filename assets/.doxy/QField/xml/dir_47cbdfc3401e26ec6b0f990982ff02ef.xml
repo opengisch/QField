@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_47cbdfc3401e26ec6b0f990982ff02ef" kind="dir">
+    <compoundname>src/qml/3d</compoundname>
+    <innerfile refid="MapCanvas3D_8qml">MapCanvas3D.qml</innerfile>
+    <innerfile refid="Rubberband3D_8qml">Rubberband3D.qml</innerfile>
+    <innerfile refid="TerrainMesh_8qml">TerrainMesh.qml</innerfile>
+    <innerfile refid="TouchCameraController_8qml">TouchCameraController.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/qml/3d/"/>
+  </compounddef>
+</doxygen>

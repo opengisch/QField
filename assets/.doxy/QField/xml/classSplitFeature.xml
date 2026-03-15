@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSplitFeature" kind="class" language="C++" prot="public">
+    <compoundname>SplitFeature</compoundname>
+    <basecompoundref refid="classGeometryEditorBase" prot="public" virt="non-virtual">GeometryEditorBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classSplitFeature_1a4b5e8d9b64c5c3ee9e65781ee698647b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool SplitFeature::screenHovering</definition>
+        <argsstring></argsstring>
+        <name>screenHovering</name>
+        <qualifiedname>SplitFeature::screenHovering</qualifiedname>
+        <read>dummyGetter_screenHovering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/SplitFeature.qml" line="8" column="1" bodyfile="src/qml/geometryeditors/SplitFeature.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSplitFeature_1a167fcdf8e790310f704ad8b350731347" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool SplitFeature::blocking</definition>
+        <argsstring></argsstring>
+        <name>blocking</name>
+        <qualifiedname>SplitFeature::blocking</qualifiedname>
+        <read>dummyGetter_blocking_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/SplitFeature.qml" line="11" column="1" bodyfile="src/qml/geometryeditors/SplitFeature.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSplitFeature_1af11ae0f4a36f148d2ca0ce50074e88b1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var SplitFeature::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>SplitFeature::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/SplitFeature.qml" line="13" column="5" bodyfile="src/qml/geometryeditors/SplitFeature.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSplitFeature_1a65d35bcc8141a86ff37cf06197715ce2" prot="private" static="no" mutable="no">
+        <type><ref refid="classDigitizingToolbar" kindref="compound">DigitizingToolbar</ref></type>
+        <definition>DigitizingToolbar SplitFeature::drawLineToolbar</definition>
+        <argsstring></argsstring>
+        <name>drawLineToolbar</name>
+        <qualifiedname>SplitFeature::drawLineToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/SplitFeature.qml" line="20" column="19" bodyfile="src/qml/geometryeditors/SplitFeature.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSplitFeature_1a80c57b0837f4ae2081d595738adde154" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SplitFeature::canvasClicked</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasClicked</name>
+        <qualifiedname>SplitFeature::canvasClicked</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/SplitFeature.qml" line="16" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classSplitFeature_1ab3730ba0042ddbf214f3ccdf212f70b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SplitFeature::canvasLongPressed</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasLongPressed</name>
+        <qualifiedname>SplitFeature::canvasLongPressed</qualifiedname>
+        <param>
+          <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/SplitFeature.qml" line="18" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classSplitFeature_1a94bdab13dac2fc366c2920c9d1c997a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SplitFeature::init</definition>
+        <argsstring>(featureModel, mapSettings, editorRubberbandModel, editorRenderer)</argsstring>
+        <name>init</name>
+        <qualifiedname>SplitFeature::init</qualifiedname>
+        <param>
+          <type>featureModel</type>
+        </param>
+        <param>
+          <type>mapSettings</type>
+        </param>
+        <param>
+          <type>editorRubberbandModel</type>
+        </param>
+        <param>
+          <type>editorRenderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/SplitFeature.qml" line="23" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classSplitFeature_1a0202b60a9766406a8fa8f4b92e7a4a79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SplitFeature::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>SplitFeature::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/geometryeditors/SplitFeature.qml" line="25" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>GeometryEditorBase</label>
+        <link refid="classGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+      <node id="1">
+        <label>SplitFeature</label>
+        <link refid="classSplitFeature"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>GeometryEditorBase</label>
+        <link refid="classGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+      <node id="1">
+        <label>SplitFeature</label>
+        <link refid="classSplitFeature"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Theme::QfVisibilityFadingRow</label>
+        <link refid="classTheme_1_1QfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/geometryeditors/SplitFeature.qml" line="5" column="1" bodyfile="src/qml/geometryeditors/SplitFeature.qml" bodystart="5" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classSplitFeature_1a167fcdf8e790310f704ad8b350731347" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>blocking</name></member>
+      <member refid="classSplitFeature_1a0202b60a9766406a8fa8f4b92e7a4a79" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>cancel</name></member>
+      <member refid="classSplitFeature_1a80c57b0837f4ae2081d595738adde154" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>canvasClicked</name></member>
+      <member refid="classSplitFeature_1ab3730ba0042ddbf214f3ccdf212f70b1" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>canvasLongPressed</name></member>
+      <member refid="classSplitFeature_1a65d35bcc8141a86ff37cf06197715ce2" prot="private" virt="non-virtual"><scope>SplitFeature</scope><name>drawLineToolbar</name></member>
+      <member refid="classGeometryEditorBase_1a812216b79434d6d6574cd15f4882812d" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>editorRenderer</name></member>
+      <member refid="classGeometryEditorBase_1a6643fdabf1ea07e1838aa9763af7abbf" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>featureModel</name></member>
+      <member refid="classGeometryEditorBase_1a45fa84fa67ccbe332d28bf989ad6602c" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>finished</name></member>
+      <member refid="classSplitFeature_1a94bdab13dac2fc366c2920c9d1c997a0" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>init</name></member>
+      <member refid="classGeometryEditorBase_1a2caaddaad7be03263eda29824c88c722" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>mapSettings</name></member>
+      <member refid="classGeometryEditorBase_1a7f750f40a04cdd685b84c95719e3fb83" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>requestJumpToPoint</name></member>
+      <member refid="classSplitFeature_1a4b5e8d9b64c5c3ee9e65781ee698647b" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>screenHovering</name></member>
+      <member refid="classSplitFeature_1af11ae0f4a36f148d2ca0ce50074e88b1" prot="private" virt="non-virtual"><scope>SplitFeature</scope><name>spacing</name></member>
+      <member refid="classTheme_1_1QfVisibilityFadingRow_1a5757c98a1693481e83314781b5d3433e" prot="public" virt="non-virtual"><scope>SplitFeature</scope><name>stateVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

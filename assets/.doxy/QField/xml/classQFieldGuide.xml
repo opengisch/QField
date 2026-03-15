@@ -1,0 +1,533 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldGuide" kind="class" language="C++" prot="public">
+    <compoundname>QFieldGuide</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Popup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldGuide_1a1d72f8f4f20e799edb0c6aee5b892445" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QFieldGuide::baseRoot</definition>
+        <argsstring></argsstring>
+        <name>baseRoot</name>
+        <qualifiedname>QFieldGuide::baseRoot</qualifiedname>
+        <read>dummyGetter_baseRoot_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="14" column="1" bodyfile="src/qml/QFieldGuide.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldGuide_1a75691ef1d641c12b41655c0494fd37f8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldGuide::enablePanelAnimation</definition>
+        <argsstring></argsstring>
+        <name>enablePanelAnimation</name>
+        <qualifiedname>QFieldGuide::enablePanelAnimation</qualifiedname>
+        <read>dummyGetter_enablePanelAnimation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="16" column="1" bodyfile="src/qml/QFieldGuide.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldGuide_1ab825433ba92dc25c9725510c39b09f3a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldGuide::allowedToShow</definition>
+        <argsstring></argsstring>
+        <name>allowedToShow</name>
+        <qualifiedname>QFieldGuide::allowedToShow</qualifiedname>
+        <read>dummyGetter_allowedToShow_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="18" column="1" bodyfile="src/qml/QFieldGuide.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldGuide_1a740242f848bca037d155ec659878c783" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QFieldGuide::steps</definition>
+        <argsstring></argsstring>
+        <name>steps</name>
+        <qualifiedname>QFieldGuide::steps</qualifiedname>
+        <read>dummyGetter_steps_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="20" column="1" bodyfile="src/qml/QFieldGuide.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldGuide_1a31b63f581b22baaa5f848694ba0919e5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QFieldGuide::targetMargins</definition>
+        <argsstring></argsstring>
+        <name>targetMargins</name>
+        <qualifiedname>QFieldGuide::targetMargins</qualifiedname>
+        <read>dummyGetter_targetMargins_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="22" column="1" bodyfile="src/qml/QFieldGuide.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldGuide_1a2c4550b253be0a9dd9bae5793e240783" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QFieldGuide::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <qualifiedname>QFieldGuide::index</qualifiedname>
+        <read>dummyGetter_index_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="24" column="1" bodyfile="src/qml/QFieldGuide.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldGuide_1a05fd9137c73896eea5106e0e60910e36" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QFieldGuide::finishText</definition>
+        <argsstring></argsstring>
+        <name>finishText</name>
+        <qualifiedname>QFieldGuide::finishText</qualifiedname>
+        <read>dummyGetter_finishText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="26" column="1" bodyfile="src/qml/QFieldGuide.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldGuide_1a32568ce00960e140632188b3b0922ee4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QFieldGuide::nextText</definition>
+        <argsstring></argsstring>
+        <name>nextText</name>
+        <qualifiedname>QFieldGuide::nextText</qualifiedname>
+        <read>dummyGetter_nextText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="28" column="1" bodyfile="src/qml/QFieldGuide.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldGuide_1a8aee96084f879abd3d7986f514a82be5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QFieldGuide::previousText</definition>
+        <argsstring></argsstring>
+        <name>previousText</name>
+        <qualifiedname>QFieldGuide::previousText</qualifiedname>
+        <read>dummyGetter_previousText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="30" column="1" bodyfile="src/qml/QFieldGuide.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldGuide_1abb19886e800d3d3b7650982ba63864a6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldGuide::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QFieldGuide::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="34" column="5" bodyfile="src/qml/QFieldGuide.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1a6cd2cef7f54a41be3ad9bb4add566c8b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldGuide::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QFieldGuide::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="35" column="5" bodyfile="src/qml/QFieldGuide.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1ac7333aca9e51bd05d4ea0df57d54e6eb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldGuide::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QFieldGuide::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="36" column="5" bodyfile="src/qml/QFieldGuide.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1a1abbafb72591cab732a5fc9d6b975ea0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldGuide::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QFieldGuide::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="37" column="5" bodyfile="src/qml/QFieldGuide.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1ae2e37ba49866c90fcd3cc972a4cf47c2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldGuide::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QFieldGuide::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="38" column="5" bodyfile="src/qml/QFieldGuide.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1acc830ef9a038fc28e22e6e32458106fa" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldGuide::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>QFieldGuide::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="39" column="5" bodyfile="src/qml/QFieldGuide.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1a2d8a91384d4086a3897b0517b3648c2d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldGuide::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QFieldGuide::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="40" column="5" bodyfile="src/qml/QFieldGuide.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1a32416699b182a6099b2182ebe3616a5a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldGuide::onVisibleChanged</definition>
+        <argsstring></argsstring>
+        <name>onVisibleChanged</name>
+        <qualifiedname>QFieldGuide::onVisibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="41" column="5" bodyfile="src/qml/QFieldGuide.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1a78cc5f0e96e8cea2c86a5d873225d3e0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldGuide::onIndexChanged</definition>
+        <argsstring></argsstring>
+        <name>onIndexChanged</name>
+        <qualifiedname>QFieldGuide::onIndexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="42" column="5" bodyfile="src/qml/QFieldGuide.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1aff35a58d8722282f7b014fd9a85f174d" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item QFieldGuide::internalObject</definition>
+        <argsstring></argsstring>
+        <name>internalObject</name>
+        <qualifiedname>QFieldGuide::internalObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="49" column="6" bodyfile="src/qml/QFieldGuide.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1a8bc0e52f52ae7ef17ea466bd374befe9" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QFieldGuide::delayedPainter</definition>
+        <argsstring></argsstring>
+        <name>delayedPainter</name>
+        <qualifiedname>QFieldGuide::delayedPainter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="51" column="7" bodyfile="src/qml/QFieldGuide.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1ac9725c0f75b4d17c5b4bc623fdd79cfd" prot="private" static="no" mutable="no">
+        <type>Canvas</type>
+        <definition>Canvas QFieldGuide::canvas</definition>
+        <argsstring></argsstring>
+        <name>canvas</name>
+        <qualifiedname>QFieldGuide::canvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="52" column="8" bodyfile="src/qml/QFieldGuide.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1a6afd14968aed755f4c5976a07b0e266c" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QFieldGuide::hintPanel</definition>
+        <argsstring></argsstring>
+        <name>hintPanel</name>
+        <qualifiedname>QFieldGuide::hintPanel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="53" column="11" bodyfile="src/qml/QFieldGuide.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1a3026e27e0d044e3fea7c1d387e4a8b52" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfProgrerssRing" kindref="compound">QfProgrerssRing</ref></type>
+        <definition>QfProgrerssRing QFieldGuide::progerss</definition>
+        <argsstring></argsstring>
+        <name>progerss</name>
+        <qualifiedname>QFieldGuide::progerss</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="54" column="17" bodyfile="src/qml/QFieldGuide.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1a051f06372975b7bd69e1e74600412850" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldGuide::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QFieldGuide::title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="55" column="6" bodyfile="src/qml/QFieldGuide.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1a2e346330180b1d94dbc0b229c2ee4c14" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QFieldGuide::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>QFieldGuide::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="56" column="6" bodyfile="src/qml/QFieldGuide.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1a534081717a127aafe7e643afcadb414d" prot="private" static="no" mutable="no">
+        <type>AnimatedImage</type>
+        <definition>AnimatedImage QFieldGuide::animatedHint</definition>
+        <argsstring></argsstring>
+        <name>animatedHint</name>
+        <qualifiedname>QFieldGuide::animatedHint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="57" column="15" bodyfile="src/qml/QFieldGuide.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1ac73bed419b32d324f66304ff65b86702" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QFieldGuide::nextButton</definition>
+        <argsstring></argsstring>
+        <name>nextButton</name>
+        <qualifiedname>QFieldGuide::nextButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="58" column="10" bodyfile="src/qml/QFieldGuide.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1ae151b763418453513636b6abb86789c0" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QFieldGuide::previousButton</definition>
+        <argsstring></argsstring>
+        <name>previousButton</name>
+        <qualifiedname>QFieldGuide::previousButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="59" column="10" bodyfile="src/qml/QFieldGuide.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldGuide_1afeb26ddfd69e64cafd36035b0080b4e7" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QFieldGuide::pointerToItem</definition>
+        <argsstring></argsstring>
+        <name>pointerToItem</name>
+        <qualifiedname>QFieldGuide::pointerToItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="60" column="7" bodyfile="src/qml/QFieldGuide.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQFieldGuide_1a891a18f189c9ea877b1ebd08f4eee5b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldGuide::guideFinished</definition>
+        <argsstring>()</argsstring>
+        <name>guideFinished</name>
+        <qualifiedname>QFieldGuide::guideFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="32" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQFieldGuide_1a06d372f51211d9b6193179ce3fd622a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldGuide::blockGuide</definition>
+        <argsstring>()</argsstring>
+        <name>blockGuide</name>
+        <qualifiedname>QFieldGuide::blockGuide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="45" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldGuide_1afd9d14390efaccb3d9bf76324f01042f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldGuide::runTour</definition>
+        <argsstring>()</argsstring>
+        <name>runTour</name>
+        <qualifiedname>QFieldGuide::runTour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldGuide.qml" line="47" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QFieldGuide</label>
+        <link refid="classQFieldGuide"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QFieldGuide</label>
+        <link refid="classQFieldGuide"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/QFieldGuide.qml" line="11" column="1" bodyfile="src/qml/QFieldGuide.qml" bodystart="11" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classQFieldGuide_1ab825433ba92dc25c9725510c39b09f3a" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>allowedToShow</name></member>
+      <member refid="classQFieldGuide_1a534081717a127aafe7e643afcadb414d" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>animatedHint</name></member>
+      <member refid="classQFieldGuide_1ae2e37ba49866c90fcd3cc972a4cf47c2" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>background</name></member>
+      <member refid="classQFieldGuide_1a1d72f8f4f20e799edb0c6aee5b892445" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>baseRoot</name></member>
+      <member refid="classQFieldGuide_1a06d372f51211d9b6193179ce3fd622a1" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>blockGuide</name></member>
+      <member refid="classQFieldGuide_1ac9725c0f75b4d17c5b4bc623fdd79cfd" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>canvas</name></member>
+      <member refid="classQFieldGuide_1a2d8a91384d4086a3897b0517b3648c2d" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>clip</name></member>
+      <member refid="classQFieldGuide_1acc830ef9a038fc28e22e6e32458106fa" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>contentItem</name></member>
+      <member refid="classQFieldGuide_1a8bc0e52f52ae7ef17ea466bd374befe9" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>delayedPainter</name></member>
+      <member refid="classQFieldGuide_1a2e346330180b1d94dbc0b229c2ee4c14" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>description</name></member>
+      <member refid="classQFieldGuide_1a75691ef1d641c12b41655c0494fd37f8" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>enablePanelAnimation</name></member>
+      <member refid="classQFieldGuide_1a05fd9137c73896eea5106e0e60910e36" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>finishText</name></member>
+      <member refid="classQFieldGuide_1a891a18f189c9ea877b1ebd08f4eee5b7" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>guideFinished</name></member>
+      <member refid="classQFieldGuide_1a1abbafb72591cab732a5fc9d6b975ea0" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>height</name></member>
+      <member refid="classQFieldGuide_1a6afd14968aed755f4c5976a07b0e266c" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>hintPanel</name></member>
+      <member refid="classQFieldGuide_1a2c4550b253be0a9dd9bae5793e240783" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>index</name></member>
+      <member refid="classQFieldGuide_1aff35a58d8722282f7b014fd9a85f174d" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>internalObject</name></member>
+      <member refid="classQFieldGuide_1ac73bed419b32d324f66304ff65b86702" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>nextButton</name></member>
+      <member refid="classQFieldGuide_1a32568ce00960e140632188b3b0922ee4" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>nextText</name></member>
+      <member refid="classQFieldGuide_1a78cc5f0e96e8cea2c86a5d873225d3e0" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>onIndexChanged</name></member>
+      <member refid="classQFieldGuide_1a32416699b182a6099b2182ebe3616a5a" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>onVisibleChanged</name></member>
+      <member refid="classQFieldGuide_1abb19886e800d3d3b7650982ba63864a6" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>padding</name></member>
+      <member refid="classQFieldGuide_1a6cd2cef7f54a41be3ad9bb4add566c8b" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>parent</name></member>
+      <member refid="classQFieldGuide_1afeb26ddfd69e64cafd36035b0080b4e7" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>pointerToItem</name></member>
+      <member refid="classQFieldGuide_1ae151b763418453513636b6abb86789c0" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>previousButton</name></member>
+      <member refid="classQFieldGuide_1a8aee96084f879abd3d7986f514a82be5" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>previousText</name></member>
+      <member refid="classQFieldGuide_1a3026e27e0d044e3fea7c1d387e4a8b52" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>progerss</name></member>
+      <member refid="classQFieldGuide_1afd9d14390efaccb3d9bf76324f01042f" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>runTour</name></member>
+      <member refid="classQFieldGuide_1a740242f848bca037d155ec659878c783" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>steps</name></member>
+      <member refid="classQFieldGuide_1a31b63f581b22baaa5f848694ba0919e5" prot="public" virt="non-virtual"><scope>QFieldGuide</scope><name>targetMargins</name></member>
+      <member refid="classQFieldGuide_1a051f06372975b7bd69e1e74600412850" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>title</name></member>
+      <member refid="classQFieldGuide_1ac7333aca9e51bd05d4ea0df57d54e6eb" prot="private" virt="non-virtual"><scope>QFieldGuide</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

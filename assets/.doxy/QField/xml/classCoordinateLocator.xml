@@ -1,0 +1,515 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCoordinateLocator" kind="class" language="C++" prot="public">
+    <compoundname>CoordinateLocator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classCoordinateLocator_1aeffa5f770fe375fee261ae93d2862edd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings CoordinateLocator::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>CoordinateLocator::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="12" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1ae8a8db6bfbb3acbd0aed7af24958a916" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color CoordinateLocator::mainColor</definition>
+        <argsstring></argsstring>
+        <name>mainColor</name>
+        <qualifiedname>CoordinateLocator::mainColor</qualifiedname>
+        <read>dummyGetter_mainColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="14" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1aa737f3066b2041d46eb8d59b52844762" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color CoordinateLocator::highlightColor</definition>
+        <argsstring></argsstring>
+        <name>highlightColor</name>
+        <qualifiedname>CoordinateLocator::highlightColor</qualifiedname>
+        <read>dummyGetter_highlightColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="16" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1aa755c98eba611d0eb710845d73516197" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias CoordinateLocator::currentLayer</definition>
+        <argsstring></argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>CoordinateLocator::currentLayer</qualifiedname>
+        <read>dummyGetter_currentLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the current layer on which snapping should be performed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="20" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1aa9c4042bb49e4ee1d5eb8843d1acb07d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var CoordinateLocator::positionInformation</definition>
+        <argsstring></argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>CoordinateLocator::positionInformation</qualifiedname>
+        <read>dummyGetter_positionInformation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Position-related information </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="24" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1aa238d48c89db43a5a7a77a44bd2a6d82" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool CoordinateLocator::positionLocked</definition>
+        <argsstring></argsstring>
+        <name>positionLocked</name>
+        <qualifiedname>CoordinateLocator::positionLocked</qualifiedname>
+        <read>dummyGetter_positionLocked_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="26" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1aeb7a2ba462a87cd84903711b8434bc89" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool CoordinateLocator::averagedPosition</definition>
+        <argsstring></argsstring>
+        <name>averagedPosition</name>
+        <qualifiedname>CoordinateLocator::averagedPosition</qualifiedname>
+        <read>dummyGetter_averagedPosition_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="28" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1a6490fb0198e4a8f7ec928f44712e1ec9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int CoordinateLocator::averagedPositionCount</definition>
+        <argsstring></argsstring>
+        <name>averagedPositionCount</name>
+        <qualifiedname>CoordinateLocator::averagedPositionCount</qualifiedname>
+        <read>dummyGetter_averagedPositionCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="30" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1a76a5c4360b0e55aeae5561056f24aadb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool CoordinateLocator::snapToCommonAngles</definition>
+        <argsstring></argsstring>
+        <name>snapToCommonAngles</name>
+        <qualifiedname>CoordinateLocator::snapToCommonAngles</qualifiedname>
+        <read>dummyGetter_snapToCommonAngles_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Snapping-related information </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="34" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1a7cb6e359e4b1298f4e6de114fba84dfe" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool CoordinateLocator::snappingIsRelative</definition>
+        <argsstring></argsstring>
+        <name>snappingIsRelative</name>
+        <qualifiedname>CoordinateLocator::snappingIsRelative</qualifiedname>
+        <read>dummyGetter_snappingIsRelative_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="36" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1a8423cd9da6d7412e0a8a677423cffcb2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real CoordinateLocator::snappingAngleDegrees</definition>
+        <argsstring></argsstring>
+        <name>snappingAngleDegrees</name>
+        <qualifiedname>CoordinateLocator::snappingAngleDegrees</qualifiedname>
+        <read>dummyGetter_snappingAngleDegrees_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="38" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1a940c76b9086f4b91e15312cf30f66e14" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real CoordinateLocator::snappingTolerance</definition>
+        <argsstring></argsstring>
+        <name>snappingTolerance</name>
+        <qualifiedname>CoordinateLocator::snappingTolerance</qualifiedname>
+        <read>dummyGetter_snappingTolerance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="40" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1acd0d179e37fb9c3a4eb7ced25d602655" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>variant</type>
+        <definition>variant CoordinateLocator::overrideLocation</definition>
+        <argsstring></argsstring>
+        <name>overrideLocation</name>
+        <qualifiedname>CoordinateLocator::overrideLocation</qualifiedname>
+        <read>dummyGetter_overrideLocation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Overrides any possibility for the user to modify the coordinate. There will be no user interaction or snapping if this is set to a QgsPoint. Set this to <computeroutput>undefined</computeroutput> to revert to the user and snapping controlled behavior. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="46" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1a93f8d618aaa0ca334c002230c4c3eaea" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>variant</type>
+        <definition>variant CoordinateLocator::sourceLocation</definition>
+        <argsstring></argsstring>
+        <name>sourceLocation</name>
+        <qualifiedname>CoordinateLocator::sourceLocation</qualifiedname>
+        <read>dummyGetter_sourceLocation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Source location for snapping. If this is set to undefined, the center of the screen will be used. Overwritten by stylus / hoverHandler. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="51" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1a0395a20fac1abf5fe11f4ccb76510e14" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>variant</type>
+        <definition>variant CoordinateLocator::currentCoordinate</definition>
+        <argsstring></argsstring>
+        <name>currentCoordinate</name>
+        <qualifiedname>CoordinateLocator::currentCoordinate</qualifiedname>
+        <read>dummyGetter_currentCoordinate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="54" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1a53d7a9c0510c336e2f56373b2effa901" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        <definition>point CoordinateLocator::displayPosition</definition>
+        <argsstring></argsstring>
+        <name>displayPosition</name>
+        <qualifiedname>CoordinateLocator::displayPosition</qualifiedname>
+        <read>dummyGetter_displayPosition_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="58" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1a99d3317c49b3040dada055eeb33f01c4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>variant</type>
+        <definition>variant CoordinateLocator::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>CoordinateLocator::rubberbandModel</qualifiedname>
+        <read>dummyGetter_rubberbandModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="60" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1adf505479011be49cf1b4b6d81a55d989" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias CoordinateLocator::snappedCoordinate</definition>
+        <argsstring></argsstring>
+        <name>snappedCoordinate</name>
+        <qualifiedname>CoordinateLocator::snappedCoordinate</qualifiedname>
+        <read>dummyGetter_snappedCoordinate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="63" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1ab61eab24fe1a84ba5d29420f31942f5a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias CoordinateLocator::snappedPoint</definition>
+        <argsstring></argsstring>
+        <name>snappedPoint</name>
+        <qualifiedname>CoordinateLocator::snappedPoint</qualifiedname>
+        <read>dummyGetter_snappedPoint_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="66" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCoordinateLocator_1ac1a7ce9f3f553623863d0c9a8281f5c7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias CoordinateLocator::topSnappingResult</definition>
+        <argsstring></argsstring>
+        <name>topSnappingResult</name>
+        <qualifiedname>CoordinateLocator::topSnappingResult</qualifiedname>
+        <read>dummyGetter_topSnappingResult_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="69" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCoordinateLocator_1a4516ffc104103ff3120ffd2d6616d2fb" prot="private" static="no" mutable="no">
+        <type><ref refid="classSnappingUtils" kindref="compound">SnappingUtils</ref></type>
+        <definition>SnappingUtils CoordinateLocator::snappingUtils</definition>
+        <argsstring></argsstring>
+        <name>snappingUtils</name>
+        <qualifiedname>CoordinateLocator::snappingUtils</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="72" column="15" bodyfile="src/qml/CoordinateLocator.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCoordinateLocator_1ac613e7479f6580fb783f4be8f388577d" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle CoordinateLocator::averagedInfoShield</definition>
+        <argsstring></argsstring>
+        <name>averagedInfoShield</name>
+        <qualifiedname>CoordinateLocator::averagedInfoShield</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="73" column="11" bodyfile="src/qml/CoordinateLocator.qml" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCoordinateLocator_1ac866567b40b9e444f9c42c19efacd2a2" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle CoordinateLocator::averagedProgress</definition>
+        <argsstring></argsstring>
+        <name>averagedProgress</name>
+        <qualifiedname>CoordinateLocator::averagedProgress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="74" column="11" bodyfile="src/qml/CoordinateLocator.qml" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCoordinateLocator_1a96f779a640a071507c112018a2b36c74" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text CoordinateLocator::averagedInfo</definition>
+        <argsstring></argsstring>
+        <name>averagedInfo</name>
+        <qualifiedname>CoordinateLocator::averagedInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="75" column="6" bodyfile="src/qml/CoordinateLocator.qml" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCoordinateLocator_1af012219784a534bcb5917e48237ff759" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape CoordinateLocator::crosshairCircle</definition>
+        <argsstring></argsstring>
+        <name>crosshairCircle</name>
+        <qualifiedname>CoordinateLocator::crosshairCircle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="76" column="7" bodyfile="src/qml/CoordinateLocator.qml" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCoordinateLocator_1ab8fe62d8d98f81a746fbd454beca1fe9" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath CoordinateLocator::crosshairPathBuffer</definition>
+        <argsstring></argsstring>
+        <name>crosshairPathBuffer</name>
+        <qualifiedname>CoordinateLocator::crosshairPathBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="77" column="11" bodyfile="src/qml/CoordinateLocator.qml" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCoordinateLocator_1a556fb82536291817740216e423c6f7c1" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath CoordinateLocator::crosshairPath</definition>
+        <argsstring></argsstring>
+        <name>crosshairPath</name>
+        <qualifiedname>CoordinateLocator::crosshairPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="78" column="11" bodyfile="src/qml/CoordinateLocator.qml" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCoordinateLocator_1a00d9a8dda1bff533f78023e1cf2aada4" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater CoordinateLocator::snappingLines</definition>
+        <argsstring></argsstring>
+        <name>snappingLines</name>
+        <qualifiedname>CoordinateLocator::snappingLines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="79" column="10" bodyfile="src/qml/CoordinateLocator.qml" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCoordinateLocator_1af9a5c67fe6266f6417682e92246d7da9" prot="private" static="no" mutable="no">
+        <type>ParallelAnimation</type>
+        <definition>ParallelAnimation CoordinateLocator::flashAnimation</definition>
+        <argsstring></argsstring>
+        <name>flashAnimation</name>
+        <qualifiedname>CoordinateLocator::flashAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CoordinateLocator.qml" line="80" column="19" bodyfile="src/qml/CoordinateLocator.qml" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CoordinateLocator</label>
+        <link refid="classCoordinateLocator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CoordinateLocator</label>
+        <link refid="classCoordinateLocator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/CoordinateLocator.qml" line="9" column="1" bodyfile="src/qml/CoordinateLocator.qml" bodystart="9" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classCoordinateLocator_1a96f779a640a071507c112018a2b36c74" prot="private" virt="non-virtual"><scope>CoordinateLocator</scope><name>averagedInfo</name></member>
+      <member refid="classCoordinateLocator_1ac613e7479f6580fb783f4be8f388577d" prot="private" virt="non-virtual"><scope>CoordinateLocator</scope><name>averagedInfoShield</name></member>
+      <member refid="classCoordinateLocator_1aeb7a2ba462a87cd84903711b8434bc89" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>averagedPosition</name></member>
+      <member refid="classCoordinateLocator_1a6490fb0198e4a8f7ec928f44712e1ec9" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>averagedPositionCount</name></member>
+      <member refid="classCoordinateLocator_1ac866567b40b9e444f9c42c19efacd2a2" prot="private" virt="non-virtual"><scope>CoordinateLocator</scope><name>averagedProgress</name></member>
+      <member refid="classCoordinateLocator_1af012219784a534bcb5917e48237ff759" prot="private" virt="non-virtual"><scope>CoordinateLocator</scope><name>crosshairCircle</name></member>
+      <member refid="classCoordinateLocator_1a556fb82536291817740216e423c6f7c1" prot="private" virt="non-virtual"><scope>CoordinateLocator</scope><name>crosshairPath</name></member>
+      <member refid="classCoordinateLocator_1ab8fe62d8d98f81a746fbd454beca1fe9" prot="private" virt="non-virtual"><scope>CoordinateLocator</scope><name>crosshairPathBuffer</name></member>
+      <member refid="classCoordinateLocator_1a0395a20fac1abf5fe11f4ccb76510e14" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>currentCoordinate</name></member>
+      <member refid="classCoordinateLocator_1aa755c98eba611d0eb710845d73516197" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>currentLayer</name></member>
+      <member refid="classCoordinateLocator_1a53d7a9c0510c336e2f56373b2effa901" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>displayPosition</name></member>
+      <member refid="classCoordinateLocator_1af9a5c67fe6266f6417682e92246d7da9" prot="private" virt="non-virtual"><scope>CoordinateLocator</scope><name>flashAnimation</name></member>
+      <member refid="classCoordinateLocator_1aa737f3066b2041d46eb8d59b52844762" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>highlightColor</name></member>
+      <member refid="classCoordinateLocator_1ae8a8db6bfbb3acbd0aed7af24958a916" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>mainColor</name></member>
+      <member refid="classCoordinateLocator_1aeffa5f770fe375fee261ae93d2862edd" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>mapSettings</name></member>
+      <member refid="classCoordinateLocator_1acd0d179e37fb9c3a4eb7ced25d602655" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>overrideLocation</name></member>
+      <member refid="classCoordinateLocator_1aa9c4042bb49e4ee1d5eb8843d1acb07d" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>positionInformation</name></member>
+      <member refid="classCoordinateLocator_1aa238d48c89db43a5a7a77a44bd2a6d82" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>positionLocked</name></member>
+      <member refid="classCoordinateLocator_1a99d3317c49b3040dada055eeb33f01c4" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>rubberbandModel</name></member>
+      <member refid="classCoordinateLocator_1adf505479011be49cf1b4b6d81a55d989" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappedCoordinate</name></member>
+      <member refid="classCoordinateLocator_1ab61eab24fe1a84ba5d29420f31942f5a" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappedPoint</name></member>
+      <member refid="classCoordinateLocator_1a8423cd9da6d7412e0a8a677423cffcb2" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappingAngleDegrees</name></member>
+      <member refid="classCoordinateLocator_1a7cb6e359e4b1298f4e6de114fba84dfe" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappingIsRelative</name></member>
+      <member refid="classCoordinateLocator_1a00d9a8dda1bff533f78023e1cf2aada4" prot="private" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappingLines</name></member>
+      <member refid="classCoordinateLocator_1a940c76b9086f4b91e15312cf30f66e14" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappingTolerance</name></member>
+      <member refid="classCoordinateLocator_1a4516ffc104103ff3120ffd2d6616d2fb" prot="private" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappingUtils</name></member>
+      <member refid="classCoordinateLocator_1a76a5c4360b0e55aeae5561056f24aadb" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snapToCommonAngles</name></member>
+      <member refid="classCoordinateLocator_1a93f8d618aaa0ca334c002230c4c3eaea" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>sourceLocation</name></member>
+      <member refid="classCoordinateLocator_1ac1a7ce9f3f553623863d0c9a8281f5c7" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>topSnappingResult</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
