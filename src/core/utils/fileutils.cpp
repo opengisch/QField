@@ -527,11 +527,11 @@ bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additio
     return false;
   }
 
-  // Read EXIF tags
+  // Read EXIF tags before touching the image
   QVariantMap metadata = QgsExifTools::readTags( imagePath );
   const int exifOrientation = metadata.value( "Exif.Image.Orientation", 1 ).toInt();
 
-  // Read raw image without auto-transform
+  // Read raw pixels without Qt auto-rotating them
   QImageReader reader( imagePath );
   reader.setAutoTransform( false );
   QImage img = reader.read();
@@ -543,13 +543,15 @@ bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additio
 
   const bool rawIsLandscape = img.width() > img.height();
 
-  // Determine EXIF-implied rotation and mirroring
+  // Map EXIF orientation tag to clockwise rotation degrees and horizontal mirror flag.
+  // EXIF spec: orientation values 1-8 encode all combinations of 90° rotation and mirror.
   int exifRotation = 0;
   bool needMirror = false;
   switch ( exifOrientation )
   {
     case 1:
       exifRotation = 0;
+      needMirror = false;
       break;
     case 2:
       exifRotation = 0;
@@ -557,6 +559,7 @@ bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additio
       break;
     case 3:
       exifRotation = 180;
+      needMirror = false;
       break;
     case 4:
       exifRotation = 180;
@@ -568,6 +571,7 @@ bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additio
       break;
     case 6:
       exifRotation = 90;
+      needMirror = false;
       break;
     case 7:
       exifRotation = 270;
@@ -575,19 +579,18 @@ bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additio
       break;
     case 8:
       exifRotation = 270;
+      needMirror = false;
       break;
     default:
       break;
   }
 
-  // Determine orientation after EXIF would be applied
-  bool afterExifLandscape = rawIsLandscape;
-  if ( exifRotation == 90 || exifRotation == 270 )
-  {
-    afterExifLandscape = !rawIsLandscape;
-  }
+  // Determine the effective orientation after the EXIF rotation would be applied.
+  // A 90° or 270° rotation swaps width and height.
+  const bool afterExifLandscape = ( exifRotation == 90 || exifRotation == 270 ) ? !rawIsLandscape : rawIsLandscape;
 
-  // Add 90° correction if dimensions don't match expected orientation
+  // If the effective orientation doesn't match what we expect, add a 90° correction
+  // to bring the dimensions in line. This handles devices that save images sideways
   const int dimCorrection = ( expectLandscape != afterExifLandscape ) ? 90 : 0;
 
   // Normalize additional rotation to [0, 360)
@@ -597,16 +600,16 @@ bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additio
     addRot += 360;
   }
 
-  // Total rotation combines EXIF + dimension fix + user preference
+  // Combine EXIF-implied rotation, dimension correction, and user preference
   const int totalRotation = ( exifRotation + dimCorrection + addRot ) % 360;
 
-  // Early exit if no changes needed
+  // Nothing to do: image is already upright with correct EXIF tag
   if ( totalRotation == 0 && !needMirror && exifOrientation == 1 )
   {
     return true;
   }
 
-  // Apply transformations
+  // Apply horizontal mirror before rotation (EXIF convention)
   if ( needMirror )
   {
     img = img.flipped( Qt::Horizontal );
@@ -619,13 +622,7 @@ bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additio
     img = img.transformed( xform, Qt::SmoothTransformation );
   }
 
-  // Save image
-  QSaveFile out( imagePath );
-  if ( !out.open( QIODevice::WriteOnly ) )
-  {
-    return false;
-  }
-
+  // Determine output format from file extension
   QByteArray fmt = QFileInfo( imagePath ).suffix().toLower().toLatin1();
   if ( fmt == "jpeg" )
   {
@@ -634,6 +631,13 @@ bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additio
   if ( fmt.isEmpty() )
   {
     fmt = "jpg";
+  }
+
+  // Write atomically to avoid a corrupt file on failure
+  QSaveFile out( imagePath );
+  if ( !out.open( QIODevice::WriteOnly ) )
+  {
+    return false;
   }
 
   QImageWriter writer( &out, fmt );
@@ -653,87 +657,7 @@ bool FileUtils::normalizeImageOrientation( const QString &imagePath, int additio
     return false;
   }
 
-  // Reset EXIF orientation to normal
-  metadata["Exif.Image.Orientation"] = 1;
-  metadata["Xmp.tiff.Orientation"] = 1;
-  for ( auto it = metadata.constBegin(); it != metadata.constEnd(); ++it )
-  {
-    QgsExifTools::tagImage( imagePath, it.key(), it.value() );
-  }
-
-  return true;
-}
-
-bool FileUtils::rotateImageInPlace( const QString &imagePath, int clockwiseDegrees )
-{
-  if ( !QFileInfo::exists( imagePath ) )
-  {
-    return false;
-  }
-
-  // Normalize to [0, 360)
-  int deg = clockwiseDegrees % 360;
-  if ( deg < 0 )
-  {
-    deg += 360;
-  }
-
-  if ( deg == 0 )
-  {
-    return true;
-  }
-
-  // Read metadata and image with EXIF auto-transform
-  QVariantMap metadata = QgsExifTools::readTags( imagePath );
-  QImageReader reader( imagePath );
-  reader.setAutoTransform( true );
-  QImage img = reader.read();
-
-  if ( img.isNull() )
-  {
-    return false;
-  }
-
-  // Apply rotation
-  QTransform transform;
-  transform.rotate( deg );
-  QImage rotated = img.transformed( transform, Qt::SmoothTransformation );
-
-  // Save image
-  QSaveFile out( imagePath );
-  if ( !out.open( QIODevice::WriteOnly ) )
-  {
-    return false;
-  }
-
-  QByteArray fmt = QFileInfo( imagePath ).suffix().toLower().toLatin1();
-  if ( fmt == "jpeg" )
-  {
-    fmt = "jpg";
-  }
-  if ( fmt.isEmpty() )
-  {
-    fmt = "jpg";
-  }
-
-  QImageWriter writer( &out, fmt );
-  if ( fmt == "jpg" )
-  {
-    writer.setQuality( 90 );
-  }
-
-  if ( !writer.write( rotated ) )
-  {
-    out.cancelWriting();
-    return false;
-  }
-
-  if ( !out.commit() )
-  {
-    return false;
-  }
-
-  // Reset EXIF orientation since we've physically rotated the pixels
+  // Reset EXIF orientation to "normal / upright" since pixels are now physically correct
   metadata["Exif.Image.Orientation"] = 1;
   metadata["Xmp.tiff.Orientation"] = 1;
   for ( auto it = metadata.constBegin(); it != metadata.constEnd(); ++it )

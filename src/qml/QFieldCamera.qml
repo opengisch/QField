@@ -166,30 +166,34 @@ Popup {
           property alias camera: camera
           property alias imageCapture: imageCapture
           property alias recorder: recorder
-          property alias videoOutput: videoOutput   // expose it
+          property alias videoOutput: videoOutput
           property alias previewRotation: cameraOrientation.rotation
 
           QtObject {
             id: cameraOrientation
 
             property int rotation: {
-              // desktop- never rotate
+              // Desktop: never apply additional rotation, the OS handles it
               if (Qt.platform.os !== "ios" && Qt.platform.os !== "android") {
                 return 0;
               }
-              // portrait- never rotate
+              // Portrait: no additional rotation needed
               if (cameraItem.isPortraitMode) {
                 return 0;
               }
-              // landscape on mobile: use saved user preference
+              if (cameraItem.state === "VideoCapture") {
+                return 0;
+              }
+              // Landscape on mobile: use the user's saved preference
               return cameraSettings.landscapeRotation;
             }
 
-            // Show help toast once when first entering landscape
+            // Show a one-time hint the first time the user enters landscape mode,
+            // so user know the rotation button exists if the image appears upside-down
             onRotationChanged: {
-              if (rotation === 0 && !cameraItem.isPortraitMode && !cameraSettings.orientationHelpShown && (Qt.platform.os === "ios" || Qt.platform.os === "android")) {
+              if (!cameraSettings.orientationHelpShown && !cameraItem.isPortraitMode && (Qt.platform.os === "ios" || Qt.platform.os === "android")) {
                 cameraSettings.orientationHelpShown = true;
-                displayToast(qsTr("Camera upside down? Use the rotation button in settings."));
+                displayToast(qsTr("Wrong camera orientation ? Use the rotation button in settings menu."));
               }
             }
           }
@@ -199,11 +203,20 @@ Popup {
             anchors.fill: parent
             visible: cameraItem.state == "PhotoCapture" || cameraItem.state == "VideoCapture"
 
-            transform: Rotation {
-              origin.x: videoOutput.width / 2
-              origin.y: videoOutput.height / 2
-              angle: cameraOrientation.rotation
-            }
+            transform: [
+              Rotation {
+                origin.x: videoOutput.width / 2
+                origin.y: videoOutput.height / 2
+                angle: cameraOrientation.rotation
+              },
+              Scale {
+                origin.x: videoOutput.width / 2
+                origin.y: videoOutput.height / 2
+                property bool needsSwap: cameraOrientation.rotation === 90 || cameraOrientation.rotation === 270
+                xScale: needsSwap ? Math.min(videoOutput.height / videoOutput.width, 1.0) : 1.0
+                yScale: needsSwap ? Math.min(videoOutput.width / videoOutput.height, 1.0) : 1.0
+              }
+            ]
           }
 
           CaptureSession {
@@ -293,6 +306,7 @@ Popup {
             if (device.id === cameraSettings.deviceId) {
               item.camera.cameraDevice = device;
               cameraPicked = true;
+              break;
             }
           }
         }
@@ -411,11 +425,23 @@ Popup {
       smooth: true
       focus: visible
 
-      transform: Rotation {
-        origin.x: photoPreview.width / 2
-        origin.y: photoPreview.height / 2
-        angle: captureLoader.item ? captureLoader.item.previewRotation : 0
-      }
+      // When rotating by 90° or 270°, the image exceeds the container bounds,
+      // so we scale it down uniformly to fit within the available area.
+      transform: [
+        Rotation {
+          origin.x: photoPreview.width / 2
+          origin.y: photoPreview.height / 2
+          angle: captureLoader.item ? captureLoader.item.previewRotation : 0
+        },
+        Scale {
+          origin.x: photoPreview.width / 2
+          origin.y: photoPreview.height / 2
+          property real rot: captureLoader.item ? captureLoader.item.previewRotation : 0
+          property bool needsSwap: rot === 90 || rot === 270
+          xScale: needsSwap ? Math.min(photoPreview.height / photoPreview.width, 1.0) : 1.0
+          yScale: needsSwap ? Math.min(photoPreview.width / photoPreview.height, 1.0) : 1.0
+        }
+      ]
     }
 
     PinchArea {
@@ -541,9 +567,9 @@ Popup {
                     return;
                   }
                   if (cameraItem.state == "PhotoPreview") {
-                    // Normalize the image orientation
-                    // In landscape mode, apply the user's rotation preference
-                    // In portrait mode, just normalize EXIF without additional rotation
+                    // Bake the preview rotation and any EXIF transform into the saved pixels.
+                    // In portrait mode no additional rotation is needed; in landscape we pass
+                    // the user's chosen rotation preference.
                     const userRotation = cameraItem.isPortraitMode ? 0 : cameraSettings.landscapeRotation;
                     const expectLandscape = !cameraItem.isPortraitMode;
                     FileUtils.normalizeImageOrientation(currentPath, userRotation, expectLandscape);
@@ -797,7 +823,7 @@ Popup {
       Loader {
         id: orientationButtonLoader
 
-        property bool show: !cameraItem.isPortraitMode && (Qt.platform.os === "ios" || Qt.platform.os === "android")
+        property bool show: !cameraItem.isPortraitMode && (Qt.platform.os === "ios" || Qt.platform.os === "android") && cameraItem.state !== "VideoCapture"
 
         active: show
         visible: show
@@ -828,7 +854,7 @@ Popup {
               displayToast(qsTr("Rotation: 270°"));
             } else {
               cameraSettings.landscapeRotation = 0;
-              displayToast(qsTr("Rotation: None"));
+              displayToast(qsTr("Rotation: 0°"));
             }
           }
         }
