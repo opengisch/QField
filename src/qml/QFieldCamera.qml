@@ -113,6 +113,8 @@ Popup {
     property string deviceId: ''
     property size resolution: Qt.size(0, 0)
     property int pixelFormat: 0
+    property int landscapeRotation: 0  // User-configurable: 0, 90, 180, or 270
+    property bool orientationHelpShown: false
   }
 
   ExpressionEvaluator {
@@ -165,11 +167,43 @@ Popup {
           property alias imageCapture: imageCapture
           property alias recorder: recorder
           property alias videoOutput: videoOutput   // expose it
+          property alias previewRotation: cameraOrientation.rotation
+
+          QtObject {
+            id: cameraOrientation
+
+            property int rotation: {
+              // desktop- never rotate
+              if (Qt.platform.os !== "ios" && Qt.platform.os !== "android") {
+                return 0;
+              }
+              // portrait- never rotate
+              if (cameraItem.isPortraitMode) {
+                return 0;
+              }
+              // landscape on mobile: use saved user preference
+              return cameraSettings.landscapeRotation;
+            }
+
+            // Show help toast once when first entering landscape
+            onRotationChanged: {
+              if (rotation === 0 && !cameraItem.isPortraitMode && !cameraSettings.orientationHelpShown && (Qt.platform.os === "ios" || Qt.platform.os === "android")) {
+                cameraSettings.orientationHelpShown = true;
+                displayToast(qsTr("Camera upside down? Use the rotation button in settings."));
+              }
+            }
+          }
 
           VideoOutput {
             id: videoOutput
             anchors.fill: parent
             visible: cameraItem.state == "PhotoCapture" || cameraItem.state == "VideoCapture"
+
+            transform: Rotation {
+              origin.x: videoOutput.width / 2
+              origin.y: videoOutput.height / 2
+              angle: cameraOrientation.rotation
+            }
           }
 
           CaptureSession {
@@ -376,6 +410,12 @@ Popup {
       fillMode: Image.PreserveAspectFit
       smooth: true
       focus: visible
+
+      transform: Rotation {
+        origin.x: photoPreview.width / 2
+        origin.y: photoPreview.height / 2
+        angle: captureLoader.item ? captureLoader.item.previewRotation : 0
+      }
     }
 
     PinchArea {
@@ -497,9 +537,16 @@ Popup {
                     currentPath = UrlUtils.toLocalFile(path);
                   }
                 } else if (cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview") {
-                  if (!currentPath || currentPath === "")
+                  if (!currentPath || currentPath === "") {
                     return;
+                  }
                   if (cameraItem.state == "PhotoPreview") {
+                    // Normalize the image orientation
+                    // In landscape mode, apply the user's rotation preference
+                    // In portrait mode, just normalize EXIF without additional rotation
+                    const userRotation = cameraItem.isPortraitMode ? 0 : cameraSettings.landscapeRotation;
+                    const expectLandscape = !cameraItem.isPortraitMode;
+                    FileUtils.normalizeImageOrientation(currentPath, userRotation, expectLandscape);
                     if (cameraSettings.geoTagging && positionSource.active) {
                       FileUtils.addImageMetadata(currentPath, currentPosition);
                     }
@@ -745,6 +792,45 @@ Popup {
         onClicked: {
           cameraSettings.showGrid = !cameraSettings.showGrid;
           displayToast(cameraSettings.showGrid ? qsTr("Grid enabled") : qsTr("Grid disabled"));
+        }
+      }
+      Loader {
+        id: orientationButtonLoader
+
+        property bool show: !cameraItem.isPortraitMode && (Qt.platform.os === "ios" || Qt.platform.os === "android")
+
+        active: show
+        visible: show
+
+        // collapse footprint when hidden, just incase
+        width: show ? 40 : 0
+        height: show ? 40 : 0
+
+        sourceComponent: QfToolButton {
+          anchors.fill: parent
+          padding: 2
+
+          iconSource: Theme.getThemeVectorIcon("ic_phone_rotate_black_24dp")
+          iconColor: cameraSettings.landscapeRotation !== 0 ? Theme.mainColor : Theme.toolButtonColor
+          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+          round: true
+
+          onClicked: {
+            // cycle [ 0° - 180° - 90° - 270° - 0° ]
+            if (cameraSettings.landscapeRotation === 0) {
+              cameraSettings.landscapeRotation = 180;
+              displayToast(qsTr("Rotation: 180°"));
+            } else if (cameraSettings.landscapeRotation === 180) {
+              cameraSettings.landscapeRotation = 90;
+              displayToast(qsTr("Rotation: 90°"));
+            } else if (cameraSettings.landscapeRotation === 90) {
+              cameraSettings.landscapeRotation = 270;
+              displayToast(qsTr("Rotation: 270°"));
+            } else {
+              cameraSettings.landscapeRotation = 0;
+              displayToast(qsTr("Rotation: None"));
+            }
+          }
         }
       }
     }
