@@ -194,21 +194,6 @@ QfPopup {
           }
         }
 
-        QfToolButton {
-          id: scanProjectBtn
-          enabled: !pluginManager.pluginModel.isRefreshing
-          visible: enabled
-
-          bgcolor: "transparent"
-          iconSource: Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
-          iconColor: Theme.mainTextColor
-
-          onClicked: {
-            codeReaderConnection.enabled = true;
-            codeReader.open();
-          }
-        }
-
         BusyIndicator {
           id: busyIndicator
           Layout.preferredWidth: 48
@@ -320,7 +305,23 @@ QfPopup {
       TextArea {
         id: installFromUrlInput
         width: installFromUrlLabel.width
+        rightPadding: scanCodeBtn.width
         wrapMode: TextEdit.WrapAnywhere
+
+        QfToolButton {
+          id: scanCodeBtn
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
+
+          bgcolor: "transparent"
+          iconSource: Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
+          iconColor: Theme.mainTextColor
+
+          onClicked: {
+            codeReaderConnection.enabled = true;
+            codeReader.open();
+          }
+        }
       }
     }
 
@@ -372,7 +373,7 @@ QfPopup {
       if (string.toLowerCase().startsWith("http://") || string.toLowerCase().startsWith("https://")) {
         codeReader.close();
         installFromUrlInput.text = string;
-        installFromUrlDialog.open();
+        installFromUrlDialog.accept();
       }
     }
 
