@@ -37,6 +37,9 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
 
     void initNmeaConnection( QIODevice *ioDevice );
 
+  signals:
+    void nmeaSentenceReceived( const QString &sentence );
+
   protected:
     std::unique_ptr<QgsNmeaConnection> mNmeaConnection;
 
@@ -44,7 +47,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
 
   private slots:
     void stateChanged( const QgsGpsInformation &info );
-    void nmeaSentenceReceived( const QString &substring );
+    void onNmeaSentenceReceived( const QString &substring );
 
   private:
     void handleStartLogging( const QString &path ) override;
