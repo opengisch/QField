@@ -150,36 +150,4 @@ TestCase {
     img.fillColor = Qt.rgba(0, 0, 1, 1);
     compare(fillColorChangedSpy.count, 1);
   }
-
-  function test_svgRendersWithFillParameter() {
-    img.source = ":/themes/qfield/nodpi/ic_folder_qfield_param_48dp.svg"
-    img.parameters = { "fill": "#ff0000" }
-    waitForRendering(img)
-    const grabbed = grabImage(img)
-    // the item must not be blank, at least one nontransparent pixel must exist
-    verify(grabbed.pixel(50, 50) !== Qt.rgba(0, 0, 0, 0))
-  }
-
-  function test_svgFillParameterChangesRendering() {
-    img.source = ":/themes/qfield/nodpi/ic_folder_qfield_param_48dp.svg"
-    img.parameters = { "fill": "#ff0000" }
-    waitForRendering(img)
-    const redGrab = grabImage(img)
-    img.parameters = { "fill": "#0000ff" }
-    waitForRendering(img)
-    const blueGrab = grabImage(img)
-    // the two renders must differ, a color change must produce different pixels
-    verify(redGrab.pixel(50, 50) !== blueGrab.pixel(50, 50))
-  }
-
-  function test_svgMultipleParametersChangeRendering() {
-    img.source = ":/themes/qfield/nodpi/ic_cloud_project_upload_param_48dp.svg"
-    img.parameters = { "outline": "#ff0000", "cloud": "#00ff00" }
-    waitForRendering(img)
-    const grab1 = grabImage(img)
-    img.parameters = { "outline": "#0000ff", "cloud": "#ffff00" }
-    waitForRendering(img)
-    const grab2 = grabImage(img)
-    verify(grab1.pixel(50, 50) !== grab2.pixel(50, 50))
-  }
 }

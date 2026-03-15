@@ -36,7 +36,7 @@ class ParameterizedImage : public QQuickPaintedItem
 
     /**
      * The fill color used to paint an image.
-     * \note Compatible with arameterized SVG images only.
+     * \note Compatible with parameterized SVG images only.
      */
     Q_PROPERTY( QColor fillColor READ fillColor WRITE setFillColor NOTIFY fillColorChanged )
 
