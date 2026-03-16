@@ -198,25 +198,24 @@ Popup {
             }
           }
 
-          VideoOutput {
-            id: videoOutput
-            anchors.fill: parent
-            visible: cameraItem.state == "PhotoCapture" || cameraItem.state == "VideoCapture"
+          Item {
+            id: videoOutputContainer
+            anchors.centerIn: parent
+            // Pre-swap dimensions so after rotation the content fills the parent exactly
+            width: (cameraOrientation.rotation === 90 || cameraOrientation.rotation === 270) ? parent.height : parent.width
+            height: (cameraOrientation.rotation === 90 || cameraOrientation.rotation === 270) ? parent.width : parent.height
 
-            transform: [
-              Rotation {
+            VideoOutput {
+              id: videoOutput
+              anchors.fill: parent
+              visible: cameraItem.state == "PhotoCapture" || cameraItem.state == "VideoCapture"
+
+              transform: Rotation {
                 origin.x: videoOutput.width / 2
                 origin.y: videoOutput.height / 2
                 angle: cameraOrientation.rotation
-              },
-              Scale {
-                origin.x: videoOutput.width / 2
-                origin.y: videoOutput.height / 2
-                property bool needsSwap: cameraOrientation.rotation === 90 || cameraOrientation.rotation === 270
-                xScale: needsSwap ? Math.min(videoOutput.height / videoOutput.width, 1.0) : 1.0
-                yScale: needsSwap ? Math.min(videoOutput.width / videoOutput.height, 1.0) : 1.0
               }
-            ]
+            }
           }
 
           CaptureSession {
@@ -414,34 +413,29 @@ Popup {
       muted: true
     }
 
-    Image {
-      id: photoPreview
-
+    Item {
+      id: photoPreviewContainer
+      anchors.centerIn: parent
       visible: cameraItem.state == "PhotoPreview"
+      // Pre-swap dimensions so after rotation the content fills the parent exactly
+      property real rot: captureLoader.item ? captureLoader.item.previewRotation : 0
+      width: (rot === 90 || rot === 270) ? parent.height : parent.width
+      height: (rot === 90 || rot === 270) ? parent.width : parent.height
 
-      anchors.fill: parent
-      cache: false
-      fillMode: Image.PreserveAspectFit
-      smooth: true
-      focus: visible
+      Image {
+        id: photoPreview
+        anchors.fill: parent
+        cache: false
+        fillMode: Image.PreserveAspectFit
+        smooth: true
+        focus: visible
 
-      // When rotating by 90° or 270°, the image exceeds the container bounds,
-      // so we scale it down uniformly to fit within the available area.
-      transform: [
-        Rotation {
+        transform: Rotation {
           origin.x: photoPreview.width / 2
           origin.y: photoPreview.height / 2
           angle: captureLoader.item ? captureLoader.item.previewRotation : 0
-        },
-        Scale {
-          origin.x: photoPreview.width / 2
-          origin.y: photoPreview.height / 2
-          property real rot: captureLoader.item ? captureLoader.item.previewRotation : 0
-          property bool needsSwap: rot === 90 || rot === 270
-          xScale: needsSwap ? Math.min(photoPreview.height / photoPreview.width, 1.0) : 1.0
-          yScale: needsSwap ? Math.min(photoPreview.width / photoPreview.height, 1.0) : 1.0
         }
-      ]
+      }
     }
 
     PinchArea {
