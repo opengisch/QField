@@ -157,12 +157,6 @@ class Quick3DTerrainProvider : public QObject
      */
     Q_INVOKABLE QVector3D geoTo3D( double geoX, double geoY, float heightOffset = 0.0f ) const;
 
-    /**
-     * Calculates recommended vertical exaggeration factor based on terrain height range.
-     * \returns Exaggeration multiplier to enhance terrain visibility
-     */
-    Q_INVOKABLE double calculateVisualExaggeration() const;
-
     //! Regenerates the extent and terrain data from current offset
     Q_INVOKABLE void beginTransition();
 

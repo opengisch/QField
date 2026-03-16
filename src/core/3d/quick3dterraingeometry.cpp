@@ -195,7 +195,7 @@ void Quick3DTerrainGeometry::applyShiftedHeights()
         const int srcIdx = srcZ * mMetagridWidth + srcX;
         if ( srcIdx >= 0 && srcIdx < mMetagridHeights.size() )
         {
-          mHeights[dstIdx] = mMetagridHeights[srcIdx];
+          mHeights[dstIdx] = mMetagridHeights[srcIdx] / mOffsetScale;
         }
         else
         {
