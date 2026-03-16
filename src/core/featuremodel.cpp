@@ -144,11 +144,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
       const QgsEditFormConfig config = mLayer->editFormConfig();
       for ( int i = 0; i < layer->fields().size(); i++ )
       {
-#if _QGIS_VERSION_INT >= 39900
         ( *sRememberings )[mLayer].rememberedAttributes << ( config.reuseLastValuePolicy( i ) == Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn );
-#else
-        ( *sRememberings )[mLayer].rememberedAttributes << config.reuseLastValue( i );
-#endif
       }
     }
 
@@ -470,15 +466,11 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
         ( *sRememberings )[mLayer].rememberedAttributes[index.row()] = value.toBool();
 
         QgsEditFormConfig config = mLayer->editFormConfig();
-#if _QGIS_VERSION_INT >= 39900
         if ( config.reuseLastValuePolicy( index.row() ) == Qgis::AttributeFormReuseLastValuePolicy::NotAllowed )
         {
           return false;
         }
         config.setReuseLastValuePolicy( index.row(), value.toBool() ? Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn : Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOff );
-#else
-        config.setReuseLastValue( index.row(), value.toBool() );
-#endif
         mLayer->setEditFormConfig( config );
 
         emit dataChanged( index, index, QVector<int>() << role );

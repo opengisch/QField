@@ -376,11 +376,7 @@ void ProjectInfo::saveLayerRememberedFields( QgsMapLayer *layer )
   const QgsFields fields = vlayer->fields();
   for ( int i = 0; i < fields.size(); i++ )
   {
-#if _QGIS_VERSION_INT >= 39900
     rememberedFields.insert( fields.at( i ).name(), config.reuseLastValuePolicy( i ) == Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn );
-#else
-    rememberedFields.insert( fields.at( i ).name(), config.reuseLastValue( i ) );
-#endif
   }
 
   const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
@@ -573,14 +569,10 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
         const QStringList fieldNames = rememberedFields.keys();
         for ( const QString &fieldName : fieldNames )
         {
-#if _QGIS_VERSION_INT >= 39900
           if ( config.reuseLastValuePolicy( vlayer->fields().indexFromName( fieldName ) ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed )
           {
             config.setReuseLastValuePolicy( vlayer->fields().indexFromName( fieldName ), rememberedFields[fieldName].toBool() ? Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn : Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOff );
           }
-#else
-          config.setReuseLastValue( vlayer->fields().indexFromName( fieldName ), rememberedFields[fieldName].toBool() );
-#endif
         }
         vlayer->setEditFormConfig( config );
       }
