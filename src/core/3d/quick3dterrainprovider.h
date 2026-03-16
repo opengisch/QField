@@ -220,16 +220,17 @@ class Quick3DTerrainProvider : public QObject
     QVariantList mNormalizedData;
     QgsRectangle mNormalizedDataExtent;
 
+    bool mIsLoading = false;
     bool mIsTransitioning = false;
+
     QVector3D mOffsetVector = QVector3D( 0, 0, 0 );
     double mOffsetScale = 1.0;
 
     double mMinRealHeight = 0.0;
     double mMaxRealHeight = 0.0;
 
-    bool mIsLoading = false;
-    bool mRecalcPending = false;
     QFutureWatcher<QVector<double>> *mFutureWatcher = nullptr;
+    QgsRectangle mFutureExtent;
 };
 
 #endif // QUICK3DTERRAINPROVIDER_H

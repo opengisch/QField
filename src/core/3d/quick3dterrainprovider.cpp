@@ -275,8 +275,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
 
   if ( mFutureWatcher->isRunning() )
   {
-    mRecalcPending = true;
-    return;
+    mFutureWatcher->cancel();
   }
 
   mIsLoading = true;
@@ -414,6 +413,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
     return heights;
   } );
 
+  mFutureExtent = mExtent;
   mFutureWatcher->setFuture( future );
 }
 
@@ -471,7 +471,7 @@ bool Quick3DTerrainProvider::isLoading() const
 
 void Quick3DTerrainProvider::onTerrainDataCalculated()
 {
-  if ( !mFutureWatcher->isFinished() )
+  if ( !mFutureWatcher->isFinished() || mFutureWatcher->isCanceled() )
   {
     return;
   }
@@ -491,33 +491,27 @@ void Quick3DTerrainProvider::onTerrainDataCalculated()
   {
     mNormalizedData.append( ( h - mMinRealHeight ) * scale );
   }
-  mNormalizedDataExtent = mExtent;
+  mNormalizedDataExtent = mFutureExtent;
 
   mIsLoading = false;
   emit isLoadingChanged();
 
   emit normalizedDataChanged();
   emit terrainDataReady();
-
-  if ( mRecalcPending )
-  {
-    mRecalcPending = false;
-    calcNormalizedData();
-  }
 }
 
 void Quick3DTerrainProvider::updateExtentFromOffsets()
 {
   QgsRectangle modifiedExtent = mNormalizedDataExtent;
+  if ( !qgsDoubleNear( mOffsetScale, 0.0 ) )
+  {
+    modifiedExtent.scale( mOffsetScale );
+  }
   if ( mOffsetVector.x() != 0 || mOffsetVector.y() != 0 )
   {
     const double mupp = mExtent.width() / mSize.width();
     QgsVector panVector( -mOffsetVector.x() * mupp, mOffsetVector.z() * mupp );
     modifiedExtent += panVector;
-  }
-  else if ( !qgsDoubleNear( mOffsetScale, 0.0 ) )
-  {
-    modifiedExtent.scale( mOffsetScale );
   }
 
   if ( modifiedExtent != mExtent )
@@ -529,8 +523,11 @@ void Quick3DTerrainProvider::updateExtentFromOffsets()
 
 void Quick3DTerrainProvider::beginTransition()
 {
-  mIsTransitioning = true;
-  emit isTransitioningChanged();
+  if ( !mIsTransitioning )
+  {
+    mIsTransitioning = true;
+    emit isTransitioningChanged();
+  }
 
   generateData();
 }
