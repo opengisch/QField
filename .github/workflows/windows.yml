@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-**
+      - signing
   pull_request:
   release:
     types: ['published']
@@ -164,7 +165,7 @@ jobs:
           azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
           azure-client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
           endpoint: https://weu.codesigning.azure.net/
-          code-signing-account-name: OPENGISch
+          signing-account-name: OPENGISch
           certificate-profile-name: OPENGISch
           files-folder: ${{ env.CMAKE_BUILD_DIR }}
           files-folder-filter: exe,msi
