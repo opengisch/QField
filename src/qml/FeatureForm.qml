@@ -708,14 +708,14 @@ Page {
             width: visible ? 48 : 0
 
             iconSource: Theme.getThemeVectorIcon("ic_pin_black_24dp")
-            iconColor: RememberValue ? Theme.mainColor : Theme.mainTextDisabledColor
+            iconColor: RememberValue ? Theme.mainColor : Theme.mainTextColor
             bgcolor: "transparent"
 
             anchors {
               right: parent.right
               top: constraintDescriptionLabel.bottom
               verticalCenter: fieldMenuButton.verticalCenter
-              rightMargin: visible ? 0 : 10
+              rightMargin: visible ? 15 : 10
             }
 
             onClicked: {
