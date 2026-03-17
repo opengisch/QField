@@ -11,16 +11,16 @@ EditorWidgetBase {
   property var relationEditorModel: undefined
 
   property alias listView: listView
+  property alias gridView: gridView
 
   property int itemHeight: 48
   property int bottomMargin: 10
   property int maximumVisibleItems: 4
   property bool showAllItems: false
   property bool showSortButton: true
-  property int itemCount: listView.count
+  property int itemCount: listView.count + gridView.count
 
   property bool showCameraButton: false
-  property alias contentArea: contentArea
 
   signal toggleSortAction
   signal cameraAction
@@ -34,7 +34,7 @@ EditorWidgetBase {
     }
   }
 
-  height: listView.height + headerEntry.height + 10
+  height: Math.max(listView.height, gridView.height) + headerEntry.height + 10
   enabled: true
 
   Rectangle {
@@ -153,6 +153,7 @@ EditorWidgetBase {
               return;
             }
           }
+
           //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
           if (relationEditorModel.parentPrimariesAvailable) {
             displayToast(qsTr('Adding child feature in layer %1').arg(relationEditorModel.relation.referencingLayer.name));
@@ -169,23 +170,34 @@ EditorWidgetBase {
       }
     }
 
-    Item {
-      id: contentArea
+    ListView {
+      id: listView
       anchors.top: headerEntry.bottom
       width: parent.width
-      height: listView.height
+      height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, contentHeight) : contentHeight
+      focus: true
+      clip: true
+      boundsBehavior: Flickable.StopAtBounds
+      highlightRangeMode: ListView.ApplyRange
+      ScrollBar.vertical: QfScrollBar {}
+    }
 
-      ListView {
-        id: listView
-        anchors.top: parent.top
-        width: parent.width
-        height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, contentHeight) : contentHeight
-        focus: true
-        clip: true
-        boundsBehavior: Flickable.StopAtBounds
-        highlightRangeMode: ListView.ApplyRange
-        ScrollBar.vertical: QfScrollBar {}
-      }
+    GridView {
+      id: gridView
+      anchors.top: headerEntry.bottom
+      anchors.topMargin: 8
+      width: parent.width
+      visible: false
+
+      property int columns: Math.max(2, Math.floor(width / 160))
+      property int cellSize: Math.floor(width / columns)
+
+      cellWidth: cellSize
+      cellHeight: cellSize
+
+      height: visible ? contentHeight : 0
+      clip: false
+      boundsBehavior: Flickable.StopAtBounds
     }
 
     BusyIndicator {

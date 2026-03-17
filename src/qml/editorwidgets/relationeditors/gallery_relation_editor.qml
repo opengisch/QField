@@ -13,15 +13,20 @@ RelationEditorBase {
 
   property string pendingAttachmentPath: ""
   property string imagePrefix: {
-    if (qgisProject == undefined) return "";
+    if (qgisProject == undefined)
+      return "";
     let path = qgisProject.homePath;
     return path.endsWith("/") ? path : path + "/";
   }
   property string attachmentFieldName: referencingFeatureListModel.attachmentFieldName
 
   showCameraButton: true
-  height: imageGridView.height + itemHeight + 18
-  contentArea.height: imageGridView.height + 8
+  listView.visible: false
+  gridView.visible: true
+  gridView.model: DelegateModel {
+    model: referencingFeatureListModel
+    delegate: galleryDelegate
+  }
 
   relationEditorModel: ReferencingFeatureListModel {
     id: referencingFeatureListModel
@@ -32,7 +37,7 @@ RelationEditorBase {
     property int featureFocus: -1
     onModelUpdated: {
       if (featureFocus > -1) {
-        imageGridView.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
+        gridView.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
         featureFocus = -1;
       }
     }
@@ -45,27 +50,6 @@ RelationEditorBase {
   onCameraAction: {
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     relationCameraLoader.active = true;
-  }
-
-  listView.visible: false
-  listView.model: DelegateModel {
-    model: referencingFeatureListModel
-    delegate: Item {}
-  }
-
-  Connections {
-    target: embeddedPopupLoader
-    function onItemChanged() {
-      if (embeddedPopupLoader.item) {
-        embeddedPopupLoader.item.opened.connect(function() {
-          if (pendingAttachmentPath !== "") {
-            embeddedPopup.attributeFormModel.applyParentDefaultValues();
-            embeddedPopup.attributeFormModel.changeAttribute(attachmentFieldName, pendingAttachmentPath);
-            pendingAttachmentPath = "";
-          }
-        });
-      }
-    }
   }
 
   function showAddFeaturePopup(geometry) {
@@ -81,6 +65,11 @@ RelationEditorBase {
       embeddedPopup.applyGeometry(geometry);
     }
     embeddedPopup.open();
+    embeddedPopup.attributeFormModel.applyParentDefaultValues();
+    if (pendingAttachmentPath !== "") {
+      embeddedPopup.attributeFormModel.changeAttribute(attachmentFieldName, pendingAttachmentPath);
+      pendingAttachmentPath = "";
+    }
   }
 
   Loader {
@@ -105,38 +94,12 @@ RelationEditorBase {
     }
   }
 
-  GridView {
-    id: imageGridView
-    parent: contentArea
-    visible: true
-
-    anchors.top: parent.top
-    anchors.topMargin: 8
-    width: parent.width
-
-    property int columns: Math.max(2, Math.floor(width / 160))
-    property int cellSize: Math.floor(width / columns)
-
-    cellWidth: cellSize
-    cellHeight: cellSize
-
-    height: contentHeight
-    clip: false
-    boundsBehavior: Flickable.StopAtBounds
-
-    model: DelegateModel {
-      model: referencingFeatureListModel
-      delegate: galleryDelegate
-    }
-  }
-
   Component {
     id: galleryDelegate
 
     Item {
-      id: delegateRoot
-      width: imageGridView.cellWidth
-      height: imageGridView.cellHeight
+      width: gridView.cellWidth
+      height: gridView.cellHeight
 
       Rectangle {
         id: cardContainer
@@ -165,7 +128,8 @@ RelationEditorBase {
 
           source: {
             var path = model.attachmentPath;
-            if (!path || path === "") return "";
+            if (!path || path === "")
+              return "";
             return UrlUtils.fromString(imagePrefix + path);
           }
 
@@ -202,12 +166,7 @@ RelationEditorBase {
           anchors.left: parent.left
           anchors.right: parent.right
           height: 44
-          color: Qt.hsla(
-            Theme.mainBackgroundColor.hslHue,
-            Theme.mainBackgroundColor.hslSaturation,
-            Theme.mainBackgroundColor.hslLightness,
-            Theme.darkTheme ? 0.75 : 0.95
-          )
+          color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
 
           Text {
             anchors {
@@ -241,9 +200,8 @@ RelationEditorBase {
               childMenu.entryDisplayString = model.displayString;
               childMenu.entryNmReferencedFeature = nmRelationId ? model.nmReferencedFeature : undefined;
               childMenu.entryNmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : '';
-              var screenPos = cardMenuButton.mapToGlobal(0, 0);
-              var menuPos = mainWindow.contentItem.mapFromGlobal(screenPos.x, screenPos.y);
-              childMenu.popup(menuPos.x, menuPos.y);
+              const pos = cardMenuButton.mapToItem(relationEditor, 0, 0);
+              childMenu.popup(pos.x, pos.y);
             }
           }
         }
