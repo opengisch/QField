@@ -34,7 +34,6 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
   mCreatedProjectsPath = QDir::cleanPath( QStringLiteral( "%1/Created Projects" ).arg( applicationDirectory ) );
   mImportedProjectsPath = QDir::cleanPath( QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory ) );
   mImportedDatasetsPath = QDir::cleanPath( QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory ) );
-  mSampleProjectsPath = QDir::cleanPath( PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
 
   const bool favoritesInitialized = settings.value( QStringLiteral( "qfieldFavoritesInitialized3" ), false ).toBool();
   if ( !favoritesInitialized )
@@ -57,13 +56,15 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
       }
     }
 
-    if ( !mFavorites.contains( mSampleProjectsPath ) )
-    {
-      mFavorites << mSampleProjectsPath;
-    }
-
     settings.setValue( QStringLiteral( "qfieldFavorites" ), mFavorites );
     settings.setValue( QStringLiteral( "qfieldFavoritesInitialized3" ), true );
+  }
+
+  // Remove obsolete sample projects path
+  const QString sampleProjectsPath = QDir::cleanPath( PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
+  if ( mFavorites.contains( sampleProjectsPath ) )
+  {
+    removeFromFavorites( sampleProjectsPath );
   }
 
   resetToRoot();
@@ -106,10 +107,9 @@ void LocalFilesModel::resetToPath( const QString &path )
   }
 }
 
-bool LocalFilesModel::isPathFavoriteEditable( const QString &path )
+bool LocalFilesModel::isPathFavoriteEditable( const QString & )
 {
-  const QString sampleProjectPath = PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) );
-  return path != sampleProjectPath;
+  return true;
 }
 
 void LocalFilesModel::addToFavorites( const QString &path )
@@ -157,10 +157,6 @@ const QString LocalFilesModel::getCurrentTitleFromPath( const QString &path ) co
   else if ( path == mImportedDatasetsPath )
   {
     return tr( "Imported datasets" );
-  }
-  else if ( path == mSampleProjectsPath )
-  {
-    return tr( "Sample projects" );
   }
   else if ( PlatformUtilities::instance()->additionalApplicationDirectories().contains( path ) )
   {
@@ -237,9 +233,8 @@ void LocalFilesModel::reloadModel()
   const QString path = currentPath();
   if ( path == QLatin1String( "root" ) )
   {
-    const QStringList favorites = QSettings().value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
     QList<LocalFileItem> favoriteItems;
-    for ( const QString &item : favorites )
+    for ( const QString &item : mFavorites )
     {
       if ( QFileInfo::exists( item ) )
       {
