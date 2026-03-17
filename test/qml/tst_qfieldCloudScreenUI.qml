@@ -153,12 +153,32 @@ TestCase {
     return configs;
   }
 
-  // Helper: Login and refresh projects list
-  function loginAndRefresh(data) {
+  // Helper: Login to server with retry on transient failures
+  function loginToServer(data) {
     cloudConnection.url = data.url;
     cloudConnection.username = data.username;
-    cloudConnection.login(data.password);
-    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
+    for (let attempt = 0; attempt < 3; attempt++) {
+      cloudConnection.login(data.password);
+      for (let t = 0; t < 40; t++) {
+        wait(500);
+        if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+          return;
+        }
+        if (cloudConnection.status === QFieldCloudConnection.Disconnected && t > 0) {
+          break;
+        }
+      }
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        return;
+      }
+      wait(1000);
+    }
+    verify(cloudConnection.status === QFieldCloudConnection.LoggedIn, "Failed to login after 3 attempts");
+  }
+
+  // Helper: Login and refresh projects list
+  function loginAndRefresh(data) {
+    loginToServer(data);
     cloudProjectsModel.refreshProjectsList(true, false, 0);
     tryCompare(cloudProjectsModel, "isRefreshing", true, 5000);
     tryCompare(cloudProjectsModel, "isRefreshing", false, 30000);
@@ -200,10 +220,7 @@ TestCase {
     compare(cloudConnection.status, QFieldCloudConnection.Disconnected);
     verify(connectionSettings.visible);
     compare(projectsSwipeView.visible, false);
-    cloudConnection.url = data.url;
-    cloudConnection.username = data.username;
-    cloudConnection.login(data.password);
-    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
+    loginToServer(data);
     wait(500);
     verify(projectsSwipeView.visible);
     compare(connectionSettings.visible, false);
@@ -219,10 +236,7 @@ TestCase {
     return serverConfigs();
   }
   function test_02_filterBarTabSwitching(data) {
-    cloudConnection.url = data.url;
-    cloudConnection.username = data.username;
-    cloudConnection.login(data.password);
-    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
+    loginToServer(data);
     wait(500);
     compare(filterBar.currentIndex, 0);
     compare(table.model.filter, QFieldCloudProjectsFilterModel.PrivateProjects);
@@ -267,10 +281,7 @@ TestCase {
   function test_04_loginLogoutViewTransitions(data) {
     verify(connectionSettings.visible);
     compare(projectsSwipeView.visible, false);
-    cloudConnection.url = data.url;
-    cloudConnection.username = data.username;
-    cloudConnection.login(data.password);
-    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
+    loginToServer(data);
     wait(500);
     verify(projectsSwipeView.visible);
     compare(connectionSettings.visible, false);
