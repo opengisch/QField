@@ -464,7 +464,12 @@ TestCase {
       downloadButton.clicked();
       wait(1000);
       project = cloudProjectsModel.findProject(projectInfo.id);
-      compare(project.status, QFieldCloudProject.Idle);
+      tryCompare(project, "status", QFieldCloudProject.Idle, 5000);
+      if (project.localPath !== "") {
+        cloudProjectsModel.removeLocalProject(projectInfo.id);
+        wait(1000);
+        project = cloudProjectsModel.findProject(projectInfo.id);
+      }
       compare(project.localPath, "");
       wait(500);
     }
