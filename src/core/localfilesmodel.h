@@ -145,7 +145,6 @@ class LocalFilesModel : public QAbstractListModel
     QString mCreatedProjectsPath;
     QString mImportedProjectsPath;
     QString mImportedDatasetsPath;
-    QString mSampleProjectsPath;
 };
 
 
