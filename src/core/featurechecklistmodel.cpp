@@ -477,6 +477,11 @@ void FeatureCheckListModel::setSortCheckedFirst( bool enabled )
   sort( 0 );
 }
 
+int FeatureCheckListModel::rowCount( const QModelIndex &parent ) const
+{
+  return QSortFilterProxyModel::rowCount( parent );
+}
+
 bool FeatureCheckListModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
   return true;
