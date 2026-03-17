@@ -17,8 +17,13 @@ EditorWidgetBase {
   property int maximumVisibleItems: 4
   property bool showAllItems: false
   property bool showSortButton: true
+  property int itemCount: listView.count
+
+  property bool showCameraButton: false
+  property alias contentArea: contentArea
 
   signal toggleSortAction
+  signal cameraAction
 
   Component.onCompleted: {
     if (currentLayer && currentLayer.customProperty('QFieldSync/relationship_maximum_visible') !== undefined) {
@@ -49,11 +54,11 @@ EditorWidgetBase {
       focus: true
       topLeftRadius: parent.radius
       topRightRadius: parent.radius
-      bottomLeftRadius: listView.count === 0 ? parent.radius : 0
-      bottomRightRadius: listView.count === 0 ? parent.radius : 0
+      bottomLeftRadius: itemCount === 0 ? parent.radius : 0
+      bottomRightRadius: itemCount === 0 ? parent.radius : 0
 
       Text {
-        text: qsTr("%n feature(s)", "", listView.count)
+        text: qsTr("%n feature(s)", "", itemCount)
         anchors {
           leftMargin: 10
           left: parent.left
@@ -75,6 +80,19 @@ EditorWidgetBase {
         height: parent.height
 
         QfToolButton {
+          id: cameraButton
+          width: parent.height
+          height: parent.height
+          enabled: isEnabled
+          visible: isEnabled && showCameraButton
+
+          round: false
+          iconSource: Theme.getThemeVectorIcon('ic_camera_photo_black_24dp')
+          iconColor: Theme.mainTextColor
+          onClicked: cameraAction()
+        }
+
+        QfToolButton {
           id: addButton
           width: parent.height
           height: parent.height
@@ -94,7 +112,7 @@ EditorWidgetBase {
           id: sortButton
           width: parent.height
           height: parent.height
-          visible: listView.count > 0 && relationEditorBase.showSortButton
+          visible: itemCount > 0 && relationEditorBase.showSortButton
 
           round: false
           iconSource: Theme.getThemeVectorIcon('ic_sort_white_24dp')
@@ -135,7 +153,6 @@ EditorWidgetBase {
               return;
             }
           }
-
           //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
           if (relationEditorModel.parentPrimariesAvailable) {
             displayToast(qsTr('Adding child feature in layer %1').arg(relationEditorModel.relation.referencingLayer.name));
@@ -152,16 +169,23 @@ EditorWidgetBase {
       }
     }
 
-    ListView {
-      id: listView
+    Item {
+      id: contentArea
       anchors.top: headerEntry.bottom
       width: parent.width
-      height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, contentHeight) : contentHeight
-      focus: true
-      clip: true
-      boundsBehavior: Flickable.StopAtBounds
-      highlightRangeMode: ListView.ApplyRange
-      ScrollBar.vertical: QfScrollBar {}
+      height: listView.height
+
+      ListView {
+        id: listView
+        anchors.top: parent.top
+        width: parent.width
+        height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, contentHeight) : contentHeight
+        focus: true
+        clip: true
+        boundsBehavior: Flickable.StopAtBounds
+        highlightRangeMode: ListView.ApplyRange
+        ScrollBar.vertical: QfScrollBar {}
+      }
     }
 
     BusyIndicator {
@@ -249,7 +273,7 @@ EditorWidgetBase {
   property Menu childMenu: QfMenu {
     id: childMenu
     title: qsTr("Child Menu")
-    z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
+    z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
 
     property var entryReferencingFeature: undefined
     property string entryDisplayString: ""

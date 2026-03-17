@@ -45,6 +45,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
     Q_PROPERTY( QString currentNmRelationId WRITE setCurrentNmRelationId READ currentNmRelationId NOTIFY nmRelationChanged )
     Q_PROPERTY( QgsRelation nmRelation WRITE setNmRelation READ nmRelation NOTIFY nmRelationChanged )
     Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
+    Q_PROPERTY( QString attachmentFieldName READ attachmentFieldName NOTIFY relationChanged )
 
   public:
     explicit ReferencingFeatureListModelBase( QObject *parent = nullptr );
@@ -54,7 +55,8 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
       DisplayString = Qt::UserRole,
       ReferencingFeature,
       NmReferencedFeature,
-      NmDisplayString
+      NmDisplayString,
+      AttachmentPath
     };
 
     QHash<int, QByteArray> roleNames() const override;
@@ -132,6 +134,8 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
      * \see setParentPrimariesAvailable
      */
     bool parentPrimariesAvailable() const;
+
+    QString attachmentFieldName() const;
 
     /**
      * Reloads the model by starting the reload functionality in the gatherer (seperate thread)
@@ -220,6 +224,7 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( QgsRelation nmRelation WRITE setNmRelation READ nmRelation NOTIFY nmRelationChanged )
     Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
     Q_PROPERTY( Qt::SortOrder sortOrder READ sortOrder WRITE setSortOrder NOTIFY sortOrderChanged )
+    Q_PROPERTY( QString attachmentFieldName READ attachmentFieldName NOTIFY relationChanged )
 
   public:
     explicit ReferencingFeatureListModel( QObject *parent = nullptr );
@@ -320,6 +325,8 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
      * @brief Returns the current sort order (ascending or descending).
      */
     Qt::SortOrder sortOrder() const;
+
+    QString attachmentFieldName() const;
 
     /**
      * @brief Sets the sort order and re-applies sorting.

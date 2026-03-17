@@ -32,6 +32,7 @@ QHash<int, QByteArray> ReferencingFeatureListModelBase::roleNames() const
   roles[ReferencingFeature] = "referencingFeature";
   roles[NmReferencedFeature] = "nmReferencedFeature";
   roles[NmDisplayString] = "nmDisplayString";
+  roles[AttachmentPath] = "attachmentPath";
 
   return roles;
 }
@@ -73,6 +74,20 @@ QVariant ReferencingFeatureListModelBase::data( const QModelIndex &index, int ro
     return mEntries.value( index.row() ).nmReferencedFeature;
   if ( role == NmDisplayString )
     return mEntries.value( index.row() ).nmDisplayString;
+  if ( role == AttachmentPath )
+  {
+    // find the first ExternalResource field on the referencing layer and return its value
+    QgsVectorLayer *layer = mRelation.referencingLayer();
+    if ( layer )
+    {
+      for ( int i = 0; i < layer->fields().count(); i++ )
+      {
+        if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
+          return mEntries.value( index.row() ).referencingFeature.attribute( i ).toString();
+      }
+    }
+    return QString();
+  }
   return QVariant();
 }
 
@@ -277,6 +292,20 @@ bool ReferencingFeatureListModelBase::isLoading() const
   return mGatherer;
 }
 
+QString ReferencingFeatureListModelBase::attachmentFieldName() const
+{
+  QgsVectorLayer *layer = mRelation.referencingLayer();
+  if ( layer )
+  {
+    for ( int i = 0; i < layer->fields().count(); i++ )
+    {
+      if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
+        return layer->fields().at( i ).name();
+    }
+  }
+  return QString();
+}
+
 bool ReferencingFeatureListModelBase::checkParentPrimaries()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() )
@@ -414,6 +443,11 @@ int ReferencingFeatureListModel::getFeatureIdRow( QgsFeatureId featureId )
 bool ReferencingFeatureListModel::isLoading() const
 {
   return mSourceModel->isLoading();
+}
+
+QString ReferencingFeatureListModel::attachmentFieldName() const
+{
+  return mSourceModel->attachmentFieldName();
 }
 
 Qt::SortOrder ReferencingFeatureListModel::sortOrder() const
