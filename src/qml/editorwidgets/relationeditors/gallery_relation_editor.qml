@@ -280,6 +280,8 @@ RelationEditorBase {
         color: Theme.controlBorderColor
         clip: true
 
+        property bool videoPlaying: false
+
         readonly property string attachmentFullPath: {
           var path = model.attachmentPath;
           return (path && path !== "") ? imagePrefix + path : "";
@@ -368,7 +370,7 @@ RelationEditorBase {
           height: 52
           radius: 52
           color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
-          visible: cardContainer.attachmentIsVideo
+          visible: cardContainer.attachmentIsVideo && !cardContainer.videoPlaying
 
           QfToolButton {
             anchors.centerIn: parent
@@ -436,6 +438,22 @@ RelationEditorBase {
               childMenu.popup(pos.x, pos.y);
             }
           }
+
+          MouseArea {
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.right: cardMenuButton.left
+            onClicked: {
+              ensureEmbeddedFormLoaded();
+              embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
+              embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
+              embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
+              embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
+              embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature;
+              embeddedPopup.open();
+            }
+          }
         }
 
         MouseArea {
@@ -445,13 +463,25 @@ RelationEditorBase {
           anchors.right: parent.right
           anchors.bottom: detailsBar.top
           onClicked: {
-            ensureEmbeddedFormLoaded();
-            embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
-            embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
-            embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
-            embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
-            embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature;
-            embeddedPopup.open();
+            if (cardContainer.attachmentIsVideo && videoThumbLoader.item) {
+              if (cardContainer.videoPlaying) {
+                videoThumbLoader.item.pause();
+                cardContainer.videoPlaying = false;
+              } else {
+                videoThumbLoader.item.muted = false;
+                videoThumbLoader.item.volume = 1.0;
+                videoThumbLoader.item.play();
+                cardContainer.videoPlaying = true;
+              }
+            } else {
+              ensureEmbeddedFormLoaded();
+              embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
+              embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
+              embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
+              embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
+              embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature;
+              embeddedPopup.open();
+            }
           }
         }
       }

@@ -393,6 +393,27 @@ EditorWidgetBase {
     bottomMargin: mainWindow.sceneBottomMargin
 
     MenuItem {
+      id: openFormChildFeature
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      icon.source: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
+
+      text: qsTr("Open Form")
+      onTriggered: {
+        ensureEmbeddedFormLoaded();
+        embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
+        embeddedPopup.currentLayer = nmRelationId ? relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer;
+        embeddedPopup.linkedRelation = relationEditorModel.relation;
+        embeddedPopup.linkedParentFeature = relationEditorModel.feature;
+        embeddedPopup.feature = nmRelationId ? childMenu.entryNmReferencedFeature : childMenu.entryReferencingFeature;
+        embeddedPopup.open();
+      }
+    }
+
+    MenuItem {
       id: copyChildFeatureAttributes
 
       font: Theme.defaultFont
