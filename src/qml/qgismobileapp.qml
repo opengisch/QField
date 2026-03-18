@@ -4925,7 +4925,7 @@ ApplicationWindow {
 
   TrackerSettings {
     id: trackerSettings
-    objectName: "trackerSettings"
+    objectName: 'trackerSettings'
 
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
@@ -5183,6 +5183,7 @@ ApplicationWindow {
 
   QFieldSketcher {
     id: sketcher
+    objectName: 'sketcher'
     visible: false
 
     Component.onCompleted: focusstack.addFocusTaker(this)
