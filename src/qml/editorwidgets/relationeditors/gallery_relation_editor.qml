@@ -16,10 +16,9 @@ RelationEditorBase {
   property string imagePrefix: {
     if (qgisProject == undefined)
       return "";
-    let path = qgisProject.homePath;
+    const path = qgisProject.homePath;
     return path.endsWith("/") ? path : path + "/";
   }
-  property string attachmentFieldName: referencingFeatureListModel.attachmentFieldName
 
   showCameraButton: true
   listView.visible: false
@@ -38,7 +37,8 @@ RelationEditorBase {
     property int featureFocus: -1
     onModelUpdated: {
       if (featureFocus > -1) {
-        gridView.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
+        const view = isGridView ? gridView : listView;
+        view.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
         featureFocus = -1;
       }
     }
@@ -85,6 +85,18 @@ RelationEditorBase {
     }
   }
 
+  function openFeatureForm(feature, nmFeature) {
+    ensureEmbeddedFormLoaded();
+    embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
+    embeddedPopup.currentLayer = nmRelationId
+      ? referencingFeatureListModel.nmRelation.referencedLayer
+      : referencingFeatureListModel.relation.referencingLayer;
+    embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
+    embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
+    embeddedPopup.feature = nmRelationId ? nmFeature : feature;
+    embeddedPopup.open();
+  }
+
   Loader {
     id: relationCameraLoader
     active: false
@@ -116,7 +128,7 @@ RelationEditorBase {
       height: 72
 
       readonly property string attachmentFullPath: {
-        var path = model.attachmentPath;
+        const path = model.attachmentPath;
         return (path && path !== "") ? imagePrefix + path : "";
       }
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
@@ -133,12 +145,14 @@ RelationEditorBase {
       }
 
       Row {
+        id: listRow
         anchors.fill: parent
         anchors.leftMargin: 10
         anchors.rightMargin: 10
         spacing: 10
 
         Rectangle {
+          id: listThumbnail
           width: 56
           height: 56
           anchors.verticalCenter: parent.verticalCenter
@@ -200,7 +214,7 @@ RelationEditorBase {
             anchors.centerIn: parent
             width: 40
             height: 40
-            radius: 40
+            radius: width / 2
             color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
             visible: attachmentIsVideo
 
@@ -218,7 +232,7 @@ RelationEditorBase {
 
         Text {
           anchors.verticalCenter: parent.verticalCenter
-          width: parent.width - 56 - 48 - 20
+          width: listRow.width - listThumbnail.width - listMenuButton.width - listRow.spacing * 2
           text: model.displayString
           color: Theme.mainTextColor
           font: Theme.defaultFont
@@ -251,16 +265,8 @@ RelationEditorBase {
       MouseArea {
         id: listMouseArea
         anchors.fill: parent
-        anchors.rightMargin: 48
-        onClicked: {
-          ensureEmbeddedFormLoaded();
-          embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
-          embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
-          embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
-          embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
-          embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature;
-          embeddedPopup.open();
-        }
+        anchors.rightMargin: listMenuButton.width
+        onClicked: openFeatureForm(model.referencingFeature, model.nmReferencedFeature)
       }
     }
   }
@@ -283,11 +289,18 @@ RelationEditorBase {
         property bool videoPlaying: false
 
         readonly property string attachmentFullPath: {
-          var path = model.attachmentPath;
+          const path = model.attachmentPath;
           return (path && path !== "") ? imagePrefix + path : "";
         }
         readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
         readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
+
+        // Shared semi-opaque overlay color used by detailsBar and play button background
+        readonly property color overlayColor: Qt.hsla(
+          Theme.mainBackgroundColor.hslHue,
+          Theme.mainBackgroundColor.hslSaturation,
+          Theme.mainBackgroundColor.hslLightness,
+          Theme.darkTheme ? 0.75 : 0.95)
 
         Rectangle {
           id: roundMask
@@ -306,13 +319,7 @@ RelationEditorBase {
           autoTransform: true
           cache: true
           visible: !cardContainer.attachmentIsVideo
-
-          source: {
-            var path = model.attachmentPath;
-            if (!path || path === "")
-              return "";
-            return UrlUtils.fromString(imagePrefix + path);
-          }
+          source: cardContainer.attachmentIsVideo ? "" : UrlUtils.fromString(cardContainer.attachmentFullPath)
 
           layer.enabled: true
           layer.effect: QfOpacityMask {
@@ -332,8 +339,8 @@ RelationEditorBase {
             Video {
               anchors.fill: parent
               source: videoThumbLoader.sourceUrl
-              muted: true
-              volume: 0
+              muted: !cardContainer.videoPlaying
+              volume: cardContainer.videoPlaying ? 1.0 : 0
               scale: 2.5
 
               onHasVideoChanged: {
@@ -368,8 +375,8 @@ RelationEditorBase {
           anchors.verticalCenterOffset: -(detailsBar.height / 2)
           width: 52
           height: 52
-          radius: 52
-          color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
+          radius: width / 2
+          color: cardContainer.overlayColor
           visible: cardContainer.attachmentIsVideo && !cardContainer.videoPlaying
 
           QfToolButton {
@@ -399,7 +406,7 @@ RelationEditorBase {
           anchors.left: parent.left
           anchors.right: parent.right
           height: 44
-          color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
+          color: cardContainer.overlayColor
 
           Text {
             anchors {
@@ -444,15 +451,7 @@ RelationEditorBase {
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             anchors.right: cardMenuButton.left
-            onClicked: {
-              ensureEmbeddedFormLoaded();
-              embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
-              embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
-              embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
-              embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
-              embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature;
-              embeddedPopup.open();
-            }
+            onClicked: openFeatureForm(model.referencingFeature, model.nmReferencedFeature)
           }
         }
 
@@ -464,23 +463,13 @@ RelationEditorBase {
           anchors.bottom: detailsBar.top
           onClicked: {
             if (cardContainer.attachmentIsVideo && videoThumbLoader.item) {
-              if (cardContainer.videoPlaying) {
-                videoThumbLoader.item.pause();
-                cardContainer.videoPlaying = false;
-              } else {
-                videoThumbLoader.item.muted = false;
-                videoThumbLoader.item.volume = 1.0;
+              cardContainer.videoPlaying = !cardContainer.videoPlaying;
+              if (cardContainer.videoPlaying)
                 videoThumbLoader.item.play();
-                cardContainer.videoPlaying = true;
-              }
+              else
+                videoThumbLoader.item.pause();
             } else {
-              ensureEmbeddedFormLoaded();
-              embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
-              embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
-              embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
-              embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
-              embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature;
-              embeddedPopup.open();
+              openFeatureForm(model.referencingFeature, model.nmReferencedFeature);
             }
           }
         }
