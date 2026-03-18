@@ -19,6 +19,7 @@ RelationEditorBase {
     let path = qgisProject.homePath;
     return path.endsWith("/") ? path : path + "/";
   }
+  property string attachmentFieldName: referencingFeatureListModel.attachmentFieldName
 
   showCameraButton: true
   listView.visible: false
@@ -57,9 +58,6 @@ RelationEditorBase {
     function onOpened() {
       if (pendingAttachmentPath !== "") {
         const fieldName = referencingFeatureListModel.attachmentFieldName;
-        const relId = referencingFeatureListModel.currentRelationId;
-        console.log("fieldName:", fieldName, "relationId:", relId);
-        console.log("layer name:", relationEditorModel.relation.referencingLayer ? relationEditorModel.relation.referencingLayer.name : "NULL")
         embeddedPopup.attributeFormModel.applyParentDefaultValues();
         embeddedPopup.attributeFormModel.changeAttribute(fieldName, pendingAttachmentPath);
         pendingAttachmentPath = "";
@@ -97,9 +95,7 @@ RelationEditorBase {
           open();
         }
         onFinished: path => {
-          const nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
-          const ext = FileUtils.fileSuffix(path).toLowerCase();
-          const filepath = 'DCIM/JPEG_' + nowStr + '.' + ext;
+          const filepath = StringUtils.replaceFilenameTags('DCIM/JPEG_{datetime}.{extension}', path);
           platformUtilities.renameFile(path, imagePrefix + filepath);
           pendingAttachmentPath = filepath;
           showAddFeaturePopup();
@@ -107,6 +103,164 @@ RelationEditorBase {
         }
         onCanceled: close()
         onClosed: relationCameraLoader.active = false
+      }
+    }
+  }
+
+  Component {
+    id: galleryListDelegate
+
+    Item {
+      anchors.left: parent ? parent.left : undefined
+      anchors.right: parent ? parent.right : undefined
+      height: 72
+
+      readonly property string attachmentFullPath: {
+        var path = model.attachmentPath;
+        return (path && path !== "") ? imagePrefix + path : "";
+      }
+      readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
+      readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
+      readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
+
+      Ripple {
+        clip: true
+        anchors.fill: parent
+        pressed: listMouseArea.pressed
+        anchor: parent
+        active: listMouseArea.pressed
+        color: Material.rippleColor
+      }
+
+      Row {
+        anchors.fill: parent
+        anchors.leftMargin: 10
+        anchors.rightMargin: 10
+        spacing: 10
+
+        Rectangle {
+          width: 56
+          height: 56
+          anchors.verticalCenter: parent.verticalCenter
+          radius: 6
+          color: Theme.controlBorderColor
+          clip: true
+
+          Image {
+            anchors.fill: parent
+            fillMode: Image.PreserveAspectCrop
+            asynchronous: true
+            autoTransform: true
+            visible: attachmentIsImage
+            source: attachmentIsImage ? UrlUtils.fromString(attachmentFullPath) : ""
+          }
+
+          Loader {
+            id: listVideoThumbLoader
+            anchors.fill: parent
+            active: attachmentIsVideo
+
+            property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
+            property bool firstFrameDrawn: false
+
+            sourceComponent: Component {
+              Video {
+                anchors.fill: parent
+                source: listVideoThumbLoader.sourceUrl
+                muted: true
+                volume: 0
+                scale: 1.5
+
+                onHasVideoChanged: {
+                  if (hasVideo && !listVideoThumbLoader.firstFrameDrawn)
+                    play();
+                }
+
+                onPositionChanged: {
+                  if (!listVideoThumbLoader.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
+                    listVideoThumbLoader.firstFrameDrawn = true;
+                    pause();
+                  }
+                }
+              }
+            }
+          }
+
+          Image {
+            anchors.centerIn: parent
+            width: 28
+            height: 28
+            visible: !attachmentIsImage && !attachmentIsVideo
+            source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
+            fillMode: Image.PreserveAspectFit
+            opacity: 0.3
+          }
+
+          Rectangle {
+            anchors.centerIn: parent
+            width: 40
+            height: 40
+            radius: 40
+            color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
+            visible: attachmentIsVideo
+
+            QfToolButton {
+              anchors.centerIn: parent
+              width: 36
+              height: 36
+              round: false
+              iconSource: Theme.getThemeVectorIcon("ic_play_black_24dp")
+              iconColor: "white"
+              enabled: false
+            }
+          }
+        }
+
+        Text {
+          anchors.verticalCenter: parent.verticalCenter
+          width: parent.width - 56 - 48 - 20
+          text: model.displayString
+          color: Theme.mainTextColor
+          font: Theme.defaultFont
+          elide: Text.ElideRight
+          wrapMode: Text.WordWrap
+          maximumLineCount: 2
+        }
+
+        QfToolButton {
+          id: listMenuButton
+          anchors.verticalCenter: parent.verticalCenter
+          width: 48
+          height: 48
+          round: false
+          iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+          iconColor: Theme.mainTextColor
+          bgcolor: 'transparent'
+
+          onClicked: {
+            childMenu.entryReferencingFeature = model.referencingFeature;
+            childMenu.entryDisplayString = model.displayString;
+            childMenu.entryNmReferencedFeature = nmRelationId ? model.nmReferencedFeature : undefined;
+            childMenu.entryNmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : '';
+            const pos = listMenuButton.mapToItem(relationEditor, 0, 0);
+            childMenu.popup(pos.x, pos.y);
+          }
+        }
+      }
+
+      MouseArea {
+        id: listMouseArea
+        anchors.fill: parent
+        anchors.rightMargin: 48
+        onClicked: {
+          ensureEmbeddedFormLoaded();
+          embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
+          embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
+          embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
+          embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
+          embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature;
+          embeddedPopup.open();
+        }
       }
     }
   }
@@ -178,6 +332,7 @@ RelationEditorBase {
               source: videoThumbLoader.sourceUrl
               muted: true
               volume: 0
+              scale: 2.5
 
               onHasVideoChanged: {
                 if (hasVideo && !videoThumbLoader.firstFrameDrawn)
@@ -206,17 +361,25 @@ RelationEditorBase {
           opacity: 0.3
         }
 
-        QfToolButton {
+        Rectangle {
           anchors.centerIn: parent
           anchors.verticalCenterOffset: -(detailsBar.height / 2)
-          width: 46
-          height: 46
-          round: false
-          iconSource: Theme.getThemeVectorIcon("ic_play_black_24dp")
-          iconColor: "white"
-          bgcolor: 'transparent'
-          enabled: false
+          width: 52
+          height: 52
+          radius: 52
+          color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
           visible: cardContainer.attachmentIsVideo
+
+          QfToolButton {
+            anchors.centerIn: parent
+            width: 44
+            height: 44
+            round: false
+            iconSource: Theme.getThemeVectorIcon("ic_play_black_24dp")
+            iconColor: Theme.mainTextColor
+            bgcolor: 'transparent'
+            enabled: false
+          }
         }
 
         Ripple {
