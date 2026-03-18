@@ -4925,6 +4925,7 @@ ApplicationWindow {
 
   TrackerSettings {
     id: trackerSettings
+    objectName: "trackerSettings"
 
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
