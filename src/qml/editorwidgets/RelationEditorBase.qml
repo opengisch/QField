@@ -35,7 +35,7 @@ EditorWidgetBase {
     }
   }
 
-  height: Math.max(listView.height, gridView.height) + headerEntry.height + 10
+  height: showBottomBar ? Math.min(isGridView ? gridView.contentHeight : listView.contentHeight, mainWindow.height * 0.6) + headerEntry.height + bottomBar.height + 10 : (isGridView ? gridView.contentHeight : listView.contentHeight) + headerEntry.height + 10
   enabled: true
 
   Rectangle {
@@ -201,6 +201,96 @@ EditorWidgetBase {
       height: visible ? contentHeight : 0
       clip: false
       boundsBehavior: Flickable.StopAtBounds
+      ScrollBar.vertical: QfScrollBar {}
+    }
+
+    Rectangle {
+      id: bottomBar
+      anchors.bottom: parent.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      height: visible ? itemHeight : 0
+      visible: showBottomBar
+      color: Theme.controlBorderColor
+      bottomLeftRadius: 5
+      bottomRightRadius: 5
+
+      QfSwitch {
+        id: viewSwitch
+        anchors.right: parent.right
+        anchors.rightMargin: 10
+        anchors.verticalCenter: parent.verticalCenter
+        width: 56 + 36
+        height: itemHeight
+        checked: !isGridView
+        indicator: Rectangle {
+          implicitHeight: 36
+          implicitWidth: 36 * 2
+          x: viewSwitch.leftPadding
+          radius: 4
+          color: "#24212121"
+          border.color: "#14FFFFFF"
+          anchors.verticalCenter: parent.verticalCenter
+
+          QfToolButton {
+            width: 36
+            height: 36
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+            round: false
+            iconSource: Theme.getThemeVectorIcon('ic_grid_black_24dp')
+            iconColor: Theme.mainTextColor
+            bgcolor: 'transparent'
+            enabled: false
+            opacity: 0.6
+          }
+
+          QfToolButton {
+            width: 36
+            height: 36
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            round: false
+            iconSource: Theme.getThemeVectorIcon('ic_list_black_24dp')
+            iconColor: Theme.mainTextColor
+            bgcolor: 'transparent'
+            enabled: false
+            opacity: 0.6
+          }
+
+          Rectangle {
+            x: viewSwitch.checked ? parent.width - width : 0
+            width: 36
+            height: 36
+            radius: 4
+            color: Theme.mainColor
+            border.color: Theme.mainOverlayColor
+
+            QfToolButton {
+              anchors.centerIn: parent
+              width: 36
+              height: 36
+              round: false
+              iconSource: viewSwitch.checked ? Theme.getThemeVectorIcon('ic_list_black_24dp') : Theme.getThemeVectorIcon('ic_grid_black_24dp')
+              iconColor: "white"
+              bgcolor: 'transparent'
+              enabled: false
+            }
+
+            Behavior on x {
+              PropertyAnimation {
+                duration: 100
+                easing.type: Easing.OutQuart
+              }
+            }
+          }
+        }
+
+        onClicked: {
+          isGridView = !checked;
+          toggleViewAction(!checked);
+        }
+      }
     }
 
     BusyIndicator {

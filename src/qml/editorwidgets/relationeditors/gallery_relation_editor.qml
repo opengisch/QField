@@ -19,7 +19,6 @@ RelationEditorBase {
     let path = qgisProject.homePath;
     return path.endsWith("/") ? path : path + "/";
   }
-  property string attachmentFieldName: referencingFeatureListModel.attachmentFieldName
 
   showCameraButton: true
   listView.visible: false
@@ -53,6 +52,21 @@ RelationEditorBase {
     relationCameraLoader.active = true;
   }
 
+  Connections {
+    target: embeddedPopup
+    function onOpened() {
+      if (pendingAttachmentPath !== "") {
+        const fieldName = referencingFeatureListModel.attachmentFieldName;
+        const relId = referencingFeatureListModel.currentRelationId;
+        console.log("fieldName:", fieldName, "relationId:", relId);
+        console.log("layer name:", relationEditorModel.relation.referencingLayer ? relationEditorModel.relation.referencingLayer.name : "NULL")
+        embeddedPopup.attributeFormModel.applyParentDefaultValues();
+        embeddedPopup.attributeFormModel.changeAttribute(fieldName, pendingAttachmentPath);
+        pendingAttachmentPath = "";
+      }
+    }
+  }
+
   function showAddFeaturePopup(geometry) {
     ensureEmbeddedFormLoaded();
     embeddedPopup.state = 'Add';
@@ -83,7 +97,9 @@ RelationEditorBase {
           open();
         }
         onFinished: path => {
-          const filepath = StringUtils.replaceFilenameTags('DCIM/JPEG_{datetime}.{extension}', path);
+          const nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
+          const ext = FileUtils.fileSuffix(path).toLowerCase();
+          const filepath = 'DCIM/JPEG_' + nowStr + '.' + ext;
           platformUtilities.renameFile(path, imagePrefix + filepath);
           pendingAttachmentPath = filepath;
           showAddFeaturePopup();
