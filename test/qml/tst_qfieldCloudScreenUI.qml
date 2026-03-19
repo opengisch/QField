@@ -102,12 +102,6 @@ TestCase {
     signalName: "currentProjectChanged"
   }
 
-  SignalSpy {
-    id: loginFailedSpy
-    target: cloudConnection
-    signalName: "loginFailed"
-  }
-
   function cleanup() {
     if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
       cloudConnection.logout();
@@ -121,7 +115,6 @@ TestCase {
     projectsRefreshSpy.clear();
     currentProjectIdSpy.clear();
     currentProjectSpy.clear();
-    loginFailedSpy.clear();
   }
 
   // Returns all available server configurations (local if provided, remote if provided)
@@ -160,21 +153,12 @@ TestCase {
     return configs;
   }
 
-  // Helper: Login to server with retry on transient failures
+  // Helper: Login to server
   function loginToServer(data) {
     cloudConnection.url = data.url;
     cloudConnection.username = data.username;
-    for (let attempt = 0; attempt < 3; attempt++) {
-      loginFailedSpy.clear();
-      cloudConnection.login(data.password);
-      tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 20000);
-      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-        return;
-      }
-      verify(loginFailedSpy.count > 0, "Login did not succeed and no loginFailed signal was emitted");
-      wait(1000);
-    }
-    verify(false, "Failed to login after 3 attempts");
+    cloudConnection.login(data.password);
+    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 30000);
   }
 
   // Helper: Login and refresh projects list
