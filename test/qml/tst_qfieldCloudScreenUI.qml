@@ -102,6 +102,12 @@ TestCase {
     signalName: "currentProjectChanged"
   }
 
+  SignalSpy {
+    id: loginFailedSpy
+    target: cloudConnection
+    signalName: "loginFailed"
+  }
+
   function cleanup() {
     if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
       cloudConnection.logout();
@@ -115,6 +121,7 @@ TestCase {
     projectsRefreshSpy.clear();
     currentProjectIdSpy.clear();
     currentProjectSpy.clear();
+    loginFailedSpy.clear();
   }
 
   // Returns all available server configurations (local if provided, remote if provided)
@@ -158,22 +165,16 @@ TestCase {
     cloudConnection.url = data.url;
     cloudConnection.username = data.username;
     for (let attempt = 0; attempt < 3; attempt++) {
+      loginFailedSpy.clear();
       cloudConnection.login(data.password);
-      for (let t = 0; t < 40; t++) {
-        wait(500);
-        if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-          return;
-        }
-        if (cloudConnection.status === QFieldCloudConnection.Disconnected && t > 0) {
-          break;
-        }
-      }
+      tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 20000);
       if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         return;
       }
+      verify(loginFailedSpy.count > 0, "Login did not succeed and no loginFailed signal was emitted");
       wait(1000);
     }
-    verify(cloudConnection.status === QFieldCloudConnection.LoggedIn, "Failed to login after 3 attempts");
+    verify(false, "Failed to login after 3 attempts");
   }
 
   // Helper: Login and refresh projects list
