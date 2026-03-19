@@ -237,6 +237,7 @@ ApplicationWindow {
 
   Item {
     id: stateMachine
+    objectName: "stateMachine"
 
     property string lastState
 

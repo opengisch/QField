@@ -313,5 +313,42 @@ def test_postgis_ssl(app, screenshot_path, screenshot_check, extra, process_aliv
     assert messagesCount == 0
 
 
+@pytest.mark.project_file("test_3d.qgz")
+def test_3d_rendering(app, screenshot_path, screenshot_check, extra, process_alive):
+    """
+    Starts a test app with a DEM-based project and activates the 3D view to check
+    that terrain rendering works properly (including rendering check and message logs).
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
+    time.sleep(4)
+
+    # Activate 3D mode by directly setting the state machine state
+    app.setStringProperty("mainWindow/stateMachine", "state", "3d")
+    time.sleep(8)
+
+    app.takeScreenshot(
+        "mainWindow", os.path.join(screenshot_path, "test_3d_rendering.png")
+    )
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_3d_rendering.png"/>'))
+
+    assert screenshot_check("test_3d_rendering", "test_3d_rendering", 0.025)
+
+    messagesCount = 0
+    for i in range(0, 10):
+        message = app.getStringProperty(
+            f"mainWindow/messageLog/messageItem_{i}/messageText", "text"
+        )
+        if message == "":
+            break
+        extra.append(extras.html("Message logs content: {}".format(message)))
+        messagesCount = messagesCount + 1
+    extra.append(extras.html("Message logs count: {}".format(messagesCount)))
+    assert messagesCount == 0
+
+
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__]))
