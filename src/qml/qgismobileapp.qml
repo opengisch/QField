@@ -792,8 +792,9 @@ ApplicationWindow {
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
-      rightMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.x > 0 ? featureListForm.width : 0 : 0
-      bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0) : 0
+      property bool allowMargins: (!gnssButton.followActive || !gnssButton.followOrientationActive) && !moveFeaturesToolbar.moveFeaturesRequested && !rotateFeaturesToolbar.rotateFeaturesRequested
+      rightMargin: allowMargins ? !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.x > 0 ? featureListForm.width : 0 : 0
+      bottomMargin: allowMargins ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0) : 0
 
       anchors.fill: parent
 
@@ -1133,7 +1134,7 @@ ApplicationWindow {
       id: coordinateLocator
       objectName: "coordinateLocator"
       anchors.fill: parent
-      anchors.bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0 : 0
+      anchors.bottomMargin: mapCanvasMap.allowMargins ? informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0 : 0
       visible: (stateMachine.state === "digitize" || stateMachine.state === 'measure')
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
@@ -3203,8 +3204,11 @@ ApplicationWindow {
           moveFeaturesRequested = true;
           if (featureListForm && featureListForm.selection.model.selectedCount === 1) {
             featureListForm.extentController.zoomToSelected();
+            const centroid = GeometryUtils.reprojectPoint(GeometryUtils.centroid(featureListForm.selection.model.selectedFeatures[0].geometry), featureListForm.selection.model.selectedLayer.crs, mapCanvas.mapSettings.destinationCrs);
+            startPoint = centroid;
+          } else {
+            startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
           }
-          startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
           moveAndRotateFeaturesHighlight.rotationDegrees = 0;
         }
       }
