@@ -792,7 +792,7 @@ ApplicationWindow {
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
-      property bool allowMargins: (!gnssButton.followActive || !gnssButton.followOrientationActive) && !moveFeaturesToolbar.moveFeaturesRequested && !rotateFeaturesToolbar.rotateFeaturesRequested
+      property bool allowMargins: !gnssButton.followActive || !gnssButton.followOrientationActive
       rightMargin: allowMargins ? !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.x > 0 ? featureListForm.width : 0 : 0
       bottomMargin: allowMargins ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0) : 0
 
@@ -1580,8 +1580,9 @@ ApplicationWindow {
 
       // take rotation into account
       property double rotationRadians: -mapSettings.rotation * Math.PI / 180
-      translateX: mapToScreenTranslateX.screenDistance * Math.cos(rotationRadians) - mapToScreenTranslateY.screenDistance * Math.sin(rotationRadians)
-      translateY: mapToScreenTranslateY.screenDistance * Math.cos(rotationRadians) + mapToScreenTranslateX.screenDistance * Math.sin(rotationRadians)
+      property bool hasTranslation: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined
+      translateX: hasTranslation ? mapToScreenTranslateX.screenDistance * Math.cos(rotationRadians) - mapToScreenTranslateY.screenDistance * Math.sin(rotationRadians) : 0
+      translateY: hasTranslation ? mapToScreenTranslateY.screenDistance * Math.cos(rotationRadians) + mapToScreenTranslateX.screenDistance * Math.sin(rotationRadians) : 0
       rotationDegrees: 0
 
       color: "yellow"
@@ -1599,12 +1600,12 @@ ApplicationWindow {
     MapToScreen {
       id: mapToScreenTranslateX
       mapSettings: mapCanvas.mapSettings
-      mapDistance: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined ? mapCanvas.mapSettings.center.x - moveFeaturesToolbar.startPoint.x : 0
+      mapDistance: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined && mapCanvas.mapSettings.center ? mapCanvas.mapSettings.getCenter(true).x - moveFeaturesToolbar.startPoint.x : 0
     }
     MapToScreen {
       id: mapToScreenTranslateY
       mapSettings: mapCanvas.mapSettings
-      mapDistance: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined ? mapCanvas.mapSettings.center.y - moveFeaturesToolbar.startPoint.y : 0
+      mapDistance: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined && mapCanvas.mapSettings.center ? mapCanvas.mapSettings.getCenter(true).y - moveFeaturesToolbar.startPoint.y : 0
     }
 
     ProcessingAlgorithmPreview {
@@ -3189,7 +3190,7 @@ ApplicationWindow {
         stateVisible: moveFeaturesRequested
 
         onConfirm: {
-          endPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
+          endPoint = mapCanvas.mapSettings.getCenter(true);
           moveFeaturesRequested = false;
           moveConfirmed();
         }
@@ -3204,10 +3205,11 @@ ApplicationWindow {
           moveFeaturesRequested = true;
           if (featureListForm && featureListForm.selection.model.selectedCount === 1) {
             featureListForm.extentController.zoomToSelected();
-            const centroid = GeometryUtils.reprojectPoint(GeometryUtils.centroid(featureListForm.selection.model.selectedFeatures[0].geometry), featureListForm.selection.model.selectedLayer.crs, mapCanvas.mapSettings.destinationCrs);
+            let centroid = GeometryUtils.reprojectPoint(GeometryUtils.boundingBox(featureListForm.selection.model.selectedFeatures[0].geometry).center, featureListForm.selection.model.selectedLayer.crs, mapCanvas.mapSettings.destinationCrs);
+            centroid = GeometryUtils.point(centroid.x, centroid.y);
             startPoint = centroid;
           } else {
-            startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
+            startPoint = mapCanvas.mapSettings.getCenter(true);
           }
           moveAndRotateFeaturesHighlight.rotationDegrees = 0;
         }
