@@ -88,9 +88,7 @@ RelationEditorBase {
   function openFeatureForm(feature, nmFeature) {
     ensureEmbeddedFormLoaded();
     embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
-    embeddedPopup.currentLayer = nmRelationId
-      ? referencingFeatureListModel.nmRelation.referencedLayer
-      : referencingFeatureListModel.relation.referencingLayer;
+    embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
     embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
     embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
     embeddedPopup.feature = nmRelationId ? nmFeature : feature;
@@ -296,11 +294,7 @@ RelationEditorBase {
         readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
 
         // Shared semi-opaque overlay color used by detailsBar and play button background
-        readonly property color overlayColor: Qt.hsla(
-          Theme.mainBackgroundColor.hslHue,
-          Theme.mainBackgroundColor.hslSaturation,
-          Theme.mainBackgroundColor.hslLightness,
-          Theme.darkTheme ? 0.75 : 0.95)
+        readonly property color overlayColor: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
 
         Rectangle {
           id: roundMask
@@ -335,6 +329,11 @@ RelationEditorBase {
           property url sourceUrl: cardContainer.attachmentIsVideo ? UrlUtils.fromString(cardContainer.attachmentFullPath) : ""
           property bool firstFrameDrawn: false
 
+          layer.enabled: true
+          layer.effect: QfOpacityMask {
+            maskSource: roundMask
+          }
+
           sourceComponent: Component {
             Video {
               anchors.fill: parent
@@ -351,8 +350,15 @@ RelationEditorBase {
               onPositionChanged: {
                 if (!videoThumbLoader.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
                   videoThumbLoader.firstFrameDrawn = true;
-                  pause();
+                  thumbnailPauseTimer.start();
                 }
+              }
+
+              Timer {
+                id: thumbnailPauseTimer
+                interval: 80
+                repeat: false
+                onTriggered: parent.pause()
               }
             }
           }
