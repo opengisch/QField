@@ -1,6 +1,7 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource prefix="/3d">
     <file alias="terrain_material.frag">@RESOURCES_DIR@/3d/terrain_material.frag</file>
+    <file alias="eye_dome_lighting.frag">@RESOURCES_DIR@/3d/eye_dome_lighting.frag</file>
 </qresource>
 <qresource prefix="/fonts">
     <file alias="Cadastra-Bold.ttf">@RESOURCES_DIR@/fonts/ch.cadastra/Cadastra-Bold.ttf</file>
