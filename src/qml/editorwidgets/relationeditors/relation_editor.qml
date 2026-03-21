@@ -24,7 +24,7 @@ RelationEditorBase {
     property int featureFocus: -1
     onModelUpdated: {
       if (featureFocus > -1) {
-        listView.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
+        gridView.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
         featureFocus = -1;
       }
     }
@@ -34,7 +34,7 @@ RelationEditorBase {
     referencingFeatureListModel.sortOrder = referencingFeatureListModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
   }
 
-  listView.model: DelegateModel {
+  gridView.model: DelegateModel {
     model: referencingFeatureListModel
     delegate: referencingFeatureDelegate
   }

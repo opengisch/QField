@@ -10,21 +10,22 @@ EditorWidgetBase {
 
   property var relationEditorModel: undefined
 
-  property alias listView: listView
   property alias gridView: gridView
+  property alias bottomBar: bottomBar
+  property alias headerEntry: headerEntry
 
   property int itemHeight: 48
   property int bottomMargin: 10
   property int maximumVisibleItems: 4
   property bool showAllItems: false
   property bool showSortButton: true
-  property int itemCount: listView.count + gridView.count
+  property int itemCount: gridView.count
 
-  property bool showCameraButton: false
+  // Generic container slots for subclass specific content
+  property alias headerActions: headerActionsContainer.data
+  property alias bottomBarContent: bottomBarContentContainer.data
 
   signal toggleSortAction
-  signal cameraAction
-  signal toggleViewAction(bool gridView)
 
   Component.onCompleted: {
     if (currentLayer && currentLayer.customProperty('QFieldSync/relationship_maximum_visible') !== undefined) {
@@ -35,7 +36,7 @@ EditorWidgetBase {
     }
   }
 
-  height: showBottomBar ? Math.min(isGridView ? gridView.contentHeight : listView.contentHeight, mainWindow.height * 0.6) + headerEntry.height + bottomBar.height + 10 : (isGridView ? gridView.contentHeight : listView.contentHeight) + headerEntry.height + 10
+  height: bottomBar.visible ? Math.min(gridView.contentHeight, mainWindow.height * 0.6) + headerEntry.height + bottomBar.height + 10 : gridView.contentHeight + headerEntry.height + 10
   enabled: true
 
   Rectangle {
@@ -80,18 +81,10 @@ EditorWidgetBase {
         }
         height: parent.height
 
-        QfToolButton {
-          id: cameraButton
-          width: parent.height
+        Item {
+          id: headerActionsContainer
+          width: childrenRect.width
           height: parent.height
-          enabled: isEnabled
-          visible: isEnabled && showCameraButton
-
-          round: false
-          iconSource: Theme.getThemeVectorIcon('ic_camera_photo_black_24dp')
-          iconColor: Theme.mainTextColor
-          bgcolor: 'transparent'
-          onClicked: cameraAction()
         }
 
         QfToolButton {
@@ -172,34 +165,17 @@ EditorWidgetBase {
       }
     }
 
-    ListView {
-      id: listView
-      anchors.top: headerEntry.bottom
-      anchors.bottom: showBottomBar ? bottomBar.top : parent.bottom
-      width: parent.width
-      height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, contentHeight) : contentHeight
-      focus: true
-      clip: true
-      boundsBehavior: Flickable.StopAtBounds
-      highlightRangeMode: ListView.ApplyRange
-      ScrollBar.vertical: QfScrollBar {}
-    }
-
     GridView {
       id: gridView
       anchors.top: headerEntry.bottom
-      anchors.topMargin: 8
+      anchors.bottom: bottomBar.visible ? bottomBar.top : parent.bottom
       width: parent.width
-      visible: false
 
-      property int columns: Math.max(2, Math.floor(width / 160))
-      property int cellSize: Math.floor(width / columns)
-
-      cellWidth: cellSize
-      cellHeight: cellSize
-
-      height: visible ? contentHeight : 0
-      clip: false
+      // Default to single-column list layout, subclasses can override
+      cellWidth: width
+      cellHeight: itemHeight
+      focus: true
+      clip: true
       boundsBehavior: Flickable.StopAtBounds
       ScrollBar.vertical: QfScrollBar {}
     }
@@ -210,86 +186,14 @@ EditorWidgetBase {
       anchors.left: parent.left
       anchors.right: parent.right
       height: visible ? itemHeight : 0
-      visible: showBottomBar
+      visible: bottomBarContentContainer.children.length > 0
       color: Theme.controlBorderColor
       bottomLeftRadius: 5
       bottomRightRadius: 5
 
-      QfSwitch {
-        id: viewSwitch
-        anchors.right: parent.right
-        anchors.rightMargin: 10
-        anchors.verticalCenter: parent.verticalCenter
-        width: 56 + 36
-        height: itemHeight
-        checked: !isGridView
-        indicator: Rectangle {
-          implicitHeight: 36
-          implicitWidth: 36 * 2
-          x: viewSwitch.leftPadding
-          radius: 4
-          color: "#24212121"
-          border.color: "#14FFFFFF"
-          anchors.verticalCenter: parent.verticalCenter
-
-          QfToolButton {
-            width: 36
-            height: 36
-            anchors.left: parent.left
-            anchors.verticalCenter: parent.verticalCenter
-            round: false
-            iconSource: Theme.getThemeVectorIcon('ic_grid_black_24dp')
-            iconColor: Theme.mainTextColor
-            bgcolor: 'transparent'
-            enabled: false
-            opacity: 0.6
-          }
-
-          QfToolButton {
-            width: 36
-            height: 36
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            round: false
-            iconSource: Theme.getThemeVectorIcon('ic_list_black_24dp')
-            iconColor: Theme.mainTextColor
-            bgcolor: 'transparent'
-            enabled: false
-            opacity: 0.6
-          }
-
-          Rectangle {
-            x: viewSwitch.checked ? parent.width - width : 0
-            width: 36
-            height: 36
-            radius: 4
-            color: Theme.mainColor
-            border.color: Theme.mainOverlayColor
-
-            QfToolButton {
-              anchors.centerIn: parent
-              width: 36
-              height: 36
-              round: false
-              iconSource: viewSwitch.checked ? Theme.getThemeVectorIcon('ic_list_black_24dp') : Theme.getThemeVectorIcon('ic_grid_black_24dp')
-              iconColor: "white"
-              bgcolor: 'transparent'
-              enabled: false
-            }
-
-            Behavior on x {
-              PropertyAnimation {
-                duration: 100
-                easing.type: Easing.OutQuart
-              }
-            }
-          }
-        }
-
-        onClicked: {
-          isGridView = !checked;
-          toggleViewAction(!checked);
-        }
+      Item {
+        id: bottomBarContentContainer
+        anchors.fill: parent
       }
     }
 
@@ -378,7 +282,7 @@ EditorWidgetBase {
   property Menu childMenu: QfMenu {
     id: childMenu
     title: qsTr("Child Menu")
-    z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
+    z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
 
     property var entryReferencingFeature: undefined
     property string entryDisplayString: ""

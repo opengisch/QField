@@ -12,7 +12,7 @@ import ".."
 RelationEditorBase {
   id: relationEditor
 
-  property string pendingAttachmentPath: ""
+  property bool isGridView: true
   property string imagePrefix: {
     if (qgisProject == undefined)
       return "";
@@ -20,13 +20,109 @@ RelationEditorBase {
     return path.endsWith("/") ? path : path + "/";
   }
 
-  showCameraButton: true
-  listView.visible: false
-  gridView.visible: true
+  gridView.cellWidth: isGridView ? Math.floor(gridView.width / Math.max(2, Math.floor(gridView.width / 160))) : gridView.width
+  gridView.cellHeight: isGridView ? gridView.cellWidth : 72
+
   gridView.model: DelegateModel {
     model: referencingFeatureListModel
     delegate: galleryDelegate
   }
+
+  headerActions: [
+    QfToolButton {
+      width: 48
+      height: 48
+      enabled: isEnabled
+      visible: isEnabled
+
+      round: false
+      iconSource: Theme.getThemeVectorIcon('ic_camera_photo_black_24dp')
+      iconColor: Theme.mainTextColor
+      bgcolor: 'transparent'
+      onClicked: {
+        platformUtilities.createDir(qgisProject.homePath, 'DCIM');
+        relationCameraLoader.active = true;
+      }
+    }
+  ]
+
+  bottomBarContent: [
+    QfSwitch {
+      id: viewSwitch
+      anchors.right: parent.right
+      anchors.rightMargin: 10
+      anchors.verticalCenter: parent.verticalCenter
+      width: 56 + 36
+      height: 48
+      checked: !isGridView
+      indicator: Rectangle {
+        implicitHeight: 36
+        implicitWidth: 36 * 2
+        x: viewSwitch.leftPadding
+        radius: 4
+        color: "#24212121"
+        border.color: "#14FFFFFF"
+        anchors.verticalCenter: parent.verticalCenter
+
+        QfToolButton {
+          width: 36
+          height: 36
+          anchors.left: parent.left
+          anchors.verticalCenter: parent.verticalCenter
+          round: false
+          iconSource: Theme.getThemeVectorIcon('ic_grid_black_24dp')
+          iconColor: Theme.mainTextColor
+          bgcolor: 'transparent'
+          enabled: false
+          opacity: 0.6
+        }
+
+        QfToolButton {
+          width: 36
+          height: 36
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
+          round: false
+          iconSource: Theme.getThemeVectorIcon('ic_list_black_24dp')
+          iconColor: Theme.mainTextColor
+          bgcolor: 'transparent'
+          enabled: false
+          opacity: 0.6
+        }
+
+        Rectangle {
+          x: viewSwitch.checked ? parent.width - width : 0
+          width: 36
+          height: 36
+          radius: 4
+          color: Theme.mainColor
+          border.color: Theme.mainOverlayColor
+
+          QfToolButton {
+            anchors.centerIn: parent
+            width: 36
+            height: 36
+            round: false
+            iconSource: viewSwitch.checked ? Theme.getThemeVectorIcon('ic_list_black_24dp') : Theme.getThemeVectorIcon('ic_grid_black_24dp')
+            iconColor: "white"
+            bgcolor: 'transparent'
+            enabled: false
+          }
+
+          Behavior on x {
+            PropertyAnimation {
+              duration: 100
+              easing.type: Easing.OutQuart
+            }
+          }
+        }
+      }
+
+      onClicked: {
+        isGridView = !checked;
+      }
+    }
+  ]
 
   relationEditorModel: ReferencingFeatureListModel {
     id: referencingFeatureListModel
@@ -37,8 +133,7 @@ RelationEditorBase {
     property int featureFocus: -1
     onModelUpdated: {
       if (featureFocus > -1) {
-        const view = isGridView ? gridView : listView;
-        view.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
+        gridView.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
         featureFocus = -1;
       }
     }
@@ -48,24 +143,41 @@ RelationEditorBase {
     referencingFeatureListModel.sortOrder = referencingFeatureListModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
   }
 
-  onCameraAction: {
-    platformUtilities.createDir(qgisProject.homePath, 'DCIM');
-    relationCameraLoader.active = true;
-  }
-
-  Connections {
-    target: embeddedPopup
-    function onOpened() {
-      if (pendingAttachmentPath !== "") {
-        const fieldName = referencingFeatureListModel.attachmentFieldName;
-        embeddedPopup.attributeFormModel.applyParentDefaultValues();
-        embeddedPopup.attributeFormModel.changeAttribute(fieldName, pendingAttachmentPath);
-        pendingAttachmentPath = "";
+  ExpressionEvaluator {
+    id: attachmentNamingEvaluator
+    feature: currentFeature
+    layer: referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null
+    project: qgisProject
+    appExpressionContextScopesGenerator: appScopesGenerator
+    expressionText: {
+      var value;
+      var refLayer = referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null;
+      var fieldName = referencingFeatureListModel.attachmentFieldName;
+      if (refLayer && fieldName) {
+        if (refLayer.customProperty('QFieldSync/attachment_naming') !== undefined) {
+          value = JSON.parse(refLayer.customProperty('QFieldSync/attachment_naming'))[fieldName];
+          return value !== undefined ? value : '';
+        } else if (refLayer.customProperty('QFieldSync/photo_naming') !== undefined) {
+          value = JSON.parse(refLayer.customProperty('QFieldSync/photo_naming'))[fieldName];
+          return value !== undefined ? value : '';
+        }
       }
+      return '';
     }
   }
 
-  function showAddFeaturePopup(geometry) {
+  function getAttachmentFilePath() {
+    const evaluatedFilepath = attachmentNamingEvaluator.evaluate();
+    let filepath = FileUtils.sanitizeFilePath(evaluatedFilepath);
+    if (FileUtils.fileSuffix(filepath) === '' && !filepath.endsWith("{extension}") && !filepath.endsWith("{filename}")) {
+      const nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
+      filepath = 'DCIM/JPEG_' + nowStr + '.{extension}';
+    }
+    filepath = filepath.replace('\\', '/');
+    return filepath;
+  }
+
+  function showAddFeaturePopup(geometry, attachmentPath) {
     ensureEmbeddedFormLoaded();
     embeddedPopup.state = 'Add';
     embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer;
@@ -78,10 +190,10 @@ RelationEditorBase {
       embeddedPopup.applyGeometry(geometry);
     }
     embeddedPopup.open();
-    embeddedPopup.attributeFormModel.applyParentDefaultValues();
-    if (pendingAttachmentPath !== "") {
-      embeddedPopup.attributeFormModel.changeAttribute(attachmentFieldName, pendingAttachmentPath);
-      pendingAttachmentPath = "";
+    if (attachmentPath !== undefined && attachmentPath !== "") {
+      const fieldName = referencingFeatureListModel.attachmentFieldName;
+      embeddedPopup.attributeFormModel.applyParentDefaultValues();
+      embeddedPopup.attributeFormModel.changeAttribute(fieldName, attachmentPath);
     }
   }
 
@@ -105,11 +217,9 @@ RelationEditorBase {
           open();
         }
         onFinished: path => {
-          const today = new Date();
-          const relativePath = 'DCIM/' + today.getFullYear() + (today.getMonth() + 1).toString().padStart(2, '0') + today.getDate().toString().padStart(2, '0') + today.getHours().toString().padStart(2, '0') + today.getMinutes().toString().padStart(2, '0') + today.getSeconds().toString().padStart(2, '0') + '.' + FileUtils.fileSuffix(path);
-          platformUtilities.renameFile(path, imagePrefix + relativePath);
-          pendingAttachmentPath = relativePath;
-          showAddFeaturePopup();
+          const filepath = StringUtils.replaceFilenameTags(getAttachmentFilePath(), path);
+          platformUtilities.renameFile(path, imagePrefix + filepath);
+          showAddFeaturePopup(undefined, filepath);
           close();
         }
         onCanceled: close()
@@ -118,13 +228,13 @@ RelationEditorBase {
     }
   }
 
+  // Single adaptive delegate, switches layout based on isGridView
   Component {
-    id: galleryListDelegate
+    id: galleryDelegate
 
     Item {
-      anchors.left: parent ? parent.left : undefined
-      anchors.right: parent ? parent.right : undefined
-      height: 72
+      width: gridView.cellWidth
+      height: gridView.cellHeight
 
       readonly property string attachmentFullPath: {
         const path = model.attachmentPath;
@@ -134,148 +244,145 @@ RelationEditorBase {
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
 
-      Ripple {
-        clip: true
+      Item {
+        id: listLayout
         anchors.fill: parent
-        pressed: listMouseArea.pressed
-        anchor: parent
-        active: listMouseArea.pressed
-        color: Material.rippleColor
-      }
+        visible: !isGridView
 
-      Row {
-        id: listRow
-        anchors.fill: parent
-        anchors.leftMargin: 10
-        anchors.rightMargin: 10
-        spacing: 10
-
-        Rectangle {
-          id: listThumbnail
-          width: 56
-          height: 56
-          anchors.verticalCenter: parent.verticalCenter
-          radius: 6
-          color: Theme.controlBorderColor
+        Ripple {
           clip: true
+          anchors.fill: parent
+          pressed: listMouseArea.pressed
+          anchor: listLayout
+          active: listMouseArea.pressed
+          color: Material.rippleColor
+        }
 
-          Image {
-            anchors.fill: parent
-            fillMode: Image.PreserveAspectCrop
-            asynchronous: true
-            autoTransform: true
-            visible: attachmentIsImage
-            source: attachmentIsImage ? UrlUtils.fromString(attachmentFullPath) : ""
-          }
+        Row {
+          id: listRow
+          anchors.fill: parent
+          anchors.leftMargin: 10
+          anchors.rightMargin: 10
+          spacing: 10
 
-          Loader {
-            id: listVideoThumbLoader
-            anchors.fill: parent
-            active: attachmentIsVideo
+          Rectangle {
+            id: listThumbnail
+            width: 56
+            height: 56
+            anchors.verticalCenter: parent.verticalCenter
+            radius: 6
+            color: Theme.controlBorderColor
+            clip: true
 
-            property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
-            property bool firstFrameDrawn: false
+            Image {
+              anchors.fill: parent
+              fillMode: Image.PreserveAspectCrop
+              asynchronous: true
+              autoTransform: true
+              visible: attachmentIsImage
+              source: attachmentIsImage ? UrlUtils.fromString(attachmentFullPath) : ""
+            }
 
-            sourceComponent: Component {
-              Video {
-                anchors.fill: parent
-                source: listVideoThumbLoader.sourceUrl
-                muted: true
-                volume: 0
-                scale: 1.5
+            Loader {
+              id: listVideoThumbLoader
+              anchors.fill: parent
+              active: attachmentIsVideo && !isGridView
 
-                onHasVideoChanged: {
-                  if (hasVideo && !listVideoThumbLoader.firstFrameDrawn)
-                    play();
-                }
+              property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
+              property bool firstFrameDrawn: false
 
-                onPositionChanged: {
-                  if (!listVideoThumbLoader.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
-                    listVideoThumbLoader.firstFrameDrawn = true;
-                    pause();
+              sourceComponent: Component {
+                Video {
+                  anchors.fill: parent
+                  source: listVideoThumbLoader.sourceUrl
+                  muted: true
+                  volume: 0
+                  scale: 1.5
+
+                  onHasVideoChanged: {
+                    if (hasVideo && !listVideoThumbLoader.firstFrameDrawn)
+                      play();
+                  }
+
+                  onPositionChanged: {
+                    if (!listVideoThumbLoader.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
+                      listVideoThumbLoader.firstFrameDrawn = true;
+                      pause();
+                    }
                   }
                 }
               }
             }
-          }
 
-          Image {
-            anchors.centerIn: parent
-            width: 28
-            height: 28
-            visible: !attachmentIsImage && !attachmentIsVideo
-            source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
-            fillMode: Image.PreserveAspectFit
-            opacity: 0.3
-          }
-
-          Rectangle {
-            anchors.centerIn: parent
-            width: 40
-            height: 40
-            radius: width / 2
-            color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
-            visible: attachmentIsVideo
-
-            QfToolButton {
+            Image {
               anchors.centerIn: parent
-              width: 36
-              height: 36
-              round: false
-              iconSource: Theme.getThemeVectorIcon("ic_play_black_24dp")
-              iconColor: "white"
-              enabled: false
+              width: 28
+              height: 28
+              visible: !attachmentIsImage && !attachmentIsVideo
+              source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
+              fillMode: Image.PreserveAspectFit
+              opacity: 0.3
+            }
+
+            Rectangle {
+              anchors.centerIn: parent
+              width: 40
+              height: 40
+              radius: width / 2
+              color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
+              visible: attachmentIsVideo
+
+              QfToolButton {
+                anchors.centerIn: parent
+                width: 36
+                height: 36
+                round: false
+                iconSource: Theme.getThemeVectorIcon("ic_play_black_24dp")
+                iconColor: "white"
+                enabled: false
+              }
+            }
+          }
+
+          Text {
+            anchors.verticalCenter: parent.verticalCenter
+            width: listRow.width - listThumbnail.width - listMenuButton.width - listRow.spacing * 2
+            text: model.displayString
+            color: Theme.mainTextColor
+            font: Theme.defaultFont
+            elide: Text.ElideRight
+            wrapMode: Text.WordWrap
+            maximumLineCount: 2
+          }
+
+          QfToolButton {
+            id: listMenuButton
+            anchors.verticalCenter: parent.verticalCenter
+            width: 48
+            height: 48
+            round: false
+            iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+            iconColor: Theme.mainTextColor
+            bgcolor: 'transparent'
+
+            onClicked: {
+              childMenu.entryReferencingFeature = model.referencingFeature;
+              childMenu.entryDisplayString = model.displayString;
+              childMenu.entryNmReferencedFeature = nmRelationId ? model.nmReferencedFeature : undefined;
+              childMenu.entryNmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : '';
+              const pos = listMenuButton.mapToItem(relationEditor, 0, 0);
+              childMenu.popup(pos.x, pos.y);
             }
           }
         }
 
-        Text {
-          anchors.verticalCenter: parent.verticalCenter
-          width: listRow.width - listThumbnail.width - listMenuButton.width - listRow.spacing * 2
-          text: model.displayString
-          color: Theme.mainTextColor
-          font: Theme.defaultFont
-          elide: Text.ElideRight
-          wrapMode: Text.WordWrap
-          maximumLineCount: 2
-        }
-
-        QfToolButton {
-          id: listMenuButton
-          anchors.verticalCenter: parent.verticalCenter
-          width: 48
-          height: 48
-          round: false
-          iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-          iconColor: Theme.mainTextColor
-          bgcolor: 'transparent'
-
-          onClicked: {
-            childMenu.entryReferencingFeature = model.referencingFeature;
-            childMenu.entryDisplayString = model.displayString;
-            childMenu.entryNmReferencedFeature = nmRelationId ? model.nmReferencedFeature : undefined;
-            childMenu.entryNmReferencedFeatureDisplayMessage = nmRelationId ? model.nmDisplayString : '';
-            const pos = listMenuButton.mapToItem(relationEditor, 0, 0);
-            childMenu.popup(pos.x, pos.y);
-          }
+        MouseArea {
+          id: listMouseArea
+          anchors.fill: parent
+          anchors.rightMargin: listMenuButton.width
+          onClicked: openFeatureForm(model.referencingFeature, model.nmReferencedFeature)
         }
       }
-
-      MouseArea {
-        id: listMouseArea
-        anchors.fill: parent
-        anchors.rightMargin: listMenuButton.width
-        onClicked: openFeatureForm(model.referencingFeature, model.nmReferencedFeature)
-      }
-    }
-  }
-
-  Component {
-    id: galleryDelegate
-
-    Item {
-      width: gridView.cellWidth
-      height: gridView.cellHeight
 
       Rectangle {
         id: cardContainer
@@ -284,15 +391,9 @@ RelationEditorBase {
         radius: 10
         color: Theme.controlBorderColor
         clip: true
+        visible: isGridView
 
         property bool videoPlaying: false
-
-        readonly property string attachmentFullPath: {
-          const path = model.attachmentPath;
-          return (path && path !== "") ? imagePrefix + path : "";
-        }
-        readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
-        readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
 
         // Shared semi-opaque overlay color used by detailsBar and play button background
         readonly property color overlayColor: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
@@ -313,8 +414,8 @@ RelationEditorBase {
           asynchronous: true
           autoTransform: true
           cache: true
-          visible: !cardContainer.attachmentIsVideo
-          source: cardContainer.attachmentIsVideo ? "" : UrlUtils.fromString(cardContainer.attachmentFullPath)
+          visible: !attachmentIsVideo
+          source: attachmentIsVideo ? "" : UrlUtils.fromString(attachmentFullPath)
 
           layer.enabled: true
           layer.effect: QfOpacityMask {
@@ -325,9 +426,9 @@ RelationEditorBase {
         Loader {
           id: videoThumbLoader
           anchors.fill: parent
-          active: cardContainer.attachmentIsVideo
+          active: attachmentIsVideo && isGridView
 
-          property url sourceUrl: cardContainer.attachmentIsVideo ? UrlUtils.fromString(cardContainer.attachmentFullPath) : ""
+          property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
           property bool firstFrameDrawn: false
 
           layer.enabled: true
@@ -371,7 +472,7 @@ RelationEditorBase {
           anchors.verticalCenterOffset: -(detailsBar.height / 2)
           width: 44
           height: 44
-          visible: cardThumb.status !== Image.Ready && !cardContainer.attachmentIsVideo
+          visible: cardThumb.status !== Image.Ready && !attachmentIsVideo
           source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
           fillMode: Image.PreserveAspectFit
           opacity: 0.3
@@ -384,7 +485,7 @@ RelationEditorBase {
           height: 52
           radius: width / 2
           color: cardContainer.overlayColor
-          visible: cardContainer.attachmentIsVideo && !cardContainer.videoPlaying
+          visible: attachmentIsVideo && !cardContainer.videoPlaying
 
           QfToolButton {
             anchors.centerIn: parent
@@ -469,7 +570,7 @@ RelationEditorBase {
           anchors.right: parent.right
           anchors.bottom: detailsBar.top
           onClicked: {
-            if (cardContainer.attachmentIsVideo && videoThumbLoader.item) {
+            if (attachmentIsVideo && videoThumbLoader.item) {
               cardContainer.videoPlaying = !cardContainer.videoPlaying;
               if (cardContainer.videoPlaying)
                 videoThumbLoader.item.play();

@@ -33,7 +33,7 @@ RelationEditorBase {
     }
   }
 
-  listView.model: DelegateModel {
+  gridView.model: DelegateModel {
     model: orderedRelationModel
     delegate: dragDelegate
   }
@@ -66,9 +66,9 @@ RelationEditorBase {
         if (held === true) {
           held = false;
           orderedRelationModel.moveItems(indexFrom, indexTo);
-        } else if (listView.currentIndex !== dragArea.DelegateModel.itemsIndex) {
-          listView.currentIndex = dragArea.DelegateModel.itemsIndex;
-          orderedRelationModel.triggerViewCurrentFeatureChange(listView.currentIndex);
+        } else if (gridView.currentIndex !== dragArea.DelegateModel.itemsIndex) {
+          gridView.currentIndex = dragArea.DelegateModel.itemsIndex;
+          orderedRelationModel.triggerViewCurrentFeatureChange(gridView.currentIndex);
         }
       }
 
@@ -182,7 +182,7 @@ RelationEditorBase {
             visible: isEnabled
             width: visible ? 48 : 0
             height: 48
-            opacity: (index === listView.count - 1) ? 0.3 : 1
+            opacity: (index === gridView.count - 1) ? 0.3 : 1
 
             round: false
             iconSource: Theme.getThemeVectorIcon('ic_chevron_down')
@@ -190,7 +190,7 @@ RelationEditorBase {
             bgcolor: 'transparent'
 
             onClicked: {
-              if (index === listView.count - 1) {
+              if (index === gridView.count - 1) {
                 return;
               }
               orderedRelationModel.moveItems(index, index + 1);
@@ -249,7 +249,7 @@ RelationEditorBase {
             dragArea.indexFrom = drag.source.DelegateModel.itemsIndex;
           }
           dragArea.indexTo = dragArea.DelegateModel.itemsIndex;
-          listView.model.items.move(drag.source.DelegateModel.itemsIndex, dragArea.DelegateModel.itemsIndex);
+          gridView.model.items.move(drag.source.DelegateModel.itemsIndex, dragArea.DelegateModel.itemsIndex);
         }
       }
     }
