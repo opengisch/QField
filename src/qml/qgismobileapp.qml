@@ -809,10 +809,11 @@ ApplicationWindow {
         if (!digitizingToolbar.geometryRequested && featureListForm.state == "FeatureFormEdit") {
           return;
         }
-        if (locatorItem.state == "on") {
+        if (locatorItem.state === "on") {
           locatorItem.state = "off";
           return;
         }
+
         if (type === "stylus") {
           if (pointHandler.pointInItem(point, digitizingToolbar) || pointHandler.pointInItem(point, zoomToolbar) || pointHandler.pointInItem(point, mainToolbar) || pointHandler.pointInItem(point, mainMenuBar) || pointHandler.pointInItem(point, geometryEditorsToolbar) || pointHandler.pointInItem(point, locationToolbar) || pointHandler.pointInItem(point, digitizingToolbarContainer) || pointHandler.pointInItem(point, locatorItem)) {
             return;
@@ -824,6 +825,11 @@ ApplicationWindow {
             if (!positionLocked) {
               geometryEditorsToolbar.canvasClicked(point, type);
             }
+            return;
+          }
+          // Check if a feature movement can be confirmed
+          if (moveFeaturesToolbar.moveFeaturesRequested) {
+            moveFeaturesToolbar.confirm();
             return;
           }
           if ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure") {
@@ -1600,12 +1606,31 @@ ApplicationWindow {
     MapToScreen {
       id: mapToScreenTranslateX
       mapSettings: mapCanvas.mapSettings
-      mapDistance: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined && mapCanvas.mapSettings.center ? mapCanvas.mapSettings.getCenter(true).x - moveFeaturesToolbar.startPoint.x : 0
+      mapDistance: {
+        if (moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined && mapCanvas.mapSettings.center) {
+          console.log(stateMachine.state);
+          if (stateMachine.state === "digitize") {
+            return coordinateLocator.currentCoordinate.x - moveFeaturesToolbar.startPoint.x;
+          } else {
+            return mapCanvas.mapSettings.getCenter(true).x - moveFeaturesToolbar.startPoint.x;
+          }
+        }
+        return 0;
+      }
     }
     MapToScreen {
       id: mapToScreenTranslateY
       mapSettings: mapCanvas.mapSettings
-      mapDistance: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined && mapCanvas.mapSettings.center ? mapCanvas.mapSettings.getCenter(true).y - moveFeaturesToolbar.startPoint.y : 0
+      mapDistance: {
+        if (moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined && mapCanvas.mapSettings.center) {
+          if (stateMachine.state === "digitize") {
+            return coordinateLocator.currentCoordinate.y - moveFeaturesToolbar.startPoint.y;
+          } else {
+            return mapCanvas.mapSettings.getCenter(true).y - moveFeaturesToolbar.startPoint.y;
+          }
+        }
+        return 0;
+      }
     }
 
     ProcessingAlgorithmPreview {
@@ -3190,10 +3215,11 @@ ApplicationWindow {
         stateVisible: moveFeaturesRequested
 
         onConfirm: {
-          endPoint = mapCanvas.mapSettings.getCenter(true);
+          endPoint = stateMachine.state === "digitize" ? coordinateLocator.currentCoordinate : mapCanvas.mapSettings.getCenter(true);
           moveFeaturesRequested = false;
           moveConfirmed();
         }
+
         onCancel: {
           startPoint = undefined;
           endPoint = undefined;
