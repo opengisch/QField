@@ -25,7 +25,7 @@ Container {
   property alias iconColor: toggleButton.iconColor
 
   onNameChanged: {
-    collapsed = settings.valueBool("QField/QfToolButtonContainer/" + name + "/collapsed", true);
+    collapsed = settings.valueBool("QField/QfToolButtonContainer/" + name + "/collapsed", collapsed);
   }
 
   width: {

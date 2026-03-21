@@ -716,6 +716,7 @@ ApplicationWindow {
       onLoaded: {
         item.mapSettings = mapCanvas.mapSettings;
         item.trackingModel = trackingModel;
+        item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
 
         // Bind GNSS position updates
         item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);
@@ -2632,19 +2633,53 @@ ApplicationWindow {
         }
       }
 
-      QfToolButton {
-        id: extentModeButton
-        visible: stateMachine.state === '3d' && mapCanvas3DLoader.item
+      QfToolButtonDrawer {
+        name: "3dDrawer"
+        size: 48
         round: true
-        iconSource: Theme.getThemeVectorIcon("ic_move_white_24dp")
-        iconColor: checked ? Theme.mainColor : Theme.toolButtonColor
-        bgcolor: checked ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
-        checkable: true
-        checked: mapCanvas3DLoader.item ? mapCanvas3DLoader.item.extentMode : false
+        collapsed: false
+        bgcolor: Theme.toolButtonBackgroundColor
+        iconSource: Theme.getThemeVectorIcon('ic_3d_settings_24dp')
+        iconColor: Theme.toolButtonColor
+        spacing: 4
+        visible: stateMachine.state === '3d' && mapCanvas3DLoader.item
 
-        onClicked: {
-          if (mapCanvas3DLoader.item) {
-            mapCanvas3DLoader.item.extentMode = !mapCanvas3DLoader.item.extentMode;
+        QfToolButton {
+          id: extentModeButton
+          width: 40
+          height: 40
+          padding: 2
+          round: true
+          iconSource: Theme.getThemeVectorIcon("ic_move_white_24dp")
+          iconColor: checked ? Theme.mainColor : Theme.toolButtonColor
+          bgcolor: checked ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
+          checkable: true
+          checked: mapCanvas3DLoader.item ? mapCanvas3DLoader.item.extentMode : false
+
+          onClicked: {
+            if (mapCanvas3DLoader.item) {
+              mapCanvas3DLoader.item.extentMode = !mapCanvas3DLoader.item.extentMode;
+            }
+          }
+        }
+
+        QfToolButton {
+          id: eyeDomeLightingModeButton
+          width: 40
+          height: 40
+          padding: 2
+          round: true
+          iconSource: Theme.getThemeVectorIcon("ic_eye_dome_lighting_white_24dp")
+          iconColor: checked ? Theme.mainColor : Theme.toolButtonColor
+          bgcolor: checked ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
+          checkable: true
+          checked: mapCanvas3DLoader.item ? mapCanvas3DLoader.item.eyeDomeLightingMode : false
+
+          onClicked: {
+            if (mapCanvas3DLoader.item) {
+              mapCanvas3DLoader.item.eyeDomeLightingMode = !mapCanvas3DLoader.item.eyeDomeLightingMode;
+              settings.setValue('3d/eyeDomeLightingMode', mapCanvas3DLoader.item.eyeDomeLightingMode);
+            }
           }
         }
       }
