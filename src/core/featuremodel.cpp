@@ -720,7 +720,7 @@ bool FeatureModel::save( bool flushBuffer )
           }
 
           QgsExpressionContext expressionContext = createExpressionContext();
-          expressionContext.setFeature( mFeature );
+          expressionContext.setFeature( feature );
 
           QgsFields fields = mLayer->fields();
           for ( int i = 0; i < fields.count(); ++i )
