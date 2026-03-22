@@ -244,6 +244,45 @@ RelationEditorBase {
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
 
+      Loader {
+        id: videoThumbLoader
+        active: attachmentIsVideo
+        parent: isGridView ? cardVideoContainer : listVideoContainer
+        anchors.fill: parent
+
+        property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
+        property bool firstFrameDrawn: false
+
+        sourceComponent: Component {
+          Video {
+            anchors.fill: parent
+            source: videoThumbLoader.sourceUrl
+            muted: !cardContainer.videoPlaying || !isGridView
+            volume: (isGridView && cardContainer.videoPlaying) ? 1.0 : 0
+            scale: isGridView ? 2.5 : 1.5
+
+            onHasVideoChanged: {
+              if (hasVideo && !videoThumbLoader.firstFrameDrawn)
+                play();
+            }
+
+            onPositionChanged: {
+              if (!videoThumbLoader.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
+                videoThumbLoader.firstFrameDrawn = true;
+                thumbnailPauseTimer.start();
+              }
+            }
+
+            Timer {
+              id: thumbnailPauseTimer
+              interval: 80
+              repeat: false
+              onTriggered: parent.pause()
+            }
+          }
+        }
+      }
+
       Item {
         id: listLayout
         anchors.fill: parent
@@ -283,35 +322,9 @@ RelationEditorBase {
               source: attachmentIsImage ? UrlUtils.fromString(attachmentFullPath) : ""
             }
 
-            Loader {
-              id: listVideoThumbLoader
+            Item {
+              id: listVideoContainer
               anchors.fill: parent
-              active: attachmentIsVideo && !isGridView
-
-              property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
-              property bool firstFrameDrawn: false
-
-              sourceComponent: Component {
-                Video {
-                  anchors.fill: parent
-                  source: listVideoThumbLoader.sourceUrl
-                  muted: true
-                  volume: 0
-                  scale: 1.5
-
-                  onHasVideoChanged: {
-                    if (hasVideo && !listVideoThumbLoader.firstFrameDrawn)
-                      play();
-                  }
-
-                  onPositionChanged: {
-                    if (!listVideoThumbLoader.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
-                      listVideoThumbLoader.firstFrameDrawn = true;
-                      pause();
-                    }
-                  }
-                }
-              }
             }
 
             Image {
@@ -423,46 +436,13 @@ RelationEditorBase {
           }
         }
 
-        Loader {
-          id: videoThumbLoader
+        Item {
+          id: cardVideoContainer
           anchors.fill: parent
-          active: attachmentIsVideo && isGridView
-
-          property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
-          property bool firstFrameDrawn: false
 
           layer.enabled: true
           layer.effect: QfOpacityMask {
             maskSource: roundMask
-          }
-
-          sourceComponent: Component {
-            Video {
-              anchors.fill: parent
-              source: videoThumbLoader.sourceUrl
-              muted: !cardContainer.videoPlaying
-              volume: cardContainer.videoPlaying ? 1.0 : 0
-              scale: 2.5
-
-              onHasVideoChanged: {
-                if (hasVideo && !videoThumbLoader.firstFrameDrawn)
-                  play();
-              }
-
-              onPositionChanged: {
-                if (!videoThumbLoader.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
-                  videoThumbLoader.firstFrameDrawn = true;
-                  thumbnailPauseTimer.start();
-                }
-              }
-
-              Timer {
-                id: thumbnailPauseTimer
-                interval: 80
-                repeat: false
-                onTriggered: parent.pause()
-              }
-            }
           }
         }
 
