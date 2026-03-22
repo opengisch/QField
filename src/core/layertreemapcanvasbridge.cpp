@@ -170,27 +170,30 @@ void LayerTreeMapCanvasBridge::layerInTrackingChanged( QgsVectorLayer *layer, bo
   if ( layer )
   {
     QgsLayerTreeLayer *nodeLayer = mRoot->findLayer( layer->id() );
-    if ( layer->geometryType() == Qgis::GeometryType::Point )
+    if ( nodeLayer )
     {
-      // Disable feature count while tracking to avoid needless CPU cycles wasted updating a collapsed legend
-      if ( tracking )
+      if ( layer->geometryType() == Qgis::GeometryType::Point )
       {
-        QVariant showFeatureCountValue = nodeLayer->customProperty( QStringLiteral( "showFeatureCount" ) );
-        if ( showFeatureCountValue.isValid() && showFeatureCountValue.toInt() != 0 )
+        // Disable feature count while tracking to avoid needless CPU cycles wasted updating a collapsed legend
+        if ( tracking )
         {
-          nodeLayer->setCustomProperty( QStringLiteral( "showFeatureCount" ), 0 );
-          nodeLayer->setCustomProperty( QStringLiteral( "previousShowFeatureCount" ), showFeatureCountValue );
+          QVariant showFeatureCountValue = nodeLayer->customProperty( QStringLiteral( "showFeatureCount" ) );
+          if ( showFeatureCountValue.isValid() && showFeatureCountValue.toInt() != 0 )
+          {
+            nodeLayer->setCustomProperty( QStringLiteral( "showFeatureCount" ), 0 );
+            nodeLayer->setCustomProperty( QStringLiteral( "previousShowFeatureCount" ), showFeatureCountValue );
+          }
+        }
+        else
+        {
+          QVariant previousShowFeatureCount = nodeLayer->customProperty( QStringLiteral( "previousShowFeatureCount" ) );
+          if ( previousShowFeatureCount.isValid() )
+          {
+            nodeLayer->setCustomProperty( QStringLiteral( "showFeatureCount" ), previousShowFeatureCount );
+          }
         }
       }
-      else
-      {
-        QVariant previousShowFeatureCount = nodeLayer->customProperty( QStringLiteral( "previousShowFeatureCount" ) );
-        if ( previousShowFeatureCount.isValid() )
-        {
-          nodeLayer->setCustomProperty( QStringLiteral( "showFeatureCount" ), previousShowFeatureCount );
-        }
-      }
+      mModel->setLayerInTracking( nodeLayer, tracking );
     }
-    mModel->setLayerInTracking( nodeLayer, tracking );
   }
 }
