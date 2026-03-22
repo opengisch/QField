@@ -11,7 +11,7 @@ EditorWidgetBase {
   property var relationEditorModel: undefined
 
   property alias gridView: gridView
-  property alias bottomBar: bottomBar
+  property alias footer: footer
   property alias headerEntry: headerEntry
 
   property int itemHeight: 48
@@ -19,11 +19,11 @@ EditorWidgetBase {
   property int maximumVisibleItems: 4
   property bool showAllItems: false
   property bool showSortButton: true
-  property int itemCount: gridView.count
+  property alias itemCount: gridView.count
 
   // Generic container slots for subclass specific content
   property alias headerActions: headerActionsContainer.data
-  property alias bottomBarContent: bottomBarContentContainer.data
+  property alias footerContent: footerContentContainer.data
 
   signal toggleSortAction
 
@@ -36,7 +36,7 @@ EditorWidgetBase {
     }
   }
 
-  height: bottomBar.visible ? Math.min(gridView.contentHeight, mainWindow.height * 0.6) + headerEntry.height + bottomBar.height + 10 : gridView.contentHeight + headerEntry.height + 10
+  height: footer.visible ? Math.min(gridView.contentHeight, mainWindow.height * 0.6) + headerEntry.height + footer.height + 10 : gridView.contentHeight + headerEntry.height + 10
   enabled: true
 
   Rectangle {
@@ -168,7 +168,7 @@ EditorWidgetBase {
     GridView {
       id: gridView
       anchors.top: headerEntry.bottom
-      anchors.bottom: bottomBar.visible ? bottomBar.top : parent.bottom
+      anchors.bottom: footer.visible ? footer.top : parent.bottom
       width: parent.width
 
       // Default to single-column list layout, subclasses can override
@@ -181,18 +181,18 @@ EditorWidgetBase {
     }
 
     Rectangle {
-      id: bottomBar
+      id: footer
       anchors.bottom: parent.bottom
       anchors.left: parent.left
       anchors.right: parent.right
       height: visible ? itemHeight : 0
-      visible: bottomBarContentContainer.children.length > 0
+      visible: footerContentContainer.children.length > 0
       color: Theme.controlBorderColor
       bottomLeftRadius: 5
       bottomRightRadius: 5
 
       Item {
-        id: bottomBarContentContainer
+        id: footerContentContainer
         anchors.fill: parent
       }
     }
@@ -373,7 +373,7 @@ EditorWidgetBase {
   }
 
   // The loader is used to defer the cost involved in atlas-related item / model generation until the
-  // menu is opened in order to avoid extra cost when opening a feature form
+  // menu is opened in order to avoid feature form popups always show above embedded feature forms
   Loader {
     id: atlasMenuLoader
     enabled: false

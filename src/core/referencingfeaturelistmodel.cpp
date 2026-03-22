@@ -84,17 +84,9 @@ QVariant ReferencingFeatureListModelBase::data( const QModelIndex &index, int ro
   }
   if ( role == AttachmentPath )
   {
-    // find the first ExternalResource field on the referencing layer and return its value
-    QgsVectorLayer *layer = mRelation.referencingLayer();
-    if ( layer )
+    if ( !mAttachmentFieldName.isEmpty() )
     {
-      for ( int i = 0; i < layer->fields().count(); i++ )
-      {
-        if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
-        {
-          return mEntries.value( index.row() ).referencingFeature.attribute( i ).toString();
-        }
-      }
+      return mEntries.value( index.row() ).referencingFeature.attribute( mAttachmentFieldIndex ).toString();
     }
     return QString();
   }
@@ -120,6 +112,23 @@ QgsFeature ReferencingFeatureListModelBase::feature() const
 void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
 {
   mRelation = relation;
+
+  mAttachmentFieldName.clear();
+  mAttachmentFieldIndex = -1;
+  QgsVectorLayer *layer = mRelation.referencingLayer();
+  if ( layer )
+  {
+    for ( int i = 0; i < layer->fields().count(); i++ )
+    {
+      if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
+      {
+        mAttachmentFieldName = layer->fields().at( i ).name();
+        mAttachmentFieldIndex = i;
+        break;
+      }
+    }
+  }
+
   reload();
 }
 
@@ -141,6 +150,23 @@ void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relat
   }
 
   mRelation = QgsProject::instance()->relationManager()->relation( relationId );
+
+  mAttachmentFieldName.clear();
+  mAttachmentFieldIndex = -1;
+  QgsVectorLayer *layer = mRelation.referencingLayer();
+  if ( layer )
+  {
+    for ( int i = 0; i < layer->fields().count(); i++ )
+    {
+      if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
+      {
+        mAttachmentFieldName = layer->fields().at( i ).name();
+        mAttachmentFieldIndex = i;
+        break;
+      }
+    }
+  }
+
   reload();
 }
 
@@ -325,18 +351,7 @@ bool ReferencingFeatureListModelBase::isLoading() const
 
 QString ReferencingFeatureListModelBase::attachmentFieldName() const
 {
-  QgsVectorLayer *layer = mRelation.referencingLayer();
-  if ( layer )
-  {
-    for ( int i = 0; i < layer->fields().count(); i++ )
-    {
-      if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
-      {
-        return layer->fields().at( i ).name();
-      }
-    }
-  }
-  return QString();
+  return mAttachmentFieldName;
 }
 
 bool ReferencingFeatureListModelBase::checkParentPrimaries()

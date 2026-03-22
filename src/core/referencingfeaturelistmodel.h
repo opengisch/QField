@@ -135,6 +135,10 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
      */
     bool parentPrimariesAvailable() const;
 
+    /**
+     * Returns the field name of the first ExternalResource field found on the referencing layer,
+     * or an empty string if no such field exists. The value is cached when the relation is set.
+     */
     QString attachmentFieldName() const;
 
     /**
@@ -197,6 +201,9 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
     QgsRelation mRelation;
     QgsRelation mNmRelation;
     bool mParentPrimariesAvailable = false;
+
+    QString mAttachmentFieldName;
+    int mAttachmentFieldIndex = -1;
 
     FeatureGatherer *mGatherer = nullptr;
 
@@ -326,6 +333,10 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
      */
     Qt::SortOrder sortOrder() const;
 
+    /**
+     * Returns the field name of the first ExternalResource field found on the referencing layer,
+     * or an empty string if no such field exists.
+     */
     QString attachmentFieldName() const;
 
     /**

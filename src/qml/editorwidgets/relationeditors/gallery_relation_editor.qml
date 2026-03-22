@@ -25,10 +25,10 @@ RelationEditorBase {
 
   gridView.model: DelegateModel {
     model: referencingFeatureListModel
-    delegate: galleryDelegate
+    delegate: isGridView ? gridDelegate : listDelegate
   }
 
-  bottomBarContent: [
+  footerContent: [
     QfSwitch {
       id: viewSwitch
       anchors.right: parent.right
@@ -150,25 +150,35 @@ RelationEditorBase {
     embeddedPopup.open();
   }
 
+  function resolveAttachmentPath(path) {
+    if (!path || path === "") {
+      return "";
+    }
+    if (path.startsWith("http://") || path.startsWith("https://")) {
+      return path;
+    }
+    if (path.startsWith("/")) {
+      return path;
+    }
+    return imagePrefix + path;
+  }
+
   Component {
-    id: galleryDelegate
+    id: listDelegate
 
     Item {
       width: gridView.cellWidth
       height: gridView.cellHeight
 
-      readonly property string attachmentFullPath: {
-        const path = model.attachmentPath;
-        return (path && path !== "") ? imagePrefix + path : "";
-      }
+      readonly property string attachmentFullPath: resolveAttachmentPath(model.attachmentPath)
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
 
       Loader {
-        id: videoThumbLoader
+        id: listVideoThumbLoader
         active: attachmentIsVideo
-        parent: isGridView ? cardVideoContainer : listVideoContainer
+        parent: listVideoContainer
         anchors.fill: parent
 
         property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
@@ -177,29 +187,22 @@ RelationEditorBase {
         sourceComponent: Component {
           Video {
             anchors.fill: parent
-            source: videoThumbLoader.sourceUrl
-            muted: !cardContainer.videoPlaying || !isGridView
-            volume: (isGridView && cardContainer.videoPlaying) ? 1.0 : 0
-            scale: isGridView ? 2.5 : 1.5
+            source: listVideoThumbLoader.sourceUrl
+            muted: true
+            volume: 0
+            scale: 1.5
 
             onHasVideoChanged: {
-              if (hasVideo && !videoThumbLoader.firstFrameDrawn) {
-                play();
+              if (hasVideo && !listVideoThumbLoader.firstFrameDrawn) {
+                seek(1);
               }
             }
 
             onPositionChanged: {
-              if (!videoThumbLoader.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
-                videoThumbLoader.firstFrameDrawn = true;
-                thumbnailPauseTimer.start();
+              if (!listVideoThumbLoader.firstFrameDrawn && position > 0) {
+                listVideoThumbLoader.firstFrameDrawn = true;
+                pause();
               }
-            }
-
-            Timer {
-              id: thumbnailPauseTimer
-              interval: 80
-              repeat: false
-              onTriggered: parent.pause()
             }
           }
         }
@@ -208,7 +211,6 @@ RelationEditorBase {
       Item {
         id: listLayout
         anchors.fill: parent
-        visible: !isGridView
 
         Ripple {
           clip: true
@@ -235,6 +237,15 @@ RelationEditorBase {
             color: Theme.controlBorderColor
             clip: true
 
+            Rectangle {
+              id: listRoundMask
+              anchors.fill: parent
+              radius: parent.radius
+              color: "white"
+              visible: false
+              layer.enabled: true
+            }
+
             Image {
               anchors.fill: parent
               fillMode: Image.PreserveAspectCrop
@@ -242,6 +253,11 @@ RelationEditorBase {
               autoTransform: true
               visible: attachmentIsImage
               source: attachmentIsImage ? UrlUtils.fromString(attachmentFullPath) : ""
+
+              layer.enabled: true
+              layer.effect: QfOpacityMask {
+                maskSource: listRoundMask
+              }
             }
 
             Item {
@@ -318,6 +334,53 @@ RelationEditorBase {
           onClicked: openFeatureForm(model.referencingFeature, model.nmReferencedFeature)
         }
       }
+    }
+  }
+
+  Component {
+    id: gridDelegate
+
+    Item {
+      width: gridView.cellWidth
+      height: gridView.cellHeight
+
+      readonly property string attachmentFullPath: resolveAttachmentPath(model.attachmentPath)
+      readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
+      readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
+      readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
+
+      Loader {
+        id: videoThumbLoader
+        active: attachmentIsVideo
+        parent: cardVideoContainer
+        anchors.fill: parent
+
+        property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
+        property bool firstFrameDrawn: false
+
+        sourceComponent: Component {
+          Video {
+            anchors.fill: parent
+            source: videoThumbLoader.sourceUrl
+            muted: !cardContainer.videoPlaying
+            volume: cardContainer.videoPlaying ? 1.0 : 0
+            scale: 2.5
+
+            onHasVideoChanged: {
+              if (hasVideo && !videoThumbLoader.firstFrameDrawn) {
+                seek(1);
+              }
+            }
+
+            onPositionChanged: {
+              if (!videoThumbLoader.firstFrameDrawn && position > 0) {
+                videoThumbLoader.firstFrameDrawn = true;
+                pause();
+              }
+            }
+          }
+        }
+      }
 
       Rectangle {
         id: cardContainer
@@ -326,7 +389,7 @@ RelationEditorBase {
         radius: 10
         color: Theme.controlBorderColor
         clip: true
-        visible: isGridView
+        visible: true
 
         property bool videoPlaying: false
 
@@ -342,7 +405,7 @@ RelationEditorBase {
         }
 
         Image {
-          id: cardThumb
+          id: cardThumbnail
           anchors.fill: parent
           fillMode: Image.PreserveAspectCrop
           asynchronous: true
@@ -373,7 +436,7 @@ RelationEditorBase {
           anchors.verticalCenterOffset: -(detailsBar.height / 2)
           width: 44
           height: 44
-          visible: cardThumb.status !== Image.Ready && !attachmentIsVideo
+          visible: cardThumbnail.status !== Image.Ready && !attachmentIsVideo
           source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
           fillMode: Image.PreserveAspectFit
           opacity: 0.3

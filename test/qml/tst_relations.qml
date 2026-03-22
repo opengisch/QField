@@ -92,20 +92,20 @@ TestCase {
     verify(relation_editor.item.relationEditorModel !== null);
     compare(relation_editor.item.relationEditorModel.feature.id, 1);
     compare(relation_editor.item.relationEditorModel.rowCount(), 2);
-    let delegate1TextString = relation_editor.item.listView.itemAtIndex(0).children[2].children[0].text;
-    let delegate2TextString = relation_editor.item.listView.itemAtIndex(1).children[2].children[0].text;
+    let delegate1TextString = relation_editor.item.gridView.itemAtIndex(0).children[2].children[0].text;
+    let delegate2TextString = relation_editor.item.gridView.itemAtIndex(1).children[2].children[0].text;
     compare(delegate1TextString, "Village Alpha");
     compare(delegate2TextString, "Village Beta");
 
     // 9) Sort action
     relation_editor.item.toggleSortAction();
-    delegate1TextString = relation_editor.item.listView.itemAtIndex(0).children[2].children[0].text;
-    delegate2TextString = relation_editor.item.listView.itemAtIndex(1).children[2].children[0].text;
+    delegate1TextString = relation_editor.item.gridView.itemAtIndex(0).children[2].children[0].text;
+    delegate2TextString = relation_editor.item.gridView.itemAtIndex(1).children[2].children[0].text;
     compare(delegate1TextString, "Village Beta");
     compare(delegate2TextString, "Village Alpha");
     relation_editor.item.toggleSortAction();
-    delegate1TextString = relation_editor.item.listView.itemAtIndex(0).children[2].children[0].text;
-    delegate2TextString = relation_editor.item.listView.itemAtIndex(1).children[2].children[0].text;
+    delegate1TextString = relation_editor.item.gridView.itemAtIndex(0).children[2].children[0].text;
+    delegate2TextString = relation_editor.item.gridView.itemAtIndex(1).children[2].children[0].text;
     compare(delegate1TextString, "Village Alpha");
     compare(delegate2TextString, "Village Beta");
 
@@ -121,7 +121,7 @@ TestCase {
     relation_editor.item.relationEditorModel.reload();
     wait(200);
     compare(relation_editor.item.relationEditorModel.rowCount(), 3);
-    const delegate3TextString = relation_editor.item.listView.itemAtIndex(2).children[2].children[0].text;
+    const delegate3TextString = relation_editor.item.gridView.itemAtIndex(2).children[2].children[0].text;
     compare(delegate3TextString, "Village Gamma");
 
     // 11) Delete a feature
@@ -129,8 +129,8 @@ TestCase {
     relation_editor.item.deleteDialog.accepted();
     wait(200);
     compare(relation_editor.item.relationEditorModel.rowCount(), 2);
-    delegate1TextString = relation_editor.item.listView.itemAtIndex(0).children[2].children[0].text;
-    delegate2TextString = relation_editor.item.listView.itemAtIndex(1).children[2].children[0].text;
+    delegate1TextString = relation_editor.item.gridView.itemAtIndex(0).children[2].children[0].text;
+    delegate2TextString = relation_editor.item.gridView.itemAtIndex(1).children[2].children[0].text;
     compare(delegate1TextString, "Village Alpha");
     compare(delegate2TextString, "Village Beta");
   }
