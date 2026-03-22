@@ -81,8 +81,8 @@ Item {
         Effect {
           id: eyeDomeLightingEffect
 
-          property real edlRadius: mapArea.eyeDomeLightingMode ? 2.5 : 0
-          property real edlStrength: 50000
+          property real edlRadius: mapArea.eyeDomeLightingMode ? 2.5 * screen.devicePixelRatio : 0
+          property real edlStrength: 25000
 
           passes: Pass {
             shaders: Shader {
