@@ -267,32 +267,26 @@ void Quick3DTerrainProvider::calcNormalizedData()
   mIsLoading = true;
   emit isLoadingChanged();
 
-  QgsAbstractTerrainProvider *terrainProvider;
   QgsCoordinateReferenceSystem terrainCrs;
+  QgsAbstractTerrainProvider *terrainProvider = nullptr;
   QgsRasterDataProvider *rasterProvider = nullptr;
-  double scale = 1.0;
-  double offset = 0.0;
+  const double scale = mTerrainProvider->scale();
+  const double offset = mTerrainProvider->offset();
 
-  if ( mTerrainProvider )
+  if ( QgsRasterDemTerrainProvider *rasterDemProvider = dynamic_cast<QgsRasterDemTerrainProvider *>( mTerrainProvider.get() ) )
   {
-    scale = mTerrainProvider->scale();
-    offset = mTerrainProvider->offset();
-
-    if ( QgsRasterDemTerrainProvider *rasterDemProvider = dynamic_cast<QgsRasterDemTerrainProvider *>( mTerrainProvider.get() ) )
+    QgsRasterLayer *layer = rasterDemProvider->layer();
+    if ( layer && layer->dataProvider() )
     {
-      QgsRasterLayer *layer = rasterDemProvider->layer();
-      if ( layer && layer->dataProvider() )
-      {
-        terrainCrs = layer->crs();
-        rasterProvider = layer->dataProvider()->clone();
-      }
+      terrainCrs = layer->crs();
+      rasterProvider = layer->dataProvider()->clone();
     }
-    else
-    {
-      terrainCrs = mTerrainProvider->crs();
-      terrainProvider = mTerrainProvider->clone();
-      terrainProvider->prepare();
-    }
+  }
+  else
+  {
+    terrainCrs = mTerrainProvider->crs();
+    terrainProvider = mTerrainProvider->clone();
+    terrainProvider->prepare();
   }
 
   QgsRectangle extent = mExtent;
