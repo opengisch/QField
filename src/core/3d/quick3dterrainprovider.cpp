@@ -354,7 +354,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
         for ( int col = 0; col < gridSize.width(); ++col )
         {
           const double x = extent.xMinimum() + extent.width() / gridSize.width() * col;
-          const double y = extent.xMinimum() - extent.height() / gridSize.height() * row;
+          const double y = extent.yMaximum() - extent.height() / gridSize.height() * row;
           double value = terrainProvider->heightAt( x, y );
           if ( !std::isnan( value ) )
           {
