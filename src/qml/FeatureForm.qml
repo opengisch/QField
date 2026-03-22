@@ -630,7 +630,7 @@ Page {
               active: widget !== undefined && widget !== "Hidden"
               source: {
                 if (widget === 'RelationEditor') {
-                  return 'editorwidgets/relationeditors/gallery_relation_editor.qml'; // temp- force gallery for testing
+                  return 'editorwidgets/relationeditors/' + (RelationEditorWidget || 'relation_editor') + '.qml';
                 }
                 return 'editorwidgets/' + (widget || 'TextEdit') + '.qml';
               }

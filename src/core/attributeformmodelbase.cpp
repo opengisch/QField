@@ -623,7 +623,23 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( "relation", AttributeFormModel::ElementType );
         item->setData( "RelationEditor", AttributeFormModel::EditorWidget );
-        item->setData( editorRelation->relationWidgetTypeId(), AttributeFormModel::RelationEditorWidget );
+        QString relationWidgetType = editorRelation->relationWidgetTypeId();
+        if ( relationWidgetType != QLatin1String( "ordered_relation_editor" ) )
+        {
+          QgsVectorLayer *referencingLayer = relation.referencingLayer();
+          if ( referencingLayer )
+          {
+            for ( int i = 0; i < referencingLayer->fields().count(); i++ )
+            {
+              if ( referencingLayer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
+              {
+                relationWidgetType = QStringLiteral( "gallery_relation_editor" );
+                break;
+              }
+            }
+          }
+        }
+        item->setData( relationWidgetType, AttributeFormModel::RelationEditorWidget );
         item->setData( editorRelation->relationEditorConfiguration(), AttributeFormModel::RelationEditorWidgetConfig );
         item->setData( relation.id(), AttributeFormModel::RelationId );
         item->setData( editorRelation->nmRelationId(), AttributeFormModel::NmRelationId );

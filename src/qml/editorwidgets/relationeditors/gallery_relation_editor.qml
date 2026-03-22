@@ -28,24 +28,6 @@ RelationEditorBase {
     delegate: galleryDelegate
   }
 
-  headerActions: [
-    QfToolButton {
-      width: 48
-      height: 48
-      enabled: isEnabled
-      visible: isEnabled
-
-      round: false
-      iconSource: Theme.getThemeVectorIcon('ic_camera_photo_black_24dp')
-      iconColor: Theme.mainTextColor
-      bgcolor: 'transparent'
-      onClicked: {
-        platformUtilities.createDir(qgisProject.homePath, 'DCIM');
-        relationCameraLoader.active = true;
-      }
-    }
-  ]
-
   bottomBarContent: [
     QfSwitch {
       id: viewSwitch
@@ -143,41 +125,7 @@ RelationEditorBase {
     referencingFeatureListModel.sortOrder = referencingFeatureListModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
   }
 
-  ExpressionEvaluator {
-    id: attachmentNamingEvaluator
-    feature: currentFeature
-    layer: referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null
-    project: qgisProject
-    appExpressionContextScopesGenerator: appScopesGenerator
-    expressionText: {
-      var value;
-      var refLayer = referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null;
-      var fieldName = referencingFeatureListModel.attachmentFieldName;
-      if (refLayer && fieldName) {
-        if (refLayer.customProperty('QFieldSync/attachment_naming') !== undefined) {
-          value = JSON.parse(refLayer.customProperty('QFieldSync/attachment_naming'))[fieldName];
-          return value !== undefined ? value : '';
-        } else if (refLayer.customProperty('QFieldSync/photo_naming') !== undefined) {
-          value = JSON.parse(refLayer.customProperty('QFieldSync/photo_naming'))[fieldName];
-          return value !== undefined ? value : '';
-        }
-      }
-      return '';
-    }
-  }
-
-  function getAttachmentFilePath() {
-    const evaluatedFilepath = attachmentNamingEvaluator.evaluate();
-    let filepath = FileUtils.sanitizeFilePath(evaluatedFilepath);
-    if (FileUtils.fileSuffix(filepath) === '' && !filepath.endsWith("{extension}") && !filepath.endsWith("{filename}")) {
-      const nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
-      filepath = 'DCIM/JPEG_' + nowStr + '.{extension}';
-    }
-    filepath = filepath.replace('\\', '/');
-    return filepath;
-  }
-
-  function showAddFeaturePopup(geometry, attachmentPath) {
+  function showAddFeaturePopup(geometry) {
     ensureEmbeddedFormLoaded();
     embeddedPopup.state = 'Add';
     embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer;
@@ -190,11 +138,6 @@ RelationEditorBase {
       embeddedPopup.applyGeometry(geometry);
     }
     embeddedPopup.open();
-    if (attachmentPath !== undefined && attachmentPath !== "") {
-      const fieldName = referencingFeatureListModel.attachmentFieldName;
-      embeddedPopup.attributeFormModel.applyParentDefaultValues();
-      embeddedPopup.attributeFormModel.changeAttribute(fieldName, attachmentPath);
-    }
   }
 
   function openFeatureForm(feature, nmFeature) {
@@ -207,28 +150,6 @@ RelationEditorBase {
     embeddedPopup.open();
   }
 
-  Loader {
-    id: relationCameraLoader
-    active: false
-    sourceComponent: Component {
-      QFieldCamera {
-        Component.onCompleted: {
-          state = 'PhotoCapture';
-          open();
-        }
-        onFinished: path => {
-          const filepath = StringUtils.replaceFilenameTags(getAttachmentFilePath(), path);
-          platformUtilities.renameFile(path, imagePrefix + filepath);
-          showAddFeaturePopup(undefined, filepath);
-          close();
-        }
-        onCanceled: close()
-        onClosed: relationCameraLoader.active = false
-      }
-    }
-  }
-
-  // Single adaptive delegate, switches layout based on isGridView
   Component {
     id: galleryDelegate
 
@@ -262,8 +183,9 @@ RelationEditorBase {
             scale: isGridView ? 2.5 : 1.5
 
             onHasVideoChanged: {
-              if (hasVideo && !videoThumbLoader.firstFrameDrawn)
+              if (hasVideo && !videoThumbLoader.firstFrameDrawn) {
                 play();
+              }
             }
 
             onPositionChanged: {
@@ -408,7 +330,6 @@ RelationEditorBase {
 
         property bool videoPlaying: false
 
-        // Shared semi-opaque overlay color used by detailsBar and play button background
         readonly property color overlayColor: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
 
         Rectangle {
@@ -497,13 +418,12 @@ RelationEditorBase {
           color: cardContainer.overlayColor
 
           Text {
-            anchors {
-              left: parent.left
-              leftMargin: 10
-              right: cardMenuButton.left
-              rightMargin: 4
-              verticalCenter: parent.verticalCenter
-            }
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+            anchors.right: cardMenuButton.left
+            anchors.rightMargin: 4
+            anchors.verticalCenter: parent.verticalCenter
+
             text: model.displayString
             color: Theme.mainTextColor
             font.pixelSize: Theme.tipFont.pixelSize
@@ -552,10 +472,11 @@ RelationEditorBase {
           onClicked: {
             if (attachmentIsVideo && videoThumbLoader.item) {
               cardContainer.videoPlaying = !cardContainer.videoPlaying;
-              if (cardContainer.videoPlaying)
+              if (cardContainer.videoPlaying) {
                 videoThumbLoader.item.play();
-              else
+              } else {
                 videoThumbLoader.item.pause();
+              }
             } else {
               openFeatureForm(model.referencingFeature, model.nmReferencedFeature);
             }
