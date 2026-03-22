@@ -2154,7 +2154,7 @@ ApplicationWindow {
       QfActionButton {
         id: close3DView
         visible: stateMachine.state === '3d'
-        toolImage: Theme.getThemeVectorIcon("ic_3d_24dp")
+        toolImage: Theme.getThemeVectorIcon("ic_3d_white_24dp")
         toolText: qsTr('Close 3D view')
 
         onClicked: {
@@ -2639,7 +2639,7 @@ ApplicationWindow {
         round: true
         collapsed: false
         bgcolor: Theme.toolButtonBackgroundColor
-        iconSource: Theme.getThemeVectorIcon('ic_3d_settings_24dp')
+        iconSource: Theme.getThemeVectorIcon('ic_3d_settings_white_24dp')
         iconColor: Theme.toolButtonColor
         spacing: 4
         visible: stateMachine.state === '3d' && mapCanvas3DLoader.item

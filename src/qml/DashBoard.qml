@@ -142,7 +142,7 @@ Drawer {
             objectName: "View3DButton"
             anchors.verticalCenter: parent.verticalCenter
             round: true
-            iconSource: Theme.getThemeVectorIcon("ic_3d_24dp")
+            iconSource: Theme.getThemeVectorIcon("ic_3d_white_24dp")
             iconColor: Theme.mainTextColor
             bgcolor: "transparent"
             onClicked: {
