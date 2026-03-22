@@ -148,11 +148,7 @@ void Quick3DTerrainProvider::updateFromMapSettings()
 void Quick3DTerrainProvider::generateData()
 {
   calculateResolution();
-
-  if ( mTerrainProvider )
-  {
-    calcNormalizedData();
-  }
+  calcNormalizedData();
 }
 
 void Quick3DTerrainProvider::calculateResolution()
