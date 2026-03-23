@@ -157,7 +157,7 @@ RelationEditorBase {
     if (path.startsWith("http://") || path.startsWith("https://")) {
       return path;
     }
-    if (path.startsWith("/")) {
+    if (FileUtils.fileExists(path)) {
       return path;
     }
     return imagePrefix + path;
