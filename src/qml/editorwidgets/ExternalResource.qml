@@ -368,7 +368,14 @@ EditorWidgetBase {
           onHasVideoChanged: {
             mediaFrame.height = hasVideo ? 254 : 48;
             if (!player.firstFrameDrawn && hasVideo) {
-              play();
+              seek(1);
+            }
+          }
+
+          onSourceChanged: {
+            if (hasVideo) {
+              player.firstFrameDrawn = false;
+              seek(1);
             }
           }
 
@@ -376,7 +383,7 @@ EditorWidgetBase {
             positionSlider.to = duration / 1000;
             positionSlider.value = 0;
             if (!player.firstFrameDrawn && hasVideo) {
-              play();
+              seek(1);
             }
           }
 
