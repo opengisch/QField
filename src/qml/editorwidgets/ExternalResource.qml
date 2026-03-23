@@ -388,7 +388,7 @@ EditorWidgetBase {
           }
 
           onPositionChanged: {
-            if (!player.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
+            if (!player.firstFrameDrawn && position > 0) {
               player.firstFrameDrawn = true;
               if (hasVideo) {
                 pause();
