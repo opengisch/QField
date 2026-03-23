@@ -82,6 +82,7 @@
         <file>themes/qfield/nodpi/ic_calendar_today_black_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_close_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_ellipsis_black_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_eye_dome_lighting_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_active_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_cloud_attention_24dp.svg</file>
@@ -213,6 +214,7 @@
         <file>themes/qfield/nodpi/ic_sort_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_collapse_all_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_expand_all_24dp.svg</file>
-        <file>themes/qfield/nodpi/ic_3d_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_3d_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_3d_settings_white_24dp.svg</file>
     </qresource>
 </RCC>
