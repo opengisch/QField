@@ -1175,17 +1175,23 @@ ApplicationWindow {
 
       Component.onCompleted: {
         pointHandler.registerHandler("LocationMarker", (point, type, interactionType) => {
-          if (!locationMarker.visible || !locationMarker.isOnMapCanvas || interactionType !== "clicked") {
+          if (!locationMarker.visible || !locationMarker.isOnMapCanvas || (interactionType !== "clicked" && interactionType !== "pressedAndHold")) {
             return false;
           }
-          const dx = point.x - locationMarker.screenLocation.x;
-          const dy = point.y - locationMarker.screenLocation.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance > 25) {
+          if (type === "stylus" && interactionType === "clicked") {
+            mainWindow.displayToast(qsTr("Long press on your location marker to show actions"));
             return false;
+          } else if ((type !== "stylus" && interactionType === "clicked") || (type === "stylus" && interactionType === "pressedAndHold")) {
+            const dx = point.x - locationMarker.screenLocation.x;
+            const dy = point.y - locationMarker.screenLocation.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance > 25) {
+              return false;
+            }
+            openPieMenu(point);
+            return true;
           }
-          openPieMenu(point);
-          return true;
+          return false;
         }, MapCanvasPointHandler.Priority.High);
         if (!settings.valueBool("/QField/pieMenuOpenedOnce", false)) {
           bubbleText = qsTr("Tap on your location marker\nto show actions");
