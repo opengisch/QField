@@ -106,6 +106,13 @@ if (APP_BUNDLED_PLUGINS)
   install(DIRECTORY APP_BUNDLED_PLUGINS DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield/plugins)
 endif()
 
+if (CMAKE_BUILD_TYPE MATCHES Debug OR CMAKE_BUILD_TYPE MATCHES RelWithDebInfo)
+  message (STATUS "QField debug output enabled")
+  set(QFIELDDEBUG TRUE)
+else()
+  set(QFIELDDEBUG FALSE)
+endif()
+
 set(QT_MIN_VERSION 6.6.0)
 
 if (ANDROID)

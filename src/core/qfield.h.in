@@ -58,6 +58,8 @@ namespace qfield
   static inline const QString appName{ QStringLiteral( "@APP_NAME@" ) };
 }; // namespace qfield
 
+#cmakedefine QFIELDDEBUG
+
 #define WITH_SENTRY @WITH_SENTRY@
 #define QGIS_PREFIX_PATH "@QGIS_PREFIX_PATH@"
 
