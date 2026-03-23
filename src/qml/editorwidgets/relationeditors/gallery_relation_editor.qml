@@ -194,15 +194,22 @@ RelationEditorBase {
 
             onHasVideoChanged: {
               if (hasVideo && !listVideoThumbLoader.firstFrameDrawn) {
-                seek(1);
+                play();
               }
             }
 
             onPositionChanged: {
-              if (!listVideoThumbLoader.firstFrameDrawn && position > 0) {
+              if (!listVideoThumbLoader.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
                 listVideoThumbLoader.firstFrameDrawn = true;
-                pause();
+                listThumbnailPauseTimer.start();
               }
+            }
+
+            Timer {
+              id: listThumbnailPauseTimer
+              interval: 80
+              repeat: false
+              onTriggered: parent.pause()
             }
           }
         }
@@ -368,15 +375,22 @@ RelationEditorBase {
 
             onHasVideoChanged: {
               if (hasVideo && !videoThumbLoader.firstFrameDrawn) {
-                seek(1);
+                play();
               }
             }
 
             onPositionChanged: {
-              if (!videoThumbLoader.firstFrameDrawn && position > 0) {
+              if (!videoThumbLoader.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
                 videoThumbLoader.firstFrameDrawn = true;
-                pause();
+                thumbnailPauseTimer.start();
               }
+            }
+
+            Timer {
+              id: thumbnailPauseTimer
+              interval: 80
+              repeat: false
+              onTriggered: parent.pause()
             }
           }
         }
