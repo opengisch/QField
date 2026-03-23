@@ -230,13 +230,13 @@ Page {
     }
     ListElement {
       title: qsTr("Use native camera")
-      description: qsTr("If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.")
+      description: qsTr("If enabled, the native camera provided by the operating system will be used.")
       settingAlias: "nativeCamera2"
       isVisible: true
     }
     ListElement {
       title: qsTr("Send anonymized metrics")
-      description: qsTr("If enabled, anonymized metrics will be collected and sent to help improve %1 for everyone.")
+      description: qsTr("If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.")
       settingAlias: "enableInfoCollection"
       isVisible: true
     }
