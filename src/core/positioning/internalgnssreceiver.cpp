@@ -20,8 +20,8 @@
 
 InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   : AbstractGnssReceiver( parent )
-  , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( nullptr ) ) )
-  , mGeoSatelliteSource( std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( nullptr ) ) )
+  , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( { { "desktopId", "ch.opengis.qfield" } }, nullptr ) ) )
+  , mGeoSatelliteSource( std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( { { "desktopId", "ch.opengis.qfield" } }, nullptr ) ) )
 {
   if ( mGeoPositionSource )
   {
