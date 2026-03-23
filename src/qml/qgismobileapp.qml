@@ -793,8 +793,9 @@ ApplicationWindow {
       forceDeferredLayersRepaint: trackings.count > 0
       freehandDigitizing: freehandButton.freehandDigitizing && freehandHandler.active
 
-      rightMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.x > 0 ? featureListForm.width : 0 : 0
-      bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0) : 0
+      property bool allowMargins: !gnssButton.followActive || !gnssButton.followOrientationActive
+      rightMargin: allowMargins ? !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.x > 0 ? featureListForm.width : 0 : 0
+      bottomMargin: allowMargins ? Math.max(informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0, !featureListForm.fullScreenView && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0) : 0
 
       anchors.fill: parent
 
@@ -809,10 +810,11 @@ ApplicationWindow {
         if (!digitizingToolbar.geometryRequested && featureListForm.state == "FeatureFormEdit") {
           return;
         }
-        if (locatorItem.state == "on") {
+        if (locatorItem.state === "on") {
           locatorItem.state = "off";
           return;
         }
+
         if (type === "stylus") {
           if (pointHandler.pointInItem(point, digitizingToolbar) || pointHandler.pointInItem(point, zoomToolbar) || pointHandler.pointInItem(point, mainToolbar) || pointHandler.pointInItem(point, mainMenuBar) || pointHandler.pointInItem(point, geometryEditorsToolbar) || pointHandler.pointInItem(point, locationToolbar) || pointHandler.pointInItem(point, digitizingToolbarContainer) || pointHandler.pointInItem(point, locatorItem)) {
             return;
@@ -824,6 +826,11 @@ ApplicationWindow {
             if (!positionLocked) {
               geometryEditorsToolbar.canvasClicked(point, type);
             }
+            return;
+          }
+          // Check if a feature movement can be confirmed
+          if (moveFeaturesToolbar.moveFeaturesRequested) {
+            moveFeaturesToolbar.confirm();
             return;
           }
           if ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure") {
@@ -1134,7 +1141,7 @@ ApplicationWindow {
       id: coordinateLocator
       objectName: "coordinateLocator"
       anchors.fill: parent
-      anchors.bottomMargin: !gnssButton.followActive || !gnssButton.followOrientationActive ? informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0 : 0
+      anchors.bottomMargin: mapCanvasMap.allowMargins ? informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0 : 0
       visible: (stateMachine.state === "digitize" || stateMachine.state === 'measure')
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
@@ -1580,8 +1587,9 @@ ApplicationWindow {
 
       // take rotation into account
       property double rotationRadians: -mapSettings.rotation * Math.PI / 180
-      translateX: mapToScreenTranslateX.screenDistance * Math.cos(rotationRadians) - mapToScreenTranslateY.screenDistance * Math.sin(rotationRadians)
-      translateY: mapToScreenTranslateY.screenDistance * Math.cos(rotationRadians) + mapToScreenTranslateX.screenDistance * Math.sin(rotationRadians)
+      property bool hasTranslation: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined
+      translateX: hasTranslation ? mapToScreenTranslateX.screenDistance * Math.cos(rotationRadians) - mapToScreenTranslateY.screenDistance * Math.sin(rotationRadians) : 0
+      translateY: hasTranslation ? mapToScreenTranslateY.screenDistance * Math.cos(rotationRadians) + mapToScreenTranslateX.screenDistance * Math.sin(rotationRadians) : 0
       rotationDegrees: 0
 
       color: "yellow"
@@ -1599,12 +1607,31 @@ ApplicationWindow {
     MapToScreen {
       id: mapToScreenTranslateX
       mapSettings: mapCanvas.mapSettings
-      mapDistance: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined ? mapCanvas.mapSettings.center.x - moveFeaturesToolbar.startPoint.x : 0
+      mapDistance: {
+        if (moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined && mapCanvas.mapSettings.center) {
+          console.log(stateMachine.state);
+          if (stateMachine.state === "digitize") {
+            return coordinateLocator.currentCoordinate.x - moveFeaturesToolbar.startPoint.x;
+          } else {
+            return mapCanvas.mapSettings.getCenter(true).x - moveFeaturesToolbar.startPoint.x;
+          }
+        }
+        return 0;
+      }
     }
     MapToScreen {
       id: mapToScreenTranslateY
       mapSettings: mapCanvas.mapSettings
-      mapDistance: moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined ? mapCanvas.mapSettings.center.y - moveFeaturesToolbar.startPoint.y : 0
+      mapDistance: {
+        if (moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined && mapCanvas.mapSettings.center) {
+          if (stateMachine.state === "digitize") {
+            return coordinateLocator.currentCoordinate.y - moveFeaturesToolbar.startPoint.y;
+          } else {
+            return mapCanvas.mapSettings.getCenter(true).y - moveFeaturesToolbar.startPoint.y;
+          }
+        }
+        return 0;
+      }
     }
 
     ProcessingAlgorithmPreview {
@@ -3223,10 +3250,11 @@ ApplicationWindow {
         stateVisible: moveFeaturesRequested
 
         onConfirm: {
-          endPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
+          endPoint = stateMachine.state === "digitize" ? coordinateLocator.currentCoordinate : mapCanvas.mapSettings.getCenter(true);
           moveFeaturesRequested = false;
           moveConfirmed();
         }
+
         onCancel: {
           startPoint = undefined;
           endPoint = undefined;
@@ -3238,8 +3266,12 @@ ApplicationWindow {
           moveFeaturesRequested = true;
           if (featureListForm && featureListForm.selection.model.selectedCount === 1) {
             featureListForm.extentController.zoomToSelected();
+            let centroid = GeometryUtils.reprojectPoint(GeometryUtils.boundingBox(featureListForm.selection.model.selectedFeatures[0].geometry).center, featureListForm.selection.model.selectedLayer.crs, mapCanvas.mapSettings.destinationCrs);
+            centroid = GeometryUtils.point(centroid.x, centroid.y);
+            startPoint = centroid;
+          } else {
+            startPoint = mapCanvas.mapSettings.getCenter(true);
           }
-          startPoint = GeometryUtils.point(mapCanvas.mapSettings.center.x, mapCanvas.mapSettings.center.y);
           moveAndRotateFeaturesHighlight.rotationDegrees = 0;
         }
       }

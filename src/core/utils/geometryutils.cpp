@@ -385,6 +385,26 @@ QgsPoint GeometryUtils::centroid( const QgsGeometry &geometry )
   return QgsPoint();
 }
 
+QgsPointXY GeometryUtils::reprojectPoint( const QgsPointXY &point, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
+{
+  if ( sourceCrs == destinationCrs )
+    return point;
+
+  const QgsCoordinateTransform ct( sourceCrs, destinationCrs, QgsProject::instance() );
+  QgsPointXY reprojectedPoint;
+  try
+  {
+    ct.transform( point.x(), point.y() );
+    reprojectedPoint = ct.transform( point );
+  }
+  catch ( QgsCsException & )
+  {
+    return QgsPointXY();
+  }
+
+  return reprojectedPoint;
+}
+
 QgsPoint GeometryUtils::reprojectPoint( const QgsPoint &point, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
 {
   if ( sourceCrs == destinationCrs )
