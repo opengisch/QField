@@ -450,7 +450,7 @@ Item {
     target: null
     enabled: interactive
     grabPermissions: PointerHandler.CanTakeOverFromItems | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
-    acceptedDevices: PointerDevice.Stylus | PointerDevice.Mouse
+    acceptedDevices: PointerDevice.TouchPad | PointerDevice.Stylus | PointerDevice.Mouse
     acceptedButtons: Qt.RightButton
     dragThreshold: 10
 
