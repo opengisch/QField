@@ -20,6 +20,8 @@ RelationEditorBase {
     return path.endsWith("/") ? path : path + "/";
   }
 
+  property ResourceSource cameraResourceSource
+
   gridView.cellWidth: isGridView ? Math.floor(gridView.width / Math.max(2, Math.floor(gridView.width / 160))) : gridView.width
   gridView.cellHeight: isGridView ? gridView.cellWidth : 72
 
@@ -27,6 +29,81 @@ RelationEditorBase {
     model: referencingFeatureListModel
     delegate: isGridView ? gridDelegate : listDelegate
   }
+
+  ExpressionEvaluator {
+    id: attachmentNamingEvaluator
+    feature: currentFeature
+    layer: referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null
+    project: qgisProject
+    appExpressionContextScopesGenerator: appScopesGenerator
+    expressionText: {
+      let value;
+      let refLayer = referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null;
+      let fieldName = referencingFeatureListModel.attachmentFieldName;
+      if (refLayer && fieldName) {
+        if (refLayer.customProperty('QFieldSync/attachment_naming') !== undefined) {
+          value = JSON.parse(refLayer.customProperty('QFieldSync/attachment_naming'))[fieldName];
+          return value !== undefined ? value : '';
+        } else if (refLayer.customProperty('QFieldSync/photo_naming') !== undefined) {
+          value = JSON.parse(refLayer.customProperty('QFieldSync/photo_naming'))[fieldName];
+          return value !== undefined ? value : '';
+        }
+      }
+      return '';
+    }
+  }
+
+  function getAttachmentFilePath() {
+    let filepath = FileUtils.sanitizeFilePath(attachmentNamingEvaluator.evaluate());
+    if (FileUtils.fileSuffix(filepath) === '' && !filepath.endsWith("{extension}") && !filepath.endsWith("{filename}")) {
+      let nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
+      filepath = 'DCIM/JPEG_' + nowStr + '.{extension}';
+    }
+    filepath = filepath.replace('\\', '/');
+    return filepath;
+  }
+
+  function capturePhoto() {
+    platformUtilities.createDir(qgisProject.homePath, 'DCIM');
+    if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
+      let filepath = getAttachmentFilePath();
+      filepath = filepath.replace('{extension}', 'JPG');
+      cameraResourceSource = platformUtilities.getCameraPicture(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
+    } else {
+      relationCameraLoader.active = true;
+    }
+  }
+
+  Connections {
+    target: cameraResourceSource
+
+    function onResourceReceived(path) {
+      if (path) {
+        let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
+        if (maximumWidthHeight > 0) {
+          FileUtils.restrictImageSize(imagePrefix + path, maximumWidthHeight);
+        }
+        showAddFeaturePopup(undefined, path);
+      }
+    }
+  }
+
+  headerActions: [
+    QfToolButton {
+      width: 48
+      height: 48
+      enabled: isEnabled
+      visible: isEnabled
+
+      round: false
+      iconSource: Theme.getThemeVectorIcon('ic_camera_photo_black_24dp')
+      iconColor: Theme.mainTextColor
+      bgcolor: 'transparent'
+      onClicked: {
+        capturePhoto();
+      }
+    }
+  ]
 
   footerContent: [
     QfSwitch {
@@ -125,7 +202,7 @@ RelationEditorBase {
     referencingFeatureListModel.sortOrder = referencingFeatureListModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
   }
 
-  function showAddFeaturePopup(geometry) {
+  function showAddFeaturePopup(geometry, attachmentPath) {
     ensureEmbeddedFormLoaded();
     embeddedPopup.state = 'Add';
     embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer;
@@ -138,6 +215,11 @@ RelationEditorBase {
       embeddedPopup.applyGeometry(geometry);
     }
     embeddedPopup.open();
+    embeddedPopup.attributeFormModel.applyParentDefaultValues();
+    if (attachmentPath !== undefined && attachmentPath !== "") {
+      const fieldName = referencingFeatureListModel.attachmentFieldName;
+      embeddedPopup.attributeFormModel.changeAttribute(fieldName, attachmentPath);
+    }
   }
 
   function openFeatureForm(feature, nmFeature) {
@@ -161,6 +243,31 @@ RelationEditorBase {
       return path;
     }
     return imagePrefix + path;
+  }
+
+  Loader {
+    id: relationCameraLoader
+    active: false
+    sourceComponent: Component {
+      QFieldCamera {
+        Component.onCompleted: {
+          state = 'PhotoCapture';
+          open();
+        }
+        onFinished: path => {
+          const filepath = StringUtils.replaceFilenameTags(getAttachmentFilePath(), path);
+          platformUtilities.renameFile(path, imagePrefix + filepath);
+          let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
+          if (maximumWidthHeight > 0) {
+            FileUtils.restrictImageSize(imagePrefix + filepath, maximumWidthHeight);
+          }
+          showAddFeaturePopup(undefined, filepath);
+          close();
+        }
+        onCanceled: close()
+        onClosed: relationCameraLoader.active = false
+      }
+    }
   }
 
   Component {
