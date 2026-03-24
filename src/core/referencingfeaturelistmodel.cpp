@@ -115,19 +115,25 @@ void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
 
   mAttachmentFieldName.clear();
   mAttachmentFieldIndex = -1;
+  mAttachmentDocumentViewer = 0;
   QgsVectorLayer *layer = mRelation.referencingLayer();
   if ( layer )
   {
     for ( int i = 0; i < layer->fields().count(); i++ )
     {
-      if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
+      const QString widgetType = layer->editorWidgetSetup( i ).type();
+      qDebug() << "Field" << i << layer->fields().at( i ).name() << "widgetType:" << widgetType;
+      if ( widgetType == QLatin1String( "ExternalResource" ) || widgetType == QLatin1String( "Attachment" ) )
       {
         mAttachmentFieldName = layer->fields().at( i ).name();
         mAttachmentFieldIndex = i;
+        mAttachmentDocumentViewer = layer->editorWidgetSetup( i ).config().value( QStringLiteral( "DocumentViewer" ), 0 ).toInt();
         break;
       }
     }
   }
+
+  qDebug() << "SetRelation: After loop: attachmentFieldName=" << mAttachmentFieldName << "documentViewer=" << mAttachmentDocumentViewer;
 
   reload();
 }
@@ -153,20 +159,26 @@ void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relat
 
   mAttachmentFieldName.clear();
   mAttachmentFieldIndex = -1;
+  mAttachmentDocumentViewer = 0;
   QgsVectorLayer *layer = mRelation.referencingLayer();
   if ( layer )
   {
     for ( int i = 0; i < layer->fields().count(); i++ )
     {
-      if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
+      const QString widgetType = layer->editorWidgetSetup( i ).type();
+      qDebug() << "Field" << i << layer->fields().at( i ).name() << "widgetType:" << widgetType;
+      if ( widgetType == QLatin1String( "ExternalResource" ) || widgetType == QLatin1String( "Attachment" ) )
       {
         mAttachmentFieldName = layer->fields().at( i ).name();
         mAttachmentFieldIndex = i;
+        mAttachmentDocumentViewer = layer->editorWidgetSetup( i ).config().value( QStringLiteral( "DocumentViewer" ), 0 ).toInt();
         break;
       }
     }
   }
 
+  qDebug() << "setCurrentRelation - After loop: attachmentFieldName=" << mAttachmentFieldName << "documentViewer=" << mAttachmentDocumentViewer;
+  emit relationChanged();
   reload();
 }
 
@@ -354,6 +366,11 @@ QString ReferencingFeatureListModelBase::attachmentFieldName() const
   return mAttachmentFieldName;
 }
 
+int ReferencingFeatureListModelBase::attachmentDocumentViewer() const
+{
+  return mAttachmentDocumentViewer;
+}
+
 bool ReferencingFeatureListModelBase::checkParentPrimaries()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() )
@@ -498,6 +515,11 @@ bool ReferencingFeatureListModel::isLoading() const
 QString ReferencingFeatureListModel::attachmentFieldName() const
 {
   return mSourceModel->attachmentFieldName();
+}
+
+int ReferencingFeatureListModel::attachmentDocumentViewer() const
+{
+  return mSourceModel->attachmentDocumentViewer();
 }
 
 Qt::SortOrder ReferencingFeatureListModel::sortOrder() const

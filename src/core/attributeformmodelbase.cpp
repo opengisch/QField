@@ -631,7 +631,8 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
           {
             for ( int i = 0; i < referencingLayer->fields().count(); i++ )
             {
-              if ( referencingLayer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
+              const QString widgetType = referencingLayer->editorWidgetSetup( i ).type();
+              if ( widgetType == QLatin1String( "ExternalResource" ) || widgetType == QLatin1String( "Attachment" ) )
               {
                 relationWidgetType = QStringLiteral( "gallery_relation_editor" );
                 break;

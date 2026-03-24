@@ -46,6 +46,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
     Q_PROPERTY( QgsRelation nmRelation WRITE setNmRelation READ nmRelation NOTIFY nmRelationChanged )
     Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
     Q_PROPERTY( QString attachmentFieldName READ attachmentFieldName NOTIFY relationChanged )
+    Q_PROPERTY( int attachmentDocumentViewer READ attachmentDocumentViewer NOTIFY relationChanged )
 
   public:
     explicit ReferencingFeatureListModelBase( QObject *parent = nullptr );
@@ -141,6 +142,8 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
      */
     QString attachmentFieldName() const;
 
+    int attachmentDocumentViewer() const;
+
     /**
      * Reloads the model by starting the reload functionality in the gatherer (seperate thread)
      * Sets the property parentPrimariesAvailable
@@ -204,6 +207,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
 
     QString mAttachmentFieldName;
     int mAttachmentFieldIndex = -1;
+    int mAttachmentDocumentViewer = 0;
 
     FeatureGatherer *mGatherer = nullptr;
 
@@ -232,6 +236,7 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
     Q_PROPERTY( Qt::SortOrder sortOrder READ sortOrder WRITE setSortOrder NOTIFY sortOrderChanged )
     Q_PROPERTY( QString attachmentFieldName READ attachmentFieldName NOTIFY relationChanged )
+    Q_PROPERTY( int attachmentDocumentViewer READ attachmentDocumentViewer NOTIFY relationChanged )
 
   public:
     explicit ReferencingFeatureListModel( QObject *parent = nullptr );
@@ -338,6 +343,8 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
      * or an empty string if no such field exists.
      */
     QString attachmentFieldName() const;
+
+    int attachmentDocumentViewer() const;
 
     /**
      * @brief Sets the sort order and re-applies sorting.

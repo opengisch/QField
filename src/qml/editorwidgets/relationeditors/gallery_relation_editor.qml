@@ -20,7 +20,27 @@ RelationEditorBase {
     return path.endsWith("/") ? path : path + "/";
   }
 
+  readonly property int document_FILE: 0
+  readonly property int document_IMAGE: 1
+  readonly property int document_AUDIO: 3
+  readonly property int document_VIDEO: 4
+
+  property int documentViewer: {
+    let val = referencingFeatureListModel.attachmentDocumentViewer;
+    console.log("documentViewer value:", val, "attachmentFieldName:", referencingFeatureListModel.attachmentFieldName);
+    return val;
+  }
+
   property ResourceSource cameraResourceSource
+  property ResourceSource relationFileResourceSource
+  Connections {
+    target: relationFileResourceSource
+    function onResourceReceived(path) {
+      if (path) {
+        showAddFeaturePopup(undefined, path);
+      }
+    }
+  }
 
   gridView.cellWidth: isGridView ? Math.floor(gridView.width / Math.max(2, Math.floor(gridView.width / 160))) : gridView.width
   gridView.cellHeight: isGridView ? gridView.cellWidth : 72
@@ -57,7 +77,15 @@ RelationEditorBase {
     let filepath = FileUtils.sanitizeFilePath(attachmentNamingEvaluator.evaluate());
     if (FileUtils.fileSuffix(filepath) === '' && !filepath.endsWith("{extension}") && !filepath.endsWith("{filename}")) {
       let nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
-      filepath = 'DCIM/JPEG_' + nowStr + '.{extension}';
+      if (documentViewer === document_AUDIO) {
+        filepath = 'audio/AUDIO_' + nowStr + '.{extension}';
+      } else if (documentViewer === document_VIDEO) {
+        filepath = 'video/VIDEO_' + nowStr + '.{extension}';
+      } else if (documentViewer === document_FILE) {
+        filepath = 'files/' + nowStr + '.{extension}';
+      } else {
+        filepath = 'DCIM/JPEG_' + nowStr + '.{extension}';
+      }
     }
     filepath = filepath.replace('\\', '/');
     return filepath;
@@ -74,14 +102,40 @@ RelationEditorBase {
     }
   }
 
+  function captureVideo() {
+    platformUtilities.createDir(qgisProject.homePath, 'DCIM');
+    if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
+      let filepath = getAttachmentFilePath();
+      filepath = filepath.replace('{extension}', 'MP4');
+      cameraResourceSource = platformUtilities.getCameraVideo(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
+    } else {
+      relationCameraLoader.isVideo = true;
+      relationCameraLoader.active = true;
+    }
+  }
+
+  function captureAudio() {
+    Qt.inputMethod.hide();
+    relationAudioRecorderLoader.active = true;
+  }
+
+  function attachFile() {
+    Qt.inputMethod.hide();
+    platformUtilities.requestStoragePermission();
+    let filepath = getAttachmentFilePath();
+    relationFileResourceSource = platformUtilities.getFile(imagePrefix, filepath, relationEditor);
+  }
+
   Connections {
     target: cameraResourceSource
 
     function onResourceReceived(path) {
       if (path) {
-        let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
-        if (maximumWidthHeight > 0) {
-          FileUtils.restrictImageSize(imagePrefix + path, maximumWidthHeight);
+        if (documentViewer !== document_VIDEO) {
+          let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
+          if (maximumWidthHeight > 0) {
+            FileUtils.restrictImageSize(imagePrefix + path, maximumWidthHeight);
+          }
         }
         showAddFeaturePopup(undefined, path);
       }
@@ -96,11 +150,35 @@ RelationEditorBase {
       visible: isEnabled
 
       round: false
-      iconSource: Theme.getThemeVectorIcon('ic_camera_photo_black_24dp')
+      iconSource: {
+        switch (documentViewer) {
+          case document_VIDEO:
+            return Theme.getThemeVectorIcon("ic_camera_video_black_24dp");
+          case document_AUDIO:
+            return Theme.getThemeVectorIcon("ic_microphone_black_24dp");
+          case document_FILE:
+            return Theme.getThemeVectorIcon("ic_file_black_24dp");
+          default:
+            return Theme.getThemeVectorIcon("ic_camera_photo_black_24dp");
+        }
+      }
       iconColor: Theme.mainTextColor
       bgcolor: 'transparent'
       onClicked: {
-        capturePhoto();
+        switch (documentViewer) {
+          case document_VIDEO:
+            captureVideo();
+            break;
+          case document_AUDIO:
+            captureAudio();
+            break;
+          case document_FILE:
+            attachFile();
+            break;
+          default:
+            capturePhoto();
+            break;
+        }
       }
     }
   ]
@@ -248,24 +326,47 @@ RelationEditorBase {
   Loader {
     id: relationCameraLoader
     active: false
+    property bool isVideo: false
     sourceComponent: Component {
       QFieldCamera {
         Component.onCompleted: {
-          state = 'PhotoCapture';
+          state = relationCameraLoader.isVideo ? 'VideoCapture' : 'PhotoCapture';
           open();
         }
         onFinished: path => {
           const filepath = StringUtils.replaceFilenameTags(getAttachmentFilePath(), path);
           platformUtilities.renameFile(path, imagePrefix + filepath);
-          let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
-          if (maximumWidthHeight > 0) {
-            FileUtils.restrictImageSize(imagePrefix + filepath, maximumWidthHeight);
+          if (!relationCameraLoader.isVideo) {
+            let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
+            if (maximumWidthHeight > 0) {
+              FileUtils.restrictImageSize(imagePrefix + filepath, maximumWidthHeight);
+            }
           }
           showAddFeaturePopup(undefined, filepath);
           close();
         }
         onCanceled: close()
         onClosed: relationCameraLoader.active = false
+      }
+    }
+  }
+
+  Loader {
+    id: relationAudioRecorderLoader
+    active: false
+    sourceComponent: Component {
+      QFieldAudioRecorder {
+        z: 10000
+        visible: false
+        Component.onCompleted: open()
+        onFinished: path => {
+          const filepath = StringUtils.replaceFilenameTags(getAttachmentFilePath(), path);
+          platformUtilities.renameFile(path, imagePrefix + filepath);
+          showAddFeaturePopup(undefined, filepath);
+          close();
+        }
+        onCanceled: close()
+        onClosed: relationAudioRecorderLoader.active = false
       }
     }
   }
