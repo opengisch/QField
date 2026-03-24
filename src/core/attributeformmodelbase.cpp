@@ -554,7 +554,7 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ) && setup.type() != QStringLiteral( "Binary" ), AttributeFormModel::AttributeEditable );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
-        const bool canRemember = mLayer->editFormConfig().reuseLastValuePolicy( fieldIndex ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed;
+        const bool canRemember = mLayer->editFormConfig().reuseLastValuePolicy( fieldIndex ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed || QgsProject::instance()->lastSaveVersion().majorVersion() < 4;
         item->setData( canRemember, AttributeFormModel::CanRememberValue );
         if ( canRemember )
         {
