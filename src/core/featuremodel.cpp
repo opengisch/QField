@@ -466,7 +466,7 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
         ( *sRememberings )[mLayer].rememberedAttributes[index.row()] = value.toBool();
 
         QgsEditFormConfig config = mLayer->editFormConfig();
-        if ( config.reuseLastValuePolicy( index.row() ) == Qgis::AttributeFormReuseLastValuePolicy::NotAllowed )
+        if ( config.reuseLastValuePolicy( index.row() ) == Qgis::AttributeFormReuseLastValuePolicy::NotAllowed && mProject->lastSaveVersion().majorVersion() >= 4 )
         {
           return false;
         }
