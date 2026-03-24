@@ -569,7 +569,7 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
         const QStringList fieldNames = rememberedFields.keys();
         for ( const QString &fieldName : fieldNames )
         {
-          if ( config.reuseLastValuePolicy( vlayer->fields().indexFromName( fieldName ) ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed )
+          if ( config.reuseLastValuePolicy( vlayer->fields().indexFromName( fieldName ) ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed || project->lastSaveVersion().majorVersion() < 4 )
           {
             config.setReuseLastValuePolicy( vlayer->fields().indexFromName( fieldName ), rememberedFields[fieldName].toBool() ? Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn : Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOff );
           }
