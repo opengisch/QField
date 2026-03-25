@@ -152,32 +152,32 @@ RelationEditorBase {
       round: false
       iconSource: {
         switch (documentViewer) {
-          case document_VIDEO:
-            return Theme.getThemeVectorIcon("ic_camera_video_black_24dp");
-          case document_AUDIO:
-            return Theme.getThemeVectorIcon("ic_microphone_black_24dp");
-          case document_FILE:
-            return Theme.getThemeVectorIcon("ic_file_black_24dp");
-          default:
-            return Theme.getThemeVectorIcon("ic_camera_photo_black_24dp");
+        case document_VIDEO:
+          return Theme.getThemeVectorIcon("ic_camera_video_black_24dp");
+        case document_AUDIO:
+          return Theme.getThemeVectorIcon("ic_microphone_black_24dp");
+        case document_FILE:
+          return Theme.getThemeVectorIcon("ic_file_black_24dp");
+        default:
+          return Theme.getThemeVectorIcon("ic_camera_photo_black_24dp");
         }
       }
       iconColor: Theme.mainTextColor
       bgcolor: 'transparent'
       onClicked: {
         switch (documentViewer) {
-          case document_VIDEO:
-            captureVideo();
-            break;
-          case document_AUDIO:
-            captureAudio();
-            break;
-          case document_FILE:
-            attachFile();
-            break;
-          default:
-            capturePhoto();
-            break;
+        case document_VIDEO:
+          captureVideo();
+          break;
+        case document_AUDIO:
+          captureAudio();
+          break;
+        case document_FILE:
+          attachFile();
+          break;
+        default:
+          capturePhoto();
+          break;
         }
       }
     }

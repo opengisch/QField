@@ -121,9 +121,7 @@ void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
   {
     for ( int i = 0; i < layer->fields().count(); i++ )
     {
-      const QString widgetType = layer->editorWidgetSetup( i ).type();
-      qDebug() << "Field" << i << layer->fields().at( i ).name() << "widgetType:" << widgetType;
-      if ( widgetType == QLatin1String( "ExternalResource" ) || widgetType == QLatin1String( "Attachment" ) )
+      if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
       {
         mAttachmentFieldName = layer->fields().at( i ).name();
         mAttachmentFieldIndex = i;
@@ -132,8 +130,6 @@ void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
       }
     }
   }
-
-  qDebug() << "SetRelation: After loop: attachmentFieldName=" << mAttachmentFieldName << "documentViewer=" << mAttachmentDocumentViewer;
 
   reload();
 }
@@ -165,9 +161,7 @@ void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relat
   {
     for ( int i = 0; i < layer->fields().count(); i++ )
     {
-      const QString widgetType = layer->editorWidgetSetup( i ).type();
-      qDebug() << "Field" << i << layer->fields().at( i ).name() << "widgetType:" << widgetType;
-      if ( widgetType == QLatin1String( "ExternalResource" ) || widgetType == QLatin1String( "Attachment" ) )
+      if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
       {
         mAttachmentFieldName = layer->fields().at( i ).name();
         mAttachmentFieldIndex = i;
@@ -177,7 +171,6 @@ void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relat
     }
   }
 
-  qDebug() << "setCurrentRelation - After loop: attachmentFieldName=" << mAttachmentFieldName << "documentViewer=" << mAttachmentDocumentViewer;
   emit relationChanged();
   reload();
 }
