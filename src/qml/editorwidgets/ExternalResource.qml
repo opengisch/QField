@@ -730,9 +730,9 @@ EditorWidgetBase {
     platformUtilities.requestStoragePermission();
     var filepath = getResourceFilePath();
     if (documentViewer == document_AUDIO) {
-      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, PlatformUtilities.AudioFiles, this);
+      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, qsTr("Audio files") + " (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)", this);
     } else {
-      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, this);
+      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, qsTr("All files") + " (*.*)", this);
     }
   }
 
