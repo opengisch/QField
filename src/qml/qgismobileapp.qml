@@ -5261,7 +5261,7 @@ ApplicationWindow {
     id: appScopesGenerator
 
     positionInformation: positionSource.positionInformation
-    positionLocked: positionSource.active && coordinateLocator.positionLocked
+    positionLocked: coordinateLocator.positionLocked
     cloudUserInformation: projectInfo.cloudUserInformation
   }
 
