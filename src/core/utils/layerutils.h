@@ -223,6 +223,11 @@ class LayerUtils : public QObject
                                                           const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem() );
 
     /**
+     * Returns a feature iterator to get all features within the provided \a layer.
+     */
+    Q_INVOKABLE static FeatureIterator createFeatureIterator( QgsVectorLayer *layer );
+
+    /**
      * Returns a feature iterator to get features matching a given \a expression within the provided \a layer.
      */
     Q_INVOKABLE static FeatureIterator createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression );
