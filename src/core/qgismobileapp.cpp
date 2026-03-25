@@ -67,7 +67,6 @@
 #include "featuremodel.h"
 #include "featureutils.h"
 #include "fileutils.h"
-#include "focusstack.h"
 #include "geofencer.h"
 #include "geometry.h"
 #include "geometryeditorsmodel.h"
@@ -316,6 +315,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   } );
 
   mTrackingModel = new TrackingModel();
+  mFocusStack = std::make_unique<FocusStack>( this );
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
   mLayerObserver = std::make_unique<LayerObserver>( mProject );
   mFeatureHistory = std::make_unique<FeatureHistory>( mProject, mTrackingModel );
@@ -653,6 +653,7 @@ void QgisMobileapp::registerGlobalVariables()
   rootContext()->setContextProperty( "pluginManager", mPluginManager );
   rootContext()->setContextProperty( "settings", &mSettings );
   rootContext()->setContextProperty( "flatLayerTree", mFlatLayerTree );
+  rootContext()->setContextProperty( "focusstack", mFocusStack.get() );
   rootContext()->setContextProperty( "WkbTypes", QVariant::fromValue<QgsWkbTypes>( mWkbTypes ) );
   rootContext()->setContextProperty( "UnitTypes", QVariant::fromValue<QgsUnitTypes>( mUnitTypes ) );
   rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );

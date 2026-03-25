@@ -34,6 +34,7 @@
 #include "clipboardmanager.h"
 #include "cogoregistry.h"
 #include "drawingtemplatemodel.h"
+#include "focusstack.h"
 #include "pluginmanager.h"
 #include "qfield_core_export.h"
 #include "qfieldappauthrequesthandler.h"
@@ -223,6 +224,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
     QString mProjectFilePath;
     QString mProjectFileName;
 
+    std::unique_ptr<FocusStack> mFocusStack;
     std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
     std::unique_ptr<LayerObserver> mLayerObserver;
     std::unique_ptr<FeatureHistory> mFeatureHistory;
@@ -249,6 +251,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
 
     std::unique_ptr<ScreenDimmer> mScreenDimmer;
     std::unique_ptr<QFieldUrlHandler> mUrlHandler;
+
     QgsApplication *mApp;
 };
 
