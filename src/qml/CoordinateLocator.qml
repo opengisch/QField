@@ -47,7 +47,7 @@ Item {
   //! Overwritten by stylus / hoverHandler.
   property variant sourceLocation: undefined // Screen coordinate
 
-  readonly property variant currentCoordinate: !!overrideLocation ? overrideLocation : snappingUtils.snappedCoordinate
+  readonly property variant currentCoordinate: !!overrideLocation && overrideLocation.x ? overrideLocation : snappingUtils.snappedCoordinate
 
   // some trickery here: the first part (!mapSettings.visibleExtent) is only there to get a signal when
   // the map canvas extent changes (user pans/zooms) and the calculation of the display position is retriggered
@@ -234,7 +234,7 @@ Item {
 
     ShapePath {
       id: crosshairPath
-      strokeColor: overrideLocation !== undefined ? Theme.positionColor : "#000000"
+      strokeColor: !!overrideLocation && overrideLocation.x ? Theme.positionColor : "#000000"
       strokeWidth: 2
       fillColor: "transparent"
 
