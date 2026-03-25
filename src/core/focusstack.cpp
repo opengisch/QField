@@ -15,6 +15,11 @@
  ***************************************************************************/
 #include "focusstack.h"
 
+FocusStack::FocusStack( QObject *parent )
+  : QObject( parent )
+{
+}
+
 void FocusStack::addFocusTaker( QObject *object )
 {
   const QVariant visible = object->property( "visible" );
@@ -73,6 +78,11 @@ void FocusStack::setUnfocused( QObject *object )
     if ( !opened.toBool() )
     {
       mStackList.removeAll( object );
+      while ( !mStackList.isEmpty() && !mStackList.last() )
+      {
+        mStackList.removeLast();
+      }
+
       if ( !mStackList.isEmpty() )
       {
         QMetaObject::invokeMethod( mStackList.last(), "forceActiveFocus", Qt::DirectConnection );
@@ -84,6 +94,10 @@ void FocusStack::setUnfocused( QObject *object )
     if ( !visible.toBool() )
     {
       mStackList.removeAll( object );
+      while ( !mStackList.isEmpty() && !mStackList.last() )
+      {
+        mStackList.removeLast();
+      }
       if ( !mStackList.isEmpty() )
       {
         QMetaObject::invokeMethod( mStackList.last(), "forceActiveFocus", Qt::DirectConnection );
@@ -92,10 +106,17 @@ void FocusStack::setUnfocused( QObject *object )
   }
 }
 
-void FocusStack::forceActiveFocusOnLastTaker() const
+void FocusStack::forceActiveFocusOnLastTaker()
 {
+  while ( !mStackList.isEmpty() && !mStackList.last() )
+  {
+    mStackList.removeLast();
+  }
+
   if ( mStackList.isEmpty() )
+  {
     return;
+  }
 
   QMetaObject::invokeMethod( mStackList.last(), "forceActiveFocus", Qt::DirectConnection );
 }
