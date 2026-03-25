@@ -60,13 +60,6 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
 
-    enum FileType
-    {
-      AllFiles = 0, //!< All file types
-      AudioFiles,   //!< Audio file types
-    };
-    Q_ENUM( FileType )
-
     virtual ~PlatformUtilities();
 
     /**
@@ -215,7 +208,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param filePath The path (including subfolders and name) of the file
      * @return The name of the file or null
      */
-    Q_INVOKABLE virtual ResourceSource *getFile( const QString &prefix, const QString &filePath, FileType fileType = AllFiles, QObject *parent = nullptr );
+    Q_INVOKABLE virtual ResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &filter = tr( "All files (*.*)" ), QObject *parent = nullptr );
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.
