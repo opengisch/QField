@@ -235,7 +235,7 @@ void Tracker::positionReceived()
     }
     catch ( const QgsException & )
     {
-      mCurrentDistance = 0.0;
+      mCurrentDistance = !qgsDoubleNear( mMaximumDistance, 0.0 ) ? mMaximumDistance + 1.0 : 0.0;
     }
   }
 
