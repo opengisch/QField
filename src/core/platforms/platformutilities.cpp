@@ -388,21 +388,8 @@ ResourceSource *PlatformUtilities::getGalleryVideo( const QString &prefix, const
   return createResource( prefix, videoFilePath, fileName, parent );
 }
 
-ResourceSource *PlatformUtilities::getFile( const QString &prefix, const QString &filePath, FileType fileType, QObject *parent )
+ResourceSource *PlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &filter, QObject *parent )
 {
-  QString filter;
-  switch ( fileType )
-  {
-    case AudioFiles:
-      filter = tr( "Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)" );
-      break;
-
-    case AllFiles:
-    default:
-      filter = tr( "All files (*.*)" );
-      break;
-  }
-
   QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select File" ), prefix, filter );
   return createResource( prefix, filePath, fileName, parent );
 }

@@ -519,48 +519,6 @@ ResourceSource *AndroidPlatformUtilities::getGalleryVideo( const QString &prefix
   return processGalleryActivity( prefix, videoFilePath, QStringLiteral( "video/*" ), parent );
 }
 
-ResourceSource *AndroidPlatformUtilities::getFile( const QString &prefix, const QString &filePath, FileType fileType, QObject *parent )
-{
-  const QFileInfo destinationInfo( prefix + filePath );
-  const QDir prefixDir( prefix );
-  prefixDir.mkpath( destinationInfo.absolutePath() );
-
-  QString mimeType;
-  switch ( fileType )
-  {
-    case AudioFiles:
-      mimeType = "audio/*";
-      break;
-    case AllFiles:
-    default:
-      mimeType = "*/*";
-      break;
-  }
-
-  AndroidResourceSource *resourceSource = nullptr;
-  if ( mActivity.isValid() )
-  {
-    resourceSource = new AndroidResourceSource( prefix, parent );
-
-    runOnAndroidMainThread( [prefix, filePath, mimeType] {
-      auto activity = qtAndroidContext();
-      if ( activity.isValid() )
-      {
-        QJniObject prefixJni = QJniObject::fromString( prefix );
-        QJniObject filePathJni = QJniObject::fromString( filePath );
-        QJniObject mimeTypeJni = QJniObject::fromString( mimeType );
-
-        QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
-        activity.callMethod<void>( "getFilePickerResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
-                                   prefixJni.object<jstring>(),
-                                   filePathJni.object<jstring>(),
-                                   mimeTypeJni.object<jstring>() );
-      }
-    } );
-  }
-  return resourceSource;
-}
-
 ViewStatus *AndroidPlatformUtilities::open( const QString &filePath, bool isEditing, QObject *parent )
 {
   if ( QFileInfo( filePath ).isDir() )
