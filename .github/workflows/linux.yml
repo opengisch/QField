@@ -129,7 +129,7 @@ jobs:
             -e 's|^DEBUG_WORKER_WRAPPER_DEBUGPY_PORT=5679$|DEBUG_WORKER_WRAPPER_DEBUGPY_PORT=""|' \
             .env
 
-          docker compose -p qfc up -d db minio memcached mkcert
+          docker compose -p qfc up -d db rustfs memcached mkcert
 
           echo "Waiting for database..."
           for i in $(seq 1 30); do
