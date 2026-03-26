@@ -181,6 +181,11 @@ class LayerUtils : public QObject
     Q_INVOKABLE static bool hasMValue( QgsVectorLayer *layer );
 
     /**
+     * Returns a list of unique values for a given \a fieldIndex from the \a layer.
+     */
+    Q_INVOKABLE QSet<QVariant> uniqueValuesForVectorLayerFieldIndex( QgsVectorLayer *layer, int fieldIndex );
+
+    /**
      * Loads a vector layer.
      * \param uri the data source uri
      * \param name the layer name
@@ -226,6 +231,16 @@ class LayerUtils : public QObject
      * Returns a feature iterator to get features overlapping a given \a rectangle within the provided \a layer.
      */
     Q_INVOKABLE static FeatureIterator createFeatureIteratorFromRectangle( QgsVectorLayer *layer, const QgsRectangle &rectangle );
+
+    /**
+     * Saves a vector layer into an on-disk dataset a given path using the OGR provider.
+     * \param layer the vector layer to save features from
+     * \param filePath the file path where the dataset will be writen
+     * \param driverName an optional OGR driver name (if left empty, the file path extension will drive the OGR driver)
+     * \param filterExpression an optional filter expression used to save a subset of features from the layer (note that only the global, project, and layer expression context scopes are used)
+     * \returns If successful, finalized file path will be returned, otherwise an empty string will be returned
+     */
+    Q_INVOKABLE static QString saveVectorLayerAs( QgsVectorLayer *layer, const QString &filePath, const QString &driverName = QString(), const QString &filterExpression = QString() );
 };
 
 #endif // LAYERUTILS_H
