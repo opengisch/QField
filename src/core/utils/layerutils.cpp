@@ -42,6 +42,7 @@
 #include <qgssymbol.h>
 #include <qgssymbollayer.h>
 #include <qgstextbuffersettings.h>
+#include <qgsvectorfilewriter.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerlabeling.h>
 #include <qgsvectorlayerutils.h>
@@ -545,6 +546,16 @@ bool LayerUtils::hasMValue( QgsVectorLayer *layer )
   return QgsWkbTypes::hasM( layer->wkbType() );
 }
 
+QSet<QVariant> LayerUtils::uniqueValuesForVectorLayerFieldIndex( QgsVectorLayer *layer, int fieldIndex )
+{
+  if ( !layer )
+  {
+    return QSet<QVariant>();
+  }
+
+  return layer->uniqueValues( fieldIndex );
+}
+
 QgsVectorLayer *LayerUtils::loadVectorLayer( const QString &uri, const QString &name, const QString &provider )
 {
   QgsVectorLayer *layer = new QgsVectorLayer( uri, name, provider );
@@ -594,4 +605,65 @@ FeatureIterator LayerUtils::createFeatureIteratorFromRectangle( QgsVectorLayer *
 {
   const QgsFeatureRequest request = QgsFeatureRequest( rectangle );
   return FeatureIterator( layer, request );
+}
+
+QString LayerUtils::saveVectorLayerAs( QgsVectorLayer *layer, const QString &filePath, const QString &driverName, const QString &filterExpression )
+{
+  if ( !layer || filePath.isEmpty() )
+  {
+    return QString();
+  }
+
+  QFileInfo fileInfo( filePath );
+  const QString finalDriverName = driverName.isEmpty() ? QgsVectorFileWriter::driverForExtension( fileInfo.suffix() ) : driverName;
+  if ( finalDriverName.isEmpty() )
+  {
+    return QString();
+  }
+  QDir dir;
+  if ( !dir.mkpath( fileInfo.absolutePath() ) )
+  {
+    return QString();
+  }
+
+  QStringList datasetOptions = QgsVectorFileWriter::defaultDatasetOptions( finalDriverName );
+  if ( finalDriverName == QStringLiteral( "GPX" ) )
+  {
+    datasetOptions.removeAll( QStringLiteral( "GPX_USE_EXTENSIONS=NO" ) );
+    datasetOptions << QStringLiteral( "GPX_USE_EXTENSIONS=YES" );
+  }
+
+  QString finalFileName;
+  QString finalLayerName;
+  QgsVectorFileWriter::SaveVectorOptions saveOptions;
+  saveOptions.fileEncoding = QStringLiteral( "UTF8" );
+  saveOptions.layerName = fileInfo.completeBaseName();
+  saveOptions.driverName = finalDriverName;
+  saveOptions.datasourceOptions = datasetOptions;
+  saveOptions.layerOptions = QgsVectorFileWriter::defaultLayerOptions( finalDriverName );
+  saveOptions.symbologyExport = Qgis::FeatureSymbologyExport::NoSymbology;
+  saveOptions.actionOnExistingFile = QgsVectorFileWriter::CreateOrOverwriteFile;
+
+  std::unique_ptr<QgsVectorFileWriter> writer( QgsVectorFileWriter::create( filePath, layer->fields(), layer->wkbType(), layer->crs(), QgsProject::instance()->transformContext(), saveOptions, QgsFeatureSink::RegeneratePrimaryKey, &finalFileName, &finalLayerName ) );
+  if ( writer->hasError() )
+  {
+    qInfo() << QStringLiteral( "Vector layer file writer error: %1" ).arg( writer->errorMessage() );
+    return QString();
+  }
+
+  QgsFeatureRequest request;
+  if ( !filterExpression.isEmpty() )
+  {
+    request.setFilterExpression( filterExpression );
+    request.setExpressionContext( layer->createExpressionContext() );
+  }
+
+  QgsFeatureIterator it = layer->getFeatures( request );
+  QgsFeature feature;
+  while ( it.nextFeature( feature ) )
+  {
+    writer->addFeature( feature, QgsFeatureSink::FastInsert );
+  }
+
+  return finalFileName;
 }
