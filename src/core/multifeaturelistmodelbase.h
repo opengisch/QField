@@ -112,7 +112,7 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     bool duplicateSelection();
 
     //! \copydoc MultiFeatureListModel::moveSelection
-    bool moveSelection( const double x, const double y );
+    bool moveSelection( const double x, const double y, const QgsPoint &destinationPoint );
 
     //! \copydoc MultiFeatureListModel::rotateSelection
     bool rotateSelection( const double angle );

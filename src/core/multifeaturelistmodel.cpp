@@ -165,9 +165,9 @@ bool MultiFeatureListModel::duplicateSelection()
   return mSourceModel->duplicateSelection();
 }
 
-bool MultiFeatureListModel::moveSelection( const double x, const double y )
+bool MultiFeatureListModel::moveSelection( const double x, const double y, const QgsPoint &destinationPoint )
 {
-  return mSourceModel->moveSelection( x, y );
+  return mSourceModel->moveSelection( x, y, destinationPoint );
 }
 
 bool MultiFeatureListModel::rotateSelection( const double angle )
