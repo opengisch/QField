@@ -78,10 +78,7 @@ void FocusStack::setUnfocused( QObject *object )
     if ( !opened.toBool() )
     {
       mStackList.removeAll( object );
-      while ( !mStackList.isEmpty() && !mStackList.last() )
-      {
-        mStackList.removeLast();
-      }
+      mStackList.removeIf( []( const QPointer<QObject> &pointer ) { return pointer.isNull(); } );
 
       if ( !mStackList.isEmpty() )
       {
@@ -94,10 +91,8 @@ void FocusStack::setUnfocused( QObject *object )
     if ( !visible.toBool() )
     {
       mStackList.removeAll( object );
-      while ( !mStackList.isEmpty() && !mStackList.last() )
-      {
-        mStackList.removeLast();
-      }
+      mStackList.removeIf( []( const QPointer<QObject> &pointer ) { return pointer.isNull(); } );
+
       if ( !mStackList.isEmpty() )
       {
         QMetaObject::invokeMethod( mStackList.last(), "forceActiveFocus", Qt::DirectConnection );
@@ -108,11 +103,7 @@ void FocusStack::setUnfocused( QObject *object )
 
 void FocusStack::forceActiveFocusOnLastTaker()
 {
-  while ( !mStackList.isEmpty() && !mStackList.last() )
-  {
-    mStackList.removeLast();
-  }
-
+  mStackList.removeIf( []( const QPointer<QObject> &pointer ) { return pointer.isNull(); } );
   if ( mStackList.isEmpty() )
   {
     return;
