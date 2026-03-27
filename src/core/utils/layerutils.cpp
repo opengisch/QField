@@ -597,8 +597,7 @@ QgsVectorLayer *LayerUtils::createMemoryLayer( const QString &name, const QgsFie
 
 FeatureIterator LayerUtils::createFeatureIterator( QgsVectorLayer *layer )
 {
-  const QgsFeatureRequest request = QgsFeatureRequest();
-  return FeatureIterator( layer, request );
+  return FeatureIterator( layer );
 }
 
 FeatureIterator LayerUtils::createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression )
