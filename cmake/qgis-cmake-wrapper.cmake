@@ -66,6 +66,8 @@ endfunction()
 if(TRUE) # Should possibly have a "static only" check
   find_package(PkgConfig QUIET)
 
+  _find_and_link_library(authmethod_apiheader_a QGIS::Core)
+  _find_and_link_library(authmethod_awss3_a QGIS::Core)
   _find_and_link_library(authmethod_basic_a QGIS::Core)
   _find_and_link_library(authmethod_esritoken_a QGIS::Core)
   _find_and_link_library(authmethod_identcert_a QGIS::Core)
