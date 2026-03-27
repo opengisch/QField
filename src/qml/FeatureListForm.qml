@@ -737,13 +737,13 @@ Pane {
       target: moveFeaturesToolbar
 
       function onMoveConfirmed() {
-        moveFeaturesTransformer.sourcePosition = moveFeaturesToolbar.endPoint;
-        var translateX = moveFeaturesTransformer.projectedPosition.x;
-        var translateY = moveFeaturesTransformer.projectedPosition.y;
         moveFeaturesTransformer.sourcePosition = moveFeaturesToolbar.startPoint;
-        translateX -= moveFeaturesTransformer.projectedPosition.x;
-        translateY -= moveFeaturesTransformer.projectedPosition.y;
-        featureFormList.model.moveSelection(translateX, translateY);
+        let translateX = moveFeaturesTransformer.projectedPosition.x;
+        let translateY = moveFeaturesTransformer.projectedPosition.y;
+        moveFeaturesTransformer.sourcePosition = moveFeaturesToolbar.endPoint;
+        translateX = moveFeaturesTransformer.projectedPosition.x - translateX;
+        translateY = moveFeaturesTransformer.projectedPosition.y - translateY;
+        featureFormList.model.moveSelection(translateX, translateY, moveFeaturesTransformer.projectedPosition);
         moveFeaturesToolbar.startPoint = undefined;
         moveFeaturesToolbar.endPoint = undefined;
       }
