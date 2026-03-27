@@ -344,6 +344,12 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
      */
     QString attachmentFieldName() const;
 
+    /**
+     * Returns the document viewer type of the first ExternalResource field found
+     * on the referencing layer. The value corresponds to the "DocumentViewer"
+     * configuration entry of the editor widget setup (0 = file, 1 = image,
+     * 3 = audio, 4 = video). Returns 0 if no ExternalResource field exists.
+     */
     int attachmentDocumentViewer() const;
 
     /**

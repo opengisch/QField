@@ -25,11 +25,7 @@ RelationEditorBase {
   readonly property int document_AUDIO: 3
   readonly property int document_VIDEO: 4
 
-  property int documentViewer: {
-    let val = referencingFeatureListModel.attachmentDocumentViewer;
-    console.log("documentViewer value:", val, "attachmentFieldName:", referencingFeatureListModel.attachmentFieldName);
-    return val;
-  }
+  property int documentViewer: referencingFeatureListModel.attachmentDocumentViewer
 
   property ResourceSource cameraResourceSource
   property ResourceSource relationFileResourceSource
