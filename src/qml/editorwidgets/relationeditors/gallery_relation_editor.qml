@@ -23,7 +23,57 @@ RelationEditorBase {
 
   property int documentViewer: referencingFeatureListModel.attachmentDocumentViewer
 
-  property ResourceSource resourceSource
+  property int documentViewer: referencingFeatureListModel.attachmentDocumentViewer
+
+  property var activeMediaItem: null
+
+  function requestMediaFocus(item) {
+    if (activeMediaItem && activeMediaItem !== item) {
+      if (typeof activeMediaItem.stopPlayback === "function") {
+        activeMediaItem.stopPlayback();
+      }
+    }
+    activeMediaItem = item;
+  }
+
+  function releaseMediaFocus(item) {
+    if (activeMediaItem === item) {
+      activeMediaItem = null;
+    }
+  }
+
+  function stopAllMedia() {
+    if (activeMediaItem) {
+      if (typeof activeMediaItem.stopPlayback === "function") {
+        activeMediaItem.stopPlayback();
+      }
+    }
+    activeMediaItem = null;
+  }
+
+  onVisibleChanged: {
+    if (!visible) {
+      stopAllMedia();
+    }
+  }
+  Component.onDestruction: {
+    stopAllMedia();
+    relationCameraLoader.active = false;
+    relationAudioRecorderLoader.active = false;
+  }
+
+  //hash for unique waveform patterns per audio file (djb2)
+  function hashString(str) {
+    let hash = 5381;
+    for (let i = 0; i < str.length; i++) {
+      hash = ((hash << 5) + hash) + str.charCodeAt(i);
+      hash = hash & hash;
+    }
+    return Math.abs(hash);
+  }
+
+  property ResourceSource cameraResourceSource
+  property ResourceSource relationFileResourceSource
   Connections {
     target: resourceSource
     function onResourceReceived(path) {
@@ -47,6 +97,8 @@ RelationEditorBase {
     delegate: isGridView ? gridDelegate : listDelegate
   }
 
+  onIsGridViewChanged: stopAllMedia()
+
   ExpressionEvaluator {
     id: attachmentNamingEvaluator
     feature: currentFeature
@@ -61,6 +113,7 @@ RelationEditorBase {
   }
 
   function capturePhoto() {
+    stopAllMedia();
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
@@ -73,6 +126,7 @@ RelationEditorBase {
   }
 
   function captureVideo() {
+    stopAllMedia();
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
@@ -85,8 +139,33 @@ RelationEditorBase {
   }
 
   function captureAudio() {
+    stopAllMedia();
     Qt.inputMethod.hide();
     relationAudioRecorderLoader.active = true;
+  }
+
+  function attachFile() {
+    stopAllMedia();
+    Qt.inputMethod.hide();
+    platformUtilities.requestStoragePermission();
+    let filepath = getAttachmentFilePath();
+    relationFileResourceSource = platformUtilities.getFile(imagePrefix, filepath, relationEditor);
+  }
+
+  Connections {
+    target: cameraResourceSource
+
+    function onResourceReceived(path) {
+      if (path) {
+        if (documentViewer !== document_VIDEO) {
+          let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
+          if (maximumWidthHeight > 0) {
+            FileUtils.restrictImageSize(imagePrefix + path, maximumWidthHeight);
+          }
+        }
+        showAddFeaturePopup(undefined, path);
+      }
+    }
   }
 
   headerActions: [
@@ -219,6 +298,7 @@ RelationEditorBase {
   }
 
   onToggleSortAction: {
+    stopAllMedia();
     referencingFeatureListModel.sortOrder = referencingFeatureListModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
   }
 
@@ -243,6 +323,7 @@ RelationEditorBase {
   }
 
   function openFeatureForm(feature, nmFeature) {
+    stopAllMedia();
     ensureEmbeddedFormLoaded();
     embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
     embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
@@ -288,7 +369,10 @@ RelationEditorBase {
           close();
         }
         onCanceled: close()
-        onClosed: relationCameraLoader.active = false
+        onClosed: {
+          relationCameraLoader.active = false;
+          relationCameraLoader.isVideo = false;
+        }
       }
     }
   }
@@ -323,6 +407,7 @@ RelationEditorBase {
       readonly property string attachmentFullPath: resolveAttachmentPath(model.attachmentPath)
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
+      readonly property bool attachmentIsAudio: attachmentMimeType.startsWith("audio/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
 
       Loader {
@@ -354,6 +439,8 @@ RelationEditorBase {
                 listThumbnailPauseTimer.start();
               }
             }
+
+            Component.onDestruction: stop()
 
             Timer {
               id: listThumbnailPauseTimer
@@ -422,11 +509,36 @@ RelationEditorBase {
               anchors.fill: parent
             }
 
+            // Hash-seeded waveform bars (decorative, each file gets a unique pattern)
+            Row {
+              anchors.centerIn: parent
+              spacing: 1
+              visible: attachmentIsAudio
+
+              Repeater {
+                model: 18
+
+                Rectangle {
+                  width: 2
+                  height: {
+                    const hash = hashString(attachmentFullPath);
+                    const seed = (hash + index) * 0.3;
+                    const h = 8 + Math.abs(Math.sin(seed)) * 28 + Math.abs(Math.cos(seed * 2.1)) * 12;
+                    return Math.min(h, 44);
+                  }
+                  radius: 1
+                  anchors.verticalCenter: parent.verticalCenter
+                  color: Theme.mainColor
+                  opacity: 0.4
+                }
+              }
+            }
+
             Image {
               anchors.centerIn: parent
               width: 28
               height: 28
-              visible: !attachmentIsImage && !attachmentIsVideo
+              visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio
               source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
               fillMode: Image.PreserveAspectFit
               opacity: 0.3
@@ -446,7 +558,8 @@ RelationEditorBase {
                 height: 36
                 round: false
                 iconSource: Theme.getThemeVectorIcon("ic_play_black_24dp")
-                iconColor: "white"
+                iconColor: Theme.mainTextColor
+                bgcolor: 'transparent'
                 enabled: false
               }
             }
@@ -504,7 +617,19 @@ RelationEditorBase {
       readonly property string attachmentFullPath: resolveAttachmentPath(model.attachmentPath)
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
+      readonly property bool attachmentIsAudio: attachmentMimeType.startsWith("audio/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
+
+      Component.onDestruction: {
+        if (cardContainer.videoPlaying && videoThumbLoader.item) {
+          cardContainer.stopPlayback();
+        }
+        if (audioPlayerLoader.active && audioPlayerLoader.isPlaying && audioPlayerLoader.item) {
+          audioPlayerLoader.item.togglePlayback();
+        }
+        relationEditor.releaseMediaFocus(cardContainer);
+        relationEditor.releaseMediaFocus(audioPlayerLoader);
+      }
 
       Loader {
         id: videoThumbLoader
@@ -536,12 +661,73 @@ RelationEditorBase {
               }
             }
 
+            Component.onDestruction: stop()
+
             Timer {
               id: thumbnailPauseTimer
               interval: 80
               repeat: false
               onTriggered: parent.pause()
             }
+          }
+        }
+      }
+
+      Loader {
+        id: audioPlayerLoader
+        active: attachmentIsAudio
+
+        property url sourceUrl: attachmentIsAudio ? UrlUtils.fromString(attachmentFullPath) : ""
+        property bool isPlaying: false
+        property real progress: 0
+
+        function stopPlayback() {
+          if (item && isPlaying) {
+            item.togglePlayback();
+          }
+          isPlaying = false;
+        }
+
+        sourceComponent: Component {
+          Item {
+            MediaPlayer {
+              id: audioPlayer
+              source: audioPlayerLoader.sourceUrl
+
+              audioOutput: AudioOutput {
+                volume: 1.0
+              }
+            }
+
+            Connections {
+              target: audioPlayer
+              function onPositionChanged() {
+                if (audioPlayer.duration > 0) {
+                  audioPlayerLoader.progress = audioPlayer.position / audioPlayer.duration;
+                }
+              }
+              function onPlaybackStateChanged() {
+                audioPlayerLoader.isPlaying = (audioPlayer.playbackState === MediaPlayer.PlayingState);
+                if (audioPlayer.playbackState !== MediaPlayer.PlayingState) {
+                  relationEditor.releaseMediaFocus(audioPlayerLoader);
+                }
+              }
+            }
+
+            function togglePlayback() {
+              if (audioPlayer.playbackState === MediaPlayer.PlayingState) {
+                audioPlayer.pause();
+              } else {
+                relationEditor.requestMediaFocus(audioPlayerLoader);
+                audioPlayer.play();
+              }
+            }
+
+            Component.onDestruction: audioPlayer.stop()
+
+            property alias duration: audioPlayer.duration
+            property alias position: audioPlayer.position
+            property alias playbackState: audioPlayer.playbackState
           }
         }
       }
@@ -556,6 +742,14 @@ RelationEditorBase {
         visible: true
 
         property bool videoPlaying: false
+
+        function stopPlayback() {
+          if (videoPlaying && videoThumbLoader.item) {
+            videoThumbLoader.item.pause();
+          }
+          videoPlaying = false;
+          relationEditor.releaseMediaFocus(cardContainer);
+        }
 
         readonly property color overlayColor: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
 
@@ -575,8 +769,8 @@ RelationEditorBase {
           asynchronous: true
           autoTransform: true
           cache: true
-          visible: !attachmentIsVideo
-          source: attachmentIsVideo ? "" : UrlUtils.fromString(attachmentFullPath)
+          visible: !attachmentIsVideo && !attachmentIsAudio
+          source: (attachmentIsVideo || attachmentIsAudio) ? "" : UrlUtils.fromString(attachmentFullPath)
 
           layer.enabled: true
           layer.effect: QfOpacityMask {
@@ -594,13 +788,89 @@ RelationEditorBase {
           }
         }
 
+        Item {
+          id: audioWaveformArea
+          anchors.fill: parent
+          anchors.bottomMargin: detailsBar.height
+          visible: attachmentIsAudio
+          clip: true
+
+          Row {
+            id: waveformBars
+            anchors.centerIn: parent
+            height: parent.height * 0.7
+            spacing: 2
+
+            Repeater {
+              model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
+
+              Rectangle {
+                width: 3
+                height: {
+                  const hash = hashString(attachmentFullPath);
+                  const seed = (hash + index) * 0.3;
+                  const h = 0.15 + Math.abs(Math.sin(seed)) * 0.55 + Math.abs(Math.cos(seed * 2.1)) * 0.3;
+                  return Math.max(4, waveformBars.height * h);
+                }
+                radius: 1.5
+                anchors.verticalCenter: parent.verticalCenter
+                color: {
+                  const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
+                  if (audioPlayerLoader.active && (index / totalBars) < audioPlayerLoader.progress) {
+                    return Theme.mainColor;
+                  }
+                  return Theme.mainTextDisabledColor;
+                }
+                opacity: {
+                  const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
+                  if (audioPlayerLoader.active && (index / totalBars) < audioPlayerLoader.progress) {
+                    return 0.9;
+                  }
+                  return 0.35;
+                }
+              }
+            }
+          }
+
+          Rectangle {
+            visible: audioPlayerLoader.active && audioPlayerLoader.progress > 0
+            x: waveformBars.x + waveformBars.width * audioPlayerLoader.progress
+            y: 0
+            width: 2
+            height: parent.height
+            radius: 1
+            color: Theme.mainColor
+          }
+
+          Rectangle {
+            anchors.centerIn: parent
+            width: 48
+            height: 48
+            radius: width / 2
+            color: cardContainer.overlayColor
+            border.width: 0.5
+            border.color: Theme.controlBorderColor
+
+            QfToolButton {
+              anchors.centerIn: parent
+              width: 40
+              height: 40
+              round: false
+              iconSource: audioPlayerLoader.isPlaying ? Theme.getThemeVectorIcon("ic_pause_black_24dp") : Theme.getThemeVectorIcon("ic_play_black_24dp")
+              iconColor: Theme.mainTextColor
+              bgcolor: 'transparent'
+              enabled: false
+            }
+          }
+        }
+
         Image {
           anchors.horizontalCenter: parent.horizontalCenter
           anchors.verticalCenter: parent.verticalCenter
           anchors.verticalCenterOffset: -(detailsBar.height / 2)
           width: 44
           height: 44
-          visible: cardThumbnail.status !== Image.Ready && !attachmentIsVideo
+          visible: cardThumbnail.status !== Image.Ready && !attachmentIsVideo && !attachmentIsAudio
           source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
           fillMode: Image.PreserveAspectFit
           opacity: 0.3
@@ -698,12 +968,15 @@ RelationEditorBase {
           anchors.bottom: detailsBar.top
           onClicked: {
             if (attachmentIsVideo && videoThumbLoader.item) {
-              cardContainer.videoPlaying = !cardContainer.videoPlaying;
               if (cardContainer.videoPlaying) {
-                videoThumbLoader.item.play();
+                cardContainer.stopPlayback();
               } else {
-                videoThumbLoader.item.pause();
+                relationEditor.requestMediaFocus(cardContainer);
+                cardContainer.videoPlaying = true;
+                videoThumbLoader.item.play();
               }
+            } else if (attachmentIsAudio && audioPlayerLoader.item) {
+              audioPlayerLoader.item.togglePlayback();
             } else {
               openFeatureForm(model.referencingFeature, model.nmReferencedFeature);
             }
