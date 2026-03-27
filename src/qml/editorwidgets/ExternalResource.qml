@@ -7,6 +7,7 @@ import org.qgis
 import org.qfield
 import Theme
 import ".."
+import "ExternalResourceUtils.js" as ExternalResourceUtils
 
 EditorWidgetBase {
   anchors.left: parent.left
@@ -61,12 +62,16 @@ EditorWidgetBase {
   property ResourceSource __resourceSource
   property ViewStatus __viewStatus
 
-  // DocumentViewer values
-  readonly property int document_FILE: 0
-  readonly property int document_IMAGE: 1
-  readonly property int document_WEB: 2 // TODO: implement
-  readonly property int document_AUDIO: 3
-  readonly property int document_VIDEO: 4
+  // DocumentViewer enum values matching QgsExternalResourceWidget::DocumentViewerContent, check
+  // https://github.com/qgis/QGIS/blob/6ca6cf1bab8e017355f7631115cf48bc3c6a4601/src/gui/qgsexternalresourcewidget.h#L72-L79
+  enum DocumentViewer {
+    DocumentFile,    // 0
+    DocumentImage,   // 1
+    DocumentWeb,     // 2
+    DocumentAudio,   // 3
+    DocumentVideo    // 4
+  }
+
   property int documentViewer: config.DocumentViewer
 
   property bool isImage: false
@@ -130,7 +135,7 @@ EditorWidgetBase {
       }
     } else {
       image.source = '';
-      image.visible = documentViewer == document_IMAGE;
+      image.visible = documentViewer == ExternalResource.DocumentImage;
       image.opacity = 0.15;
       geoTagBadge.visible = false;
       player.sourceUrl = '';
@@ -158,45 +163,11 @@ EditorWidgetBase {
     layer: currentLayer
     project: qgisProject
     appExpressionContextScopesGenerator: appScopesGenerator
-    expressionText: {
-      var value;
-      if (currentLayer && currentLayer.customProperty('QFieldSync/attachment_naming') !== undefined) {
-        value = JSON.parse(currentLayer.customProperty('QFieldSync/attachment_naming'))[field.name];
-        return value !== undefined ? value : '';
-      } else if (currentLayer && currentLayer.customProperty('QFieldSync/photo_naming') !== undefined) {
-        // Fallback to old configuration key
-        value = JSON.parse(currentLayer.customProperty('QFieldSync/photo_naming'))[field.name];
-        return value !== undefined ? value : '';
-      }
-      return '';
-    }
+    expressionText: ExternalResourceUtils.getAttachmentNaming(currentLayer, field.name)
   }
 
   function getResourceFilePath() {
-    const evaluatedFilepath = expressionEvaluator.evaluate();
-    let filepath = FileUtils.sanitizeFilePath(evaluatedFilepath);
-
-    // assume that lack of file suffix means problem with the filepath evaluation, so last resort to fallback filepaths.
-    // the fallback filepaths are assumed to be always correct and are not passed through `FileUtils.sanitizeFilePath`.
-    if (FileUtils.fileSuffix(filepath) === '' && !filepath.endsWith("{extension}") && !filepath.endsWith("{filename}")) {
-      // the `nosStr` stores the current datetime as single numeric string, e.g. 20250101234589
-      const nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
-
-      // we need an extension for media types (image, audio, video), fallback to hardcoded values, the `{extension} and `{filename} are placeholders that should be replaced by the caller. See `StringUtils::replaceFilenameTags()`.
-      if (documentViewer == document_IMAGE) {
-        filepath = `DCIM/JPEG_${nowStr}.{extension}`;
-      } else if (documentViewer == document_AUDIO) {
-        filepath = `audio/AUDIO_${nowStr}.{extension}`;
-      } else if (documentViewer == document_VIDEO) {
-        filepath = `video/VIDEO_${nowStr}.{extension}`;
-      } else {
-        filepath = `files/${nowStr}_{filename}`;
-      }
-    }
-
-    // while `FileUtils.sanitizeFilePath` should have fixed the slashes, we redo it just in case the fallback filepaths are wrong. Note that `QFile` always expects UNIX style slashes.
-    filepath = filepath.replace('\\', '/');
-    return filepath;
+    return ExternalResourceUtils.getAttachmentFilePath(expressionEvaluator.evaluate(), documentViewer, FileUtils);
   }
 
   Label {
@@ -523,7 +494,7 @@ EditorWidgetBase {
     height: 48
 
     // QField has historically handled no viewer type as image, let's carry that on
-    visible: documentViewer == document_IMAGE && isEnabled
+    visible: documentViewer == ExternalResource.DocumentImage && isEnabled
 
     anchors.right: cameraVideoButton.left
     anchors.top: parent.top
@@ -540,7 +511,7 @@ EditorWidgetBase {
     width: visible ? 48 : 0
     height: 48
 
-    visible: documentViewer == document_VIDEO && isEnabled
+    visible: documentViewer == ExternalResource.DocumentVideo && isEnabled
 
     anchors.right: microphoneButton.left
     anchors.top: parent.top
@@ -557,7 +528,7 @@ EditorWidgetBase {
     width: visible ? 48 : 0
     height: 48
 
-    visible: documentViewer == document_AUDIO && isEnabled
+    visible: documentViewer == ExternalResource.DocumentAudio && isEnabled
 
     anchors.right: fileButton.left
     anchors.top: parent.top
@@ -574,7 +545,7 @@ EditorWidgetBase {
     width: visible ? 48 : 0
     height: 48
 
-    visible: platformUtilities.capabilities & PlatformUtilities.FilePicker && documentViewer == document_FILE && isEnabled
+    visible: platformUtilities.capabilities & PlatformUtilities.FilePicker && documentViewer == ExternalResource.DocumentFile && isEnabled
 
     anchors.right: parent.right
     anchors.top: parent.top
@@ -740,7 +711,7 @@ EditorWidgetBase {
     Qt.inputMethod.hide();
     platformUtilities.requestStoragePermission();
     var filepath = getResourceFilePath();
-    if (documentViewer == document_VIDEO) {
+    if (documentViewer == ExternalResource.DocumentVideo) {
       __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath + '/', filepath, this);
     } else {
       __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/', filepath, this);

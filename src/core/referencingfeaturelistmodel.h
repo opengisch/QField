@@ -349,6 +349,9 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
      * on the referencing layer. The value corresponds to the "DocumentViewer"
      * configuration entry of the editor widget setup (0 = file, 1 = image,
      * 3 = audio, 4 = video). Returns 0 if no ExternalResource field exists.
+     *
+     * \see QgsExternalResourceWidget::DocumentViewerContent in
+     * https://github.com/qgis/QGIS/blob/6ca6cf1bab8e017355f7631115cf48bc3c6a4601/src/gui/qgsexternalresourcewidget.h#L72-L79
      */
     int attachmentDocumentViewer() const;
 

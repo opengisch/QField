@@ -62,6 +62,7 @@
         <file>editorwidgets/Color.qml</file>
         <file>editorwidgets/DateTime.qml</file>
         <file>editorwidgets/ExternalResource.qml</file>
+        <file>editorwidgets/ExternalResourceUtils.js</file>
         <file>editorwidgets/TextEdit.qml</file>
         <file>editorwidgets/Range.qml</file>
         <file>editorwidgets/ValueMap.qml</file>

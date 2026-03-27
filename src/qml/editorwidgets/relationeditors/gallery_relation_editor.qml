@@ -8,6 +8,7 @@ import org.qgis
 import Theme
 import "../.."
 import ".."
+import "../ExternalResourceUtils.js" as ExternalResourceUtils
 
 RelationEditorBase {
   id: relationEditor
@@ -20,19 +21,19 @@ RelationEditorBase {
     return path.endsWith("/") ? path : path + "/";
   }
 
-  readonly property int document_FILE: 0
-  readonly property int document_IMAGE: 1
-  readonly property int document_AUDIO: 3
-  readonly property int document_VIDEO: 4
-
   property int documentViewer: referencingFeatureListModel.attachmentDocumentViewer
 
-  property ResourceSource cameraResourceSource
-  property ResourceSource relationFileResourceSource
+  property ResourceSource resourceSource
   Connections {
-    target: relationFileResourceSource
+    target: resourceSource
     function onResourceReceived(path) {
       if (path) {
+        if (documentViewer === ExternalResource.DocumentImage) {
+          let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
+          if (maximumWidthHeight > 0) {
+            FileUtils.restrictImageSize(imagePrefix + path, maximumWidthHeight);
+          }
+        }
         showAddFeaturePopup(undefined, path);
       }
     }
@@ -53,38 +54,14 @@ RelationEditorBase {
     project: qgisProject
     appExpressionContextScopesGenerator: appScopesGenerator
     expressionText: {
-      let value;
       let refLayer = referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null;
       let fieldName = referencingFeatureListModel.attachmentFieldName;
-      if (refLayer && fieldName) {
-        if (refLayer.customProperty('QFieldSync/attachment_naming') !== undefined) {
-          value = JSON.parse(refLayer.customProperty('QFieldSync/attachment_naming'))[fieldName];
-          return value !== undefined ? value : '';
-        } else if (refLayer.customProperty('QFieldSync/photo_naming') !== undefined) {
-          value = JSON.parse(refLayer.customProperty('QFieldSync/photo_naming'))[fieldName];
-          return value !== undefined ? value : '';
-        }
-      }
-      return '';
+      return ExternalResourceUtils.getAttachmentNaming(refLayer, fieldName);
     }
   }
 
   function getAttachmentFilePath() {
-    let filepath = FileUtils.sanitizeFilePath(attachmentNamingEvaluator.evaluate());
-    if (FileUtils.fileSuffix(filepath) === '' && !filepath.endsWith("{extension}") && !filepath.endsWith("{filename}")) {
-      let nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
-      if (documentViewer === document_AUDIO) {
-        filepath = 'audio/AUDIO_' + nowStr + '.{extension}';
-      } else if (documentViewer === document_VIDEO) {
-        filepath = 'video/VIDEO_' + nowStr + '.{extension}';
-      } else if (documentViewer === document_FILE) {
-        filepath = 'files/' + nowStr + '.{extension}';
-      } else {
-        filepath = 'DCIM/JPEG_' + nowStr + '.{extension}';
-      }
-    }
-    filepath = filepath.replace('\\', '/');
-    return filepath;
+    return ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
   }
 
   function capturePhoto() {
@@ -92,8 +69,9 @@ RelationEditorBase {
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = getAttachmentFilePath();
       filepath = filepath.replace('{extension}', 'JPG');
-      cameraResourceSource = platformUtilities.getCameraPicture(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
+      resourceSource = platformUtilities.getCameraPicture(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
     } else {
+      relationCameraLoader.isVideo = false;
       relationCameraLoader.active = true;
     }
   }
@@ -103,7 +81,7 @@ RelationEditorBase {
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = getAttachmentFilePath();
       filepath = filepath.replace('{extension}', 'MP4');
-      cameraResourceSource = platformUtilities.getCameraVideo(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
+      resourceSource = platformUtilities.getCameraVideo(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
     } else {
       relationCameraLoader.isVideo = true;
       relationCameraLoader.active = true;
@@ -119,22 +97,10 @@ RelationEditorBase {
     Qt.inputMethod.hide();
     platformUtilities.requestStoragePermission();
     let filepath = getAttachmentFilePath();
-    relationFileResourceSource = platformUtilities.getFile(imagePrefix, filepath, relationEditor);
-  }
-
-  Connections {
-    target: cameraResourceSource
-
-    function onResourceReceived(path) {
-      if (path) {
-        if (documentViewer !== document_VIDEO) {
-          let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
-          if (maximumWidthHeight > 0) {
-            FileUtils.restrictImageSize(imagePrefix + path, maximumWidthHeight);
-          }
-        }
-        showAddFeaturePopup(undefined, path);
-      }
+    if (documentViewer === ExternalResource.DocumentAudio) {
+      resourceSource = platformUtilities.getFile(imagePrefix, filepath, PlatformUtilities.AudioFiles, relationEditor);
+    } else {
+      resourceSource = platformUtilities.getFile(imagePrefix, filepath, PlatformUtilities.AllFiles, relationEditor);
     }
   }
 
@@ -148,11 +114,11 @@ RelationEditorBase {
       round: false
       iconSource: {
         switch (documentViewer) {
-        case document_VIDEO:
+        case ExternalResource.DocumentVideo:
           return Theme.getThemeVectorIcon("ic_camera_video_black_24dp");
-        case document_AUDIO:
+        case ExternalResource.DocumentAudio:
           return Theme.getThemeVectorIcon("ic_microphone_black_24dp");
-        case document_FILE:
+        case ExternalResource.DocumentFile:
           return Theme.getThemeVectorIcon("ic_file_black_24dp");
         default:
           return Theme.getThemeVectorIcon("ic_camera_photo_black_24dp");
@@ -162,13 +128,13 @@ RelationEditorBase {
       bgcolor: 'transparent'
       onClicked: {
         switch (documentViewer) {
-        case document_VIDEO:
+        case ExternalResource.DocumentVideo:
           captureVideo();
           break;
-        case document_AUDIO:
+        case ExternalResource.DocumentAudio:
           captureAudio();
           break;
-        case document_FILE:
+        case ExternalResource.DocumentFile:
           attachFile();
           break;
         default:
