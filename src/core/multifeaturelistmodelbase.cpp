@@ -25,6 +25,7 @@
 #include <qgsgeometrycollection.h>
 #include <qgsmemoryproviderutils.h>
 #include <qgsmessagelog.h>
+#include <qgsmultipoint.h>
 #include <qgsproject.h>
 #include <qgsrasterlayer.h>
 #include <qgsrelationmanager.h>
@@ -761,7 +762,7 @@ bool MultiFeatureListModelBase::duplicateSelection()
   return isSuccess;
 }
 
-bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
+bool MultiFeatureListModelBase::moveSelection( const double x, const double y, const QgsPoint &destinationPoint )
 {
   if ( !canMoveSelection() )
     return false;
@@ -775,17 +776,53 @@ bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
   }
 
   bool isSuccess = false;
+  bool isSingleSelection = mSelectedFeatures.size() == 1;
+  bool isSingleSelectionProcessed = false;
   for ( auto &pair : mSelectedFeatures )
   {
     QgsGeometry geom = pair.second.geometry();
-    geom.translate( x, y );
-    pair.second.setGeometry( geom );
+    if ( isSingleSelection && vlayer->geometryType() == Qgis::GeometryType::Point && !destinationPoint.isEmpty() )
+    {
+      if ( geom.constGet() && geom.constGet()->partCount() == 1 )
+      {
+        QgsPoint *point = nullptr;
+        if ( QgsPoint *singlePoint = dynamic_cast<QgsPoint *>( geom.get() ) )
+        {
+          point = singlePoint;
+        }
+        else if ( QgsMultiPoint *multiPoint = dynamic_cast<QgsMultiPoint *>( geom.get() ) )
+        {
+          point = multiPoint->pointN( 0 );
+        }
+
+        if ( point )
+        {
+          point->setX( destinationPoint.x() );
+          point->setY( destinationPoint.y() );
+          if ( QgsWkbTypes::hasZ( vlayer->wkbType() ) && !std::isnan( destinationPoint.z() ) )
+          {
+            point->setZ( destinationPoint.z() );
+          }
+          if ( QgsWkbTypes::hasZ( vlayer->wkbType() ) && !std::isnan( destinationPoint.m() ) )
+          {
+            point->setM( destinationPoint.m() );
+          }
+          isSingleSelectionProcessed = true;
+        }
+      }
+    }
+
+    if ( !isSingleSelectionProcessed )
+    {
+      geom.translate( x, y );
+    }
     isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
     if ( !isSuccess )
     {
       QgsMessageLog::logMessage( tr( "Cannot change geometry of feature %1 in %2" ).arg( pair.second.id() ).arg( vlayer->name() ), "QField", Qgis::Critical );
       break;
     }
+    pair.second.setGeometry( geom );
   }
 
   if ( isSuccess )

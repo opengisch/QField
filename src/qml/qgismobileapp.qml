@@ -1610,7 +1610,6 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       mapDistance: {
         if (moveFeaturesToolbar.moveFeaturesRequested && moveFeaturesToolbar.startPoint !== undefined && mapCanvas.mapSettings.center) {
-          console.log(stateMachine.state);
           if (stateMachine.state === "digitize") {
             return coordinateLocator.currentCoordinate.x - moveFeaturesToolbar.startPoint.x;
           } else {
