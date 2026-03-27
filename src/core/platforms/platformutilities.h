@@ -206,6 +206,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * Get a file from the operating system and copy it to the requested prefix
      * @param prefix The project folder
      * @param filePath The path (including subfolders and name) of the file
+     * @param filter The filter string (e.g. *.mp3)
      * @return The name of the file or null
      */
     Q_INVOKABLE virtual ResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &filter = tr( "All files (*.*)" ), QObject *parent = nullptr );
