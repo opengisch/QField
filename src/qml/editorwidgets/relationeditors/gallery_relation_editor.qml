@@ -98,7 +98,7 @@ RelationEditorBase {
     platformUtilities.requestStoragePermission();
     let filepath = getAttachmentFilePath();
     if (documentViewer === ExternalResource.DocumentAudio) {
-      resourceSource = platformUtilities.getFile(imagePrefix, filepath, PlatformUtilities.AudioFiles, relationEditor);
+      resourceSource = platformUtilities.getFile(imagePrefix, filepath, qsTr("Audio files") + " (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)", relationEditor);
     } else {
       resourceSource = platformUtilities.getFile(imagePrefix, filepath, PlatformUtilities.AllFiles, relationEditor);
     }
