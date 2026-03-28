@@ -52,6 +52,7 @@ class UdpReceiver : public NmeaGnssReceiver
     QBuffer *mBuffer = nullptr;
 
     bool mReconnectOnDisconnect = false;
+    int mConnectionFailureCount = 0;
     QTimer mReconnectTimer;
 };
 

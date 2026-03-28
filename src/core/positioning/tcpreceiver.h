@@ -50,6 +50,7 @@ class TcpReceiver : public NmeaGnssReceiver
     QTcpSocket *mSocket = nullptr;
 
     bool mReconnectOnDisconnect = false;
+    int mConnectionFailureCount = 0;
     QTimer mReconnectTimer;
 };
 
