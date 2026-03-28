@@ -15,6 +15,7 @@ vcpkg_from_github(
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
         mesh.patch
         map_renderer_background_color.patch
+        auth_methods.patch
 )
 
 
