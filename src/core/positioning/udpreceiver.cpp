@@ -39,10 +39,13 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
 
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &UdpReceiver::handleError );
   connect( mSocket, &QUdpSocket::stateChanged, this, [this]( QAbstractSocket::SocketState state ) {
-    setSocketState( state );
     if ( state == QAbstractSocket::SocketState::UnconnectedState && mReconnectOnDisconnect )
     {
       mReconnectTimer.start( 2000 );
+    }
+    else
+    {
+      setSocketState( state );
     }
   } );
 
@@ -85,6 +88,8 @@ void UdpReceiver::handleConnectDevice()
     return;
   }
   qInfo() << QStringLiteral( "UdpReceiver: Initiating connection to address %1 (port %2)" ).arg( mAddress, QString::number( mPort ) );
+  mConnectionFailureCount = 0;
+  mReconnectOnDisconnect = true;
   mBuffer->open( QIODevice::ReadWrite );
   mSocket->bind( QHostAddress( mAddress ), mPort, QAbstractSocket::ShareAddress | QAbstractSocket::ReuseAddressHint );
   mSocket->joinMulticastGroup( QHostAddress( mAddress ) );
@@ -126,6 +131,16 @@ void UdpReceiver::handleError( QAbstractSocket::SocketError error )
       break;
   }
   qInfo() << QStringLiteral( "UdpReceiver: Error: %1" ).arg( mLastError );
+
+  if ( mReconnectOnDisconnect )
+  {
+    mConnectionFailureCount++;
+  }
+
+  if ( mConnectionFailureCount > 10 )
+  {
+    mReconnectOnDisconnect = false;
+  }
 
   emit lastErrorChanged( mLastError );
 }
