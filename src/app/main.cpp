@@ -80,10 +80,10 @@ void initGraphics()
 void initAuthManager( QgsAuthManager *authManager )
 {
 #ifndef Q_OS_LINUX
-  authManager->setPasswordHelperEnabled( false );
   if ( authManager->verifyMasterPassword( QStringLiteral( "qfield" ) ) )
   {
     // migrating authentication database
+    authManager->setPasswordHelperEnabled( false );
     authManager->setMasterPassword( QStringLiteral( "qfield" ) );
     authManager->setPasswordHelperEnabled( true );
 
@@ -100,7 +100,6 @@ void initAuthManager( QgsAuthManager *authManager )
     authManager->passwordHelperSync();
   }
 
-  authManager->setPasswordHelperEnabled( true );
   if ( !authManager->masterPasswordHashInDatabase() )
   {
     // if no master password set by user yet, just generate a new one and store it in the system keychain
