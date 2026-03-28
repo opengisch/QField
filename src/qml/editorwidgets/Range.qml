@@ -74,10 +74,14 @@ EditorWidgetBase {
               clampedValue = rangeItem.max;
             }
 
-            valueChangeRequested(clampedValue, false);
-            text = Qt.binding(function () {
-              return isNull ? '' : value;
-            });
+            if (clampedValue !== value) {
+              valueChangeRequested(clampedValue, false);
+            }
+            if (parsedValue !== value) {
+              text = Qt.binding(function () {
+                return isNull ? '' : value;
+              });
+            }
           }
         } else if (!isNull) {
           valueChangeRequested(text, true);
