@@ -60,14 +60,10 @@ RelationEditorBase {
     }
   }
 
-  function getAttachmentFilePath() {
-    return ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
-  }
-
   function capturePhoto() {
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
-      let filepath = getAttachmentFilePath();
+      let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
       filepath = filepath.replace('{extension}', 'JPG');
       resourceSource = platformUtilities.getCameraPicture(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
     } else {
@@ -79,7 +75,7 @@ RelationEditorBase {
   function captureVideo() {
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
-      let filepath = getAttachmentFilePath();
+      let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
       filepath = filepath.replace('{extension}', 'MP4');
       resourceSource = platformUtilities.getCameraVideo(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
     } else {
@@ -91,17 +87,6 @@ RelationEditorBase {
   function captureAudio() {
     Qt.inputMethod.hide();
     relationAudioRecorderLoader.active = true;
-  }
-
-  function attachFile() {
-    Qt.inputMethod.hide();
-    platformUtilities.requestStoragePermission();
-    let filepath = getAttachmentFilePath();
-    if (documentViewer === ExternalResource.DocumentAudio) {
-      resourceSource = platformUtilities.getFile(imagePrefix, filepath, qsTr("Audio files") + " (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)", relationEditor);
-    } else {
-      resourceSource = platformUtilities.getFile(imagePrefix, filepath, PlatformUtilities.AllFiles, relationEditor);
-    }
   }
 
   headerActions: [
@@ -118,8 +103,6 @@ RelationEditorBase {
           return Theme.getThemeVectorIcon("ic_camera_video_black_24dp");
         case ExternalResource.DocumentAudio:
           return Theme.getThemeVectorIcon("ic_microphone_black_24dp");
-        case ExternalResource.DocumentFile:
-          return Theme.getThemeVectorIcon("ic_file_black_24dp");
         default:
           return Theme.getThemeVectorIcon("ic_camera_photo_black_24dp");
         }
@@ -133,9 +116,6 @@ RelationEditorBase {
           break;
         case ExternalResource.DocumentAudio:
           captureAudio();
-          break;
-        case ExternalResource.DocumentFile:
-          attachFile();
           break;
         default:
           capturePhoto();
@@ -296,7 +276,7 @@ RelationEditorBase {
           open();
         }
         onFinished: path => {
-          const filepath = StringUtils.replaceFilenameTags(getAttachmentFilePath(), path);
+          const filepath = StringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils), path);
           platformUtilities.renameFile(path, imagePrefix + filepath);
           if (!relationCameraLoader.isVideo) {
             let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
@@ -322,7 +302,7 @@ RelationEditorBase {
         visible: false
         Component.onCompleted: open()
         onFinished: path => {
-          const filepath = StringUtils.replaceFilenameTags(getAttachmentFilePath(), path);
+          const filepath = StringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils), path);
           platformUtilities.renameFile(path, imagePrefix + filepath);
           showAddFeaturePopup(undefined, filepath);
           close();
