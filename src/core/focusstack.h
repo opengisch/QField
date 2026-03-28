@@ -27,8 +27,11 @@ class FocusStack : public QObject
     Q_OBJECT
 
   public:
+    explicit FocusStack( QObject *parent = nullptr );
+    ~FocusStack() = default;
+
     Q_INVOKABLE void addFocusTaker( QObject *object );
-    Q_INVOKABLE void forceActiveFocusOnLastTaker() const;
+    Q_INVOKABLE void forceActiveFocusOnLastTaker();
 
   private slots:
     void visibleChanged();
@@ -36,7 +39,7 @@ class FocusStack : public QObject
     void popupClosed();
 
   private:
-    QList<QObject *> mStackList;
+    QList<QPointer<QObject>> mStackList;
     void setFocused( QObject *object );
     void setUnfocused( QObject *object );
 };
