@@ -70,6 +70,11 @@ QString FileUtils::absolutePath( const QString &filePath )
   return fileInfo.absolutePath();
 }
 
+QString FileUtils::nativeSeparatorsPath( const QString &filePath )
+{
+  return QDir::toNativeSeparators( filePath );
+}
+
 QString FileUtils::fileName( const QString &filePath )
 {
   QFileInfo fileInfo( filePath );

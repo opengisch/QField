@@ -58,6 +58,8 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     Q_INVOKABLE static QString sanitizeFilePathPart( const QString &filePathPart, const QString &replacement = QLatin1String( "_" ) );
     //! Returns the absolute path of the folder containing the \a filePath.
     Q_INVOKABLE static QString absolutePath( const QString &filePath );
+    //! Returns the \a filePath with '/' separators converted to separators that are appropriate for the underlying operating system.
+    Q_INVOKABLE static QString nativeSeparatorsPath( const QString &filePath );
 
     /**
     * Checks if a file path is securely within the current project directory.
