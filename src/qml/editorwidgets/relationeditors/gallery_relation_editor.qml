@@ -23,8 +23,6 @@ RelationEditorBase {
 
   property int documentViewer: referencingFeatureListModel.attachmentDocumentViewer
 
-  property int documentViewer: referencingFeatureListModel.attachmentDocumentViewer
-
   property var activeMediaItem: null
 
   function requestMediaFocus(item) {
@@ -67,13 +65,12 @@ RelationEditorBase {
     let hash = 5381;
     for (let i = 0; i < str.length; i++) {
       hash = ((hash << 5) + hash) + str.charCodeAt(i);
-      hash = hash & hash;
+      hash = hash | 0;
     }
     return Math.abs(hash);
   }
 
-  property ResourceSource cameraResourceSource
-  property ResourceSource relationFileResourceSource
+  property ResourceSource resourceSource
   Connections {
     target: resourceSource
     function onResourceReceived(path) {
@@ -142,30 +139,6 @@ RelationEditorBase {
     stopAllMedia();
     Qt.inputMethod.hide();
     relationAudioRecorderLoader.active = true;
-  }
-
-  function attachFile() {
-    stopAllMedia();
-    Qt.inputMethod.hide();
-    platformUtilities.requestStoragePermission();
-    let filepath = getAttachmentFilePath();
-    relationFileResourceSource = platformUtilities.getFile(imagePrefix, filepath, relationEditor);
-  }
-
-  Connections {
-    target: cameraResourceSource
-
-    function onResourceReceived(path) {
-      if (path) {
-        if (documentViewer !== document_VIDEO) {
-          let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
-          if (maximumWidthHeight > 0) {
-            FileUtils.restrictImageSize(imagePrefix + path, maximumWidthHeight);
-          }
-        }
-        showAddFeaturePopup(undefined, path);
-      }
-    }
   }
 
   headerActions: [
@@ -795,6 +768,8 @@ RelationEditorBase {
           visible: attachmentIsAudio
           clip: true
 
+          readonly property int totalBars: Math.max(1, Math.floor((width - 24) / 5))
+
           Row {
             id: waveformBars
             anchors.centerIn: parent
@@ -802,7 +777,7 @@ RelationEditorBase {
             spacing: 2
 
             Repeater {
-              model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
+              model: audioWaveformArea.totalBars
 
               Rectangle {
                 width: 3
@@ -815,14 +790,12 @@ RelationEditorBase {
                 radius: 1.5
                 anchors.verticalCenter: parent.verticalCenter
                 color: {
-                  const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
                   if (audioPlayerLoader.active && (index / totalBars) < audioPlayerLoader.progress) {
                     return Theme.mainColor;
                   }
                   return Theme.mainTextDisabledColor;
                 }
                 opacity: {
-                  const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
                   if (audioPlayerLoader.active && (index / totalBars) < audioPlayerLoader.progress) {
                     return 0.9;
                   }
