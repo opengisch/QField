@@ -59,11 +59,11 @@ EditorWidgetBase {
 
       validator: doubleValidator
 
-      inputMethodHints: Qt.ImhFormattedNumbersOnly
+      inputMethodHints: Qt.ImhFormattedNumbersOnly | Qt.ImhNoPredictiveText
 
       background.visible: isEnabled || (!isEditable && isEditing)
 
-      onTextChanged: {
+      onTextEdited: {
         if (text !== "") {
           const parsedValue = parseFloat(text);
           if (!isNaN(parsedValue)) {
@@ -185,7 +185,11 @@ EditorWidgetBase {
       newValue = Math.max(rangeItem.min, Math.min(rangeItem.max, newValue));
       valueChangeRequested(newValue, false);
     } else {
-      newValue = 0;
+      if (rangeItem.max <= 0) {
+        newValue = Math.max(0, rangeItem.min);
+      } else {
+        newValue = rangeItem.min;
+      }
       valueChangeRequested(newValue, false);
     }
   }
@@ -198,7 +202,11 @@ EditorWidgetBase {
       newValue = Math.min(rangeItem.max, Math.max(rangeItem.min, newValue));
       valueChangeRequested(newValue, false);
     } else {
-      newValue = 0;
+      if (rangeItem.max >= 0) {
+        newValue = Math.max(0, rangeItem.min);
+      } else {
+        newValue = rangeItem.min;
+      }
       valueChangeRequested(newValue, false);
     }
   }
