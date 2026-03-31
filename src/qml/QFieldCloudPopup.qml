@@ -79,7 +79,6 @@ Popup {
             Layout.margins: 10
             Layout.alignment: Qt.AlignVCenter
             visible: false
-            richText: true
           }
 
           Rectangle {
@@ -716,7 +715,7 @@ Popup {
     function onStatusChanged() {
       if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
         // TODO: remove test call once storage API is integrated
-        showStorageBar(0.98, 1);
+        showStorageBar(0.40, 1);
         if (popup.pendingAction === "cloudify") {
           popup.pendingAction = "";
           cloudify(pendingCreationTitle, pendingUploadPath);
@@ -907,18 +906,19 @@ Popup {
 
   function showStorageBar(usedStorage, totalStorage) {
     storageMeterBar.value = usedStorage / totalStorage;
-    let meterText = qsTr("%1 GB of %2 GB used").arg(usedStorage).arg(totalStorage);
-    if (storageMeterBar.value >= 0.975) {
-      const upgradeText = qsTr("upgrade to more storage here");
-      meterText += "; <a href=\"https://app.qfield.cloud/account\">" + upgradeText + "</a>";
+    storageMeterBar.usedText = qsTr("%1 GB used").arg(usedStorage);
+    storageMeterBar.totalText = qsTr("of %1 GB").arg(totalStorage);
+    if (usedStorage / totalStorage >= 0.975) {
+      storageMeterBar.upgradeUrl = "https://app.qfield.cloud/account";
     }
-    storageMeterBar.text = meterText;
     storageMeterBar.visible = true;
   }
 
   function hideStorageBar() {
     storageMeterBar.value = 0;
     storageMeterBar.visible = false;
-    storageMeterBar.text = "";
+    storageMeterBar.usedText = "";
+    storageMeterBar.totalText = "";
+    storageMeterBar.upgradeUrl = "";
   }
 }
