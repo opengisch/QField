@@ -512,10 +512,10 @@ RelationEditorBase {
                 anchors.centerIn: parent
                 visible: FileUtils.fileSuffix(attachmentFullPath) !== ""
                 text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
-                font.pixelSize: Theme.tipFont.pixelSize - 6
+                font.pixelSize: Theme.tipFont.pixelSize - 7
                 font.weight: Font.Bold
                 color: Theme.mainTextColor
-                opacity: 0.55
+                opacity: 0.4
               }
             }
 
@@ -871,10 +871,10 @@ RelationEditorBase {
             anchors.centerIn: parent
             visible: FileUtils.fileSuffix(attachmentFullPath) !== ""
             text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
-            font.pixelSize: Theme.tipFont.pixelSize - 3
+            font.pixelSize: Theme.tipFont.pixelSize - 4
             font.weight: Font.Bold
             color: Theme.mainTextColor
-            opacity: 0.55
+            opacity: 0.4
           }
         }
 
