@@ -73,25 +73,13 @@ Popup {
         RowLayout {
           id: connectionInformation
 
-          Text {
-            id: welcomeText
+          QfMeterBar {
+            id: storageMeterBar
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            padding: 10
-            text: switch (cloudConnection.status) {
-            case QFieldCloudConnection.Disconnected:
-              '';
-              break;
-            case QFieldCloudConnection.Connecting:
-              qsTr('Connecting to the cloud.');
-              break;
-            case QFieldCloudConnection.LoggedIn:
-              qsTr('Greetings <strong>%1</strong>.').arg(cloudConnection.username);
-              break;
-            }
-            wrapMode: Text.WordWrap
-            font: Theme.tipFont
-            color: Theme.mainTextColor
+            Layout.margins: 10
+            Layout.alignment: Qt.AlignVCenter
+            visible: false
+            richText: true
           }
 
           Rectangle {
@@ -727,6 +715,8 @@ Popup {
 
     function onStatusChanged() {
       if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
+        // TODO: remove test call once storage API is integrated
+        showStorageBar(0.98, 1);
         if (popup.pendingAction === "cloudify") {
           popup.pendingAction = "";
           cloudify(pendingCreationTitle, pendingUploadPath);
@@ -913,5 +903,22 @@ Popup {
     } else {
       popup.pendingAction = "cloudify";
     }
+  }
+
+  function showStorageBar(usedStorage, totalStorage) {
+    storageMeterBar.value = usedStorage / totalStorage;
+    let meterText = qsTr("%1 GB of %2 GB used").arg(usedStorage).arg(totalStorage);
+    if (storageMeterBar.value >= 0.975) {
+      const upgradeText = qsTr("upgrade to more storage here");
+      meterText += "; <a href=\"https://app.qfield.cloud/account\">" + upgradeText + "</a>";
+    }
+    storageMeterBar.text = meterText;
+    storageMeterBar.visible = true;
+  }
+
+  function hideStorageBar() {
+    storageMeterBar.value = 0;
+    storageMeterBar.visible = false;
+    storageMeterBar.text = "";
   }
 }

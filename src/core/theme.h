@@ -92,6 +92,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     Q_PROPERTY( QColor bookmarkOrange READ bookmarkOrange NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor bookmarkRed READ bookmarkRed NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor bookmarkBlue READ bookmarkBlue NOTIFY themeDataLoaded )
+    Q_PROPERTY( QColor qfieldcloudBlue READ qfieldcloudBlue NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor vertexColor READ vertexColor NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor vertexColorSemiOpaque READ vertexColorSemiOpaque NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor vertexSelectedColor READ vertexSelectedColor NOTIFY themeDataLoaded )
@@ -273,6 +274,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QColor bookmarkOrange() const { return mBookmarkOrange; }
     QColor bookmarkRed() const { return mBookmarkRed; }
     QColor bookmarkBlue() const { return mBookmarkBlue; }
+    QColor qfieldcloudBlue() const { return mQfieldcloudBlue; }
     QColor vertexColor() const { return mVertexColor; }
     QColor vertexColorSemiOpaque() const { return mVertexColorSemiOpaque; }
     QColor vertexSelectedColor() const { return mVertexSelectedColor; }
@@ -391,6 +393,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QColor mBookmarkOrange;
     QColor mBookmarkRed;
     QColor mBookmarkBlue;
+    QColor mQfieldcloudBlue;
     QColor mVertexColor;
     QColor mVertexColorSemiOpaque;
     QColor mVertexSelectedColor;

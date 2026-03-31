@@ -136,6 +136,7 @@
         <file>imports/Theme/QfBadge.qml</file>
         <file>imports/Theme/QfToolButtonPie.qml</file>
         <file>imports/Theme/QfToggleButtonGroup.qml</file>
+        <file>imports/Theme/QfMeterBar.qml</file>
         <file>TrackerSettings.qml</file>
         <file>TrackerFeatureForm.qml</file>
         <file>TrackingSession.qml</file>

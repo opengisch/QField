@@ -96,6 +96,7 @@ void Theme::loadFromJson()
   set( mBookmarkOrange, "bookmarkOrange" );
   set( mBookmarkRed, "bookmarkRed" );
   set( mBookmarkBlue, "bookmarkBlue" );
+  set( mQfieldcloudBlue, "qfieldcloudBlue" );
   set( mVertexColor, "vertexColor" );
   set( mVertexColorSemiOpaque, "vertexColorSemiOpaque" );
   set( mVertexSelectedColor, "vertexSelectedColor" );
