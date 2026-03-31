@@ -494,11 +494,37 @@ RelationEditorBase {
               }
             }
 
+            //Document placeholder
+            Item {
+              anchors.centerIn: parent
+              width: 32
+              height: 32
+              visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath !== ""
+
+              Image {
+                anchors.fill: parent
+                source: Theme.getThemeVectorIcon("ic_file_black_24dp")
+                fillMode: Image.PreserveAspectFit
+                opacity: 0.3
+              }
+
+              Text {
+                anchors.centerIn: parent
+                visible: FileUtils.fileSuffix(attachmentFullPath) !== ""
+                text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
+                font.pixelSize: Theme.tipFont.pixelSize - 6
+                font.weight: Font.Bold
+                color: Theme.mainTextColor
+                opacity: 0.55
+              }
+            }
+
+            // Empty attachment placeholder
             Image {
               anchors.centerIn: parent
               width: 28
               height: 28
-              visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio
+              visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath === ""
               source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
               fillMode: Image.PreserveAspectFit
               opacity: 0.3
@@ -825,13 +851,41 @@ RelationEditorBase {
           }
         }
 
+        //Document placeholder
+        Item {
+          anchors.horizontalCenter: parent.horizontalCenter
+          anchors.verticalCenter: parent.verticalCenter
+          anchors.verticalCenterOffset: -(detailsBar.height / 2)
+          width: 48
+          height: 48
+          visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath !== ""
+
+          Image {
+            anchors.fill: parent
+            source: Theme.getThemeVectorIcon("ic_file_black_24dp")
+            fillMode: Image.PreserveAspectFit
+            opacity: 0.3
+          }
+
+          Text {
+            anchors.centerIn: parent
+            visible: FileUtils.fileSuffix(attachmentFullPath) !== ""
+            text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
+            font.pixelSize: Theme.tipFont.pixelSize - 3
+            font.weight: Font.Bold
+            color: Theme.mainTextColor
+            opacity: 0.55
+          }
+        }
+
+        // Empty attachment placeholder
         Image {
           anchors.horizontalCenter: parent.horizontalCenter
           anchors.verticalCenter: parent.verticalCenter
           anchors.verticalCenterOffset: -(detailsBar.height / 2)
           width: 44
           height: 44
-          visible: cardThumbnail.status !== Image.Ready && !attachmentIsVideo && !attachmentIsAudio
+          visible: cardThumbnail.status !== Image.Ready && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath === ""
           source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
           fillMode: Image.PreserveAspectFit
           opacity: 0.3
