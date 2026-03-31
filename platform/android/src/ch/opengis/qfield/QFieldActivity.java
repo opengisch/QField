@@ -72,6 +72,7 @@ import android.util.Log;
 import android.view.DisplayCutout;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowManager;
@@ -151,6 +152,22 @@ public class QFieldActivity extends QtActivity {
     public void onCreate(Bundle savedInstanceState) {
         prepareQtActivity();
         super.onCreate(savedInstanceState);
+
+        View decorView = getWindow().getDecorView();
+        decorView.getViewTreeObserver().addOnGlobalLayoutListener(
+            new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    if (android.os.Build.VERSION.SDK_INT >=
+                        android.os.Build.VERSION_CODES.R) {
+                        WindowInsets insets = decorView.getRootWindowInsets();
+                        if (insets != null &&
+                            !insets.isVisible(WindowInsets.Type.ime())) {
+                            decorView.requestLayout();
+                        }
+                    }
+                }
+            });
     }
 
     @Override
