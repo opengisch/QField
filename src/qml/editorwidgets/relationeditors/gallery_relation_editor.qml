@@ -342,10 +342,7 @@ RelationEditorBase {
           close();
         }
         onCanceled: close()
-        onClosed: {
-          relationCameraLoader.active = false;
-          relationCameraLoader.isVideo = false;
-        }
+        onClosed: relationCameraLoader.active = false
       }
     }
   }
@@ -768,8 +765,6 @@ RelationEditorBase {
           visible: attachmentIsAudio
           clip: true
 
-          readonly property int totalBars: Math.max(1, Math.floor((width - 24) / 5))
-
           Row {
             id: waveformBars
             anchors.centerIn: parent
@@ -777,7 +772,7 @@ RelationEditorBase {
             spacing: 2
 
             Repeater {
-              model: audioWaveformArea.totalBars
+              model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
 
               Rectangle {
                 width: 3
@@ -790,12 +785,14 @@ RelationEditorBase {
                 radius: 1.5
                 anchors.verticalCenter: parent.verticalCenter
                 color: {
+                  const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
                   if (audioPlayerLoader.active && (index / totalBars) < audioPlayerLoader.progress) {
                     return Theme.mainColor;
                   }
                   return Theme.mainTextDisabledColor;
                 }
                 opacity: {
+                  const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
                   if (audioPlayerLoader.active && (index / totalBars) < audioPlayerLoader.progress) {
                     return 0.9;
                   }
