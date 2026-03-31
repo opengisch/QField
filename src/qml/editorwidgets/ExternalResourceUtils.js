@@ -51,3 +51,16 @@ function getAttachmentFilePath(evaluatedFilepath, documentViewer, FileUtils) {
   filepath = filepath.replace('\\', '/');
   return filepath;
 }
+/**
+ * Deterministic hash for unique waveform patterns per audio file (djb2).
+ * Used by both the gallery relation editor and the external resource editor
+ * to generate decorative waveform bar heights from a file path string.
+ */
+function hashString(str) {
+  let hash = 5381;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) + hash) + str.charCodeAt(i);
+    hash = hash | 0;
+  }
+  return Math.abs(hash);
+}

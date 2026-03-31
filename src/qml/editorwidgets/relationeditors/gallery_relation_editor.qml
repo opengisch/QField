@@ -60,16 +60,6 @@ RelationEditorBase {
     relationAudioRecorderLoader.active = false;
   }
 
-  //hash for unique waveform patterns per audio file (djb2)
-  function hashString(str) {
-    let hash = 5381;
-    for (let i = 0; i < str.length; i++) {
-      hash = ((hash << 5) + hash) + str.charCodeAt(i);
-      hash = hash | 0;
-    }
-    return Math.abs(hash);
-  }
-
   property ResourceSource resourceSource
   Connections {
     target: resourceSource
@@ -491,7 +481,7 @@ RelationEditorBase {
                 Rectangle {
                   width: 2
                   height: {
-                    const hash = hashString(attachmentFullPath);
+                    const hash = ExternalResourceUtils.hashString(attachmentFullPath);
                     const seed = (hash + index) * 0.3;
                     const h = 8 + Math.abs(Math.sin(seed)) * 28 + Math.abs(Math.cos(seed * 2.1)) * 12;
                     return Math.min(h, 44);
@@ -777,7 +767,7 @@ RelationEditorBase {
               Rectangle {
                 width: 3
                 height: {
-                  const hash = hashString(attachmentFullPath);
+                  const hash = ExternalResourceUtils.hashString(attachmentFullPath);
                   const seed = (hash + index) * 0.3;
                   const h = 0.15 + Math.abs(Math.sin(seed)) * 0.55 + Math.abs(Math.cos(seed * 2.1)) * 0.3;
                   return Math.max(4, waveformBars.height * h);

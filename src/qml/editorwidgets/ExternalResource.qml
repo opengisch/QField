@@ -109,6 +109,8 @@ EditorWidgetBase {
     }
   }
 
+  property string audioSourcePath: ''
+
   function prepareValue(fullValue) {
     if (fullValue !== "") {
       var mimeType = FileUtils.mimeTypeName(fullValue);
@@ -125,11 +127,21 @@ EditorWidgetBase {
         image.anchors.topMargin = 0;
         image.source = UrlUtils.fromString(fullValue);
         geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(fullValue);
-      } else if (isAudio || isVideo) {
+        audioSourcePath = '';
+      } else if (isAudio) {
+        mediaFrame.height = 148;
+        image.visible = false;
+        image.opacity = 0.5;
+        image.source = '';
+        audioSourcePath = fullValue;
+        player.firstFrameDrawn = false;
+        player.sourceUrl = UrlUtils.fromString(fullValue);
+      } else if (isVideo) {
         mediaFrame.height = 48;
         image.visible = false;
         image.opacity = 0.5;
         image.source = '';
+        audioSourcePath = '';
         player.firstFrameDrawn = false;
         player.sourceUrl = UrlUtils.fromString(fullValue);
       }
@@ -138,6 +150,7 @@ EditorWidgetBase {
       image.visible = documentViewer == ExternalResource.DocumentImage;
       image.opacity = 0.15;
       geoTagBadge.visible = false;
+      audioSourcePath = '';
       player.sourceUrl = '';
     }
   }
@@ -314,6 +327,67 @@ EditorWidgetBase {
       }
     }
 
+    Item {
+      id: audioWaveformArea
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.top: parent.top
+      anchors.bottom: playerControls.visible ? playerControls.top : parent.bottom
+      anchors.leftMargin: 12
+      anchors.rightMargin: 12
+      anchors.topMargin: 8
+      anchors.bottomMargin: 4
+      visible: isAudio && audioSourcePath !== ''
+      clip: true
+
+      Row {
+        id: audioWaveformBars
+        anchors.centerIn: parent
+        height: parent.height * 0.65
+        spacing: 2
+
+        Repeater {
+          model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
+
+          Rectangle {
+            width: 3
+            height: {
+              const hash = ExternalResourceUtils.hashString(audioSourcePath);
+              const seed = (hash + index) * 0.3;
+              const h = 0.15 + Math.abs(Math.sin(seed)) * 0.55 + Math.abs(Math.cos(seed * 2.1)) * 0.3;
+              return Math.max(4, audioWaveformBars.height * h);
+            }
+            radius: 1.5
+            anchors.verticalCenter: parent.verticalCenter
+            color: {
+              const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
+              if (player.active && player.item && player.item.duration > 0 && (index / totalBars) < (player.item.position / player.item.duration)) {
+                return Theme.mainColor;
+              }
+              return Theme.mainTextDisabledColor;
+            }
+            opacity: {
+              const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
+              if (player.active && player.item && player.item.duration > 0 && (index / totalBars) < (player.item.position / player.item.duration)) {
+                return 0.9;
+              }
+              return 0.35;
+            }
+          }
+        }
+      }
+
+      Rectangle {
+        visible: player.active && player.item && player.item.duration > 0 && player.item.position > 0
+        x: audioWaveformBars.x + audioWaveformBars.width * (player.active && player.item && player.item.duration > 0 ? player.item.position / player.item.duration : 0)
+        y: 0
+        width: 2
+        height: parent.height
+        radius: 1
+        color: Theme.mainColor
+      }
+    }
+
     Loader {
       id: player
       active: isAudio || isVideo
@@ -325,7 +399,7 @@ EditorWidgetBase {
       anchors.top: parent.top
 
       width: parent.width
-      height: parent.height - 54
+      height: isVideo ? parent.height - 54 : 0
 
       sourceComponent: Component {
         Video {
@@ -419,7 +493,7 @@ EditorWidgetBase {
     RowLayout {
       id: playerControls
 
-      visible: player.active && player.item.duration > 0
+      visible: player.active && player.item && player.item.duration > 0
 
       anchors.left: parent.left
       anchors.bottom: parent.bottom
