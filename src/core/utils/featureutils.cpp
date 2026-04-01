@@ -75,7 +75,7 @@ QString FeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feat
   return name;
 }
 
-QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature )
+QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature, bool skipSinglePointLogic )
 {
   if ( mapSettings && layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
   {
@@ -85,7 +85,7 @@ QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLa
     {
       geom.transform( ct );
       QgsRectangle extent;
-      if ( geom.type() == Qgis::GeometryType::Point && geom.constGet()->partCount() == 1 )
+      if ( !skipSinglePointLogic && geom.type() == Qgis::GeometryType::Point && geom.constGet()->partCount() == 1 )
       {
         extent = mapSettings->extent();
         QgsVector delta = QgsPointXY( geom.asPoint() ) - extent.center();
