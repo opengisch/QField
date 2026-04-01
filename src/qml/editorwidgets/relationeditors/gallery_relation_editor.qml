@@ -60,6 +60,32 @@ RelationEditorBase {
     relationAudioRecorderLoader.active = false;
   }
 
+  property var pendingDownloads: ({})
+  property int downloadRevision: 0
+
+  QtObject {
+    id: dummyTarget
+  }
+  Connections {
+    id: cloudProjectConnection
+    ignoreUnknownSignals: true
+    target: dummyTarget
+
+    function onDownloadAttachmentFinished(fileName, errorString) {
+      if (relationEditor.pendingDownloads.hasOwnProperty(fileName)) {
+        console.log("On-demand download finished: " + fileName + " error: " + errorString);
+        delete relationEditor.pendingDownloads[fileName];
+        if (errorString !== "") {
+          displayToast(qsTr("QFieldCloud on-demand attachment error: ") + errorString, 'error');
+        }
+        if (Object.keys(relationEditor.pendingDownloads).length === 0) {
+          cloudProjectConnection.target = dummyTarget;
+        }
+        relationEditor.downloadRevision++;
+      }
+    }
+  }
+
   property ResourceSource resourceSource
   Connections {
     target: resourceSource
@@ -331,6 +357,9 @@ RelationEditorBase {
   }
 
   function resolveAttachmentPath(path) {
+    void (downloadRevision);
+    console.log("resolveAttachmentPath: " + path + " onDemand=" + (cloudProjectsModel && cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.attachmentsOnDemandEnabled : "no project"));
+
     if (!path || path === "") {
       return "";
     }
@@ -340,7 +369,17 @@ RelationEditorBase {
     if (FileUtils.fileExists(path)) {
       return path;
     }
-    return imagePrefix + path;
+    const fullPath = imagePrefix + path;
+    if (FileUtils.fileExists(fullPath)) {
+      return fullPath;
+    }
+    // file not found locally, requests on-demand download if available in cloud
+    if (!pendingDownloads.hasOwnProperty(path) && cloudProjectsModel && cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.attachmentsOnDemandEnabled) {
+      pendingDownloads[path] = true;
+      cloudProjectConnection.target = cloudProjectsModel.currentProject;
+      cloudProjectsModel.currentProject.downloadAttachment(path);
+    }
+    return "";
   }
 
   Loader {
@@ -403,6 +442,7 @@ RelationEditorBase {
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
       readonly property bool attachmentIsAudio: attachmentMimeType.startsWith("audio/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
+      readonly property bool attachmentFetching: model.attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.hasOwnProperty(model.attachmentPath)
 
       Loader {
         id: listVideoThumbLoader
@@ -568,10 +608,18 @@ RelationEditorBase {
               anchors.centerIn: parent
               width: 28
               height: 28
-              visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath === ""
+              visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio && !attachmentFetching
               source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
               fillMode: Image.PreserveAspectFit
               opacity: 0.3
+            }
+
+            BusyIndicator {
+              anchors.centerIn: parent
+              width: 32
+              height: 32
+              running: attachmentFetching
+              visible: running
             }
 
             Rectangle {
@@ -662,6 +710,7 @@ RelationEditorBase {
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
       readonly property bool attachmentIsAudio: attachmentMimeType.startsWith("audio/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
+      readonly property bool attachmentFetching: model.attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.hasOwnProperty(model.attachmentPath)
 
       Component.onDestruction: {
         if (cardContainer.videoPlaying && videoThumbLoader.item) {
@@ -953,10 +1002,19 @@ RelationEditorBase {
           anchors.verticalCenterOffset: -(detailsBar.height / 2)
           width: 44
           height: 44
-          visible: cardThumbnail.status !== Image.Ready && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath === ""
+          visible: cardThumbnail.status !== Image.Ready && !attachmentIsVideo && !attachmentIsAudio && !attachmentFetching
           source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
           fillMode: Image.PreserveAspectFit
           opacity: 0.3
+        }
+
+        BusyIndicator {
+          anchors.centerIn: parent
+          anchors.verticalCenterOffset: -(detailsBar.height / 2)
+          width: 36
+          height: 36
+          running: attachmentFetching
+          visible: running
         }
 
         Rectangle {
