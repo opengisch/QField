@@ -509,14 +509,23 @@ RelationEditorBase {
                 opacity: 0.3
               }
 
-              Text {
+              Rectangle {
                 anchors.centerIn: parent
-                visible: FileUtils.fileSuffix(attachmentFullPath) !== ""
-                text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
-                font.pointSize: Theme.tipFont.pointSize * 0.45
-                font.weight: Font.Bold
-                color: Theme.mainTextColor
-                opacity: 0.4
+                width: Math.min(listSuffixText.contentWidth + 6, parent.width)
+                height: listSuffixText.contentHeight + 2
+                radius: 2
+                color: Theme.controlBorderColor
+                visible: listSuffixText.text !== ""
+
+                Text {
+                  id: listSuffixText
+                  anchors.centerIn: parent
+                  text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
+                  font.pointSize: Theme.tinyFont.pointSize
+                  font.weight: Font.Bold
+                  color: Theme.mainTextColor
+                  opacity: 0.6
+                }
               }
             }
 
@@ -870,14 +879,23 @@ RelationEditorBase {
             opacity: 0.3
           }
 
-          Text {
+          Rectangle {
             anchors.centerIn: parent
-            visible: FileUtils.fileSuffix(attachmentFullPath) !== ""
-            text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
-            font.pointSize: Theme.tipFont.pointSize * 0.75
-            font.weight: Font.Bold
-            color: Theme.mainTextColor
-            opacity: 0.4
+            width: Math.min(gridSuffixText.contentWidth + 8, parent.width)
+            height: gridSuffixText.contentHeight + 4
+            radius: 2
+            color: Theme.controlBorderColor
+            visible: gridSuffixText.text !== ""
+
+            Text {
+              id: gridSuffixText
+              anchors.centerIn: parent
+              text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
+              font.pointSize: Theme.tinyFont.pointSize
+              font.weight: Font.Bold
+              color: Theme.mainTextColor
+              opacity: 0.6
+            }
           }
         }
 
