@@ -475,6 +475,7 @@ RelationEditorBase {
               visible: attachmentIsAudio
 
               Repeater {
+                id: listWaveformRepeater
                 model: 18
 
                 property int pathHash: ExternalResourceUtils.hashString(attachmentFullPath)
@@ -482,7 +483,7 @@ RelationEditorBase {
                 Rectangle {
                   width: 2
                   height: {
-                    const seed = (pathHash + index) * 0.3;
+                    const seed = (listWaveformRepeater.pathHash + index) * 0.3;
                     const h = 8 + Math.abs(Math.sin(seed)) * 28 + Math.abs(Math.cos(seed * 2.1)) * 12;
                     return Math.min(h, 44);
                   }
@@ -512,7 +513,7 @@ RelationEditorBase {
                 anchors.centerIn: parent
                 visible: FileUtils.fileSuffix(attachmentFullPath) !== ""
                 text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
-                font.pixelSize: Theme.tipFont.pixelSize - 7
+                font.pointSize: Theme.tipFont.pointSize * 0.45
                 font.weight: Font.Bold
                 color: Theme.mainTextColor
                 opacity: 0.4
@@ -788,6 +789,8 @@ RelationEditorBase {
             spacing: 2
 
             Repeater {
+              id: gridWaveformRepeater
+
               model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
 
               property int pathHash: ExternalResourceUtils.hashString(attachmentFullPath)
@@ -795,7 +798,7 @@ RelationEditorBase {
               Rectangle {
                 width: 3
                 height: {
-                  const seed = (pathHash + index) * 0.3;
+                  const seed = (gridWaveformRepeater.pathHash + index) * 0.3;
                   const h = 0.15 + Math.abs(Math.sin(seed)) * 0.55 + Math.abs(Math.cos(seed * 2.1)) * 0.3;
                   return Math.max(4, waveformBars.height * h);
                 }
@@ -871,7 +874,7 @@ RelationEditorBase {
             anchors.centerIn: parent
             visible: FileUtils.fileSuffix(attachmentFullPath) !== ""
             text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
-            font.pixelSize: Theme.tipFont.pixelSize - 4
+            font.pointSize: Theme.tipFont.pointSize * 0.75
             font.weight: Font.Bold
             color: Theme.mainTextColor
             opacity: 0.4
@@ -938,7 +941,7 @@ RelationEditorBase {
 
             text: model.displayString
             color: Theme.mainTextColor
-            font.pixelSize: Theme.tipFont.pixelSize
+            font.pointSize: Theme.tipFont.pointSize
             font.weight: Font.Medium
             elide: Text.ElideRight
           }

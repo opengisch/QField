@@ -347,6 +347,7 @@ EditorWidgetBase {
         spacing: 2
 
         Repeater {
+          id: externalWaveformRepeater
           model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
 
           property int pathHash: ExternalResourceUtils.hashString(audioSourcePath)
@@ -354,7 +355,7 @@ EditorWidgetBase {
           Rectangle {
             width: 3
             height: {
-              const seed = (pathHash + index) * 0.3;
+              const seed = (externalWaveformRepeater.pathHash + index) * 0.3;
               const h = 0.15 + Math.abs(Math.sin(seed)) * 0.55 + Math.abs(Math.cos(seed * 2.1)) * 0.3;
               return Math.max(4, audioWaveformBars.height * h);
             }
