@@ -408,7 +408,7 @@ public class QFieldActivity extends QtActivity {
     }
 
     private void showBlockingProgressDialog(String message) {
-        progressDialog = new ProgressDialog(this, R.style.DialogTheme);
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(message);
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
@@ -427,9 +427,7 @@ public class QFieldActivity extends QtActivity {
             @Override
             public void run() {
                 AlertDialog alertDialog =
-                    new AlertDialog
-                        .Builder(QFieldActivity.this, R.style.DialogTheme)
-                        .create();
+                    new AlertDialog.Builder(QFieldActivity.this).create();
                 alertDialog.setTitle(title);
                 alertDialog.setMessage(message);
                 alertDialog.show();
@@ -787,8 +785,7 @@ public class QFieldActivity extends QtActivity {
 
     private void removeDataset(String path) {
         File file = new File(path);
-        AlertDialog.Builder builder =
-            new AlertDialog.Builder(this, R.style.DialogTheme);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.delete_confirm_title));
         builder.setMessage(getString(R.string.delete_confirm_dataset));
         builder.setPositiveButton(
@@ -845,8 +842,7 @@ public class QFieldActivity extends QtActivity {
 
     private void removeProjectFolder(String path) {
         File file = new File(path);
-        AlertDialog.Builder builder =
-            new AlertDialog.Builder(this, R.style.DialogTheme);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.delete_confirm_title));
         builder.setMessage(getString(R.string.delete_confirm_folder));
         builder.setPositiveButton(
@@ -1004,8 +1000,7 @@ public class QFieldActivity extends QtActivity {
             return;
         }
 
-        ProgressDialog progressDialog =
-            new ProgressDialog(this, R.style.DialogTheme);
+        ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.import_dataset_wait));
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
@@ -1061,8 +1056,7 @@ public class QFieldActivity extends QtActivity {
             return;
         }
 
-        ProgressDialog progressDialog =
-            new ProgressDialog(this, R.style.DialogTheme);
+        ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.import_project_wait));
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
@@ -1106,8 +1100,7 @@ public class QFieldActivity extends QtActivity {
             return;
         }
 
-        ProgressDialog progressDialog =
-            new ProgressDialog(this, R.style.DialogTheme);
+        ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.import_project_wait));
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
@@ -1174,8 +1167,7 @@ public class QFieldActivity extends QtActivity {
             return;
         }
 
-        ProgressDialog progressDialog =
-            new ProgressDialog(this, R.style.DialogTheme);
+        ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.update_project_wait));
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
@@ -1275,8 +1267,7 @@ public class QFieldActivity extends QtActivity {
 
             checkStoragePermissions();
 
-            AlertDialog.Builder builder =
-                new AlertDialog.Builder(this, R.style.DialogTheme);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.grant_permission));
             builder.setMessage(
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
@@ -1478,8 +1469,7 @@ public class QFieldActivity extends QtActivity {
             }
 
             if (hasExists) {
-                AlertDialog.Builder builder =
-                    new AlertDialog.Builder(this, R.style.DialogTheme);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.import_overwrite_title));
                 builder.setMessage(
                     datasetUris.length > 1
@@ -1521,8 +1511,7 @@ public class QFieldActivity extends QtActivity {
                 new File(externalFilesDir.getAbsolutePath() +
                          "/Imported Projects/" + directory.getName() + "/");
             if (importPath.exists()) {
-                AlertDialog.Builder builder =
-                    new AlertDialog.Builder(this, R.style.DialogTheme);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.import_overwrite_title));
                 builder.setMessage(getString(R.string.import_overwrite_folder));
                 builder.setPositiveButton(
@@ -1570,8 +1559,7 @@ public class QFieldActivity extends QtActivity {
                     0, documentFile.getName().lastIndexOf(".")) +
                 "/");
             if (importPath.exists()) {
-                AlertDialog.Builder builder =
-                    new AlertDialog.Builder(this, R.style.DialogTheme);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.import_overwrite_title));
                 builder.setMessage(getString(R.string.import_overwrite_folder));
                 builder.setPositiveButton(
