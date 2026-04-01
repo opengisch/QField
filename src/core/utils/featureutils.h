@@ -70,9 +70,10 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
      * \param mapSettings the map settings used to determine the CRS
      * \param layer the vector layer containing the feature
      * \param feature the feature from which the geometry will be used
+     * \param skipSinglePointLogic when TRUE, the special handling for determining a single point extent will be skipped
      * \returns a QgsRectangle extent
      */
-    static Q_INVOKABLE QgsRectangle extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature );
+    static Q_INVOKABLE QgsRectangle extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature, bool skipSinglePointLogic = false );
 
     /**
      * Returns a list of features while attempting to parse a GeoJSON \a string. If the string could not
