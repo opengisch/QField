@@ -469,7 +469,6 @@ RelationEditorBase {
               anchors.fill: parent
             }
 
-            // Hash-seeded waveform bars (decorative, each file gets a unique pattern)
             Row {
               anchors.centerIn: parent
               spacing: 1
@@ -478,11 +477,12 @@ RelationEditorBase {
               Repeater {
                 model: 18
 
+                property int pathHash: ExternalResourceUtils.hashString(attachmentFullPath)
+
                 Rectangle {
                   width: 2
                   height: {
-                    const hash = ExternalResourceUtils.hashString(attachmentFullPath);
-                    const seed = (hash + index) * 0.3;
+                    const seed = (pathHash + index) * 0.3;
                     const h = 8 + Math.abs(Math.sin(seed)) * 28 + Math.abs(Math.cos(seed * 2.1)) * 12;
                     return Math.min(h, 44);
                   }
@@ -764,11 +764,12 @@ RelationEditorBase {
             Repeater {
               model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
 
+              property int pathHash: ExternalResourceUtils.hashString(attachmentFullPath)
+
               Rectangle {
                 width: 3
                 height: {
-                  const hash = ExternalResourceUtils.hashString(attachmentFullPath);
-                  const seed = (hash + index) * 0.3;
+                  const seed = (pathHash + index) * 0.3;
                   const h = 0.15 + Math.abs(Math.sin(seed)) * 0.55 + Math.abs(Math.cos(seed * 2.1)) * 0.3;
                   return Math.max(4, waveformBars.height * h);
                 }

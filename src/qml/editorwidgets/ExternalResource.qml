@@ -349,11 +349,12 @@ EditorWidgetBase {
         Repeater {
           model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
 
+          property int pathHash: ExternalResourceUtils.hashString(audioSourcePath)
+
           Rectangle {
             width: 3
             height: {
-              const hash = ExternalResourceUtils.hashString(audioSourcePath);
-              const seed = (hash + index) * 0.3;
+              const seed = (pathHash + index) * 0.3;
               const h = 0.15 + Math.abs(Math.sin(seed)) * 0.55 + Math.abs(Math.cos(seed * 2.1)) * 0.3;
               return Math.max(4, audioWaveformBars.height * h);
             }
