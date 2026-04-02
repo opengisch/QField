@@ -19,8 +19,8 @@ ColumnLayout {
   property color normalColor: Theme.qfieldcloudBlue
   property color warningColor: Theme.warningColor
   property color criticalColor: Theme.bookmarkRed
-  property double warningThreshold: 0.75
-  property double criticalThreshold: 0.9
+  property double warningThreshold: 0.8
+  property double criticalThreshold: 0.95
   property int animationDuration: 1000
   property int barHeight: 8
 
@@ -32,16 +32,55 @@ ColumnLayout {
     implicitHeight: upgradeLinkRow.implicitHeight
 
     property string url: ""
-    property bool isCritical: meterBar.value >= meterBar.criticalThreshold
+    property bool isCritical: value >= meterBar.criticalThreshold
 
     Row {
       id: upgradeLinkRow
-      spacing: 2
+      spacing: 8
 
       Label {
-        text: upgradeLink.isCritical ? qsTr("Upgrade") : qsTr("Manage")
+        text: upgradeLink.isCritical ? qsTr("Tap to upgrade") : qsTr("Tap to manage")
         font: Theme.tipFont
-        color: Theme.mainColor
+        color: Theme.mainTextColor
+        anchors.verticalCenter: parent.verticalCenter
+      }
+
+      Shape {
+        width: 10
+        height: 10
+        anchors.verticalCenter: parent.verticalCenter
+
+        ShapePath {
+          strokeWidth: 1.5
+          strokeColor: Theme.mainTextColor
+          fillColor: "transparent"
+          capStyle: ShapePath.RoundCap
+          joinStyle: ShapePath.RoundJoin
+          startX: 0;
+          startY: 5
+          PathLine {
+            x: 5.5;
+            y: 5
+          }
+        }
+
+        ShapePath {
+          strokeWidth: 1.5
+          strokeColor: Theme.mainTextColor
+          fillColor: "transparent"
+          capStyle: ShapePath.RoundCap
+          joinStyle: ShapePath.RoundJoin
+          startX: 4;
+          startY: 1.5
+          PathLine {
+            x: 8
+            y: 5
+          }
+          PathLine {
+            x: 4
+            y: 8.5
+          }
+        }
       }
     }
 
@@ -104,7 +143,6 @@ ColumnLayout {
 
   RowLayout {
     Layout.fillWidth: true
-    visible: usedLabel.text !== "" || totalLabel.text !== ""
 
     Label {
       id: usedLabel
