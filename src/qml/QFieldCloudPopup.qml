@@ -911,6 +911,6 @@ Popup {
     if (usedStorage / totalStorage >= 0.975) {
       storageMeterBar.upgradeUrl = "https://app.qfield.cloud/account";
     }
-    storageMeterBar.visible = true
+    storageMeterBar.visible = true;
   }
 }

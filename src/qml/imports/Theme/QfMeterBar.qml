@@ -56,10 +56,10 @@ ColumnLayout {
           fillColor: "transparent"
           capStyle: ShapePath.RoundCap
           joinStyle: ShapePath.RoundJoin
-          startX: 0;
+          startX: 0
           startY: 5
           PathLine {
-            x: 5.5;
+            x: 5.5
             y: 5
           }
         }
@@ -70,7 +70,7 @@ ColumnLayout {
           fillColor: "transparent"
           capStyle: ShapePath.RoundCap
           joinStyle: ShapePath.RoundJoin
-          startX: 4;
+          startX: 4
           startY: 1.5
           PathLine {
             x: 8
