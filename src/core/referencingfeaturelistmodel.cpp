@@ -116,6 +116,9 @@ void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
   mAttachmentFieldName.clear();
   mAttachmentFieldIndex = -1;
   mAttachmentDocumentViewer = 0;
+  mAttachmentStorageType.clear();
+  mAttachmentStorageAuthConfigId.clear();
+  mAttachmentStorageUrl.clear();
   QgsVectorLayer *layer = mRelation.referencingLayer();
   if ( layer )
   {
@@ -123,9 +126,13 @@ void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
     {
       if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
       {
+        const QVariantMap config = layer->editorWidgetSetup( i ).config();
         mAttachmentFieldName = layer->fields().at( i ).name();
         mAttachmentFieldIndex = i;
-        mAttachmentDocumentViewer = layer->editorWidgetSetup( i ).config().value( QStringLiteral( "DocumentViewer" ), 0 ).toInt();
+        mAttachmentDocumentViewer = config.value( QStringLiteral( "DocumentViewer" ), 0 ).toInt();
+        mAttachmentStorageType = config.value( QStringLiteral( "StorageType" ) ).toString();
+        mAttachmentStorageAuthConfigId = config.value( QStringLiteral( "StorageAuthConfigId" ) ).toString();
+        mAttachmentStorageUrl = config.value( QStringLiteral( "StorageUrl" ) ).toString();
         break;
       }
     }
@@ -156,6 +163,9 @@ void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relat
   mAttachmentFieldName.clear();
   mAttachmentFieldIndex = -1;
   mAttachmentDocumentViewer = 0;
+  mAttachmentStorageType.clear();
+  mAttachmentStorageAuthConfigId.clear();
+  mAttachmentStorageUrl.clear();
   QgsVectorLayer *layer = mRelation.referencingLayer();
   if ( layer )
   {
@@ -163,9 +173,13 @@ void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relat
     {
       if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
       {
+        const QVariantMap config = layer->editorWidgetSetup( i ).config();
         mAttachmentFieldName = layer->fields().at( i ).name();
         mAttachmentFieldIndex = i;
-        mAttachmentDocumentViewer = layer->editorWidgetSetup( i ).config().value( QStringLiteral( "DocumentViewer" ), 0 ).toInt();
+        mAttachmentDocumentViewer = config.value( QStringLiteral( "DocumentViewer" ), 0 ).toInt();
+        mAttachmentStorageType = config.value( QStringLiteral( "StorageType" ) ).toString();
+        mAttachmentStorageAuthConfigId = config.value( QStringLiteral( "StorageAuthConfigId" ) ).toString();
+        mAttachmentStorageUrl = config.value( QStringLiteral( "StorageUrl" ) ).toString();
         break;
       }
     }
@@ -364,6 +378,21 @@ int ReferencingFeatureListModelBase::attachmentDocumentViewer() const
   return mAttachmentDocumentViewer;
 }
 
+QString ReferencingFeatureListModelBase::attachmentStorageType() const
+{
+  return mAttachmentStorageType;
+}
+
+QString ReferencingFeatureListModelBase::attachmentStorageAuthConfigId() const
+{
+  return mAttachmentStorageAuthConfigId;
+}
+
+QString ReferencingFeatureListModelBase::attachmentStorageUrl() const
+{
+  return mAttachmentStorageUrl;
+}
+
 bool ReferencingFeatureListModelBase::checkParentPrimaries()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() )
@@ -513,6 +542,21 @@ QString ReferencingFeatureListModel::attachmentFieldName() const
 int ReferencingFeatureListModel::attachmentDocumentViewer() const
 {
   return mSourceModel->attachmentDocumentViewer();
+}
+
+QString ReferencingFeatureListModel::attachmentStorageType() const
+{
+  return mSourceModel->attachmentStorageType();
+}
+
+QString ReferencingFeatureListModel::attachmentStorageAuthConfigId() const
+{
+  return mSourceModel->attachmentStorageAuthConfigId();
+}
+
+QString ReferencingFeatureListModel::attachmentStorageUrl() const
+{
+  return mSourceModel->attachmentStorageUrl();
 }
 
 Qt::SortOrder ReferencingFeatureListModel::sortOrder() const
