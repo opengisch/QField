@@ -93,9 +93,8 @@ QfPopup {
 
           BusyIndicator {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-
-            visible: changelogContents.status == ChangelogContents.LoadingStatus
-            running: visible
+            running: changelogContents.status === ChangelogContents.LoadingStatus
+            visible: running
           }
         }
       }
