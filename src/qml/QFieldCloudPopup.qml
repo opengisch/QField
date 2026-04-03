@@ -714,8 +714,8 @@ Popup {
 
     function onStatusChanged() {
       if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
-        // TODO: remove test call once storage API is integrated
-        showStorageBar(0.40, 1);
+        const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
+        cloudConnection.getSubscriptionInfo(owner);
         if (popup.pendingAction === "cloudify") {
           popup.pendingAction = "";
           cloudify(pendingCreationTitle, pendingUploadPath);
@@ -736,6 +736,14 @@ Popup {
 
     function onPendingAttachmentsUploadFinished() {
       uploadLabel.text = "";
+    }
+
+    function onSubscriptionInfoReceived(storageUsed, storageTotal) {
+      if (storageTotal > 0) {
+        const usedGB = (storageUsed / (1024 * 1024 * 1024)).toFixed(2);
+        const totalGB = (storageTotal / (1024 * 1024 * 1024)).toFixed(2);
+        showStorageBar(usedGB, totalGB);
+      }
     }
   }
 
@@ -908,9 +916,7 @@ Popup {
     storageMeterBar.value = usedStorage / totalStorage;
     storageMeterBar.usedText = qsTr("%1 GB used").arg(usedStorage);
     storageMeterBar.totalText = qsTr("of %1 GB").arg(totalStorage);
-    if (usedStorage / totalStorage >= 0.975) {
-      storageMeterBar.upgradeUrl = "https://app.qfield.cloud/account";
-    }
+    storageMeterBar.upgradeUrl = "https://app.qfield.cloud/";
     storageMeterBar.visible = true;
   }
 }
