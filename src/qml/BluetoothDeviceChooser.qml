@@ -66,10 +66,10 @@ Item {
         id: busyIndicator
         Layout.preferredWidth: width
         Layout.alignment: Qt.AlignVCenter
-        visible: running
         width: 36
         height: width
         running: bluetoothDeviceChooser.isScanning
+        visible: running
       }
     }
 

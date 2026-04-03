@@ -1501,8 +1501,8 @@ Page {
           id: importWebdavFetchFoldersIndicator
           Layout.preferredWidth: 48
           Layout.preferredHeight: 48
-          visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
-          running: visible
+          running: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+          visible: running
         }
       }
 
@@ -1544,8 +1544,8 @@ Page {
             anchors.verticalCenter: importWebdavRefetchFoldersButton.verticalCenter
             width: importWebdavRefetchFoldersButton.width
             height: importWebdavRefetchFoldersButton.width
-            visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
-            running: visible
+            running: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+            visible: running
           }
         }
 

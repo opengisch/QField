@@ -751,7 +751,7 @@ ApplicationWindow {
 
         BusyIndicator {
           anchors.horizontalCenter: parent.horizontalCenter
-          running: parent.parent.visible
+          running: stateMachine.state === '3d' && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && mapCanvas3DLoader.item.isFirstLoad
           width: 64
           height: 64
         }
