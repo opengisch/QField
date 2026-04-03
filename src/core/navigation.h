@@ -222,6 +222,7 @@ class Navigation : public QObject
     void updateDetails();
     void setDestinationFromCurrentVertex();
     void updateProximityAlarmState();
+    void triggerProximityAlarm();
 
     std::unique_ptr<NavigationModel> mModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
@@ -243,7 +244,8 @@ class Navigation : public QObject
     QTimer mProximityAlarmTimer;
     int mProximityAlarmInterval;
     qint64 mLastProximityAlarm;
-    QSoundEffect mProximitySound;
+
+    std::unique_ptr<QSoundEffect> mProximitySound;
 };
 
 #endif // NAVIGATION_H
