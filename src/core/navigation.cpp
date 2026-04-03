@@ -35,14 +35,12 @@ Navigation::Navigation()
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::destinationChanged );
   connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::updateDetails );
 
-  mProximitySound.setSource( QUrl( QStringLiteral( "qrc:/sounds/proximity_alarm.wav" ) ) );
   mProximityAlarmTimer.setInterval( 250 );
   mProximityAlarmTimer.setSingleShot( false );
   connect( &mProximityAlarmTimer, &QTimer::timeout, this, [this] {
     if ( QDateTime::currentMSecsSinceEpoch() > mLastProximityAlarm + mProximityAlarmInterval )
     {
-      mProximitySound.play();
-      mLastProximityAlarm = QDateTime::currentMSecsSinceEpoch();
+      triggerProximityAlarm();
     }
   } );
 }
@@ -280,7 +278,7 @@ void Navigation::updateDetails()
   }
   catch ( const QgsException & )
   {
-    mDistance = 0.0;
+    mDistance = std::numeric_limits<double>::quiet_NaN();
   }
 
   if ( handleZ )
@@ -303,13 +301,12 @@ void Navigation::updateProximityAlarmState()
 {
   if ( mProximityAlarm && mDa.lengthUnits() != Qgis::DistanceUnit::Unknown )
   {
-    if ( mDistance <= mProximityAlarmThreshold )
+    if ( !std::isnan( mDistance ) && mDistance <= mProximityAlarmThreshold )
     {
       mProximityAlarmInterval = 200 + ( 2000 * mDistance / mProximityAlarmThreshold );
       if ( !mProximityAlarmTimer.isActive() )
       {
-        mProximitySound.play();
-        mLastProximityAlarm = QDateTime::currentMSecsSinceEpoch();
+        triggerProximityAlarm();
         mProximityAlarmTimer.start();
       }
     }
@@ -360,4 +357,15 @@ void Navigation::clear()
 {
   mModel->clear();
   updateDetails();
+}
+
+void Navigation::triggerProximityAlarm()
+{
+  if ( !mProximitySound )
+  {
+    mProximitySound = std::make_unique<QSoundEffect>();
+    mProximitySound->setSource( QUrl( QStringLiteral( "qrc:/sounds/proximity_alarm.wav" ) ) );
+  }
+  mProximitySound->play();
+  mLastProximityAlarm = QDateTime::currentMSecsSinceEpoch();
 }
