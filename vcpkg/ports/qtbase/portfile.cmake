@@ -24,9 +24,7 @@ set(${PORT}_PATCHES
         fix-link-lib-discovery.patch
         macdeployqt-symlinks.patch
         moltenvk.patch
-        xcodebuild-not-installed.patch
         fix-libresolv-test.patch
-        framework.patch
         use_inotify_on_freebsd.patch
         fix-qyieldcpu-apple-clang.patch
 )
