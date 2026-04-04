@@ -111,7 +111,7 @@ class PositioningInformationModel : public QStandardItemModel
     void softReset();
     void updateCoordinates();
     QString getAltitude( double distanceUnitFactor, const QString &distanceUnitAbbreviation );
-    QString getSpeed();
+    QString getSpeed( double distanceUnitFactor, const QString &distanceUnitAbbreviation );
     QString getHorizontalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation );
     QString getVerticalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation );
 
