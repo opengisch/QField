@@ -18,8 +18,8 @@ void PositioningInformationModel::refreshData()
     return;
   }
 
-  const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
-  const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
+  const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, mDistanceUnits );
+  const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( mDistanceUnits );
   const GnssPositionDetails deviceDetails = mPositioningSource->deviceDetails();
   const QList<QString> detailNames = deviceDetails.names();
   const QList<QVariant> detailValues = deviceDetails.values();
@@ -27,7 +27,7 @@ void PositioningInformationModel::refreshData()
   updateCoordinates();
 
   const QString altitude = getAltitude( distanceUnitFactor, distanceUnitAbbreviation );
-  const QString speed = getSpeed();
+  const QString speed = getSpeed( distanceUnitFactor, distanceUnitAbbreviation );
   const QString hAccuracy = getHorizontalAccuracy( distanceUnitFactor, distanceUnitAbbreviation );
   const QString vAccuracy = getVerticalAccuracy( distanceUnitFactor, distanceUnitAbbreviation );
 
@@ -112,9 +112,9 @@ QString PositioningInformationModel::getAltitude( double distanceUnitFactor, con
   return tr( "N/A" );
 }
 
-QString PositioningInformationModel::getSpeed()
+QString PositioningInformationModel::getSpeed( double distanceUnitFactor, const QString &distanceUnitAbbreviation )
 {
-  return positioningSource()->positionInformation().speedValid() ? QLocale::system().toString( positioningSource()->positionInformation().speed(), 'f', 3 ) + " m/s" : tr( "N/A" );
+  return positioningSource()->positionInformation().speedValid() ? QLocale::system().toString( positioningSource()->positionInformation().speed() * distanceUnitFactor, 'f', 3 ) + ' ' + tr( "%1/s" ).arg( distanceUnitAbbreviation ) : tr( "N/A" );
 }
 
 QString PositioningInformationModel::getHorizontalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation )
@@ -268,11 +268,12 @@ void PositioningInformationModel::setAntennaHeight( double antennaHeight )
 {
   if ( qFuzzyCompare( mAntennaHeight, antennaHeight ) )
     return;
+
   mAntennaHeight = antennaHeight;
   emit antennaHeightChanged();
 
-  const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, distanceUnits() );
-  const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( distanceUnits() );
+  const double distanceUnitFactor = QgsUnitTypes::fromUnitToUnitFactor( Qgis::DistanceUnit::Meters, mDistanceUnits );
+  const QString distanceUnitAbbreviation = QgsUnitTypes::toAbbreviatedString( mDistanceUnits );
   const QString altitude = getAltitude( distanceUnitFactor, distanceUnitAbbreviation );
   updateInfo( tr( "Altitude" ), altitude );
 }
@@ -286,6 +287,7 @@ void PositioningInformationModel::setDistanceUnits( Qgis::DistanceUnit distanceU
 {
   if ( mDistanceUnits == distanceUnits )
     return;
+
   mDistanceUnits = distanceUnits;
   emit distanceUnitsChanged();
 }
@@ -299,6 +301,7 @@ void PositioningInformationModel::setCoordinateDisplayCrs( const QgsCoordinateRe
 {
   if ( mCoordinateDisplayCrs == coordinateDisplayCrs )
     return;
+
   mCoordinateDisplayCrs = coordinateDisplayCrs;
   emit coordinateDisplayCrsChanged();
 
