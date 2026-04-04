@@ -113,6 +113,12 @@ void ScaleBarMeasurement::measure()
     if ( extentLength > 0 )
     {
       Qgis::DistanceUnit distanceUnit = mProject->distanceUnits();
+      if ( distanceUnit == Qgis::DistanceUnit::Unknown )
+      {
+        // In this context, unknown is meant as a statement to adopt map units
+        distanceUnit = mapUnits;
+      }
+
       extentLength = mDistanceArea.convertLengthMeasurement( extentLength, distanceUnit );
       QgsUnitTypes::DistanceValue scaledDistance = QgsUnitTypes::scaledDistance( extentLength, distanceUnit, 2 );
       distanceUnit = scaledDistance.unit;
