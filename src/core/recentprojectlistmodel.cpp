@@ -46,6 +46,7 @@ void RecentProjectListModel::reloadModel()
   mRecentProjects.clear();
 
   QSettings settings;
+
   mRecentProjects = recentProjects( true );
 
   const bool sampleProjectsAdded = settings.value( QStringLiteral( "QField/recentProjectsAdded" ), false ).toBool();
@@ -146,10 +147,13 @@ void RecentProjectListModel::removeRecentProject( const QString &path )
   }
 }
 
-QList<RecentProjectListModel::RecentProject> RecentProjectListModel::recentProjects( bool skipNonExistent )
+QList<RecentProjectListModel::RecentProject> RecentProjectListModel::recentProjects( bool skipNonAvailable )
 {
-  QSettings settings;
   QList<RecentProject> projects;
+
+  QSettings settings;
+  const QString qfieldCloudUsername = QSettings().value( QStringLiteral( "/QFieldCloud/username" ) ).toString();
+  const QString qdieldCloudLocalDirectory = QFieldCloudUtils::localCloudDirectory();
 
   settings.beginGroup( "/qgis/recentProjects" );
 
@@ -167,9 +171,15 @@ QList<RecentProjectListModel::RecentProject> RecentProjectListModel::recentProje
     const QString path = settings.value( QStringLiteral( "path" ) ).toString();
     const QFileInfo fi( path );
 
+    bool skip = false;
     ProjectType type = LocalDataset;
-    if ( path.startsWith( QFieldCloudUtils::localCloudDirectory() ) )
+    if ( path.startsWith( qdieldCloudLocalDirectory ) )
     {
+      if ( skipNonAvailable && ( !fi.exists() || !path.startsWith( QStringLiteral( "%1%2%3%2" ).arg( qdieldCloudLocalDirectory, QDir::separator(), qfieldCloudUsername ) ) ) )
+      {
+        skip = true;
+      }
+
       type = CloudProject;
     }
     else if ( path.startsWith( "http://", Qt::CaseInsensitive ) || path.startsWith( "https://", Qt::CaseInsensitive ) )
@@ -178,14 +188,24 @@ QList<RecentProjectListModel::RecentProject> RecentProjectListModel::recentProje
     }
     else if ( SUPPORTED_PROJECT_EXTENSIONS.contains( fi.suffix() ) )
     {
+      if ( skipNonAvailable && !fi.exists() )
+      {
+        skip = true;
+      }
+
       type = LocalProject;
     }
     else
     {
+      if ( skipNonAvailable && !fi.exists() )
+      {
+        skip = true;
+      }
+
       type = LocalDataset;
     }
 
-    if ( !skipNonExistent || type == LinkProject || fi.exists() )
+    if ( !skip )
     {
       projects.append( RecentProject( type,
                                       settings.value( QStringLiteral( "title" ) ).toString(),
