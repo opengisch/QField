@@ -84,6 +84,7 @@ EditorWidgetBase {
       id: toggleButtons
       Layout.fillWidth: true
       Layout.minimumHeight: toggleButtons.height
+      Layout.bottomMargin: 5
 
       model: listModel
       textRole: "value"
@@ -97,7 +98,7 @@ EditorWidgetBase {
       }
 
       onItemDeselected: function () {
-        valueChangeRequested("", false);
+        valueChangeRequested("", true);
       }
     }
 
