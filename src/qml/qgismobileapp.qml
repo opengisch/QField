@@ -5027,6 +5027,8 @@ ApplicationWindow {
         if (cloudProjectId) {
           projectInfo.cloudUserInformation = userInformation;
         }
+        // Reload recent projects to insure only current user projects are visible
+        recentProjectListModel.reloadModel();
       }
       previousStatus = cloudConnection.status;
     }
