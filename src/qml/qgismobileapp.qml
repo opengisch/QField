@@ -4818,10 +4818,12 @@ ApplicationWindow {
       if (stateMachine.state === "digitize" && !qfieldAuthRequestHandler.hasPendingAuthRequest) {
         dashBoard.ensureEditableLayerSelected();
       }
-      var distanceString = iface.readProjectEntry("Measurement", "/DistanceUnits", "");
-      projectInfo.distanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : Qgis.DistanceUnit.Meters;
-      var areaString = iface.readProjectEntry("Measurement", "/AreaUnits", "");
-      projectInfo.areaUnits = areaString !== "" ? UnitTypes.decodeAreaUnit(areaString) : Qgis.AreaUnit.SquareMeters;
+      const distanceString = iface.readProjectEntry("Measurement", "/DistanceUnits", "");
+      const decodedDistanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : Qgis.DistanceUnit.Meters;
+      projectInfo.distanceUnits = decodedDistanceUnits !== Qgis.DistanceUnit.Unknown ? decodedDistanceUnits : mapCanvas.mapSettings.destinationCrs.mapUnits;
+      const areaString = iface.readProjectEntry("Measurement", "/AreaUnits", "");
+      const decodedAreaUnits = areaString !== "" ? UnitTypes.decodeAreaUnit(areaString) : Qgis.AreaUnit.SquareMeters;
+      projectInfo.areaUnits = decodedAreaUnits !== Qgis.AreaUnit.Unknown ? decodedAreaUnits : UnitTypes.distanceToAreaUnit(mapCanvas.mapSettings.destinationCrs.mapUnits);
       if (qgisProject.displaySettings) {
         projectInfo.coordinateDisplayCrs = qgisProject.displaySettings.coordinateCrs;
       } else {
