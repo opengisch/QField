@@ -76,7 +76,7 @@ class RecentProjectListModel : public QAbstractListModel
 
     Q_INVOKABLE static void removeRecentProject( const QString &path );
 
-    static QList<RecentProject> recentProjects( bool skipNonExistent = false );
+    static QList<RecentProject> recentProjects( bool skipNonAvailable = false );
 
     static void saveRecentProjects( const QList<RecentProject> &projects );
 
