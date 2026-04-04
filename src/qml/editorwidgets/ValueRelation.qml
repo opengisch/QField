@@ -116,6 +116,7 @@ EditorWidgetBase {
     id: toggleButtons
     anchors.left: parent.left
     anchors.right: parent.right
+    anchors.bottomMargin: 5
     visible: false
 
     model: valueRelation.useToggleButtons ? listModel : null
