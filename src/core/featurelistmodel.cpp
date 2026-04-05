@@ -435,7 +435,7 @@ void FeatureListModel::processFeatureList()
     if ( !mSearchTerm.isEmpty() )
     {
       entry.fuzzyScore = StringUtils::calcFuzzyScore( entry.displayString, mSearchTerm );
-      if ( entry.fuzzyScore == 0 )
+      if ( qgsDoubleNear( entry.fuzzyScore, 0.0 ) )
       {
         continue;
       }

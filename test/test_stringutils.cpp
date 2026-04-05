@@ -29,24 +29,6 @@ TEST_CASE( "StringUtils" )
     REQUIRE( StringUtils::insertLinks( QStringLiteral( "before https://osm.org/path?resource=;or=this%20one after" ) ) == QStringLiteral( "before <a href=\"https://osm.org/path?resource=;or=this%20one\">https://osm.org/path?resource=;or=this%20one</a> after" ) );
   }
 
-  SECTION( "FuzzyMatch" )
-  {
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "Quercus rubra" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "quercus r" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "Pinus nigra" ) == false );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "Quercus" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "qUERCUS" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "ERcU" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "rubra" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "Rubra" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "bra" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra forma variegata", "rubra varieg" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra (forma variegata)", "quercus forma" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "q r" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "q   r" ) == true );
-    REQUIRE( StringUtils::fuzzyMatch( "Quercus rubra", "q   ubra" ) == false );
-  }
-
   SECTION( "HighlightText" )
   {
     REQUIRE( StringUtils::highlightText( "QField roxx", "", QColor( Qt::black ) ) == "QField roxx" );

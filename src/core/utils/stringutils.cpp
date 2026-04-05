@@ -47,40 +47,41 @@ QString StringUtils::createUuid()
   return QUuid::createUuid().toString();
 }
 
-bool StringUtils::fuzzyMatch( const QString &source, const QString &term )
-{
-  if ( source.contains( term, Qt::CaseInsensitive ) )
-    return true;
-
-  const QRegularExpression whitespaceRegex( QStringLiteral( "\\W+" ) );
-  const QStringList parts = source.split( whitespaceRegex );
-  const QStringList termParts = term.split( whitespaceRegex );
-  const qsizetype termPartsCount = termParts.size();
-  qsizetype lastMatchedTermPartIdx = -1;
-  qsizetype matchedTermItems = 0;
-
-  for ( const QString &part : parts )
-  {
-    for ( qsizetype i = lastMatchedTermPartIdx + 1; i < termPartsCount; i++ )
-    {
-      if ( part.startsWith( termParts[i], Qt::CaseInsensitive ) )
-      {
-        lastMatchedTermPartIdx = i;
-        matchedTermItems++;
-        break;
-      }
-    }
-  }
-
-  return lastMatchedTermPartIdx >= 0 && matchedTermItems == termPartsCount
-           ? true
-           : false;
-}
-
 double StringUtils::calcFuzzyScore( const QString &string, const QString &searchTerm )
 {
   double fuzzyScore = 0.0;
-  fuzzyScore = StringUtils::fuzzyMatch( string, searchTerm ) ? 0.5 : 0;
+  if ( string.startsWith( searchTerm, Qt::CaseInsensitive ) )
+  {
+    fuzzyScore += 0.5;
+  }
+  else
+  {
+    static QRegularExpression whitespaceRegex( QStringLiteral( "\\W+" ) );
+    const QStringList parts = string.split( whitespaceRegex );
+    const QStringList termParts = searchTerm.split( whitespaceRegex );
+    const qsizetype termPartsCount = termParts.size();
+
+    qsizetype lastMatchedTermPartIdx = -1;
+    qsizetype matchedTermItems = 0;
+    for ( const QString &part : parts )
+    {
+      for ( qsizetype i = lastMatchedTermPartIdx + 1; i < termPartsCount; i++ )
+      {
+        if ( part.startsWith( termParts[i], Qt::CaseInsensitive ) )
+        {
+          lastMatchedTermPartIdx = i;
+          matchedTermItems++;
+          break;
+        }
+      }
+    }
+
+    if ( lastMatchedTermPartIdx >= 0 && matchedTermItems == termPartsCount )
+    {
+      fuzzyScore += 0.5;
+    }
+  }
+
   fuzzyScore += QgsStringUtils::fuzzyScore( string, searchTerm ) * 0.5;
   return fuzzyScore;
 };

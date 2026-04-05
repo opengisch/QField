@@ -44,11 +44,8 @@ class QFIELD_CORE_EXPORT StringUtils : public QObject
     //! Returns a new UUID string
     static Q_INVOKABLE QString createUuid();
 
-    //! Checks whether the string \a term is part of \a source
-    static bool fuzzyMatch( const QString &source, const QString &term );
-
     //! Calculates a fuzzy matching score between a \a string and a \a searchTerm.
-    static double calcFuzzyScore( const QString &string, const QString &searchTerm );
+    static Q_INVOKABLE double calcFuzzyScore( const QString &string, const QString &searchTerm );
 
     //! Returns a string highlighting a text using HTML formatting
     static Q_INVOKABLE QString highlightText( const QString &string, const QString &highlightText, const QColor &highlightColor = QColor() );
