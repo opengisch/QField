@@ -194,7 +194,26 @@ QString StringUtils::highlightText( const QString &string, const QString &highli
   if ( !highlightText.isEmpty() )
   {
     const QString formattedHighlightText = highlightText.toHtmlEscaped();
-    formattedString.replace( QRegularExpression( QStringLiteral( "(?!=&[a-z]*)(%1)(?![a-z]*;)" ).arg( formattedHighlightText ), QRegularExpression::CaseInsensitiveOption ), QStringLiteral( "<span style=\"text-decoration:underline;%1\">\\1</span>" ).arg( highlightColor.isValid() ? QStringLiteral( "color:%1" ).arg( highlightColor.name() ) : QString() ) );
+    const QRegularExpression formattedHighlightExpression( QStringLiteral( "(?!=&[a-z]*)(%1)(?![a-z]*;)" ).arg( formattedHighlightText ), QRegularExpression::CaseInsensitiveOption );
+    if ( formattedString.contains( formattedHighlightExpression ) )
+    {
+      formattedString.replace( formattedHighlightExpression, QStringLiteral( "<span style=\"text-decoration:underline;%1\">\\1</span>" ).arg( highlightColor.isValid() ? QStringLiteral( "color:%1" ).arg( highlightColor.name() ) : QString() ) );
+    }
+    else
+    {
+      QStringList highlightParts = highlightText.toLower().split( ' ', Qt::SkipEmptyParts );
+      highlightParts.removeDuplicates();
+      std::sort( highlightParts.begin(), highlightParts.end(), []( const QString &s1, const QString &s2 ) { return s1.size() < s2.size(); } );
+      for ( QString &highlightPart : highlightParts )
+      {
+        highlightPart = highlightPart.toHtmlEscaped();
+      }
+      const QRegularExpression formattedHighlightPartsExpression( QStringLiteral( "(?!=&[a-z]*)(%1)(?![a-z]*;)" ).arg( highlightParts.join( '|' ) ), QRegularExpression::CaseInsensitiveOption );
+      if ( formattedString.contains( formattedHighlightPartsExpression ) )
+      {
+        formattedString.replace( formattedHighlightPartsExpression, QStringLiteral( "<span style=\"text-decoration:underline;%1\">\\1</span>" ).arg( highlightColor.isValid() ? QStringLiteral( "color:%1" ).arg( highlightColor.name() ) : QString() ) );
+      }
+    }
   }
 
   return formattedString;
