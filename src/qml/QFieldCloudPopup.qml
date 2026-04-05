@@ -714,8 +714,7 @@ Popup {
 
     function onStatusChanged() {
       if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
-        const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
-        cloudConnection.getSubscriptionInfo(owner);
+        fetchSubscriptionInformation();
         if (popup.pendingAction === "cloudify") {
           popup.pendingAction = "";
           cloudify(pendingCreationTitle, pendingUploadPath);
@@ -738,10 +737,10 @@ Popup {
       uploadLabel.text = "";
     }
 
-    function onSubscriptionInfoReceived(storageUsed, storageTotal) {
-      if (storageTotal > 0) {
-        const usedGB = (storageUsed / (1024 * 1024 * 1024)).toFixed(2);
-        const totalGB = (storageTotal / (1024 * 1024 * 1024)).toFixed(2);
+    function onSubscriptionInformationReceived(subscriptionInformation) {
+      if (subscriptionInformation.storageTotal > 0) {
+        const usedGB = (subscriptionInformation.storageUsed / (1024 * 1024 * 1024)).toFixed(2);
+        const totalGB = (subscriptionInformation.storageTotal / (1024 * 1024 * 1024)).toFixed(2);
         showStorageBar(usedGB, totalGB);
       }
     }
@@ -864,6 +863,9 @@ Popup {
       }
       cloudConnection.getAuthenticationProviders();
     }
+    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      fetchSubscriptionInformation();
+    }
     if (cloudConnection.status === QFieldCloudConnection.Connecting) {
       displayToast(qsTr('Connecting cloud'));
     } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.isProjectOutdated) {
@@ -909,6 +911,13 @@ Popup {
       cloudProjectsModel.createProject(title);
     } else {
       popup.pendingAction = "cloudify";
+    }
+  }
+
+  function fetchSubscriptionInformation() {
+    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
+      cloudConnection.getSubscriptionInformation(owner);
     }
   }
 

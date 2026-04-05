@@ -168,7 +168,7 @@ class QFieldCloudConnection : public QObject
     Q_INVOKABLE void login( const QString &password = QString() );
     Q_INVOKABLE void logout();
 
-    Q_INVOKABLE void getSubscriptionInfo( const QString &user );
+    Q_INVOKABLE void getSubscriptionInformation( const QString &user );
 
     Q_INVOKABLE void getAuthenticationProviders();
     QList<AuthenticationProvider> availableProviders() const;
@@ -265,7 +265,7 @@ class QFieldCloudConnection : public QObject
     void isReachableChanged();
     void queuedProjectPushRequested( const QString &projectId );
 
-    void subscriptionInfoReceived( double storageUsed, double storageTotal );
+    void subscriptionInformationReceived( const CloudSubscriptionInformation &subscriptionInformation );
 
   private:
     void setStatus( ConnectionStatus status );

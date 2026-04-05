@@ -501,7 +501,7 @@ void QFieldCloudConnection::logout()
   setStatus( ConnectionStatus::Disconnected );
 }
 
-void QFieldCloudConnection::getSubscriptionInfo( const QString &user )
+void QFieldCloudConnection::getSubscriptionInformation( const QString &user )
 {
   if ( mStatus != ConnectionStatus::LoggedIn )
   {
@@ -516,17 +516,15 @@ void QFieldCloudConnection::getSubscriptionInfo( const QString &user )
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to fetch subscription info: %1" ).arg( rawReply->errorString() ), QStringLiteral( "QFieldCloud" ) );
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to fetch subscription information: %1" ).arg( rawReply->errorString() ), QStringLiteral( "QFieldCloud" ) );
       return;
     }
 
     const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
     const QJsonObject obj = doc.object();
 
-    const double storageTotal = obj.value( QStringLiteral( "active_storage_total_bytes" ) ).toDouble();
-    const double storageUsed = obj.value( QStringLiteral( "storage_used_bytes" ) ).toDouble();
-
-    emit subscriptionInfoReceived( storageUsed, storageTotal );
+    const CloudSubscriptionInformation subscriptionInformation( obj );
+    emit subscriptionInformationReceived( subscriptionInformation );
   } );
 }
 
