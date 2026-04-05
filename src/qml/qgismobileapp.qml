@@ -3449,7 +3449,7 @@ ApplicationWindow {
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
     skipFirstRow: true
-    minimumRowWidth: Math.max(50, undoRedoMetrics.width + undoButton.leftPadding * 2 + undoButton.rightPadding * 2 + 42 * 2)
+    minimumRowWidth: Math.max(50, undoRedoMetrics.width + (undoButton.leftPadding + undoButton.rightPadding + 42) * 2)
 
     TextMetrics {
       id: undoRedoMetrics
@@ -3469,6 +3469,7 @@ ApplicationWindow {
         width: parent.width / 2
         anchors.left: parent.left
         text: qsTr("Undo")
+        font: Theme.defaultFont
         icon.source: Theme.getThemeVectorIcon("ic_undo_black_24dp")
         leftPadding: Theme.menuItemLeftPadding
 
@@ -3495,6 +3496,7 @@ ApplicationWindow {
         width: parent.width / 2
         anchors.right: parent.right
         text: qsTr("Redo")
+        font: Theme.defaultFont
         icon.source: Theme.getThemeVectorIcon("ic_redo_black_24dp")
 
         contentItem: IconLabel {
