@@ -356,10 +356,14 @@ void FeatureListModel::gatherFeatureList()
     QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
     searchTermExpression = QStringLiteral( " %1 ILIKE '%%2%' " ).arg( fieldDisplayString, escapedSearchTerm );
 
-    const QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
-    for ( const QString &searchTermPart : searchTermParts )
+    QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
+    if ( !searchTermParts.isEmpty() )
     {
-      searchTermExpression += QStringLiteral( " OR %1 ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
+      for ( QString &searchTermPart : searchTermParts )
+      {
+        searchTermPart = QStringLiteral( "%1 ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
+      }
+      searchTermExpression += QStringLiteral( "OR (%2) " ).arg( searchTermParts.join( QStringLiteral( " AND " ) ) );
     }
   }
 
@@ -431,7 +435,7 @@ void FeatureListModel::processFeatureList()
     if ( !mSearchTerm.isEmpty() )
     {
       entry.fuzzyScore = StringUtils::calcFuzzyScore( entry.displayString, mSearchTerm );
-      if ( entry.fuzzyScore == 0 )
+      if ( qgsDoubleNear( entry.fuzzyScore, 0.0 ) )
       {
         continue;
       }
@@ -469,6 +473,8 @@ void FeatureListModel::processFeatureList()
       {
         return false;
       }
+
+      return entry1.fuzzyScore > entry2.fuzzyScore;
     }
 
     if ( mOrderByValue )
