@@ -132,7 +132,7 @@ Popup {
                   if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QFieldCloudProject.Idle)
                     return;
                   connectionSettings.visible = !connectionSettings.visible;
-                  storageMeterBar.visible = !connectionSettings.visible;
+                  storageMeterBar.visible = Qt.binding(() => storageMeterBar.value > 0 && !connectionSettings.visible);
                 }
               }
             }
@@ -912,6 +912,8 @@ Popup {
   }
 
   function fetchSubscriptionInformation() {
+    storageMeterBar.visible = false;
+    storageMeterBar.value = 0;
     if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
       const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
       cloudConnection.getSubscriptionInformation(owner);
