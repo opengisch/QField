@@ -14,7 +14,7 @@ Item {
   property alias value: progressBar.value
   property alias usedText: usedLabel.text
   property alias totalText: totalLabel.text
-  property alias upgradeUrl: upgradeLink.url
+  property alias relatedUrl: linkItem.url
 
   property color normalColor: Theme.qfieldcloudBlue
   property color warningColor: Theme.warningColor
@@ -33,19 +33,25 @@ Item {
     spacing: 8
 
     Item {
-      id: upgradeLink
+      id: linkItem
       Layout.fillWidth: true
-      implicitHeight: upgradeLinkRow.implicitHeight
+      implicitHeight: linkRow.implicitHeight
 
       property string url: ""
       property bool isCritical: value >= meterBar.criticalThreshold
+      property bool hasUrl: url !== ""
 
       Row {
-        id: upgradeLinkRow
+        id: linkRow
         spacing: 8
 
         Label {
-          text: upgradeLink.isCritical ? qsTr("Tap to upgrade") : qsTr("Tap to manage")
+          text: {
+            if (!linkItem.hasUrl) {
+              return qsTr("Storage");
+            }
+            return linkItem.isCritical ? qsTr("Tap to upgrade storage") : qsTr("Tap to manage storage");
+          }
           font: Theme.tipFont
           color: Theme.mainTextColor
           anchors.verticalCenter: parent.verticalCenter
@@ -55,6 +61,7 @@ Item {
           width: 10
           height: 10
           anchors.verticalCenter: parent.verticalCenter
+          visible: linkItem.hasUrl
 
           ShapePath {
             strokeWidth: 1.5
@@ -161,7 +168,11 @@ Item {
 
   MouseArea {
     anchors.fill: parent
-    cursorShape: Qt.PointingHandCursor
-    onClicked: Qt.openUrlExternally(upgradeLink.url)
+    cursorShape: linkItem.hasUrl ? Qt.PointingHandCursor : Qt.ArrowCursor
+    onClicked: {
+      if (linkItem.hasUrl) {
+        Qt.openUrlExternally(linkItem.url);
+      }
+    }
   }
 }

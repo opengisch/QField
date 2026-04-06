@@ -924,7 +924,7 @@ Popup {
     storageMeterBar.value = usedStorage / totalStorage;
     storageMeterBar.usedText = qsTr("%1 GB used").arg(usedStorage);
     storageMeterBar.totalText = qsTr("of %1 GB").arg(totalStorage);
-    storageMeterBar.upgradeUrl = "https://app.qfield.cloud/";
+    storageMeterBar.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
     storageMeterBar.visible = true;
   }
 }
