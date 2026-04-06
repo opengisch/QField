@@ -1,0 +1,21 @@
+diff --git a/src/core/providers/arcgis/qgsarcgisrestquery.h b/src/core/providers/arcgis/qgsarcgisrestquery.h
+index 72b2c0a98e8..d50354becdf 100644
+--- a/src/core/providers/arcgis/qgsarcgisrestquery.h
++++ b/src/core/providers/arcgis/qgsarcgisrestquery.h
+@@ -20,6 +20,7 @@
+ #include "qgshttpheaders.h"
+ #include "qgsrectangle.h"
+ 
++#include <QPointer>
+ #include <QString>
+ #include <QVariantMap>
+ 
+@@ -234,7 +235,7 @@ class CORE_EXPORT QgsArcGisAsyncQuery : public QObject
+     void handleReply();
+ 
+   private:
+-    QNetworkReply *mReply = nullptr;
++    QPointer<QNetworkReply> mReply;
+     QByteArray *mResult = nullptr;
+ };
+ 
