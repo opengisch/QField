@@ -168,7 +168,7 @@ QQuickImageResponse *AsyncLegendImageProvider::requestImageResponse( const QStri
         {
           mapSettings = mMapSettings->mapSettings();
         }
-        AsyncLegendImageResponse *response = new AsyncLegendImageResponse( rasterLayer->dataProvider()->clone(), mMapSettings ? &mapSettings : nullptr );
+        AsyncLegendImageResponse *response = new AsyncLegendImageResponse( rasterLayer->dataProvider(), mMapSettings ? &mapSettings : nullptr );
         return response;
       }
     }
@@ -180,16 +180,15 @@ QQuickImageResponse *AsyncLegendImageProvider::requestImageResponse( const QStri
 
 
 AsyncLegendImageResponse::AsyncLegendImageResponse( QgsRasterDataProvider *dataProvider, const QgsMapSettings *mapSettings )
-  : mDataProvider( dataProvider )
+  : mDataProvider( dataProvider->clone() )
 {
-  if ( dataProvider )
+  if ( mDataProvider )
   {
-    mFetcher.reset( mDataProvider->getLegendGraphicFetcher( mapSettings ) );
+    mFetcher = mDataProvider->getLegendGraphicFetcher( mapSettings );
     if ( mFetcher )
     {
-      mFetcher->setParent( nullptr );
-      connect( mFetcher.get(), &QgsImageFetcher::finish, this, &AsyncLegendImageResponse::handleFinish );
-      connect( mFetcher.get(), &QgsImageFetcher::error, this, &AsyncLegendImageResponse::handleError );
+      connect( mFetcher, &QgsImageFetcher::finish, this, &AsyncLegendImageResponse::handleFinish );
+      connect( mFetcher, &QgsImageFetcher::error, this, &AsyncLegendImageResponse::handleError );
       mFetcher->start();
       return;
     }
@@ -197,6 +196,14 @@ AsyncLegendImageResponse::AsyncLegendImageResponse( QgsRasterDataProvider *dataP
 
   mImage = QImage();
   emit finished();
+}
+
+AsyncLegendImageResponse::~AsyncLegendImageResponse()
+{
+  if ( mFetcher )
+  {
+    mFetcher->deleteLater();
+  }
 }
 
 void AsyncLegendImageResponse::handleFinish( const QImage &image )
