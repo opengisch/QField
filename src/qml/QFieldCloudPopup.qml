@@ -131,11 +131,8 @@ Popup {
                 onClicked: {
                   if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QFieldCloudProject.Idle)
                     return;
-                  if (!connectionSettings.visible) {
-                    connectionSettings.visible = true;
-                  } else {
-                    connectionSettings.visible = false;
-                  }
+                  connectionSettings.visible = !connectionSettings.visible;
+                  storageMeterBar.visible = !connectionSettings.visible;
                 }
               }
             }
