@@ -81,6 +81,11 @@ Popup {
             visible: false
           }
 
+          Item {
+            Layout.fillWidth: true
+            visible: !storageMeterBar.visible
+          }
+
           Rectangle {
             id: cloudAvatarRect
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -736,9 +741,7 @@ Popup {
 
     function onSubscriptionInformationReceived(subscriptionInformation) {
       if (subscriptionInformation.storageTotal > 0) {
-        const usedGB = (subscriptionInformation.storageUsed / (1024 * 1024 * 1024)).toFixed(2);
-        const totalGB = (subscriptionInformation.storageTotal / (1024 * 1024 * 1024)).toFixed(2);
-        showStorageBar(usedGB, totalGB);
+        showStorageBar(subscriptionInformation.storageUsed, subscriptionInformation.storageTotal);
       }
     }
   }
@@ -920,10 +923,17 @@ Popup {
     }
   }
 
-  function showStorageBar(usedStorage, totalStorage) {
-    storageMeterBar.value = usedStorage / totalStorage;
-    storageMeterBar.usedText = qsTr("%1 GB used").arg(usedStorage);
-    storageMeterBar.totalText = qsTr("of %1 GB").arg(totalStorage);
+  function formatStorageSize(bytes) {
+    if (bytes < 1000 * 1000 * 1000) {
+      return (bytes / (1000 * 1000)).toFixed(0) + " MB";
+    }
+    return (bytes / (1000 * 1000 * 1000)).toFixed(2) + " GB";
+  }
+
+  function showStorageBar(usedBytes, totalBytes) {
+    storageMeterBar.value = usedBytes / totalBytes;
+    storageMeterBar.usedText = qsTr("%1 used").arg(formatStorageSize(usedBytes));
+    storageMeterBar.totalText = qsTr("of %1").arg(formatStorageSize(totalBytes));
     storageMeterBar.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
     storageMeterBar.visible = true;
   }
