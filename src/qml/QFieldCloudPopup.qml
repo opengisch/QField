@@ -923,17 +923,10 @@ Popup {
     }
   }
 
-  function formatStorageSize(bytes) {
-    if (bytes < 1000 * 1000 * 1000) {
-      return (bytes / (1000 * 1000)).toFixed(0) + " MB";
-    }
-    return (bytes / (1000 * 1000 * 1000)).toFixed(2) + " GB";
-  }
-
   function showStorageBar(usedBytes, totalBytes) {
     storageMeterBar.value = usedBytes / totalBytes;
-    storageMeterBar.usedText = qsTr("%1 used").arg(formatStorageSize(usedBytes));
-    storageMeterBar.totalText = qsTr("of %1").arg(formatStorageSize(totalBytes));
+    storageMeterBar.usedText = qsTr("%1 used").arg(storageMeterBar.formatStorageSize(usedBytes));
+    storageMeterBar.totalText = qsTr("of %1").arg(storageMeterBar.formatStorageSize(totalBytes));
     storageMeterBar.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
     storageMeterBar.visible = true;
   }

@@ -24,6 +24,13 @@ Item {
   property int animationDuration: 1000
   property int barHeight: 8
 
+  function formatStorageSize(bytes) {
+    if (bytes < 1000 * 1000 * 1000) {
+      return (bytes / (1000 * 1000)).toFixed(0) + " MB";
+    }
+    return (bytes / (1000 * 1000 * 1000)).toFixed(2) + " GB";
+  }
+
   implicitHeight: content.implicitHeight
   implicitWidth: content.implicitWidth
 

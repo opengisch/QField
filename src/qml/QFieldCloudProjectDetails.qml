@@ -16,8 +16,29 @@ ColumnLayout {
   onCloudProjectChanged: {
     if (cloudProject != undefined) {
       cloudProject.downloadThumbnail();
+      detailsStorageMeter.visible = false;
+      detailsStorageMeter.value = 0;
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        cloudConnection.getSubscriptionInformation(cloudProject.owner);
+      }
     } else {
+      detailsStorageMeter.visible = false;
+      detailsStorageMeter.value = 0;
       projectsSwipeView.currentIndex = 0;
+    }
+  }
+
+  Connections {
+    target: cloudConnection
+
+    function onSubscriptionInformationReceived(subscriptionInformation) {
+      if (projectDetails.cloudProject !== undefined && subscriptionInformation.storageTotal > 0) {
+        detailsStorageMeter.value = subscriptionInformation.storageUsed / subscriptionInformation.storageTotal;
+        detailsStorageMeter.usedText = qsTr("%1 used").arg(detailsStorageMeter.formatStorageSize(subscriptionInformation.storageUsed));
+        detailsStorageMeter.totalText = qsTr("of %1").arg(detailsStorageMeter.formatStorageSize(subscriptionInformation.storageTotal));
+        detailsStorageMeter.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
+        detailsStorageMeter.visible = true;
+      }
     }
   }
 
@@ -123,6 +144,12 @@ ColumnLayout {
 
             text: cloudProject != undefined ? cloudProject.owner : ""
           }
+        }
+
+        QfMeterBar {
+          id: detailsStorageMeter
+          Layout.fillWidth: true
+          visible: false
         }
 
         ColumnLayout {
