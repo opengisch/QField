@@ -67,12 +67,13 @@ ApplicationWindow {
   }
 
   Settings {
-    property alias x: mainWindow.x
-    property alias y: mainWindow.y
-    property alias width: mainWindow.width
-    property alias height: mainWindow.height
+    id: mainWindowSettings
 
-    property int minimumSize: Qt.platform.os !== "ios" && Qt.platform.os !== "android" ? 300 : 50
+    property real x: 0
+    property real y: 0
+    property real width: 300
+    property real height: 300
+
     property string screenConfiguration: ''
 
     Component.onCompleted: {
@@ -81,13 +82,40 @@ ApplicationWindow {
         for (let screen of Qt.application.screens) {
           currentScreensConfiguration += `:${screen.width}x${screen.height}-${screen.virtualX}-${screen.virtualY}`;
         }
-        if (currentScreensConfiguration != screenConfiguration) {
+        const minimumSize = 300;
+        if (screenConfiguration == '') {
           screenConfiguration = currentScreensConfiguration;
-          width = Math.max(width, minimumSize);
-          height = Math.max(height, minimumSize);
-          x = Math.min(x, mainWindow.screen.width - width);
-          y = Math.min(y, mainWindow.screen.height - height);
+          x = mainWindow.x;
+          y = mainWindow.y;
+          width = Math.max(mainWindow.width, minimumSize);
+          height = Math.max(mainWindow.height, minimumSize);
+          if (mainWindow.width !== width) {
+            mainWindow.width = width;
+          }
+          if (mainWindow.height !== height) {
+            mainWindow.height = height;
+          }
+        } else if (screenConfiguration != currentScreensConfiguration) {
+          screenConfiguration = currentScreensConfiguration;
+          mainWindow.x = Math.min(x, mainWindow.screen.width - width);
+          mainWindow.y = Math.min(y, mainWindow.screen.height - height);
+          mainWindow.width = Math.max(width, minimumSize);
+          mainWindow.height = Math.max(height, minimumSize);
+        } else {
+          mainWindow.x = x;
+          mainWindow.y = y;
+          mainWindow.width = Math.max(width, minimumSize);
+          mainWindow.height = Math.max(height, minimumSize);
         }
+      }
+    }
+
+    Component.onDestruction: {
+      if (Qt.platform.os !== "ios" && Qt.platform.os !== "android") {
+        mainWindowSettings.x = mainWindow.x;
+        mainWindowSettings.y = mainWindow.y;
+        mainWindowSettings.width = mainWindow.width;
+        mainWindowSettings.height = mainWindow.height;
       }
     }
   }
