@@ -22,14 +22,6 @@ RelationEditorBase {
   }
 
   property int documentViewer: referencingFeatureListModel.attachmentDocumentViewer
-
-  property string attachmentStorageUrl: {
-    const url = referencingFeatureListModel.attachmentStorageUrl;
-    if (!url)
-      return "";
-    return url.endsWith("/") ? url : url + "/";
-  }
-
   property var activeMediaItem: null
 
   function requestMediaFocus(item) {
@@ -444,7 +436,7 @@ RelationEditorBase {
         });
       } else {
         pendingDownloads[path] = true;
-        enqueueExternalFetch(path, attachmentStorageUrl + path, authConfigId);
+        enqueueExternalFetch(path, referencingFeatureListModel.attachmentStorageUrl + path, authConfigId);
       }
     } else if (cloudProjectsModel && cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.attachmentsOnDemandEnabled) {
       pendingDownloads[path] = true;

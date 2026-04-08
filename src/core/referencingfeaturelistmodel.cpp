@@ -133,6 +133,10 @@ void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
         mAttachmentStorageType = config.value( QStringLiteral( "StorageType" ) ).toString();
         mAttachmentStorageAuthConfigId = config.value( QStringLiteral( "StorageAuthConfigId" ) ).toString();
         mAttachmentStorageUrl = config.value( QStringLiteral( "StorageUrl" ) ).toString();
+        if ( !mAttachmentStorageUrl.isEmpty() && !mAttachmentStorageUrl.endsWith( QLatin1Char( '/' ) ) )
+        {
+          mAttachmentStorageUrl.append( QLatin1Char( '/' ) );
+        }
         break;
       }
     }
@@ -180,6 +184,10 @@ void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relat
         mAttachmentStorageType = config.value( QStringLiteral( "StorageType" ) ).toString();
         mAttachmentStorageAuthConfigId = config.value( QStringLiteral( "StorageAuthConfigId" ) ).toString();
         mAttachmentStorageUrl = config.value( QStringLiteral( "StorageUrl" ) ).toString();
+        if ( !mAttachmentStorageUrl.isEmpty() && !mAttachmentStorageUrl.endsWith( QLatin1Char( '/' ) ) )
+        {
+          mAttachmentStorageUrl.append( QLatin1Char( '/' ) );
+        }
         break;
       }
     }
