@@ -519,21 +519,11 @@ ResourceSource *AndroidPlatformUtilities::getGalleryVideo( const QString &prefix
   return processGalleryActivity( prefix, videoFilePath, QStringLiteral( "video/*" ), parent );
 }
 
-ResourceSource *AndroidPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &filter, QObject *parent )
+ResourceSource *AndroidPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent )
 {
   const QFileInfo destinationInfo( prefix + filePath );
   const QDir prefixDir( prefix );
   prefixDir.mkpath( destinationInfo.absolutePath() );
-
-  QString mimeType;
-  if ( filter.contains( QStringLiteral( "*.mp3" ) ) )
-  {
-    mimeType = "audio/*";
-  }
-  else
-  {
-    mimeType = "*/*";
-  }
 
   AndroidResourceSource *resourceSource = nullptr;
   if ( mActivity.isValid() )
