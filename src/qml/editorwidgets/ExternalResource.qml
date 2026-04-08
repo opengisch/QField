@@ -92,7 +92,9 @@ EditorWidgetBase {
               Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/authentication/');
             });
           } else {
-            externalStorage.fetch(value, config["StorageAuthConfigId"]);
+            const storageUrl = config["StorageUrl"] !== undefined ? config["StorageUrl"] : "";
+            const normalizedUrl = storageUrl !== "" && !storageUrl.endsWith("/") ? storageUrl + "/" : storageUrl;
+            externalStorage.fetch(normalizedUrl + value, config["StorageAuthConfigId"]);
             fetchingIndicator.running = true;
           }
         } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.attachmentsOnDemandEnabled) {
