@@ -12,18 +12,22 @@ ColumnLayout {
   signal pushChanges
 
   property var cloudProject: undefined
+  property string lastSubscriptionOwner: ""
 
   onCloudProjectChanged: {
     if (cloudProject != undefined) {
       cloudProject.downloadThumbnail();
-      detailsStorageMeter.visible = false;
-      detailsStorageMeter.value = 0;
+      if (cloudProject.owner !== lastSubscriptionOwner) {
+        detailsStorageMeter.visible = false;
+        detailsStorageMeter.value = 0;
+      }
       if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         cloudConnection.getSubscriptionInformation(cloudProject.owner);
       }
     } else {
       detailsStorageMeter.visible = false;
       detailsStorageMeter.value = 0;
+      lastSubscriptionOwner = "";
       projectsSwipeView.currentIndex = 0;
     }
   }
@@ -33,6 +37,7 @@ ColumnLayout {
 
     function onSubscriptionInformationReceived(subscriptionInformation) {
       if (projectDetails.cloudProject !== undefined && subscriptionInformation.storageTotal > 0) {
+        lastSubscriptionOwner = projectDetails.cloudProject.owner;
         detailsStorageMeter.value = subscriptionInformation.storageUsed / subscriptionInformation.storageTotal;
         detailsStorageMeter.usageText = qsTr("Using %1 of %2").arg(FileUtils.representFileSize(subscriptionInformation.storageUsed, true)).arg(FileUtils.representFileSize(subscriptionInformation.storageTotal, true));
         detailsStorageMeter.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl && projectDetails.cloudProject.owner === cloudConnection.username ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";

@@ -17,6 +17,7 @@ Popup {
   property string pendingAction: ""
   property string pendingCreationTitle: ""
   property string pendingUploadPath: ""
+  property string lastSubscriptionOwner: ""
 
   onAboutToHide: {
     pendingAction = "";
@@ -723,6 +724,10 @@ Popup {
         } else if (popup.pendingAction == "connect") {
           popup.visible = false;
         }
+      } else if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
+        lastSubscriptionOwner = "";
+        storageMeterBar.visible = false;
+        storageMeterBar.value = 0;
       }
     }
 
@@ -915,15 +920,19 @@ Popup {
   }
 
   function fetchSubscriptionInformation() {
-    storageMeterBar.visible = false;
-    storageMeterBar.value = 0;
     if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
       const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
+      if (owner !== lastSubscriptionOwner) {
+        storageMeterBar.visible = false;
+        storageMeterBar.value = 0;
+      }
       cloudConnection.getSubscriptionInformation(owner);
     }
   }
 
   function showStorageBar(usedBytes, totalBytes) {
+    const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
+    lastSubscriptionOwner = owner;
     storageMeterBar.value = usedBytes / totalBytes;
     storageMeterBar.usageText = qsTr("Used %1 of %2").arg(FileUtils.representFileSize(usedBytes, true)).arg(FileUtils.representFileSize(totalBytes, true));
     storageMeterBar.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl && (!cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.owner === cloudConnection.username) ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
