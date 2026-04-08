@@ -388,10 +388,15 @@ ResourceSource *PlatformUtilities::getGalleryVideo( const QString &prefix, const
   return createResource( prefix, videoFilePath, fileName, parent );
 }
 
-ResourceSource *PlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &filter, QObject *parent )
+ResourceSource *PlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent )
 {
-  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select File" ), prefix, filter );
-  return createResource( prefix, filePath, fileName, parent );
+  QFileDialog fileDialog( nullptr, tr( "Select File" ), prefix );
+  fileDialog.setMimeTypeFilters( { mimeType } );
+  if ( fileDialog.exec() )
+  {
+    return createResource( prefix, filePath, fileDialog.selectedFiles().at( 0 ), parent );
+  }
+  return nullptr;
 }
 
 ViewStatus *PlatformUtilities::open( const QString &uri, bool, QObject * )

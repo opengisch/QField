@@ -777,9 +777,9 @@ EditorWidgetBase {
     platformUtilities.requestStoragePermission();
     var filepath = getResourceFilePath();
     if (documentViewer == ExternalResource.DocumentAudio) {
-      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, qsTr("Audio files") + " (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)", this);
+      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "audio/*", this);
     } else {
-      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, qsTr("All files") + " (*.*)", this);
+      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "*/*", this);
     }
   }
 

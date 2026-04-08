@@ -209,7 +209,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param filter The filter string (e.g. *.mp3)
      * @return The name of the file or null
      */
-    Q_INVOKABLE virtual ResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &filter = tr( "All files (*.*)" ), QObject *parent = nullptr );
+    Q_INVOKABLE virtual ResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &mimeType = QStringLiteral( "*/*" ), QObject *parent = nullptr );
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.
