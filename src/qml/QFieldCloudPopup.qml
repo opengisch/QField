@@ -746,7 +746,7 @@ Popup {
 
     function onSubscriptionInformationReceived(subscriptionInformation) {
       if (subscriptionInformation.storageTotal > 0) {
-        showStorageBar(subscriptionInformation.storageUsed, subscriptionInformation.storageTotal);
+        showStorageBar(subscriptionInformation.storageUsed, subscriptionInformation.storageTotal, subscriptionInformation.plan);
       }
     }
   }
@@ -930,12 +930,20 @@ Popup {
     }
   }
 
-  function showStorageBar(usedBytes, totalBytes) {
+  function showStorageBar(usedBytes, totalBytes, plan) {
     const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
     lastSubscriptionOwner = owner;
     storageMeterBar.value = usedBytes / totalBytes;
     storageMeterBar.usageText = qsTr("Used %1 of %2").arg(FileUtils.representFileSize(usedBytes, true)).arg(FileUtils.representFileSize(totalBytes, true));
-    storageMeterBar.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl && (!cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.owner === cloudConnection.username) ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
+    if (cloudConnection.url !== cloudConnection.defaultUrl) {
+      storageMeterBar.relatedUrl = "";
+    } else if (plan === "Community") {
+      storageMeterBar.relatedUrl = "https://app.qfield.cloud/plans";
+    } else if (!cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.owner === cloudConnection.username) {
+      storageMeterBar.relatedUrl = "https://app.qfield.cloud/settings/" + cloudConnection.username + "/billing";
+    } else {
+      storageMeterBar.relatedUrl = "";
+    }
     storageMeterBar.visible = true;
   }
 }
