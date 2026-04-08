@@ -61,7 +61,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
     ResourceSource *getCameraVideo( const QString &prefix, const QString &videoFilePath, const QString &suffix, QObject *parent = nullptr ) override;
     ResourceSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent = nullptr ) override;
     ResourceSource *getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr ) override;
-    ResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &filter, QObject *parent = nullptr ) override;
+    ResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent = nullptr ) override;
 
     ViewStatus *open( const QString &filePath, bool isEditing, QObject *parent = nullptr ) override;
 
