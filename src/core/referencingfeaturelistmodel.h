@@ -145,6 +145,15 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
      */
     QString attachmentFieldName() const;
 
+    /**
+     * Returns the document viewer type of the first ExternalResource field found
+     * on the referencing layer. The value corresponds to the "DocumentViewer"
+     * configuration entry of the editor widget setup (0 = file, 1 = image,
+     * 3 = audio, 4 = video). Returns 0 if no ExternalResource field exists.
+     *
+     * \see QgsExternalResourceWidget::DocumentViewerContent in
+     * https://github.com/qgis/QGIS/blob/6ca6cf1bab8e017355f7631115cf48bc3c6a4601/src/gui/qgsexternalresourcewidget.h#L72-L79
+     */
     int attachmentDocumentViewer() const;
 
     /**
@@ -235,6 +244,9 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
     QString mAttachmentStorageUrl;
 
     FeatureGatherer *mGatherer = nullptr;
+
+    //! Refreshes the cached attachment field info from the current relation's referencing layer
+    void updateAttachmentFieldInfo();
 
     //! Checks if the parent pk(s) is not null
     bool checkParentPrimaries();
