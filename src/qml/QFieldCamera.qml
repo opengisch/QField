@@ -179,6 +179,9 @@ Popup {
               id: camera
               property bool restarting: false
               active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted && !restarting
+              focusMode: Camera.FocusModeInfinity
+              exposureMode: Camera.ExposurePortrait
+              whiteBalanceMode: Camera.WhiteBalanceSunlight
 
               function applyCameraFormat() {
                 if (cameraSettings.pixelFormat != 0) {
