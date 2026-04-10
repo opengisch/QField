@@ -314,7 +314,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     }
   } );
 
-  mTrackingModel = new TrackingModel();
+  mTrackingModel = new TrackingModel( this );
   mFocusStack = std::make_unique<FocusStack>( this );
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
   mLayerObserver = std::make_unique<LayerObserver>( mProject );
@@ -1479,10 +1479,9 @@ QgisMobileapp::~QgisMobileapp()
 
   delete mOfflineEditing;
   mProject->clear();
-  delete mProject;
-  delete mAppMissingGridHandler;
 
   QgsApplication::taskManager()->cancelAll();
+
   mApp->exitQgis();
   QMetaObject::invokeMethod( mApp, &QgsApplication::quit, Qt::QueuedConnection );
 }
