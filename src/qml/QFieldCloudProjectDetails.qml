@@ -12,12 +12,12 @@ ColumnLayout {
   signal pushChanges
 
   property var cloudProject: undefined
-  property string lastSubscriptionOwner: ""
+  property string lastSubscriptionUser: ""
 
   onCloudProjectChanged: {
     if (cloudProject != undefined) {
       cloudProject.downloadThumbnail();
-      if (cloudProject.owner !== lastSubscriptionOwner) {
+      if (cloudProject.owner !== lastSubscriptionUser) {
         detailsStorageMeter.visible = false;
         detailsStorageMeter.value = 0;
       }
@@ -27,7 +27,7 @@ ColumnLayout {
     } else {
       detailsStorageMeter.visible = false;
       detailsStorageMeter.value = 0;
-      lastSubscriptionOwner = "";
+      lastSubscriptionUser = "";
       projectsSwipeView.currentIndex = 0;
     }
   }
@@ -37,7 +37,7 @@ ColumnLayout {
 
     function onSubscriptionInformationReceived(subscriptionInformation) {
       if (projectDetails.cloudProject !== undefined && subscriptionInformation.storageTotal > 0) {
-        lastSubscriptionOwner = projectDetails.cloudProject.owner;
+        lastSubscriptionUser = projectDetails.cloudProject.owner;
         detailsStorageMeter.value = subscriptionInformation.storageUsed / subscriptionInformation.storageTotal;
         detailsStorageMeter.usageText = qsTr("Using %1 of %2").arg(FileUtils.representFileSize(subscriptionInformation.storageUsed, true)).arg(FileUtils.representFileSize(subscriptionInformation.storageTotal, true));
         if (cloudConnection.url !== cloudConnection.defaultUrl) {
