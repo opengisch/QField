@@ -383,3 +383,24 @@ void QFieldCloudUtils::removePendingAttachment( const QString &username, const Q
     }
   }
 }
+
+QString QFieldCloudUtils::subscriptionManagementUrl( const QString &serverUrl, const QString &plan, const QString &projectOwner, const QString &username )
+{
+  if ( serverUrl != QFieldCloudConnection::defaultUrl() )
+  {
+    return QString();
+  }
+
+  // TODO: change to plan_code once opengisch/QFieldCloud#1539 merged
+  if ( plan.compare( QStringLiteral( "Community" ), Qt::CaseInsensitive ) == 0 )
+  {
+    return QStringLiteral( "https://app.qfield.cloud/plans" );
+  }
+
+  if ( projectOwner.isEmpty() || projectOwner == username )
+  {
+    return QStringLiteral( "https://app.qfield.cloud/settings/%1/billing" ).arg( username );
+  }
+
+  return QString();
+}

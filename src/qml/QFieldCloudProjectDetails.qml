@@ -40,15 +40,7 @@ ColumnLayout {
         lastSubscriptionUser = projectDetails.cloudProject.owner;
         detailsStorageMeter.value = subscriptionInformation.storageUsed / subscriptionInformation.storageTotal;
         detailsStorageMeter.usageText = qsTr("Using %1 of %2").arg(FileUtils.representFileSize(subscriptionInformation.storageUsed, true)).arg(FileUtils.representFileSize(subscriptionInformation.storageTotal, true));
-        if (cloudConnection.url !== cloudConnection.defaultUrl) {
-          detailsStorageMeter.relatedUrl = "";
-        } else if (subscriptionInformation.plan === "Community") {
-          detailsStorageMeter.relatedUrl = "https://app.qfield.cloud/plans";
-        } else if (projectDetails.cloudProject.owner === cloudConnection.username) {
-          detailsStorageMeter.relatedUrl = "https://app.qfield.cloud/settings/" + cloudConnection.username + "/billing";
-        } else {
-          detailsStorageMeter.relatedUrl = "";
-        }
+        detailsStorageMeter.relatedUrl = QFieldCloudUtils.subscriptionManagementUrl(cloudConnection.url, subscriptionInformation.plan, projectDetails.cloudProject.owner, cloudConnection.username);
         detailsStorageMeter.visible = true;
       }
     }

@@ -935,15 +935,7 @@ Popup {
     lastSubscriptionUser = owner;
     storageMeterBar.value = usedBytes / totalBytes;
     storageMeterBar.usageText = qsTr("Used %1 of %2").arg(FileUtils.representFileSize(usedBytes, true)).arg(FileUtils.representFileSize(totalBytes, true));
-    if (cloudConnection.url !== cloudConnection.defaultUrl) {
-      storageMeterBar.relatedUrl = "";
-    } else if (plan === "Community") {
-      storageMeterBar.relatedUrl = "https://app.qfield.cloud/plans";
-    } else if (!cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.owner === cloudConnection.username) {
-      storageMeterBar.relatedUrl = "https://app.qfield.cloud/settings/" + cloudConnection.username + "/billing";
-    } else {
-      storageMeterBar.relatedUrl = "";
-    }
+    storageMeterBar.relatedUrl = QFieldCloudUtils.subscriptionManagementUrl(cloudConnection.url, plan, cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : "", cloudConnection.username);
     storageMeterBar.visible = true;
   }
 }
