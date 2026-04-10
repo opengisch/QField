@@ -956,7 +956,7 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
     i++;
   }
 
-  QModelIndex indexChanged = createIndex( i, 1 );
+  QModelIndex indexChanged = createIndex( i, 0 );
   emit dataChanged( indexChanged, indexChanged );
 
   for ( auto &pair : mSelectedFeatures )
@@ -987,7 +987,7 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
     i++;
   }
 
-  QModelIndex indexChanged = createIndex( i, 1 );
+  QModelIndex indexChanged = createIndex( i, 0 );
   emit dataChanged( indexChanged, indexChanged, QVector<int>() << MultiFeatureListModel::GeometryRole << MultiFeatureListModel::FeatureSelectedRole );
 
   for ( auto &pair : mSelectedFeatures )
