@@ -243,7 +243,7 @@ void AttributeFormModelBase::resetModel()
           QString visibilityExpression;
           if ( container->visibilityExpression().enabled() )
           {
-            visibilityExpression = container->visibilityExpression().data().expression();
+            visibilityExpression = QStringLiteral( "(%1)" ).arg( container->visibilityExpression().data().expression() );
           }
 
           buildForm( container, item, visibilityExpression, containers, currentTab, columnCount );
@@ -513,9 +513,13 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         if ( innerContainer->visibilityExpression().enabled() )
         {
           if ( visibilityExpression.isNull() )
-            visibilityExpression = innerContainer->visibilityExpression().data().expression();
+          {
+            visibilityExpression = QStringLiteral( "(%1)" ).arg( innerContainer->visibilityExpression().data().expression() );
+          }
           else
-            visibilityExpression += " AND " + innerContainer->visibilityExpression().data().expression();
+          {
+            visibilityExpression += QStringLiteral( " AND (%1)" ).arg( innerContainer->visibilityExpression().data().expression() );
+          }
         }
 
         item->setData( "container", AttributeFormModel::ElementType );
@@ -525,14 +529,18 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
         item->setData( element->showLabel() ? innerContainer->name() : QString(), AttributeFormModel::GroupName );
         if ( innerContainer->backgroundColor().isValid() )
+        {
           item->setData( innerContainer->backgroundColor(), AttributeFormModel::GroupColor );
+        }
 
         buildForm( innerContainer, item, visibilityExpression, containers, 0, innerColumnCount );
         parent->appendRow( item );
         containers << item;
 
         if ( !visibilityExpression.isEmpty() )
+        {
           mVisibilityExpressions.append( qMakePair( QgsExpression( visibilityExpression ), item ) );
+        }
         break;
       }
 
