@@ -112,7 +112,10 @@ QgsFeature ReferencingFeatureListModelBase::feature() const
 void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
 {
   mRelation = relation;
+  emit relationChanged();
+
   updateAttachmentFieldInfo();
+
   reload();
 }
 
@@ -133,16 +136,16 @@ void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relat
     return;
   }
 
-  mRelation = QgsProject::instance()->relationManager()->relation( relationId );
-  updateAttachmentFieldInfo();
-
-  emit relationChanged();
-  reload();
+  setRelation( QgsProject::instance()->relationManager()->relation( relationId ) );
 }
 
 void ReferencingFeatureListModelBase::setNmRelation( const QgsRelation &relation )
 {
   mNmRelation = relation;
+  emit nmRelationChanged();
+
+  updateAttachmentFieldInfo();
+
   reload();
 }
 
@@ -163,8 +166,7 @@ void ReferencingFeatureListModelBase::setCurrentNmRelationId( const QString &nmR
     return;
   }
 
-  mNmRelation = QgsProject::instance()->relationManager()->relation( nmRelationId );
-  reload();
+  setNmRelation( QgsProject::instance()->relationManager()->relation( nmRelationId ) );
 }
 
 void ReferencingFeatureListModelBase::setParentPrimariesAvailable( const bool parentPrimariesAvailable )
