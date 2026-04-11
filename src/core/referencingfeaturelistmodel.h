@@ -244,6 +244,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
     QString mAttachmentStorageUrl;
 
     FeatureGatherer *mGatherer = nullptr;
+    QString mLastGathererFeaturesFilter;
 
     //! Refreshes the cached attachment field info from the current relation's referencing layer
     void updateAttachmentFieldInfo();

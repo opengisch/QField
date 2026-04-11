@@ -101,6 +101,16 @@ void ReferencingFeatureListModelBase::setFeature( const QgsFeature &feature )
   }
 
   mFeature = feature;
+
+  if ( mRelation.isValid() && mFeature.isValid() && !mLastGathererFeaturesFilter.isEmpty() )
+  {
+    // The updated feature did not change the related features filter, skip reload
+    if ( mLastGathererFeaturesFilter == mRelation.getRelatedFeaturesFilter( mFeature ) )
+    {
+      return;
+    }
+  }
+
   reload();
 }
 
@@ -114,6 +124,7 @@ void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
   mRelation = relation;
   emit relationChanged();
 
+  mLastGathererFeaturesFilter.clear();
   updateAttachmentFieldInfo();
 
   reload();
@@ -144,6 +155,7 @@ void ReferencingFeatureListModelBase::setNmRelation( const QgsRelation &relation
   mNmRelation = relation;
   emit nmRelationChanged();
 
+  mLastGathererFeaturesFilter.clear();
   updateAttachmentFieldInfo();
 
   reload();
@@ -229,6 +241,7 @@ void ReferencingFeatureListModelBase::reload()
     }
 
     mGatherer = new FeatureGatherer( mFeature, mRelation, mNmRelation );
+    mLastGathererFeaturesFilter = mRelation.getRelatedFeaturesFilter( mFeature );
 
     connect( mGatherer, &FeatureGatherer::collectedValues, this, &ReferencingFeatureListModelBase::updateModel );
     connect( mGatherer, &FeatureGatherer::finished, this, &ReferencingFeatureListModelBase::gathererThreadFinished );
