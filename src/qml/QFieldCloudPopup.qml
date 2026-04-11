@@ -138,7 +138,7 @@ Popup {
                   if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QFieldCloudProject.Idle)
                     return;
                   connectionSettings.visible = !connectionSettings.visible;
-                  storageMeterBar.visible = Qt.binding(() => storageMeterBar.value > 0 && !connectionSettings.visible);
+                  storageMeterBar.visible = Qt.binding(() => (storageMeterBar.value > 0 || storageMeterBar.loading) && !connectionSettings.visible);
                 }
               }
             }
@@ -745,6 +745,7 @@ Popup {
     }
 
     function onSubscriptionInformationReceived(subscriptionInformation) {
+      storageMeterBar.loading = false;
       if (subscriptionInformation.storageTotal > 0) {
         showStorageBar(subscriptionInformation.storageUsed, subscriptionInformation.storageTotal, subscriptionInformation.plan);
       }
@@ -922,9 +923,14 @@ Popup {
   function fetchSubscriptionInformation() {
     if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
       const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
+      const isOwnSubscription = !cloudProjectsModel.currentProject || owner === cloudConnection.username;
       if (owner !== lastSubscriptionUser) {
         storageMeterBar.visible = false;
         storageMeterBar.value = 0;
+      }
+      if (isOwnSubscription) {
+        storageMeterBar.loading = true;
+        storageMeterBar.visible = true;
       }
       cloudConnection.getSubscriptionInformation(owner);
     }

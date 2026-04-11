@@ -22,6 +22,10 @@ ColumnLayout {
         detailsStorageMeter.value = 0;
       }
       if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        if (cloudProject.owner === cloudConnection.username) {
+          detailsStorageMeter.loading = true;
+          detailsStorageMeter.visible = true;
+        }
         cloudConnection.getSubscriptionInformation(cloudProject.owner);
       }
     } else {
@@ -36,6 +40,7 @@ ColumnLayout {
     target: cloudConnection
 
     function onSubscriptionInformationReceived(subscriptionInformation) {
+      detailsStorageMeter.loading = false;
       if (projectDetails.cloudProject !== undefined && subscriptionInformation.storageTotal > 0) {
         lastSubscriptionUser = projectDetails.cloudProject.owner;
         detailsStorageMeter.value = subscriptionInformation.storageUsed / subscriptionInformation.storageTotal;
