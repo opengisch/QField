@@ -101,6 +101,7 @@ void ReferencingFeatureListModelBase::setFeature( const QgsFeature &feature )
   }
 
   mFeature = feature;
+  emit featureChanged();
 
   if ( mRelation.isValid() && mFeature.isValid() && !mLastGathererFeaturesFilter.isEmpty() )
   {
