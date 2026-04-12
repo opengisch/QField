@@ -205,113 +205,47 @@ Item {
       visible: !meterBar.loading
     }
 
-    RowLayout {
+    Rectangle {
       visible: meterBar.loading
-      Layout.fillWidth: true
-      spacing: 4
-
-      Label {
-        text: qsTr("Used")
-        font: Theme.tipFont
-        color: Theme.secondaryTextColor
-        opacity: 0.4
-      }
+      width: 150
+      height: usageLabel.font.pixelSize
+      radius: 3
+      color: Theme.controlBackgroundAlternateColor
+      clip: true
 
       Rectangle {
-        width: 50
-        height: usageLabel.font.pixelSize + 4
+        width: parent.width * 0.4
+        height: parent.height
         radius: 3
-        color: Theme.controlBackgroundAlternateColor
-        clip: true
-
-        Rectangle {
-          width: parent.width * 0.4
-          height: parent.height
-          radius: 3
-          opacity: 0.6
-          gradient: Gradient {
-            orientation: Gradient.Horizontal
-            GradientStop {
-              position: 0.0
-              color: "transparent"
-            }
-            GradientStop {
-              position: 0.5
-              color: Theme.mainBackgroundColor
-            }
-            GradientStop {
-              position: 1.0
-              color: "transparent"
-            }
+        opacity: 0.6
+        gradient: Gradient {
+          orientation: Gradient.Horizontal
+          GradientStop {
+            position: 0.0
+            color: "transparent"
           }
-          SequentialAnimation on x {
-            loops: Animation.Infinite
-            running: meterBar.loading && meterBar.visible
-            NumberAnimation {
-              from: -parent.width * 0.4
-              to: parent.width
-              duration: 1200
-              easing.type: Easing.InOutQuad
-            }
-            PauseAnimation {
-              duration: 400
-            }
+          GradientStop {
+            position: 0.5
+            color: Theme.mainBackgroundColor
+          }
+          GradientStop {
+            position: 1.0
+            color: "transparent"
           }
         }
-      }
-
-      Label {
-        text: qsTr("of")
-        font: Theme.tipFont
-        color: Theme.secondaryTextColor
-        opacity: 0.4
-      }
-
-      Rectangle {
-        width: 50
-        height: usageLabel.font.pixelSize + 4
-        radius: 3
-        color: Theme.controlBackgroundAlternateColor
-        clip: true
-
-        Rectangle {
-          width: parent.width * 0.4
-          height: parent.height
-          radius: 3
-          opacity: 0.6
-          gradient: Gradient {
-            orientation: Gradient.Horizontal
-            GradientStop {
-              position: 0.0
-              color: "transparent"
-            }
-            GradientStop {
-              position: 0.5
-              color: Theme.mainBackgroundColor
-            }
-            GradientStop {
-              position: 1.0
-              color: "transparent"
-            }
+        SequentialAnimation on x {
+          loops: Animation.Infinite
+          running: meterBar.loading && meterBar.visible
+          NumberAnimation {
+            from: -parent.width * 0.4
+            to: parent.width
+            duration: 1200
+            easing.type: Easing.InOutQuad
           }
-          SequentialAnimation on x {
-            loops: Animation.Infinite
-            running: meterBar.loading && meterBar.visible
-            NumberAnimation {
-              from: -parent.width * 0.4
-              to: parent.width
-              duration: 1200
-              easing.type: Easing.InOutQuad
-            }
-            PauseAnimation {
-              duration: 400
-            }
+          PauseAnimation {
+            duration: 400
           }
         }
-      }
-
-      Item {
-        Layout.fillWidth: true
       }
     }
   }
