@@ -493,13 +493,17 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   // Register the notes
   if ( notesLayer && attachmentsLayer )
   {
-    QgsRelation rel;
+    QgsRelationContext relationContext( createdProject );
+    QgsRelation rel( relationContext );
     rel.setId( QStringLiteral( "notes_attachments_relation" ) );
     rel.setName( tr( "Attachments" ) );
     rel.setReferencedLayer( notesLayer->id() );
     rel.setReferencingLayer( attachmentsLayer->id() );
     rel.addFieldPair( QStringLiteral( "note_uuid" ), QStringLiteral( "uuid" ) );
     rel.setStrength( Qgis::RelationshipStrength::Association );
+
+    qDebug() << "Relation valid?" << rel.isValid() << "validation error:" << rel.validationError();
+
     if ( rel.isValid() )
     {
       createdProject->relationManager()->addRelation( rel );
