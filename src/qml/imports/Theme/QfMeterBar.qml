@@ -208,7 +208,7 @@ Item {
     Rectangle {
       visible: meterBar.loading
       width: 150
-      height: usageLabel.font.pixelSize
+      height: usageLabel.font.pointSize
       radius: 3
       color: Theme.controlBackgroundAlternateColor
       clip: true
