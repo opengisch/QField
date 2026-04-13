@@ -17,9 +17,27 @@
 #ifndef AUDIORECORDER_H
 #define AUDIORECORDER_H
 
+#include <QAudioSource>
+#include <QIODevice>
 #include <QMediaCaptureSession>
 #include <QMediaRecorder>
 #include <QObject>
+
+
+class AudioProbe : public QIODevice
+{
+    Q_OBJECT
+
+  public:
+    explicit AudioProbe( QObject *parent = nullptr );
+
+    qint64 readData( char *data, qint64 maxlen ) override;
+    qint64 writeData( const char *data, qint64 len ) override;
+
+  signals:
+    void levelCalculated( double level );
+};
+
 
 /**
  * \ingroup core
@@ -77,6 +95,9 @@ class AudioRecorder : public QMediaRecorder
   private:
     bool mHasLevel = false;
     double mLevel = 0.0;
+
+    QAudioSource *mAudioSource = nullptr;
+    AudioProbe *mProbe = nullptr;
 };
 
 #endif // AUDIORECORDER_H

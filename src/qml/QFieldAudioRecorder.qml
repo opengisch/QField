@@ -167,10 +167,16 @@ QfPopup {
         Rectangle {
           id: levelFeedback
           anchors.centerIn: parent
-          width: 120 + (Math.min(audioFeedback.width, audioFeedback.height) - 120) * 0
+          width: 120 + (Math.min(audioFeedback.width, audioFeedback.height) - 120) * Math.min(1.0, recorder.level * 2)
           height: width
           radius: width / 2
           color: "#44808080"
+
+          Behavior on width {
+            SmoothedAnimation {
+              duration: 200
+            }
+          }
 
           SequentialAnimation {
             NumberAnimation {
@@ -187,7 +193,7 @@ QfPopup {
               duration: 2000
               easing.type: Easing.InOutQuad
             }
-            running: recorder.recorderState === MediaRecorder.RecordingState
+            running: !recorder.hasLevel && recorder.recorderState === MediaRecorder.RecordingState
             loops: Animation.Infinite
           }
 
