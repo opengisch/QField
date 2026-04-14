@@ -101,7 +101,6 @@ Page {
       model: form.model.hasTabs ? form.model : 0
       Layout.fillWidth: true
       Layout.preferredHeight: defaultHeight
-      interactive: !form.isWizard
 
       delegate: TabButton {
         id: tabButton
