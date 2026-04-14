@@ -25,6 +25,9 @@ Popup {
 
   property bool allowStateToggle: false
 
+  readonly property int bottomPanelExtra: allowStateToggle ? 70 : 0
+  readonly property int captureClusterOffset: allowStateToggle ? -25 : 0
+
   function requiredPermissionsGranted() {
     if (cameraPermission.status !== Qt.PermissionStatus.Granted) {
       return false;
@@ -432,16 +435,16 @@ Popup {
     }
 
     Rectangle {
-      width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin
-      height: cameraItem.isPortraitMode ? 100 + mainWindow.sceneRightMargin : parent.height
+      width: cameraItem.isPortraitMode ? parent.width : 100 + cameraItem.bottomPanelExtra + mainWindow.sceneBottomMargin
+      height: cameraItem.isPortraitMode ? 100 + cameraItem.bottomPanelExtra + mainWindow.sceneRightMargin : parent.height
       x: cameraItem.isPortraitMode ? 0 : parent.width - width
       y: cameraItem.isPortraitMode ? parent.height - height : 0
 
       color: Theme.darkGraySemiOpaque
 
       Rectangle {
-        width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin
-        height: cameraItem.isPortraitMode ? 100 + mainWindow.sceneRightMargin : parent.height
+        width: cameraItem.isPortraitMode ? parent.width : 100 + cameraItem.bottomPanelExtra + mainWindow.sceneBottomMargin
+        height: cameraItem.isPortraitMode ? 100 + cameraItem.bottomPanelExtra + mainWindow.sceneRightMargin : parent.height
         x: cameraItem.isPortraitMode ? 0 : parent.width - width
         y: cameraItem.isPortraitMode ? parent.height - height : 0
 
@@ -456,6 +459,7 @@ Popup {
           Rectangle {
             id: captureRing
             anchors.centerIn: parent
+            anchors.verticalCenterOffset: cameraItem.captureClusterOffset
             width: 64
             height: 64
             radius: 32
@@ -522,17 +526,17 @@ Popup {
           QfSwitch {
             id: modeSwitch
 
-            readonly property int slotSize: 32
+            readonly property int slotSize: 36
             readonly property int highlightInset: 1
 
             visible: cameraItem.allowStateToggle && cameraItem.isCapturing && captureLoader.item && captureLoader.item.recorder.recorderState === MediaRecorder.StoppedState
 
             width: slotSize * 2 + 4
-            height: 36
+            height: 40
             padding: 0
 
-            x: cameraItem.isPortraitMode ? captureRing.x + captureRing.width / 2 - width / 2 : captureRing.x + captureRing.width + 12
-            y: cameraItem.isPortraitMode ? captureRing.y + captureRing.height + 12 : captureRing.y + captureRing.height / 2 - height / 2
+            x: captureRing.x + captureRing.width / 2 - width / 2
+            y: captureRing.y + captureRing.height + 10
 
             checked: cameraItem.state == "VideoCapture"
 
@@ -541,7 +545,7 @@ Popup {
               implicitWidth: modeSwitch.slotSize * 2
               x: (modeSwitch.width - implicitWidth) / 2
               radius: 4
-              color: Theme.darkGraySemiOpaque
+              color: "transparent"
               anchors.verticalCenter: parent.verticalCenter
 
               QfToolButton {
@@ -554,7 +558,7 @@ Popup {
                 iconColor: "white"
                 bgcolor: 'transparent'
                 enabled: false
-                opacity: 0.5
+                opacity: 0.35
               }
 
               QfToolButton {
@@ -567,7 +571,7 @@ Popup {
                 iconColor: "white"
                 bgcolor: 'transparent'
                 enabled: false
-                opacity: 0.5
+                opacity: 0.35
               }
 
               Rectangle {
@@ -577,7 +581,9 @@ Popup {
                 width: modeSwitch.slotSize - inset * 2
                 height: modeSwitch.slotSize - inset * 2
                 radius: 3
-                color: Theme.mainColor
+                color: Theme.darkGraySemiOpaque
+                border.color: "#66FFFFFF"
+                border.width: 1
                 clip: true
 
                 QfToolButton {
@@ -611,7 +617,7 @@ Popup {
             visible: cameraItem.isCapturing && captureLoader.item && (captureLoader.item.camera.maximumZoomFactor !== 1.0 || captureLoader.item.camera.minimumZoomFactor !== 1.0)
 
             x: cameraItem.isPortraitMode ? (parent.width / 4) - (width / 2) : (parent.width - width) / 2
-            y: cameraItem.isPortraitMode ? (parent.height - height) / 2 : (parent.height / 4) * 3 - (height / 2)
+            y: cameraItem.isPortraitMode ? (parent.height - height) / 2 + cameraItem.captureClusterOffset : (parent.height / 4) * 3 - (height / 2)
 
             iconColor: Theme.toolButtonColor
             bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
@@ -632,7 +638,7 @@ Popup {
             visible: cameraItem.isCapturing && captureLoader.item && captureLoader.item.camera.isFlashModeSupported(Camera.FlashOn)
 
             x: cameraItem.isPortraitMode ? (parent.width / 4) * 3 - (width / 2) : (parent.width - width) / 2
-            y: cameraItem.isPortraitMode ? (parent.height - height) / 2 : (parent.height / 4) - (height / 2)
+            y: cameraItem.isPortraitMode ? (parent.height - height) / 2 + cameraItem.captureClusterOffset : (parent.height / 4) - (height / 2)
 
             iconSource: {
               if (!captureLoader.item)
