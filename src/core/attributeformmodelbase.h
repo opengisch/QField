@@ -92,7 +92,6 @@ class AttributeFormModelBase : public QStandardItemModel
     void hasTabsChanged();
     void hasRemembranceChanged();
     void hasConstraintsChanged();
-    void featureChanged();
     void constraintsHardValidChanged();
     void constraintsSoftValidChanged();
 

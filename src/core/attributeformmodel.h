@@ -137,7 +137,6 @@ class AttributeFormModel : public QSortFilterProxyModel
     void hasTabsChanged();
     void hasRemembranceChanged();
     void hasConstraintsChanged();
-    void featureChanged();
     void constraintsHardValidChanged();
     void constraintsSoftValidChanged();
 
