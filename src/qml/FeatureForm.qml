@@ -264,7 +264,22 @@ Page {
         visible: tabRow.count > 1
         value: tabRow.currentIndex > 0 ? tabRow.currentIndex / (tabRow.count - 1) : 0.0
         size: 24
-        color: nextPageButton.isLastPage && form.state !== 'ReadOnly' ? nextPageButton.bgcolor : Theme.mainTextColor
+        color: {
+          if (form.state !== 'ReadOnly') {
+            if (nextPageButton.isLastPage) {
+              return nextPageButton.bgcolor;
+            }
+            if (tabRow.currentItem) {
+              if (!tabRow.currentItem.constraintHardValid) {
+                return Theme.errorColor;
+              } else if (!tabRow.currentItem.constraintSoftValid) {
+                return Theme.warningColor;
+              }
+            }
+          }
+          return Theme.mainTextColor;
+        }
+        backgroundColor: Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, 0.2)
       }
 
       QfButton {
