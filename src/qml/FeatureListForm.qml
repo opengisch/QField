@@ -439,6 +439,7 @@ Pane {
     height: parent.height - globalFeaturesList.height
     visible: false
     isDraggable: true
+    isWizard: true
 
     digitizingToolbar: featureFormList.digitizingToolbar
     codeReader: featureFormList.codeReader

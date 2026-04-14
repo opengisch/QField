@@ -44,6 +44,7 @@ Page {
   property bool featureCreated: false
   property bool isVertical: false
   property bool isDraggable: false
+  property bool isWizard: false
 
   property double topMargin: 0.0
   property double leftMargin: 0.0
@@ -100,6 +101,7 @@ Page {
       model: form.model.hasTabs ? form.model : 0
       Layout.fillWidth: true
       Layout.preferredHeight: defaultHeight
+      interactive: !form.isWizard
 
       delegate: TabButton {
         id: tabButton
@@ -112,7 +114,7 @@ Page {
         bottomPadding: 0
         leftPadding: !ConstraintHardValid || !ConstraintSoftValid ? 22 : 8
         rightPadding: 8
-        width: contentItem.width + leftPadding + rightPadding
+        width: isWizard ? tabRow.width : contentItem.width + leftPadding + rightPadding
         height: 48
 
         onClicked: {
@@ -123,23 +125,13 @@ Page {
           implicitWidth: parent.width
           implicitHeight: parent.height
           color: "transparent"
-
-          Rectangle {
-            anchors.left: parent.left
-            anchors.leftMargin: 8
-            anchors.verticalCenter: parent.verticalCenter
-            width: 10
-            height: 10
-            radius: 5
-            color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
-            visible: !ConstraintHardValid || !ConstraintSoftValid
-          }
         }
 
         contentItem: Text {
+          id: tabText
           // Make sure the width is derived from the text so we can get wider
           // than the parent item and the Flickable is useful
-          width: paintedWidth
+          width: isWizard ? parent.width : paintedWidth
           height: parent.height
           text: tabButton.text
           color: !tabButton.enabled ? Theme.mainTextDisabledColor : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : isCurrentIndex ? Theme.mainColor : Theme.mainTextColor
@@ -148,6 +140,16 @@ Page {
 
           horizontalAlignment: Text.AlignHCenter
           verticalAlignment: Text.AlignVCenter
+
+          Rectangle {
+            anchors.verticalCenter: parent.verticalCenter
+            x: (parent.width - tabText.paintedWidth) / 2 - 18
+            width: 10
+            height: 10
+            radius: 5
+            color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
+            visible: !ConstraintHardValid || !ConstraintSoftValid
+          }
         }
       }
     }
@@ -175,7 +177,7 @@ Page {
           width: form.width - form.leftMargin - form.rightMargin
           contentWidth: content.width
           contentHeight: content.height
-          bottomMargin: form.bottomMargin
+          bottomMargin: form.bottomMargin + (form.isWizard ? bottomNavigation.height : 0)
           clip: true
           ScrollBar.vertical: QfScrollBar {}
           boundsBehavior: Flickable.StopAtBounds
@@ -203,6 +205,61 @@ Page {
               objectName: "fieldRepeater"
               delegate: fieldItem
             }
+          }
+        }
+      }
+    }
+  }
+
+  Rectangle {
+    id: bottomNavigation
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+
+    height: bottomNavigationLayout.childrenRect.height + form.bottomMargin + 20
+    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
+    visible: form.isWizard
+
+    RowLayout {
+      id: bottomNavigationLayout
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.bottom: parent.bottom
+      anchors.leftMargin: 10
+      anchors.rightMargin: 10
+      anchors.bottomMargin: form.bottomMargin + 10
+      spacing: 5
+      uniformCellSizes: true
+
+      QfButton {
+        id: peviousPageButton
+        Layout.fillWidth: true
+        borderColor: Theme.controlBorderColor
+        bgcolor: "transparent"
+        color: Theme.mainTextColor
+        text: qsTr("Previous page")
+        opacity: tabRow.currentIndex === 0 ? 0.5 : 1.0
+
+        onClicked: {
+          if (tabRow.currentIndex > 0) {
+            tabRow.currentIndex--;
+          }
+        }
+      }
+
+      QfButton {
+        id: nextPageButton
+        Layout.fillWidth: true
+        borderColor: Theme.controlBorderColor
+        bgcolor: "transparent"
+        color: Theme.mainTextColor
+        text: tabRow.currentIndex === (tabRow.count - 1) && form.state !== 'ReadOnly' ? qsTr("Save") : qsTr("Next page")
+        opacity: tabRow.currentIndex === (tabRow.count - 1) && form.state === 'ReadOnly' ? 0.5 : 1.0
+
+        onClicked: {
+          if (tabRow.currentIndex < (tabRow.count - 1)) {
+            tabRow.currentIndex++;
           }
         }
       }
