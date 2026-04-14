@@ -253,7 +253,7 @@ Page {
         }
       }
 
-      QfProgrerssRing {
+      QfProgressRing {
         id: progressRing
         Layout.preferredWidth: size
         Layout.preferredHeight: size

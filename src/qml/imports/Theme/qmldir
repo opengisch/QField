@@ -14,7 +14,7 @@ QfOpacityMask 1.0 QfOpacityMask.qml
 QfOverlayContainer 1.0 QfOverlayContainer.qml
 QfPageHeader 1.0 QfPageHeader.qml
 QfPopup 1.0 QfPopup.qml
-QfProgrerssRing 1.0 QfProgrerssRing.qml
+QfProgressRing 1.0 QfProgressRing.qml
 QfProjectThumbnail 1.0 QfProjectThumbnail.qml
 QfScrollBar 1.0 QfScrollBar.qml
 QfSearchBar 1.0 QfSearchBar.qml

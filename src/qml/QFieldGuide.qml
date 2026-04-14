@@ -208,8 +208,8 @@ Popup {
       return 0;
     }
 
-    QfProgrerssRing {
-      id: progerss
+    QfProgressRing {
+      id: progress
       value: (guide.index + 1) / steps.length
       size: nextButton.height
       anchors {
