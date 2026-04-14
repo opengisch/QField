@@ -221,7 +221,7 @@ Page {
 
     height: bottomNavigationLayout.childrenRect.height + form.bottomMargin + 20
     color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
-    visible: form.isWizard
+    visible: form.isWizard && (tabRow.count > 1 || form.state !== 'ReadOnly')
 
     RowLayout {
       id: bottomNavigationLayout
@@ -232,14 +232,14 @@ Page {
       anchors.rightMargin: 10
       anchors.bottomMargin: form.bottomMargin + 10
       spacing: 5
-      uniformCellSizes: true
 
       QfButton {
         id: peviousPageButton
 
         property bool isFirstPage: tabRow.currentIndex === 0
 
-        Layout.fillWidth: true
+        Layout.preferredWidth: (parent.width - progressRing.size - 15) / 2
+        visible: tabRow.count > 1
         borderColor: "transparent"
         bgcolor: "transparent"
         color: Theme.mainTextColor
@@ -253,13 +253,24 @@ Page {
         }
       }
 
+      QfProgrerssRing {
+        id: progressRing
+        Layout.preferredWidth: size
+        Layout.preferredHeight: size
+        Layout.alignment: Qt.AlignVCenter
+        visible: tabRow.count > 1
+        value: tabRow.currentIndex > 0 ? tabRow.currentIndex / (tabRow.count - 1) : 0.0
+        size: 24
+      }
+
       QfButton {
         id: nextPageButton
 
-        property bool isLastPage: tabRow.currentIndex === (tabRow.count - 1)
+        property bool isLastPage: tabRow.currentIndex >= (tabRow.count - 1)
         property bool isCurrentPageConstraintHardValid: !tabRow.currentItem || tabRow.currentItem.constraintHardValid
 
-        Layout.fillWidth: true
+        Layout.fillWidth: tabRow.count <= 1
+        Layout.preferredWidth: (parent.width - progressRing.size - 15) / 2
         borderColor: "transparent"
         bgcolor: isLastPage && form.state !== 'ReadOnly' ? !form.model.constraintsHardValid ? Theme.errorColor : !form.model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor : "transparent"
         color: isLastPage && form.state !== 'ReadOnly' ? Theme.mainOverlayColor : Theme.mainTextColor
