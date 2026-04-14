@@ -50,6 +50,13 @@ ProgressBar {
         radiusY: radiusX
         startAngle: -90
         sweepAngle: control.visualPosition * 360
+
+        Behavior on sweepAngle {
+          PropertyAnimation {
+            easing.type: Easing.OutQuart
+            duration: 500
+          }
+        }
       }
     }
   }
