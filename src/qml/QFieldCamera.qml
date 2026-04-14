@@ -25,8 +25,8 @@ Popup {
 
   property bool allowStateToggle: false
 
-  readonly property int bottomPanelExtra: allowStateToggle ? 70 : 0
-  readonly property int captureClusterOffset: allowStateToggle ? -25 : 0
+  readonly property int bottomPanelExtra: allowStateToggle && isPortraitMode ? 70 : 0
+  readonly property int captureClusterOffset: allowStateToggle && isPortraitMode ? -25 : 0
 
   function requiredPermissionsGranted() {
     if (cameraPermission.status !== Qt.PermissionStatus.Granted) {
@@ -435,7 +435,7 @@ Popup {
     }
 
     Rectangle {
-      width: cameraItem.isPortraitMode ? parent.width : 100 + cameraItem.bottomPanelExtra + mainWindow.sceneBottomMargin
+      width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin
       height: cameraItem.isPortraitMode ? 100 + cameraItem.bottomPanelExtra + mainWindow.sceneRightMargin : parent.height
       x: cameraItem.isPortraitMode ? 0 : parent.width - width
       y: cameraItem.isPortraitMode ? parent.height - height : 0
@@ -443,7 +443,7 @@ Popup {
       color: Theme.darkGraySemiOpaque
 
       Rectangle {
-        width: cameraItem.isPortraitMode ? parent.width : 100 + cameraItem.bottomPanelExtra + mainWindow.sceneBottomMargin
+        width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin
         height: cameraItem.isPortraitMode ? 100 + cameraItem.bottomPanelExtra + mainWindow.sceneRightMargin : parent.height
         x: cameraItem.isPortraitMode ? 0 : parent.width - width
         y: cameraItem.isPortraitMode ? parent.height - height : 0
@@ -535,8 +535,10 @@ Popup {
             height: 40
             padding: 0
 
-            x: captureRing.x + captureRing.width / 2 - width / 2
-            y: captureRing.y + captureRing.height + 10
+            rotation: cameraItem.isPortraitMode ? 0 : -90
+
+            x: cameraItem.isPortraitMode ? captureRing.x + captureRing.width / 2 - width / 2 : captureRing.x + captureRing.width + 10 - (width - height) / 2
+            y: cameraItem.isPortraitMode ? captureRing.y + captureRing.height + 10 : captureRing.y + captureRing.height / 2 - height / 2
 
             checked: cameraItem.state == "VideoCapture"
 
@@ -559,6 +561,7 @@ Popup {
                 bgcolor: 'transparent'
                 enabled: false
                 opacity: 0.35
+                rotation: cameraItem.isPortraitMode ? 0 : 90
               }
 
               QfToolButton {
@@ -572,6 +575,7 @@ Popup {
                 bgcolor: 'transparent'
                 enabled: false
                 opacity: 0.35
+                rotation: cameraItem.isPortraitMode ? 0 : 90
               }
 
               Rectangle {
@@ -596,6 +600,7 @@ Popup {
                   iconColor: "white"
                   bgcolor: 'transparent'
                   enabled: false
+                  rotation: cameraItem.isPortraitMode ? 0 : 90
                 }
 
                 Behavior on x {
