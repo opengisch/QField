@@ -107,6 +107,8 @@ Page {
         id: tabButton
 
         property bool isCurrentIndex: index == tabRow.currentIndex
+        property bool constraintHardValid: !!ConstraintHardValid
+        property bool constraintSoftValid: !!ConstraintSoftValid
 
         objectName: "tabRowdDelegate_" + index
         text: Name
@@ -234,15 +236,18 @@ Page {
 
       QfButton {
         id: peviousPageButton
+
+        property bool isFirstPage: tabRow.currentIndex === 0
+
         Layout.fillWidth: true
-        borderColor: Theme.controlBorderColor
+        borderColor: "transparent"
         bgcolor: "transparent"
         color: Theme.mainTextColor
         text: qsTr("Previous page")
-        opacity: tabRow.currentIndex === 0 ? 0.5 : 1.0
+        opacity: isFirstPage ? 0.5 : 1.0
 
         onClicked: {
-          if (tabRow.currentIndex > 0) {
+          if (!isFirstPage) {
             tabRow.currentIndex--;
           }
         }
@@ -250,15 +255,27 @@ Page {
 
       QfButton {
         id: nextPageButton
+
+        property bool isLastPage: tabRow.currentIndex === (tabRow.count - 1)
+        property bool isCurrentPageConstraintHardValid: !tabRow.currentItem || tabRow.currentItem.constraintHardValid
+
         Layout.fillWidth: true
-        borderColor: Theme.controlBorderColor
-        bgcolor: "transparent"
-        color: Theme.mainTextColor
-        text: tabRow.currentIndex === (tabRow.count - 1) && form.state !== 'ReadOnly' ? qsTr("Save") : qsTr("Next page")
-        opacity: tabRow.currentIndex === (tabRow.count - 1) && form.state === 'ReadOnly' ? 0.5 : 1.0
+        borderColor: "transparent"
+        bgcolor: isLastPage && form.state !== 'ReadOnly' ? !form.model.constraintsHardValid ? Theme.errorColor : !form.model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor : "transparent"
+        color: isLastPage && form.state !== 'ReadOnly' ? Theme.mainOverlayColor : Theme.mainTextColor
+        text: isLastPage && form.state !== 'ReadOnly' ? qsTr("Save") : qsTr("Next page")
+        opacity: (isLastPage && form.state === 'ReadOnly') ? 0.5 : 1.0
 
         onClicked: {
-          if (tabRow.currentIndex < (tabRow.count - 1)) {
+          if (!isCurrentPageConstraintHardValid && form.state !== 'ReadOnly') {
+            displayToast(qsTr('Hard constraints not satisfied'), 'error');
+          } else if (isLastPage && form.state !== 'ReadOnly') {
+            if (!form.model.constraintsHardValid) {
+              displayToast(qsTr('Hard constraints not satisfied'), 'error');
+            } else {
+              form.confirm();
+            }
+          } else if (!isLastPage) {
             tabRow.currentIndex++;
           }
         }
