@@ -948,7 +948,7 @@ Page {
       QfToolButton {
         id: saveButton
 
-        property bool isVisible: form.state === 'Add' || form.state === 'Edit'
+        property bool isVisible: !form.isWizard && (form.state === 'Add' || form.state === 'Edit')
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
         visible: isVisible
@@ -980,7 +980,7 @@ Page {
 
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
-        Layout.leftMargin: form.state === "ReadOnly" || (!setupOnly && form.model.hasRemembrance) ? 48 : 0
+        Layout.leftMargin: (!saveButton.isVisible ? 48 : 0) + (!setupOnly && form.model.hasRemembrance ? 48 : 0)
         Layout.rightMargin: !setupOnly ? 0 : 48
         objectName: "titleLabel"
 
