@@ -234,16 +234,16 @@ Page {
       anchors.leftMargin: 10
       anchors.rightMargin: 10
       anchors.bottomMargin: form.bottomMargin + 10
-      spacing: 5
+      spacing: 10
 
       QfButton {
         id: peviousPageButton
 
         property bool isFirstPage: tabRow.currentIndex === 0
 
-        Layout.preferredWidth: (parent.width - progressRing.size - 15) / 2
+        Layout.preferredWidth: (parent.width - progressRing.size - 20) / 2
         visible: tabRow.count > 1
-        borderColor: "transparent"
+        borderColor: Theme.secondaryTextColor
         bgcolor: "transparent"
         color: Theme.mainTextColor
         text: qsTr("Previous page")
@@ -264,6 +264,7 @@ Page {
         visible: tabRow.count > 1
         value: tabRow.currentIndex > 0 ? tabRow.currentIndex / (tabRow.count - 1) : 0.0
         size: 24
+        color: nextPageButton.isLastPage && form.state !== 'ReadOnly' ? nextPageButton.bgcolor : Theme.mainTextColor
       }
 
       QfButton {
@@ -273,8 +274,8 @@ Page {
         property bool isCurrentPageConstraintHardValid: !tabRow.currentItem || tabRow.currentItem.constraintHardValid
 
         Layout.fillWidth: tabRow.count <= 1
-        Layout.preferredWidth: (parent.width - progressRing.size - 15) / 2
-        borderColor: "transparent"
+        Layout.preferredWidth: (parent.width - progressRing.size - 20) / 2
+        borderColor: isLastPage && form.state !== 'ReadOnly' ? bgcolor : Theme.secondaryTextColor
         bgcolor: isLastPage && form.state !== 'ReadOnly' ? !form.model.constraintsHardValid ? Theme.errorColor : !form.model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor : "transparent"
         color: isLastPage && form.state !== 'ReadOnly' ? Theme.mainOverlayColor : Theme.mainTextColor
         text: isLastPage && form.state !== 'ReadOnly' ? qsTr("Save") : qsTr("Next page")
