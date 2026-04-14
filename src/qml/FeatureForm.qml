@@ -61,6 +61,7 @@ Page {
 
   function resetTabs() {
     tabRow.currentIndex = 0;
+    contentRepeater.itemAt(0).contentY = 0;
   }
 
   clip: true
@@ -167,6 +168,7 @@ Page {
       clip: true
 
       Repeater {
+        id: contentRepeater
         // One page per tab in tabbed forms, 1 page in auto forms
         model: form.model.hasTabs ? form.model : 1
 
