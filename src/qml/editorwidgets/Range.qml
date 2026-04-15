@@ -231,9 +231,6 @@ EditorWidgetBase {
       elide: Text.ElideRight
       text: {
         const formattedValue = Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix;
-        if (isEditing) {
-          return (!isNull && !isEmpty) ? formattedValue : '';
-        }
         if (isEmpty) {
           return qsTr("Empty");
         } else if (isNull) {
