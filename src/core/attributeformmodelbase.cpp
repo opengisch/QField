@@ -398,6 +398,21 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   {
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
     QVariant attributeValue = mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeValue );
+
+    if ( attributeValue.userType() == QMetaType::QDate )
+    {
+      // if the field is a QDate, the automatic conversion to JS date [1]
+      // leads to the creation of date time object with the time zone.
+      // For instance shapefiles has support for dates but not date/time or time.
+      // So a date coming from a shapefile as 2001-01-01 will become 2000-12-31 19:00:00 -05 in QML/JS (in the carribeans).
+      // And when formatting this with the display format, this is shown as 2000-12-31.
+      // So we detect if the field is a date only and revert the time zone offset.
+      // [1] http://doc.qt.io/qt-5/qtqml-cppintegration-data.html#basic-qt-data-types
+
+      const QDate d = attributeValue.toDate();
+      attributeValue = QDateTime( d, QTime() );
+    }
+
     item->setData( attributeValue.isNull() ? QVariant() : attributeValue, AttributeFormModel::AttributeValue );
     item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
     // set item editable state to false in case it's a linked attribute
