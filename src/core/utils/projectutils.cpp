@@ -19,9 +19,13 @@
 #include "positioningutils.h"
 #include "projectutils.h"
 
+#include <qgsattributeeditorcontainer.h>
+#include <qgsattributeeditorfield.h>
+#include <qgsattributeeditorrelation.h>
 #include <qgsmaplayer.h>
 #include <qgsprojectdisplaysettings.h>
 #include <qgsrasterlayer.h>
+#include <qgsrelationcontext.h>
 #include <qgsvectorfilewriter.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectortilelayer.h>
@@ -136,7 +140,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     notesLayer = new QgsVectorLayer( notesFilepath, tr( "Notes" ) );
     fields = notesLayer->fields();
     LayerUtils::setDefaultRenderer( notesLayer, nullptr,
-                                    options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "aggregate('notes_attachments', 'concatenate', \"resource\", \"note_uuid\" = attribute(@parent, 'uuid'), ',', 1)" ) : QString(),
+                                    options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "relation_aggregate('notes_attachments_relation', 'max', \"media\")" ) : QString(),
                                     QStringLiteral( "color" ) );
     LayerUtils::setDefaultLabeling( notesLayer );
 
@@ -213,25 +217,6 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLayer->setFieldAlias( fieldIndex, tr( "Note" ) );
     }
 
-    // if ( options.value( QStringLiteral( "camera_capture" ) ).toBool() )
-    // {
-    //   // Configure camera field
-    //   fieldIndex = fields.indexOf( QStringLiteral( "media" ) );
-    //   if ( fieldIndex >= 0 )
-    //   {
-    //     widgetOptions.clear();
-    //     widgetOptions[QStringLiteral( "DocumentViewer" )] = 1;
-    //     widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;
-    //     widgetOptions[QStringLiteral( "FileWidget" )] = true;
-    //     widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
-    //     widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
-    //     notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-    //     notesLayer->setFieldAlias( fieldIndex, tr( "Media" ) );
-    //   }
-    // }
-
-    ////////TODO this should be moved to child layer
-
     // Insure the layer is ready cloud-friendly
     notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/cloud_action" ), QStringLiteral( "offline" ) );
     notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "offline" ) );
@@ -246,8 +231,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       // Second layer in the same notes.gpkg
       QgsFields attachFields;
       attachFields.append( QgsField( QStringLiteral( "note_uuid" ), QMetaType::QString ) );
-      attachFields.append( QgsField( QStringLiteral( "resource" ), QMetaType::QString ) );
-      attachFields.append( QgsField( QStringLiteral( "type" ), QMetaType::QString ) );
+      attachFields.append( QgsField( QStringLiteral( "media" ), QMetaType::QString ) );
+      attachFields.append( QgsField( QStringLiteral( "description" ), QMetaType::QString ) );
       attachFields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
       QgsVectorFileWriter::SaveVectorOptions attachWriterOptions;
@@ -275,14 +260,13 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         attachmentsLayer->setEditorWidgetSetup( attachFieldIndex, attachWidgetSetup );
       }
 
-      // Hiding note_uuid here, relation editor auto populate the FK
       attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "note_uuid" ) );
       if ( attachFieldIndex >= 0 )
       {
         attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), QVariantMap() );
         attachmentsLayer->setEditorWidgetSetup( attachFieldIndex, attachWidgetSetup );
       }
-      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "resource" ) );
+      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "media" ) );
       if ( attachFieldIndex >= 0 )
       {
         attachWidgetOptions.clear();
@@ -294,15 +278,15 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         attachmentsLayer->setEditorWidgetSetup( attachFieldIndex, attachWidgetSetup );
         attachmentsLayer->setFieldAlias( attachFieldIndex, tr( "Media" ) );
       }
-
-      // Type field should be hidden populated
-      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "type" ) );
+      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "description" ) );
       if ( attachFieldIndex >= 0 )
       {
-        attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), QVariantMap() );
+        attachWidgetOptions.clear();
+        attachWidgetOptions[QStringLiteral( "IsMultiline" )] = true;
+        attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), attachWidgetOptions );
         attachmentsLayer->setEditorWidgetSetup( attachFieldIndex, attachWidgetSetup );
+        attachmentsLayer->setFieldAlias( attachFieldIndex, tr( "Description" ) );
       }
-
       attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "timestamp" ) );
       if ( attachFieldIndex >= 0 )
       {
@@ -318,11 +302,35 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         attachmentsLayer->setFieldAlias( attachFieldIndex, tr( "Time" ) );
       }
 
-      attachmentsLayer->setDisplayExpression( QStringLiteral( "COALESCE(\"resource\", 'Attachment #' || fid)" ) );
+      attachmentsLayer->setDisplayExpression( QStringLiteral( "COALESCE(\"media\", 'Attachment #' || fid)" ) );
+      QgsEditFormConfig attachFormConfig = attachmentsLayer->editFormConfig();
+      attachFormConfig.setSuppress( Qgis::AttributeFormSuppression::On );
+      attachmentsLayer->setEditFormConfig( attachFormConfig );
       attachmentsLayer->setCustomProperty( QStringLiteral( "QFieldSync/cloud_action" ), QStringLiteral( "offline" ) );
       attachmentsLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "offline" ) );
-
       createdProjectLayers << attachmentsLayer;
+
+      QgsEditFormConfig notesFormConfig = notesLayer->editFormConfig();
+      notesFormConfig.clearTabs();
+      notesFormConfig.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
+      QgsAttributeEditorContainer *root = notesFormConfig.invisibleRootContainer();
+      QgsAttributeEditorRelation *relationElement = new QgsAttributeEditorRelation( QStringLiteral( "notes_attachments_relation" ), root );
+      root->addChildElement( relationElement );
+      const QStringList orderedFields = {
+        QStringLiteral( "color" ),
+        QStringLiteral( "title" ),
+        QStringLiteral( "note" ),
+        QStringLiteral( "timestamp" ) };
+      for ( const QString &fieldName : orderedFields )
+      {
+        const int idx = notesLayer->fields().indexOf( fieldName );
+        if ( idx >= 0 )
+        {
+          root->addChildElement( new QgsAttributeEditorField( fieldName, idx, root ) );
+        }
+      }
+
+      notesLayer->setEditFormConfig( notesFormConfig );
     }
   }
 
@@ -501,9 +509,6 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     rel.setReferencingLayer( attachmentsLayer->id() );
     rel.addFieldPair( QStringLiteral( "note_uuid" ), QStringLiteral( "uuid" ) );
     rel.setStrength( Qgis::RelationshipStrength::Association );
-
-    qDebug() << "Relation valid?" << rel.isValid() << "validation error:" << rel.validationError();
-
     if ( rel.isValid() )
     {
       createdProject->relationManager()->addRelation( rel );
