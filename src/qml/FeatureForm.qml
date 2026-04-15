@@ -127,6 +127,17 @@ Page {
           implicitWidth: parent.width
           implicitHeight: parent.height
           color: "transparent"
+
+          Rectangle {
+            anchors.left: parent.left
+            anchors.leftMargin: 8
+            anchors.verticalCenter: parent.verticalCenter
+            width: 10
+            height: 10
+            radius: 5
+            color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
+            visible: !isWizard && (!ConstraintHardValid || !ConstraintSoftValid)
+          }
         }
 
         contentItem: Text {
@@ -135,7 +146,7 @@ Page {
           // than the parent item and the Flickable is useful
           width: isWizard ? parent.width : paintedWidth
           height: parent.height
-          leftPadding: isWizard ? !ConstraintHardValid || !ConstraintSoftValid ? 20 : 4 : 0
+          leftPadding: isWizard ? 4 : 0
           text: tabButton.text
           color: !tabButton.enabled ? Theme.mainTextDisabledColor : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : isCurrentIndex ? Theme.mainColor : Theme.mainTextColor
           font.pointSize: Theme.tipFont.pointSize
@@ -143,17 +154,6 @@ Page {
 
           horizontalAlignment: isWizard ? Text.AlignLeft : Text.AlignHCenter
           verticalAlignment: Text.AlignVCenter
-
-          Rectangle {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            anchors.leftMargin: 4
-            width: 10
-            height: 10
-            radius: 5
-            color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
-            visible: !ConstraintHardValid || !ConstraintSoftValid
-          }
         }
       }
     }
