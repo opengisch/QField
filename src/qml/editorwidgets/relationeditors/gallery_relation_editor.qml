@@ -156,17 +156,18 @@ RelationEditorBase {
   readonly property int toggleHeight: 40
   readonly property int gridMargin: 8
 
-  bottomMargin: 10 + toggleHeight
+  bottomMargin: 10 + (itemCount > 0 ? toggleHeight : 0)
 
   height: {
+    const toggleSpace = itemCount > 0 ? toggleHeight : 0;
     if (isGridView) {
       if (itemCount === 0) {
-        return headerEntry.height + 10 + toggleHeight;
+        return headerEntry.height + 10 + toggleSpace;
       }
-      return cardSize + gridMargin * 2 + headerEntry.height + 10 + toggleHeight;
+      return cardSize + gridMargin * 2 + headerEntry.height + 10 + toggleSpace;
     }
     const cappedHeight = !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * gridView.cellHeight, gridView.contentHeight) : gridView.contentHeight;
-    return cappedHeight + headerEntry.height + 10 + toggleHeight;
+    return cappedHeight + headerEntry.height + 10 + toggleSpace;
   }
 
   gridView.flow: isGridView ? GridView.FlowTopToBottom : GridView.FlowLeftToRight
