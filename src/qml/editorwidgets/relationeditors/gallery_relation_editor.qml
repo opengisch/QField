@@ -431,16 +431,18 @@ RelationEditorBase {
     if (geometry !== undefined) {
       embeddedPopup.applyGeometry(geometry);
     }
-    if (attachmentPath !== undefined && attachmentPath !== "") {
-      if (embeddedPopup.attributeFormModel.featureModel.suppressFeatureForm()) {
-        embeddedPopup.featureModel.resetAttributes();
-        embeddedPopup.attributeFormModel.changeAttribute(referencingFeatureListModel.attachmentFieldName, attachmentPath);
-        embeddedPopup.confirmForm();
-        return;
-      }
+
+    const hasAttachmentPath = attachmentPath !== undefined && attachmentPath !== "";
+    if (hasAttachmentPath && embeddedPopup.attributeFormModel.featureModel.suppressFeatureForm()) {
+      embeddedPopup.featureModel.resetAttributes();
       embeddedPopup.attributeFormModel.changeAttribute(referencingFeatureListModel.attachmentFieldName, attachmentPath);
+      embeddedPopup.confirmForm();
+      return;
     }
     embeddedPopup.open();
+    if (hasAttachmentPath) {
+      embeddedPopup.attributeFormModel.changeAttribute(referencingFeatureListModel.attachmentFieldName, attachmentPath);
+    }
   }
 
   function openFeatureForm(feature, nmFeature) {
