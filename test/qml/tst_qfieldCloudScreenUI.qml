@@ -85,6 +85,12 @@ TestCase {
   }
 
   SignalSpy {
+    id: subscriptionSpy
+    target: cloudConnection
+    signalName: "subscriptionInformationReceived"
+  }
+
+  SignalSpy {
     id: projectsRefreshSpy
     target: cloudProjectsModel
     signalName: "isRefreshingChanged"
@@ -115,6 +121,7 @@ TestCase {
     projectsRefreshSpy.clear();
     currentProjectIdSpy.clear();
     currentProjectSpy.clear();
+    subscriptionSpy.clear();
   }
 
   // Returns all available server configurations (local if provided, remote if provided)
@@ -516,5 +523,27 @@ TestCase {
     verify(cloudProjectsModel.currentProject !== null, "currentProject should not be null");
     compare(cloudProjectsModel.currentProject.id, projectId);
     compare(cloudProjectsModel.currentProject.name, projectName);
+  }
+
+  /**
+   * Tests that subscription information is successfully fetched from the server.
+   *
+   * Scenario: After login, request subscription details and verify the response
+   * contains valid plan, storage, and status fields.
+   */
+  function test_11_subscriptionInformationReceived_data() {
+    return serverConfigs();
+  }
+  function test_11_subscriptionInformationReceived(data) {
+    loginToServer(data);
+
+    cloudConnection.getSubscriptionInformation(data.username);
+    tryCompare(subscriptionSpy, "count", 1, 15000);
+
+    var info = subscriptionSpy.signalArguments[0][0];
+    verify(info.plan !== "");
+    verify(info.storageTotal > 0);
+    verify(info.storageUsed >= 0);
+    verify(info.status !== "");
   }
 }
