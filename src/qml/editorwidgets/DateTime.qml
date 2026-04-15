@@ -149,11 +149,7 @@ EditorWidgetBase {
         let newDate = Date.fromLocaleString(Qt.locale(), label.text, !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['display_format']);
         if (newDate.toLocaleString() !== "") {
           if (!main.isDateTimeType) {
-            let dateFormat = config['field_format'] !== undefined ? config['field_format'] : 'yyyy-MM-dd';
-            if (!!config['field_format_overwrite']) {
-              dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
-            }
-            newDate = Qt.formatDateTime(newDate, dateFormat);
+            newDate = convertDateToFieldFormattedString(newDate);
           }
           valueChangeRequested(newDate, newDate === undefined);
         } else {
@@ -215,11 +211,7 @@ EditorWidgetBase {
         if (main.isDateTimeType) {
           valueChangeRequested(currentDate, false);
         } else {
-          let dateFormat = config['field_format'] !== undefined ? config['field_format'] : 'yyyy-MM-dd';
-          if (!!config['field_format_overwrite']) {
-            dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
-          }
-          const textDate = Qt.formatDateTime(currentDate, dateFormat);
+          const textDate = convertDateToFieldFormattedString(currentDate);
           valueChangeRequested(textDate, false);
         }
         displayToast(qsTr('Date value set to today.'));
@@ -256,13 +248,17 @@ EditorWidgetBase {
       if (main.isDateTimeType) {
         valueChangeRequested(date, date === undefined);
       } else {
-        let dateFormat = config['field_format'] !== undefined ? config['field_format'] : 'yyyy-MM-dd';
-        if (!!config['field_format_overwrite']) {
-          dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
-        }
-        const textDate = Qt.formatDateTime(date, dateFormat);
+        const textDate = convertDateToFieldFormattedString(date);
         valueChangeRequested(textDate, date === undefined);
       }
     }
+  }
+
+  function convertDateToFieldFormattedString(date) {
+    let dateFormat = config['field_format'] !== undefined ? config['field_format'] : 'yyyy-MM-dd';
+    if (!!config['field_format_overwrite']) {
+      dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
+    }
+    return Qt.formatDateTime(date, dateFormat);
   }
 }
