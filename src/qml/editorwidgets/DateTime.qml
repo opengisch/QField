@@ -133,7 +133,11 @@ EditorWidgetBase {
             usedDate = value;
           }
           if (!(usedDate instanceof Date)) {
-            usedDate = Date.fromLocaleString(Qt.locale(), label.text, !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['display_format']);
+            let dateFormat = config['field_format'] !== undefined ? config['field_format'] : 'yyyy-MM-dd';
+            if (!!config['field_format_overwrite']) {
+              dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
+            }
+            usedDate = Date.fromLocaleString(Qt.locale(), value, dateFormat);
           }
           todayButton.forceActiveFocus();
           calendarPanel.selectedDate = usedDate;
@@ -145,7 +149,11 @@ EditorWidgetBase {
         let newDate = Date.fromLocaleString(Qt.locale(), label.text, !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['display_format']);
         if (newDate.toLocaleString() !== "") {
           if (!main.isDateTimeType) {
-            newDate = Qt.formatDateTime(newDate, !!config['field_iso_format'] ? Qt.ISODate : config['field_format']);
+            let dateFormat = config['field_format'] !== undefined ? config['field_format'] : 'yyyy-MM-dd';
+            if (!!config['field_format_overwrite']) {
+              dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
+            }
+            newDate = Qt.formatDateTime(newDate, dateFormat);
           }
           valueChangeRequested(newDate, newDate === undefined);
         } else {
@@ -207,7 +215,7 @@ EditorWidgetBase {
         if (main.isDateTimeType) {
           valueChangeRequested(currentDate, false);
         } else {
-          let dateFormat = config['display_format'] !== undefined ? config['display_format'] : '';
+          let dateFormat = config['field_format'] !== undefined ? config['field_format'] : 'yyyy-MM-dd';
           if (!!config['field_format_overwrite']) {
             dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
           }
@@ -226,14 +234,29 @@ EditorWidgetBase {
 
   QfCalendarPanel {
     id: calendarPanel
-    showTimePicker: main.fieldIsDateTime || main.fieldIsTime || (main.fieldIsString && config['field_format_overwrite'] && (config['field_format'].includes("HH:mm") || !!config['field_iso_format'])) || (main.fieldIsString && !config['field_format_overwrite'])
-    showDatePicker: main.fieldIsDate || main.fieldIsDateTime || (main.fieldIsString && config['field_format_overwrite'] && (config['field_format'].includes("yyyy-MM") || config['field_format'].includes("yyyy.MM") || !!config['field_iso_format'])) || (main.fieldIsString && !config['field_format_overwrite'])
+
+    showTimePicker: {
+      if (main.fieldIsDateTime || main.fieldIsTime) {
+        return true;
+      } else if (main.fieldIsString && !!config['field_format_overwrite'] && (config['field_format'].includes("HH:mm") || !!config['field_iso_format'])) {
+        return true;
+      }
+      return false;
+    }
+    showDatePicker: {
+      if (main.fieldIsTime) {
+        return false;
+      } else if (main.fieldIsString && !!config['field_format_overwrite'] && !config['field_format'].includes("yyyy-MM") && !config['field_format'].includes("yyyy.MM") && !config['field_iso_format']) {
+        return false;
+      }
+      return true;
+    }
 
     onDateTimePicked: date => {
       if (main.isDateTimeType) {
         valueChangeRequested(date, date === undefined);
       } else {
-        let dateFormat = config['display_format'] !== undefined ? config['display_format'] : '';
+        let dateFormat = config['field_format'] !== undefined ? config['field_format'] : 'yyyy-MM-dd';
         if (!!config['field_format_overwrite']) {
           dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
         }
