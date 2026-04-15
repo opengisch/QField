@@ -182,7 +182,7 @@ Page {
           width: form.width - form.leftMargin - form.rightMargin
           contentWidth: content.width
           contentHeight: content.height
-          bottomMargin: form.bottomMargin + (form.model.isWizard ? bottomNavigation.height : 0)
+          bottomMargin: form.bottomMargin + (form.model.isWizard ? wizardNavigationContainer.height : 0)
           clip: true
           ScrollBar.vertical: QfScrollBar {}
           boundsBehavior: Flickable.StopAtBounds
@@ -217,17 +217,17 @@ Page {
   }
 
   Rectangle {
-    id: bottomNavigation
+    id: wizardNavigationContainer
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
 
-    height: bottomNavigationLayout.childrenRect.height + form.bottomMargin + 20
+    height: wizardNavigationLayout.childrenRect.height + form.bottomMargin + 20
     color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
     visible: form.model.isWizard && (tabRow.count > 1 || form.state !== 'ReadOnly')
 
     RowLayout {
-      id: bottomNavigationLayout
+      id: wizardNavigationLayout
       anchors.left: parent.left
       anchors.right: parent.right
       anchors.bottom: parent.bottom
