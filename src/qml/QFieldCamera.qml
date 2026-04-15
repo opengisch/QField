@@ -25,8 +25,8 @@ Popup {
 
   property bool allowStateToggle: false
 
-  readonly property int bottomPanelExtra: allowStateToggle && isPortraitMode ? 70 : 0
-  readonly property int captureClusterOffset: allowStateToggle && isPortraitMode ? -25 : 0
+  readonly property int bottomPanelExtra: allowStateToggle ? 70 : 0
+  readonly property int captureClusterOffset: allowStateToggle ? -25 : 0
 
   function requiredPermissionsGranted() {
     if (cameraPermission.status !== Qt.PermissionStatus.Granted) {
@@ -435,7 +435,7 @@ Popup {
     }
 
     Rectangle {
-      width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin
+      width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin + cameraItem.bottomPanelExtra
       height: cameraItem.isPortraitMode ? 100 + cameraItem.bottomPanelExtra + mainWindow.sceneRightMargin : parent.height
       x: cameraItem.isPortraitMode ? 0 : parent.width - width
       y: cameraItem.isPortraitMode ? parent.height - height : 0
@@ -443,7 +443,7 @@ Popup {
       color: Theme.darkGraySemiOpaque
 
       Rectangle {
-        width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin
+        width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin + cameraItem.bottomPanelExtra
         height: cameraItem.isPortraitMode ? 100 + cameraItem.bottomPanelExtra + mainWindow.sceneRightMargin : parent.height
         x: cameraItem.isPortraitMode ? 0 : parent.width - width
         y: cameraItem.isPortraitMode ? parent.height - height : 0
@@ -459,7 +459,7 @@ Popup {
           Rectangle {
             id: captureRing
             anchors.centerIn: parent
-            anchors.verticalCenterOffset: cameraItem.captureClusterOffset
+            anchors.verticalCenterOffset: cameraItem.isPortraitMode ? cameraItem.captureClusterOffset : 0
             width: 64
             height: 64
             radius: 32
