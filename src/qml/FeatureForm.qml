@@ -34,6 +34,7 @@ Page {
   property CodeReader codeReader
 
   property AttributeFormModel model
+
   property alias currentTab: swipeView.currentIndex
   property alias toolbarVisible: toolbar.visible
   //! if embedded form called by RelationEditor or RelationReferenceWidget
@@ -44,7 +45,6 @@ Page {
   property bool featureCreated: false
   property bool isVertical: false
   property bool isDraggable: false
-  property bool isWizard: false
 
   property double topMargin: 0.0
   property double leftMargin: 0.0
@@ -114,9 +114,9 @@ Page {
         text: Name
         topPadding: 0
         bottomPadding: 0
-        leftPadding: !isWizard && (!ConstraintHardValid || !ConstraintSoftValid) ? 22 : 8
+        leftPadding: !form.model.isWizard && (!ConstraintHardValid || !ConstraintSoftValid) ? 22 : 8
         rightPadding: 8
-        width: isWizard ? tabRow.width : contentItem.width + leftPadding + rightPadding
+        width: form.model.isWizard ? tabRow.width : contentItem.width + leftPadding + rightPadding
         height: 48
 
         onClicked: {
@@ -136,7 +136,7 @@ Page {
             height: 10
             radius: 5
             color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
-            visible: !isWizard && (!ConstraintHardValid || !ConstraintSoftValid)
+            visible: !form.model.isWizard && (!ConstraintHardValid || !ConstraintSoftValid)
           }
         }
 
@@ -144,15 +144,15 @@ Page {
           id: tabText
           // Make sure the width is derived from the text so we can get wider
           // than the parent item and the Flickable is useful
-          width: isWizard ? parent.width : paintedWidth
+          width: form.model.isWizard ? parent.width : paintedWidth
           height: parent.height
-          leftPadding: isWizard ? 4 : 0
+          leftPadding: form.model.isWizard ? 4 : 0
           text: tabButton.text
           color: !tabButton.enabled ? Theme.mainTextDisabledColor : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : isCurrentIndex ? Theme.mainColor : Theme.mainTextColor
           font.pointSize: Theme.tipFont.pointSize
           font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
-          horizontalAlignment: isWizard ? Text.AlignLeft : Text.AlignHCenter
+          horizontalAlignment: form.model.isWizard ? Text.AlignLeft : Text.AlignHCenter
           verticalAlignment: Text.AlignVCenter
         }
       }
@@ -182,7 +182,7 @@ Page {
           width: form.width - form.leftMargin - form.rightMargin
           contentWidth: content.width
           contentHeight: content.height
-          bottomMargin: form.bottomMargin + (form.isWizard ? bottomNavigation.height : 0)
+          bottomMargin: form.bottomMargin + (form.model.isWizard ? bottomNavigation.height : 0)
           clip: true
           ScrollBar.vertical: QfScrollBar {}
           boundsBehavior: Flickable.StopAtBounds
@@ -224,7 +224,7 @@ Page {
 
     height: bottomNavigationLayout.childrenRect.height + form.bottomMargin + 20
     color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
-    visible: form.isWizard && (tabRow.count > 1 || form.state !== 'ReadOnly')
+    visible: form.model.isWizard && (tabRow.count > 1 || form.state !== 'ReadOnly')
 
     RowLayout {
       id: bottomNavigationLayout
@@ -968,7 +968,7 @@ Page {
       QfToolButton {
         id: saveButton
 
-        property bool isVisible: !form.isWizard && (form.state === 'Add' || form.state === 'Edit')
+        property bool isVisible: !form.model.isWizard && (form.state === 'Add' || form.state === 'Edit')
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
         visible: isVisible

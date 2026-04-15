@@ -162,7 +162,7 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
 
   if ( mFeatureModel )
   {
-    disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::resetModel );
+    disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onCurrentLayerChanged );
     disconnect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::applyFeatureModel );
     disconnect( mFeatureModel, &FeatureModel::featureUpdated, this, &AttributeFormModelBase::applyFeatureModel );
     disconnect( mFeatureModel, &FeatureModel::linkedParentFeatureChanged, this, &AttributeFormModelBase::applyFeatureModel );
@@ -170,12 +170,18 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
 
   mFeatureModel = featureModel;
 
-  connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::resetModel );
+  connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onCurrentLayerChanged );
   connect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::applyFeatureModel );
   connect( mFeatureModel, &FeatureModel::featureUpdated, this, &AttributeFormModelBase::applyFeatureModel );
   connect( mFeatureModel, &FeatureModel::linkedParentFeatureChanged, this, &AttributeFormModelBase::applyFeatureModel );
 
   emit featureModelChanged();
+}
+
+void AttributeFormModelBase::onCurrentLayerChanged()
+{
+  setIsWizard( QgsProject::instance()->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "featureFormWizardMode" ), false ) );
+  resetModel();
 }
 
 void AttributeFormModelBase::resetModel()
@@ -1261,6 +1267,20 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
   }
 
   return QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
+}
+
+bool AttributeFormModelBase::isWizard() const
+{
+  return mIsWizard;
+}
+
+void AttributeFormModelBase::setIsWizard( bool isWizard )
+{
+  if ( mIsWizard == isWizard )
+    return;
+
+  mIsWizard = isWizard;
+  emit isWizardChanged();
 }
 
 bool AttributeFormModelBase::hasTabs() const

@@ -59,6 +59,7 @@ QfPopup {
 
   FeatureForm {
     id: form
+
     property bool isSaved: false
 
     model: AttributeFormModel {
