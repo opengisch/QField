@@ -180,7 +180,7 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
 
 void AttributeFormModelBase::onCurrentLayerChanged()
 {
-  setIsWizard( QgsProject::instance()->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "featureFormWizardMode" ), false ) );
+  setIsWizard( QgsProject::instance()->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "featureFormWizardModeEnabled" ), false ) );
   resetModel();
 }
 
