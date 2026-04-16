@@ -689,16 +689,11 @@ EditorWidgetBase {
       id: qfieldCamera
       visible: false
 
-      allowStateToggle: documentViewer === ExternalResource.DocumentImage || documentViewer === ExternalResource.DocumentVideo || documentViewer === ExternalResource.DocumentFile
+      allowCaptureModeToggle: true
 
       Component.onCompleted: {
-        if (isVideo) {
-          qfieldCamera.state = 'VideoCapture';
-          open();
-        } else {
-          qfieldCamera.state = 'PhotoCapture';
-          open();
-        }
+        qfieldCamera.state = isVideo ? 'VideoCapture' : 'PhotoCapture';
+        open();
       }
 
       onFinished: path => {

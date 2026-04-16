@@ -506,11 +506,13 @@ RelationEditorBase {
     property bool isVideo: false
     sourceComponent: Component {
       QFieldCamera {
-        allowStateToggle: documentViewer === ExternalResource.DocumentImage || documentViewer === ExternalResource.DocumentVideo || documentViewer === ExternalResource.DocumentFile
+        allowCaptureModeToggle: true
+
         Component.onCompleted: {
           state = relationCameraLoader.isVideo ? 'VideoCapture' : 'PhotoCapture';
           open();
         }
+
         onFinished: path => {
           const filepath = StringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils), path);
           platformUtilities.renameFile(path, imagePrefix + filepath);
