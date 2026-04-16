@@ -460,6 +460,7 @@ Popup {
             id: captureRing
             anchors.centerIn: parent
             anchors.verticalCenterOffset: cameraItem.isPortraitMode ? cameraItem.captureClusterOffset : 0
+            anchors.horizontalCenterOffset: !cameraItem.isPortraitMode ? cameraItem.captureClusterOffset : 0
             width: 64
             height: 64
             radius: 32
