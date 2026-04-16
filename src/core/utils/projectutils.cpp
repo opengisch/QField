@@ -308,6 +308,9 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       attachmentsLayer->setEditFormConfig( attachFormConfig );
       attachmentsLayer->setCustomProperty( QStringLiteral( "QFieldSync/cloud_action" ), QStringLiteral( "offline" ) );
       attachmentsLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "offline" ) );
+
+      attachmentsLayer->setFlags( attachmentsLayer->flags() | QgsMapLayer::Private );
+
       createdProjectLayers << attachmentsLayer;
 
       QgsEditFormConfig notesFormConfig = notesLayer->editFormConfig();
