@@ -237,7 +237,7 @@ Page {
       spacing: 10
 
       QfButton {
-        id: peviousPageButton
+        id: previousPageButton
 
         property bool isFirstPage: tabRow.currentIndex === 0
 
