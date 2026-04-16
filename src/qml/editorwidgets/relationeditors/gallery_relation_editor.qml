@@ -226,11 +226,6 @@ RelationEditorBase {
     layer: referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null
     project: qgisProject
     appExpressionContextScopesGenerator: appScopesGenerator
-    expressionText: {
-      let refLayer = referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null;
-      let fieldName = referencingFeatureListModel.attachmentFieldName;
-      return ExternalResourceUtils.getAttachmentNaming(refLayer, fieldName);
-    }
   }
 
   function capturePhoto() {
@@ -238,6 +233,7 @@ RelationEditorBase {
     Qt.inputMethod.hide();
     prepareFeature();
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
+    attachmentNamingEvaluator.expressionText = ExternalResourceUtils.getAttachmentNaming(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName);
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
       filepath = filepath.replace('{extension}', 'JPG');
@@ -253,6 +249,7 @@ RelationEditorBase {
     Qt.inputMethod.hide();
     prepareFeature();
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
+    attachmentNamingEvaluator.expressionText = ExternalResourceUtils.getAttachmentNaming(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName);
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
       filepath = filepath.replace('{extension}', 'MP4');
@@ -267,6 +264,7 @@ RelationEditorBase {
     stopAllMedia();
     Qt.inputMethod.hide();
     prepareFeature();
+    attachmentNamingEvaluator.expressionText = ExternalResourceUtils.getAttachmentNaming(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName);
     relationAudioRecorderLoader.active = true;
   }
 

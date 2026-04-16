@@ -7,7 +7,7 @@
  */
 function getAttachmentNaming(layer, fieldName) {
   if (layer && fieldName) {
-    var value;
+    let value;
     if (layer.customProperty('QFieldSync/attachment_naming') !== undefined) {
       value = JSON.parse(layer.customProperty('QFieldSync/attachment_naming'))[fieldName];
       return value !== undefined ? value : '';
@@ -28,10 +28,10 @@ function getAttachmentNaming(layer, fieldName) {
  * (0 = file, 1 = image, 3 = audio, 4 = video).
  */
 function getAttachmentFilePath(evaluatedFilepath, documentViewer, FileUtils) {
-  var filepath = FileUtils.sanitizeFilePath(evaluatedFilepath);
+  let filepath = FileUtils.sanitizeFilePath(evaluatedFilepath);
 
   if (FileUtils.fileSuffix(filepath) === '' && !filepath.endsWith("{extension}") && !filepath.endsWith("{filename}")) {
-    var nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
+    let nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
 
     if (documentViewer === 1) {
       // DocumentImage

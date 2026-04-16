@@ -45,11 +45,11 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
     Q_PROPERTY( QString currentNmRelationId WRITE setCurrentNmRelationId READ currentNmRelationId NOTIFY nmRelationChanged )
     Q_PROPERTY( QgsRelation nmRelation WRITE setNmRelation READ nmRelation NOTIFY nmRelationChanged )
     Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
-    Q_PROPERTY( QString attachmentFieldName READ attachmentFieldName NOTIFY relationChanged )
-    Q_PROPERTY( int attachmentDocumentViewer READ attachmentDocumentViewer NOTIFY relationChanged )
-    Q_PROPERTY( QString attachmentStorageType READ attachmentStorageType NOTIFY relationChanged )
-    Q_PROPERTY( QString attachmentStorageAuthConfigId READ attachmentStorageAuthConfigId NOTIFY relationChanged )
-    Q_PROPERTY( QString attachmentStorageUrl READ attachmentStorageUrl NOTIFY relationChanged )
+    Q_PROPERTY( QString attachmentFieldName READ attachmentFieldName NOTIFY attachmentDetailsChanged )
+    Q_PROPERTY( int attachmentDocumentViewer READ attachmentDocumentViewer NOTIFY attachmentDetailsChanged )
+    Q_PROPERTY( QString attachmentStorageType READ attachmentStorageType NOTIFY attachmentDetailsChanged )
+    Q_PROPERTY( QString attachmentStorageAuthConfigId READ attachmentStorageAuthConfigId NOTIFY attachmentDetailsChanged )
+    Q_PROPERTY( QString attachmentStorageUrl READ attachmentStorageUrl NOTIFY attachmentDetailsChanged )
 
   public:
     explicit ReferencingFeatureListModelBase( QObject *parent = nullptr );
@@ -203,6 +203,7 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
     void featureChanged();
     void relationChanged();
     void nmRelationChanged();
+    void attachmentDetailsChanged();
     void parentPrimariesAvailableChanged();
     void isLoadingChanged();
     void beforeModelUpdated();

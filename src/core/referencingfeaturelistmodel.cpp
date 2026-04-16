@@ -370,29 +370,29 @@ void ReferencingFeatureListModelBase::updateAttachmentFieldInfo()
   mAttachmentStorageUrl.clear();
 
   QgsVectorLayer *layer = mRelation.referencingLayer();
-  if ( !layer )
+  if ( layer )
   {
-    return;
-  }
-
-  for ( int i = 0; i < layer->fields().count(); i++ )
-  {
-    if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
+    for ( int i = 0; i < layer->fields().count(); i++ )
     {
-      const QVariantMap config = layer->editorWidgetSetup( i ).config();
-      mAttachmentFieldName = layer->fields().at( i ).name();
-      mAttachmentFieldIndex = i;
-      mAttachmentDocumentViewer = config.value( QStringLiteral( "DocumentViewer" ), 0 ).toInt();
-      mAttachmentStorageType = config.value( QStringLiteral( "StorageType" ) ).toString();
-      mAttachmentStorageAuthConfigId = config.value( QStringLiteral( "StorageAuthConfigId" ) ).toString();
-      mAttachmentStorageUrl = config.value( QStringLiteral( "StorageUrl" ) ).toString();
-      if ( !mAttachmentStorageUrl.isEmpty() && !mAttachmentStorageUrl.endsWith( QLatin1Char( '/' ) ) )
+      if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
       {
-        mAttachmentStorageUrl.append( QLatin1Char( '/' ) );
+        const QVariantMap config = layer->editorWidgetSetup( i ).config();
+        mAttachmentFieldName = layer->fields().at( i ).name();
+        mAttachmentFieldIndex = i;
+        mAttachmentDocumentViewer = config.value( QStringLiteral( "DocumentViewer" ), 0 ).toInt();
+        mAttachmentStorageType = config.value( QStringLiteral( "StorageType" ) ).toString();
+        mAttachmentStorageAuthConfigId = config.value( QStringLiteral( "StorageAuthConfigId" ) ).toString();
+        mAttachmentStorageUrl = config.value( QStringLiteral( "StorageUrl" ) ).toString();
+        if ( !mAttachmentStorageUrl.isEmpty() && !mAttachmentStorageUrl.endsWith( QLatin1Char( '/' ) ) )
+        {
+          mAttachmentStorageUrl.append( QLatin1Char( '/' ) );
+        }
+        break;
       }
-      break;
     }
   }
+
+  emit attachmentDetailsChanged();
 }
 
 bool ReferencingFeatureListModelBase::checkParentPrimaries()

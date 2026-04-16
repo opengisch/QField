@@ -24,23 +24,23 @@ EditorWidgetBase {
   property string prefixToRelativePath: {
     if (qgisProject == undefined)
       return "";
-    var path = "";
+    let path = "";
     if (config["RelativeStorage"] === 1 || externalStorage.type != "") {
       path = qgisProject.homePath;
       if (!path.endsWith("/"))
         path = path + "/";
     } else if (config["RelativeStorage"] === 2) {
-      var collection = config["PropertyCollection"];
-      var props = collection["properties"];
+      const collection = config["PropertyCollection"];
+      const props = collection["properties"];
       if (props) {
         if (props["propertyRootPath"]) {
-          var rootPathProps = props["propertyRootPath"];
+          const rootPathProps = props["propertyRootPath"];
           rootPathEvaluator.expressionText = rootPathProps["expression"];
         }
       }
       rootPathEvaluator.feature = currentFeature;
       rootPathEvaluator.layer = currentLayer;
-      var evaluatedFilepath = rootPathEvaluator.evaluate().replace("\\", "/");
+      const evaluatedFilepath = rootPathEvaluator.evaluate().replace("\\", "/");
       if (evaluatedFilepath) {
         path = evaluatedFilepath;
       } else {
@@ -83,7 +83,7 @@ EditorWidgetBase {
   onCurrentValueChanged: {
     if (currentValue != undefined && currentValue !== '') {
       const isHttp = value.startsWith('http://') || value.startsWith('https://');
-      var fullValue = isHttp ? value : prefixToRelativePath + value;
+      const fullValue = isHttp ? value : prefixToRelativePath + value;
       if (!isHttp && !FileUtils.fileExists(fullValue)) {
         prepareValue("");
         if (externalStorage.type != "") {
@@ -115,7 +115,7 @@ EditorWidgetBase {
 
   function prepareValue(fullValue) {
     if (fullValue !== "") {
-      var mimeType = FileUtils.mimeTypeName(fullValue);
+      const mimeType = FileUtils.mimeTypeName(fullValue);
       isImage = !config.UseLink && mimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(mimeType);
       isAudio = !config.UseLink && mimeType.startsWith("audio/");
       isVideo = !config.UseLink && mimeType.startsWith("video/");
@@ -553,10 +553,10 @@ EditorWidgetBase {
 
         text: {
           if (player.active && player.item.duration > 0) {
-            var seconds = Math.ceil(player.item.duration / 1000);
-            var hours = Math.floor(seconds / 60 / 60) + '';
+            let seconds = Math.ceil(player.item.duration / 1000);
+            let hours = Math.floor(seconds / 60 / 60) + '';
             seconds -= hours * 60 * 60;
-            var minutes = Math.floor(seconds / 60) + '';
+            let minutes = Math.floor(seconds / 60) + '';
             seconds = (seconds - minutes * 60) + '';
             return hours.padStart(2, '0') + ':' + minutes.padStart(2, '0') + ':' + seconds.padStart(2, '0');
           } else {
@@ -667,9 +667,6 @@ EditorWidgetBase {
 
       onFinished: path => {
         const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
-        console.log("path " + path);
-        console.log("filepath " + filepath);
-        console.log("prefixToRelativePath + filepath " + prefixToRelativePath + filepath);
         platformUtilities.renameFile(path, prefixToRelativePath + filepath);
         valueChangeRequested(filepath, false);
         close();
@@ -729,7 +726,7 @@ EditorWidgetBase {
     target: __resourceSource
     function onResourceReceived(path) {
       if (path) {
-        var maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
+        const maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
         if (maximumWidhtHeight > 0) {
           FileUtils.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight);
         }
@@ -744,7 +741,7 @@ EditorWidgetBase {
     function onFinished() {
       if (isImage) {
         // In order to make sure the image shown reflects edits, reset the source
-        var imageSource = image.source;
+        const imageSource = image.source;
         image.source = '';
         image.source = imageSource;
       }
@@ -783,7 +780,7 @@ EditorWidgetBase {
   function attachFile() {
     Qt.inputMethod.hide();
     platformUtilities.requestStoragePermission();
-    var filepath = getResourceFilePath();
+    const filepath = getResourceFilePath();
     if (documentViewer == ExternalResource.DocumentAudio) {
       __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "audio/*", this);
     } else {
@@ -794,7 +791,7 @@ EditorWidgetBase {
   function attachGallery() {
     Qt.inputMethod.hide();
     platformUtilities.requestStoragePermission();
-    var filepath = getResourceFilePath();
+    const filepath = getResourceFilePath();
     if (documentViewer == ExternalResource.DocumentVideo) {
       __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath + '/', filepath, this);
     } else {
@@ -805,7 +802,7 @@ EditorWidgetBase {
   function capturePhoto() {
     Qt.inputMethod.hide();
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
-      var filepath = getResourceFilePath();
+      let filepath = getResourceFilePath();
       // Pictures taken by cameras will always be JPG
       filepath = filepath.replace('{extension}', 'JPG');
       __resourceSource = platformUtilities.getCameraPicture(qgisProject.homePath + '/', filepath, FileUtils.fileSuffix(filepath), this);
@@ -819,7 +816,7 @@ EditorWidgetBase {
   function captureVideo() {
     Qt.inputMethod.hide();
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
-      var filepath = getResourceFilePath();
+      let filepath = getResourceFilePath();
       // Video taken by cameras will always be MP4
       filepath = filepath.replace('{extension}', 'MP4');
       __resourceSource = platformUtilities.getCameraVideo(qgisProject.homePath + '/', filepath, FileUtils.fileSuffix(filepath), this);
