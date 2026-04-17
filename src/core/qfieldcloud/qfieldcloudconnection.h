@@ -87,7 +87,6 @@ class QFieldCloudConnection : public QObject
     Q_PROPERTY( bool isFetchingAvailableProviders READ isFetchingAvailableProviders NOTIFY isFetchingAvailableProvidersChanged )
     Q_PROPERTY( bool isReachable READ isReachable NOTIFY isReachableChanged )
 
-
   public:
     enum class ConnectionStatus
     {
@@ -123,6 +122,7 @@ class QFieldCloudConnection : public QObject
     };
 
     QFieldCloudConnection();
+    ~QFieldCloudConnection();
 
     //!Returns an error string to be shown to the user if \a reply has an error.
     static QString errorString( QNetworkReply *reply );
@@ -273,6 +273,9 @@ class QFieldCloudConnection : public QObject
     void setToken( const QByteArray &token );
     void invalidateToken();
     void processPendingAttachments();
+
+    void saveCookies();
+    void restoreCookies();
 
     QString mUrl;
 

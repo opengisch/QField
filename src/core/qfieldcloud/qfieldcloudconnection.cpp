@@ -72,6 +72,13 @@ QFieldCloudConnection::QFieldCloudConnection()
                tryFlushQueuedProjectPushes();
              } );
   }
+
+  restoreCookies();
+}
+
+QFieldCloudConnection::~QFieldCloudConnection()
+{
+  saveCookies();
 }
 
 void QFieldCloudConnection::queueProjectPush( const QString &projectId )
@@ -438,7 +445,6 @@ void QFieldCloudConnection::login( const QString &password )
     }
 
     QByteArray token = resp.value( QStringLiteral( "token" ) ).toString().toUtf8();
-
     if ( !token.isEmpty() )
     {
       setToken( token );
@@ -461,6 +467,9 @@ void QFieldCloudConnection::login( const QString &password )
       settings.setValue( QStringLiteral( "/QFieldCloud/urls" ), savedUrls );
       emit urlsChanged();
     }
+
+    saveCookies();
+
     setStatus( ConnectionStatus::LoggedIn );
   } );
 }
@@ -497,6 +506,7 @@ void QFieldCloudConnection::logout()
   {
     QgsNetworkAccessManager::instance()->cookieJar()->deleteCookie( cookie );
   }
+  saveCookies();
 
   setStatus( ConnectionStatus::Disconnected );
 }
@@ -1057,4 +1067,36 @@ void QFieldCloudConnection::processPendingAttachments()
     break;
   }
   return;
+}
+
+void QFieldCloudConnection::restoreCookies()
+{
+  QSettings settings;
+  settings.beginGroup( "/QFieldCloud/cookies" );
+  const QStringList cookieKeys = settings.childKeys();
+  for ( const QString &cookieKey : cookieKeys )
+  {
+    QList<QNetworkCookie> cookies = QNetworkCookie::parseCookies( settings.value( cookieKey ).toByteArray() );
+    if ( !cookies.isEmpty() )
+    {
+      if ( QDateTime::currentSecsSinceEpoch() < cookies[0].expirationDate().toSecsSinceEpoch() )
+      {
+        QgsNetworkAccessManager::instance()->cookieJar()->insertCookie( cookies[0] );
+      }
+    }
+  }
+}
+
+void QFieldCloudConnection::saveCookies()
+{
+  QSettings settings;
+  settings.remove( QStringLiteral( "/QFieldCloud/cookies" ) );
+  const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
+  for ( int idx = 0; idx < cookies.count(); idx++ )
+  {
+    if ( !cookies[idx].isSessionCookie() && QDateTime::currentSecsSinceEpoch() < cookies[idx].expirationDate().toSecsSinceEpoch() )
+    {
+      settings.setValue( QStringLiteral( "/QFieldCloud/cookies/%1" ), cookies[idx].toRawForm() );
+    }
+  }
 }
