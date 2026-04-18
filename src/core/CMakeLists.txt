@@ -74,6 +74,7 @@ set(QFIELD_CORE_SRCS
     badlayerhandler.cpp
     bookmarkmodel.cpp
     clipboardmanager.cpp
+    cameraorientationnormalizer.cpp
     changelogcontents.cpp
     digitizinglogger.cpp
     distancearea.cpp
@@ -220,6 +221,7 @@ set(QFIELD_CORE_HDRS
     badlayerhandler.h
     bookmarkmodel.h
     clipboardmanager.h
+    cameraorientationnormalizer.h
     changelogcontents.h
     digitizinglogger.h
     distancearea.h

@@ -45,6 +45,7 @@
 #include "badlayerhandler.h"
 #include "barcodedecoder.h"
 #include "barcodeimageprovider.h"
+#include "cameraorientationnormalizer.h"
 #include "changelogcontents.h"
 #include "cogoexecutor.h"
 #include "cogooperation.h"
@@ -497,6 +498,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<ProjectSource>( "org.qfield", 1, 0, "ProjectSource" );
   qmlRegisterType<ViewStatus>( "org.qfield", 1, 0, "ViewStatus" );
   qmlRegisterType<GridModel>( "org.qfield", 1, 0, "GridModel" );
+  qmlRegisterType<CameraOrientationNormalizer>( "org.qfield", 1, 0, "CameraOrientationNormalizer" );
   qmlRegisterUncreatableType<GridAnnotation>( "org.qfield", 1, 0, "gridAnnotation", "Used for property values" );
   qmlRegisterUncreatableMetaObject( GridAnnotation::staticMetaObject, "org.qfield", 1, 0, "GridAnnotation", "Used to access enum values" );
 
