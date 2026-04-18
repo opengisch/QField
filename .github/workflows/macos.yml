@@ -219,7 +219,7 @@ jobs:
 
           echo "ARTIFACT_PACKAGE_NAME=qfield-dmg" >> $GITHUB_ENV
 
-      - name: 📤 Upload app
+      - name: 📦 Upload artifacts
         uses: actions/upload-artifact@v7
         id: artifact-macos
         with:
