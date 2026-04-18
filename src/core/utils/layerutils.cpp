@@ -602,7 +602,11 @@ FeatureIterator LayerUtils::createFeatureIterator( QgsVectorLayer *layer )
 
 FeatureIterator LayerUtils::createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression )
 {
-  const QgsFeatureRequest request = QgsFeatureRequest( QgsExpression( expression ) );
+  QgsFeatureRequest request = QgsFeatureRequest( QgsExpression( expression ) );
+  if ( layer )
+  {
+    request.setExpressionContext( layer->createExpressionContext() );
+  }
   return FeatureIterator( layer, request );
 }
 
