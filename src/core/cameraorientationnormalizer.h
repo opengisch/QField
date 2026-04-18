@@ -34,28 +34,28 @@ email                : kaustuv@opengis.ch
  */
 class CameraOrientationNormalizer : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  Q_PROPERTY( int previewRotation READ previewRotation NOTIFY previewRotationChanged )
+    Q_PROPERTY( int previewRotation READ previewRotation NOTIFY previewRotationChanged )
 
-public:
-  explicit CameraOrientationNormalizer( QObject *parent = nullptr );
+  public:
+    explicit CameraOrientationNormalizer( QObject *parent = nullptr );
 
-  int previewRotation() const;
+    int previewRotation() const;
 
-  /**
+    /**
    * Sets the active camera device. Call when the camera is first
    * activated and when the user switches cameras.
    */
-  Q_INVOKABLE void setCamera( const QCameraDevice &device );
+    Q_INVOKABLE void setCamera( const QCameraDevice &device );
 
-  /**
+    /**
    * Records the current screen orientation. Call at shutter press
    * so that normalizeImageOrientation() has a ground-truth reference.
    */
-  Q_INVOKABLE void recordCaptureOrientation();
+    Q_INVOKABLE void recordCaptureOrientation();
 
-  /**
+    /**
    * Ensures the JPEG at \a path has pixels matching the orientation
    * recorded by recordCaptureOrientation(). Rotates the image if
    * pixel dimensions contradict the capture orientation and strips
@@ -63,23 +63,23 @@ public:
    *
    * Returns false without touching the file when no correction is needed.
    */
-  Q_INVOKABLE bool normalizeImageOrientation( const QString &path );
+    Q_INVOKABLE bool normalizeImageOrientation( const QString &path );
 
-signals:
-  void previewRotationChanged();
+  signals:
+    void previewRotationChanged();
 
-private slots:
-  void handleScreenOrientationChanged( Qt::ScreenOrientation orientation );
+  private slots:
+    void handleScreenOrientationChanged( Qt::ScreenOrientation orientation );
 
-private:
-  void updatePreviewRotation();
+  private:
+    void updatePreviewRotation();
 
-  QCameraDevice mCameraDevice;
-  int mSensorAngle = 0;
-  bool mIsFrontCamera = false;
-  Qt::ScreenOrientation mCurrentOrientation = Qt::PortraitOrientation;
-  Qt::ScreenOrientation mCaptureOrientation = Qt::PortraitOrientation;
-  int mPreviewRotation = 0;
+    QCameraDevice mCameraDevice;
+    int mSensorAngle = 0;
+    bool mIsFrontCamera = false;
+    Qt::ScreenOrientation mCurrentOrientation = Qt::PortraitOrientation;
+    Qt::ScreenOrientation mCaptureOrientation = Qt::PortraitOrientation;
+    int mPreviewRotation = 0;
 };
 
 #endif // CAMERAORIENTATIONNORMALIZER_H
