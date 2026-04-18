@@ -748,6 +748,7 @@ ApplicationWindow {
         item.gnssPosition = Qt.binding(() => positionSource.projectedPosition);
         item.gnssSpeed = Qt.binding(() => positionSource.positionInformation && positionSource.positionInformation.speedValid ? positionSource.positionInformation.speed : -1);
         item.gnssDirection = Qt.binding(() => positionSource.positionInformation && positionSource.positionInformation.directionValid ? positionSource.positionInformation.direction : -1);
+        item.gnssMarkerColor = Qt.binding(() => locationMarker.color);
 
         // Connect camera interaction signal to deactivate soft lock
         item.cameraInteractionDetected.connect(function () {

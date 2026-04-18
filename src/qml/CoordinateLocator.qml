@@ -17,6 +17,7 @@ Item {
   property color cursorFillColor: "#000000"
   property color cursorOutlineColor: "#FFFFFF"
   property real cursorSizeScale: 1.0
+  readonly property real crossHalfLength: cursorSizeScale >= 2.0 ? 16 : cursorSizeScale >= 1.5 ? 14 : 8
 
   /**
    * Set the current layer on which snapping should be performed.
@@ -275,18 +276,18 @@ Item {
       }
       PathMove {
         x: crosshairCircle.halfWidth
-        y: crosshairCircle.halfWidth - 8
+        y: crosshairCircle.halfWidth - locator.crossHalfLength
       }
       PathLine {
         x: crosshairCircle.halfWidth
-        y: crosshairCircle.halfWidth + 8
+        y: crosshairCircle.halfWidth + locator.crossHalfLength
       }
       PathMove {
-        x: crosshairCircle.halfWidth - 8
+        x: crosshairCircle.halfWidth - locator.crossHalfLength
         y: crosshairCircle.halfWidth
       }
       PathLine {
-        x: crosshairCircle.halfWidth + 8
+        x: crosshairCircle.halfWidth + locator.crossHalfLength
         y: crosshairCircle.halfWidth
       }
     }

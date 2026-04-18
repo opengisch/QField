@@ -23,6 +23,8 @@ Item {
   property var gnssPosition: null
   property real gnssSpeed: -1
   property real gnssDirection: -1
+  property color gnssMarkerColor: "#2060ff"
+  property color gnssMarkerSemiOpaqueColor: Qt.hsla(gnssMarkerColor.hslHue, gnssMarkerColor.hslSaturation, gnssMarkerColor.hslLightness, 0.4)
 
   property TrackingModel trackingModel: null
 
@@ -145,7 +147,7 @@ Item {
         pickable: true
 
         materials: PrincipledMaterial {
-          baseColor: "#4080ff"
+          baseColor: mapArea.gnssMarkerSemiOpaqueColor
           opacity: 0.4
           alphaMode: PrincipledMaterial.Blend
         }
@@ -180,7 +182,7 @@ Item {
           pickable: true
 
           materials: PrincipledMaterial {
-            baseColor: "#2060ff"
+            baseColor: mapArea.gnssMarkerColor
             metalness: 0.7
             roughness: 0.1
           }
@@ -194,7 +196,7 @@ Item {
           pickable: true
 
           materials: PrincipledMaterial {
-            baseColor: "#2060ff"
+            baseColor: mapArea.gnssMarkerColor
             metalness: 0.6
             roughness: 0.2
           }
@@ -208,7 +210,7 @@ Item {
           pickable: true
 
           materials: PrincipledMaterial {
-            baseColor: "#4080ff"
+            baseColor: mapArea.gnssMarkerSemiOpaqueColor
             metalness: 0.5
             roughness: 0.3
           }
@@ -223,7 +225,7 @@ Item {
         pickable: true
 
         materials: PrincipledMaterial {
-          baseColor: "#2060ff"
+          baseColor: mapArea.gnssMarkerColor
           metalness: 0.6
           roughness: 0.2
         }
