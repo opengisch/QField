@@ -196,7 +196,7 @@ jobs:
           echo "ARTIFACT_PATHNAME=build/QField-x86_64.AppImage" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-linux-x64.AppImage" >> $GITHUB_ENV
 
-      - name: 📦 Upload package
+      - name: 📦 Upload artifacts
         if: ${{ env.ARTIFACT_NAME != null }}
         uses: actions/upload-artifact@v7
         id: artifact-linux
