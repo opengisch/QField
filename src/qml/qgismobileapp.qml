@@ -4861,6 +4861,65 @@ ApplicationWindow {
       layoutListInstantiator.model.reloadModel();
       geofencer.applyProjectSettings(qgisProject);
       positioningSettings.geofencingPreventDigitizingDuringAlert = iface.readProjectBoolEntry("qfieldsync", "/geofencingShouldPreventDigitizing", false);
+
+      // Location arrow customization
+      const locationArrowFillColor = iface.readProjectEntry("qfieldsync", "/locationArrowFillColor", "");
+      if (locationArrowFillColor !== "") {
+        locationMarker.color = locationArrowFillColor;
+      } else {
+        locationMarker.color = Qt.darker(Theme.positionColor, 1.25);
+      }
+      const locationArrowOutlineColor = iface.readProjectEntry("qfieldsync", "/locationArrowOutlineColor", "");
+      if (locationArrowOutlineColor !== "") {
+        locationMarker.strokeColor = locationArrowOutlineColor;
+      } else {
+        locationMarker.strokeColor = "white";
+      }
+      const locationArrowSize = iface.readProjectEntry("qfieldsync", "/locationArrowSize", "normal");
+      switch (locationArrowSize) {
+      case "tiny":
+        locationMarker.sizeScale = 0.7;
+        break;
+      case "big":
+        locationMarker.sizeScale = 1.5;
+        break;
+      case "biggest":
+        locationMarker.sizeScale = 2.0;
+        break;
+      default:
+        locationMarker.sizeScale = 1.0;
+        break;
+      }
+
+      // Coordinate cursor customization
+      const coordinateCursorFillColor = iface.readProjectEntry("qfieldsync", "/coordinateCursorFillColor", "");
+      if (coordinateCursorFillColor !== "") {
+        coordinateLocator.cursorFillColor = coordinateCursorFillColor;
+      } else {
+        coordinateLocator.cursorFillColor = "#000000";
+      }
+      const coordinateCursorOutlineColor = iface.readProjectEntry("qfieldsync", "/coordinateCursorOutlineColor", "");
+      if (coordinateCursorOutlineColor !== "") {
+        coordinateLocator.cursorOutlineColor = coordinateCursorOutlineColor;
+      } else {
+        coordinateLocator.cursorOutlineColor = "#FFFFFF";
+      }
+      const coordinateCursorSize = iface.readProjectEntry("qfieldsync", "/coordinateCursorSize", "normal");
+      switch (coordinateCursorSize) {
+      case "tiny":
+        coordinateLocator.cursorSizeScale = 0.7;
+        break;
+      case "big":
+        coordinateLocator.cursorSizeScale = 1.5;
+        break;
+      case "biggest":
+        coordinateLocator.cursorSizeScale = 2.0;
+        break;
+      default:
+        coordinateLocator.cursorSizeScale = 1.0;
+        break;
+      }
+
       mapCanvasTour.startOnFreshRun();
     }
 

@@ -14,6 +14,9 @@ Item {
   property MapSettings mapSettings
   property color mainColor: "#CFD8DC"
   property color highlightColor: "#263238"
+  property color cursorFillColor: "#000000"
+  property color cursorOutlineColor: "#FFFFFF"
+  property real cursorSizeScale: 1.0
 
   /**
    * Set the current layer on which snapping should be performed.
@@ -199,7 +202,7 @@ Item {
     property real halfWidth: width / 2
     property real arcSpacing: isSnapped ? 0 : 20
 
-    width: isSnapped ? 32 : 48
+    width: (isSnapped ? 32 : 48) * locator.cursorSizeScale
     height: width
 
     x: displayPosition.x - halfWidth
@@ -227,14 +230,14 @@ Item {
 
     ShapePath {
       id: crosshairPathBuffer
-      strokeColor: "#FFFFFF"
+      strokeColor: locator.cursorOutlineColor
       strokeWidth: crosshairPath.strokeWidth + 2
       fillColor: "transparent"
     }
 
     ShapePath {
       id: crosshairPath
-      strokeColor: !!overrideLocation && overrideLocation.x ? Theme.positionColor : "#000000"
+      strokeColor: !!overrideLocation && overrideLocation.x ? Theme.positionColor : locator.cursorFillColor
       strokeWidth: 2
       fillColor: "transparent"
 

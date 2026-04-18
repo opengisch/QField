@@ -29,6 +29,7 @@ Item {
   property real speed: -1 // A -1 value indicates absence of speed information
   property real orientation: -1 // A -1 value indicates absence of compass orientation
 
+  property real sizeScale: 1.0
   property color strokeColor: "white"
   property color color: Qt.darker(Theme.positionColor, 1.25)
   property color semiOpaqueColor: Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, 0.1)
@@ -62,6 +63,7 @@ Item {
     visible: orientation > -1
     width: 48
     height: 48
+    scale: locationMarker.sizeScale
     opacity: 0.6
 
     x: screenLocation.x - width / 2
@@ -214,6 +216,7 @@ Item {
     visible: speed > 0 && isOnMapCanvas
     width: 26
     height: 26
+    scale: locationMarker.sizeScale
 
     x: screenLocation.x - width / 2
     y: screenLocation.y - height / 2
@@ -261,8 +264,8 @@ Item {
     id: positionMarker
     visible: !movementMarker.visible && isOnMapCanvas
 
-    width: 14
-    height: 14
+    width: 14 * locationMarker.sizeScale
+    height: 14 * locationMarker.sizeScale
 
     x: screenLocation.x - width / 2
     y: screenLocation.y - height / 2
@@ -288,6 +291,7 @@ Item {
     visible: !isOnMapCanvas
     width: 20
     height: 24
+    scale: locationMarker.sizeScale
 
     x: Math.min(mapCanvas.width - width, Math.max(0, screenLocation.x - width / 2))
     y: Math.min(mapCanvas.height - width, Math.max(0, screenLocation.y - width / 2))
