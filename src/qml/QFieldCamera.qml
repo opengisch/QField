@@ -190,11 +190,11 @@ Popup {
                   let fallbackIndex = -1;
                   let i = 0;
                   for (let format of camera.cameraDevice.videoFormats) {
-                    if (format.resolution === cameraSettings.resolution && format.pixelFormat === cameraSettings.pixelFormat) {
+                    if (format.resolution == cameraSettings.resolution && format.pixelFormat == cameraSettings.pixelFormat) { // coercion required
                       camera.cameraFormat = format;
                       fallbackIndex = -1;
                       break;
-                    } else if (format.resolution === cameraSettings.resolution) {
+                    } else if (format.resolution == cameraSettings.resolution) { // coercion required
                       // If we can't match the pixel format and resolution, go for resolution match across devices
                       fallbackIndex = i;
                     }
@@ -261,7 +261,7 @@ Popup {
         let cameraPicked = false;
         if (cameraSettings.deviceId != '') {
           for (const device of mediaDevices.videoInputs) {
-            if (device.id === cameraSettings.deviceId) {
+            if (device.id == cameraSettings.deviceId) { // coercion required
               item.camera.cameraDevice = device;
               cameraPicked = true;
             }
