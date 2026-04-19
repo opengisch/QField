@@ -447,6 +447,7 @@ public class QFieldActivity extends QtActivity {
                 options.setDsn(bundle.getString("io.sentry.dsn"));
                 options.setEnvironment(
                     bundle.getString("io.sentry.environment"));
+                options.setDebug(true);
             });
         } catch (NameNotFoundException e) {
             return;
