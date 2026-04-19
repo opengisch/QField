@@ -18,6 +18,7 @@
 #include "pluginmanager.h"
 #include "qgsziputils.h"
 
+#include <QCoreApplication>
 #include <QDir>
 #include <QFileInfo>
 #include <QQmlApplicationEngine>
@@ -78,6 +79,20 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
     unloadPlugin( pluginPath );
   }
 
+  // Load translation file for current language locale is present
+  QFileInfo pluginFileInfo( pluginPath );
+  const QString languageCode = QLocale().name();
+  QTranslator *languageTranslator = new QTranslator();
+  if ( languageTranslator->load( QStringLiteral( "%1%2%3" ).arg( pluginFileInfo.fileName().chopped( 4 ), pluginFileInfo.fileName() == QStringLiteral( "main.qml" ) ? "" : QStringLiteral( "-plugin_" ), languageCode ), pluginFileInfo.absolutePath(), "_" ) )
+  {
+    QCoreApplication::installTranslator( languageTranslator );
+    mLoadedPluginTranslators.insert( pluginPath, languageTranslator );
+  }
+  else
+  {
+    languageTranslator->deleteLater();
+  }
+
   // Bypass caching to insure updated QML content is loaded
   QUrl url = QUrl::fromLocalFile( pluginPath );
   url.setQuery( QStringLiteral( "t=%1" ).arg( QDateTime::currentSecsSinceEpoch() ) );
@@ -125,6 +140,12 @@ void PluginManager::unloadPlugin( const QString &pluginPath )
 
     // Clear QML components cache of dynamically loaded items
     mEngine->clearComponentCache();
+  }
+  if ( mLoadedPluginTranslators.contains( pluginPath ) )
+  {
+    QCoreApplication::removeTranslator( mLoadedPluginTranslators[pluginPath] );
+    mLoadedPluginTranslators[pluginPath]->deleteLater();
+    mLoadedPluginTranslators.remove( pluginPath );
   }
 }
 
