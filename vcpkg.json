@@ -114,7 +114,7 @@
         "breakpad",
         "transport"
       ],
-      "platform": "windows | linux"
+      "platform": "windows | linux | android"
     },
     "spix-qt6",
     {
