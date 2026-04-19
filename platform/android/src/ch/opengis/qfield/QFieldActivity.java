@@ -445,6 +445,7 @@ public class QFieldActivity extends QtActivity {
             Bundle bundle = app.metaData;
             SentryAndroid.init(this, options -> {
                 options.setDsn(bundle.getString("io.sentry.dsn"));
+                options.setTracesSampleRate(1.0);
                 options.setEnvironment(
                     bundle.getString("io.sentry.environment"));
                 options.setDebug(true);
