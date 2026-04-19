@@ -5041,6 +5041,7 @@ ApplicationWindow {
 
   QFieldCloudConnection {
     id: cloudConnection
+    objectName: "cloudConnection"
 
     property int previousStatus: QFieldCloudConnection.Disconnected
 
@@ -5074,6 +5075,8 @@ ApplicationWindow {
 
   QFieldCloudProjectsModel {
     id: cloudProjectsModel
+    objectName: "cloudProjectsModel"
+
     cloudConnection: cloudConnection
     layerObserver: layerObserverAlias
     gpkgFlusher: gpkgFlusherAlias
