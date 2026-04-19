@@ -21,6 +21,7 @@
 
 #include <QObject>
 #include <QQmlEngine>
+#include <QTranslator>
 
 /**
  * \ingroup core
@@ -204,6 +205,7 @@ class PluginManager : public QObject
   private:
     QQmlEngine *mEngine = nullptr;
     QMap<QString, QPointer<QObject>> mLoadedPlugins;
+    QMap<QString, QTranslator *> mLoadedPluginTranslators;
 
     QString mPermissionRequestPluginPath;
 
