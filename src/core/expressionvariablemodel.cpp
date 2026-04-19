@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "expressioncontextutils.h"
 #include "expressionvariablemodel.h"
-#include "utils/expressioncontextutils.h"
 
 #include <QDebug>
 #include <QSettings>
@@ -178,22 +178,24 @@ void ExpressionVariableModel::reloadVariables()
   variableNames.sort();
 
   // Second add user-provided global variables
-  for ( const QString &name : variableNames )
+  for ( const QString &name : std::as_const( variableNames ) )
   {
-    if ( !scope->isReadOnly( name ) )
+    if ( !scope->isReadOnly( name ) && !PROTECTED_GLOBAL_VARIABLE_NAMES.contains( name ) )
     {
       appendVariable( VariableScope::GlobalScope, name, scope->variable( name ).toString(), true );
     }
   }
 
   // Finally, add read-only global variables
-  for ( const QString &name : variableNames )
+  for ( const QString &name : std::as_const( variableNames ) )
   {
-    if ( scope->isReadOnly( name ) )
+    if ( scope->isReadOnly( name ) || PROTECTED_GLOBAL_VARIABLE_NAMES.contains( name ) )
     {
       QVariant varValue = scope->variable( name );
       if ( QString::compare( varValue.toString(), QStringLiteral( "Not available" ) ) == 0 )
+      {
         varValue = QVariant( QT_TR_NOOP( "Not Available" ) );
+      }
 
       appendVariable( VariableScope::GlobalScope, name, varValue.toString(), false );
     }

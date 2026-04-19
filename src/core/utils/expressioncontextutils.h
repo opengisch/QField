@@ -20,10 +20,13 @@
 #define EXPRESSIONCONTEXTUTILS_H
 
 #include "gnsspositioninformation.h"
-#include "qfieldcloudconnection.h"
+#include "qfieldcloudutils.h"
 #include "snappingresult.h"
 
 #include <qgsexpressioncontext.h>
+
+#define PROTECTED_GLOBAL_VARIABLE_NAMES QStringList( { QStringLiteral( "cloud_username" ), QStringLiteral( "cloud_useremail" ) } )
+
 
 /**
  * \ingroup core

@@ -15,7 +15,6 @@
  ***************************************************************************/
 
 
-#include "expressioncontextutils.h"
 #include "projectinfo.h"
 
 #include <QDateTime>
@@ -23,6 +22,7 @@
 #include <QString>
 #include <QTextDocument>
 #include <qgscolorutils.h>
+#include <qgsexpressioncontextutils.h>
 #include <qgslayertree.h>
 #include <qgslayertreemodel.h>
 #include <qgslinesymbol.h>
@@ -318,6 +318,10 @@ void ProjectInfo::setCloudUserInformation( const CloudUserInformation cloudUserI
 
   if ( cloudUserInformation.isEmpty() )
     return;
+
+  // Inject variables into the global scope until we have a better solution upstream
+  QgsExpressionContextUtils::setGlobalVariable( "cloud_username", cloudUserInformation.username );
+  QgsExpressionContextUtils::setGlobalVariable( "cloud_useremail", cloudUserInformation.email );
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/cloudUserInfo" ).arg( mFilePath ) );
   mSettings.setValue( QStringLiteral( "json" ), cloudUserInformation.toJson() );
@@ -652,8 +656,13 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
   const QStringList variableNames = settings.allKeys();
   for ( const QString &name : variableNames )
   {
-    ExpressionContextUtils::setProjectVariable( project, name, settings.value( name ).toString() );
+    QgsExpressionContextUtils::setProjectVariable( project, name, settings.value( name ).toString() );
   }
+
+  // Inject variables into the global scope until we have a better solution upstream
+  QJsonObject cloudUserInformationObject = QSettings().value( QStringLiteral( "/qgis/projectInfo/%1/cloudUserInfo/json" ).arg( projectFilePath ), QStringLiteral( "{}" ) ).toJsonValue().toObject();
+  QgsExpressionContextUtils::setGlobalVariable( "cloud_username", cloudUserInformationObject.value( "username" ).toString() );
+  QgsExpressionContextUtils::setGlobalVariable( "cloud_useremail", cloudUserInformationObject.value( "email" ).toString() );
 }
 
 QVariantMap ProjectInfo::getTitleDecorationConfiguration()

@@ -230,6 +230,11 @@ QVariantMap ExpressionContextUtils::globalVariables()
 
 void ExpressionContextUtils::setGlobalVariable( const QString &name, const QVariant &value )
 {
+  if ( PROTECTED_GLOBAL_VARIABLE_NAMES.contains( name ) )
+  {
+    return;
+  }
+
   QgsApplication::setCustomVariable( name, value );
 }
 
