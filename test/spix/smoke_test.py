@@ -350,5 +350,79 @@ def test_3d_rendering(app, screenshot_path, screenshot_check, extra, process_ali
     assert messagesCount == 0
 
 
+@pytest.mark.project_file("test_gallery_editor.qgz")
+def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_alive):
+    """
+    Starts a test app and check that the gallery relation editor renders correctly
+    in both grid and list view when a parent/child relation's referencing layer
+    has an ExternalResource field.
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
+    time.sleep(8)
+
+    # Force browse mode so canvas clicks identify instead of digitize
+    app.setStringProperty("mainWindow/stateMachine", "state", "browse")
+    time.sleep(1)
+
+    # Insure layer has loaded properly by checking for error messages
+    messagesCount = 0
+    for i in range(0, 10):
+        message = app.getStringProperty(
+            f"mainWindow/messageLog/messageItem_{i}/messageText", "text"
+        )
+        if message == "":
+            break
+        extra.append(extras.html("Message logs content: {}".format(message)))
+        messagesCount = messagesCount + 1
+    extra.append(extras.html("Message logs count: {}".format(messagesCount)))
+    assert messagesCount == 0
+
+    bounds = app.getBoundingBox("mainWindow/mapCanvas")
+    move_x = bounds[0] + bounds[2] / 2
+    move_y = bounds[1] + bounds[3] / 3
+
+    pyautogui.moveTo(move_x, move_y, duration=0.5)
+    pyautogui.click(interval=0.5)
+    time.sleep(2)
+
+    bounds = app.getBoundingBox("mainWindow/featureForm")
+    move_x = bounds[0] + bounds[2] / 2
+    move_y = bounds[1] + 100
+    pyautogui.moveTo(move_x, move_y, duration=0.5)
+    pyautogui.click(interval=0.5)
+
+    time.sleep(4)
+
+    app.takeScreenshot(
+        "mainWindow", os.path.join(screenshot_path, "test_gallery_editor_grid.png")
+    )
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_gallery_editor_grid.png"/>'))
+
+    assert screenshot_check("test_gallery_editor", "test_gallery_editor_grid", 0.025)
+
+    # Toggle
+    bounds = app.getBoundingBox(
+        "mainWindow/featureForm/attributeEditorLoaderAttachments"
+    )
+    move_x = bounds[0] + bounds[2] - 1 - 38
+    move_y = bounds[1] + bounds[3] - 2 - 20
+
+    pyautogui.moveTo(move_x, move_y, duration=0.5)
+    pyautogui.click(interval=0.5)
+    time.sleep(1)
+
+    app.takeScreenshot(
+        "mainWindow", os.path.join(screenshot_path, "test_gallery_editor_list.png")
+    )
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_gallery_editor_list.png"/>'))
+
+    assert screenshot_check("test_gallery_editor", "test_gallery_editor_list", 0.025)
+
+
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__]))
