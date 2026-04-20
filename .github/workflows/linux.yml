@@ -45,7 +45,7 @@ jobs:
           echo "BUILD_TYPE=Release" >> $GITHUB_ENV
 
       - name: 💎 Setup ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1.301.0
         with:
           ruby-version: '3.4' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
@@ -173,7 +173,7 @@ jobs:
           echo "QFieldCloud is ready"
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4
+        uses: github/codeql-action/init@v4.35.1
         with:
           languages: 'c-cpp'
 
@@ -284,7 +284,7 @@ jobs:
           bundle exec fastlane run sentry_debug_files_upload path:build
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v4
+        uses: github/codeql-action/analyze@v4.35.1
         with:
           category: "/language:c-cpp"
 

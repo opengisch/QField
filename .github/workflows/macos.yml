@@ -158,7 +158,7 @@ jobs:
             ${{ env.CMAKE_BUILD_DIR }}/**/*.log
 
       - name: 💎 Setup ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1.301.0
         with:
           ruby-version: '3.4' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
