@@ -5047,7 +5047,7 @@ ApplicationWindow {
     onStatusChanged: {
       if (cloudConnection.status === QFieldCloudConnection.Disconnected && previousStatus === QFieldCloudConnection.LoggedIn) {
         displayToast(qsTr('Signed out'));
-        cloudStatus.refresh();
+        qfieldCloudStatus.refresh();
       } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
         displayToast(qsTr('Connecting...'));
       } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
@@ -5082,7 +5082,7 @@ ApplicationWindow {
 
     onProjectDownloaded: (projectId, projectName, hasError, errorString) => {
       if (hasError) {
-        cloudStatus.refresh();
+        qfieldCloudStatus.refresh();
         displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error');
       } else if (qfieldCloudScreen.visible || qfieldCloudPopup.visible) {
         displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
@@ -5091,7 +5091,7 @@ ApplicationWindow {
 
     onPushFinished: (projectId, isDownloadingProject, hasError, errorString) => {
       if (hasError) {
-        cloudStatus.refresh();
+        qfieldCloudStatus.refresh();
         displayToast(qsTr("Changes failed to reach QFieldCloud: %1").arg(errorString), 'error');
         return;
       }
