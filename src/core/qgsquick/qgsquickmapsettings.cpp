@@ -511,7 +511,13 @@ qreal QgsQuickMapSettings::devicePixelRatio() const
 
 void QgsQuickMapSettings::setDevicePixelRatio( const qreal &devicePixelRatio )
 {
+  if ( mDevicePixelRatio == devicePixelRatio )
+  {
+    return;
+  }
+
   mDevicePixelRatio = devicePixelRatio;
+  emit mapUnitsPerPointChanged();
 }
 
 bool QgsQuickMapSettings::isTemporal() const
