@@ -5085,7 +5085,7 @@ ApplicationWindow {
       if (hasError) {
         cloudStatus.refresh();
         displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error');
-      } else {
+      } else if (qfieldCloudScreen.visible || qfieldCloudPopup.visible) {
         displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
       }
     }
@@ -5096,7 +5096,7 @@ ApplicationWindow {
         displayToast(qsTr("Changes failed to reach QFieldCloud: %1").arg(errorString), 'error');
         return;
       }
-      if (!isDownloadingProject) {
+      if (!isDownloadingProject && (qfieldCloudScreen.visible || qfieldCloudPopup.visible)) {
         displayToast(qsTr("Changes successfully pushed to QFieldCloud"));
       }
       if (QFieldCloudUtils.hasPendingAttachments(cloudConnection.username)) {
