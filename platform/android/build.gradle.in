@@ -106,8 +106,7 @@ android {
     }
 }
 
-
 // Add Sentry's SDK as a dependency.
 dependencies {
-    implementation 'io.sentry:sentry-android:7.22.5'
+    implementation 'io.sentry:sentry-android:7.22.6'
 }

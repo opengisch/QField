@@ -111,7 +111,10 @@
       "default-features": false,
       "features": [
         "backend",
-        "breakpad",
+        {
+          "name": "breakpad",
+          "platform": "windows | linux"
+        },
         "transport"
       ],
       "platform": "windows | linux"
