@@ -972,7 +972,14 @@ void QFieldCloudProject::download()
         }
 
         updateActiveFilesToDownload();
-        downloadFiles();
+        if ( !mActiveFilesToDownload.isEmpty() )
+        {
+          downloadFiles();
+        }
+        else
+        {
+          downloadFilesCompleted( true );
+        }
       } );
     }
     else
@@ -980,7 +987,14 @@ void QFieldCloudProject::download()
       QgsLogger::debug( QStringLiteral( "Project %1: packaged files to download - %2 files, namely: %3" ).arg( mId ).arg( mDownloadFileTransfers.count() ).arg( mDownloadFileTransfers.keys().join( ", " ) ) );
 
       updateActiveFilesToDownload();
-      downloadFiles();
+      if ( !mActiveFilesToDownload.isEmpty() )
+      {
+        downloadFiles();
+      }
+      else
+      {
+        downloadFilesCompleted( true );
+      }
     }
   } );
 }
@@ -1295,7 +1309,7 @@ void QFieldCloudProject::downloadFileConnections( const QString &fileKey )
   } );
 }
 
-void QFieldCloudProject::downloadFilesCompleted()
+void QFieldCloudProject::downloadFilesCompleted( bool emptyDownload )
 {
   QgsLogger::debug( QStringLiteral( "Project %1: All files downloaded." ).arg( mId ) );
   Q_ASSERT( mActiveFilesToDownload.size() == 0 );
@@ -1305,60 +1319,63 @@ void QFieldCloudProject::downloadFilesCompleted()
     setupDeltaFileWrapper();
   }
 
-  const QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
-  const bool currentProjectReloadNeeded = QgsProject::instance()->homePath().startsWith( projectPath.absolutePath() );
-  QStringList gpkgFileNames;
-  if ( currentProjectReloadNeeded )
+  if ( !emptyDownload )
   {
-    // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
-    QDirIterator it( projectPath.absolutePath(), { QStringLiteral( "*.gpkg" ), QStringLiteral( "*.sqlite" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
-    while ( it.hasNext() )
+    const QDir projectPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
+    const bool currentProjectReloadNeeded = QgsProject::instance()->homePath().startsWith( projectPath.absolutePath() );
+    QStringList gpkgFileNames;
+    if ( currentProjectReloadNeeded )
     {
-      gpkgFileNames << it.nextFileInfo().absoluteFilePath();
+      // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
+      QDirIterator it( projectPath.absolutePath(), { QStringLiteral( "*.gpkg" ), QStringLiteral( "*.sqlite" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
+      while ( it.hasNext() )
+      {
+        gpkgFileNames << it.nextFileInfo().absoluteFilePath();
+      }
+
+      QgsProject::instance()->clear();
+      if ( mGpkgFlusher )
+      {
+        for ( const QString &fileName : gpkgFileNames )
+        {
+          mGpkgFlusher->stop( fileName );
+        }
+      }
     }
 
-    QgsProject::instance()->clear();
-    if ( mGpkgFlusher )
+    // move the files from their temporary location to their permanent one
+    if ( !moveDownloadedFilesToPermanentStorage() )
     {
+      emit downloadFinished( tr( "Failed to copy some of the downloaded files on your device. Check your device storage." ) );
+      return;
+    }
+
+    if ( currentProjectReloadNeeded )
+    {
+      // Clear up Geopackage's shm and wal files
       for ( const QString &fileName : gpkgFileNames )
       {
-        mGpkgFlusher->stop( fileName );
-      }
-    }
-  }
-
-  // move the files from their temporary location to their permanent one
-  if ( !moveDownloadedFilesToPermanentStorage() )
-  {
-    emit downloadFinished( tr( "Failed to copy some of the downloaded files on your device. Check your device storage." ) );
-    return;
-  }
-
-  if ( currentProjectReloadNeeded )
-  {
-    // Clear up Geopackage's shm and wal files
-    for ( const QString &fileName : gpkgFileNames )
-    {
-      QFile shmFile( QStringLiteral( "%1-shm" ).arg( fileName ) );
-      if ( shmFile.exists() )
-      {
-        if ( !shmFile.remove() )
+        QFile shmFile( QStringLiteral( "%1-shm" ).arg( fileName ) );
+        if ( shmFile.exists() )
         {
-          QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -shm file '%1' " ).arg( shmFile.fileName() ) );
+          if ( !shmFile.remove() )
+          {
+            QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -shm file '%1' " ).arg( shmFile.fileName() ) );
+          }
+        }
+
+        QFile walFile( QStringLiteral( "%1-wal" ).arg( fileName ) );
+        if ( walFile.exists() )
+        {
+          if ( !walFile.remove() )
+          {
+            QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -wal file '%1' " ).arg( walFile.fileName() ) );
+          }
         }
       }
 
-      QFile walFile( QStringLiteral( "%1-wal" ).arg( fileName ) );
-      if ( walFile.exists() )
-      {
-        if ( !walFile.remove() )
-        {
-          QgsMessageLog::logMessage( QStringLiteral( "Failed to remove -wal file '%1' " ).arg( walFile.fileName() ) );
-        }
-      }
+      AppInterface::instance()->reloadProject();
     }
-
-    AppInterface::instance()->reloadProject();
   }
 
   setStatus( ProjectStatus::Idle );
