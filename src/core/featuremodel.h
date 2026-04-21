@@ -357,6 +357,7 @@ class FeatureModel : public QAbstractListModel
 
     ModelModes mModelMode = SingleFeatureModel;
     QPointer<QgsVectorLayer> mLayer;
+    QgsFeature mSavedFeature;
     QgsFeature mFeature;
     QList<QgsFeature> mFeatures;
     QList<bool> mAttributesAllowEdit;
