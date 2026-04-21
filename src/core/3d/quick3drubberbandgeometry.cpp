@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "quick3dgeometryutils.h"
 #include "quick3drubberbandgeometry.h"
 
 #include <QVector3D>
@@ -194,8 +195,8 @@ void Quick3DRubberbandGeometry::updateGeometry()
   const float sphereRadius = mRadius * 2.25f;
   const int sphereStacks = 6;
   const int sphereSlices = 8;
-  const int sphereVertexCount = ( sphereStacks + 1 ) * ( sphereSlices + 1 );
-  const int sphereIndexCount = sphereStacks * sphereSlices * 6;
+  const int sphereVertexCount = Quick3DGeometryUtils::sphereVertexCount( sphereStacks, sphereSlices );
+  const int sphereIndexCount = Quick3DGeometryUtils::sphereIndexCount( sphereStacks, sphereSlices );
 
   // Calculate totals across all sub-paths
   int totalPoints = 0;
@@ -212,7 +213,7 @@ void Quick3DRubberbandGeometry::updateGeometry()
   const int totalIndexCount = tubeIndexCount + totalPoints * sphereIndexCount;
 
   // Per-vertex layout: pos(3) + normal(3) + rgba(4) = 10 floats
-  const int stride = 10 * sizeof( float );
+  const int stride = Quick3DGeometryUtils::VERTEX_STRIDE;
   const float colR = mColor.redF();
   const float colG = mColor.greenF();
   const float colB = mColor.blueF();
@@ -229,160 +230,20 @@ void Quick3DRubberbandGeometry::updateGeometry()
   QVector3D minBound( std::numeric_limits<float>::max(), std::numeric_limits<float>::max(), std::numeric_limits<float>::max() );
   QVector3D maxBound( std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest() );
 
-  auto updateBounds = [&]( const QVector3D &pos ) {
-    minBound.setX( std::min( minBound.x(), pos.x() ) );
-    minBound.setY( std::min( minBound.y(), pos.y() ) );
-    minBound.setZ( std::min( minBound.z(), pos.z() ) );
-    maxBound.setX( std::max( maxBound.x(), pos.x() ) );
-    maxBound.setY( std::max( maxBound.y(), pos.y() ) );
-    maxBound.setZ( std::max( maxBound.z(), pos.z() ) );
-  };
+  quint32 vertexOffset = 0;
 
   // --- Tubes: one circular cross-section ("ring") per path point ---
-  quint32 tubeVertexOffset = 0;
-
   for ( const QVector<QVector3D> &path : subPaths )
   {
-    const int ringCount = static_cast<int>( path.size() );
-
-    for ( int ring = 0; ring < ringCount; ++ring )
-    {
-      // Tangent direction at this ring – averaged from neighbours for smooth bends
-      QVector3D forward;
-      if ( ring == 0 )
-      {
-        forward = ( path[1] - path[0] ).normalized();
-      }
-      else if ( ring == ringCount - 1 )
-      {
-        forward = ( path[ring] - path[ring - 1] ).normalized();
-      }
-      else
-      {
-        forward = ( ( path[ring] - path[ring - 1] ).normalized() + ( path[ring + 1] - path[ring] ).normalized() ).normalized();
-      }
-
-      if ( forward.isNull() )
-      {
-        forward = QVector3D( 0, 0, 1 );
-      }
-
-      // Build a local coordinate frame (right, up) perpendicular to the tube direction.
-      // If the tube is nearly vertical, switch the reference vector to avoid degeneracy.
-      QVector3D up( 0, 1, 0 );
-      if ( std::fabs( QVector3D::dotProduct( forward, up ) ) > 0.99f )
-      {
-        up = QVector3D( 1, 0, 0 );
-      }
-      const QVector3D right = QVector3D::crossProduct( forward, up ).normalized();
-      const QVector3D actualUp = QVector3D::crossProduct( right, forward ).normalized();
-
-      for ( int seg = 0; seg < mSegments; ++seg )
-      {
-        const float angle = 2.0f * M_PI * seg / mSegments;
-        const float cosA = qCos( angle );
-        const float sinA = qSin( angle );
-
-        const QVector3D normal = ( right * cosA + actualUp * sinA ).normalized();
-        const QVector3D pos = path[ring] + normal * mRadius;
-
-        *vptr++ = pos.x();
-        *vptr++ = pos.y();
-        *vptr++ = pos.z();
-        *vptr++ = normal.x();
-        *vptr++ = normal.y();
-        *vptr++ = normal.z();
-        *vptr++ = colR;
-        *vptr++ = colG;
-        *vptr++ = colB;
-        *vptr++ = colA;
-
-        updateBounds( pos );
-      }
-    }
-
-    // Stitch adjacent rings into quads (2 triangles each)
-    for ( int ring = 0; ring < ringCount - 1; ++ring )
-    {
-      const quint32 ringOffset = tubeVertexOffset + ring * mSegments;
-      const quint32 nextRingOffset = tubeVertexOffset + ( ring + 1 ) * mSegments;
-
-      for ( int seg = 0; seg < mSegments; ++seg )
-      {
-        const quint32 nextSeg = ( seg + 1 ) % mSegments;
-
-        *iptr++ = ringOffset + seg;
-        *iptr++ = nextRingOffset + seg;
-        *iptr++ = ringOffset + nextSeg;
-
-        *iptr++ = ringOffset + nextSeg;
-        *iptr++ = nextRingOffset + seg;
-        *iptr++ = nextRingOffset + nextSeg;
-      }
-    }
-
-    tubeVertexOffset += ringCount * mSegments;
+    Quick3DGeometryUtils::generateTube( path, mSegments, mRadius, colR, colG, colB, colA, vptr, iptr, vertexOffset, minBound, maxBound );
   }
 
   // --- Sphere joints: a UV sphere at each path vertex ---
-  quint32 sphereBaseVertex = tubeVertexCount;
-
   for ( const QVector<QVector3D> &path : subPaths )
   {
-    for ( int si = 0; si < path.size(); ++si )
+    for ( const QVector3D &center : path )
     {
-      const QVector3D &center = path[si];
-      const quint32 thisBaseVertex = sphereBaseVertex;
-
-      // Walk latitude (phi: 0=north pole → PI=south pole)
-      for ( int stack = 0; stack <= sphereStacks; ++stack )
-      {
-        const float phi = M_PI * stack / sphereStacks;
-        const float sinPhi = qSin( phi );
-        const float cosPhi = qCos( phi );
-
-        for ( int slice = 0; slice <= sphereSlices; ++slice )
-        {
-          const float theta = 2.0f * M_PI * slice / sphereSlices;
-          const float sinTheta = qSin( theta );
-          const float cosTheta = qCos( theta );
-
-          const QVector3D normal( sinPhi * cosTheta, cosPhi, sinPhi * sinTheta );
-          const QVector3D pos = center + normal * sphereRadius;
-
-          *vptr++ = pos.x();
-          *vptr++ = pos.y();
-          *vptr++ = pos.z();
-          *vptr++ = normal.x();
-          *vptr++ = normal.y();
-          *vptr++ = normal.z();
-          *vptr++ = colR;
-          *vptr++ = colG;
-          *vptr++ = colB;
-          *vptr++ = colA;
-
-          updateBounds( pos );
-        }
-      }
-
-      for ( int stack = 0; stack < sphereStacks; ++stack )
-      {
-        for ( int slice = 0; slice < sphereSlices; ++slice )
-        {
-          const quint32 first = thisBaseVertex + stack * ( sphereSlices + 1 ) + slice;
-          const quint32 second = first + sphereSlices + 1;
-
-          *iptr++ = first;
-          *iptr++ = first + 1;
-          *iptr++ = second;
-
-          *iptr++ = first + 1;
-          *iptr++ = second + 1;
-          *iptr++ = second;
-        }
-      }
-
-      sphereBaseVertex += sphereVertexCount;
+      Quick3DGeometryUtils::generateSphere( center, sphereRadius, sphereStacks, sphereSlices, colR, colG, colB, colA, vptr, iptr, vertexOffset, minBound, maxBound );
     }
   }
 

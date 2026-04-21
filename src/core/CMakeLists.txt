@@ -154,6 +154,7 @@ set(QFIELD_CORE_HDRS
     3d/quick3dterrainprovider.h
     3d/quick3dmaptexturedata.h
     3d/quick3drubberbandgeometry.h
+    3d/quick3dgeometryutils.h
     3d/maptoview3d.h
     utils/coordinatereferencesystemutils.h
     utils/expressioncontextutils.h
