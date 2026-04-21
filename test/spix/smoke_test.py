@@ -408,12 +408,12 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     bounds = app.getBoundingBox(
         "mainWindow/featureForm/attributeEditorLoaderAttachments"
     )
-    move_x = bounds[0] + bounds[2] - 1 - 38
-    move_y = bounds[1] + bounds[3] - 2 - 20
+    move_x = bounds[0] + bounds[2] - 40
+    move_y = bounds[1] + bounds[3] - 22
 
     pyautogui.moveTo(move_x, move_y, duration=0.5)
     pyautogui.click(interval=0.5)
-    time.sleep(1)
+    time.sleep(4)
 
     app.takeScreenshot(
         "mainWindow", os.path.join(screenshot_path, "test_gallery_editor_list.png")
