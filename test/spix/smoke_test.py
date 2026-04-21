@@ -404,6 +404,14 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
 
     assert screenshot_check("test_gallery_editor", "test_gallery_editor_grid", 0.025)
 
+    # scroll to locate qfswitch to toggle gridview to listview
+    bounds = app.getBoundingBox("mainWindow/featureForm")
+    pyautogui.moveTo(bounds[0] + bounds[2] / 2, bounds[1] + bounds[3] / 2, duration=0.3)
+    for _ in range(2):
+        pyautogui.scroll(-3)
+        time.sleep(0.2)
+    time.sleep(1)
+
     # Toggle
     bounds = app.getBoundingBox(
         "mainWindow/featureForm/attributeEditorLoaderAttachments"
