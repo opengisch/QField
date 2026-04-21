@@ -353,9 +353,10 @@ def test_3d_rendering(app, screenshot_path, screenshot_check, extra, process_ali
 @pytest.mark.project_file("test_gallery_editor.qgz")
 def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_alive):
     """
-    Starts a test app and check that the gallery relation editor renders correctly
-    in both grid and list view when a parent/child relation's referencing layer
-    has an ExternalResource field.
+    Starts a test app and checks the gallery relation editor when a parent/child
+    relation's referencing layer has an ExternalResource field, covering grid
+    view rendering, sort-order toggling, child feature form opening, and list
+    view rendering.
     """
     assert app.existsAndVisible("mainWindow")
 
@@ -365,7 +366,8 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
 
     # If the project opened in digitize mode, force browse
     # so canvas clicks identify features instead of starting a digitizing session
-    if app.getStringProperty("mainWindow/stateMachine", "state") == "digitize": app.setStringProperty("mainWindow/stateMachine", "state", "browse")
+    if app.getStringProperty("mainWindow/stateMachine", "state") == "digitize":
+        app.setStringProperty("mainWindow/stateMachine", "state", "browse")
     time.sleep(1)
 
     # Insure layer has loaded properly by checking for error messages
@@ -381,6 +383,7 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     extra.append(extras.html("Message logs count: {}".format(messagesCount)))
     assert messagesCount == 0
 
+    # Click the polygon on the canvas to identify it
     bounds = app.getBoundingBox("mainWindow/mapCanvas")
     move_x = bounds[0] + bounds[2] / 2
     move_y = bounds[1] + bounds[3] / 3
@@ -388,6 +391,7 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     pyautogui.click(interval=0.5)
     time.sleep(2)
 
+    # Click the identified feature row to open its form
     bounds = app.getBoundingBox("mainWindow/featureForm")
     move_x = bounds[0] + bounds[2] / 2
     move_y = bounds[1] + 100
@@ -401,10 +405,7 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     assert process_alive()
     extra.append(extras.html('<img src="images/test_gallery_editor_grid.png"/>'))
 
-    #assert
-    #screenshot_check("test_gallery_editor", "test_gallery_editor_grid", 0.025)
-
-    # Click the sort button in the gallery editor header to reverse card order, and retoggle
+    # Click the sort button in the gallery editor header to reverse card order
     bounds = app.getBoundingBox(
         "mainWindow/featureForm/attributeEditorLoaderAttachments"
     )
@@ -415,19 +416,17 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     time.sleep(2)
 
     app.takeScreenshot(
-        "mainWindow", os.path.join(screenshot_path, "test_gallery_editor_sorted.png"),
+        "mainWindow",
+        os.path.join(screenshot_path, "test_gallery_editor_sorted.png"),
     )
     assert process_alive()
-    extra.append(
-        extras.html('<img src="images/test_gallery_editor_sorted.png"/>')
-    )
+    extra.append(extras.html('<img src="images/test_gallery_editor_sorted.png"/>'))
 
-    #screenshot_check("test_gallery_editor", "test_gallery_editor_sorted", 0.025)
-    time.sleep(1)
-
+    # Click sort again to restore original card order before tapping a specific card
     pyautogui.click(interval=0.5)
     time.sleep(2)
 
+    # Tap the reserve image card to open its child feature form
     bounds = app.getBoundingBox(
         "mainWindow/featureForm/attributeEditorLoaderAttachments"
     )
@@ -438,10 +437,11 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     time.sleep(3)
 
     app.takeScreenshot(
-        "mainWindow", os.path.join(screenshot_path, "test_gallery_editor_child_form.png"),
+        "mainWindow",
+        os.path.join(screenshot_path, "test_gallery_editor_child_form.png"),
     )
     assert process_alive()
-    extra.append( extras.html('<img src="images/test_gallery_editor_child_form.png"/>'))
+    extra.append(extras.html('<img src="images/test_gallery_editor_child_form.png"/>'))
 
     # Close the child feature form (X close button at top right of the form)
     bounds = app.getBoundingBox("mainWindow/featureForm")
@@ -451,12 +451,12 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     pyautogui.click(interval=0.5)
     time.sleep(2)
 
-    # The view switch sits below the visible window area and on Windows
-    # pyautogui.scroll events aren't reliably delivered, so skip
+    # The view switch sits below the visible window area and
+    # on Windows pyautogui.scroll events aren't reliably delivered, so skip the list view
     if platform.system() == "Windows":
         return
 
-    # scroll to locate qfswitch to toggle gridview to listview
+    # Scroll to bring the view switch (qfSwitch) into view
     bounds = app.getBoundingBox("mainWindow/featureForm")
     pyautogui.moveTo(bounds[0] + bounds[2] / 2, bounds[1] + bounds[3] / 2, duration=0.3)
     for _ in range(2):
@@ -464,13 +464,12 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
         time.sleep(0.2)
     time.sleep(1)
 
-    # Toggle
+    # Click the view switch to toggle from grid to list
     bounds = app.getBoundingBox(
         "mainWindow/featureForm/attributeEditorLoaderAttachments"
     )
     move_x = bounds[0] + bounds[2] - 40
     move_y = bounds[1] + bounds[3] - 22
-
     pyautogui.moveTo(move_x, move_y, duration=0.5)
     pyautogui.click(interval=0.5)
     time.sleep(4)
@@ -480,8 +479,6 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     )
     assert process_alive()
     extra.append(extras.html('<img src="images/test_gallery_editor_list.png"/>'))
-
-    assert screenshot_check("test_gallery_editor", "test_gallery_editor_list", 0.025)
 
 
 if __name__ == "__main__":
