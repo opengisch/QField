@@ -363,7 +363,8 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     app.invokeMethod("mainWindow/toursController", "blockGuides", [])
     time.sleep(8)
 
-    # Force browse mode so canvas clicks identify instead of digitize
+    # Force browse mode so canvas clicks identify instead of digitize, after verifying if in digitize
+    assert ( app.getStringProperty("mainWindow/stateMachine", "state") == "digitize" )
     app.setStringProperty("mainWindow/stateMachine", "state", "browse")
     time.sleep(1)
 
