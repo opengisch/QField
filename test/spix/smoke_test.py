@@ -404,6 +404,30 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     #assert
     #screenshot_check("test_gallery_editor", "test_gallery_editor_grid", 0.025)
 
+    # Click the sort button in the gallery editor header to reverse card order, and retoggle
+    bounds = app.getBoundingBox(
+        "mainWindow/featureForm/attributeEditorLoaderAttachments"
+    )
+    move_x = bounds[0] + bounds[2] - 34
+    move_y = bounds[1] + 24
+    pyautogui.moveTo(move_x, move_y, duration=0.5)
+    pyautogui.click(interval=0.5)
+    time.sleep(2)
+
+    app.takeScreenshot(
+        "mainWindow", os.path.join(screenshot_path, "test_gallery_editor_sorted.png"),
+    )
+    assert process_alive()
+    extra.append(
+        extras.html('<img src="images/test_gallery_editor_sorted.png"/>')
+    )
+
+    #screenshot_check("test_gallery_editor", "test_gallery_editor_sorted", 0.025)
+    time.sleep(1)
+
+    pyautogui.click(interval=0.5)
+    time.sleep(2)
+
     bounds = app.getBoundingBox(
         "mainWindow/featureForm/attributeEditorLoaderAttachments"
     )
@@ -419,7 +443,7 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     assert process_alive()
     extra.append( extras.html('<img src="images/test_gallery_editor_child_form.png"/>'))
 
-    # Close the child feature form (X close button at top-right of the form)
+    # Close the child feature form (X close button at top right of the form)
     bounds = app.getBoundingBox("mainWindow/featureForm")
     move_x = bounds[0] + bounds[2] - 50
     move_y = bounds[1] - 18
