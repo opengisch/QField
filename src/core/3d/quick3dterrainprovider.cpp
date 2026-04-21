@@ -242,6 +242,20 @@ QVector3D Quick3DTerrainProvider::geoTo3D( double geoX, double geoY, float heigh
   return QVector3D( x3d, y3d, z3d );
 }
 
+QgsPoint Quick3DTerrainProvider::scene3DToGeo( double sceneX, double sceneZ ) const
+{
+  if ( mExtent.isEmpty() || mSize.width() <= 0 || mSize.height() <= 0 )
+  {
+    return QgsPoint();
+  }
+
+  const double nx = sceneX / mSize.width() + 0.5;
+  const double nz = 0.5 - sceneZ / mSize.height();
+
+  return QgsPoint( mExtent.xMinimum() + nx * mExtent.width(),
+                   mExtent.yMinimum() + nz * mExtent.height() );
+}
+
 void Quick3DTerrainProvider::calcNormalizedData()
 {
   if ( mExtent.isEmpty() || !mTerrainProvider )

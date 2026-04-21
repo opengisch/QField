@@ -24,6 +24,7 @@ email                : mohsen@opengis.ch
 #include <QSize>
 #include <QVariantList>
 #include <QVector3D>
+#include <qgspoint.h>
 #include <qgsproject.h>
 #include <qgsrectangle.h>
 
@@ -156,6 +157,12 @@ class Quick3DTerrainProvider : public QObject
      * \returns 3D position in scene space, or a null vector if the extent is invalid
      */
     Q_INVOKABLE QVector3D geoTo3D( double geoX, double geoY, float heightOffset = 0.0f ) const;
+
+    /**
+     * Converts a 3D scene position back to geographic coordinates in map CRS.
+     * Inverse of geoTo3D(); returns an empty QgsPoint when the extent is invalid.
+     */
+    Q_INVOKABLE QgsPoint scene3DToGeo( double sceneX, double sceneZ ) const;
 
     //! Regenerates the extent and terrain data from current offset
     Q_INVOKABLE void beginTransition();

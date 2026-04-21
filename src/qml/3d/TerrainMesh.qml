@@ -37,6 +37,7 @@ Node {
 
   Model {
     id: terrainModel
+    pickable: true
 
     geometry: Quick3DTerrainGeometry {
       id: mapTerrainGeometry

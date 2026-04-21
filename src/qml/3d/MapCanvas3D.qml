@@ -26,9 +26,12 @@ Item {
   property color gnssMarkerColor: "#2060ff"
   property color gnssMarkerSemiOpaqueColor: Qt.hsla(gnssMarkerColor.hslHue, gnssMarkerColor.hslSaturation, gnssMarkerColor.hslLightness, 0.4)
 
+  property var selectionModel: null
+
   property TrackingModel trackingModel: null
 
   signal cameraInteractionDetected
+  signal featureIdentifyRequested(point screenPoint)
 
   Quick3DTerrainProvider {
     id: mapTerrainProvider
@@ -253,9 +256,21 @@ Item {
     camera: camera
     onSingleTapped: function (x, y) {
       const pickResult = view3d.pick(x, y);
-      if (pickResult.objectHit && gnssMarker.visible) {
-        cameraController.lookAtPoint(gnssMarkerMapToScreen3D.viewPoint, 500);
+      if (!pickResult.objectHit) {
+        return;
       }
+
+      let node = pickResult.objectHit;
+      while (node && node !== gnssMarker) {
+        node = node.parent;
+      }
+      if (node === gnssMarker && gnssMarker.visible) {
+        cameraController.lookAtPoint(gnssMarkerMapToScreen3D.viewPoint, 500);
+        return;
+      }
+
+      const geoPoint = mapTerrainProvider.scene3DToGeo(pickResult.scenePosition.x, pickResult.scenePosition.z);
+      mapArea.featureIdentifyRequested(mapArea.mapSettings.coordinateToScreen(geoPoint));
     }
     onUserInteractionStarted: {
       mapArea.cameraInteractionDetected();

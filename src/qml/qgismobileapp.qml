@@ -757,11 +757,19 @@ ApplicationWindow {
             gnssButton.followActive = false;
           }
         });
+
+        item.featureIdentifyRequested.connect(function (screenPoint) {
+          if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
+            identifyTool.isMenuRequest = false;
+            identifyTool.identify(screenPoint);
+          }
+        });
+        item.selectionModel = featureListForm.selection;
       }
 
       onStatusChanged: {
         if (status === Loader.Error) {
-          close3DView();
+          mainWindow.close3DView();
           displayToast(qsTr("Failed to load 3D view"));
         }
       }
