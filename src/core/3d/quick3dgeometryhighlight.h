@@ -29,8 +29,9 @@
  * Generates 3D highlight geometry for an identified or selected feature on
  * top of the terrain mesh.
  *
- * Points become spheres and lines become extruded tubes with sphere joints.
- * The geometry is reprojected from the source CRS to the map CRS before being
+ * Points become spheres, lines become extruded tubes with sphere joints, and
+ * polygons get both an outline and a semi-transparent triangulated fill. The
+ * geometry is reprojected from the source CRS to the map CRS before being
  * draped on the terrain surface.
  *
  * \note QML Type: Quick3DGeometryHighlight
@@ -53,6 +54,8 @@ class Quick3DGeometryHighlight : public QQuick3DGeometry
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
     //! Extra vertical offset above the terrain surface
     Q_PROPERTY( float heightOffset READ heightOffset WRITE setHeightOffset NOTIFY heightOffsetChanged )
+    //! Whether polygons get a semi-transparent fill in addition to the outline
+    Q_PROPERTY( bool fillPolygons READ fillPolygons WRITE setFillPolygons NOTIFY fillPolygonsChanged )
 
   public:
     explicit Quick3DGeometryHighlight( QQuick3DObject *parent = nullptr );
@@ -75,6 +78,9 @@ class Quick3DGeometryHighlight : public QQuick3DGeometry
     float heightOffset() const { return mHeightOffset; }
     void setHeightOffset( float offset );
 
+    bool fillPolygons() const { return mFillPolygons; }
+    void setFillPolygons( bool fill );
+
   signals:
     void qgsGeometryChanged();
     void crsChanged();
@@ -82,6 +88,7 @@ class Quick3DGeometryHighlight : public QQuick3DGeometry
     void lineWidthChanged();
     void colorChanged();
     void heightOffsetChanged();
+    void fillPolygonsChanged();
 
   private slots:
     void markDirtyAndUpdate();
@@ -92,7 +99,7 @@ class Quick3DGeometryHighlight : public QQuick3DGeometry
     //! Projects a geometry vertex from layer CRS into 3D scene space
     QVector3D vertexTo3D( double x, double y ) const;
 
-    //! Walks an abstract geometry and returns its lines as 3D paths
+    //! Walks an abstract geometry and returns its rings/lines as 3D paths
     QVector<QVector<QVector3D>> buildPaths( const QgsAbstractGeometry *geom ) const;
 
     QgsGeometry mGeometry;
@@ -102,6 +109,7 @@ class Quick3DGeometryHighlight : public QQuick3DGeometry
 
     float mLineWidth = 3.0f;
     float mHeightOffset = 15.0f;
+    bool mFillPolygons = true;
     bool mDirty = true;
     QColor mColor = QColor( 255, 255, 0 );
 };

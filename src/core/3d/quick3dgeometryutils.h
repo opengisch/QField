@@ -176,6 +176,134 @@ namespace Quick3DGeometryUtils
 
   inline int sphereVertexCount( int stacks, int slices ) { return ( stacks + 1 ) * ( slices + 1 ); }
   inline int sphereIndexCount( int stacks, int slices ) { return stacks * slices * 6; }
+
+  /**
+   * Triangulates a closed polygon ring on the XZ plane with ear clipping and
+   * appends the resulting triangle fan to the buffer. Falls back to a simple
+   * fan from vertex 0 when ear clipping cannot make further progress (which
+   * keeps degenerate or self-touching rings from leaving uninitialised
+   * indices in the buffer).
+   */
+  inline void generatePolygonFill( const QVector<QVector3D> &vertices,
+                                   float r, float g, float b, float a,
+                                   float *&vptr, quint32 *&iptr,
+                                   quint32 &vertexOffset,
+                                   QVector3D &minBound, QVector3D &maxBound )
+  {
+    QVector<QVector3D> ring = vertices;
+    if ( ring.size() > 3 && ( ring.first() - ring.last() ).length() < 0.001f )
+      ring.removeLast();
+
+    const int n = ring.size();
+    if ( n < 3 )
+      return;
+
+    const quint32 baseVertex = vertexOffset;
+    const QVector3D upNormal( 0.0f, 1.0f, 0.0f );
+
+    for ( int i = 0; i < n; ++i )
+    {
+      writeVertex( vptr, ring[i], upNormal, r, g, b, a );
+      updateBounds( minBound, maxBound, ring[i] );
+    }
+    vertexOffset += n;
+
+    float minX = ring[0].x(), maxX = ring[0].x();
+    float minZ = ring[0].z(), maxZ = ring[0].z();
+    for ( int i = 1; i < n; ++i )
+    {
+      minX = std::min( minX, ring[i].x() );
+      maxX = std::max( maxX, ring[i].x() );
+      minZ = std::min( minZ, ring[i].z() );
+      maxZ = std::max( maxZ, ring[i].z() );
+    }
+    const float eps = ( maxX - minX ) * ( maxZ - minZ ) * 1e-7f;
+
+    QVector<int> indices;
+    indices.reserve( n );
+    for ( int i = 0; i < n; ++i )
+      indices.append( i );
+
+    // Shoelace winding
+    double area2 = 0;
+    for ( int i = 0; i < n; ++i )
+    {
+      const int j = ( i + 1 ) % n;
+      area2 += static_cast<double>( ring[i].x() ) * ring[j].z() - static_cast<double>( ring[j].x() ) * ring[i].z();
+    }
+    const bool ccw = area2 > 0;
+
+    auto isEar = [&]( int prev, int cur, int next ) {
+      const QVector3D &A = ring[indices[prev]];
+      const QVector3D &B = ring[indices[cur]];
+      const QVector3D &C = ring[indices[next]];
+
+      const float cross = ( B.x() - A.x() ) * ( C.z() - A.z() ) - ( B.z() - A.z() ) * ( C.x() - A.x() );
+      if ( ( ccw && cross < -eps ) || ( !ccw && cross > eps ) )
+        return false;
+
+      for ( int i = 0, sz = indices.size(); i < sz; ++i )
+      {
+        if ( i == prev || i == cur || i == next )
+          continue;
+
+        const QVector3D &P = ring[indices[i]];
+        const float d1 = ( P.x() - B.x() ) * ( A.z() - B.z() ) - ( A.x() - B.x() ) * ( P.z() - B.z() );
+        const float d2 = ( P.x() - C.x() ) * ( B.z() - C.z() ) - ( B.x() - C.x() ) * ( P.z() - C.z() );
+        const float d3 = ( P.x() - A.x() ) * ( C.z() - A.z() ) - ( C.x() - A.x() ) * ( P.z() - A.z() );
+
+        const bool hasNeg = d1 < -eps || d2 < -eps || d3 < -eps;
+        const bool hasPos = d1 > eps || d2 > eps || d3 > eps;
+        if ( !( hasNeg && hasPos ) )
+          return false;
+      }
+      return true;
+    };
+
+    const int expectedTriangles = n - 2;
+    int trianglesWritten = 0;
+    int safety = n * n;
+
+    while ( indices.size() > 2 && safety-- > 0 )
+    {
+      bool earFound = false;
+      const int sz = indices.size();
+      for ( int i = 0; i < sz; ++i )
+      {
+        const int prev = ( i + sz - 1 ) % sz;
+        const int next = ( i + 1 ) % sz;
+
+        if ( isEar( prev, i, next ) )
+        {
+          *iptr++ = baseVertex + indices[prev];
+          *iptr++ = baseVertex + indices[i];
+          *iptr++ = baseVertex + indices[next];
+          indices.remove( i );
+          earFound = true;
+          ++trianglesWritten;
+          break;
+        }
+      }
+      if ( !earFound )
+        break;
+    }
+
+    // Fan fallback for the unprocessed remainder
+    for ( int i = 1; i < indices.size() - 1 && trianglesWritten < expectedTriangles; ++i )
+    {
+      *iptr++ = baseVertex + indices[0];
+      *iptr++ = baseVertex + indices[i];
+      *iptr++ = baseVertex + indices[i + 1];
+      ++trianglesWritten;
+    }
+    while ( trianglesWritten < expectedTriangles )
+    {
+      *iptr++ = baseVertex;
+      *iptr++ = baseVertex;
+      *iptr++ = baseVertex;
+      ++trianglesWritten;
+    }
+  }
 } // namespace Quick3DGeometryUtils
 
 #endif // QUICK3DGEOMETRYUTILS_H

@@ -20,6 +20,7 @@
 #include <qgsgeometrycollection.h>
 #include <qgslinestring.h>
 #include <qgspoint.h>
+#include <qgspolygon.h>
 
 #include <algorithm>
 #include <cmath>
@@ -120,6 +121,17 @@ void Quick3DGeometryHighlight::setHeightOffset( float offset )
   updateGeometry();
 }
 
+void Quick3DGeometryHighlight::setFillPolygons( bool fill )
+{
+  if ( mFillPolygons == fill )
+    return;
+
+  mFillPolygons = fill;
+  mDirty = true;
+  emit fillPolygonsChanged();
+  updateGeometry();
+}
+
 void Quick3DGeometryHighlight::markDirtyAndUpdate()
 {
   mDirty = true;
@@ -165,6 +177,36 @@ QVector<QVector<QVector3D>> Quick3DGeometryHighlight::buildPaths( const QgsAbstr
     }
     if ( path.size() > 1 )
       result.append( std::move( path ) );
+  }
+  else if ( const QgsPolygon *poly = dynamic_cast<const QgsPolygon *>( geom ) )
+  {
+    auto ringToPath = [this]( const QgsLineString *ls ) {
+      QVector<QVector3D> path;
+      path.reserve( ls->numPoints() );
+      for ( int i = 0; i < ls->numPoints(); ++i )
+      {
+        const QVector3D pos = vertexTo3D( ls->xAt( i ), ls->yAt( i ) );
+        if ( !std::isnan( pos.x() ) )
+          path.append( pos );
+      }
+      return path;
+    };
+
+    if ( const QgsLineString *ext = dynamic_cast<const QgsLineString *>( poly->exteriorRing() ) )
+    {
+      QVector<QVector3D> path = ringToPath( ext );
+      if ( path.size() > 1 )
+        result.append( std::move( path ) );
+    }
+    for ( int r = 0; r < poly->numInteriorRings(); ++r )
+    {
+      if ( const QgsLineString *ring = dynamic_cast<const QgsLineString *>( poly->interiorRing( r ) ) )
+      {
+        QVector<QVector3D> path = ringToPath( ring );
+        if ( path.size() > 1 )
+          result.append( std::move( path ) );
+      }
+    }
   }
   else if ( const QgsGeometryCollection *collection = dynamic_cast<const QgsGeometryCollection *>( geom ) )
   {
@@ -213,6 +255,7 @@ void Quick3DGeometryHighlight::updateGeometry()
   const float g = mColor.greenF();
   const float b = mColor.blueF();
   const float a = mColor.alphaF();
+  const float fillAlpha = 0.35f;
 
   QVector3D minBound( std::numeric_limits<float>::max(), std::numeric_limits<float>::max(), std::numeric_limits<float>::max() );
   QVector3D maxBound( std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest() );
@@ -278,13 +321,26 @@ void Quick3DGeometryHighlight::updateGeometry()
     return;
   }
 
+  const bool isPolygon = ( geomType == Qgis::GeometryType::Polygon );
+
   int totalPoints = 0;
   int totalConnections = 0;
+  int totalFillVertices = 0;
+  int totalFillIndices = 0;
 
   for ( const QVector<QVector3D> &path : paths )
   {
     totalPoints += path.size();
     totalConnections += path.size() - 1;
+
+    if ( isPolygon && mFillPolygons && path.size() >= 3 )
+    {
+      int ringSize = path.size();
+      if ( ringSize > 3 && ( path.first() - path.last() ).length() < 0.001f )
+        --ringSize;
+      totalFillVertices += ringSize;
+      totalFillIndices += ( ringSize - 2 ) * 3;
+    }
   }
 
   const int tubeVertexCount = totalPoints * segments;
@@ -292,8 +348,8 @@ void Quick3DGeometryHighlight::updateGeometry()
   const int sphereVertexTotal = totalPoints * singleSphereVtxCount;
   const int sphereIndexTotal = totalPoints * singleSphereIdxCount;
 
-  const int totalVertexCount = tubeVertexCount + sphereVertexTotal;
-  const int totalIndexCount = tubeIndexCount + sphereIndexTotal;
+  const int totalVertexCount = tubeVertexCount + sphereVertexTotal + totalFillVertices;
+  const int totalIndexCount = tubeIndexCount + sphereIndexTotal + totalFillIndices;
 
   QByteArray vertexData;
   vertexData.resize( static_cast<qsizetype>( totalVertexCount ) * stride );
@@ -311,6 +367,15 @@ void Quick3DGeometryHighlight::updateGeometry()
   {
     for ( const QVector3D &center : path )
       Quick3DGeometryUtils::generateSphere( center, sphereRadius, sphereStacks, sphereSlices, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
+  }
+
+  if ( isPolygon && mFillPolygons )
+  {
+    for ( const QVector<QVector3D> &path : paths )
+    {
+      if ( path.size() >= 3 )
+        Quick3DGeometryUtils::generatePolygonFill( path, r, g, b, fillAlpha, vptr, iptr, vertexOffset, minBound, maxBound );
+    }
   }
 
   finalize( vertexData, indexData, minBound, maxBound );
