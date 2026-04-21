@@ -404,6 +404,11 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
 
     assert screenshot_check("test_gallery_editor", "test_gallery_editor_grid", 0.025)
 
+    # The view switch sits below the visible window area and on Windows
+    # pyautogui.scroll events aren't reliably delivered, so skip
+    if platform.system() == "Windows":
+        return
+
     # scroll to locate qfswitch to toggle gridview to listview
     bounds = app.getBoundingBox("mainWindow/featureForm")
     pyautogui.moveTo(bounds[0] + bounds[2] / 2, bounds[1] + bounds[3] / 2, duration=0.3)
