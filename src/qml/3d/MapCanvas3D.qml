@@ -235,6 +235,13 @@ Item {
       }
     }
 
+    SelectionHighlight3D {
+      id: selectionHighlight
+      selectionModel: mapArea.selectionModel
+      terrainProvider: mapTerrainProvider
+      visible: mapArea.selectionModel !== null
+    }
+
     Repeater3D {
       id: trackingRubberbands
       model: mapArea.trackingModel
