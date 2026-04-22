@@ -39,14 +39,6 @@ int CameraOrientationNormalizer::previewRotation() const
   return mPreviewRotation;
 }
 
-void CameraOrientationNormalizer::setCamera( const QCameraDevice &device )
-{
-  mCameraDevice = device;
-  mIsFrontCamera = !device.isNull() && device.position() == QCameraDevice::FrontFace;
-  mSensorAngle = device.isNull() ? 0 : static_cast<int>( device.correctionAngle() );
-  updatePreviewRotation();
-}
-
 void CameraOrientationNormalizer::recordCaptureOrientation()
 {
   QScreen *screen = QGuiApplication::primaryScreen();
@@ -105,7 +97,7 @@ void CameraOrientationNormalizer::handleScreenOrientationChanged( Qt::ScreenOrie
 
 void CameraOrientationNormalizer::updatePreviewRotation()
 {
-#if defined( Q_OS_ANDROID ) || defined( Q_OS_IOS )
+#if defined( Q_OS_IOS )
   const QScreen *screen = QGuiApplication::primaryScreen();
   if ( !screen )
   {
@@ -113,23 +105,8 @@ void CameraOrientationNormalizer::updatePreviewRotation()
   }
 
   const int screenAngle = screen->angleBetween( screen->nativeOrientation(), mCurrentOrientation );
-  int rotation = 0;
-
-  if ( mSensorAngle == 0 )
-  {
-    // iOS: AVFoundation reports sensorAngle 0 and handles rotation
-    // internally, but produces an inverted preview in landscape
-    const bool isLandscape = ( screenAngle == 90 || screenAngle == 270 );
-    rotation = isLandscape ? 180 : 0;
-  }
-  else if ( mIsFrontCamera )
-  {
-    rotation = ( 360 - mSensorAngle + screenAngle ) % 360;
-  }
-  else
-  {
-    rotation = ( mSensorAngle - screenAngle + 360 ) % 360;
-  }
+  const bool isLandscape = ( screenAngle == 90 || screenAngle == 270 );
+  const int rotation = isLandscape ? 180 : 0;
 
   if ( rotation != mPreviewRotation )
   {

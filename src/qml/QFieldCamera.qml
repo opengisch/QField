@@ -277,7 +277,6 @@ Popup {
           item.camera.cameraDevice = mediaDevices.defaultVideoInput;
         }
         item.camera.applyCameraFormat();
-        item.orientationNormalizer.setCamera(item.camera.cameraDevice);
       }
     }
 
@@ -889,7 +888,6 @@ Popup {
               if (captureLoader.item) {
                 captureLoader.item.camera.cameraDevice = modelData;
                 captureLoader.item.camera.applyCameraFormat();
-                captureLoader.item.orientationNormalizer.setCamera(modelData);
               }
             }
           }

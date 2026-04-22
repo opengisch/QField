@@ -21,12 +21,13 @@ email                : kaustuv@opengis.ch
 #include <QObject>
 
 /**
- * \brief Camera orientation normalizer for preview and captured photos.
+ * \brief Compensates for incorrect camera orientation on iOS devices.
  *
- * On iOS and certain Android devices, Qt Multimedia's backend produces
- * rotated camera preview and writes captured images with incorrect
- * orientation. This class provides:
+ * On iOS, Qt Multimedia's AVFoundation backend produces an inverted
+ * camera preview in landscape mode and writes captured photos with
+ * incorrect orientation or bogus EXIF tags (QTBUG-118594).
  *
+ * This class provides:
  *  \a previewRotation for correcting the live VideoOutput orientation
  *  \a normalizeImageOrientation() for correcting saved JPEG files
  *
@@ -44,25 +45,19 @@ class CameraOrientationNormalizer : public QObject
     int previewRotation() const;
 
     /**
-   * Sets the active camera device. Call when the camera is first
-   * activated and when the user switches cameras.
-   */
-    Q_INVOKABLE void setCamera( const QCameraDevice &device );
-
-    /**
-   * Records the current screen orientation. Call at shutter press
-   * so that normalizeImageOrientation() has a ground-truth reference.
-   */
+     * Records the current screen orientation. Call at shutter press
+     * so that normalizeImageOrientation() has a ground-truth reference.
+     */
     Q_INVOKABLE void recordCaptureOrientation();
 
     /**
-   * Ensures the JPEG at \a path has pixels matching the orientation
-   * recorded by recordCaptureOrientation(). Rotates the image if
-   * pixel dimensions contradict the capture orientation and strips
-   * any non-identity EXIF orientation tag.
-   *
-   * Returns false without touching the file when no correction is needed.
-   */
+     * Ensures the JPEG at \a path has pixels matching the orientation
+     * recorded by recordCaptureOrientation(). Rotates the image if
+     * pixel dimensions contradict the capture orientation and strips
+     * any non-identity EXIF orientation tag.
+     *
+     * Returns false without touching the file when no correction is needed.
+     */
     Q_INVOKABLE bool normalizeImageOrientation( const QString &path );
 
   signals:
@@ -73,10 +68,6 @@ class CameraOrientationNormalizer : public QObject
 
   private:
     void updatePreviewRotation();
-
-    QCameraDevice mCameraDevice;
-    int mSensorAngle = 0;
-    bool mIsFrontCamera = false;
     Qt::ScreenOrientation mCurrentOrientation = Qt::PortraitOrientation;
     Qt::ScreenOrientation mCaptureOrientation = Qt::PortraitOrientation;
     int mPreviewRotation = 0;
