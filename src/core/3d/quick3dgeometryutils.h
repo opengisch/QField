@@ -85,11 +85,15 @@ namespace Quick3DGeometryUtils
       }
 
       if ( forward.isNull() )
+      {
         forward = QVector3D( 0, 0, 1 );
+      }
 
       QVector3D up( 0, 1, 0 );
       if ( std::fabs( QVector3D::dotProduct( forward, up ) ) > 0.99f )
+      {
         up = QVector3D( 1, 0, 0 );
+      }
 
       const QVector3D right = QVector3D::crossProduct( forward, up ).normalized();
       const QVector3D actualUp = QVector3D::crossProduct( right, forward ).normalized();
@@ -174,8 +178,51 @@ namespace Quick3DGeometryUtils
     vertexOffset += ( stacks + 1 ) * ( slices + 1 );
   }
 
-  inline int sphereVertexCount( int stacks, int slices ) { return ( stacks + 1 ) * ( slices + 1 ); }
-  inline int sphereIndexCount( int stacks, int slices ) { return stacks * slices * 6; }
+  inline int sphereVertexCount( int stacks, int slices )
+  {
+    return ( stacks + 1 ) * ( slices + 1 );
+  }
+
+  inline int sphereIndexCount( int stacks, int slices )
+  {
+    return stacks * slices * 6;
+  }
+
+  //! Returns true if the triangle ( prev, cur, next ) of \a indices is an ear of \a ring on the XZ plane.
+  inline bool polygonIsEar( const QVector<QVector3D> &ring, const QVector<int> &indices, float eps, bool ccw, int prev, int cur, int next )
+  {
+    const QVector3D &A = ring[indices[prev]];
+    const QVector3D &B = ring[indices[cur]];
+    const QVector3D &C = ring[indices[next]];
+
+    const float cross = ( B.x() - A.x() ) * ( C.z() - A.z() ) - ( B.z() - A.z() ) * ( C.x() - A.x() );
+    if ( ( ccw && cross < -eps ) || ( !ccw && cross > eps ) )
+    {
+      return false;
+    }
+
+    const int sz = indices.size();
+    for ( int i = 0; i < sz; ++i )
+    {
+      if ( i == prev || i == cur || i == next )
+      {
+        continue;
+      }
+
+      const QVector3D &P = ring[indices[i]];
+      const float d1 = ( P.x() - B.x() ) * ( A.z() - B.z() ) - ( A.x() - B.x() ) * ( P.z() - B.z() );
+      const float d2 = ( P.x() - C.x() ) * ( B.z() - C.z() ) - ( B.x() - C.x() ) * ( P.z() - C.z() );
+      const float d3 = ( P.x() - A.x() ) * ( C.z() - A.z() ) - ( C.x() - A.x() ) * ( P.z() - A.z() );
+
+      const bool hasNeg = d1 < -eps || d2 < -eps || d3 < -eps;
+      const bool hasPos = d1 > eps || d2 > eps || d3 > eps;
+      if ( !( hasNeg && hasPos ) )
+      {
+        return false;
+      }
+    }
+    return true;
+  }
 
   /**
    * Triangulates a closed polygon ring on the XZ plane with ear clipping and
@@ -192,11 +239,15 @@ namespace Quick3DGeometryUtils
   {
     QVector<QVector3D> ring = vertices;
     if ( ring.size() > 3 && ( ring.first() - ring.last() ).length() < 0.001f )
+    {
       ring.removeLast();
+    }
 
     const int n = ring.size();
     if ( n < 3 )
+    {
       return;
+    }
 
     const quint32 baseVertex = vertexOffset;
     const QVector3D upNormal( 0.0f, 1.0f, 0.0f );
@@ -208,8 +259,10 @@ namespace Quick3DGeometryUtils
     }
     vertexOffset += n;
 
-    float minX = ring[0].x(), maxX = ring[0].x();
-    float minZ = ring[0].z(), maxZ = ring[0].z();
+    float minX = ring[0].x();
+    float maxX = ring[0].x();
+    float minZ = ring[0].z();
+    float maxZ = ring[0].z();
     for ( int i = 1; i < n; ++i )
     {
       minX = std::min( minX, ring[i].x() );
@@ -222,7 +275,9 @@ namespace Quick3DGeometryUtils
     QVector<int> indices;
     indices.reserve( n );
     for ( int i = 0; i < n; ++i )
+    {
       indices.append( i );
+    }
 
     // Shoelace winding
     double area2 = 0;
@@ -232,33 +287,6 @@ namespace Quick3DGeometryUtils
       area2 += static_cast<double>( ring[i].x() ) * ring[j].z() - static_cast<double>( ring[j].x() ) * ring[i].z();
     }
     const bool ccw = area2 > 0;
-
-    auto isEar = [&]( int prev, int cur, int next ) {
-      const QVector3D &A = ring[indices[prev]];
-      const QVector3D &B = ring[indices[cur]];
-      const QVector3D &C = ring[indices[next]];
-
-      const float cross = ( B.x() - A.x() ) * ( C.z() - A.z() ) - ( B.z() - A.z() ) * ( C.x() - A.x() );
-      if ( ( ccw && cross < -eps ) || ( !ccw && cross > eps ) )
-        return false;
-
-      for ( int i = 0, sz = indices.size(); i < sz; ++i )
-      {
-        if ( i == prev || i == cur || i == next )
-          continue;
-
-        const QVector3D &P = ring[indices[i]];
-        const float d1 = ( P.x() - B.x() ) * ( A.z() - B.z() ) - ( A.x() - B.x() ) * ( P.z() - B.z() );
-        const float d2 = ( P.x() - C.x() ) * ( B.z() - C.z() ) - ( B.x() - C.x() ) * ( P.z() - C.z() );
-        const float d3 = ( P.x() - A.x() ) * ( C.z() - A.z() ) - ( C.x() - A.x() ) * ( P.z() - A.z() );
-
-        const bool hasNeg = d1 < -eps || d2 < -eps || d3 < -eps;
-        const bool hasPos = d1 > eps || d2 > eps || d3 > eps;
-        if ( !( hasNeg && hasPos ) )
-          return false;
-      }
-      return true;
-    };
 
     const int expectedTriangles = n - 2;
     int trianglesWritten = 0;
@@ -273,7 +301,7 @@ namespace Quick3DGeometryUtils
         const int prev = ( i + sz - 1 ) % sz;
         const int next = ( i + 1 ) % sz;
 
-        if ( isEar( prev, i, next ) )
+        if ( polygonIsEar( ring, indices, eps, ccw, prev, i, next ) )
         {
           *iptr++ = baseVertex + indices[prev];
           *iptr++ = baseVertex + indices[i];
@@ -285,7 +313,9 @@ namespace Quick3DGeometryUtils
         }
       }
       if ( !earFound )
+      {
         break;
+      }
     }
 
     // Fan fallback for the unprocessed remainder

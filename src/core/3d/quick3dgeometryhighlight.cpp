@@ -33,7 +33,9 @@ Quick3DGeometryHighlight::Quick3DGeometryHighlight( QQuick3DObject *parent )
 void Quick3DGeometryHighlight::setQgsGeometry( const QgsGeometry &geometry )
 {
   if ( mGeometry.equals( geometry ) )
+  {
     return;
+  }
 
   mGeometry = geometry;
   mDirty = true;
@@ -44,7 +46,9 @@ void Quick3DGeometryHighlight::setQgsGeometry( const QgsGeometry &geometry )
 void Quick3DGeometryHighlight::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( mCrs == crs )
+  {
     return;
+  }
 
   mCrs = crs;
   if ( mTerrainProvider && mTerrainProvider->mapSettings() )
@@ -62,10 +66,14 @@ void Quick3DGeometryHighlight::setCrs( const QgsCoordinateReferenceSystem &crs )
 void Quick3DGeometryHighlight::setTerrainProvider( Quick3DTerrainProvider *provider )
 {
   if ( mTerrainProvider == provider )
+  {
     return;
+  }
 
   if ( mTerrainProvider )
+  {
     disconnect( mTerrainProvider, nullptr, this, nullptr );
+  }
 
   mTerrainProvider = provider;
 
@@ -91,7 +99,9 @@ void Quick3DGeometryHighlight::setLineWidth( float width )
 {
   width = std::max( 0.1f, width );
   if ( qFuzzyCompare( mLineWidth, width ) )
+  {
     return;
+  }
 
   mLineWidth = width;
   mDirty = true;
@@ -102,7 +112,9 @@ void Quick3DGeometryHighlight::setLineWidth( float width )
 void Quick3DGeometryHighlight::setColor( const QColor &color )
 {
   if ( mColor == color )
+  {
     return;
+  }
 
   mColor = color;
   mDirty = true;
@@ -113,7 +125,9 @@ void Quick3DGeometryHighlight::setColor( const QColor &color )
 void Quick3DGeometryHighlight::setHeightOffset( float offset )
 {
   if ( qFuzzyCompare( mHeightOffset, offset ) )
+  {
     return;
+  }
 
   mHeightOffset = offset;
   mDirty = true;
@@ -124,7 +138,9 @@ void Quick3DGeometryHighlight::setHeightOffset( float offset )
 void Quick3DGeometryHighlight::setFillPolygons( bool fill )
 {
   if ( mFillPolygons == fill )
+  {
     return;
+  }
 
   mFillPolygons = fill;
   mDirty = true;
@@ -159,44 +175,46 @@ QVector3D Quick3DGeometryHighlight::vertexTo3D( double x, double y ) const
   return mTerrainProvider->geoTo3D( tx, ty, mHeightOffset );
 }
 
+QVector<QVector3D> Quick3DGeometryHighlight::ringToPath( const QgsLineString *ls ) const
+{
+  QVector<QVector3D> path;
+  path.reserve( ls->numPoints() );
+  for ( int i = 0; i < ls->numPoints(); ++i )
+  {
+    const QVector3D pos = vertexTo3D( ls->xAt( i ), ls->yAt( i ) );
+    if ( !std::isnan( pos.x() ) )
+    {
+      path.append( pos );
+    }
+  }
+  return path;
+}
+
 QVector<QVector<QVector3D>> Quick3DGeometryHighlight::buildPaths( const QgsAbstractGeometry *geom ) const
 {
   QVector<QVector<QVector3D>> result;
   if ( !geom || !mTerrainProvider )
+  {
     return result;
+  }
 
   if ( const QgsLineString *ls = dynamic_cast<const QgsLineString *>( geom ) )
   {
-    QVector<QVector3D> path;
-    path.reserve( ls->numPoints() );
-    for ( int i = 0; i < ls->numPoints(); ++i )
-    {
-      const QVector3D pos = vertexTo3D( ls->xAt( i ), ls->yAt( i ) );
-      if ( !std::isnan( pos.x() ) )
-        path.append( pos );
-    }
+    QVector<QVector3D> path = ringToPath( ls );
     if ( path.size() > 1 )
+    {
       result.append( std::move( path ) );
+    }
   }
   else if ( const QgsPolygon *poly = dynamic_cast<const QgsPolygon *>( geom ) )
   {
-    auto ringToPath = [this]( const QgsLineString *ls ) {
-      QVector<QVector3D> path;
-      path.reserve( ls->numPoints() );
-      for ( int i = 0; i < ls->numPoints(); ++i )
-      {
-        const QVector3D pos = vertexTo3D( ls->xAt( i ), ls->yAt( i ) );
-        if ( !std::isnan( pos.x() ) )
-          path.append( pos );
-      }
-      return path;
-    };
-
     if ( const QgsLineString *ext = dynamic_cast<const QgsLineString *>( poly->exteriorRing() ) )
     {
       QVector<QVector3D> path = ringToPath( ext );
       if ( path.size() > 1 )
+      {
         result.append( std::move( path ) );
+      }
     }
     for ( int r = 0; r < poly->numInteriorRings(); ++r )
     {
@@ -204,30 +222,53 @@ QVector<QVector<QVector3D>> Quick3DGeometryHighlight::buildPaths( const QgsAbstr
       {
         QVector<QVector3D> path = ringToPath( ring );
         if ( path.size() > 1 )
+        {
           result.append( std::move( path ) );
+        }
       }
     }
   }
   else if ( const QgsGeometryCollection *collection = dynamic_cast<const QgsGeometryCollection *>( geom ) )
   {
     for ( int i = 0; i < collection->numGeometries(); ++i )
+    {
       result.append( buildPaths( collection->geometryN( i ) ) );
+    }
   }
 
   return result;
 }
 
+void Quick3DGeometryHighlight::resetGeometry()
+{
+  clear();
+  setPrimitiveType( QQuick3DGeometry::PrimitiveType::Triangles );
+  mDirty = false;
+  update();
+}
+
+void Quick3DGeometryHighlight::finalize( const QByteArray &vertexData, const QByteArray &indexData, const QVector3D &lo, const QVector3D &hi )
+{
+  clear();
+  setVertexData( vertexData );
+  setIndexData( indexData );
+  setStride( Quick3DGeometryUtils::VERTEX_STRIDE );
+  addAttribute( QQuick3DGeometry::Attribute::PositionSemantic, 0, QQuick3DGeometry::Attribute::F32Type );
+  addAttribute( QQuick3DGeometry::Attribute::NormalSemantic, 3 * sizeof( float ), QQuick3DGeometry::Attribute::F32Type );
+  addAttribute( QQuick3DGeometry::Attribute::ColorSemantic, 6 * sizeof( float ), QQuick3DGeometry::Attribute::F32Type );
+  addAttribute( QQuick3DGeometry::Attribute::IndexSemantic, 0, QQuick3DGeometry::Attribute::U32Type );
+  setPrimitiveType( QQuick3DGeometry::PrimitiveType::Triangles );
+  setBounds( lo, hi );
+  mDirty = false;
+  update();
+}
+
 void Quick3DGeometryHighlight::updateGeometry()
 {
   if ( !mDirty )
+  {
     return;
-
-  auto resetGeometry = [this]() {
-    clear();
-    setPrimitiveType( QQuick3DGeometry::PrimitiveType::Triangles );
-    mDirty = false;
-    update();
-  };
+  }
 
   if ( mGeometry.isNull() || !mTerrainProvider || mTerrainProvider->extent().isEmpty() )
   {
@@ -261,21 +302,6 @@ void Quick3DGeometryHighlight::updateGeometry()
   QVector3D maxBound( std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest() );
   const int stride = Quick3DGeometryUtils::VERTEX_STRIDE;
 
-  auto finalize = [this, stride]( QByteArray &vertexData, QByteArray &indexData, const QVector3D &lo, const QVector3D &hi ) {
-    clear();
-    setVertexData( vertexData );
-    setIndexData( indexData );
-    setStride( stride );
-    addAttribute( QQuick3DGeometry::Attribute::PositionSemantic, 0, QQuick3DGeometry::Attribute::F32Type );
-    addAttribute( QQuick3DGeometry::Attribute::NormalSemantic, 3 * sizeof( float ), QQuick3DGeometry::Attribute::F32Type );
-    addAttribute( QQuick3DGeometry::Attribute::ColorSemantic, 6 * sizeof( float ), QQuick3DGeometry::Attribute::F32Type );
-    addAttribute( QQuick3DGeometry::Attribute::IndexSemantic, 0, QQuick3DGeometry::Attribute::U32Type );
-    setPrimitiveType( QQuick3DGeometry::PrimitiveType::Triangles );
-    setBounds( lo, hi );
-    mDirty = false;
-    update();
-  };
-
   if ( geomType == Qgis::GeometryType::Point )
   {
     QVector<QVector3D> points;
@@ -285,7 +311,9 @@ void Quick3DGeometryHighlight::updateGeometry()
       const QgsPoint pt = vit.next();
       const QVector3D pos = vertexTo3D( pt.x(), pt.y() );
       if ( !std::isnan( pos.x() ) )
+      {
         points.append( pos );
+      }
     }
 
     if ( points.isEmpty() )
@@ -308,7 +336,9 @@ void Quick3DGeometryHighlight::updateGeometry()
 
     const float pointSphereRadius = mLineWidth * 3.5f;
     for ( const QVector3D &center : points )
+    {
       Quick3DGeometryUtils::generateSphere( center, pointSphereRadius, sphereStacks, sphereSlices, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
+    }
 
     finalize( vertexData, indexData, minBound, maxBound );
     return;
@@ -337,7 +367,9 @@ void Quick3DGeometryHighlight::updateGeometry()
     {
       int ringSize = path.size();
       if ( ringSize > 3 && ( path.first() - path.last() ).length() < 0.001f )
+      {
         --ringSize;
+      }
       totalFillVertices += ringSize;
       totalFillIndices += ( ringSize - 2 ) * 3;
     }
@@ -361,12 +393,16 @@ void Quick3DGeometryHighlight::updateGeometry()
   quint32 vertexOffset = 0;
 
   for ( const QVector<QVector3D> &path : paths )
+  {
     Quick3DGeometryUtils::generateTube( path, segments, mLineWidth, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
+  }
 
   for ( const QVector<QVector3D> &path : paths )
   {
     for ( const QVector3D &center : path )
+    {
       Quick3DGeometryUtils::generateSphere( center, sphereRadius, sphereStacks, sphereSlices, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
+    }
   }
 
   if ( isPolygon && mFillPolygons )
@@ -374,7 +410,9 @@ void Quick3DGeometryHighlight::updateGeometry()
     for ( const QVector<QVector3D> &path : paths )
     {
       if ( path.size() >= 3 )
+      {
         Quick3DGeometryUtils::generatePolygonFill( path, r, g, b, fillAlpha, vptr, iptr, vertexOffset, minBound, maxBound );
+      }
     }
   }
 

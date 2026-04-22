@@ -25,6 +25,8 @@
 #include <qgscoordinatetransform.h>
 #include <qgsgeometry.h>
 
+class QgsLineString;
+
 /**
  * Generates 3D highlight geometry for an identified or selected feature on
  * top of the terrain mesh.
@@ -101,6 +103,15 @@ class Quick3DGeometryHighlight : public QQuick3DGeometry
 
     //! Walks an abstract geometry and returns its rings/lines as 3D paths
     QVector<QVector<QVector3D>> buildPaths( const QgsAbstractGeometry *geom ) const;
+
+    //! Converts the vertices of \a ls into a 3D scene-space path, dropping un-projectable points
+    QVector<QVector3D> ringToPath( const QgsLineString *ls ) const;
+
+    //! Resets the geometry buffers to an empty triangle mesh and triggers an update
+    void resetGeometry();
+
+    //! Uploads \a vertexData and \a indexData and configures the vertex attributes
+    void finalize( const QByteArray &vertexData, const QByteArray &indexData, const QVector3D &lo, const QVector3D &hi );
 
     QgsGeometry mGeometry;
     QgsCoordinateReferenceSystem mCrs;
