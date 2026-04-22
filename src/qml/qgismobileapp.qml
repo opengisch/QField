@@ -5016,13 +5016,6 @@ ApplicationWindow {
     }
   }
 
-  About {
-    id: aboutDialog
-    anchors.fill: parent
-
-    Component.onCompleted: focusstack.addFocusTaker(this)
-  }
-
   TrackerSettings {
     id: trackerSettings
     objectName: 'trackerSettings'
@@ -5134,6 +5127,10 @@ ApplicationWindow {
     }
 
     anchors.fill: parent
+
+    onShowAbout: {
+      aboutDialog.visible = true;
+    }
 
     onShowLocalDataPicker: {
       qfieldLocalDataPickerScreen.projectFolderView = false;
@@ -5261,6 +5258,13 @@ ApplicationWindow {
         }
       }
     }
+  }
+
+  About {
+    id: aboutDialog
+    anchors.fill: parent
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   Toast {
