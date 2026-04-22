@@ -1246,7 +1246,7 @@ bool FeatureModel::create( bool flushBuffer )
           if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( createdFeatureId ) ).nextFeature( feat ) )
           {
             setFeature( feat );
-            mSavedFeature = feat;
+            mSavedFeature = mFeature;
 
             if ( hasRelations )
             {
