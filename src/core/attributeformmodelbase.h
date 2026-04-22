@@ -115,7 +115,6 @@ class AttributeFormModelBase : public QStandardItemModel
 
     void buildForm( QgsAttributeEditorContainer *container,
                     QStandardItem *parent,
-                    const QString &parentVisibilityExpressions,
                     QList<QStandardItem *> &containers,
                     int currentTabIndex = 0,
                     int columnCount = 1 );
