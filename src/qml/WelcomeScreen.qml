@@ -15,6 +15,8 @@ Page {
   property bool firstShown: false
 
   property alias model: table.model
+
+  signal showAbout
   signal showLocalDataPicker
   signal showQFieldCloudScreen
   signal showSettings
@@ -79,7 +81,8 @@ Page {
 
       ImageDial {
         id: imageDialLogo
-        value: 1
+
+        property real pressedValue: -1
 
         Layout.margins: 6
         Layout.topMargin: 14 + mainWindow.sceneTopMargin
@@ -90,6 +93,24 @@ Page {
 
         source: "qrc:/images/app_logo.svg"
         rotationOffset: 220
+        value: 1
+
+        onPressedChanged: {
+          if (pressed) {
+            pressedValue = -1;
+          } else {
+            if (pressedValue == -1 || Math.abs(value - pressedValue) < 0.05) {
+              welcomeScreen.showAbout();
+            }
+            pressedValue = -1;
+          }
+        }
+
+        onValueChanged: {
+          if (pressed && pressedValue == -1) {
+            pressedValue = value;
+          }
+        }
       }
 
       SwipeView {
