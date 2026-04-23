@@ -63,22 +63,27 @@ FeatureModel::ModelModes FeatureModel::modelMode() const
 void FeatureModel::setFeature( const QgsFeature &feature )
 {
   if ( mModelMode != SingleFeatureModel || feature == mFeature )
+  {
     return;
+  }
 
   beginResetModel();
   mFeature = feature;
+  mSavedFeature = QgsFeature();
   mFeatures.clear();
   mAttributesAllowEdit.clear();
-  emit featureChanged();
   endResetModel();
 
+  emit featureChanged();
   updatePermissions();
 }
 
 void FeatureModel::setFeatures( const QList<QgsFeature> &features )
 {
   if ( mModelMode != MultiFeatureModel )
+  {
     return;
+  }
 
   beginResetModel();
   if ( !features.isEmpty() )
@@ -114,6 +119,9 @@ void FeatureModel::setFeatures( const QList<QgsFeature> &features )
 
     mFeature = QgsFeature();
   }
+
+  mSavedFeature = QgsFeature();
+
   emit featuresChanged();
   endResetModel();
 }
@@ -137,6 +145,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
     else
     {
       mFeature = QgsFeature( mLayer->fields() );
+
       QMutex *mutex = sMutex;
       QMutexLocker locker( mutex );
       ( *sRememberings )[mLayer].rememberedFeature = mFeature;
@@ -147,6 +156,8 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
         ( *sRememberings )[mLayer].rememberedAttributes << ( config.reuseLastValuePolicy( i ) == Qgis::AttributeFormReuseLastValuePolicy::AllowedDefaultOn );
       }
     }
+
+    mSavedFeature = QgsFeature();
 
     if ( mLayer->customPropertyKeys().contains( QStringLiteral( "is_geometry_locked" ) ) )
     {
@@ -667,11 +678,42 @@ bool FeatureModel::save( bool flushBuffer )
         // We take charge of default values that are set to be applied on feature update to take into account positioning and cloud context
         updateDefaultValues();
 
-        QgsGeometry temporaryGeometry = mFeature.geometry();
-        QgsAttributeMap temporaryAttributeMap = mFeature.attributes().toMap();
         bool changed = false;
-        changed = mLayer->changeGeometry( mFeature.id(), temporaryGeometry, true );
-        changed |= mLayer->changeAttributeValues( mFeature.id(), temporaryAttributeMap, QgsAttributeMap(), true );
+        if ( mSavedFeature.id() == mFeature.id() )
+        {
+          bool hasChanged = false;
+          if ( ( mFeature.hasGeometry() || mSavedFeature.hasGeometry() ) && !mFeature.geometry().equals( mSavedFeature.geometry() ) )
+          {
+            hasChanged = true;
+            QgsGeometry temporaryGeometry = mFeature.geometry();
+            changed = mLayer->changeGeometry( mFeature.id(), temporaryGeometry, true );
+          }
+
+          const QgsAttributes attributes = mFeature.attributes();
+          const QgsAttributes originalAttributes = mSavedFeature.attributes();
+          for ( int idx = 0; idx < attributes.count(); ++idx )
+          {
+            if ( !qgsVariantEqual( attributes.at( idx ), originalAttributes.at( idx ) ) )
+            {
+              hasChanged = true;
+              changed |= mLayer->changeAttributeValue( mFeature.id(), idx, attributes.at( idx ), originalAttributes.at( idx ), true );
+            }
+          }
+
+          if ( hasChanged && changed )
+          {
+            mSavedFeature = mFeature;
+          }
+        }
+        else
+        {
+          changed = mLayer->updateFeature( mFeature, true );
+          if ( changed )
+          {
+            mSavedFeature = mFeature;
+          }
+        }
+
         if ( !changed )
         {
           QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
@@ -688,6 +730,7 @@ bool FeatureModel::save( bool flushBuffer )
               if ( modifiedFeature != mFeature )
               {
                 setFeature( modifiedFeature );
+                mSavedFeature = mFeature;
               }
               else
               {
@@ -798,6 +841,7 @@ void FeatureModel::resetFeature()
   }
 
   mFeature = QgsFeature( mLayer->fields() );
+  mSavedFeature = QgsFeature();
 }
 
 void FeatureModel::resetFeatureId()
@@ -861,6 +905,7 @@ void FeatureModel::resetAttributes( bool partialReset )
   QgsExpressionContext expressionContext = createExpressionContext();
   expressionContext.setFeature( mFeature );
   mFeature = QgsVectorLayerUtils::createFeature( mLayer, mFeature.geometry(), mFeature.attributes().toMap(), &expressionContext );
+  mSavedFeature = QgsFeature();
   endResetModel();
 
   updatePermissions();
@@ -1187,6 +1232,7 @@ bool FeatureModel::create( bool flushBuffer )
     flushBuffer = flushBuffer || !wasEditing || hasRelations;
     if ( mLayer->addFeature( mFeature ) )
     {
+      mSavedFeature = mFeature;
       if ( mProject && mProject->topologicalEditing() && !mFeature.geometry().isEmpty() )
       {
         applyGeometryTopography( mFeature.geometry() );
@@ -1200,6 +1246,7 @@ bool FeatureModel::create( bool flushBuffer )
           if ( mLayer->getFeatures( QgsFeatureRequest().setFilterFid( createdFeatureId ) ).nextFeature( feat ) )
           {
             setFeature( feat );
+            mSavedFeature = mFeature;
 
             if ( hasRelations )
             {
