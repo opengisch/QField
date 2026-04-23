@@ -113,7 +113,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
         QgsRasterMarkerSymbolLayer *rasterMarkerSymbolLayer = new QgsRasterMarkerSymbolLayer( QString(), 2.6, 0.0 );
         rasterMarkerSymbolLayer->setSize( 6.0 );
         rasterMarkerSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value )" ), true ) );
-        rasterMarkerSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Name, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000, @project_folder || '/' || \"%1\", '')" ).arg( attachmentField ), true ) );
+        rasterMarkerSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Name, QgsProperty::fromExpression( QStringLiteral( "with_variable('attachment', %1, if(@map_scale < 5000, @project_folder || '/' || @attachment, ''))" ).arg( attachmentField ), true ) );
         subSymbolLayers << rasterMarkerSymbolLayer;
 
         QgsCentroidFillSymbolLayer *centroidFillSymbolLayer = new QgsCentroidFillSymbolLayer();
@@ -128,7 +128,7 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
         {
           fillSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', \"%1\", @value)" ).arg( colorField ), true ) );
         }
-        fillSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value)" ).arg( attachmentField ), true ) );
+        fillSymbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "with_variable('attachment', %1, if(@map_scale < 5000 and @attachment is not null and @attachment != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value))" ).arg( attachmentField ), true ) );
         fillSymbolLayer->setSubSymbol( new QgsFillSymbol( subSymbolLayers ) );
         symbolLayers << fillSymbolLayer;
 
@@ -137,14 +137,14 @@ QgsSymbol *LayerUtils::defaultSymbol( QgsVectorLayer *layer, const QString &atta
         symbolLayer->setStrokeWidth( 0.6 );
         if ( !colorField.isEmpty() )
         {
-          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', '255,0,0,0', if(\"%2\" is not null and \"%2\" != '', set_color_part(\"%2\", 'alpha', 100), @value))" ).arg( attachmentField, colorField ), true ) );
+          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "with_variable('attachment', %1, if(@map_scale < 5000 and @attachment is not null and @attachment != '', '255,0,0,0', if(\"%2\" is not null and \"%2\" != '', set_color_part(\"%2\", 'alpha', 100), @value)))" ).arg( attachmentField, colorField ), true ) );
           symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::StrokeColor, QgsProperty::fromExpression( QStringLiteral( "if(\"%1\" is not null and \"%1\" != '', \"%1\", @value)" ).arg( colorField ), true ) );
         }
         else
         {
-          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', '255,0,0,0', @value))" ).arg( attachmentField ), true ) );
+          symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::FillColor, QgsProperty::fromExpression( QStringLiteral( "with_variable('attachment', %1, if(@map_scale < 5000 and @attachment is not null and @attachment != '', '255,0,0,0', @value)))" ).arg( attachmentField ), true ) );
         }
-        symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "if(@map_scale < 5000 and \"%1\" is not null and \"%1\" != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value)" ).arg( attachmentField ), true ) );
+        symbolLayer->setDataDefinedProperty( QgsSymbolLayer::Property::Size, QgsProperty::fromExpression( QStringLiteral( "with_variable('attachment', %1, if(@map_scale < 5000 and @attachment is not null and @attachment != '', scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value))" ).arg( attachmentField ), true ) );
         symbolLayers << symbolLayer;
       }
       else
