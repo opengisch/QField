@@ -871,6 +871,17 @@ RelationEditorBase {
         property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
         property bool firstFrameDrawn: false
 
+        Timer {
+          id: reloadTimer
+          interval: 10
+          repeat: false
+          onTriggered: {
+            videoThumbLoader.firstFrameDrawn = false;
+            videoThumbLoader.active = false;
+            videoThumbLoader.active = true;
+          }
+        }
+
         sourceComponent: Component {
           Video {
             anchors.fill: parent
@@ -889,6 +900,15 @@ RelationEditorBase {
               if (!videoThumbLoader.firstFrameDrawn && playbackState === MediaPlayer.PlayingState) {
                 videoThumbLoader.firstFrameDrawn = true;
                 thumbnailPauseTimer.start();
+              }
+            }
+
+            onPlaybackStateChanged: {
+              // Detect natural end-of-playback
+              if (cardContainer.videoPlaying && playbackState === MediaPlayer.StoppedState && duration > 0 && position >= duration * 0.1) {
+                cardContainer.videoPlaying = false;
+                relationEditor.releaseMediaFocus(cardContainer);
+                reloadTimer.start();
               }
             }
 
