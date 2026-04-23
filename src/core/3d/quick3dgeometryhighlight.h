@@ -98,9 +98,6 @@ class Quick3DGeometryHighlight : public QQuick3DGeometry
   private:
     void updateGeometry();
 
-    //! Projects a geometry vertex from layer CRS into 3D scene space
-    QVector3D vertexTo3D( double x, double y ) const;
-
     //! Walks an abstract geometry and returns its rings/lines as 3D paths
     QVector<QVector<QVector3D>> buildPaths( const QgsAbstractGeometry *geom ) const;
 

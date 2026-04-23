@@ -154,34 +154,13 @@ void Quick3DGeometryHighlight::markDirtyAndUpdate()
   updateGeometry();
 }
 
-QVector3D Quick3DGeometryHighlight::vertexTo3D( double x, double y ) const
-{
-  double tx = x;
-  double ty = y;
-
-  if ( mTransform.isValid() && !mTransform.isShortCircuited() )
-  {
-    try
-    {
-      double z = 0.0;
-      mTransform.transformInPlace( tx, ty, z );
-    }
-    catch ( const QgsCsException & )
-    {
-      return QVector3D( std::numeric_limits<float>::quiet_NaN(), 0, 0 );
-    }
-  }
-
-  return mTerrainProvider->geoTo3D( tx, ty, mHeightOffset );
-}
-
 QVector<QVector3D> Quick3DGeometryHighlight::ringToPath( const QgsLineString *ls ) const
 {
   QVector<QVector3D> path;
   path.reserve( ls->numPoints() );
   for ( int i = 0; i < ls->numPoints(); ++i )
   {
-    const QVector3D pos = vertexTo3D( ls->xAt( i ), ls->yAt( i ) );
+    const QVector3D pos = mTerrainProvider->geoTo3D( ls->xAt( i ), ls->yAt( i ), mHeightOffset );
     if ( !std::isnan( pos.x() ) )
     {
       path.append( pos );
@@ -276,14 +255,35 @@ void Quick3DGeometryHighlight::updateGeometry()
     return;
   }
 
-  const QgsAbstractGeometry *abstractGeom = mGeometry.constGet();
+  QgsGeometry workingGeom = mGeometry;
+  if ( mTransform.isValid() && !mTransform.isShortCircuited() )
+  {
+    try
+    {
+      workingGeom.transform( mTransform );
+    }
+    catch ( const QgsCsException & )
+    {
+      resetGeometry();
+      return;
+    }
+  }
+
+  workingGeom = workingGeom.intersection( QgsGeometry::fromRect( mTerrainProvider->extent() ) );
+  if ( workingGeom.isNull() || workingGeom.isEmpty() )
+  {
+    resetGeometry();
+    return;
+  }
+
+  const QgsAbstractGeometry *abstractGeom = workingGeom.constGet();
   if ( !abstractGeom )
   {
     resetGeometry();
     return;
   }
 
-  const Qgis::GeometryType geomType = mGeometry.type();
+  const Qgis::GeometryType geomType = workingGeom.type();
 
   const int segments = 8;
   const int sphereStacks = 6;
@@ -305,11 +305,11 @@ void Quick3DGeometryHighlight::updateGeometry()
   if ( geomType == Qgis::GeometryType::Point )
   {
     QVector<QVector3D> points;
-    QgsVertexIterator vit = mGeometry.vertices();
+    QgsVertexIterator vit = workingGeom.vertices();
     while ( vit.hasNext() )
     {
       const QgsPoint pt = vit.next();
-      const QVector3D pos = vertexTo3D( pt.x(), pt.y() );
+      const QVector3D pos = mTerrainProvider->geoTo3D( pt.x(), pt.y(), mHeightOffset );
       if ( !std::isnan( pos.x() ) )
       {
         points.append( pos );
