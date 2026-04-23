@@ -154,13 +154,13 @@ void Quick3DGeometryHighlight::markDirtyAndUpdate()
   updateGeometry();
 }
 
-QVector<QVector3D> Quick3DGeometryHighlight::ringToPath( const QgsLineString *ls ) const
+QVector<QVector3D> Quick3DGeometryHighlight::ringToPath( const QgsLineString *lineString ) const
 {
   QVector<QVector3D> path;
-  path.reserve( ls->numPoints() );
-  for ( int i = 0; i < ls->numPoints(); ++i )
+  path.reserve( lineString->numPoints() );
+  for ( int i = 0; i < lineString->numPoints(); ++i )
   {
-    const QVector3D pos = mTerrainProvider->geoTo3D( ls->xAt( i ), ls->yAt( i ), mHeightOffset );
+    const QVector3D pos = mTerrainProvider->geoTo3D( lineString->xAt( i ), lineString->yAt( i ), mHeightOffset );
     if ( !std::isnan( pos.x() ) )
     {
       path.append( pos );
@@ -177,27 +177,33 @@ QVector<QVector<QVector3D>> Quick3DGeometryHighlight::buildPaths( const QgsAbstr
     return result;
   }
 
-  if ( const QgsLineString *ls = dynamic_cast<const QgsLineString *>( geom ) )
+  const QgsLineString *lineString = dynamic_cast<const QgsLineString *>( geom );
+  if ( lineString )
   {
-    QVector<QVector3D> path = ringToPath( ls );
+    QVector<QVector3D> path = ringToPath( lineString );
     if ( path.size() > 1 )
     {
       result.append( std::move( path ) );
     }
+    return result;
   }
-  else if ( const QgsPolygon *poly = dynamic_cast<const QgsPolygon *>( geom ) )
+
+  const QgsPolygon *polygon = dynamic_cast<const QgsPolygon *>( geom );
+  if ( polygon )
   {
-    if ( const QgsLineString *ext = dynamic_cast<const QgsLineString *>( poly->exteriorRing() ) )
+    const QgsLineString *exteriorRing = dynamic_cast<const QgsLineString *>( polygon->exteriorRing() );
+    if ( exteriorRing )
     {
-      QVector<QVector3D> path = ringToPath( ext );
+      QVector<QVector3D> path = ringToPath( exteriorRing );
       if ( path.size() > 1 )
       {
         result.append( std::move( path ) );
       }
     }
-    for ( int r = 0; r < poly->numInteriorRings(); ++r )
+    for ( int ringIndex = 0; ringIndex < polygon->numInteriorRings(); ++ringIndex )
     {
-      if ( const QgsLineString *ring = dynamic_cast<const QgsLineString *>( poly->interiorRing( r ) ) )
+      const QgsLineString *ring = dynamic_cast<const QgsLineString *>( polygon->interiorRing( ringIndex ) );
+      if ( ring )
       {
         QVector<QVector3D> path = ringToPath( ring );
         if ( path.size() > 1 )
@@ -206,8 +212,11 @@ QVector<QVector<QVector3D>> Quick3DGeometryHighlight::buildPaths( const QgsAbstr
         }
       }
     }
+    return result;
   }
-  else if ( const QgsGeometryCollection *collection = dynamic_cast<const QgsGeometryCollection *>( geom ) )
+
+  const QgsGeometryCollection *collection = dynamic_cast<const QgsGeometryCollection *>( geom );
+  if ( collection )
   {
     for ( int i = 0; i < collection->numGeometries(); ++i )
     {
@@ -289,8 +298,8 @@ void Quick3DGeometryHighlight::updateGeometry()
   const int sphereStacks = 6;
   const int sphereSlices = 8;
   const float sphereRadius = mLineWidth * 2.25f;
-  const int singleSphereVtxCount = Quick3DGeometryUtils::sphereVertexCount( sphereStacks, sphereSlices );
-  const int singleSphereIdxCount = Quick3DGeometryUtils::sphereIndexCount( sphereStacks, sphereSlices );
+  const int singleSphereVertexCount = Quick3DGeometryUtils::sphereVertexCount( sphereStacks, sphereSlices );
+  const int singleSphereIndexCount = Quick3DGeometryUtils::sphereIndexCount( sphereStacks, sphereSlices );
 
   const float r = mColor.redF();
   const float g = mColor.greenF();
@@ -305,11 +314,11 @@ void Quick3DGeometryHighlight::updateGeometry()
   if ( geomType == Qgis::GeometryType::Point )
   {
     QVector<QVector3D> points;
-    QgsVertexIterator vit = workingGeom.vertices();
-    while ( vit.hasNext() )
+    QgsVertexIterator vertexIterator = workingGeom.vertices();
+    while ( vertexIterator.hasNext() )
     {
-      const QgsPoint pt = vit.next();
-      const QVector3D pos = mTerrainProvider->geoTo3D( pt.x(), pt.y(), mHeightOffset );
+      const QgsPoint point = vertexIterator.next();
+      const QVector3D pos = mTerrainProvider->geoTo3D( point.x(), point.y(), mHeightOffset );
       if ( !std::isnan( pos.x() ) )
       {
         points.append( pos );
@@ -322,8 +331,8 @@ void Quick3DGeometryHighlight::updateGeometry()
       return;
     }
 
-    const int totalVertexCount = points.size() * singleSphereVtxCount;
-    const int totalIndexCount = points.size() * singleSphereIdxCount;
+    const int totalVertexCount = points.size() * singleSphereVertexCount;
+    const int totalIndexCount = points.size() * singleSphereIndexCount;
 
     QByteArray vertexData;
     vertexData.resize( static_cast<qsizetype>( totalVertexCount ) * stride );
@@ -377,8 +386,8 @@ void Quick3DGeometryHighlight::updateGeometry()
 
   const int tubeVertexCount = totalPoints * segments;
   const int tubeIndexCount = totalConnections * segments * 2 * 3;
-  const int sphereVertexTotal = totalPoints * singleSphereVtxCount;
-  const int sphereIndexTotal = totalPoints * singleSphereIdxCount;
+  const int sphereVertexTotal = totalPoints * singleSphereVertexCount;
+  const int sphereIndexTotal = totalPoints * singleSphereIndexCount;
 
   const int totalVertexCount = tubeVertexCount + sphereVertexTotal + totalFillVertices;
   const int totalIndexCount = tubeIndexCount + sphereIndexTotal + totalFillIndices;

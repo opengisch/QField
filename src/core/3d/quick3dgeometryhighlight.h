@@ -101,8 +101,8 @@ class Quick3DGeometryHighlight : public QQuick3DGeometry
     //! Walks an abstract geometry and returns its rings/lines as 3D paths
     QVector<QVector<QVector3D>> buildPaths( const QgsAbstractGeometry *geom ) const;
 
-    //! Converts the vertices of \a ls into a 3D scene-space path, dropping un-projectable points
-    QVector<QVector3D> ringToPath( const QgsLineString *ls ) const;
+    //! Converts the vertices of \a lineString into a 3D scene-space path, dropping un-projectable points
+    QVector<QVector3D> ringToPath( const QgsLineString *lineString ) const;
 
     //! Resets the geometry buffers to an empty triangle mesh and triggers an update
     void resetGeometry();

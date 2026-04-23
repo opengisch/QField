@@ -9,6 +9,7 @@ set(QFIELD_CORE_SRCS
     3d/quick3dmaptexturedata.cpp
     3d/quick3drubberbandgeometry.cpp
     3d/quick3dgeometryhighlight.cpp
+    3d/quick3dgeometryutils.cpp
     3d/maptoview3d.cpp
     utils/coordinatereferencesystemutils.cpp
     utils/expressioncontextutils.cpp
