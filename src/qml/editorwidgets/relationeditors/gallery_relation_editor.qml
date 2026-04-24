@@ -85,6 +85,31 @@ RelationEditorBase {
     externalStorage.fetch(next.url, next.authId);
   }
 
+  property var videoQueue: []
+  property bool videoQueueBusy: false
+
+  Timer {
+    id: videoQueueTimer
+    interval: 150
+    onTriggered: {
+      while (videoQueue.length > 0) {
+        if (videoQueue.shift()()) {
+          videoQueueTimer.start();
+          return;
+        }
+      }
+      videoQueueBusy = false;
+    }
+  }
+
+  function queueVideoLoad(fn) {
+    videoQueue.push(fn);
+    if (!videoQueueBusy) {
+      videoQueueBusy = true;
+      videoQueueTimer.start();
+    }
+  }
+
   QtObject {
     id: dummyTarget
   }
@@ -576,12 +601,29 @@ RelationEditorBase {
 
       Loader {
         id: listVideoThumbLoader
-        active: attachmentIsVideo
+        active: false
         parent: listVideoContainer
         anchors.fill: parent
 
         property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
         property bool firstFrameDrawn: false
+        property bool queued: false
+
+        onSourceUrlChanged: {
+          active = false;
+          firstFrameDrawn = false;
+          queued = false;
+          if (attachmentIsVideo && sourceUrl.toString() !== "") {
+            queued = true;
+            relationEditor.queueVideoLoad(() => {
+              if (!listVideoThumbLoader || !listVideoThumbLoader.queued)
+                return false;
+              listVideoThumbLoader.queued = false;
+              listVideoThumbLoader.active = true;
+              return true;
+            });
+          }
+        }
 
         sourceComponent: Component {
           Video {
@@ -864,21 +906,27 @@ RelationEditorBase {
 
       Loader {
         id: videoThumbLoader
-        active: attachmentIsVideo
+        active: false
         parent: cardVideoContainer
         anchors.fill: parent
 
         property url sourceUrl: attachmentIsVideo ? UrlUtils.fromString(attachmentFullPath) : ""
         property bool firstFrameDrawn: false
+        property bool queued: false
 
-        Timer {
-          id: reloadTimer
-          interval: 10
-          repeat: false
-          onTriggered: {
-            videoThumbLoader.firstFrameDrawn = false;
-            videoThumbLoader.active = false;
-            videoThumbLoader.active = true;
+        onSourceUrlChanged: {
+          active = false;
+          firstFrameDrawn = false;
+          queued = false;
+          if (attachmentIsVideo && sourceUrl.toString() !== "") {
+            queued = true;
+            relationEditor.queueVideoLoad(() => {
+              if (!videoThumbLoader || !videoThumbLoader.queued)
+                return false;
+              videoThumbLoader.queued = false;
+              videoThumbLoader.active = true;
+              return true;
+            });
           }
         }
 
@@ -908,7 +956,8 @@ RelationEditorBase {
               if (cardContainer.videoPlaying && playbackState === MediaPlayer.StoppedState && duration > 0 && position >= duration * 0.1) {
                 cardContainer.videoPlaying = false;
                 relationEditor.releaseMediaFocus(cardContainer);
-                reloadTimer.start();
+                seek(0);
+                pause();
               }
             }
 
