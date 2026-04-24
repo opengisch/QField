@@ -86,6 +86,14 @@ Popup {
   }
 
   onAboutToHide: {
+    if (captureLoader.item) {
+      if (captureLoader.item.recorder && captureLoader.item.recorder.recorderState !== MediaRecorder.StoppedState) {
+        captureLoader.item.recorder.stop();
+      }
+      if (captureLoader.item.camera) {
+        captureLoader.item.camera.active = false;
+      }
+    }
     captureLoaderActivated = false;
   }
 
