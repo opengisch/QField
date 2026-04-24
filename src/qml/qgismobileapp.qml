@@ -5018,7 +5018,7 @@ ApplicationWindow {
 
   TrackerSettings {
     id: trackerSettings
-    objectName: 'trackerSettings'
+    objectName: "trackerSettings"
 
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
@@ -5106,6 +5106,7 @@ ApplicationWindow {
 
   QFieldCloudDeltaHistory {
     id: qfieldCloudDeltaHistory
+    objectName: "qfieldCloudDeltaHistory"
 
     modal: true
     closePolicy: Popup.CloseOnEscape
@@ -5114,6 +5115,7 @@ ApplicationWindow {
 
   QFieldCloudStatus {
     id: qfieldCloudStatus
+    objectName: "qfieldCloudStatus"
     url: cloudConnection.url
   }
 
@@ -5157,9 +5159,10 @@ ApplicationWindow {
 
   ProjectCreationScreen {
     id: projectCreationScreen
+    objectName: "projectCreationScreen"
+
     visible: false
     focus: visible
-
     width: parent.width
     height: parent.height
 
@@ -5183,6 +5186,7 @@ ApplicationWindow {
 
   QFieldCloudScreen {
     id: qfieldCloudScreen
+    objectName: "qfieldCloudScreen"
 
     anchors.fill: parent
     visible: false
@@ -5203,6 +5207,8 @@ ApplicationWindow {
 
   QFieldCloudPopup {
     id: qfieldCloudPopup
+    objectName: "qfieldCloudPopup"
+
     visible: false
     focus: visible
     parent: Overlay.overlay
@@ -5220,6 +5226,7 @@ ApplicationWindow {
 
   QFieldLocalDataPickerScreen {
     id: qfieldLocalDataPickerScreen
+    objectName: "qfieldLocalDataPickerScreen"
 
     anchors.fill: parent
     visible: false
@@ -5234,6 +5241,8 @@ ApplicationWindow {
 
   QFieldSettings {
     id: qfieldSettings
+    objectName: "qfieldSettings"
+
     anchors.fill: parent
 
     onFinished: {
@@ -5300,6 +5309,7 @@ ApplicationWindow {
 
   AppExpressionContextScopesGenerator {
     id: appScopesGenerator
+    objectName: "appScopesGenerator"
 
     positionInformation: positionSource.positionInformation
     positionLocked: coordinateLocator.positionLocked
