@@ -59,11 +59,9 @@ Popup {
 
   property string state: "PhotoCapture"
   onStateChanged: {
-    if (state == "PhotoCapture") {
+    if (state == "PhotoCapture" || state == "VideoCapture") {
       photoPreview.source = '';
-      videoPreview.source = '';
-    } else if (state == "VideoCapture") {
-      photoPreview.source = '';
+      videoPreview.stop();
       videoPreview.source = '';
     }
   }
@@ -94,6 +92,9 @@ Popup {
         captureLoader.item.camera.active = false;
       }
     }
+    videoPreview.stop();
+    videoPreview.source = "";
+    photoPreview.source = "";
     captureLoaderActivated = false;
   }
 
