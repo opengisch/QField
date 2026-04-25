@@ -55,10 +55,11 @@ Popup {
   Rectangle {
     id: toastContent
 
-    property int indicatorWidth: toastIndicator.visible ? toastIndicator.width + 10 : 0
+    property int contentPadding: 20
+    property int indicatorWidth: toastIndicator.visible ? toastIndicator.width : 0
     property int actionWidth: toastAction.visible ? toastAction.width + 10 : 0
     property int absoluteMessageWidth: toastFontMetrics.boundingRect(toastMessage.text).width + actionWidth + 10
-    property int unrestrainedWidth: 20 + toastFontMetrics.boundingRect(toastMessage.text).width + indicatorWidth + actionWidth + 10
+    property int unrestrainedWidth: contentPadding * 2 + toastFontMetrics.boundingRect(toastMessage.text).width + indicatorWidth + actionWidth + 10
 
     z: 1
     width: Math.min(unrestrainedWidth, toast.width - 20)
@@ -107,45 +108,39 @@ Popup {
       }
     }
 
+    Rectangle {
+      id: toastIndicator
+      anchors.left: parent.left
+      anchors.top: parent.top
+      anchors.bottom: parent.bottom
+      width: 5
+      topLeftRadius: toastContent.radius
+      bottomLeftRadius: toastContent.radius
+      topRightRadius: 0
+      bottomRightRadius: 0
+      color: toast.type === 'error' ? Theme.errorColor : Theme.warningColor
+      visible: toast.type != 'info'
+    }
+
     GridLayout {
       id: toastLayout
-      width: parent.width - 20
+      width: parent.width - toastContent.contentPadding * 2 - toastContent.indicatorWidth
       anchors.top: parent.top
       anchors.left: parent.left
       anchors.topMargin: 5
-      anchors.leftMargin: 10
+      anchors.leftMargin: toastContent.contentPadding + toastContent.indicatorWidth
       columnSpacing: 10
       rowSpacing: 10
       columns: toastContent.absoluteMessageWidth > mainWindow.width * 1.75 ? 1 : 2
 
-      RowLayout {
-        id: toastMessageLayout
+      Text {
+        id: toastMessage
         Layout.fillWidth: true
-        Layout.alignment: Qt.AlignVCenter
-        spacing: 10
+        wrapMode: Text.Wrap
+        color: Theme.light
 
-        Rectangle {
-          id: toastIndicator
-          Layout.alignment: Qt.AlignVCenter
-          Layout.preferredWidth: 10
-          Layout.preferredHeight: 10
-          radius: 5
-          color: toast.type === 'error' ? Theme.errorColor : Theme.warningColor
-          visible: toast.type != 'info'
-        }
-
-        Text {
-          id: toastMessage
-
-          Layout.fillWidth: true
-          wrapMode: Text.Wrap
-          topPadding: 3
-          bottomPadding: 3
-          color: Theme.light
-
-          font: Theme.defaultFont
-          horizontalAlignment: Text.AlignHCenter
-        }
+        font: Theme.defaultFont
+        horizontalAlignment: Text.AlignLeft
       }
 
       QfButton {
