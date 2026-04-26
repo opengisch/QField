@@ -58,10 +58,9 @@ Popup {
     property int contentPadding: 20
     property int topPadding: toastLayout.columns === 1 ? 8 : 10
     property int bottomPadding: toastLayout.columns === 1 ? 12 : 10
-    property int indicatorWidth: toastIndicator.visible ? toastIndicator.width : 0
     property int actionWidth: toastAction.visible ? toastAction.width + 10 : 0
     property int absoluteMessageWidth: toastFontMetrics.boundingRect(toastMessage.text).width + actionWidth + 10
-    property int unrestrainedWidth: contentPadding * 2 + toastFontMetrics.boundingRect(toastMessage.text).width + indicatorWidth + actionWidth + 10
+    property int unrestrainedWidth: contentPadding * 2 + toastFontMetrics.boundingRect(toastMessage.text).width + actionWidth + 10
 
     z: 1
     width: Math.min(unrestrainedWidth, toast.width - 20)
@@ -126,11 +125,11 @@ Popup {
 
     GridLayout {
       id: toastLayout
-      width: parent.width - toastContent.contentPadding * 2 - toastContent.indicatorWidth
+      width: parent.width - toastContent.contentPadding * 2
       anchors.top: parent.top
       anchors.left: parent.left
       anchors.topMargin: toastContent.topPadding
-      anchors.leftMargin: toastContent.contentPadding + toastContent.indicatorWidth
+      anchors.leftMargin: toastContent.contentPadding
       columnSpacing: 10
       rowSpacing: 12
       columns: toastContent.absoluteMessageWidth > mainWindow.width * 1.75 ? 1 : 2
