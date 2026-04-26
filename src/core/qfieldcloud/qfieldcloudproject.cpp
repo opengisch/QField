@@ -1476,11 +1476,16 @@ bool QFieldCloudProject::moveDownloadedFilesToPermanentStorage()
 
     // If the file already exists, we need to delete it first, as QT does not support overwriting
     // NOTE: it is possible that someone creates the file in the meantime between this and the next if statement
-    if ( QFile::exists( finalFilePath ) && !QFile::remove( finalFilePath ) )
+    if ( QFile::exists( finalFilePath ) )
     {
-      hasError = true;
-      QgsMessageLog::logMessage( QStringLiteral( "Failed to remove existing file `%1`" ).arg( finalFilePath ) );
-      continue;
+      // Insure correct permissions prior to removing the file
+      QFile::setPermissions( finalFilePath, QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ReadOwner | QFileDevice::WriteOwner );
+      if ( !QFile::remove( finalFilePath ) )
+      {
+        hasError = true;
+        QgsMessageLog::logMessage( QStringLiteral( "Failed to remove existing file `%1`" ).arg( finalFilePath ) );
+        continue;
+      }
     }
 
     // Rename the .part file to the final file name
@@ -1493,6 +1498,9 @@ bool QFieldCloudProject::moveDownloadedFilesToPermanentStorage()
     {
       QgsLogger::debug( QStringLiteral( "Moved downloaded file `%1` to `%2`" ).arg( fileTransfer.partialFilePath, finalFilePath ) );
     }
+
+    // Insure correct permissions are allowing for user access
+    QFile::setPermissions( finalFilePath, QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ReadOwner | QFileDevice::WriteOwner );
   }
 
   return !hasError;
