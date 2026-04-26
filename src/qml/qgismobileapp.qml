@@ -1202,18 +1202,17 @@ ApplicationWindow {
           if (!locationMarker.visible || !locationMarker.isOnMapCanvas || (interactionType !== "clicked" && interactionType !== "pressedAndHold")) {
             return false;
           }
-          if (type === "stylus" && interactionType === "clicked") {
-            mainWindow.displayToast(qsTr("Long press on your location marker to show actions"));
-            return false;
-          } else if ((type !== "stylus" && interactionType === "clicked") || (type === "stylus" && interactionType === "pressedAndHold")) {
-            const dx = point.x - locationMarker.screenLocation.x;
-            const dy = point.y - locationMarker.screenLocation.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance > 25) {
-              return false;
+          const dx = point.x - locationMarker.screenLocation.x;
+          const dy = point.y - locationMarker.screenLocation.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const markerHit = distance <= 25;
+          if (markerHit) {
+            if (type === "stylus" && interactionType === "clicked") {
+              mainWindow.displayToast(qsTr("Long press on your location marker to show actions"));
+            } else if ((type !== "stylus" && interactionType === "clicked") || (type === "stylus" && interactionType === "pressedAndHold")) {
+              openPieMenu(point);
+              return true;
             }
-            openPieMenu(point);
-            return true;
           }
           return false;
         }, MapCanvasPointHandler.Priority.High);
