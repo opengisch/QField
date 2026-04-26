@@ -56,6 +56,8 @@ Popup {
     id: toastContent
 
     property int contentPadding: 20
+    property int topPadding: toastLayout.columns === 1 ? 8 : 10
+    property int bottomPadding: toastLayout.columns === 1 ? 12 : 10
     property int indicatorWidth: toastIndicator.visible ? toastIndicator.width : 0
     property int actionWidth: toastAction.visible ? toastAction.width + 10 : 0
     property int absoluteMessageWidth: toastFontMetrics.boundingRect(toastMessage.text).width + actionWidth + 10
@@ -63,7 +65,7 @@ Popup {
 
     z: 1
     width: Math.min(unrestrainedWidth, toast.width - 20)
-    height: toastLayout.height + 10
+    height: toastLayout.height + topPadding + bottomPadding
     anchors.centerIn: parent
 
     color: "#CC202020"
@@ -127,10 +129,10 @@ Popup {
       width: parent.width - toastContent.contentPadding * 2 - toastContent.indicatorWidth
       anchors.top: parent.top
       anchors.left: parent.left
-      anchors.topMargin: 5
+      anchors.topMargin: toastContent.topPadding
       anchors.leftMargin: toastContent.contentPadding + toastContent.indicatorWidth
       columnSpacing: 10
-      rowSpacing: 10
+      rowSpacing: 12
       columns: toastContent.absoluteMessageWidth > mainWindow.width * 1.75 ? 1 : 2
 
       Text {
@@ -145,10 +147,10 @@ Popup {
 
       QfButton {
         id: toastAction
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        Layout.alignment: (toastLayout.columns === 1 ? Qt.AlignLeft : Qt.AlignHCenter) | Qt.AlignVCenter
         visible: text != ''
         radius: 4
-        bgcolor: "#99000000"
+        bgcolor: "#00000000"
         color: Theme.mainColor
         font.pointSize: Theme.tipFont.pointSize
 
