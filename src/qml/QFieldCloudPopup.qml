@@ -748,6 +748,8 @@ Popup {
       storageMeterBar.loading = false;
       if (subscriptionInformation.storageTotal > 0) {
         showStorageBar(subscriptionInformation.storageUsed, subscriptionInformation.storageTotal, subscriptionInformation.plan);
+      } else {
+        storageMeterBar.value = 0;
       }
     }
   }
