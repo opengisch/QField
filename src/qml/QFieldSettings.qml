@@ -43,6 +43,45 @@ Page {
   property string proxyPassword: ""
   property string proxyExcludedUrls: ""
 
+  // Guard to avoid writing back to QSettings during the initial load from QSettings.
+  property bool proxySettingsLoaded: false
+
+  onProxyEnabledChanged: {
+    if (proxySettingsLoaded) {
+      settings.setValue('proxy/proxy-enabled', proxyEnabled);
+    }
+  }
+  onProxyTypeChanged: {
+    if (proxySettingsLoaded) {
+      settings.setValue('proxy/proxy-type', proxyType);
+    }
+  }
+  onProxyHostChanged: {
+    if (proxySettingsLoaded) {
+      settings.setValue('proxy/proxy-host', proxyHost);
+    }
+  }
+  onProxyPortChanged: {
+    if (proxySettingsLoaded) {
+      settings.setValue('proxy/proxy-port', proxyPort);
+    }
+  }
+  onProxyUserChanged: {
+    if (proxySettingsLoaded) {
+      settings.setValue('proxy/proxy-user', proxyUser);
+    }
+  }
+  onProxyPasswordChanged: {
+    if (proxySettingsLoaded) {
+      settings.setValue('proxy/proxy-password', proxyPassword);
+    }
+  }
+  onProxyExcludedUrlsChanged: {
+    if (proxySettingsLoaded) {
+      settings.setValue('proxy/proxy-excluded-urls', proxyExcludedUrls);
+    }
+  }
+
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
 
@@ -54,14 +93,17 @@ Page {
       // a crash occured while the native camera was launched, disable it
       nativeCamera2 = false;
     }
-    proxyEnabled = settings.valueBool('proxy/proxyEnabled', false);
-    proxyType = settings.value('proxy/proxyType', 'DefaultProxy');
-    proxyHost = settings.value('proxy/proxyHost', '');
-    proxyPort = settings.valueInt('proxy/proxyPort', 0);
-    proxyUser = settings.value('proxy/proxyUser', '');
-    proxyPassword = settings.value('proxy/proxyPassword', '');
-    const excludedRaw = settings.value('proxy/proxyExcludedUrls', '');
+    proxyEnabled = settings.valueBool('proxy/proxy-enabled', false);
+    proxyType = settings.value('proxy/proxy-type', 'DefaultProxy');
+    proxyHost = settings.value('proxy/proxy-host', '');
+    proxyPort = settings.valueInt('proxy/proxy-port', 0);
+    proxyUser = settings.value('proxy/proxy-user', '');
+    proxyPassword = settings.value('proxy/proxy-password', '');
+    const excludedRaw = settings.value('proxy/proxy-excluded-urls', '');
     proxyExcludedUrls = Array.isArray(excludedRaw) ? excludedRaw.join(', ') : (excludedRaw || '');
+    const typeIdx = proxyTypeComboBox.indexOfValue(proxyType);
+    proxyTypeComboBox.currentIndex = typeIdx >= 0 ? typeIdx : 0;
+    proxySettingsLoaded = true;
   }
 
   function reset() {
@@ -69,13 +111,6 @@ Page {
   }
 
   function applyProxySettings() {
-    settings.setValue('proxy/proxyEnabled', proxyEnabled);
-    settings.setValue('proxy/proxyType', proxyType);
-    settings.setValue('proxy/proxyHost', proxyHost);
-    settings.setValue('proxy/proxyPort', proxyPort);
-    settings.setValue('proxy/proxyUser', proxyUser);
-    settings.setValue('proxy/proxyPassword', proxyPassword);
-    settings.setValue('proxy/proxyExcludedUrls', proxyExcludedUrls);
     iface.setupNetworkProxy();
   }
 
