@@ -146,8 +146,8 @@ EditorWidgetBase {
             return;
           }
 
-          displayToast(qsTr('Adding child feature in layer %1').arg(relationEditorModel.relation.referencingLayer.name));
           if (relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null) {
+            displayToast(qsTr('Adding child feature in layer %1').arg(relationEditorModel.relation.referencingLayer.name));
             requestGeometry(relationEditor, relationEditorModel.relation.referencingLayer);
             return;
           }
