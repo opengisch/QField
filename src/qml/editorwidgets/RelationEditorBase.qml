@@ -142,28 +142,16 @@ EditorWidgetBase {
         repeat: false
 
         onTriggered: {
-          let saved = form.state === 'Add' ? !form.setupOnly && save() : true;
-          if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
-            // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
-            if (!saved) {
-              addingIndicator.running = false;
-              displayToast(qsTr('Cannot add child feature: insure the parent feature meets all constraints and can be saved'), 'warning');
-              return;
-            }
+          if (!prepareParent()) {
+            return;
           }
 
-          //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
-          if (relationEditorModel.parentPrimariesAvailable) {
-            displayToast(qsTr('Adding child feature in layer %1').arg(relationEditorModel.relation.referencingLayer.name));
-            if (relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null) {
-              requestGeometry(relationEditor, relationEditorModel.relation.referencingLayer);
-              return;
-            }
-            showAddFeaturePopup();
-          } else {
-            addingIndicator.running = false;
-            displayToast(qsTr('Cannot add child feature: attribute value linking parent and children is not set'), 'warning');
+          displayToast(qsTr('Adding child feature in layer %1').arg(relationEditorModel.relation.referencingLayer.name));
+          if (relationEditorModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null) {
+            requestGeometry(relationEditor, relationEditorModel.relation.referencingLayer);
+            return;
           }
+          showAddFeaturePopup();
         }
       }
     }
@@ -494,5 +482,26 @@ EditorWidgetBase {
     }
     embeddedPopup.open();
     embeddedPopup.attributeFormModel.applyParentDefaultValues();
+  }
+
+  function prepareParent() {
+    let saved = form.state === 'Add' ? !form.setupOnly && save() : true;
+    if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
+      // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
+      if (!saved) {
+        addingIndicator.running = false;
+        displayToast(qsTr('Cannot add child feature: insure the parent feature meets all constraints and can be saved'), 'warning');
+        return false;
+      }
+    }
+
+    //this has to be checked after buffering because the primary could be a value that has been created on creating featurer (e.g. fid)
+    if (!relationEditorModel.parentPrimariesAvailable) {
+      addingIndicator.running = false;
+      displayToast(qsTr('Cannot add child feature: attribute value linking parent and children is not set'), 'warning');
+      return false;
+    }
+
+    return true;
   }
 }

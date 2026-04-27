@@ -314,6 +314,10 @@ RelationEditorBase {
       iconColor: Theme.mainTextColor
       bgcolor: 'transparent'
       onClicked: {
+        if (!prepareParent()) {
+          return;
+        }
+
         switch (documentViewer) {
         case ExternalResource.DocumentVideo:
           captureVideo();
