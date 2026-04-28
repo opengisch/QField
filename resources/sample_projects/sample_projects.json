@@ -6,12 +6,12 @@
   },
   {
     "title": "Wasterwater Management Sample Project",
-    "thumbnail": "live_qfield_users_survey.qgs.jpg",
-    "link": "http://qfield.org/sample-projects/live_qfield_users_survey.zip"
+    "thumbnail": "wastewater.qgz.jpg",
+    "link": "http://qfield.org/sample-projects/wastewater.zip"
   },
   {
     "title": "Live QField Users Survey",
-    "thumbnail": "wastewater.qgz.jpg",
-    "link": "http://qfield.org/sample-projects/wastewater.zip"
+    "thumbnail": "live_qfield_users_survey.qgs.jpg",
+    "link": "http://qfield.org/sample-projects/live_qfield_users_survey.zip"
   }
 ]
