@@ -1,5 +1,5 @@
 /***************************************************************************
-  quick3dgeometryhighlight.h - Quick3DGeometryHighlight
+  quick3dgeometry.h - Quick3DGeometry
 
  ---------------------
  begin                : 20.4.2026
@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QUICK3DGEOMETRYHIGHLIGHT_H
-#define QUICK3DGEOMETRYHIGHLIGHT_H
+#ifndef QUICK3DGEOMETRY_H
+#define QUICK3DGEOMETRY_H
 
 #include "quick3dterrainprovider.h"
 
@@ -36,10 +36,10 @@ class QgsLineString;
  * geometry is reprojected from the source CRS to the map CRS before being
  * draped on the terrain surface.
  *
- * \note QML Type: Quick3DGeometryHighlight
+ * \note QML Type: Quick3DGeometry
  * \ingroup core
  */
-class Quick3DGeometryHighlight : public QQuick3DGeometry
+class Quick3DGeometry : public QQuick3DGeometry
 {
     Q_OBJECT
     QML_ELEMENT
@@ -60,7 +60,7 @@ class Quick3DGeometryHighlight : public QQuick3DGeometry
     Q_PROPERTY( bool fillPolygons READ fillPolygons WRITE setFillPolygons NOTIFY fillPolygonsChanged )
 
   public:
-    explicit Quick3DGeometryHighlight( QQuick3DObject *parent = nullptr );
+    explicit Quick3DGeometry( QQuick3DObject *parent = nullptr );
 
     QgsGeometry qgsGeometry() const { return mGeometry; }
     void setQgsGeometry( const QgsGeometry &geometry );
@@ -122,4 +122,4 @@ class Quick3DGeometryHighlight : public QQuick3DGeometry
     QColor mColor = QColor( 255, 255, 0 );
 };
 
-#endif // QUICK3DGEOMETRYHIGHLIGHT_H
+#endif // QUICK3DGEOMETRY_H

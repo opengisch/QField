@@ -1,5 +1,5 @@
 /***************************************************************************
-  quick3dgeometryhighlight.cpp - Quick3DGeometryHighlight
+  quick3dgeometry.cpp - Quick3DGeometry
 
  ---------------------
  begin                : 20.4.2026
@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "quick3dgeometryhighlight.h"
+#include "quick3dgeometry.h"
 #include "quick3dgeometryutils.h"
 
 #include <qgsgeometrycollection.h>
@@ -25,12 +25,12 @@
 #include <algorithm>
 #include <cmath>
 
-Quick3DGeometryHighlight::Quick3DGeometryHighlight( QQuick3DObject *parent )
+Quick3DGeometry::Quick3DGeometry( QQuick3DObject *parent )
   : QQuick3DGeometry( parent )
 {
 }
 
-void Quick3DGeometryHighlight::setQgsGeometry( const QgsGeometry &geometry )
+void Quick3DGeometry::setQgsGeometry( const QgsGeometry &geometry )
 {
   if ( mGeometry.equals( geometry ) )
   {
@@ -43,7 +43,7 @@ void Quick3DGeometryHighlight::setQgsGeometry( const QgsGeometry &geometry )
   updateGeometry();
 }
 
-void Quick3DGeometryHighlight::setCrs( const QgsCoordinateReferenceSystem &crs )
+void Quick3DGeometry::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( mCrs == crs )
   {
@@ -63,7 +63,7 @@ void Quick3DGeometryHighlight::setCrs( const QgsCoordinateReferenceSystem &crs )
   updateGeometry();
 }
 
-void Quick3DGeometryHighlight::setTerrainProvider( Quick3DTerrainProvider *provider )
+void Quick3DGeometry::setTerrainProvider( Quick3DTerrainProvider *provider )
 {
   if ( mTerrainProvider == provider )
   {
@@ -79,8 +79,8 @@ void Quick3DGeometryHighlight::setTerrainProvider( Quick3DTerrainProvider *provi
 
   if ( mTerrainProvider )
   {
-    connect( mTerrainProvider, &Quick3DTerrainProvider::extentChanged, this, &Quick3DGeometryHighlight::markDirtyAndUpdate );
-    connect( mTerrainProvider, &Quick3DTerrainProvider::normalizedDataChanged, this, &Quick3DGeometryHighlight::markDirtyAndUpdate );
+    connect( mTerrainProvider, &Quick3DTerrainProvider::extentChanged, this, &Quick3DGeometry::markDirtyAndUpdate );
+    connect( mTerrainProvider, &Quick3DTerrainProvider::normalizedDataChanged, this, &Quick3DGeometry::markDirtyAndUpdate );
 
     if ( mTerrainProvider->mapSettings() && mCrs.isValid() )
     {
@@ -95,7 +95,7 @@ void Quick3DGeometryHighlight::setTerrainProvider( Quick3DTerrainProvider *provi
   updateGeometry();
 }
 
-void Quick3DGeometryHighlight::setLineWidth( float width )
+void Quick3DGeometry::setLineWidth( float width )
 {
   width = std::max( 0.1f, width );
   if ( qFuzzyCompare( mLineWidth, width ) )
@@ -109,7 +109,7 @@ void Quick3DGeometryHighlight::setLineWidth( float width )
   updateGeometry();
 }
 
-void Quick3DGeometryHighlight::setColor( const QColor &color )
+void Quick3DGeometry::setColor( const QColor &color )
 {
   if ( mColor == color )
   {
@@ -122,7 +122,7 @@ void Quick3DGeometryHighlight::setColor( const QColor &color )
   updateGeometry();
 }
 
-void Quick3DGeometryHighlight::setHeightOffset( float offset )
+void Quick3DGeometry::setHeightOffset( float offset )
 {
   if ( qFuzzyCompare( mHeightOffset, offset ) )
   {
@@ -135,7 +135,7 @@ void Quick3DGeometryHighlight::setHeightOffset( float offset )
   updateGeometry();
 }
 
-void Quick3DGeometryHighlight::setFillPolygons( bool fill )
+void Quick3DGeometry::setFillPolygons( bool fill )
 {
   if ( mFillPolygons == fill )
   {
@@ -148,13 +148,13 @@ void Quick3DGeometryHighlight::setFillPolygons( bool fill )
   updateGeometry();
 }
 
-void Quick3DGeometryHighlight::markDirtyAndUpdate()
+void Quick3DGeometry::markDirtyAndUpdate()
 {
   mDirty = true;
   updateGeometry();
 }
 
-QVector<QVector3D> Quick3DGeometryHighlight::ringToPath( const QgsLineString *lineString ) const
+QVector<QVector3D> Quick3DGeometry::ringToPath( const QgsLineString *lineString ) const
 {
   QVector<QVector3D> path;
   path.reserve( lineString->numPoints() );
@@ -169,7 +169,7 @@ QVector<QVector3D> Quick3DGeometryHighlight::ringToPath( const QgsLineString *li
   return path;
 }
 
-QVector<QVector<QVector3D>> Quick3DGeometryHighlight::buildPaths( const QgsAbstractGeometry *geom ) const
+QVector<QVector<QVector3D>> Quick3DGeometry::buildPaths( const QgsAbstractGeometry *geom ) const
 {
   QVector<QVector<QVector3D>> result;
   if ( !geom || !mTerrainProvider )
@@ -227,7 +227,7 @@ QVector<QVector<QVector3D>> Quick3DGeometryHighlight::buildPaths( const QgsAbstr
   return result;
 }
 
-void Quick3DGeometryHighlight::resetGeometry()
+void Quick3DGeometry::resetGeometry()
 {
   clear();
   setPrimitiveType( QQuick3DGeometry::PrimitiveType::Triangles );
@@ -235,7 +235,7 @@ void Quick3DGeometryHighlight::resetGeometry()
   update();
 }
 
-void Quick3DGeometryHighlight::finalize( const QByteArray &vertexData, const QByteArray &indexData, const QVector3D &lo, const QVector3D &hi )
+void Quick3DGeometry::finalize( const QByteArray &vertexData, const QByteArray &indexData, const QVector3D &lo, const QVector3D &hi )
 {
   clear();
   setVertexData( vertexData );
@@ -251,7 +251,7 @@ void Quick3DGeometryHighlight::finalize( const QByteArray &vertexData, const QBy
   update();
 }
 
-void Quick3DGeometryHighlight::updateGeometry()
+void Quick3DGeometry::updateGeometry()
 {
   if ( !mDirty )
   {

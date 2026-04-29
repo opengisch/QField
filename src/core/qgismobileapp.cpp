@@ -127,7 +127,7 @@
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
 #include "qgsquickmaptransform.h"
-#include "quick3dgeometryhighlight.h"
+#include "quick3dgeometry.h"
 #include "quick3dmaptexturedata.h"
 #include "quick3drubberbandgeometry.h"
 #include "quick3dterraingeometry.h"
@@ -473,7 +473,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<Quick3DTerrainGeometry>( "org.qfield", 1, 0, "Quick3DTerrainGeometry" );
   qmlRegisterType<Quick3DTerrainProvider>( "org.qfield", 1, 0, "Quick3DTerrainProvider" );
   qmlRegisterType<Quick3DMapTextureData>( "org.qfield", 1, 0, "Quick3DMapTextureData" );
-  qmlRegisterType<Quick3DGeometryHighlight>( "org.qfield", 1, 0, "Quick3DGeometryHighlight" );
+  qmlRegisterType<Quick3DGeometry>( "org.qfield", 1, 0, "Quick3DGeometry" );
   qmlRegisterType<MapToView3D>( "org.qfield", 1, 0, "MapToView3D" );
 
   // Register QField QML types

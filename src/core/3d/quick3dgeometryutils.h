@@ -19,7 +19,6 @@
 
 #include "qfield_core_export.h"
 
-#include <QObject>
 #include <QVector3D>
 #include <QVector>
 
@@ -30,13 +29,9 @@
  *
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT Quick3DGeometryUtils : public QObject
+class QFIELD_CORE_EXPORT Quick3DGeometryUtils
 {
-    Q_OBJECT
-
   public:
-    explicit Quick3DGeometryUtils( QObject *parent = nullptr );
-
     //! Byte stride of a single vertex: position(3) + normal(3) + rgba(4) = 10 floats.
     static constexpr int VERTEX_STRIDE = 10 * sizeof( float );
 

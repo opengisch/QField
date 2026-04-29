@@ -19,11 +19,6 @@
 #include <algorithm>
 #include <cmath>
 
-Quick3DGeometryUtils::Quick3DGeometryUtils( QObject *parent )
-  : QObject( parent )
-{
-}
-
 void Quick3DGeometryUtils::updateBounds( QVector3D &minBound, QVector3D &maxBound, const QVector3D &pos )
 {
   minBound.setX( std::min( minBound.x(), pos.x() ) );

@@ -29,7 +29,7 @@ Node {
       visible: selectionHighlight3D.visible
 
       Model {
-        geometry: Quick3DGeometryHighlight {
+        geometry: Quick3DGeometry {
           qgsGeometry: model.geometry
           crs: model.crs
           terrainProvider: selectionHighlight3D.terrainProvider
