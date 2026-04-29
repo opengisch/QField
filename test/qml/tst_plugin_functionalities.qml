@@ -1,4 +1,6 @@
 import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import QtTest
 import org.qfield
 import org.qgis
@@ -170,5 +172,156 @@ TestCase {
     apiary.clicked();
     verify(dashBoardItem.activeLayer !== null);
     compare(dashBoardItem.activeLayer.name, "ApiaryLayer");
+  }
+
+  // Bees-Model
+
+  Component {
+    id: beesModelLayerNamesProbe
+
+    Instantiator {
+      property var collected: []
+
+      delegate: QtObject {
+        property string layerName: model.Name
+        property var layerPointer: model.LayerPointer
+      }
+
+      onObjectAdded: function (index, object) {
+        collected.push({
+          "name": object.layerName,
+          "pointer": object.layerPointer
+        });
+      }
+    }
+  }
+
+  Component {
+    id: beesModelPlugin
+
+    Item {
+      id: plugin
+
+      property var iface
+      property var qgisProject
+      property var mainWindow: iface ? iface.mainWindow() : null
+      property alias layersButton: layersButton
+      property alias layersDialog: layersDialog
+      property alias layersComboBox: layersComboBox
+      property alias layersModel: layersModel
+
+      Component.onCompleted: {
+        iface.addItemToPluginsToolbar(layersButton);
+      }
+
+      QfToolButton {
+        id: layersButton
+
+        text: "?"
+        iconColor: Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundColor
+        round: true
+
+        onClicked: layersDialog.open()
+      }
+
+      QfDialog {
+        id: layersDialog
+
+        x: mainWindow ? (mainWindow.width - width) / 2 : 0
+        y: mainWindow ? (mainWindow.height - height) / 2 : 0
+        width: 300
+        height: layersLayout.height + 100
+        parent: mainWindow ? mainWindow.contentItem : plugin
+
+        ColumnLayout {
+          id: layersLayout
+          width: parent.width
+
+          Label {
+            Layout.fillWidth: true
+            text: "A combobox full of layers"
+          }
+
+          QfComboBox {
+            id: layersComboBox
+
+            Layout.fillWidth: true
+            model: MapLayerModel {
+              id: layersModel
+              project: plugin.qgisProject
+            }
+            textRole: 'Name'
+            valueRole: 'LayerPointer'
+          }
+        }
+      }
+    }
+  }
+
+  function test_beesModel_01_mapLayerModelTracksProjectLayers() {
+    makeMemoryLayer("BeesModelLayerA");
+    makeMemoryLayer("BeesModelLayerB");
+    const plugin = createTemporaryObject(beesModelPlugin, testCase, {
+      "iface": ifaceStub,
+      "qgisProject": qgisProject
+    });
+    verify(plugin !== null);
+    verify(plugin.layersModel.rowCount() >= 2, "model must include the freshly added layers");
+  }
+
+  function test_beesModel_02_mapLayerModelExposesNameAndLayerPointerRoles() {
+    const layer = makeMemoryLayer("BeesModelRolesProbe");
+    const plugin = createTemporaryObject(beesModelPlugin, testCase, {
+      "iface": ifaceStub,
+      "qgisProject": qgisProject
+    });
+    verify(plugin !== null);
+    const probe = createTemporaryObject(beesModelLayerNamesProbe, testCase, {
+      "model": plugin.layersModel
+    });
+    verify(probe !== null);
+    let probeNames = probe.collected.map(function (e) {
+      return e.name;
+    });
+    verify(probeNames.indexOf("BeesModelRolesProbe") !== -1, "Name role must populate from layer.name");
+    const entry = probe.collected.find(function (e) {
+      return e.name === "BeesModelRolesProbe";
+    });
+    verify(entry !== undefined);
+    verify(entry.pointer !== null && entry.pointer !== undefined, "LayerPointer role must populate");
+    compare(entry.pointer.id, layer.id);
+  }
+
+  function test_beesModel_03_qfComboBoxAcceptsModelAndRoles() {
+    const plugin = createTemporaryObject(beesModelPlugin, testCase, {
+      "iface": ifaceStub,
+      "qgisProject": qgisProject
+    });
+    verify(plugin !== null);
+    compare(plugin.layersComboBox.textRole, "Name");
+    compare(plugin.layersComboBox.valueRole, "LayerPointer");
+    compare(plugin.layersComboBox.model, plugin.layersModel);
+  }
+
+  function test_beesModel_04_qfDialogOpensOnButtonClick() {
+    const plugin = createTemporaryObject(beesModelPlugin, testCase, {
+      "iface": ifaceStub,
+      "qgisProject": qgisProject
+    });
+    verify(plugin !== null);
+    compare(plugin.layersDialog.visible, false);
+    plugin.layersButton.clicked();
+    tryCompare(plugin.layersDialog, "visible", true);
+  }
+
+  function test_beesModel_05_pluginCompletionRegistersLayersButton() {
+    const plugin = createTemporaryObject(beesModelPlugin, testCase, {
+      "iface": ifaceStub,
+      "qgisProject": qgisProject
+    });
+    verify(plugin !== null);
+    compare(pluginsToolbarStub.addedItems.length, 1);
+    compare(pluginsToolbarStub.addedItems[0].text, "?");
   }
 }
