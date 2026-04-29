@@ -18,6 +18,7 @@ Node {
 
   property real lineWidth: 3.0
   property real heightOffset: 15.0
+  property int altitudeClamping: Quick3DGeometry.Ignore
 
   Repeater3D {
     model: selectionHighlight3D.selectionModel ? selectionHighlight3D.selectionModel.model : null
@@ -35,6 +36,7 @@ Node {
           terrainProvider: selectionHighlight3D.terrainProvider
           lineWidth: selectionHighlight3D.lineWidth
           heightOffset: selectionHighlight3D.heightOffset
+          altitudeClamping: selectionHighlight3D.altitudeClamping
           color: model.featureSelected ? selectionHighlight3D.selectedColor : selectionHighlight3D.selectionModel.model.selectedCount === 0 && index === selectionHighlight3D.selectionModel.focusedItem ? selectionHighlight3D.focusedColor : selectionHighlight3D.color
         }
 

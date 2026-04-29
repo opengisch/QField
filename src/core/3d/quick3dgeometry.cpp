@@ -148,19 +148,63 @@ void Quick3DGeometry::setFillPolygons( bool fill )
   updateGeometry();
 }
 
+void Quick3DGeometry::setAltitudeClamping( AltitudeClamping clamping )
+{
+  if ( mAltitudeClamping == clamping )
+  {
+    return;
+  }
+
+  mAltitudeClamping = clamping;
+  mDirty = true;
+  emit altitudeClampingChanged();
+  updateGeometry();
+}
+
 void Quick3DGeometry::markDirtyAndUpdate()
 {
   mDirty = true;
   updateGeometry();
 }
 
-QVector<QVector3D> Quick3DGeometry::ringToPath( const QgsLineString *lineString ) const
+QVector3D Quick3DGeometry::vertexTo3D( double geoX, double geoY, double geometryZ ) const
+{
+  switch ( mAltitudeClamping )
+  {
+    case AltitudeClamping::Absolute:
+    {
+      const double z = std::isnan( geometryZ ) ? 0.0 : geometryZ;
+      QVector3D pos = mTerrainProvider->geoTo3D( geoX, geoY, mHeightOffset );
+      if ( std::isnan( pos.x() ) )
+      {
+        return pos;
+      }
+      pos.setY( static_cast<float>( z ) + mHeightOffset );
+      return pos;
+    }
+
+    case AltitudeClamping::ClampToGround:
+    {
+      const float extraZ = std::isnan( geometryZ ) ? 0.0f : static_cast<float>( geometryZ );
+      return mTerrainProvider->geoTo3D( geoX, geoY, mHeightOffset + extraZ );
+    }
+
+    case AltitudeClamping::Ignore:
+      break;
+  }
+
+  return mTerrainProvider->geoTo3D( geoX, geoY, mHeightOffset );
+}
+
+QVector<QVector3D> Quick3DGeometry::lineToPath( const QgsLineString *lineString ) const
 {
   QVector<QVector3D> path;
   path.reserve( lineString->numPoints() );
+  const bool hasZ = lineString->is3D();
   for ( int i = 0; i < lineString->numPoints(); ++i )
   {
-    const QVector3D pos = mTerrainProvider->geoTo3D( lineString->xAt( i ), lineString->yAt( i ), mHeightOffset );
+    const double z = hasZ ? lineString->zAt( i ) : std::numeric_limits<double>::quiet_NaN();
+    const QVector3D pos = vertexTo3D( lineString->xAt( i ), lineString->yAt( i ), z );
     if ( !std::isnan( pos.x() ) )
     {
       path.append( pos );
@@ -180,7 +224,7 @@ QVector<QVector<QVector3D>> Quick3DGeometry::buildPaths( const QgsAbstractGeomet
   const QgsLineString *lineString = dynamic_cast<const QgsLineString *>( geom );
   if ( lineString )
   {
-    QVector<QVector3D> path = ringToPath( lineString );
+    QVector<QVector3D> path = lineToPath( lineString );
     if ( path.size() > 1 )
     {
       result.append( std::move( path ) );
@@ -194,7 +238,7 @@ QVector<QVector<QVector3D>> Quick3DGeometry::buildPaths( const QgsAbstractGeomet
     const QgsLineString *exteriorRing = dynamic_cast<const QgsLineString *>( polygon->exteriorRing() );
     if ( exteriorRing )
     {
-      QVector<QVector3D> path = ringToPath( exteriorRing );
+      QVector<QVector3D> path = lineToPath( exteriorRing );
       if ( path.size() > 1 )
       {
         result.append( std::move( path ) );
@@ -205,7 +249,7 @@ QVector<QVector<QVector3D>> Quick3DGeometry::buildPaths( const QgsAbstractGeomet
       const QgsLineString *ring = dynamic_cast<const QgsLineString *>( polygon->interiorRing( ringIndex ) );
       if ( ring )
       {
-        QVector<QVector3D> path = ringToPath( ring );
+        QVector<QVector3D> path = lineToPath( ring );
         if ( path.size() > 1 )
         {
           result.append( std::move( path ) );
@@ -235,7 +279,7 @@ void Quick3DGeometry::resetGeometry()
   update();
 }
 
-void Quick3DGeometry::finalize( const QByteArray &vertexData, const QByteArray &indexData, const QVector3D &lo, const QVector3D &hi )
+void Quick3DGeometry::finalize( const QByteArray &vertexData, const QByteArray &indexData, const QVector3D &minBound, const QVector3D &maxBound )
 {
   clear();
   setVertexData( vertexData );
@@ -246,7 +290,7 @@ void Quick3DGeometry::finalize( const QByteArray &vertexData, const QByteArray &
   addAttribute( QQuick3DGeometry::Attribute::ColorSemantic, 6 * sizeof( float ), QQuick3DGeometry::Attribute::F32Type );
   addAttribute( QQuick3DGeometry::Attribute::IndexSemantic, 0, QQuick3DGeometry::Attribute::U32Type );
   setPrimitiveType( QQuick3DGeometry::PrimitiveType::Triangles );
-  setBounds( lo, hi );
+  setBounds( minBound, maxBound );
   mDirty = false;
   update();
 }
@@ -318,7 +362,8 @@ void Quick3DGeometry::updateGeometry()
     while ( vertexIterator.hasNext() )
     {
       const QgsPoint point = vertexIterator.next();
-      const QVector3D pos = mTerrainProvider->geoTo3D( point.x(), point.y(), mHeightOffset );
+      const double z = point.is3D() ? point.z() : std::numeric_limits<double>::quiet_NaN();
+      const QVector3D pos = vertexTo3D( point.x(), point.y(), z );
       if ( !std::isnan( pos.x() ) )
       {
         points.append( pos );

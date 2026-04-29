@@ -28,7 +28,7 @@
 class QgsLineString;
 
 /**
- * Generates 3D highlight geometry for an identified or selected feature on
+ * Generates 3D geometry for an identified or selected feature on
  * top of the terrain mesh.
  *
  * Points become spheres, lines become extruded tubes with sphere joints, and
@@ -44,6 +44,19 @@ class Quick3DGeometry : public QQuick3DGeometry
     Q_OBJECT
     QML_ELEMENT
 
+  public:
+    /**
+     * How the geometry's Z values interact with the terrain elevation when
+     * computing the vertical position of every emitted vertex.
+     */
+    enum class AltitudeClamping
+    {
+      Ignore,
+      ClampToGround,
+      Absolute,
+    };
+    Q_ENUM( AltitudeClamping )
+
     //! The geometry to highlight
     Q_PROPERTY( QgsGeometry qgsGeometry READ qgsGeometry WRITE setQgsGeometry NOTIFY qgsGeometryChanged )
     //! Coordinate reference system the geometry is expressed in
@@ -54,10 +67,12 @@ class Quick3DGeometry : public QQuick3DGeometry
     Q_PROPERTY( float lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
     //! Per-vertex color applied to the highlight mesh
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
-    //! Extra vertical offset above the terrain surface
+    //! Extra vertical offset added on top of the elevation chosen by altitudeClamping
     Q_PROPERTY( float heightOffset READ heightOffset WRITE setHeightOffset NOTIFY heightOffsetChanged )
     //! Whether polygons get a semi-transparent fill in addition to the outline
     Q_PROPERTY( bool fillPolygons READ fillPolygons WRITE setFillPolygons NOTIFY fillPolygonsChanged )
+    //! How the geometry's Z values are combined with the terrain elevation
+    Q_PROPERTY( AltitudeClamping altitudeClamping READ altitudeClamping WRITE setAltitudeClamping NOTIFY altitudeClampingChanged )
 
   public:
     explicit Quick3DGeometry( QQuick3DObject *parent = nullptr );
@@ -83,6 +98,9 @@ class Quick3DGeometry : public QQuick3DGeometry
     bool fillPolygons() const { return mFillPolygons; }
     void setFillPolygons( bool fill );
 
+    AltitudeClamping altitudeClamping() const { return mAltitudeClamping; }
+    void setAltitudeClamping( AltitudeClamping clamping );
+
   signals:
     void qgsGeometryChanged();
     void crsChanged();
@@ -91,6 +109,7 @@ class Quick3DGeometry : public QQuick3DGeometry
     void colorChanged();
     void heightOffsetChanged();
     void fillPolygonsChanged();
+    void altitudeClampingChanged();
 
   private slots:
     void markDirtyAndUpdate();
@@ -98,17 +117,20 @@ class Quick3DGeometry : public QQuick3DGeometry
   private:
     void updateGeometry();
 
+    //! Returns the terrain-relative scene-Y for \a geoX/\a geoY honoring \a altitudeClamping and the per-vertex \a geometryZ
+    QVector3D vertexTo3D( double geoX, double geoY, double geometryZ ) const;
+
     //! Walks an abstract geometry and returns its rings/lines as 3D paths
     QVector<QVector<QVector3D>> buildPaths( const QgsAbstractGeometry *geom ) const;
 
     //! Converts the vertices of \a lineString into a 3D scene-space path, dropping un-projectable points
-    QVector<QVector3D> ringToPath( const QgsLineString *lineString ) const;
+    QVector<QVector3D> lineToPath( const QgsLineString *lineString ) const;
 
     //! Resets the geometry buffers to an empty triangle mesh and triggers an update
     void resetGeometry();
 
     //! Uploads \a vertexData and \a indexData and configures the vertex attributes
-    void finalize( const QByteArray &vertexData, const QByteArray &indexData, const QVector3D &lo, const QVector3D &hi );
+    void finalize( const QByteArray &vertexData, const QByteArray &indexData, const QVector3D &minBound, const QVector3D &maxBound );
 
     QgsGeometry mGeometry;
     QgsCoordinateReferenceSystem mCrs;
@@ -119,6 +141,7 @@ class Quick3DGeometry : public QQuick3DGeometry
     float mHeightOffset = 15.0f;
     bool mFillPolygons = true;
     bool mDirty = true;
+    AltitudeClamping mAltitudeClamping = AltitudeClamping::Ignore;
     QColor mColor = QColor( 255, 255, 0 );
 };
 
