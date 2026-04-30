@@ -90,6 +90,9 @@ class AttributeFormModelBase : public QStandardItemModel
     //! \copydoc AttributeFormModel::deactivateAllRememberValues
     void deactivateAllRememberValues();
 
+    //! Creates an expression context
+    QgsExpressionContext createExpressionContext() const;
+
   signals:
     void featureModelChanged();
     void isWizardChanged();

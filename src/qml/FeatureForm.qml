@@ -392,8 +392,8 @@ Page {
 
     Item {
       property ExpressionEvaluator expression: ExpressionEvaluator {
-        project: qgisProject
-        layer: form.model.featureModel.currentLayer
+        attributeFormModel: form.model
+
         feature: form.model.featureModel.feature
         onFeatureChanged: {
           expressionChanged();

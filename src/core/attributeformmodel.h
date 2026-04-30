@@ -134,6 +134,9 @@ class AttributeFormModel : public QSortFilterProxyModel
     //! Deactivate all available value that can be remembered and reused.
     Q_INVOKABLE void deactivateAllRememberValues();
 
+    //! Creates an expression context
+    QgsExpressionContext createExpressionContext() const;
+
   signals:
     void featureModelChanged();
     void isWizardChanged();

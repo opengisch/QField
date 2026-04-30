@@ -127,6 +127,11 @@ void AttributeFormModel::deactivateAllRememberValues()
   return mSourceModel->deactivateAllRememberValues();
 }
 
+QgsExpressionContext AttributeFormModel::createExpressionContext() const
+{
+  return mSourceModel->createExpressionContext();
+}
+
 bool AttributeFormModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
   return mSourceModel->data( mSourceModel->index( sourceRow, 0, sourceParent ), CurrentlyVisible ).toBool();

@@ -274,12 +274,18 @@ void AttributeFormModelBase::resetModel()
   }
 }
 
+QgsExpressionContext AttributeFormModelBase::createExpressionContext() const
+{
+  QgsExpressionContext expressionContext = mFeatureModel->createExpressionContext();
+  expressionContext.setFields( mFeatureModel->feature().fields() );
+  expressionContext.setFeature( mFeatureModel->feature() );
+  expressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
+  return expressionContext;
+}
+
 void AttributeFormModelBase::applyFeatureModel()
 {
-  mExpressionContext = mFeatureModel->createExpressionContext();
-  mExpressionContext.setFields( mFeatureModel->feature().fields() );
-  mExpressionContext.setFeature( mFeatureModel->feature() );
-  mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
+  mExpressionContext = createExpressionContext();
 
   for ( int i = 0; i < invisibleRootItem()->rowCount(); ++i )
   {

@@ -92,6 +92,20 @@ void ExpressionEvaluator::setAppExpressionContextScopesGenerator( AppExpressionC
   emit appExpressionContextScopesGeneratorChanged();
 }
 
+AttributeFormModel *ExpressionEvaluator::attributeFormModel() const
+{
+  return mAttributeFormModel.data();
+}
+
+void ExpressionEvaluator::setAttributeFormModel( AttributeFormModel *attributeFormModel )
+{
+  if ( mAttributeFormModel == attributeFormModel )
+    return;
+
+  mAttributeFormModel = attributeFormModel;
+  emit attributeFormModelChanged();
+}
+
 void ExpressionEvaluator::setVariables( const QVariantMap &variables )
 {
   if ( mVariables == variables )
@@ -112,40 +126,47 @@ QVariant ExpressionEvaluator::evaluate( const QString &expressionText )
     return QString();
 
   QgsExpressionContext expressionContext;
-  expressionContext << QgsExpressionContextUtils::globalScope();
+  if ( mAttributeFormModel )
+  {
+    expressionContext = mAttributeFormModel->createExpressionContext();
+  }
+  else
+  {
+    expressionContext << QgsExpressionContextUtils::globalScope();
 
-  if ( mAppExpressionContextScopesGenerator )
-  {
-    QList<QgsExpressionContextScope *> scopes = mAppExpressionContextScopesGenerator->generate();
-    while ( !scopes.isEmpty() )
+    if ( mAppExpressionContextScopesGenerator )
     {
-      expressionContext << scopes.takeFirst();
+      QList<QgsExpressionContextScope *> scopes = mAppExpressionContextScopesGenerator->generate();
+      while ( !scopes.isEmpty() )
+      {
+        expressionContext << scopes.takeFirst();
+      }
     }
-  }
-  if ( mMapSettings )
-  {
-    expressionContext << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
-  }
-  if ( mProject )
-  {
-    expressionContext << QgsExpressionContextUtils::projectScope( mProject );
-  }
-  if ( mLayer )
-  {
-    expressionContext << QgsExpressionContextUtils::layerScope( mLayer );
-  }
-  if ( mFeature.isValid() )
-  {
-    expressionContext.setFeature( mFeature );
-  }
-  if ( !mVariables.isEmpty() )
-  {
-    QgsExpressionContextScope *scope = new QgsExpressionContextScope();
-    for ( auto it = mVariables.constKeyValueBegin(); it != mVariables.constKeyValueEnd(); ++it )
+    if ( mMapSettings )
     {
-      scope->addVariable( QgsExpressionContextScope::StaticVariable( it->first, it->second, true, true ) );
+      expressionContext << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
     }
-    expressionContext << scope;
+    if ( mProject )
+    {
+      expressionContext << QgsExpressionContextUtils::projectScope( mProject );
+    }
+    if ( mLayer )
+    {
+      expressionContext << QgsExpressionContextUtils::layerScope( mLayer );
+    }
+    if ( mFeature.isValid() )
+    {
+      expressionContext.setFeature( mFeature );
+    }
+    if ( !mVariables.isEmpty() )
+    {
+      QgsExpressionContextScope *scope = new QgsExpressionContextScope();
+      for ( auto it = mVariables.constKeyValueBegin(); it != mVariables.constKeyValueEnd(); ++it )
+      {
+        scope->addVariable( QgsExpressionContextScope::StaticVariable( it->first, it->second, true, true ) );
+      }
+      expressionContext << scope;
+    }
   }
 
   QVariant value;
