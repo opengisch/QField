@@ -974,7 +974,7 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
   return updated;
 }
 
-void FeatureModel::applyGeometry( bool fromVertexModel )
+void FeatureModel::applyGeometry( bool fromVertexModel, bool skipTopologicalEditing )
 {
   if ( ( !fromVertexModel && !mGeometry ) || ( fromVertexModel && !mVertexModel ) )
   {
@@ -982,7 +982,7 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
   }
 
   const bool wasEditing = mLayer->editBuffer();
-  const bool requiresEditing = ( mProject && mProject->topologicalEditing() );
+  const bool requiresEditing = ( !skipTopologicalEditing && mProject && mProject->topologicalEditing() );
   if ( !wasEditing && requiresEditing )
   {
     mLayer->startEditing();
@@ -1128,7 +1128,7 @@ void FeatureModel::applyGeometry( bool fromVertexModel )
       geometry = deduplicatedGeometry;
   }
 
-  if ( mProject && mProject->topologicalEditing() )
+  if ( !skipTopologicalEditing && mProject && mProject->topologicalEditing() )
   {
     applyGeometryTopography( geometry );
   }
