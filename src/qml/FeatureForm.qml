@@ -391,6 +391,15 @@ Page {
     id: qmlContainer
 
     Item {
+      property ExpressionEvaluator expression: ExpressionEvaluator {
+        project: qgisProject
+        layer: form.model.featureModel.currentLayer
+        feature: form.model.featureModel.feature
+        onFeatureChanged: {
+          expressionChanged();
+        }
+      }
+
       height: childrenRect.height
       anchors {
         left: parent.left

@@ -107,8 +107,11 @@ class ExpressionEvaluator : public QObject
     //! Sets the map of variables injected into the expression context when evaluating
     void setVariables( const QVariantMap &variables );
 
-    //! Returns the evaluated expression text value
+    //! Evalutes and returns the current expression text property value
     Q_INVOKABLE QVariant evaluate();
+
+    //! Evalutes and returns the expression text passed as a parameter
+    Q_INVOKABLE QVariant evaluate( const QString &expressionText );
 
   signals:
     void modeChanged();

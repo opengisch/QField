@@ -446,7 +446,7 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
       }
     }
   }
-  else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "qml" ) || item->data( AttributeFormModel::ElementType ) == QStringLiteral( "html" ) )
+  else if ( item->data( AttributeFormModel::ElementType ) == QStringLiteral( "html" ) )
   {
     QString code = mEditorWidgetCodes[item];
 
@@ -680,11 +680,9 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( false, AttributeFormModel::AttributeEditable );
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
+        item->setData( qmlElement->qmlCode(), AttributeFormModel::EditorWidgetCode );
 
-
-        updateAttributeValue( item );
         parent->appendRow( item );
-        mEditorWidgetCodes.insert( item, qmlElement->qmlCode() );
         break;
       }
 

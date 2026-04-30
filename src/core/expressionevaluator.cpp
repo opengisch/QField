@@ -103,7 +103,12 @@ void ExpressionEvaluator::setVariables( const QVariantMap &variables )
 
 QVariant ExpressionEvaluator::evaluate()
 {
-  if ( mExpressionText.isEmpty() )
+  return evaluate( mExpressionText );
+}
+
+QVariant ExpressionEvaluator::evaluate( const QString &expressionText )
+{
+  if ( expressionText.isEmpty() )
     return QString();
 
   QgsExpressionContext expressionContext;
@@ -146,13 +151,13 @@ QVariant ExpressionEvaluator::evaluate()
   QVariant value;
   if ( mMode == ExpressionMode )
   {
-    QgsExpression expression( mExpressionText );
+    QgsExpression expression( expressionText );
     expression.prepare( &expressionContext );
     value = expression.evaluate( &expressionContext );
   }
   else
   {
-    value = QgsExpression::replaceExpressionText( mExpressionText, &expressionContext );
+    value = QgsExpression::replaceExpressionText( expressionText, &expressionContext );
   }
 
   return value.toString();
