@@ -259,8 +259,9 @@ class FeatureModel : public QAbstractListModel
     /**
      * Apply the geometry object or vertex model object's geometry to the feature geometry.
      * \param fromVertexModel set to TRUE to use the vertex model
+     * \param skipTopologicalEditing set to TRUE to skip project-level topological editing rule
      */
-    Q_INVOKABLE void applyGeometry( bool fromVertexModel = false );
+    Q_INVOKABLE void applyGeometry( bool fromVertexModel = false, bool skipTopologicalEditing = false );
 
     //! Apply the feature geometry to a vertex model if present.
     Q_INVOKABLE void applyGeometryToVertexModel();

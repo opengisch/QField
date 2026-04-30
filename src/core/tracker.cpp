@@ -407,7 +407,7 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   const int vertexCount = mRubberbandModel->vertexCount();
   if ( ( geometryType == Qgis::GeometryType::Line && vertexCount > 2 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount > 3 ) )
   {
-    mFeatureModel->applyGeometry();
+    mFeatureModel->applyGeometry( false, true );
     if ( mFeature.id() == FID_NULL )
     {
       mFeatureModel->create( false );
@@ -461,7 +461,7 @@ void Tracker::rubberbandModelVertexCountChanged()
   const int vertexCount = mRubberbandModel->vertexCount();
   if ( geometryType == Qgis::GeometryType::Point )
   {
-    mFeatureModel->applyGeometry();
+    mFeatureModel->applyGeometry( false, true );
     mFeatureModel->resetFeatureId();
     mFeatureModel->resetAttributes( true );
     mFeatureModel->create( flushBuffer );
@@ -475,7 +475,7 @@ void Tracker::rubberbandModelVertexCountChanged()
       {
         if ( ( geometryType == Qgis::GeometryType::Line && vertexCount == 3 ) || ( geometryType == Qgis::GeometryType::Polygon && vertexCount == 4 ) )
         {
-          mFeatureModel->applyGeometry();
+          mFeatureModel->applyGeometry( false, true );
           // We must flush the buffer on feature creation to get the proper feature ID
           mFeatureModel->create();
           mFeature = mFeatureModel->feature();
@@ -483,7 +483,7 @@ void Tracker::rubberbandModelVertexCountChanged()
         }
         else
         {
-          mFeatureModel->applyGeometry();
+          mFeatureModel->applyGeometry( false, true );
           mFeatureModel->save( flushBuffer );
         }
       }
