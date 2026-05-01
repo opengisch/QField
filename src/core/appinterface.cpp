@@ -31,6 +31,7 @@
 #include <QFileInfo>
 #include <QImageReader>
 #include <QLocale>
+#include <QQmlApplicationEngine>
 #include <QQuickItem>
 #include <QSettings>
 #include <QTemporaryFile>
@@ -45,17 +46,33 @@
 
 AppInterface *AppInterface::sAppInterface = nullptr;
 
-AppInterface::AppInterface( QgisMobileapp *app )
-  : mApp( app )
+AppInterface::AppInterface( QQmlEngine *engine )
+  : mEngine( engine )
 {
+}
+
+QgisMobileapp *AppInterface::app() const
+{
+  return qobject_cast<QgisMobileapp *>( mEngine );
+}
+
+QObject *AppInterface::rootObject() const
+{
+  QQmlApplicationEngine *appEngine = qobject_cast<QQmlApplicationEngine *>( mEngine );
+  if ( appEngine )
+  {
+    return appEngine->rootObjects().isEmpty() ? nullptr : appEngine->rootObjects().at( 0 );
+  }
+  // engine-only path, findChild() walks whatever QQuickTest has parented to the engine
+  return mEngine;
 }
 
 QObject *AppInterface::createHttpRequest() const
 {
   QFieldXmlHttpRequest *request = new QFieldXmlHttpRequest();
 
-  QObject *rootObject = ( !mApp->rootObjects().isEmpty() ) ? mApp->rootObjects().at( 0 ) : nullptr;
-  if ( rootObject && qmlEngine( rootObject ) )
+  QObject *root = rootObject();
+  if ( root && qmlEngine( root ) )
   {
     QQmlEngine::setObjectOwnership( request, QQmlEngine::CppOwnership );
   }
@@ -65,36 +82,51 @@ QObject *AppInterface::createHttpRequest() const
 
 QObject *AppInterface::findItemByObjectName( const QString &name ) const
 {
-  if ( !mApp->rootObjects().isEmpty() )
-  {
-    return mApp->rootObjects().at( 0 )->findChild<QObject *>( name );
-  }
-  return nullptr;
+  QObject *root = rootObject();
+  return root ? root->findChild<QObject *>( name ) : nullptr;
 }
 
 void AppInterface::addItemToPluginsToolbar( QQuickItem *item ) const
 {
-  if ( !mApp->rootObjects().isEmpty() )
+  QObject *root = rootObject();
+  if ( !root )
   {
-    QQuickItem *toolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "pluginsToolbar" ) );
+    return;
+  }
+
+  QQuickItem *toolbar = root->findChild<QQuickItem *>( QStringLiteral( "pluginsToolbar" ) );
+  if ( toolbar )
+  {
     item->setParentItem( toolbar );
   }
 }
 
 void AppInterface::addItemToCanvasActionsToolbar( QQuickItem *item ) const
 {
-  if ( !mApp->rootObjects().isEmpty() )
+  QObject *root = rootObject();
+  if ( !root )
   {
-    QQuickItem *toolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "canvasMenuActionsToolbar" ) );
+    return;
+  }
+
+  QQuickItem *toolbar = root->findChild<QQuickItem *>( QStringLiteral( "canvasMenuActionsToolbar" ) );
+  if ( toolbar )
+  {
     item->setParentItem( toolbar );
   }
 }
 
 void AppInterface::addItemToDashboardActionsToolbar( QQuickItem *item ) const
 {
-  if ( !mApp->rootObjects().isEmpty() )
+  QObject *root = rootObject();
+  if ( !root )
   {
-    QQuickItem *toolbar = mApp->rootObjects().at( 0 )->findChild<QQuickItem *>( QStringLiteral( "dashboardActionsToolbar" ) );
+    return;
+  }
+
+  QQuickItem *toolbar = root->findChild<QQuickItem *>( QStringLiteral( "dashboardActionsToolbar" ) );
+  if ( toolbar )
+  {
     item->setParentItem( toolbar );
   }
 }
@@ -106,29 +138,29 @@ void AppInterface::addItemToMainMenuActionsToolbar( QQuickItem *item ) const
 
 QObject *AppInterface::mainWindow() const
 {
-  if ( !mApp->rootObjects().isEmpty() )
-  {
-    return mApp->rootObjects().at( 0 );
-  }
-  return nullptr;
+  return rootObject();
 }
 
 QObject *AppInterface::mapCanvas() const
 {
-  if ( !mApp->rootObjects().isEmpty() )
+  QObject *root = rootObject();
+  if ( !root )
   {
-    return mApp->rootObjects().at( 0 )->findChild<QObject *>( "mapCanvas" );
+    return nullptr;
   }
-  return nullptr;
+
+  return root->findChild<QObject *>( QStringLiteral( "mapCanvas" ) );
 }
 
 QObject *AppInterface::positioning() const
 {
-  if ( !mApp->rootObjects().isEmpty() )
+  QObject *root = rootObject();
+  if ( !root )
   {
-    return mApp->rootObjects().at( 0 )->findChild<QObject *>( "positionSource" );
+    return nullptr;
   }
-  return nullptr;
+
+  return root->findChild<QObject *>( QStringLiteral( "positionSource" ) );
 }
 
 bool AppInterface::hasProjectOnLaunch() const
@@ -154,58 +186,81 @@ bool AppInterface::hasProjectOnLaunch() const
 bool AppInterface::loadFile( const QString &path, const QString &name )
 {
   qInfo() << QStringLiteral( "AppInterface loading file: %1" ).arg( path );
+  QgisMobileapp *mobileApp = app();
+  if ( !mobileApp )
+  {
+    return false;
+  }
   if ( QFileInfo::exists( path ) )
   {
-    return mApp->loadProjectFile( path, name );
+    return mobileApp->loadProjectFile( path, name );
   }
 
   const QUrl url( path );
-  return mApp->loadProjectFile( url.isLocalFile() ? url.toLocalFile() : url.path(), name );
+  return mobileApp->loadProjectFile( url.isLocalFile() ? url.toLocalFile() : url.path(), name );
 }
 
 void AppInterface::reloadProject()
 {
-  return mApp->reloadProjectFile();
+  QgisMobileapp *mobileApp = app();
+  if ( mobileApp )
+  {
+    mobileApp->reloadProjectFile();
+  }
 }
 
 void AppInterface::readProject()
 {
-  return mApp->readProjectFile();
+  QgisMobileapp *mobileApp = app();
+  if ( mobileApp )
+  {
+    mobileApp->readProjectFile();
+  }
 }
 
 QString AppInterface::readProjectEntry( const QString &scope, const QString &key, const QString &def ) const
 {
-  return mApp->readProjectEntry( scope, key, def );
+  QgisMobileapp *mobileApp = app();
+  return mobileApp ? mobileApp->readProjectEntry( scope, key, def ) : def;
 }
 
 int AppInterface::readProjectNumEntry( const QString &scope, const QString &key, int def ) const
 {
-  return mApp->readProjectNumEntry( scope, key, def );
+  QgisMobileapp *mobileApp = app();
+  return mobileApp ? mobileApp->readProjectNumEntry( scope, key, def ) : def;
 }
 
 double AppInterface::readProjectDoubleEntry( const QString &scope, const QString &key, double def ) const
 {
-  return mApp->readProjectDoubleEntry( scope, key, def );
+  QgisMobileapp *mobileApp = app();
+  return mobileApp ? mobileApp->readProjectDoubleEntry( scope, key, def ) : def;
 }
 
 bool AppInterface::readProjectBoolEntry( const QString &scope, const QString &key, bool def ) const
 {
-  return mApp->readProjectBoolEntry( scope, key, def );
+  QgisMobileapp *mobileApp = app();
+  return mobileApp ? mobileApp->readProjectBoolEntry( scope, key, def ) : def;
 }
 
 bool AppInterface::print( const QString &layoutName )
 {
-  return mApp->print( layoutName );
+  QgisMobileapp *mobileApp = app();
+  return mobileApp ? mobileApp->print( layoutName ) : false;
 }
 
 bool AppInterface::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
 {
-  return mApp->printAtlasFeatures( layoutName, featureIds );
+  QgisMobileapp *mobileApp = app();
+  return mobileApp ? mobileApp->printAtlasFeatures( layoutName, featureIds ) : false;
 }
 
 void AppInterface::setScreenDimmerTimeout( int timeoutSeconds )
 {
-  mApp->setScreenDimmerTimeout( timeoutSeconds );
+  QgisMobileapp *mobileApp = app();
+  if ( mobileApp )
+  {
+    mobileApp->setScreenDimmerTimeout( timeoutSeconds );
+  }
 }
 
 void AppInterface::setupNetworkProxy() const
@@ -290,9 +345,11 @@ void AppInterface::changeLanguage( const QString &languageCode )
     QgsApplication::setTranslation( systemLocale.name() );
     QgsApplication::setLocale( systemLocale );
   }
-  if ( mApp )
+
+  QgisMobileapp *mobileApp = app();
+  if ( mobileApp )
   {
-    mApp->retranslate();
+    mobileApp->retranslate();
   }
 }
 
@@ -343,14 +400,20 @@ void AppInterface::closeSentry() const
 
 void AppInterface::clearProject() const
 {
-  mApp->clearProject();
+  QgisMobileapp *mobileApp = app();
+  if ( mobileApp )
+  {
+    mobileApp->clearProject();
+  }
 }
 
 void AppInterface::importUrl( const QString &url, const QString &title, bool loadOnImport )
 {
   QString sanitizedUrl = url.trimmed();
   if ( sanitizedUrl.isEmpty() )
+  {
     return;
+  }
 
   if ( !sanitizedUrl.contains( QRegularExpression( "^([a-z][a-z0-9+\\-.]*):" ) ) )
   {
@@ -360,7 +423,9 @@ void AppInterface::importUrl( const QString &url, const QString &title, bool loa
 
   const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
   if ( applicationDirectory.isEmpty() )
+  {
     return;
+  }
 
   QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
   QNetworkRequest request( ( QUrl( sanitizedUrl ) ) );

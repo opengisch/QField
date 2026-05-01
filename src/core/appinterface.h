@@ -27,6 +27,7 @@ class QgisMobileapp;
 class QgsRectangle;
 class QgsFeature;
 class QQuickItem;
+class QQmlEngine;
 class QFieldXmlHttpRequest;
 
 /**
@@ -38,7 +39,7 @@ class AppInterface : public QObject
     Q_OBJECT
 
   public:
-    explicit AppInterface( QgisMobileapp *app );
+    explicit AppInterface( QQmlEngine *engine );
     AppInterface()
     {
       // You shouldn't get here, this constructor only exists that we can register it as a QML type
@@ -280,9 +281,12 @@ class AppInterface : public QObject
     void volumeKeyUp( int volumeKeyCode );
 
   private:
+    QObject *rootObject() const;
+    QgisMobileapp *app() const;
+
     static AppInterface *sAppInterface;
 
-    QgisMobileapp *mApp = nullptr;
+    QQmlEngine *mEngine = nullptr;
 };
 
 #endif // APPINTERFACE_H
