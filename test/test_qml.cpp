@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "appinterface.h"
 #include "platformutilities.h"
 #include "qfield.h"
 #include "qfield_qml_init.h"
@@ -189,6 +190,11 @@ class Setup : public QObject
 
       Settings mSettings;
       engine->rootContext()->setContextProperty( "settings", &mSettings );
+
+      AppInterface *iface = new AppInterface( engine );
+      iface->setParent( engine );
+      AppInterface::setInstance( iface );
+      engine->rootContext()->setContextProperty( QStringLiteral( "iface" ), iface );
     }
 };
 
