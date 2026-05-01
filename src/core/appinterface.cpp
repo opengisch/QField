@@ -220,25 +220,25 @@ void AppInterface::readProject()
 
 QString AppInterface::readProjectEntry( const QString &scope, const QString &key, const QString &def ) const
 {
-  QgisMobileapp *mobileApp = app();
+  const QgisMobileapp *mobileApp = app();
   return mobileApp ? mobileApp->readProjectEntry( scope, key, def ) : def;
 }
 
 int AppInterface::readProjectNumEntry( const QString &scope, const QString &key, int def ) const
 {
-  QgisMobileapp *mobileApp = app();
+  const QgisMobileapp *mobileApp = app();
   return mobileApp ? mobileApp->readProjectNumEntry( scope, key, def ) : def;
 }
 
 double AppInterface::readProjectDoubleEntry( const QString &scope, const QString &key, double def ) const
 {
-  QgisMobileapp *mobileApp = app();
+  const QgisMobileapp *mobileApp = app();
   return mobileApp ? mobileApp->readProjectDoubleEntry( scope, key, def ) : def;
 }
 
 bool AppInterface::readProjectBoolEntry( const QString &scope, const QString &key, bool def ) const
 {
-  QgisMobileapp *mobileApp = app();
+  const QgisMobileapp *mobileApp = app();
   return mobileApp ? mobileApp->readProjectBoolEntry( scope, key, def ) : def;
 }
 
