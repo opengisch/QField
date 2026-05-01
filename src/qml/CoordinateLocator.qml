@@ -238,7 +238,7 @@ Item {
 
     ShapePath {
       id: crosshairPath
-      strokeColor: !!overrideLocation && overrideLocation.x ? Theme.positionColor : locator.cursorFillColor
+      strokeColor: !!overrideLocation && overrideLocation.x ? Qt.darker(Theme.positionColor, 1.25) : locator.cursorFillColor
       strokeWidth: 2
       fillColor: "transparent"
 
