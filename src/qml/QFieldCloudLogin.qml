@@ -34,9 +34,16 @@ Item {
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       fillMode: Image.PreserveAspectFit
       smooth: true
-      source: "qrc:/images/qfieldcloud_logo.svg"
+      source: cloudConnection.logoMain !== '' ? cloudConnection.logoMain : "qrc:/images/qfieldcloud_logo.svg"
       sourceSize.width: 124
       sourceSize.height: 124
+
+      onStatusChanged: {
+        // In case the whitelabel logo fails to load, revert to the default QFieldCloud logo
+        if (status == Image.Error) {
+          source = "qrc:/images/qfieldcloud_logo.svg";
+        }
+      }
 
       MouseArea {
         anchors.fill: parent
@@ -52,7 +59,7 @@ Item {
       font.bold: true
       color: Theme.cloudColor
       wrapMode: Text.WordWrap
-      text: qsTr("QFieldCloud")
+      text: cloudConnection.siteTitle !== '' ? cloudConnection.siteTitle : qsTr("QFieldCloud")
     }
 
     Text {

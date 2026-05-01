@@ -305,9 +305,84 @@ void QFieldCloudConnection::getAuthenticationProviders()
     emit availableProvidersChanged();
   }
 
+  bool whitelabelChangedFlag = false;
+  if ( !mSiteTitle.isEmpty() || !mLogoMain.isEmpty() || !mLogoNavbar.isEmpty() || !mFavicon.isEmpty() )
+  {
+    mSiteTitle.clear();
+    mLogoMain.clear();
+    mLogoNavbar.clear();
+    mFavicon.clear();
+    whitelabelChangedFlag = true;
+  }
+  if ( whitelabelChangedFlag )
+    emit whitelabelChanged();
+
   mIsFetchingAvailableProviders = true;
   emit isFetchingAvailableProvidersChanged();
 
+  QNetworkRequest request;
+  request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  NetworkReply *reply = get( request, "/api/v1/server/info/" );
+
+  connect( reply, &NetworkReply::finished, this, [this, reply]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    reply->deleteLater();
+    rawReply->deleteLater();
+
+    const int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      // Fallback to legacy endpoint when the new server info endpoint is not available
+      // (e.g. older QFieldCloud server deployments).
+      if ( httpCode == 404 )
+      {
+        fetchLegacyAuthenticationProviders();
+        return;
+      }
+
+      mIsFetchingAvailableProviders = false;
+      emit isFetchingAvailableProvidersChanged();
+      return;
+    }
+
+    const QVariantMap payload = QJsonDocument::fromJson( rawReply->readAll() ).toVariant().toMap();
+
+    const QVariantMap whitelabel = payload.value( QStringLiteral( "whitelabel" ) ).toMap();
+    const QString siteTitle = whitelabel.value( QStringLiteral( "site_title" ) ).toString();
+    const QString logoMain = whitelabel.value( QStringLiteral( "logo_main" ) ).toString();
+    const QString logoNavbar = whitelabel.value( QStringLiteral( "logo_navbar" ) ).toString();
+    const QString favicon = whitelabel.value( QStringLiteral( "favicon" ) ).toString();
+    if ( siteTitle != mSiteTitle || logoMain != mLogoMain || logoNavbar != mLogoNavbar || favicon != mFavicon )
+    {
+      mSiteTitle = siteTitle;
+      mLogoMain = logoMain;
+      mLogoNavbar = logoNavbar;
+      mFavicon = favicon;
+      emit whitelabelChanged();
+    }
+
+    const QVariantList providers = payload.value( QStringLiteral( "auth_providers" ) ).toList();
+    for ( const QVariant &provider : providers )
+    {
+      const QVariantMap providerDetails = provider.toMap();
+      const QString providerId = providerDetails.value( QStringLiteral( "id" ) ).toString();
+      mAvailableProviders[providerId] = AuthenticationProvider( providerId, providerDetails.value( QStringLiteral( "name" ) ).toString(), providerDetails );
+    }
+
+    mIsFetchingAvailableProviders = false;
+    emit isFetchingAvailableProvidersChanged();
+    emit availableProvidersChanged();
+  } );
+}
+
+void QFieldCloudConnection::fetchLegacyAuthenticationProviders()
+{
   QNetworkRequest request;
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );

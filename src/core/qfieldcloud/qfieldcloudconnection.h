@@ -85,6 +85,12 @@ class QFieldCloudConnection : public QObject
 
     Q_PROPERTY( QList<AuthenticationProvider> availableProviders READ availableProviders NOTIFY availableProvidersChanged )
     Q_PROPERTY( bool isFetchingAvailableProviders READ isFetchingAvailableProviders NOTIFY isFetchingAvailableProvidersChanged )
+
+    Q_PROPERTY( QString siteTitle READ siteTitle NOTIFY whitelabelChanged )
+    Q_PROPERTY( QString logoMain READ logoMain NOTIFY whitelabelChanged )
+    Q_PROPERTY( QString logoNavbar READ logoNavbar NOTIFY whitelabelChanged )
+    Q_PROPERTY( QString favicon READ favicon NOTIFY whitelabelChanged )
+
     Q_PROPERTY( bool isReachable READ isReachable NOTIFY isReachableChanged )
 
   public:
@@ -174,6 +180,11 @@ class QFieldCloudConnection : public QObject
     QList<AuthenticationProvider> availableProviders() const;
     bool isFetchingAvailableProviders() const;
 
+    QString siteTitle() const { return mSiteTitle; }
+    QString logoMain() const { return mLogoMain; }
+    QString logoNavbar() const { return mLogoNavbar; }
+    QString favicon() const { return mFavicon; }
+
     ConnectionStatus status() const;
     ConnectionState state() const;
 
@@ -261,6 +272,7 @@ class QFieldCloudConnection : public QObject
 
     void availableProvidersChanged();
     void isFetchingAvailableProvidersChanged();
+    void whitelabelChanged();
 
     void isReachableChanged();
     void queuedProjectPushRequested( const QString &projectId );
@@ -273,6 +285,7 @@ class QFieldCloudConnection : public QObject
     void setToken( const QByteArray &token );
     void invalidateToken();
     void processPendingAttachments();
+    void fetchLegacyAuthenticationProviders();
 
     void saveCookies();
     void restoreCookies();
@@ -288,6 +301,11 @@ class QFieldCloudConnection : public QObject
     bool mIsFetchingAvailableProviders = false;
     QString mProvider;
     QString mProviderConfigId;
+
+    QString mSiteTitle;
+    QString mLogoMain;
+    QString mLogoNavbar;
+    QString mFavicon;
 
     QString mAvatarUrl;
     CloudUserInformation mUserInformation;
