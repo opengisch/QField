@@ -652,7 +652,7 @@ Page {
 
       MenuItem {
         id: deleteFile
-        enabled: FileUtils.isDeletable(itemMenu.itemPath)
+        enabled: itemMenu.itemMetaType !== LocalFilesModel.Folder && FileUtils.isDeletable(itemMenu.itemPath)
         visible: enabled
 
         font: Theme.defaultFont

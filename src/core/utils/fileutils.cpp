@@ -870,7 +870,7 @@ bool FileUtils::unzip( const QString &zipFilename, const QString &dir, QStringLi
 bool FileUtils::isDeletable( const QString &filePath )
 {
   const QFileInfo fileInfo( filePath );
-  if ( !fileInfo.exists() || !fileInfo.isFile() )
+  if ( !fileInfo.exists() )
   {
     return false;
   }
@@ -915,6 +915,46 @@ bool FileUtils::isDeletable( const QString &filePath )
     return false;
   }
 
+  if ( fileInfo.isDir() )
+  {
+    static const QStringList userManagedRoots = {
+      QStringLiteral( "Imported Projects" ),
+      QStringLiteral( "Imported Datasets" ),
+      QStringLiteral( "Created Projects" ) };
+
+    QStringList appRoots;
+    const QString appDir = PlatformUtilities::instance()->applicationDirectory();
+    if ( !appDir.isEmpty() )
+    {
+      appRoots << appDir;
+    }
+    appRoots << PlatformUtilities::instance()->additionalApplicationDirectories();
+
+    const QString parentCanonicalPath = QFileInfo( fileInfo.absolutePath() ).canonicalFilePath();
+    for ( const QString &appRoot : std::as_const( appRoots ) )
+    {
+      if ( appRoot.isEmpty() )
+      {
+        continue;
+      }
+      for ( const QString &subDir : userManagedRoots )
+      {
+        const QString canonicalRoot = QFileInfo( QStringLiteral( "%1/%2" ).arg( appRoot, subDir ) ).canonicalFilePath();
+        if ( !canonicalRoot.isEmpty() && parentCanonicalPath == canonicalRoot )
+        {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
+  if ( !fileInfo.isFile() )
+  {
+    return false;
+  }
+
   const QString suffix = fileInfo.suffix().toLower();
 
   static const QStringList allowedExtensions = { "pdf", "png", "jpg", "jpeg", "mp4", "mp4a", "mp3" };
@@ -937,23 +977,40 @@ QVariantMap FileUtils::deleteFiles( const QStringList &filePaths )
 
     const QFileInfo fileInfo( filePath );
     const QString canonicalPath = fileInfo.canonicalFilePath();
-    QFile file( canonicalPath );
 
-    if ( !file.exists() )
+    if ( !QFileInfo::exists( canonicalPath ) )
     {
       qWarning() << QStringLiteral( "File does not exist: %1" ).arg( filePath );
       results[filePath] = false;
       continue;
     }
 
-    const bool success = file.remove();
-    if ( success )
+    bool success = false;
+    if ( fileInfo.isDir() )
     {
-      qDebug() << QStringLiteral( "Successfully deleted file: %1" ).arg( filePath );
+      QDir dir( canonicalPath );
+      success = dir.removeRecursively();
+      if ( success )
+      {
+        qDebug() << QStringLiteral( "Successfully deleted directory: %1" ).arg( filePath );
+      }
+      else
+      {
+        qWarning() << QStringLiteral( "Failed to delete directory: %1" ).arg( filePath );
+      }
     }
     else
     {
-      qWarning() << QStringLiteral( "Failed to delete file: %1 - %2" ).arg( filePath, file.errorString() );
+      QFile file( canonicalPath );
+      success = file.remove();
+      if ( success )
+      {
+        qDebug() << QStringLiteral( "Successfully deleted file: %1" ).arg( filePath );
+      }
+      else
+      {
+        qWarning() << QStringLiteral( "Failed to delete file: %1 - %2" ).arg( filePath, file.errorString() );
+      }
     }
 
     results[filePath] = success;
