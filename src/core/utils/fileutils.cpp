@@ -931,23 +931,14 @@ bool FileUtils::isDeletable( const QString &filePath )
     appRoots << PlatformUtilities::instance()->additionalApplicationDirectories();
 
     const QString parentCanonicalPath = QFileInfo( fileInfo.absolutePath() ).canonicalFilePath();
-    for ( const QString &appRoot : std::as_const( appRoots ) )
-    {
+    return std::any_of( appRoots.cbegin(), appRoots.cend(), [&parentCanonicalPath]( const QString &appRoot ) {
       if ( appRoot.isEmpty() )
-      {
-        continue;
-      }
-      for ( const QString &subDir : userManagedRoots )
-      {
+        return false;
+      return std::any_of( userManagedRoots.cbegin(), userManagedRoots.cend(), [&appRoot, &parentCanonicalPath]( const QString &subDir ) {
         const QString canonicalRoot = QFileInfo( QStringLiteral( "%1/%2" ).arg( appRoot, subDir ) ).canonicalFilePath();
-        if ( !canonicalRoot.isEmpty() && parentCanonicalPath == canonicalRoot )
-        {
-          return true;
-        }
-      }
-    }
-
-    return false;
+        return !canonicalRoot.isEmpty() && parentCanonicalPath == canonicalRoot;
+      } );
+    } );
   }
 
   if ( !fileInfo.isFile() )
