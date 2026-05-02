@@ -29,10 +29,12 @@
 #include <QCoreApplication>
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QGuiApplication>
 #include <QImageReader>
 #include <QLocale>
 #include <QQmlApplicationEngine>
 #include <QQuickItem>
+#include <QQuickWindow>
 #include <QSettings>
 #include <QTemporaryFile>
 #include <QTranslator>
@@ -63,7 +65,23 @@ QObject *AppInterface::rootObject() const
   {
     return appEngine->rootObjects().isEmpty() ? nullptr : appEngine->rootObjects().at( 0 );
   }
-  // engine-only path, findChild() walks whatever QQuickTest has parented to the engine
+
+  // Engine only path (eg. QtQuickTest harness) the test window is not
+  // necessarily parented under the engine, so locate it via the application's
+  // top-level windows and match it back to mEngine through its content item
+  if ( mEngine )
+  {
+    const QList<QWindow *> windows = QGuiApplication::topLevelWindows();
+    for ( QWindow *window : windows )
+    {
+      QQuickWindow *quickWindow = qobject_cast<QQuickWindow *>( window );
+      if ( quickWindow && quickWindow->contentItem() && qmlEngine( quickWindow->contentItem() ) == mEngine )
+      {
+        return quickWindow->contentItem();
+      }
+    }
+  }
+
   return mEngine;
 }
 
