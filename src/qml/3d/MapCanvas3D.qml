@@ -235,7 +235,7 @@ Item {
       }
     }
 
-    SelectionHighlight3D {
+    FeatureListSelectionHighlight3D {
       id: selectionHighlight
       selectionModel: mapArea.selectionModel
       terrainProvider: mapTerrainProvider

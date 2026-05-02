@@ -7,7 +7,7 @@ import Theme
  * \ingroup qml
  */
 Node {
-  id: selectionHighlight3D
+  id: featureListSelectionHighlight3D
 
   property var selectionModel
   property var terrainProvider
@@ -21,23 +21,23 @@ Node {
   property int altitudeClamping: Quick3DGeometry.Ignore
 
   Repeater3D {
-    model: selectionHighlight3D.selectionModel ? selectionHighlight3D.selectionModel.model : null
+    model: featureListSelectionHighlight3D.selectionModel ? featureListSelectionHighlight3D.selectionModel.model : null
 
     delegate: Node {
       required property var model
       required property int index
 
-      visible: selectionHighlight3D.visible
+      visible: featureListSelectionHighlight3D.visible
 
       Model {
         geometry: Quick3DGeometry {
           qgsGeometry: model.geometry
           crs: model.crs
-          terrainProvider: selectionHighlight3D.terrainProvider
-          lineWidth: selectionHighlight3D.lineWidth
-          heightOffset: selectionHighlight3D.heightOffset
-          altitudeClamping: selectionHighlight3D.altitudeClamping
-          color: model.featureSelected ? selectionHighlight3D.selectedColor : selectionHighlight3D.selectionModel.model.selectedCount === 0 && index === selectionHighlight3D.selectionModel.focusedItem ? selectionHighlight3D.focusedColor : selectionHighlight3D.color
+          terrainProvider: featureListSelectionHighlight3D.terrainProvider
+          lineWidth: featureListSelectionHighlight3D.lineWidth
+          heightOffset: featureListSelectionHighlight3D.heightOffset
+          altitudeClamping: featureListSelectionHighlight3D.altitudeClamping
+          color: model.featureSelected ? featureListSelectionHighlight3D.selectedColor : featureListSelectionHighlight3D.selectionModel.model.selectedCount === 0 && index === featureListSelectionHighlight3D.selectionModel.focusedItem ? featureListSelectionHighlight3D.focusedColor : featureListSelectionHighlight3D.color
         }
 
         materials: [
