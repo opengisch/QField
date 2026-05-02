@@ -225,7 +225,9 @@ def test_image_attachment(app, screenshot_path, screenshot_check, extra, process
 
 
 @pytest.mark.project_file("test_qml_text_editor_widgets.qgz")
-def test_qml_text_editor_widgets(app, screenshot_path, screenshot_check, extra, process_alive):
+def test_qml_text_editor_widgets(
+    app, screenshot_path, screenshot_check, extra, process_alive
+):
     """
     Starts a test app and check for support of QML and text editor widgets within
     the feature form.
@@ -256,27 +258,34 @@ def test_qml_text_editor_widgets(app, screenshot_path, screenshot_check, extra, 
     assert process_alive()
     extra.append(extras.html('<img src="images/test_qml_text_editor_widgets.png"/>'))
 
-    assert screenshot_check("test_qml_text_editor_widgets", "test_qml_text_editor_widgets", 0.025)
+    assert screenshot_check(
+        "test_qml_text_editor_widgets", "test_qml_text_editor_widgets", 0.025
+    )
 
-    move_x = feature_form_bounds[0] + feature_form_bounds[2] - 100
-    move_y = feature_form_bounds[1] + 24
+    move_x = feature_form_bounds[0] + feature_form_bounds[2] - 68
+    move_y = feature_form_bounds[1] + 32
 
     pyautogui.moveTo(move_x, move_y, duration=0.5)
     pyautogui.click(interval=0.5)
 
     move_x = feature_form_bounds[0] + feature_form_bounds[2] / 2
-    move_y = feature_form_bounds[1] + 120
+    move_y = feature_form_bounds[1] + 100
 
     pyautogui.click(interval=0.5)
-    pyautogui.typewrite('hello world!', interval=0.1)
+    pyautogui.typewrite("hello world!", interval=0.1)
 
     app.takeScreenshot(
-        "mainWindow", os.path.join(screenshot_path, "test_modified_qml_text_editor_widgets.png")
+        "mainWindow",
+        os.path.join(screenshot_path, "test_modified_qml_text_editor_widgets.png"),
     )
     assert process_alive()
-    extra.append(extras.html('<img src="images/test_modified_qml_text_editor_widgets.png"/>'))
+    extra.append(
+        extras.html('<img src="images/test_modified_qml_text_editor_widgets.png"/>')
+    )
 
-    assert screenshot_check("test_qml_text_editor_widgets", "test_modified_qml_text_editor_widgets", 0.025)
+    assert screenshot_check(
+        "test_qml_text_editor_widgets", "test_modified_qml_text_editor_widgets", 0.025
+    )
 
 
 @pytest.mark.project_file("test_svg.qgz")
