@@ -110,6 +110,49 @@ Q_DECLARE_METATYPE( CloudSubscriptionInformation )
 
 /**
  * \ingroup core
+ *
+ * Holds whitelabeling information advertised by a QFieldCloud server, such as the
+ * displayed site title and branding assets.
+ */
+struct CloudWhitelabelInformation
+{
+    Q_GADGET
+
+    Q_PROPERTY( QString siteTitle MEMBER siteTitle )
+    Q_PROPERTY( QString logoMain MEMBER logoMain )
+    Q_PROPERTY( QString logoNavbar MEMBER logoNavbar )
+    Q_PROPERTY( QString favicon MEMBER favicon )
+
+  public:
+    CloudWhitelabelInformation() = default;
+
+    explicit CloudWhitelabelInformation( const QVariantMap &whitelabel )
+      : siteTitle( whitelabel.value( QStringLiteral( "site_title" ) ).toString() )
+      , logoMain( whitelabel.value( QStringLiteral( "logo_main" ) ).toString() )
+      , logoNavbar( whitelabel.value( QStringLiteral( "logo_navbar" ) ).toString() )
+      , favicon( whitelabel.value( QStringLiteral( "favicon" ) ).toString() )
+    {}
+
+    bool operator==( const CloudWhitelabelInformation &other ) const
+    {
+      return siteTitle == other.siteTitle && logoMain == other.logoMain && logoNavbar == other.logoNavbar && favicon == other.favicon;
+    }
+
+    bool operator!=( const CloudWhitelabelInformation &other ) const
+    {
+      return !( *this == other );
+    }
+
+    QString siteTitle;
+    QString logoMain;
+    QString logoNavbar;
+    QString favicon;
+};
+
+Q_DECLARE_METATYPE( CloudWhitelabelInformation )
+
+/**
+ * \ingroup core
  */
 class QFieldCloudUtils : public QObject
 {

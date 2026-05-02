@@ -86,10 +86,7 @@ class QFieldCloudConnection : public QObject
     Q_PROPERTY( QList<AuthenticationProvider> availableProviders READ availableProviders NOTIFY availableProvidersChanged )
     Q_PROPERTY( bool isFetchingAvailableProviders READ isFetchingAvailableProviders NOTIFY isFetchingAvailableProvidersChanged )
 
-    Q_PROPERTY( QString siteTitle READ siteTitle NOTIFY whitelabelChanged )
-    Q_PROPERTY( QString logoMain READ logoMain NOTIFY whitelabelChanged )
-    Q_PROPERTY( QString logoNavbar READ logoNavbar NOTIFY whitelabelChanged )
-    Q_PROPERTY( QString favicon READ favicon NOTIFY whitelabelChanged )
+    Q_PROPERTY( CloudWhitelabelInformation whitelabel READ whitelabel NOTIFY whitelabelChanged )
 
     Q_PROPERTY( bool isReachable READ isReachable NOTIFY isReachableChanged )
 
@@ -180,10 +177,7 @@ class QFieldCloudConnection : public QObject
     QList<AuthenticationProvider> availableProviders() const;
     bool isFetchingAvailableProviders() const;
 
-    QString siteTitle() const { return mSiteTitle; }
-    QString logoMain() const { return mLogoMain; }
-    QString logoNavbar() const { return mLogoNavbar; }
-    QString favicon() const { return mFavicon; }
+    CloudWhitelabelInformation whitelabel() const { return mWhitelabel; }
 
     ConnectionStatus status() const;
     ConnectionState state() const;
@@ -302,10 +296,7 @@ class QFieldCloudConnection : public QObject
     QString mProvider;
     QString mProviderConfigId;
 
-    QString mSiteTitle;
-    QString mLogoMain;
-    QString mLogoNavbar;
-    QString mFavicon;
+    CloudWhitelabelInformation mWhitelabel;
 
     QString mAvatarUrl;
     CloudUserInformation mUserInformation;

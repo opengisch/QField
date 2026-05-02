@@ -34,7 +34,7 @@ Item {
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
       fillMode: Image.PreserveAspectFit
       smooth: true
-      source: cloudConnection.logoMain !== '' ? cloudConnection.logoMain : "qrc:/images/qfieldcloud_logo.svg"
+      source: cloudConnection.whitelabel.logoMain !== '' ? cloudConnection.whitelabel.logoMain : "qrc:/images/qfieldcloud_logo.svg"
       sourceSize.width: 124
       sourceSize.height: 124
 
@@ -59,7 +59,7 @@ Item {
       font.bold: true
       color: Theme.cloudColor
       wrapMode: Text.WordWrap
-      text: cloudConnection.siteTitle !== '' ? cloudConnection.siteTitle : qsTr("QFieldCloud")
+      text: cloudConnection.whitelabel.siteTitle !== '' ? cloudConnection.whitelabel.siteTitle : qsTr("QFieldCloud")
     }
 
     Text {

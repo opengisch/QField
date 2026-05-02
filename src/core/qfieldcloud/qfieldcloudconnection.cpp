@@ -306,12 +306,9 @@ void QFieldCloudConnection::getAuthenticationProviders()
   }
 
   bool whitelabelChangedFlag = false;
-  if ( !mSiteTitle.isEmpty() || !mLogoMain.isEmpty() || !mLogoNavbar.isEmpty() || !mFavicon.isEmpty() )
+  if ( mWhitelabel != CloudWhitelabelInformation() )
   {
-    mSiteTitle.clear();
-    mLogoMain.clear();
-    mLogoNavbar.clear();
-    mFavicon.clear();
+    mWhitelabel = CloudWhitelabelInformation();
     whitelabelChangedFlag = true;
   }
   if ( whitelabelChangedFlag )
@@ -353,17 +350,10 @@ void QFieldCloudConnection::getAuthenticationProviders()
 
     const QVariantMap payload = QJsonDocument::fromJson( rawReply->readAll() ).toVariant().toMap();
 
-    const QVariantMap whitelabel = payload.value( QStringLiteral( "whitelabel" ) ).toMap();
-    const QString siteTitle = whitelabel.value( QStringLiteral( "site_title" ) ).toString();
-    const QString logoMain = whitelabel.value( QStringLiteral( "logo_main" ) ).toString();
-    const QString logoNavbar = whitelabel.value( QStringLiteral( "logo_navbar" ) ).toString();
-    const QString favicon = whitelabel.value( QStringLiteral( "favicon" ) ).toString();
-    if ( siteTitle != mSiteTitle || logoMain != mLogoMain || logoNavbar != mLogoNavbar || favicon != mFavicon )
+    const CloudWhitelabelInformation whitelabel( payload.value( QStringLiteral( "whitelabel" ) ).toMap() );
+    if ( whitelabel != mWhitelabel )
     {
-      mSiteTitle = siteTitle;
-      mLogoMain = logoMain;
-      mLogoNavbar = logoNavbar;
-      mFavicon = favicon;
+      mWhitelabel = whitelabel;
       emit whitelabelChanged();
     }
 
