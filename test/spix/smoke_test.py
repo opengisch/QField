@@ -180,8 +180,8 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
 @pytest.mark.project_file("test_image_attachment.qgz")
 def test_image_attachment(app, screenshot_path, screenshot_check, extra, process_alive):
     """
-    Starts a test app and check for proper reprojection support (including rendering check and message logs).
-    This also tests that QField is able to reach proj's crucial proj.db
+    Starts a test app and check for support of image attachments disoplay within
+    the feature form.
     """
     assert app.existsAndVisible("mainWindow")
 
@@ -222,6 +222,61 @@ def test_image_attachment(app, screenshot_path, screenshot_check, extra, process
     extra.append(extras.html('<img src="images/test_image_attachment.png"/>'))
 
     assert screenshot_check("test_image_attachment", "test_image_attachment", 0.025)
+
+
+@pytest.mark.project_file("test_qml_text_editor_widgets.qgz")
+def test_qml_text_editor_widgets(app, screenshot_path, screenshot_check, extra, process_alive):
+    """
+    Starts a test app and check for support of QML and text editor widgets within
+    the feature form.
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
+    time.sleep(4)
+
+    bounds = app.getBoundingBox("mainWindow/mapCanvas")
+    move_x = bounds[0] + bounds[2] / 2
+    move_y = bounds[1] + bounds[3] / 3
+
+    pyautogui.moveTo(move_x, move_y, duration=0.5)
+    pyautogui.click(interval=0.5)
+
+    feature_form_bounds = app.getBoundingBox("mainWindow/featureForm")
+    move_x = feature_form_bounds[0] + feature_form_bounds[2] / 2
+    move_y = feature_form_bounds[1] + 100
+
+    pyautogui.moveTo(move_x, move_y, duration=0.5)
+    pyautogui.click(interval=0.5)
+
+    app.takeScreenshot(
+        "mainWindow", os.path.join(screenshot_path, "test_qml_text_editor_widgets.png")
+    )
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_qml_text_editor_widgets.png"/>'))
+
+    assert screenshot_check("test_qml_text_editor_widgets", "test_qml_text_editor_widgets", 0.025)
+
+    move_x = feature_form_bounds[0] + feature_form_bounds[2] - 100
+    move_y = feature_form_bounds[1] + 24
+
+    pyautogui.moveTo(move_x, move_y, duration=0.5)
+    pyautogui.click(interval=0.5)
+
+    move_x = feature_form_bounds[0] + feature_form_bounds[2] / 2
+    move_y = feature_form_bounds[1] + 120
+
+    pyautogui.click(interval=0.5)
+    pyautogui.typewrite('hello world!', interval=0.1)
+
+    app.takeScreenshot(
+        "mainWindow", os.path.join(screenshot_path, "test_modified_qml_text_editor_widgets.png")
+    )
+    assert process_alive()
+    extra.append(extras.html('<img src="images/test_modified_qml_text_editor_widgets.png"/>'))
+
+    assert screenshot_check("test_qml_text_editor_widgets", "test_modified_qml_text_editor_widgets", 0.025)
 
 
 @pytest.mark.project_file("test_svg.qgz")
