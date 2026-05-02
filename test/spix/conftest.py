@@ -7,7 +7,6 @@ import xmlrpc
 import time
 import os
 
-
 stderr = list()
 stdout = list()
 apperrs = list()

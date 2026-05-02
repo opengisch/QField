@@ -7,7 +7,6 @@ import pathlib
 import os
 import argparse
 
-
 desc = """\
         nmeaserver.py
         --------------------------------
@@ -65,7 +64,7 @@ if args["type"] == "tcp":
         sock.listen()
         print(f"Listening on port {port}")
         while True:
-            (client, addr) = sock.accept()
+            client, addr = sock.accept()
             print(f"Accepting new connection with address {addr}")
             t = threading.Thread(target=work_thread, args=(client,))
             t.start()
