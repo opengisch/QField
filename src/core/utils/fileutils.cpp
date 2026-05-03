@@ -923,17 +923,18 @@ bool FileUtils::isDeletable( const QString &filePath )
       QStringLiteral( "Created Projects" ) };
 
     QStringList appRoots;
-    const QString appDir = PlatformUtilities::instance()->applicationDirectory();
-    if ( !appDir.isEmpty() )
-    {
-      appRoots << appDir;
-    }
+    appRoots << PlatformUtilities::instance()->applicationDirectory();
     appRoots << PlatformUtilities::instance()->additionalApplicationDirectories();
+    appRoots.erase( std::remove_if( appRoots.begin(), appRoots.end(), []( const QString &appRoot ) {
+                      return appRoot.isEmpty();
+                    } ),
+                    appRoots.end() );
+
+    if ( appRoots.isEmpty() )
+      return false;
 
     const QString parentCanonicalPath = QFileInfo( fileInfo.absolutePath() ).canonicalFilePath();
     return std::any_of( appRoots.cbegin(), appRoots.cend(), [&parentCanonicalPath]( const QString &appRoot ) {
-      if ( appRoot.isEmpty() )
-        return false;
       return std::any_of( userManagedRoots.cbegin(), userManagedRoots.cend(), [&appRoot, &parentCanonicalPath]( const QString &subDir ) {
         const QString canonicalRoot = QFileInfo( QStringLiteral( "%1/%2" ).arg( appRoot, subDir ) ).canonicalFilePath();
         return !canonicalRoot.isEmpty() && parentCanonicalPath == canonicalRoot;
@@ -961,7 +962,7 @@ QVariantMap FileUtils::deleteFiles( const QStringList &filePaths )
   {
     if ( !isDeletable( filePath ) )
     {
-      qWarning() << QStringLiteral( "Cannot delete file (not allowed): %1" ).arg( filePath );
+      QgsMessageLog::logMessage( QObject::tr( "Cannot delete file (not allowed): %1" ).arg( filePath ), QString(), Qgis::MessageLevel::Warning );
       results[filePath] = false;
       continue;
     }
@@ -971,7 +972,7 @@ QVariantMap FileUtils::deleteFiles( const QStringList &filePaths )
 
     if ( !QFileInfo::exists( canonicalPath ) )
     {
-      qWarning() << QStringLiteral( "File does not exist: %1" ).arg( filePath );
+      QgsMessageLog::logMessage( QObject::tr( "File does not exist: %1" ).arg( filePath ), QString(), Qgis::MessageLevel::Warning );
       results[filePath] = false;
       continue;
     }
@@ -981,26 +982,18 @@ QVariantMap FileUtils::deleteFiles( const QStringList &filePaths )
     {
       QDir dir( canonicalPath );
       success = dir.removeRecursively();
-      if ( success )
+      if ( !success )
       {
-        qDebug() << QStringLiteral( "Successfully deleted directory: %1" ).arg( filePath );
-      }
-      else
-      {
-        qWarning() << QStringLiteral( "Failed to delete directory: %1" ).arg( filePath );
+        QgsMessageLog::logMessage( QObject::tr( "Failed to delete directory: %1" ).arg( filePath ), QString(), Qgis::MessageLevel::Warning );
       }
     }
     else
     {
       QFile file( canonicalPath );
       success = file.remove();
-      if ( success )
+      if ( !success )
       {
-        qDebug() << QStringLiteral( "Successfully deleted file: %1" ).arg( filePath );
-      }
-      else
-      {
-        qWarning() << QStringLiteral( "Failed to delete file: %1 - %2" ).arg( filePath, file.errorString() );
+        QgsMessageLog::logMessage( QObject::tr( "Failed to delete file: %1 - %2" ).arg( filePath, file.errorString() ), QString(), Qgis::MessageLevel::Warning );
       }
     }
 

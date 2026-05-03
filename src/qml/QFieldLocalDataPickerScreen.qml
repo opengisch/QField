@@ -652,7 +652,7 @@ Page {
 
       MenuItem {
         id: deleteFile
-        enabled: itemMenu.itemMetaType !== LocalFilesModel.Folder && FileUtils.isDeletable(itemMenu.itemPath)
+        enabled: FileUtils.isDeletable(itemMenu.itemPath)
         visible: enabled
 
         font: Theme.defaultFont
@@ -660,7 +660,7 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Delete file")
+        text: itemMenu.itemMetaType === LocalFilesModel.Folder ? qsTr("Delete folder") : qsTr("Delete file")
         onTriggered: {
           confirmRemoveDialog.itemsToRemove = [itemMenu.itemPath];
           confirmRemoveDialog.open();
