@@ -47,14 +47,14 @@ TestCase {
   }
 
   property var connectionSettings: qfieldCloudLogin.children[0]
-  property var loginFeedbackLabel: connectionSettings.children[2]
-  property var serverUrlLabel: connectionSettings.children[3]
-  property var serverUrlComboBox: connectionSettings.children[4]
-  property var usernameField: connectionSettings.children[5]
-  property var passwordField: connectionSettings.children[6]
+  property var loginFeedbackLabel: connectionSettings.children[1]
+  property var serverUrlLabel: connectionSettings.children[2]
+  property var serverUrlComboBox: connectionSettings.children[3]
+  property var usernameField: connectionSettings.children[4]
+  property var passwordField: connectionSettings.children[5]
   property var showPasswordButton: passwordField.children[1]
-  property var availableProvidersRepeater: connectionSettings.children[10]
-  property var cloudRegisterLabel: connectionSettings.children[11]
+  property var availableProvidersRepeater: connectionSettings.children[9]
+  property var cloudRegisterLabel: connectionSettings.children[10]
 
   SignalSpy {
     id: loginFailedSpy
