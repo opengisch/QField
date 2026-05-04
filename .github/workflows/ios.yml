@@ -47,7 +47,7 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
 
       - name: 💎 Setup ruby
-        uses: ruby/setup-ruby@v1.302.0
+        uses: ruby/setup-ruby@v1.306.0
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           ruby-version: '3.4' # Not needed with a .ruby-version file

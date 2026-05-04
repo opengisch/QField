@@ -96,7 +96,7 @@ jobs:
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
 
       - name: 💎 Setup ruby
-        uses: ruby/setup-ruby@v1.302.0
+        uses: ruby/setup-ruby@v1.306.0
         with:
           ruby-version: '3.4' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
@@ -220,7 +220,7 @@ jobs:
           S3CFG: ${{ secrets.S3CMD_CFG }}
 
       - name: Upload release assets
-        uses: AButler/upload-release-assets@v3.0
+        uses: AButler/upload-release-assets@v3.0.1
         if: ${{ github.event_name == 'release' && matrix.all_files_access == 'OFF' }}
         with:
           files: /tmp/qfield-*.apk
