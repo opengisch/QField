@@ -52,17 +52,6 @@ Item {
     }
 
     Text {
-      Layout.fillWidth: true
-      Layout.bottomMargin: 10
-      horizontalAlignment: Text.AlignHCenter
-      font.pointSize: Theme.titleFont.pointSize
-      font.bold: true
-      color: Theme.cloudColor
-      wrapMode: Text.WordWrap
-      text: cloudConnection.whitelabel.siteTitle !== '' ? cloudConnection.whitelabel.siteTitle : qsTr("QFieldCloud")
-    }
-
-    Text {
       id: loginFeedbackLabel
       Layout.fillWidth: true
       Layout.bottomMargin: 10
@@ -98,7 +87,7 @@ Item {
       id: serverUrlLabel
       Layout.fillWidth: true
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (cloudConnection.url !== cloudConnection.defaultUrl || isServerUrlEditingActive)
-      text: qsTr("Server URL\n(Leave empty to use the default server)")
+      text: (cloudConnection.whitelabel.siteTitle !== '' ? cloudConnection.whitelabel.siteTitle + ' ' : '') + qsTr("Server URL\n(Leave empty to use the default server)")
       horizontalAlignment: Text.AlignHCenter
       font: Theme.defaultFont
       color: Theme.secondaryTextColor

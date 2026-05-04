@@ -305,14 +305,11 @@ void QFieldCloudConnection::getAuthenticationProviders()
     emit availableProvidersChanged();
   }
 
-  bool whitelabelChangedFlag = false;
   if ( mWhitelabel != CloudWhitelabelInformation() )
   {
     mWhitelabel = CloudWhitelabelInformation();
-    whitelabelChangedFlag = true;
-  }
-  if ( whitelabelChangedFlag )
     emit whitelabelChanged();
+  }
 
   mIsFetchingAvailableProviders = true;
   emit isFetchingAvailableProvidersChanged();
@@ -335,8 +332,6 @@ void QFieldCloudConnection::getAuthenticationProviders()
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      // Fallback to legacy endpoint when the new server info endpoint is not available
-      // (e.g. older QFieldCloud server deployments).
       if ( httpCode == 404 )
       {
         fetchLegacyAuthenticationProviders();
