@@ -174,10 +174,10 @@ TestCase {
     compare(dashBoardItem.activeLayer.name, "ApiaryLayer");
   }
 
-  // Bees-Model
+  // Layer combobox dialog backed by MapLayerModel
 
   Component {
-    id: beesModelPlugin
+    id: layerComboBoxDialogPlugin
 
     Item {
       id: plugin
@@ -234,51 +234,51 @@ TestCase {
     }
   }
 
-  function test_beesModel_01_pluginInstantiatesWithRealIface() {
-    const plugin = createTemporaryObject(beesModelPlugin, testCase);
+  function test_dialogPluginInstantiatesWithRealIface() {
+    const plugin = createTemporaryObject(layerComboBoxDialogPlugin, testCase);
     verify(plugin !== null);
   }
 
-  function test_beesModel_02_pluginRegistersLayersButtonToToolbar() {
-    createTemporaryObject(beesModelPlugin, testCase);
+  function test_dialogPluginRegistersToolbarButton() {
+    createTemporaryObject(layerComboBoxDialogPlugin, testCase);
     compare(pluginsToolbar.children.length, 1);
     compare(pluginsToolbar.children[0].text, "?");
   }
 
-  function test_beesModel_03_mapLayerModelTracksProjectLayers() {
-    makeMemoryLayer("BeesModelLayerA");
-    makeMemoryLayer("BeesModelLayerB");
-    const plugin = createTemporaryObject(beesModelPlugin, testCase);
+  function test_mapLayerModelTracksProjectLayers() {
+    makeMemoryLayer("ComboLayerA");
+    makeMemoryLayer("ComboLayerB");
+    const plugin = createTemporaryObject(layerComboBoxDialogPlugin, testCase);
     verify(plugin.layersModel.rowCount() >= 2);
   }
 
-  function test_beesModel_04_mapLayerModelExposesNameAndLayerPointerRoles() {
-    const layer = makeMemoryLayer("BeesModelRolesProbe");
-    const plugin = createTemporaryObject(beesModelPlugin, testCase);
+  function test_mapLayerModelGetExposesNameAndLayerPointer() {
+    const layer = makeMemoryLayer("ComboRolesProbe");
+    const plugin = createTemporaryObject(layerComboBoxDialogPlugin, testCase);
 
     let foundEntry = null;
     for (let row = 0; row < plugin.layersModel.rowCount(); ++row) {
       const entry = plugin.layersModel.get(row);
-      if (entry.Name === "BeesModelRolesProbe") {
+      if (entry.Name === "ComboRolesProbe") {
         foundEntry = entry;
         break;
       }
     }
     verify(foundEntry !== null);
-    compare(foundEntry.Name, "BeesModelRolesProbe");
+    compare(foundEntry.Name, "ComboRolesProbe");
     verify(foundEntry.LayerPointer !== null);
     compare(foundEntry.LayerPointer.id, layer.id);
   }
 
-  function test_beesModel_05_qfComboBoxAcceptsModelAndRoles() {
-    const plugin = createTemporaryObject(beesModelPlugin, testCase);
+  function test_qfComboBoxBindsToMapLayerModelWithExpectedRoles() {
+    const plugin = createTemporaryObject(layerComboBoxDialogPlugin, testCase);
     compare(plugin.layersComboBox.textRole, "Name");
     compare(plugin.layersComboBox.valueRole, "LayerPointer");
     compare(plugin.layersComboBox.model, plugin.layersModel);
   }
 
-  function test_beesModel_06_dialogOpensOnButtonClick() {
-    const plugin = createTemporaryObject(beesModelPlugin, testCase);
+  function test_qfDialogOpensOnToolbarButtonClick() {
+    const plugin = createTemporaryObject(layerComboBoxDialogPlugin, testCase);
     compare(plugin.layersDialog.visible, false);
     plugin.layersButton.clicked();
     tryCompare(plugin.layersDialog, "visible", true);
