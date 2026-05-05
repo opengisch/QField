@@ -94,14 +94,14 @@ Popup {
             width: 48
             height: 48
             radius: width / 2
-            border.color: Theme.mainColor
-            border.width: 1
-            clip: true
+            color: Theme.controlBackgroundAlternateColor
+            layer.enabled: true
 
             Rectangle {
               id: cloudAvatarMask
-              anchors.fill: parent
-              anchors.margins: 1
+              anchors.centerIn: parent
+              width: cloudAvatar.width
+              height: cloudAvatar.height
               radius: width / 2
               color: "white"
               visible: false
@@ -110,8 +110,7 @@ Popup {
 
             Image {
               id: cloudAvatar
-              anchors.fill: parent
-              anchors.margins: 1
+              anchors.centerIn: parent
               fillMode: Image.PreserveAspectCrop
               smooth: true
               source: cloudConnection.avatarUrl !== '' ? cloudConnection.avatarUrl : 'qrc:/images/qfieldcloud_logo.svg'

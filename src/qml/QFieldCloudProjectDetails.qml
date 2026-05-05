@@ -78,15 +78,24 @@ ColumnLayout {
         Layout.margins: 10
         width: 48
         height: 48
-        border.color: Theme.mainBackgroundColor
-        border.width: 1
         radius: width / 2
-        clip: true
+        color: Theme.controlBackgroundAlternateColor
+        layer.enabled: true
+
+        Rectangle {
+          id: projectDetailsThumbnailMask
+          anchors.centerIn: parent
+          width: projectDetailsThumbnail.width
+          height: projectDetailsThumbnail.height
+          radius: width / 2
+          color: "white"
+          visible: false
+          layer.enabled: true
+        }
 
         Image {
           id: projectDetailsThumbnail
-          anchors.fill: parent
-          anchors.margins: 1
+          anchors.centerIn: parent
           fillMode: Image.PreserveAspectFit
           smooth: true
           source: cloudProject != undefined && cloudProject.thumbnailPath !== "" ? 'file://' + cloudProject.thumbnailPath : ""
@@ -97,7 +106,7 @@ ColumnLayout {
           sourceSize.height: height * screen.devicePixelRatio
           layer.enabled: true
           layer.effect: QfOpacityMask {
-            maskSource: roundMask
+            maskSource: projectDetailsThumbnailMask
           }
         }
       }

@@ -89,15 +89,15 @@ Page {
         Layout.margins: 10
         width: 48
         height: 48
-        border.color: Theme.mainColor
-        border.width: 1
         radius: width / 2
-        clip: true
+        color: Theme.controlBackgroundAlternateColor
+        layer.enabled: true
 
         Rectangle {
-          id: roundMask
-          anchors.fill: parent
-          anchors.margins: 1
+          id: cloudAvatarMask
+          anchors.centerIn: parent
+          width: cloudAvatar.width * 2
+          height: cloudAvatar.height * 2
           radius: width / 2
           color: "white"
           visible: false
@@ -106,8 +106,7 @@ Page {
 
         Image {
           id: cloudAvatar
-          anchors.fill: parent
-          anchors.margins: 1
+          anchors.centerIn: parent
           fillMode: Image.PreserveAspectFit
           smooth: true
           source: cloudConnection.avatarUrl !== '' ? cloudConnection.avatarUrl : 'qrc:/images/qfieldcloud_logo.svg'
@@ -117,7 +116,7 @@ Page {
           sourceSize.height: height * screen.devicePixelRatio
           layer.enabled: true
           layer.effect: QfOpacityMask {
-            maskSource: roundMask
+            maskSource: cloudAvatarMask
           }
 
           onStatusChanged: {
