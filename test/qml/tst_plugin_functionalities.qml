@@ -69,10 +69,10 @@ TestCase {
     return null;
   }
 
-  // Bees-Focus
+  // Active layer switching via plugin toolbar buttons
 
   Component {
-    id: beesFocusPlugin
+    id: activeLayerSwitcherPlugin
 
     Item {
       id: plugin
@@ -101,7 +101,7 @@ TestCase {
         iconColor: Theme.toolButtonColor
         bgcolor: Theme.toolButtonBackgroundColor
         round: true
-        onClicked: plugin.activateLayerByName("BeesFocusApiary")
+        onClicked: plugin.activateLayerByName("ApiaryLayer")
       }
 
       QfToolButton {
@@ -110,65 +110,65 @@ TestCase {
         iconColor: Theme.toolButtonColor
         bgcolor: Theme.toolButtonBackgroundColor
         round: true
-        onClicked: plugin.activateLayerByName("BeesFocusTracks")
+        onClicked: plugin.activateLayerByName("TracksLayer")
       }
     }
   }
 
-  function test_beesFocus_01_pluginInstantiatesWithRealIface() {
-    const plugin = createTemporaryObject(beesFocusPlugin, testCase);
+  function test_pluginInstantiatesWithRealIface() {
+    const plugin = createTemporaryObject(activeLayerSwitcherPlugin, testCase);
     verify(plugin !== null);
   }
 
-  function test_beesFocus_02_pluginResolvesMainWindowFromIface() {
-    const plugin = createTemporaryObject(beesFocusPlugin, testCase);
+  function test_ifaceMainWindowResolvesFromContext() {
+    const plugin = createTemporaryObject(activeLayerSwitcherPlugin, testCase);
     verify(plugin.mainWindow !== null);
   }
 
-  function test_beesFocus_03_pluginResolvesDashBoardFromIface() {
-    const plugin = createTemporaryObject(beesFocusPlugin, testCase);
+  function test_ifaceFindItemByObjectNameResolvesDashBoard() {
+    const plugin = createTemporaryObject(activeLayerSwitcherPlugin, testCase);
     verify(plugin.dashBoard !== null);
     compare(plugin.dashBoard.objectName, "dashBoard");
   }
 
-  function test_beesFocus_04_pluginRegistersBothButtonsToToolbar() {
-    createTemporaryObject(beesFocusPlugin, testCase);
+  function test_ifaceAddItemToPluginsToolbarReparentsButtons() {
+    createTemporaryObject(activeLayerSwitcherPlugin, testCase);
     compare(pluginsToolbar.children.length, 2);
     compare(pluginsToolbar.children[0].text, "A");
     compare(pluginsToolbar.children[1].text, "T");
   }
 
-  function test_beesFocus_05_buttonsHaveExpectedAppearance() {
-    createTemporaryObject(beesFocusPlugin, testCase);
+  function test_qfToolButtonHonoursPluginConfiguredAppearance() {
+    createTemporaryObject(activeLayerSwitcherPlugin, testCase);
     const apiary = findToolbarButtonByText("A");
     compare(apiary.round, true);
     compare(apiary.iconColor, Theme.toolButtonColor);
     compare(apiary.bgcolor, Theme.toolButtonBackgroundColor);
   }
 
-  function test_beesFocus_06_switchingBetweenLayersUpdatesActiveLayer() {
-    makeMemoryLayer("BeesFocusApiary");
-    makeMemoryLayer("BeesFocusTracks");
-    const plugin = createTemporaryObject(beesFocusPlugin, testCase);
+  function test_dashBoardActiveLayerSwitchesAcrossLayers() {
+    makeMemoryLayer("ApiaryLayer");
+    makeMemoryLayer("TracksLayer");
+    const plugin = createTemporaryObject(activeLayerSwitcherPlugin, testCase);
 
-    plugin.activateLayerByName("BeesFocusApiary");
-    compare(dashBoardItem.activeLayer.name, "BeesFocusApiary");
-    plugin.activateLayerByName("BeesFocusTracks");
-    compare(dashBoardItem.activeLayer.name, "BeesFocusTracks");
+    plugin.activateLayerByName("ApiaryLayer");
+    compare(dashBoardItem.activeLayer.name, "ApiaryLayer");
+    plugin.activateLayerByName("TracksLayer");
+    compare(dashBoardItem.activeLayer.name, "TracksLayer");
   }
 
-  function test_beesFocus_07_missingLayerNameLeavesActiveLayerUntouched() {
-    const plugin = createTemporaryObject(beesFocusPlugin, testCase);
-    plugin.activateLayerByName("BeesFocusDoesNotExist_xyz");
+  function test_activateLayerByNameNoOpsForUnknownLayer() {
+    const plugin = createTemporaryObject(activeLayerSwitcherPlugin, testCase);
+    plugin.activateLayerByName("UnknownLayer_xyz");
     compare(dashBoardItem.activeLayer, null);
   }
 
-  function test_beesFocus_08_buttonClickActivatesMatchingLayer() {
-    makeMemoryLayer("BeesFocusApiary");
-    createTemporaryObject(beesFocusPlugin, testCase);
+  function test_qfToolButtonClickActivatesTargetLayer() {
+    makeMemoryLayer("ApiaryLayer");
+    createTemporaryObject(activeLayerSwitcherPlugin, testCase);
     const apiary = findToolbarButtonByText("A");
     apiary.clicked();
     verify(dashBoardItem.activeLayer !== null);
-    compare(dashBoardItem.activeLayer.name, "BeesFocusApiary");
+    compare(dashBoardItem.activeLayer.name, "ApiaryLayer");
   }
 }
