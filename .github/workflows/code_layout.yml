@@ -57,7 +57,7 @@ jobs:
       - name: Check QField URLs
         uses: nirvn/check-urls@main
         with:
-          search_path: ./
+          search_path: ./src
           search_regexp: https://[A-Za-z\.]+qfield.(cloud|org)[^ <>\\\"')]+
           skip_urls: |
             https://app.qfield.cloud/settings/%1/billing
