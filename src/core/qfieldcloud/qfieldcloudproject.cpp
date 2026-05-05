@@ -1479,7 +1479,9 @@ bool QFieldCloudProject::moveDownloadedFilesToPermanentStorage()
     if ( QFile::exists( finalFilePath ) )
     {
       // Insure correct permissions prior to removing the file
-      QFile::setPermissions( finalFilePath, QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ReadOwner | QFileDevice::WriteOwner );
+#ifdef Q_OS_WIN
+      QFile::setPermissions( finalFilePath, QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ReadGroup | QFileDevice::WriteGroup );
+#endif
       if ( !QFile::remove( finalFilePath ) )
       {
         hasError = true;
