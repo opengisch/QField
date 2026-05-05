@@ -173,7 +173,7 @@ class QFieldCloudConnection : public QObject
 
     Q_INVOKABLE void getSubscriptionInformation( const QString &user );
 
-    Q_INVOKABLE void getAuthenticationProviders();
+    Q_INVOKABLE void getServerInformation();
     QList<AuthenticationProvider> availableProviders() const;
     bool isFetchingAvailableProviders() const;
 

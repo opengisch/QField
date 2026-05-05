@@ -877,7 +877,7 @@ Popup {
       if ((cloudConnection.hasToken || cloudConnection.hasProviderConfiguration)) {
         cloudConnection.login();
       }
-      cloudConnection.getAuthenticationProviders();
+      cloudConnection.getServerInformation();
     }
     if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
       fetchSubscriptionInformation();

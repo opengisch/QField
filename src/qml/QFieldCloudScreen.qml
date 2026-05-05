@@ -918,7 +918,7 @@ Page {
           projectsSwipeView.visible = false;
           connectionSettings.visible = true;
         }
-        cloudConnection.getAuthenticationProviders();
+        cloudConnection.getServerInformation();
         break;
       case QFieldCloudConnection.Connecting:
         const hasProjects = table.count !== 0;

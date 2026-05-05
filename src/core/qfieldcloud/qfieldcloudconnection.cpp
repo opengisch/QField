@@ -297,18 +297,12 @@ QList<AuthenticationProvider> QFieldCloudConnection::availableProviders() const
   return mAvailableProviders.values();
 }
 
-void QFieldCloudConnection::getAuthenticationProviders()
+void QFieldCloudConnection::getServerInformation()
 {
   if ( !mAvailableProviders.isEmpty() )
   {
     mAvailableProviders.clear();
     emit availableProvidersChanged();
-  }
-
-  if ( mWhitelabel != CloudWhitelabelInformation() )
-  {
-    mWhitelabel = CloudWhitelabelInformation();
-    emit whitelabelChanged();
   }
 
   mIsFetchingAvailableProviders = true;

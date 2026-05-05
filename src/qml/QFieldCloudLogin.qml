@@ -87,7 +87,7 @@ Item {
       id: serverUrlLabel
       Layout.fillWidth: true
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (cloudConnection.url !== cloudConnection.defaultUrl || isServerUrlEditingActive)
-      text: (cloudConnection.whitelabel.siteTitle !== '' ? cloudConnection.whitelabel.siteTitle + ' ' : '') + qsTr("Server URL\n(Leave empty to use the default server)")
+      text: qsTr("%1Server URL\n(Leave empty to use the default server)").arg(cloudConnection.whitelabel.siteTitle !== '' ? cloudConnection.whitelabel.siteTitle + ' ' : '')
       horizontalAlignment: Text.AlignHCenter
       font: Theme.defaultFont
       color: Theme.secondaryTextColor
@@ -155,7 +155,7 @@ Item {
 
         onTriggered: {
           cloudConnection.url = serverUrlField.text !== '' && prefixUrlWithProtocol(serverUrlField.text) !== cloudConnection.defaultUrl ? prefixUrlWithProtocol(serverUrlField.text) : cloudConnection.defaultUrl;
-          cloudConnection.getAuthenticationProviders();
+          cloudConnection.getServerInformation();
           qfieldCloudStatus.refresh();
         }
       }

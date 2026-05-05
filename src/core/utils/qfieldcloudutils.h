@@ -143,6 +143,16 @@ struct CloudWhitelabelInformation
       return !( *this == other );
     }
 
+    QVariantMap toVariantMap() const
+    {
+      return {
+        { QStringLiteral( "site_title" ), siteTitle },
+        { QStringLiteral( "logo_main" ), logoMain },
+        { QStringLiteral( "logo_navbar" ), logoNavbar },
+        { QStringLiteral( "favicon" ), favicon },
+      };
+    }
+
     QString siteTitle;
     QString logoMain;
     QString logoNavbar;

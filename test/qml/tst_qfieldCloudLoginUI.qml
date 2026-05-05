@@ -213,7 +213,7 @@ TestCase {
     var initialCount = availableProvidersRepeater.model.length;
     availableProvidersChangedSpy.clear();
     cloudConnection.url = data.url;
-    cloudConnection.getAuthenticationProviders();
+    cloudConnection.getServerInformation();
     tryCompare(availableProvidersChangedSpy, "count", 1, 10000);
     wait(500);
     verify(availableProvidersRepeater.model.length > 0);
