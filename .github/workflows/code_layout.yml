@@ -27,7 +27,7 @@ jobs:
 
   banned_keywords_check:
     name: banned keywords check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -46,3 +46,20 @@ jobs:
           sudo apt install -y cppcheck
       - name: Run cppcheck test
         run: ./scripts/cppcheck.sh
+
+  url_check:
+    name: URLs check
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Check QField URLs
+        uses: nirvn/check-urls@main
+        with:
+          search_path: ./src
+          search_regexp: https://[A-Za-z\.]+qfield.(cloud|org)[^ <>\\\"')]+
+          skip_urls: |
+            https://app.qfield.cloud/settings/%1/billing
+            https://docs.qfield.org/%1
+            https://qfield.cloud/some-new-ignored-url

@@ -22,7 +22,7 @@ contact_links:
       Check if your issue was already reported and if not, then create a new issue at the QFieldCloud Python SDK repository.
 
   - name: Seek community and commercial support
-    url: https://docs.qfield.org/get-started/support/
+    url: https://qfield.org/assistance/
     about: >
       Check how to get commercial or community support for your QFieldCloud on-premise or other QField ecosystem questions.
 
