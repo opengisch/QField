@@ -271,7 +271,7 @@ Item {
 
     property real rotationThreshold: 5.0
 
-    property var oldPos
+    property point oldPos
     property real oldScale: 1.0
     property real oldRotation: 0.0
     property bool rotationThresholdReached: false

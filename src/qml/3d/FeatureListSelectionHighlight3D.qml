@@ -9,8 +9,8 @@ import Theme
 Node {
   id: featureListSelectionHighlight3D
 
-  property var selectionModel
-  property var terrainProvider
+  property FeatureListModelSelection selectionModel
+  property Quick3DTerrainProvider terrainProvider
 
   property color color: "yellow"
   property color focusedColor: "red"

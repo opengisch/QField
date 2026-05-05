@@ -7,7 +7,7 @@ Node {
 
   property alias mapTerrainGeometry: mapTerrainGeometry
   property alias mapTexture: mapTexture
-  property var mapTextureData: undefined
+  property Quick3DMapTextureData mapTextureData
 
   Texture {
     id: neutralTexture

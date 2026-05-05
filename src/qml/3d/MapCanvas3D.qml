@@ -26,7 +26,7 @@ Item {
   property color gnssMarkerColor: "#2060ff"
   property color gnssMarkerSemiOpaqueColor: Qt.hsla(gnssMarkerColor.hslHue, gnssMarkerColor.hslSaturation, gnssMarkerColor.hslLightness, 0.4)
 
-  property var selectionModel: null
+  property FeatureListModelSelection selectionModel: null
 
   property TrackingModel trackingModel: null
 
