@@ -5191,6 +5191,8 @@ ApplicationWindow {
     visible: false
     focus: visible
 
+    cloudServiceStatus: qfieldCloudStatus
+
     onFinished: {
       visible = false;
     }
@@ -5214,6 +5216,8 @@ ApplicationWindow {
 
     width: parent.width
     height: parent.height
+
+    cloudServiceStatus: qfieldCloudStatus
 
     Component.onCompleted: focusstack.addFocusTaker(this)
   }

@@ -158,6 +158,7 @@ Popup {
         QFieldCloudStatusBanner {
           cloudServiceStatus: popup.cloudServiceStatus
           Layout.margins: 10
+          visible: cloudServiceStatus && cloudServiceStatus.hasProblem && !connectionSettings.visible
         }
 
         Text {
