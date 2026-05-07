@@ -700,9 +700,16 @@ bool FeatureModel::save( bool flushBuffer )
             }
           }
 
-          if ( hasChanged && changed )
+          if ( hasChanged )
           {
-            mSavedFeature = mFeature;
+            if ( changed )
+            {
+              mSavedFeature = mFeature;
+            }
+            else
+            {
+              QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
+            }
           }
         }
         else
@@ -712,11 +719,11 @@ bool FeatureModel::save( bool flushBuffer )
           {
             mSavedFeature = mFeature;
           }
-        }
 
-        if ( !changed )
-        {
-          QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
+          if ( !changed )
+          {
+            QgsMessageLog::logMessage( tr( "Cannot update feature" ), QStringLiteral( "QField" ), Qgis::Warning );
+          }
         }
 
         if ( flushBuffer )
