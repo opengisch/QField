@@ -10,8 +10,8 @@ EditorWidgetBase {
   property bool isDouble: field === undefined || (LayerUtils.fieldType(field) !== 'int' && LayerUtils.fieldType(field) !== 'qlonglong')
   property string widgetStyle: config["Style"] ? config["Style"] : "TextField"
   property int precision: config["Precision"] ? config["Precision"] : isDouble ? 2 : 0
-  property real min: config["Min"] !== undefined ? config["Min"] : -Infinity
-  property real max: config["Max"] !== undefined ? config["Max"] : Infinity
+  property real min: 50 // config["Min"] !== undefined ? config["Min"] : -Infinity
+  property real max: 250 // config["Max"] !== undefined ? config["Max"] : Infinity
   property real step: config["Step"] !== undefined ? config["Step"] : 1
   property string suffix: config["Suffix"] ? config["Suffix"] : ""
 
@@ -64,6 +64,32 @@ EditorWidgetBase {
       background.visible: isEnabled || (!isEditable && isEditing)
 
       onTextEdited: {
+        if (text === "") {
+          if (!isNull)
+            valueChangeRequested(text, true);
+        } else {
+          const parsedValue = parseFloat(text);
+          if (!isNaN(parsedValue)) {
+            if (Number.isFinite(rangeItem.max) && parsedValue > rangeItem.max) {
+              valueChangeRequested(rangeItem.max, false);
+              text = Qt.binding(function () {
+                return isNull ? '' : value;
+              });
+            } else {
+              valueChangeRequested(parsedValue, false);
+            }
+          }
+        }
+      }
+
+      onActiveFocusChanged: {
+        if (!activeFocus)
+          commitTypedValue();
+      }
+
+      onEditingFinished: commitTypedValue()
+
+      function commitTypedValue() {
         if (text !== "") {
           const parsedValue = parseFloat(text);
           if (!isNaN(parsedValue)) {
@@ -73,18 +99,11 @@ EditorWidgetBase {
             } else if (Number.isFinite(rangeItem.max) && parsedValue > rangeItem.max) {
               clampedValue = rangeItem.max;
             }
-
-            if (clampedValue !== value) {
-              valueChangeRequested(clampedValue, false);
-            }
-            if (parsedValue !== value) {
-              text = Qt.binding(function () {
-                return isNull ? '' : value;
-              });
-            }
+            valueChangeRequested(clampedValue, false);
+            text = Qt.binding(function () {
+              return isNull ? '' : value;
+            });
           }
-        } else if (!isNull) {
-          valueChangeRequested(text, true);
         }
       }
     }
