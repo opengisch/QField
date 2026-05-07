@@ -69,7 +69,7 @@ void FeatureModel::setFeature( const QgsFeature &feature )
 
   beginResetModel();
   mFeature = feature;
-  mSavedFeature = QgsFeature();
+  mSavedFeature = QgsFeature( mFeature.fields() );
   mFeatures.clear();
   mAttributesAllowEdit.clear();
   endResetModel();
@@ -157,7 +157,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
       }
     }
 
-    mSavedFeature = QgsFeature();
+    mSavedFeature = QgsFeature( mLayer->fields() );
 
     if ( mLayer->customPropertyKeys().contains( QStringLiteral( "is_geometry_locked" ) ) )
     {
@@ -679,7 +679,7 @@ bool FeatureModel::save( bool flushBuffer )
         updateDefaultValues();
 
         bool changed = false;
-        if ( mSavedFeature.id() == mFeature.id() )
+        if ( mSavedFeature.id() == mFeature.id() && mSavedFeature.fields() == mFeature.fields() )
         {
           bool hasChanged = false;
           if ( ( mFeature.hasGeometry() || mSavedFeature.hasGeometry() ) && !mFeature.geometry().equals( mSavedFeature.geometry() ) )
@@ -841,7 +841,7 @@ void FeatureModel::resetFeature()
   }
 
   mFeature = QgsFeature( mLayer->fields() );
-  mSavedFeature = QgsFeature();
+  mSavedFeature = QgsFeature( mLayer->fields() );
 }
 
 void FeatureModel::resetFeatureId()
@@ -905,7 +905,7 @@ void FeatureModel::resetAttributes( bool partialReset )
   QgsExpressionContext expressionContext = createExpressionContext();
   expressionContext.setFeature( mFeature );
   mFeature = QgsVectorLayerUtils::createFeature( mLayer, mFeature.geometry(), mFeature.attributes().toMap(), &expressionContext );
-  mSavedFeature = QgsFeature();
+  mSavedFeature = QgsFeature( mLayer->fields() );
   endResetModel();
 
   updatePermissions();
