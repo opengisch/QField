@@ -65,8 +65,9 @@ EditorWidgetBase {
 
       onTextEdited: {
         if (text === "") {
-          if (!isNull)
+          if (!isNull) {
             valueChangeRequested(text, true);
+          }
         } else {
           const parsedValue = parseFloat(text);
           if (!isNaN(parsedValue)) {
@@ -83,13 +84,14 @@ EditorWidgetBase {
       }
 
       onActiveFocusChanged: {
-        if (!activeFocus)
-          commitTypedValue();
+        if (!activeFocus) {
+          commitValue();
+        }
       }
 
-      onEditingFinished: commitTypedValue()
+      onEditingFinished: commitValue()
 
-      function commitTypedValue() {
+      function commitValue() {
         if (text !== "") {
           const parsedValue = parseFloat(text);
           if (!isNaN(parsedValue)) {
@@ -99,7 +101,9 @@ EditorWidgetBase {
             } else if (Number.isFinite(rangeItem.max) && parsedValue > rangeItem.max) {
               clampedValue = rangeItem.max;
             }
-            valueChangeRequested(clampedValue, false);
+            if (clampedValue !== value) {
+              valueChangeRequested(clampedValue, false);
+            }
             text = Qt.binding(function () {
               return isNull ? '' : value;
             });
