@@ -113,7 +113,7 @@ Popup {
               anchors.centerIn: parent
               fillMode: Image.PreserveAspectCrop
               smooth: true
-              source: cloudConnection.avatarUrl !== '' ? cloudConnection.avatarUrl : 'qrc:/images/qfieldcloud_logo.svg'
+              source: cloudConnection.avatarUrl !== '' ? cloudConnection.avatarUrl : 'qrc:/images/nyuki.svg'
               width: 48
               height: 48
               sourceSize.width: width * screen.devicePixelRatio
@@ -126,7 +126,7 @@ Popup {
               onStatusChanged: {
                 // In case the avatar URL fails to load or the image is corrupted, revert to our lovely Nyuki
                 if (status == Image.Error) {
-                  source = 'qrc:/images/qfieldcloud_logo.svg';
+                  source = 'qrc:/images/nyuki.svg';
                 }
               }
 

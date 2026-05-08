@@ -42,7 +42,7 @@ Item {
     fillMode: Image.PreserveAspectFit
     smooth: true
     opacity: 1
-    source: "qrc:/images/qfieldcloud_logo.svg"
+    source: "qrc:/images/nyuki.svg"
     sourceSize.width: 1024
     sourceSize.height: 1024
 
