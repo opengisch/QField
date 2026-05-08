@@ -286,15 +286,15 @@ TestCase {
     const textField = range.children[0].children[1];
 
     textField.text = "20";
-    textField.commitTypedValue();
+    textField.commitValue();
     compare(range.value, 50);
 
     textField.text = "999";
-    textField.commitTypedValue();
+    textField.commitValue();
     compare(range.value, 250);
 
     textField.text = "150";
-    textField.commitTypedValue();
+    textField.commitValue();
     compare(range.value, 150);
 
     isEditing = false;
