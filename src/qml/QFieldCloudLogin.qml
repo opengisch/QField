@@ -32,11 +32,11 @@ Item {
     Image {
       id: logo
       Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+      Layout.maximumWidth: 210
+      Layout.maximumHeight: 210
       fillMode: Image.PreserveAspectFit
       smooth: true
       source: cloudConnection.whitelabel.logoMain !== '' ? cloudConnection.whitelabel.logoMain : "qrc:/images/qfieldcloud_logo.svg"
-      sourceSize.width: 124
-      sourceSize.height: 124
 
       onStatusChanged: {
         // In case the whitelabel logo fails to load, revert to the default QFieldCloud logo
