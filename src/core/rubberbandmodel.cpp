@@ -16,6 +16,7 @@
 #include "rubberbandmodel.h"
 #include "snappingutils.h"
 
+#include <qgslinestring.h>
 #include <qgslogger.h>
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
@@ -341,6 +342,52 @@ void RubberbandModel::reset( bool keepLast )
 
   mFrozen = false;
   emit frozenChanged();
+}
+
+void RubberbandModel::smoothSegment( qsizetype firstVertex, qsizetype lastVertex, double simplificationTolerance )
+{
+  if ( firstVertex < 0 || lastVertex >= mPointList.size() || lastVertex - firstVertex < 2 )
+  {
+    return;
+  }
+
+  QgsPointSequence points;
+  points.reserve( static_cast<int>( lastVertex - firstVertex + 1 ) );
+  for ( qsizetype i = firstVertex; i <= lastVertex; ++i )
+  {
+    points.append( mPointList.at( static_cast<int>( i ) ) );
+  }
+
+  QgsGeometry geom( new QgsLineString( points ) );
+
+  if ( simplificationTolerance > 0.0 )
+  {
+    geom = geom.simplify( simplificationTolerance );
+  }
+
+  geom = geom.smooth();
+
+  const QgsLineString *smoothed = qgsgeometry_cast<const QgsLineString *>( geom.constGet() );
+  if ( !smoothed || smoothed->numPoints() < 2 )
+  {
+    return;
+  }
+
+  const int removedCount = static_cast<int>( lastVertex - firstVertex + 1 );
+  mPointList.remove( static_cast<int>( firstVertex ), removedCount );
+  emit verticesRemoved( static_cast<int>( firstVertex ), removedCount );
+
+  for ( int i = 0; i < smoothed->numPoints(); ++i )
+  {
+    mPointList.insert( static_cast<int>( firstVertex ) + i, smoothed->pointN( i ) );
+  }
+  emit verticesInserted( static_cast<int>( firstVertex ), smoothed->numPoints() );
+
+  mCurrentCoordinateIndex = static_cast<int>( firstVertex ) + smoothed->numPoints() - 1;
+
+  emit vertexCountChanged();
+  emit currentCoordinateIndexChanged();
+  emit currentCoordinateChanged();
 }
 
 void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordinateReferenceSystem &crs )

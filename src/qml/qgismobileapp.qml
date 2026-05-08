@@ -524,6 +524,7 @@ ApplicationWindow {
     DragHandler {
       id: freehandHandler
       property bool isDigitizing: false
+      property int freehandStartVertexIndex: -1
       enabled: freehandButton.visible && freehandButton.freehandDigitizing && !digitizingToolbar.cogoEnabled && !digitizingToolbar.rubberbandModel.frozen && ((!featureListForm.visible && digitizingToolbar.digitizingAllowed) || digitizingToolbar.geometryRequested)
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
@@ -531,8 +532,10 @@ ApplicationWindow {
 
       onActiveChanged: {
         if (active) {
+          freehandStartVertexIndex = digitizingToolbar.rubberbandModel.currentCoordinateIndex + 1;
           geometryEditorsToolbar.canvasFreehandBegin();
         } else {
+          digitizingToolbar.rubberbandModel.smoothSegment(freehandStartVertexIndex, digitizingToolbar.rubberbandModel.currentCoordinateIndex, mapCanvas.mapSettings.mapUnitsPerPoint);
           geometryEditorsToolbar.canvasFreehandEnd();
           var screenLocation = centroid.position;
           var screenFraction = settings.value("/QField/Digitizing/FreehandRecenterScreenFraction", 5);

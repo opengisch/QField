@@ -158,6 +158,11 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     Q_INVOKABLE void reset( bool keepLast = true );
 
     /**
+     * Smooths the sub-line formed by the vertices between \a firstVertex and \a lastVertex.
+     */
+    Q_INVOKABLE void smoothSegment( qsizetype firstVertex, qsizetype lastVertex, double simplificationTolerance = 0.0 );
+
+    /**
      * Sets the model data to match a given \a geometry
      * \note rings and multiparts are discarded
      */
