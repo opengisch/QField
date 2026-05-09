@@ -47,6 +47,7 @@ void CameraOrientationNormalizer::recordCaptureOrientation()
 
 bool CameraOrientationNormalizer::normalizeImageOrientation( const QString &path )
 {
+#if defined( Q_OS_IOS ) || defined( Q_OS_WIN )
   if ( path.isEmpty() )
   {
     return false;
@@ -82,6 +83,10 @@ bool CameraOrientationNormalizer::normalizeImageOrientation( const QString &path
   writer.setTransformation( QImageIOHandler::TransformationNone );
   writer.setQuality( 95 );
   return writer.write( image );
+#else
+  Q_UNUSED( path )
+  return false;
+#endif
 }
 
 void CameraOrientationNormalizer::handleScreenOrientationChanged( Qt::ScreenOrientation orientation )
@@ -97,7 +102,7 @@ void CameraOrientationNormalizer::handleScreenOrientationChanged( Qt::ScreenOrie
 
 void CameraOrientationNormalizer::updatePreviewRotation()
 {
-#if defined( Q_OS_IOS )
+#if defined( Q_OS_IOS ) || defined( Q_OS_WIN )
   const QScreen *screen = QGuiApplication::primaryScreen();
   if ( !screen )
   {

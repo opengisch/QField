@@ -17,13 +17,12 @@ email                : kaustuv@opengis.ch
 #ifndef CAMERAORIENTATIONNORMALIZER_H
 #define CAMERAORIENTATIONNORMALIZER_H
 
-#include <QCameraDevice>
 #include <QObject>
 
 /**
- * \brief Compensates for incorrect camera orientation on iOS devices.
+ * \brief Compensates for incorrect camera orientation on iOS and Windows.
  *
- * On iOS, Qt Multimedia's AVFoundation backend produces an inverted
+ * On iOS and Windows, Qt Multimedia's backend produces an inverted
  * camera preview in landscape mode and writes captured photos with
  * incorrect orientation or bogus EXIF tags (QTBUG-118594).
  *
