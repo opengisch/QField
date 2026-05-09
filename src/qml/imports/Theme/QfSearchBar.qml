@@ -10,8 +10,11 @@ Item {
 
   property alias searchTerm: searchField.displayText
   property string placeHolderText: qsTr("Search")
+  property bool enableFilterButton: true
+  property bool filterActive: false
 
   signal returnPressed
+  signal filterClicked
 
   height: childrenRect.height
 
@@ -25,7 +28,7 @@ Item {
 
     QfToolButton {
       id: clearButton
-      anchors.right: parent.right
+      anchors.right: filterButton.visible ? filterButton.left : parent.right
       width: 40
       height: 40
       iconSource: Theme.getThemeVectorIcon('ic_clear_white_24dp')
@@ -35,6 +38,18 @@ Item {
       onClicked: {
         clear();
       }
+    }
+
+    QfToolButton {
+      id: filterButton
+      anchors.right: parent.right
+      width: 40
+      height: 40
+      iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
+      iconColor: searchBar.filterActive ? Theme.mainColor : Theme.mainTextColor
+      bgcolor: "transparent"
+      visible: searchBar.enableFilterButton
+      onClicked: searchBar.filterClicked()
     }
 
     QfToolButton {
@@ -54,7 +69,7 @@ Item {
       id: searchField
       rightPadding: 7
       anchors.left: searchButton.right
-      anchors.right: clearButton.left
+      anchors.right: clearButton.visible ? clearButton.left : (filterButton.visible ? filterButton.left : parent.right)
       anchors.leftMargin: -16
       anchors.rightMargin: 4
       height: 40
