@@ -585,13 +585,13 @@ Page {
                 }
               }
             }
+          }
 
-            QFieldCloudProjectFilter {
-              id: projectFilter
-              anchors.fill: parent
-              visible: false
-              z: 1
-            }
+          QFieldCloudProjectFilter {
+            id: projectFilter
+            anchors.fill: parent
+            visible: false
+            z: 1
           }
         }
 

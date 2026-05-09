@@ -8,16 +8,65 @@ import Theme
 Pane {
   id: filterPanel
 
+  property string activePreset: ""
   readonly property var presets: [
-    {label: qsTr("My Own Projects")},
-    {label: qsTr("Projects shared with me")},
-    {label: qsTr("OPENGIS.ch projects")},
-    {label: qsTr("Showcased projects")}
+    {
+      id: "mine",
+      label: qsTr("My Own Projects"),
+      owner: "@me",
+      includePublic: false
+    },
+    {
+      id: "shared",
+      label: qsTr("Projects shared with me"),
+      owner: "",
+      includePublic: false
+    },
+    {
+      id: "opengisch",
+      label: qsTr("OPENGIS.ch projects"),
+      owner: "opengisch",
+      includePublic: false
+    },
+    {
+      id: "showcased",
+      label: qsTr("Showcased projects"),
+      owner: "",
+      includePublic: true
+    }
   ]
+
+  signal filterApplied
+
+  function clear() {
+    titleField.clear();
+    ownerCombo.editText = "";
+    typeCombo.currentIndex = 0;
+    publicSwitch.checked = false;
+    activePreset = "";
+  }
+
+  onActivePresetChanged: {
+    if (!activePreset) {
+      return;
+    }
+    const p = presets.find(x => x.id === activePreset);
+    if (!p) {
+      return;
+    }
+    ownerCombo.editText = p.owner;
+    publicSwitch.checked = p.includePublic;
+  }
+
+  padding: 0
+  background: Rectangle {
+    color: Theme.mainBackgroundColor
+    opacity: 0.9
+  }
 
   ColumnLayout {
     anchors.fill: parent
-    anchors.margins: 10
+    anchors.margins: 16
     spacing: 14
 
     Label {
@@ -37,12 +86,14 @@ Pane {
       model: filterPanel.presets
 
       delegate: QfButton {
-        id: presetButtons
-        width: implicitWidth + 32
-        radius: 4
-        //color: Theme.mainColor
-        font.pointSize: Theme.tipFont.pointSize
+        readonly property bool isActive: filterPanel.activePreset === modelData.id
+        height: ListView.view.height
         text: modelData.label
+        font.pointSize: Theme.tipFont.pointSize
+        radius: 4
+        bgcolor: isActive ? Theme.mainColor : "transparent"
+        color: isActive ? Theme.mainBackgroundColor : Theme.mainColor
+        onClicked: filterPanel.activePreset = isActive ? "" : modelData.id
       }
     }
 
@@ -59,7 +110,6 @@ Pane {
       font.pointSize: Theme.tipFont.pointSize
       color: Theme.mainTextColor
     }
-
     QfTextField {
       id: titleField
       Layout.fillWidth: true
@@ -71,7 +121,6 @@ Pane {
       font.pointSize: Theme.tipFont.pointSize
       color: Theme.mainTextColor
     }
-
     QfComboBox {
       id: ownerCombo
       Layout.fillWidth: true
@@ -84,14 +133,33 @@ Pane {
       font.pointSize: Theme.tipFont.pointSize
       color: Theme.mainTextColor
     }
-
     QfComboBox {
       id: typeCombo
       Layout.fillWidth: true
+      textRole: "label"
+      valueRole: "value"
+      model: [
+        {
+          value: "",
+          label: qsTr("any")
+        },
+        {
+          value: "project",
+          label: qsTr("project")
+        },
+        {
+          value: "shared_dataset",
+          label: qsTr("shared dataset")
+        },
+        {
+          value: "template",
+          label: qsTr("template")
+        }
+      ]
     }
 
     RowLayout {
-      Layout.alignment: Qt.AlignRight
+      Layout.fillWidth: true
       Layout.topMargin: 8
 
       Label {
@@ -101,7 +169,13 @@ Pane {
         color: Theme.mainTextColor
       }
 
-      Switch { id: publicSwitch }
+      Switch {
+        id: publicSwitch
+      }
+    }
+
+    Item {
+      Layout.fillHeight: true
     }
 
     RowLayout {
@@ -111,11 +185,15 @@ Pane {
 
       QfButton {
         text: qsTr("Reset")
+        bgcolor: Theme.controlBackgroundDisabledColor
+        color: Theme.mainTextColor
         onClicked: filterPanel.clear()
       }
 
       QfButton {
         text: qsTr("Search")
+        bgcolor: Theme.mainColor
+        color: Theme.mainBackgroundColor
         onClicked: filterPanel.applied()
       }
     }
