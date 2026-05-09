@@ -10,7 +10,7 @@ Item {
 
   property alias searchTerm: searchField.displayText
   property string placeHolderText: qsTr("Search")
-  property bool enableFilterButton: true
+  property bool enableFilterButton: false
   property bool filterActive: false
 
   signal returnPressed

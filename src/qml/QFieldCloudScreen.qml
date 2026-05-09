@@ -205,7 +205,13 @@ Page {
           id: searchBar
           Layout.fillWidth: true
           Layout.preferredHeight: 41
+          enableFilterButton: true
+          filterActive: projectFilter.visible
           placeHolderText: qsTr("Search for project")
+
+          onFilterClicked: {
+            projectFilter.visible = !projectFilter.visible;
+          }
         }
 
         Item {
@@ -578,6 +584,13 @@ Page {
                   projectActions.popup(mouse.x, mouse.y);
                 }
               }
+            }
+
+            QFieldCloudProjectFilter {
+              id: projectFilter
+              anchors.fill: parent
+              visible: false
+              z: 1
             }
           }
         }
