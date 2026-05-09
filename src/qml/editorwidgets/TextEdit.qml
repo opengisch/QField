@@ -86,19 +86,8 @@ EditorWidgetBase {
     inputMethodHints: field && field.isNumeric ? Qt.ImhFormattedNumbersOnly : Qt.ImhNone
 
     onTextChanged: {
-      if (text !== '') {
-        if (field.isNumeric) {
-          let value = parseFloat(text);
-          // Only trigger value change for valid numerical values to insure we do not
-          // interfere with 'Autogenerate' value
-          if (!isNaN(value)) {
-            valueChangeRequested(value, false);
-          }
-        } else {
-          valueChangeRequested(text, false);
-        }
-      } else if (!isNull) {
-        valueChangeRequested(text, true);
+      if (enabled) {
+        commitValue(text);
       }
     }
   }
@@ -119,12 +108,11 @@ EditorWidgetBase {
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
 
     onTextChanged: {
-      if (text !== '') {
-        valueChangeRequested(text, false);
-      } else if (!isNull) {
-        valueChangeRequested(text, true);
+      if (enabled) {
+        commitValue(text);
       }
     }
+
     background.visible: enabled || (!isEditable && isEditing)
   }
 
@@ -191,6 +179,23 @@ EditorWidgetBase {
       onTriggered: {
         requestBarcode(topItem);
       }
+    }
+  }
+
+  function commitValue(text) {
+    if (text !== '') {
+      if (field.isNumeric) {
+        let value = parseFloat(text);
+        // Only trigger value change for valid numerical values to insure we do not
+        // interfere with 'Autogenerate' value
+        if (!isNaN(value)) {
+          valueChangeRequested(value, false);
+        }
+      } else {
+        valueChangeRequested(text, false);
+      }
+    } else if (!isNull) {
+      valueChangeRequested(text, true);
     }
   }
 
