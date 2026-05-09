@@ -19,6 +19,7 @@ TestCase {
     width: 800
     height: 600
     property double sceneLeftMargin: 0
+    property double sceneRightMargin: 0
     property double sceneTopMargin: 0
     property double sceneBottomMargin: 0
     property var contentItem: testCase
@@ -43,11 +44,25 @@ TestCase {
     objectName: "dashBoard"
   }
 
+  QFieldControls.FeatureListForm {
+    id: featureListForm
+    objectName: "featureForm"
+
+    model: MultiFeatureListModel {}
+  }
+
   function init() {
     for (let i = pluginsToolbar.children.length - 1; i >= 0; --i) {
       pluginsToolbar.children[i].parent = null;
     }
     dashBoardItem.activeLayer = null;
+
+    // Remove the "data" layer between tests so feature-iteration tests
+    // don't see leftovers from prior runs.
+    const staleData = qgisProject.mapLayersByName("data");
+    for (const layer of staleData) {
+      ProjectUtils.removeMapLayer(qgisProject, layer);
+    }
   }
 
   function makeMemoryLayer(name) {
@@ -59,6 +74,27 @@ TestCase {
     const layer = LayerUtils.createMemoryLayer(name, fields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
     ProjectUtils.addMapLayer(qgisProject, layer);
     return layer;
+  }
+
+  function makeCheckableMemoryLayer(name) {
+    const existing = qgisProject.mapLayersByName(name);
+    if (existing.length > 0) {
+      return existing[0];
+    }
+    const fields = FeatureUtils.createFields([FeatureUtils.createField("id", FeatureUtils.Int), FeatureUtils.createField("name", FeatureUtils.String), FeatureUtils.createField("check", FeatureUtils.Bool)]);
+    const layer = LayerUtils.createMemoryLayer(name, fields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
+    ProjectUtils.addMapLayer(qgisProject, layer);
+    return layer;
+  }
+
+  function addCheckableFeature(layer, idValue, nameValue, checkValue) {
+    layer.startEditing();
+    const feature = FeatureUtils.createBlankFeature(layer.fields);
+    feature.setAttribute(layer.fields.indexOf("id"), idValue);
+    feature.setAttribute(layer.fields.indexOf("name"), nameValue);
+    feature.setAttribute(layer.fields.indexOf("check"), checkValue);
+    LayerUtils.addFeature(layer, feature);
+    layer.commitChanges();
   }
 
   function findToolbarButtonByText(text) {
@@ -282,5 +318,107 @@ TestCase {
     compare(plugin.layersDialog.visible, false);
     plugin.layersButton.clicked();
     tryCompare(plugin.layersDialog, "visible", true);
+  }
+
+  // Feature iteration and list population via plugin toolbar buttons
+
+  Component {
+    id: featureIterationPlugin
+
+    Item {
+      id: plugin
+
+      property var mainWindow: iface.mainWindow()
+      property var featureListForm: iface.findItemByObjectName("featureForm")
+
+      Component.onCompleted: {
+        iface.addItemToPluginsToolbar(iterateButton);
+        iface.addItemToPluginsToolbar(listButton);
+      }
+
+      QfToolButton {
+        id: iterateButton
+        text: "!"
+        iconColor: Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundColor
+        round: true
+        onClicked: {
+          let layer = qgisProject.mapLayersByName("data")[0];
+          layer.startEditing();
+          let it = LayerUtils.createFeatureIteratorFromExpression(layer, "\"check\" = true");
+          if (it.hasNext()) {
+            const feature = it.next();
+            layer.changeAttributeValue(feature.id, layer.fields.indexOf("name"), "modified!");
+          }
+          delete it;
+          layer.commitChanges();
+        }
+      }
+
+      QfToolButton {
+        id: listButton
+        text: "..."
+        iconColor: Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundColor
+        round: true
+        onClicked: {
+          let layer = qgisProject.mapLayersByName("data")[0];
+          featureListForm.model.setFeatures(layer, "");
+        }
+      }
+    }
+  }
+
+  function test_iterationPluginRegistersBothToolbarButtons() {
+    createTemporaryObject(featureIterationPlugin, testCase);
+    compare(pluginsToolbar.children.length, 2);
+    compare(pluginsToolbar.children[0].text, "!");
+    compare(pluginsToolbar.children[1].text, "...");
+  }
+
+  function test_ifaceFindItemByObjectNameResolvesFeatureForm() {
+    const plugin = createTemporaryObject(featureIterationPlugin, testCase);
+    verify(plugin.featureListForm !== null);
+    compare(plugin.featureListForm.objectName, "featureForm");
+  }
+
+  function test_layerUtilsFeatureIteratorFiltersByExpression() {
+    const layer = makeCheckableMemoryLayer("data");
+    addCheckableFeature(layer, 1, "FeatureA", true);
+    addCheckableFeature(layer, 2, "FeatureB", false);
+    addCheckableFeature(layer, 3, "FeatureC", true);
+
+    const it = LayerUtils.createFeatureIteratorFromExpression(layer, "\"check\" = true");
+    const collected = [];
+    while (it.hasNext()) {
+      collected.push(it.next().attribute("name"));
+    }
+    compare(collected.length, 2);
+    verify(collected.indexOf("FeatureA") !== -1);
+    verify(collected.indexOf("FeatureC") !== -1);
+  }
+
+  function test_iterateButtonClickMutatesMatchingFeatureName() {
+    const layer = makeCheckableMemoryLayer("data");
+    addCheckableFeature(layer, 1, "FeatureA", true);
+    addCheckableFeature(layer, 2, "FeatureB", false);
+
+    createTemporaryObject(featureIterationPlugin, testCase);
+    findToolbarButtonByText("!").clicked();
+
+    const it = LayerUtils.createFeatureIteratorFromExpression(layer, "\"id\" = 1");
+    verify(it.hasNext());
+    compare(it.next().attribute("name"), "modified!");
+  }
+
+  function test_listButtonClickPopulatesFeatureFormModel() {
+    const layer = makeCheckableMemoryLayer("data");
+    addCheckableFeature(layer, 1, "FeatureA", true);
+    addCheckableFeature(layer, 2, "FeatureB", false);
+
+    createTemporaryObject(featureIterationPlugin, testCase);
+    findToolbarButtonByText("...").clicked();
+
+    compare(featureListForm.model.count, 2);
   }
 }
