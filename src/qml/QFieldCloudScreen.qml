@@ -603,7 +603,7 @@ Page {
             id: refreshProjectsListBtn
             Layout.fillWidth: true
             text: qsTr("Refresh projects list")
-            enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+            enabled: !projectFilter.visible && cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
             onClicked: {
               refreshProjectsList(true);
             }
@@ -611,7 +611,7 @@ Page {
 
           QfToolButton {
             id: scanProjectBtn
-            enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+            enabled: !projectFilter.visible && cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
             visible: enabled
 
             bgcolor: "transparent"

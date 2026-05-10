@@ -61,7 +61,7 @@ Pane {
   padding: 0
   background: Rectangle {
     color: Theme.mainBackgroundColor
-    opacity: 0.9
+    opacity: 0.95
   }
 
   ColumnLayout {
@@ -171,6 +171,7 @@ Pane {
 
       Switch {
         id: publicSwitch
+        Layout.alignment: Qt.AlignRight
       }
     }
 
