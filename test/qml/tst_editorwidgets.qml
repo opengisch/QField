@@ -46,6 +46,13 @@ TestCase {
     readonly property real default_value: 999
   }
 
+  Connections {
+    target: range
+    function onValueChangeRequested(value, isNull) {
+      range.value = value;
+    }
+  }
+
   EditorWidgets.DateTime {
     id: dateTime
     property var mainWindow: mainWindowItem
@@ -264,6 +271,33 @@ TestCase {
     compare(sliderRow.visible, false);
     compare(valueLabel.text, range.min + ".0000DEFAULT_SUFFIX"); // NOTE: using `range.min` because of `rangeItem.parent.value`
     compare(slider.value, range.min); // NOTE: using `range.min` because of `rangeItem.parent.value`
+  }
+
+  function test_02_range() {
+    range.config = {
+      "Min": 50,
+      "Max": 250,
+      "Step": 1
+    };
+    range.value = 100;
+    isEditing = true;
+    waitForRendering(range);
+
+    const textField = range.children[0].children[1];
+
+    textField.text = "20";
+    textField.commitValue();
+    compare(range.value, 50);
+
+    textField.text = "999";
+    textField.commitValue();
+    compare(range.value, 250);
+
+    textField.text = "150";
+    textField.commitValue();
+    compare(range.value, 150);
+
+    isEditing = false;
   }
 
   /**

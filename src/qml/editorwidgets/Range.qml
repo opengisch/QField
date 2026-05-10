@@ -64,6 +64,34 @@ EditorWidgetBase {
       background.visible: isEnabled || (!isEditable && isEditing)
 
       onTextEdited: {
+        if (text === "") {
+          if (!isNull) {
+            valueChangeRequested(text, true);
+          }
+        } else {
+          const parsedValue = parseFloat(text);
+          if (!isNaN(parsedValue)) {
+            if (Number.isFinite(rangeItem.max) && parsedValue > rangeItem.max) {
+              valueChangeRequested(rangeItem.max, false);
+              text = Qt.binding(function () {
+                return isNull ? '' : value;
+              });
+            } else {
+              valueChangeRequested(parsedValue, false);
+            }
+          }
+        }
+      }
+
+      onActiveFocusChanged: {
+        if (!activeFocus) {
+          commitValue();
+        }
+      }
+
+      onEditingFinished: commitValue()
+
+      function commitValue() {
         if (text !== "") {
           const parsedValue = parseFloat(text);
           if (!isNaN(parsedValue)) {
@@ -73,18 +101,13 @@ EditorWidgetBase {
             } else if (Number.isFinite(rangeItem.max) && parsedValue > rangeItem.max) {
               clampedValue = rangeItem.max;
             }
-
             if (clampedValue !== value) {
               valueChangeRequested(clampedValue, false);
             }
-            if (parsedValue !== value) {
-              text = Qt.binding(function () {
-                return isNull ? '' : value;
-              });
-            }
+            text = Qt.binding(function () {
+              return isNull ? '' : value;
+            });
           }
-        } else if (!isNull) {
-          valueChangeRequested(text, true);
         }
       }
     }
