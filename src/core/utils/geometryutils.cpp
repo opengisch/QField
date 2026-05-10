@@ -456,3 +456,13 @@ QgsRectangle GeometryUtils::createRectangleFromPoints( const QgsPoint &p1, const
 {
   return QgsRectangle( p1, p2 );
 }
+
+bool GeometryUtils::geometryWithin( const QgsGeometry &geometry, const QgsGeometry &referenceGeometry )
+{
+  return geometry.within( referenceGeometry );
+}
+
+bool GeometryUtils::geometryOverlaps( const QgsGeometry &geometry, const QgsGeometry &referenceGeometry )
+{
+  return geometry.overlaps( referenceGeometry );
+}
