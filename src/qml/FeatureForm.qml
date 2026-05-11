@@ -1094,7 +1094,7 @@ Page {
       QfToolButton {
         id: featureFormMenuButton
 
-        property bool isVisible: !setupOnly && form.model.hasRemembrance
+        property bool isVisible: !setupOnly && form.model.hasRemembrance && form.state === 'Add'
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
