@@ -12,11 +12,32 @@ Item {
   property string placeHolderText: qsTr("Search")
   property bool enableFilterButton: false
   property bool filterActive: false
+  property var parameterKeys: ["owner", "type"]
 
   signal returnPressed
   signal filterClicked
 
   height: childrenRect.height
+
+  function highlightedText(raw) {
+    if (!raw) {
+      return "";
+    }
+    let html = "";
+    const parts = raw.split(/(\s+)/);
+    for (const part of parts) {
+      const colonIdx = part.indexOf(":");
+      if (colonIdx > 0 && parameterKeys.indexOf(part.slice(0, colonIdx)) !== -1) {
+        const key = part.slice(0, colonIdx + 1);
+        const val = part.slice(colonIdx + 1);
+        html += '<span style="color:' + Theme.mainColor + '">' + key + '</span>' + val;
+      } else {
+        html += part;
+      }
+    }
+
+    return html;
+  }
 
   Rectangle {
     width: parent.width
@@ -84,6 +105,20 @@ Item {
           searchBar.returnPressed();
         }
       }
+    }
+
+    Text {
+      id: highlightOverlay
+      anchors.fill: searchField
+      anchors.leftMargin: searchField.leftPadding
+      anchors.rightMargin: searchField.rightPadding
+      verticalAlignment: Text.AlignVCenter
+      visible: !searchField.activeFocus && searchField.text !== ""
+      textFormat: Text.RichText
+      font: searchField.font
+      color: Theme.mainTextColor
+      elide: Text.ElideRight
+      text: searchBar.highlightedText(searchField.text)
     }
   }
 

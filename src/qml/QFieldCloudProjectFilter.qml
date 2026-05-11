@@ -36,6 +36,23 @@ Pane {
     }
   ]
 
+  readonly property string queryString: {
+    const parts = [];
+    if (titleField.text.trim()) {
+      parts.push(titleField.text.trim());
+    }
+    if (ownerCombo.editText.trim()) {
+      parts.push("owner:" + ownerCombo.editText.trim());
+    }
+    if (typeCombo.currentValue) {
+      parts.push("type:" + typeCombo.currentValue);
+    }
+    if (publicSwitch.checked) {
+      parts.push("public");
+    }
+    return parts.join(" ");
+  }
+
   signal filterApplied
 
   function clear() {

@@ -592,6 +592,9 @@ Page {
             anchors.fill: parent
             visible: false
             z: 1
+
+            onQueryStringChanged: searchBar.setSearchTerm(queryString)
+            onFilterApplied: visibile = false
           }
         }
 
