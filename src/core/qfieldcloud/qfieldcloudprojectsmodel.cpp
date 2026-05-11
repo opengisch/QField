@@ -255,6 +255,32 @@ void QFieldCloudProjectsModel::appendProject( const QString &projectId )
   connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectReceived );
 }
 
+void QFieldCloudProjectsModel::appendOwnerProjects( const QString &owner, int projectFetchOffset )
+{
+  if ( !mCloudConnection )
+  {
+    return;
+  }
+
+  const QString url = QStringLiteral( "/api/v1/projects/" );
+
+  QVariantMap params;
+  params["owner"] = owner;
+  params["include_public"] = 1;
+  params["limit"] = QString::number( mProjectsPerFetch );
+  params["offset"] = QString::number( projectFetchOffset );
+
+  QNetworkRequest request( url );
+  request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsOwner ), owner );
+  request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ), projectFetchOffset );
+  mCloudConnection->setAuthenticationDetails( request );
+
+  const NetworkReply *reply = mCloudConnection->get( request, url, params );
+  connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectListReceived );
+}
+
 void QFieldCloudProjectsModel::removeLocalProject( const QString &projectId )
 {
   QDir dir( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, projectId ) );
@@ -476,6 +502,8 @@ void QFieldCloudProjectsModel::projectListReceived()
   const bool resetModel = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ResetModel ) ).toBool();
   const bool fetchPublic = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FetchPublicProjects ) ).toBool();
   const int projectFetchOffset = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ) ).toInt();
+  const QString projectsOwner = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsOwner ) ).toString();
+
   if ( resetModel && projectFetchOffset == 0 )
   {
     beginResetModel();
@@ -491,13 +519,23 @@ void QFieldCloudProjectsModel::projectListReceived()
   QJsonDocument doc = QJsonDocument::fromJson( response );
   QJsonArray projects = doc.array();
 
-  loadProjects( projects, projectFetchOffset > 0 );
+  const bool skipLocalProjects = projectFetchOffset > 0 || projectsOwner.isEmpty();
+  loadProjects( projects, skipLocalProjects );
 
   if ( rawReply->hasRawHeader( QStringLiteral( "X-Next-Page" ) ) )
   {
-    refreshProjectsList( resetModel, fetchPublic, projectFetchOffset + mProjectsPerFetch );
+    if ( projectsOwner.isEmpty() )
+    {
+      refreshProjectsList( resetModel, fetchPublic, projectFetchOffset + mProjectsPerFetch );
+    }
+    else
+    {
+      appendOwnerProjects( projectsOwner, projectFetchOffset + mProjectsPerFetch );
+    }
+    return;
   }
-  else
+
+  if ( projectsOwner.isEmpty() )
   {
     // All projects fetched, refresh current project details if found
     if ( !mCurrentProjectId.isEmpty() )

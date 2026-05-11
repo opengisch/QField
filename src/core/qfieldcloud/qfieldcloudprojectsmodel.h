@@ -99,6 +99,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ProjectsFetchOffset = QNetworkRequest::User + 2,
       ResetModel = QNetworkRequest::User + 3,
       ProjectId = QNetworkRequest::User + 4,
+      ProjectsOwner = QNetworkRequest::User + 5,
     };
 
     Q_ENUM( ColumnRole )
@@ -187,6 +188,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Fetches a cloud project for a given \a projectId and appends it to the model.
     Q_INVOKABLE void appendProject( const QString &projectId );
+
+    //! Fetches all cloud projects tied to a given \a owner.
+    Q_INVOKABLE void appendOwnerProjects( const QString &owner, int projectFetchOffset = 0 );
 
     /**
      * Transform a locally-stored project into a cloud project by uploading its content to the
