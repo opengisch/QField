@@ -490,19 +490,26 @@ void QFieldCloudProjectsModel::projectListReceived()
 
   Q_ASSERT( rawReply );
 
+  const QString projectsOwner = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsOwner ) ).toString();
+
   if ( rawReply->error() != QNetworkReply::NoError )
   {
-    mIsRefreshing = false;
-    emit isRefreshingChanged();
+    if ( projectsOwner.isEmpty() )
+    {
+      mIsRefreshing = false;
+      emit isRefreshingChanged();
+    }
+    else
+    {
+      emit ownerProjectsAppended( projectsOwner, true, QFieldCloudConnection::errorString( rawReply ) );
+    }
 
     emit warning( QFieldCloudConnection::errorString( rawReply ) );
     return;
   }
 
   const bool resetModel = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ResetModel ) ).toBool();
-  const bool fetchPublic = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FetchPublicProjects ) ).toBool();
   const int projectFetchOffset = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ) ).toInt();
-  const QString projectsOwner = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsOwner ) ).toString();
 
   if ( resetModel && projectFetchOffset == 0 )
   {
@@ -526,6 +533,7 @@ void QFieldCloudProjectsModel::projectListReceived()
   {
     if ( projectsOwner.isEmpty() )
     {
+      const bool fetchPublic = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FetchPublicProjects ) ).toBool();
       refreshProjectsList( resetModel, fetchPublic, projectFetchOffset + mProjectsPerFetch );
     }
     else
@@ -546,6 +554,10 @@ void QFieldCloudProjectsModel::projectListReceived()
 
     mIsRefreshing = false;
     emit isRefreshingChanged();
+  }
+  else
+  {
+    emit ownerProjectsAppended( projectsOwner );
   }
 }
 
