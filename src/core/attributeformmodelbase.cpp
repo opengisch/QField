@@ -361,7 +361,11 @@ void AttributeFormModelBase::activateAllRememberValues()
   QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
   for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
-    setData( fieldIterator.key()->index(), true, AttributeFormModel::RememberValue );
+    QStandardItem *item = fieldIterator.key();
+    if ( data( item->index(), AttributeFormModel::CanRememberValue ).toBool() )
+    {
+      setData( item->index(), true, AttributeFormModel::RememberValue );
+    }
   }
 }
 
@@ -370,7 +374,11 @@ void AttributeFormModelBase::deactivateAllRememberValues()
   QMap<QStandardItem *, int>::ConstIterator fieldIterator( mFields.constBegin() );
   for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
-    setData( fieldIterator.key()->index(), false, AttributeFormModel::RememberValue );
+    QStandardItem *item = fieldIterator.key();
+    if ( data( item->index(), AttributeFormModel::CanRememberValue ).toBool() )
+    {
+      setData( item->index(), false, AttributeFormModel::RememberValue );
+    }
   }
 }
 
