@@ -312,7 +312,7 @@ Pane {
         right: parent ? parent.right : undefined
       }
       height: Math.max(48, featureText.height)
-      color: "transparent"
+      color: conditionalBackgroundColor !== undefined ? conditionalBackgroundColor : "transparent"
 
       Ripple {
         clip: true
@@ -345,7 +345,7 @@ Pane {
         }
         font.bold: true
         font.pointSize: Theme.resultFont.pointSize
-        color: Theme.mainTextColor
+        color: conditionalTextColor !== undefined ? conditionalTextColor : Theme.mainTextColor
         text: display
         wrapMode: Text.WordWrap
       }

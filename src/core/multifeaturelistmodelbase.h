@@ -22,6 +22,7 @@
 
 #include <QAbstractItemModel>
 #include <qgis.h>
+#include <qgsconditionalstyle.h>
 #include <qgsfeaturerequest.h>
 
 /**
@@ -143,6 +144,8 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     void geometryChanged( QgsFeatureId fid, const QgsGeometry &geometry );
 
   private:
+    void updateConditionalStylingDetails( QgsVectorLayer *vectorLayer, const QgsFeature &feature, QgsExpressionContext &expressionContext );
+
     inline QPair<QgsMapLayer *, QgsFeature> *toFeature( const QModelIndex &index ) const
     {
       return static_cast<QPair<QgsMapLayer *, QgsFeature> *>( index.internalPointer() );
@@ -150,6 +153,8 @@ class MultiFeatureListModelBase : public QAbstractItemModel
 
     QList<QPair<QgsMapLayer *, QgsFeature>> mFeatures;
     QList<QPair<QgsMapLayer *, QgsFeature>> mSelectedFeatures;
+
+    QMap<QString, QgsConditionalStyle> mFeaturesConditionalStyle;
 
     QMap<QString, QgsVectorLayer *> mRepresentationalLayers;
 };
