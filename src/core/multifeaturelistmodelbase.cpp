@@ -275,6 +275,9 @@ QHash<int, QByteArray> MultiFeatureListModelBase::roleNames() const
   roleNames[MultiFeatureListModel::EditGeometryRole] = "editGeometryCapability";
   roleNames[MultiFeatureListModel::ConditionalTextColorRole] = "conditionalTextColor";
   roleNames[MultiFeatureListModel::ConditionalBackgroundColorRole] = "conditionalBackgroundColor";
+  roleNames[MultiFeatureListModel::ConditionalFontUnderlineRole] = "conditionalFontUnderline";
+  roleNames[MultiFeatureListModel::ConditionalFontStrikeOutRole] = "conditionalFontStrikeOut";
+  roleNames[MultiFeatureListModel::ConditionalFontItalicRole] = "conditionalFontItalic";
 
   return roleNames;
 }
@@ -400,6 +403,45 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       }
 
       return QVariant();
+      break;
+
+    case MultiFeatureListModel::ConditionalFontItalicRole:
+      if ( vlayer )
+      {
+        const QString featureUniqueKey = QStringLiteral( "%1:%2" ).arg( vlayer->id(), QString::number( feature->second.id() ) );
+        if ( mFeaturesConditionalStyle.contains( featureUniqueKey ) )
+        {
+          return mFeaturesConditionalStyle[featureUniqueKey].font().italic();
+        }
+      }
+
+      return false;
+      break;
+
+    case MultiFeatureListModel::ConditionalFontUnderlineRole:
+      if ( vlayer )
+      {
+        const QString featureUniqueKey = QStringLiteral( "%1:%2" ).arg( vlayer->id(), QString::number( feature->second.id() ) );
+        if ( mFeaturesConditionalStyle.contains( featureUniqueKey ) )
+        {
+          return mFeaturesConditionalStyle[featureUniqueKey].font().underline();
+        }
+      }
+
+      return false;
+      break;
+
+    case MultiFeatureListModel::ConditionalFontStrikeOutRole:
+      if ( vlayer )
+      {
+        const QString featureUniqueKey = QStringLiteral( "%1:%2" ).arg( vlayer->id(), QString::number( feature->second.id() ) );
+        if ( mFeaturesConditionalStyle.contains( featureUniqueKey ) )
+        {
+          return mFeaturesConditionalStyle[featureUniqueKey].font().strikeOut();
+        }
+      }
+
+      return false;
       break;
   }
 
@@ -994,10 +1036,22 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
     {
       pair.second.setAttribute( idx, value );
 
-      updateConditionalStylingDetails( l, pair.second, expressionContext );
+      QList<int> rolesChanged = QVector<int>() << MultiFeatureListModel::FeatureRole
+                                               << MultiFeatureListModel::FeatureNameRole
+                                               << MultiFeatureListModel::DeleteFeatureRole
+                                               << MultiFeatureListModel::EditGeometryRole;
+
+      if ( updateConditionalStylingDetails( l, pair.second, expressionContext ) )
+      {
+        rolesChanged << MultiFeatureListModel::ConditionalBackgroundColorRole
+                     << MultiFeatureListModel::ConditionalTextColorRole
+                     << MultiFeatureListModel::ConditionalFontItalicRole
+                     << MultiFeatureListModel::ConditionalFontUnderlineRole
+                     << MultiFeatureListModel::ConditionalFontStrikeOutRole;
+      }
 
       QModelIndex indexChanged = createIndex( i, 0 );
-      emit dataChanged( indexChanged, indexChanged );
+      emit dataChanged( indexChanged, indexChanged, rolesChanged );
 
       break;
     }
@@ -1029,11 +1083,23 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
     if ( pair.first == l && pair.second.id() == fid )
     {
       pair.second.setGeometry( geometry );
+      QList<int> rolesChanged = QVector<int>() << MultiFeatureListModel::FeatureRole
+                                               << MultiFeatureListModel::FeatureNameRole
+                                               << MultiFeatureListModel::GeometryRole
+                                               << MultiFeatureListModel::DeleteFeatureRole
+                                               << MultiFeatureListModel::EditGeometryRole;
 
-      updateConditionalStylingDetails( l, pair.second, expressionContext );
+      if ( updateConditionalStylingDetails( l, pair.second, expressionContext ) )
+      {
+        rolesChanged << MultiFeatureListModel::ConditionalBackgroundColorRole
+                     << MultiFeatureListModel::ConditionalTextColorRole
+                     << MultiFeatureListModel::ConditionalFontItalicRole
+                     << MultiFeatureListModel::ConditionalFontUnderlineRole
+                     << MultiFeatureListModel::ConditionalFontStrikeOutRole;
+      }
 
       QModelIndex indexChanged = createIndex( i, 0 );
-      emit dataChanged( indexChanged, indexChanged, QVector<int>() << MultiFeatureListModel::GeometryRole << MultiFeatureListModel::FeatureSelectedRole << MultiFeatureListModel::ConditionalBackgroundColorRole << MultiFeatureListModel::ConditionalTextColorRole << MultiFeatureListModel::FeatureNameRole );
+      emit dataChanged( indexChanged, indexChanged, rolesChanged );
 
       break;
     }
@@ -1053,7 +1119,7 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
   }
 }
 
-void MultiFeatureListModelBase::updateConditionalStylingDetails( QgsVectorLayer *vectorLayer, const QgsFeature &feature, QgsExpressionContext &expressionContext )
+bool MultiFeatureListModelBase::updateConditionalStylingDetails( QgsVectorLayer *vectorLayer, const QgsFeature &feature, QgsExpressionContext &expressionContext )
 {
   if ( !vectorLayer->conditionalStyles()->rowStyles().isEmpty() )
   {
@@ -1070,5 +1136,9 @@ void MultiFeatureListModelBase::updateConditionalStylingDetails( QgsVectorLayer 
     {
       mFeaturesConditionalStyle.remove( featureUniqueKey );
     }
+
+    return true;
   }
+
+  return false;
 }

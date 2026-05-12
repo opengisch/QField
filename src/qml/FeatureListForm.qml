@@ -345,6 +345,9 @@ Pane {
         }
         font.bold: true
         font.pointSize: Theme.resultFont.pointSize
+        font.italic: conditionalFontItalic
+        font.underline: conditionalFontUnderline
+        font.strikeout: conditionalFontStrikeOut
         color: conditionalTextColor !== undefined ? conditionalTextColor : Theme.mainTextColor
         text: display
         wrapMode: Text.WordWrap
