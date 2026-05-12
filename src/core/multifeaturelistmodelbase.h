@@ -144,7 +144,7 @@ class MultiFeatureListModelBase : public QAbstractItemModel
     void geometryChanged( QgsFeatureId fid, const QgsGeometry &geometry );
 
   private:
-    void updateConditionalStylingDetails( QgsVectorLayer *vectorLayer, const QgsFeature &feature, QgsExpressionContext &expressionContext );
+    bool updateConditionalStylingDetails( QgsVectorLayer *vectorLayer, const QgsFeature &feature, QgsExpressionContext &expressionContext );
 
     inline QPair<QgsMapLayer *, QgsFeature> *toFeature( const QModelIndex &index ) const
     {
