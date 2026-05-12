@@ -56,7 +56,9 @@ class MultiFeatureListModel : public QSortFilterProxyModel
       GeometryRole,
       CrsRole,
       DeleteFeatureRole,
-      EditGeometryRole
+      EditGeometryRole,
+      ConditionalTextColorRole,
+      ConditionalBackgroundColorRole,
     };
 
     explicit MultiFeatureListModel( QObject *parent = nullptr );
