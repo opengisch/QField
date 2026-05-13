@@ -146,10 +146,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     /**
      * Requests the cloud projects list from the server.
      * \param shouldResetModel set to TRUE to reset the model
-     * \param shouldFetchPublic set to TRUE to refresh public projects
      * \param projectFetchOffset offset for pagination
      */
-    Q_INVOKABLE void refreshProjectsList( bool shouldResetModel = true, bool shouldFetchPublic = false, int projectFetchOffset = 0 );
+    Q_INVOKABLE void refreshProjectsList( bool shouldResetModel = true, int projectFetchOffset = 0 );
 
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
     Q_INVOKABLE void projectPush( const QString &projectId, const bool shouldDownloadUpdates );
