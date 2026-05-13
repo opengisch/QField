@@ -262,6 +262,14 @@ void QFieldCloudProjectsModel::appendProjects( const QString &owner, const QStri
     return;
   }
 
+  const QString trimmedOwner = owner.trimmed();
+  const QString trimmedSearch = search.trimmed();
+  if ( trimmedOwner.isEmpty() && trimmedSearch.isEmpty() )
+  {
+    emit projectsAppended( owner, search );
+    return;
+  }
+
   const QString url = QStringLiteral( "/api/v1/projects/" );
 
   QVariantMap params;
