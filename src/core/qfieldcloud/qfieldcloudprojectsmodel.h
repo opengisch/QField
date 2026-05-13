@@ -99,7 +99,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ProjectsFetchOffset = QNetworkRequest::User + 2,
       ResetModel = QNetworkRequest::User + 3,
       ProjectId = QNetworkRequest::User + 4,
-      ProjectsOwner = QNetworkRequest::User + 5,
+      ProjectOwnerName = QNetworkRequest::User + 5,
+      ProjectSearchTerm = QNetworkRequest::User + 6,
     };
 
     Q_ENUM( ColumnRole )
@@ -189,8 +190,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Fetches a cloud project for a given \a projectId and appends it to the model.
     Q_INVOKABLE void appendProject( const QString &projectId );
 
-    //! Fetches all cloud projects tied to a given \a owner.
-    Q_INVOKABLE void appendOwnerProjects( const QString &owner, int projectFetchOffset = 0 );
+    //! Fetches all cloud projects tied to a given \a search term and/or \a owner name.
+    Q_INVOKABLE void appendProjects( const QString &owner, const QString &search, int projectFetchOffset = 0 );
 
     /**
      * Transform a locally-stored project into a cloud project by uploading its content to the
@@ -214,7 +215,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     void projectCreated( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
     void projectAppended( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
-    void ownerProjectsAppended( const QString &owner, const bool hasError = false, const QString &errorString = QString() );
+    void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
     void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError = false, const QString &errorString = QString() );
     void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError = false, const QString &errorString = QString() );
 
