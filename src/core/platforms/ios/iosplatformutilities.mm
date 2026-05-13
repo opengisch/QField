@@ -26,6 +26,7 @@
 #include <MobileCoreServices/MobileCoreServices.h>
 #include <UIKit/UIDocumentInteractionController.h>
 #include <UIKit/UIKit.h>
+#include <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
 #include <QGuiApplication>
 #include <QStandardPaths>
@@ -241,4 +242,19 @@ void IosPlatformUtilities::requestMicrophonePermission(
                                func(granted ? Qt::PermissionStatus::Granted
                                             : Qt::PermissionStatus::Denied);
                            }];
+}
+
+void IosPlatformUtilities::importProjectFolder() const {
+  qDebug() << "1";
+  UIViewController *root = [[[[UIApplication sharedApplication] windows]
+      firstObject] rootViewController];
+
+  qDebug() << "2";
+  UIDocumentPickerViewController *picker =
+      [[UIDocumentPickerViewController alloc]
+          initForOpeningContentTypes:@[ UTTypeFolder ]];
+  picker.allowsMultipleSelection = NO;
+
+  qDebug() << "3";
+  [root presentViewController:picker animated:YES completion:nil];
 }
