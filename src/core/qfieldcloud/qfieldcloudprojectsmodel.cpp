@@ -26,6 +26,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QRegularExpression>
 #include <QSettings>
 #include <QTemporaryFile>
 #include <qgis.h>
@@ -1264,16 +1265,27 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
     return false;
   }
 
-  if ( mTextFilter.isEmpty() )
-  {
-    return true;
-  }
-
   const QString name = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::NameRole ).toString();
   const QString description = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::DescriptionRole ).toString();
   const QString owner = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
 
-  return name.contains( mTextFilter, Qt::CaseInsensitive ) || description.contains( mTextFilter, Qt::CaseInsensitive ) || owner.contains( mTextFilter, Qt::CaseInsensitive );
+  bool matchesSearchTerm = true;
+  if ( !mSearchTermFilter.isEmpty() )
+  {
+    const QStringList words = mSearchTermFilter.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
+    for ( const QString &word : words )
+    {
+      if ( !name.contains( word, Qt::CaseInsensitive ) && !description.contains( word, Qt::CaseInsensitive ) )
+      {
+        matchesSearchTerm = false;
+        break;
+      }
+    }
+  }
+
+  const bool matchesOwner = mOwnerFilter.isEmpty() || owner.compare( mOwnerFilter, Qt::CaseInsensitive ) == 0;
+
+  return matchesSearchTerm && matchesOwner;
 }
 
 void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
@@ -1285,6 +1297,58 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
 
   beginFilterChange();
   mTextFilter = text;
+
+  QString searchTerm;
+  QString owner;
+  bool includePublic = mIncludePublic;
+
+  const QStringList tokens = text.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
+  for ( const QString &token : tokens )
+  {
+    if ( token.startsWith( QStringLiteral( "owner:" ), Qt::CaseInsensitive ) )
+    {
+      owner = token.mid( 6 ).trimmed();
+    }
+    else if ( token.compare( QStringLiteral( "public" ), Qt::CaseInsensitive ) == 0 )
+    {
+      includePublic = true;
+    }
+    else
+    {
+      if ( !searchTerm.isEmpty() )
+      {
+        searchTerm += QLatin1Char( ' ' );
+      }
+      searchTerm += token;
+    }
+  }
+
+  mSearchTermFilter = searchTerm;
+  mOwnerFilter = owner;
+
+  if ( mIncludePublic != includePublic )
+  {
+    mIncludePublic = includePublic;
+    emit includePublicChanged();
+  }
+
+  const bool hasSearchInput = !mOwnerFilter.isEmpty() || !mSearchTermFilter.isEmpty();
+  if ( hasSearchInput && mSourceModel )
+  {
+    mIsSearching = true;
+    emit isSearchingChanged();
+
+    QMetaObject::Connection *conn = new QMetaObject::Connection;
+    *conn = connect( mSourceModel, &QFieldCloudProjectsModel::projectsAppended, this, [this, conn]( const QString &, const QString &, bool, const QString & ) {
+      mIsSearching = false;
+      emit isSearchingChanged();
+      QObject::disconnect( *conn );
+      delete conn;
+    } );
+
+    mSourceModel->appendProjects( mOwnerFilter, mSearchTermFilter );
+  }
+
   endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
   emit textFilterChanged();
@@ -1331,4 +1395,28 @@ void QFieldCloudProjectsFilterModel::setShowFeaturedOnTop( bool showFeaturedOnTo
 bool QFieldCloudProjectsFilterModel::showFeaturedOnTop() const
 {
   return mShowFeaturedOnTop;
+}
+
+bool QFieldCloudProjectsFilterModel::includePublic() const
+{
+  return mIncludePublic;
+}
+
+void QFieldCloudProjectsFilterModel::setIncludePublic( bool includePublic )
+{
+  if ( mIncludePublic == includePublic )
+  {
+    return;
+  }
+
+  beginFilterChange();
+  mIncludePublic = includePublic;
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
+
+  emit includePublicChanged();
+}
+
+bool QFieldCloudProjectsFilterModel::isSearching() const
+{
+  return mIsSearching;
 }

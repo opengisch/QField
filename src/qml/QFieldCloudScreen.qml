@@ -593,8 +593,13 @@ Page {
             visible: false
             z: 1
 
-            onQueryStringChanged: searchBar.setSearchTerm(queryString)
-            onFilterApplied: visibile = false
+            currentUsername: cloudConnection.username
+
+            onFilterApplied: {
+              table.model.includePublic = includePublic;
+              searchBar.setSearchTerm(queryString);
+              visible = false;
+            }
           }
         }
 

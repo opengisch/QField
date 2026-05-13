@@ -271,6 +271,8 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_PROPERTY( bool showLocalOnly READ showLocalOnly WRITE setShowLocalOnly NOTIFY showLocalOnlyChanged )
     Q_PROPERTY( bool showInValidProjects READ showInValidProjects WRITE setShowInValidProjects NOTIFY showInValidProjectsChanged )
     Q_PROPERTY( bool showFeaturedOnTop READ showFeaturedOnTop WRITE setShowFeaturedOnTop NOTIFY showFeaturedOnTopChanged )
+    Q_PROPERTY( bool includePublic READ includePublic WRITE setIncludePublic NOTIFY includePublicChanged )
+    Q_PROPERTY( bool isSearching READ isSearching NOTIFY isSearchingChanged )
 
   public:
     explicit QFieldCloudProjectsFilterModel( QObject *parent = nullptr );
@@ -332,6 +334,21 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
      */
     bool showFeaturedOnTop() const;
 
+    /**
+     * Returns TRUE if public projects are currently included in the filtered list of cloud projects.
+     */
+    bool includePublic() const;
+
+    /**
+     * Sets whether to include public projects in the filtered list of cloud projects.
+     */
+    void setIncludePublic( bool includePublic );
+
+    /**
+     * Returns TRUE while an asynchronous fetch triggered by an owner filter is in flight.
+     */
+    bool isSearching() const;
+
   signals:
 
     void projectsModelChanged();
@@ -340,6 +357,8 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     void textFilterChanged();
     void showInValidProjectsChanged();
     void showFeaturedOnTopChanged();
+    void includePublicChanged();
+    void isSearchingChanged();
 
   protected:
     bool lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const override;
@@ -351,7 +370,10 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     bool mShowInValidProjects = false;
     bool mShowFeaturedOnTop = false;
     QString mTextFilter;
+    QString mSearchTermFilter;
+    QString mOwnerFilter;
     bool mIncludePublic = false;
+    bool mIsSearching = false;
 };
 
 #endif // QFIELDCLOUDPROJECTSMODEL_H

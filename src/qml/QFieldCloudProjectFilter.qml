@@ -8,12 +8,14 @@ import Theme
 Pane {
   id: filterPanel
 
+  property string currentUsername: ""
+
   property string activePreset: ""
   readonly property var presets: [
     {
       id: "mine",
       label: qsTr("My Own Projects"),
-      owner: "@me",
+      owner: filterPanel.currentUsername,
       includePublic: false
     },
     {
@@ -21,33 +23,25 @@ Pane {
       label: qsTr("Projects shared with me"),
       owner: "",
       includePublic: false
-    },
-    {
-      id: "opengisch",
-      label: qsTr("OPENGIS.ch projects"),
-      owner: "opengisch",
-      includePublic: false
-    },
-    {
-      id: "showcased",
-      label: qsTr("Showcased projects"),
-      owner: "",
-      includePublic: true
     }
   ]
 
+  readonly property string ownerTerm: ownerCombo.editText.trim()
+  readonly property string searchTerm: searchTermField.text.trim()
+  readonly property bool includePublic: publicSwitch.checked
+
   readonly property string queryString: {
     const parts = [];
-    if (titleField.text.trim()) {
-      parts.push(titleField.text.trim());
+    if (searchTerm) {
+      parts.push(searchTerm);
     }
-    if (ownerCombo.editText.trim()) {
-      parts.push("owner:" + ownerCombo.editText.trim());
+    if (ownerTerm) {
+      parts.push("owner:" + ownerTerm);
     }
     if (typeCombo.currentValue) {
       parts.push("type:" + typeCombo.currentValue);
     }
-    if (publicSwitch.checked) {
+    if (includePublic) {
       parts.push("public");
     }
     return parts.join(" ");
@@ -56,7 +50,7 @@ Pane {
   signal filterApplied
 
   function clear() {
-    titleField.clear();
+    searchTermField.clear();
     ownerCombo.editText = "";
     typeCombo.currentIndex = 0;
     publicSwitch.checked = false;
@@ -123,13 +117,14 @@ Pane {
 
     Label {
       Layout.fillWidth: true
-      text: qsTr("Title")
+      text: qsTr("Search term")
       font.pointSize: Theme.tipFont.pointSize
       color: Theme.mainTextColor
     }
     QfTextField {
-      id: titleField
+      id: searchTermField
       Layout.fillWidth: true
+      placeholderText: qsTr("Title, description or related keywords...")
     }
 
     Label {
@@ -212,7 +207,7 @@ Pane {
         text: qsTr("Search")
         bgcolor: Theme.mainColor
         color: Theme.mainBackgroundColor
-        onClicked: filterPanel.applied()
+        onClicked: filterPanel.filterApplied()
       }
     }
   }
