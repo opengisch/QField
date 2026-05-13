@@ -2164,11 +2164,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
+        <translation>当前打开工程已加载了一个工程插件</translation>
     </message>
     <message>
         <source>Deny permission</source>
-        <translation type="unfinished"/>
+        <translation>拒绝权限</translation>
     </message>
 </context>
 <context>
@@ -7013,11 +7013,11 @@ to show actions</source>
     </message>
     <message>
         <source>Plugin Manager</source>
-        <translation type="unfinished"/>
+        <translation>插件管理器</translation>
     </message>
     <message>
         <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
+        <translation>工程插件已加载</translation>
     </message>
 </context>
 <context>

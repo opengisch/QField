@@ -2167,11 +2167,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
+        <translation>Le projet actuellement ouvert a chargé un plugin projet </translation>
     </message>
     <message>
         <source>Deny permission</source>
-        <translation type="unfinished"/>
+        <translation>Refuser la permission</translation>
     </message>
 </context>
 <context>
@@ -7014,11 +7014,11 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Plugin Manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestionnaire de plugins</translation>
     </message>
     <message>
         <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
+        <translation>Plugin projet chargé</translation>
     </message>
 </context>
 <context>

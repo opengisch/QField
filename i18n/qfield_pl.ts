@@ -2170,11 +2170,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
+        <translation>Aktualnie otwarta strona projektu załadowała wtyczkę projektu </translation>
     </message>
     <message>
         <source>Deny permission</source>
-        <translation type="unfinished"/>
+        <translation>Odmów uprawnień</translation>
     </message>
 </context>
 <context>
@@ -7018,11 +7018,11 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Plugin Manager</source>
-        <translation type="unfinished"/>
+        <translation>Menedżer wtyczek</translation>
     </message>
     <message>
         <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
+        <translation>Wtyczka projektu załadowana</translation>
     </message>
 </context>
 <context>
