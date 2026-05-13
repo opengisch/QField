@@ -322,6 +322,26 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
     if (AppInterface::instance()) {
       emit AppInterface::instance()->openPath(destDir);
     }
+  } else if ([_mode isEqualToString:@"datasets"]) {
+    [fileManager createDirectoryAtPath:_importPath
+           withIntermediateDirectories:YES
+                            attributes:nil
+                                 error:nil];
+    [url stopAccessingSecurityScopedResource];
+
+    for (NSURL *fileUrl in urls) {
+      [fileUrl startAccessingSecurityScopedResource];
+      NSString *destFile = [_importPath
+          stringByAppendingPathComponent:fileUrl.lastPathComponent];
+      [fileManager removeItemAtPath:destFile error:nil];
+      [fileManager copyItemAtPath:fileUrl.path toPath:destFile error:nil];
+      [fileUrl stopAccessingSecurityScopedResource];
+    }
+
+    QString importedPath = QString::fromNSString(_importPath);
+    if (AppInterface::instance()) {
+      emit AppInterface::instance()->openPath(importedPath);
+    }
   }
 }
 
@@ -371,6 +391,29 @@ void IosPlatformUtilities::importProjectArchive() const {
   IosImportDelegate *delegate = [[IosImportDelegate alloc] init];
   delegate.importPath = importBasePath;
   delegate.mode = @"projectArchive";
+  picker.delegate = delegate;
+  objc_setAssociatedObject(picker, &kIosImportDelegateKey, delegate,
+                           OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+  [root presentViewController:picker animated:YES completion:nil];
+}
+
+void IosPlatformUtilities::importDatasets() const {
+  QString appDir = applicationDirectory();
+  NSString *importBasePath =
+      (appDir + QStringLiteral("/Imported Datasets/")).toNSString();
+
+  UIViewController *root = [[[[UIApplication sharedApplication] windows]
+      firstObject] rootViewController];
+
+  UIDocumentPickerViewController *picker =
+      [[UIDocumentPickerViewController alloc]
+          initForOpeningContentTypes:@[ UTTypeData ]];
+  picker.allowsMultipleSelection = YES;
+
+  IosImportDelegate *delegate = [[IosImportDelegate alloc] init];
+  delegate.importPath = importBasePath;
+  delegate.mode = @"datasets";
   picker.delegate = delegate;
   objc_setAssociatedObject(picker, &kIosImportDelegateKey, delegate,
                            OBJC_ASSOCIATION_RETAIN_NONATOMIC);
