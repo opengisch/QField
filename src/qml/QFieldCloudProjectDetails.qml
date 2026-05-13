@@ -256,15 +256,14 @@ ColumnLayout {
   }
 
   RowLayout {
-    visible: openProjectBtn.visible
     Layout.fillWidth: true
+    visible: cloudProject != undefined && cloudProject.localPath !== "" && (((Date.now() - cloudProject.lastLocalExportedAt) / 1000 > 60) || (cloudProject.deltaFileWrapper === undefined || cloudProject.deltasCount > 0))
 
     QfButton {
       id: syncButton
       Layout.fillWidth: true
       Layout.preferredWidth: 1
       enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== null && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
-      visible: true
       progressValue: cloudProject != undefined && cloudProject.localPath !== "" ? cloudProject.downloadProgress : 0
       showProgress: cloudProject != undefined && cloudProject.localPath !== "" && cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading
       text: {
