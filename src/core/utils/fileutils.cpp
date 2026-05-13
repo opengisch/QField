@@ -410,10 +410,6 @@ void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionIn
 
 void FileUtils::addImageStamp( const QString &imagePath, const QString &text, const QString &textFormat, Qgis::TextHorizontalAlignment horizontalAlignment, const QString &imageDecoration )
 {
-  qDebug() << "addImageStamp: text=" << text
-           << "alignment=" << static_cast<int>(horizontalAlignment)
-           << "textFormat empty=" << textFormat.isEmpty()
-           << "decoration=" << imageDecoration;
   if ( !QFileInfo::exists( imagePath ) || text.isEmpty() )
   {
     return;
