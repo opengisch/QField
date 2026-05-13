@@ -1309,7 +1309,7 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
     {
       owner = token.mid( 6 ).trimmed();
     }
-    else if ( token.compare( QStringLiteral( "public" ), Qt::CaseInsensitive ) == 0 )
+    else if ( token.compare( QStringLiteral( "include:public" ), Qt::CaseInsensitive ) == 0 )
     {
       includePublic = true;
     }

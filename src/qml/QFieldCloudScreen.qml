@@ -212,6 +212,14 @@ Page {
           onFilterClicked: {
             projectFilter.visible = !projectFilter.visible;
           }
+
+          onReturnPressed: {
+            table.model.textFilter = searchBar.searchTerm;
+          }
+
+          onSearchTriggered: {
+            table.model.textFilter = searchBar.searchTerm;
+          }
         }
 
         Item {
@@ -224,10 +232,10 @@ Page {
             property bool overshootRefresh: false
 
             model: QFieldCloudProjectsFilterModel {
+              id: filterModel
               projectsModel: cloudProjectsModel
               showLocalOnly: cloudConnection.status !== QFieldCloudConnection.LoggedIn
               showInValidProjects: settings ? settings.valueBool("/QField/showInvalidProjects", false) : false
-              textFilter: searchBar.searchTerm
             }
 
             ScrollBar.vertical: QfScrollBar {
@@ -594,10 +602,15 @@ Page {
             z: 1
 
             currentUsername: cloudConnection.username
-
+            onQueryStringChanged: {
+              if (visible) {
+                searchBar.setSearchTerm(queryString);
+              }
+            }
             onFilterApplied: {
               table.model.includePublic = includePublic;
               searchBar.setSearchTerm(queryString);
+              table.model.textFilter = queryString;
               visible = false;
             }
           }

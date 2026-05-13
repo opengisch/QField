@@ -12,10 +12,12 @@ Item {
   property string placeHolderText: qsTr("Search")
   property bool enableFilterButton: false
   property bool filterActive: false
-  property var parameterKeys: ["owner", "type"]
+  property var parameterKeys: ["owner", "include"]
+  property var parameterFlags: ["public"]
 
   signal returnPressed
   signal filterClicked
+  signal searchTriggered
 
   height: childrenRect.height
 
@@ -35,7 +37,6 @@ Item {
         html += part;
       }
     }
-
     return html;
   }
 
@@ -82,7 +83,11 @@ Item {
       iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
       iconColor: Theme.mainTextColor
       onClicked: {
-        searchField.focus = true;
+        if (searchField.text !== "") {
+          searchBar.searchTriggered();
+        } else {
+          searchField.focus = true;
+        }
       }
     }
 
@@ -99,7 +104,7 @@ Item {
       placeholderText: (!searchField.activeFocus && text === "" && displayText === "") ? searchBar.placeHolderText : ""
       background: Item {}
       font: Theme.defaultFont
-
+      color: highlightOverlay.visible ? "transparent" : Theme.mainTextColor
       Keys.onPressed: event => {
         if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
           searchBar.returnPressed();
@@ -118,6 +123,7 @@ Item {
       font: searchField.font
       color: Theme.mainTextColor
       elide: Text.ElideRight
+      clip: true
       text: searchBar.highlightedText(searchField.text)
     }
   }

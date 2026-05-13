@@ -32,17 +32,14 @@ Pane {
 
   readonly property string queryString: {
     const parts = [];
-    if (searchTerm) {
-      parts.push(searchTerm);
-    }
     if (ownerTerm) {
       parts.push("owner:" + ownerTerm);
     }
-    if (typeCombo.currentValue) {
-      parts.push("type:" + typeCombo.currentValue);
-    }
     if (includePublic) {
-      parts.push("public");
+      parts.push("include:public");
+    }
+    if (searchTerm) {
+      parts.push(searchTerm);
     }
     return parts.join(" ");
   }
@@ -52,7 +49,6 @@ Pane {
   function clear() {
     searchTermField.clear();
     ownerCombo.editText = "";
-    typeCombo.currentIndex = 0;
     publicSwitch.checked = false;
     activePreset = "";
   }
@@ -137,37 +133,6 @@ Pane {
       id: ownerCombo
       Layout.fillWidth: true
       editable: true
-    }
-
-    Label {
-      Layout.fillWidth: true
-      text: qsTr("Type")
-      font.pointSize: Theme.tipFont.pointSize
-      color: Theme.mainTextColor
-    }
-    QfComboBox {
-      id: typeCombo
-      Layout.fillWidth: true
-      textRole: "label"
-      valueRole: "value"
-      model: [
-        {
-          value: "",
-          label: qsTr("any")
-        },
-        {
-          value: "project",
-          label: qsTr("project")
-        },
-        {
-          value: "shared_dataset",
-          label: qsTr("shared dataset")
-        },
-        {
-          value: "template",
-          label: qsTr("template")
-        }
-      ]
     }
 
     RowLayout {
