@@ -72,8 +72,8 @@ class QFieldCloudProject : public QObject
 
     Q_PROPERTY( bool attachmentsOnDemandEnabled READ attachmentsOnDemandEnabled WRITE setAttachmentsOnDemandEnabled NOTIFY attachmentsOnDemandEnabledChanged )
 
-    Q_PROPERTY( QString lastLocalPushDeltas READ lastLocalPushDeltas NOTIFY lastLocalPushDeltasChanged )
-    Q_PROPERTY( QString lastLocalExportedAt READ lastLocalExportedAt NOTIFY lastLocalExportedAtChanged )
+    Q_PROPERTY( QDateTime lastLocalPushDeltas READ lastLocalPushDeltas NOTIFY lastLocalPushDeltasChanged )
+    Q_PROPERTY( QDateTime lastLocalExportedAt READ lastLocalExportedAt NOTIFY lastLocalExportedAtChanged )
 
     Q_PROPERTY( bool isPublic READ isPublic NOTIFY isPublicChanged )
     Q_PROPERTY( bool isFeatured READ isFeatured NOTIFY isFeaturedChanged )
@@ -324,11 +324,11 @@ class QFieldCloudProject : public QObject
     bool attachmentsOnDemandEnabled() const { return mAttachmentsOnDemandEnabled; }
     void setAttachmentsOnDemandEnabled( bool enabled );
 
-    QString lastLocalPushDeltas() const { return mLastLocalPushDeltas; }
-    void setLastLocalPushDeltas( const QString &lastLocalPushDeltas );
+    QDateTime lastLocalPushDeltas() const { return mLastLocalPushDeltas; }
+    void setLastLocalPushDeltas( const QDateTime &lastLocalPushDeltas );
 
-    QString lastLocalExportedAt() const { return mLastLocalExportedAt; }
-    void setLastLocalExportedAt( const QString &lastLocalExportedAt );
+    QDateTime lastLocalExportedAt() const { return mLastLocalExportedAt; }
+    void setLastLocalExportedAt( const QDateTime &lastLocalExportedAt );
 
     QString lastLocalExportId() const { return mLastLocalExportId; }
     void setLastLocalExportId( const QString &lastLocalExportId );
@@ -569,11 +569,11 @@ class QFieldCloudProject : public QObject
 
     QString mThumbnailPath;
 
-    QString mLastExportedAt;
+    QDateTime mLastExportedAt;
     QString mLastExportId;
-    QString mLastLocalExportedAt;
+    QDateTime mLastLocalExportedAt;
     QString mLastLocalExportId;
-    QString mLastLocalPushDeltas;
+    QDateTime mLastLocalPushDeltas;
 
     QDateTime mLastLocalDataLastUpdatedAt;
     QDateTime mLastLocalRestrictedDataLastUpdatedAt;

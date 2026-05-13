@@ -380,7 +380,7 @@ void QFieldCloudProject::setAttachmentsOnDemandEnabled( bool enabled )
   emit attachmentsOnDemandEnabledChanged();
 }
 
-void QFieldCloudProject::setLastLocalPushDeltas( const QString &lastLocalPushDeltas )
+void QFieldCloudProject::setLastLocalPushDeltas( const QDateTime &lastLocalPushDeltas )
 {
   if ( mLastLocalPushDeltas == lastLocalPushDeltas )
     return;
@@ -389,7 +389,7 @@ void QFieldCloudProject::setLastLocalPushDeltas( const QString &lastLocalPushDel
   emit lastLocalPushDeltasChanged();
 }
 
-void QFieldCloudProject::setLastLocalExportedAt( const QString &lastLocalExportedAt )
+void QFieldCloudProject::setLastLocalExportedAt( const QDateTime &lastLocalExportedAt )
 {
   if ( mLastLocalExportedAt == lastLocalExportedAt )
     return;
@@ -913,7 +913,7 @@ void QFieldCloudProject::download()
     }
 
     mLastExportId = packageId;
-    mLastExportedAt = packagedAt;
+    mLastExportedAt = QDateTime::fromString( packagedAt, Qt::ISODate );
 
     if ( !localizedDatasetsFileNames.isEmpty() && !mSharedDatasetsProjectId.isEmpty() )
     {
@@ -1382,16 +1382,16 @@ void QFieldCloudProject::downloadFilesCompleted( bool emptyDownload )
   setErrorStatus( NoErrorStatus );
   setCheckout( ProjectCheckout::LocalAndRemoteCheckout );
   setLocalPath( QFieldCloudUtils::localProjectFilePath( mUsername, mId ) );
-  setLastLocalExportedAt( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
+  setLastLocalExportedAt( QDateTime::currentDateTimeUtc() );
   setLastLocalExportId( QUuid::createUuid().toString( QUuid::WithoutBraces ) );
   setLastLocalDataLastUpdatedAt( mDataLastUpdatedAt );
   setLastLocalRestrictedDataLastUpdatedAt( mRestrictedDataLastUpdatedAt );
   setIsOutdated( false );
   setIsProjectOutdated( false );
 
-  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportedAt" ), mLastExportedAt );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportedAt" ), mLastExportedAt.toString( Qt::ISODate ) );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastExportId" ), mLastExportId );
-  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalExportedAt" ), mLastLocalExportedAt );
+  QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalExportedAt" ), mLastLocalExportedAt.toString( Qt::ISODate ) );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalExportId" ), mLastLocalExportId );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), mLastLocalDataLastUpdatedAt );
   QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalRestrictedDataLastUpdatedAt" ), mLastLocalRestrictedDataLastUpdatedAt );
@@ -1668,7 +1668,7 @@ void QFieldCloudProject::push( bool shouldDownloadUpdates )
       emit modificationChanged();
 
       setStatus( ProjectStatus::Idle );
-      setLastLocalPushDeltas( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
+      setLastLocalPushDeltas( QDateTime::currentDateTimeUtc() );
 
       if ( !isOutdated() )
       {
@@ -1677,7 +1677,7 @@ void QFieldCloudProject::push( bool shouldDownloadUpdates )
         QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), mLastLocalDataLastUpdatedAt );
       }
 
-      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalPushDeltas" ), mLastLocalPushDeltas );
+      QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalPushDeltas" ), mLastLocalPushDeltas.toString( Qt::ISODate ) );
 
       mDeltaFileWrapper->reset();
       mDeltaFileWrapper->resetId();
@@ -1743,9 +1743,9 @@ void QFieldCloudProject::push( bool shouldDownloadUpdates )
         mModification |= RemoteModification;
         emit modificationChanged();
         setStatus( ProjectStatus::Idle );
-        setLastLocalPushDeltas( QDateTime::currentDateTimeUtc().toString( Qt::ISODate ) );
+        setLastLocalPushDeltas( QDateTime::currentDateTimeUtc() );
 
-        QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalPushDeltas" ), mLastLocalPushDeltas );
+        QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalPushDeltas" ), mLastLocalPushDeltas.toString( Qt::ISODate ) );
 
         // download the updated files, so the files are for sure the same on the client and on the server
         if ( shouldDownloadUpdates )
@@ -2257,10 +2257,10 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
 void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, const QDir &localPath )
 {
   project->mLastExportId = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastExportId" ) ).toString();
-  project->mLastExportedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastExportedAt" ) ).toString();
+  project->mLastExportedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastExportedAt" ) ).toString(), Qt::ISODate );
   project->mLastLocalExportId = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalExportId" ) ).toString();
-  project->mLastLocalExportedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalExportedAt" ) ).toString();
-  project->mLastLocalPushDeltas = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalPushDeltas" ) ).toString();
+  project->mLastLocalExportedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalExportedAt" ) ).toString(), Qt::ISODate );
+  project->mLastLocalPushDeltas = QDateTime::fromString( QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalPushDeltas" ) ).toString(), Qt::ISODate );
   project->mLastLocalDataLastUpdatedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalDataLastUpdatedAt" ) ).toDateTime();
   project->mLastLocalRestrictedDataLastUpdatedAt = QFieldCloudUtils::projectSetting( project->id(), QStringLiteral( "lastLocalRestrictedDataLastUpdatedAt" ) ).toDateTime();
   project->mIsOutdated = project->mDataLastUpdatedAt > project->mLastLocalDataLastUpdatedAt;
