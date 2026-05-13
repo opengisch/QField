@@ -255,7 +255,7 @@ void QFieldCloudProjectsModel::appendProject( const QString &projectId )
   connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectReceived );
 }
 
-void QFieldCloudProjectsModel::appendOwnerProjects( const QString &owner, int projectFetchOffset )
+void QFieldCloudProjectsModel::appendProjects( const QString &owner, const QString &search, int projectFetchOffset )
 {
   if ( !mCloudConnection )
   {
@@ -266,6 +266,7 @@ void QFieldCloudProjectsModel::appendOwnerProjects( const QString &owner, int pr
 
   QVariantMap params;
   params["owner"] = owner;
+  params["search"] = search;
   params["include_public"] = 1;
   params["limit"] = QString::number( mProjectsPerFetch );
   params["offset"] = QString::number( projectFetchOffset );
@@ -273,7 +274,8 @@ void QFieldCloudProjectsModel::appendOwnerProjects( const QString &owner, int pr
   QNetworkRequest request( url );
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
-  request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsOwner ), owner );
+  request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectOwnerName ), owner );
+  request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectSearchTerm ), search );
   request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ), projectFetchOffset );
   mCloudConnection->setAuthenticationDetails( request );
 
@@ -490,18 +492,19 @@ void QFieldCloudProjectsModel::projectListReceived()
 
   Q_ASSERT( rawReply );
 
-  const QString projectsOwner = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsOwner ) ).toString();
+  const QString projectOwnerName = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectOwnerName ) ).toString();
+  const QString projectSearchTerm = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectSearchTerm ) ).toString();
 
   if ( rawReply->error() != QNetworkReply::NoError )
   {
-    if ( projectsOwner.isEmpty() )
+    if ( !projectOwnerName.isEmpty() || !projectSearchTerm.isEmpty() )
     {
-      mIsRefreshing = false;
-      emit isRefreshingChanged();
+      emit projectsAppended( projectOwnerName, projectSearchTerm, true, QFieldCloudConnection::errorString( rawReply ) );
     }
     else
     {
-      emit ownerProjectsAppended( projectsOwner, true, QFieldCloudConnection::errorString( rawReply ) );
+      mIsRefreshing = false;
+      emit isRefreshingChanged();
     }
 
     emit warning( QFieldCloudConnection::errorString( rawReply ) );
@@ -526,24 +529,28 @@ void QFieldCloudProjectsModel::projectListReceived()
   QJsonDocument doc = QJsonDocument::fromJson( response );
   QJsonArray projects = doc.array();
 
-  const bool skipLocalProjects = projectFetchOffset > 0 || projectsOwner.isEmpty();
+  const bool skipLocalProjects = projectFetchOffset > 0 || !projectOwnerName.isEmpty() || !projectSearchTerm.isEmpty();
   loadProjects( projects, skipLocalProjects );
 
   if ( rawReply->hasRawHeader( QStringLiteral( "X-Next-Page" ) ) )
   {
-    if ( projectsOwner.isEmpty() )
+    if ( !projectOwnerName.isEmpty() || !projectSearchTerm.isEmpty() )
+    {
+      appendProjects( projectOwnerName, projectSearchTerm, projectFetchOffset + mProjectsPerFetch );
+    }
+    else
     {
       const bool fetchPublic = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FetchPublicProjects ) ).toBool();
       refreshProjectsList( resetModel, fetchPublic, projectFetchOffset + mProjectsPerFetch );
     }
-    else
-    {
-      appendOwnerProjects( projectsOwner, projectFetchOffset + mProjectsPerFetch );
-    }
     return;
   }
 
-  if ( projectsOwner.isEmpty() )
+  if ( !projectOwnerName.isEmpty() || !projectSearchTerm.isEmpty() )
+  {
+    emit projectsAppended( projectOwnerName, projectSearchTerm );
+  }
+  else
   {
     // All projects fetched, refresh current project details if found
     if ( !mCurrentProjectId.isEmpty() )
@@ -554,10 +561,6 @@ void QFieldCloudProjectsModel::projectListReceived()
 
     mIsRefreshing = false;
     emit isRefreshingChanged();
-  }
-  else
-  {
-    emit ownerProjectsAppended( projectsOwner );
   }
 }
 
