@@ -263,6 +263,8 @@ ColumnLayout {
       id: syncButton
       Layout.fillWidth: true
       Layout.preferredWidth: 1
+      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== null && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
+      visible: true
       progressValue: cloudProject != undefined && cloudProject.localPath !== "" ? cloudProject.downloadProgress : 0
       showProgress: cloudProject != undefined && cloudProject.localPath !== "" && cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading
       text: {
@@ -275,8 +277,6 @@ ColumnLayout {
         }
         return qsTr('Synchronize');
       }
-      visible: true
-      enabled: cloudProject != undefined && cloudProject.status === QFieldCloudProject.Idle && cloudProject.deltaFileWrapper !== null && !cloudProject.deltaFileWrapper.hasError
 
       onClicked: {
         synchronize();
@@ -288,8 +288,8 @@ ColumnLayout {
       Layout.fillWidth: true
       Layout.preferredWidth: 1
       enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== undefined && cloudProject.deltasCount > 0 && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
+      visible: cloudProject != undefined && cloudProject.userRole !== "reader"
       text: qsTr('Push changes')
-      visible: true
 
       onClicked: {
         pushChanges();
