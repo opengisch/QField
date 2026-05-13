@@ -502,10 +502,11 @@ void QFieldCloudProjectsModel::projectListReceived()
 
   const QString projectOwnerName = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectOwnerName ) ).toString();
   const QString projectSearchTerm = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectSearchTerm ) ).toString();
+  const bool isAppending = !projectOwnerName.isEmpty() || !projectSearchTerm.isEmpty();
 
   if ( rawReply->error() != QNetworkReply::NoError )
   {
-    if ( !projectOwnerName.isEmpty() || !projectSearchTerm.isEmpty() )
+    if ( isAppending )
     {
       emit projectsAppended( projectOwnerName, projectSearchTerm, true, QFieldCloudConnection::errorString( rawReply ) );
     }
@@ -537,12 +538,12 @@ void QFieldCloudProjectsModel::projectListReceived()
   QJsonDocument doc = QJsonDocument::fromJson( response );
   QJsonArray projects = doc.array();
 
-  const bool skipLocalProjects = projectFetchOffset > 0 || !projectOwnerName.isEmpty() || !projectSearchTerm.isEmpty();
+  const bool skipLocalProjects = isAppending || projectFetchOffset > 0;
   loadProjects( projects, skipLocalProjects );
 
   if ( rawReply->hasRawHeader( QStringLiteral( "X-Next-Page" ) ) )
   {
-    if ( !projectOwnerName.isEmpty() || !projectSearchTerm.isEmpty() )
+    if ( isAppending )
     {
       appendProjects( projectOwnerName, projectSearchTerm, projectFetchOffset + mProjectsPerFetch );
     }
@@ -554,7 +555,7 @@ void QFieldCloudProjectsModel::projectListReceived()
     return;
   }
 
-  if ( !projectOwnerName.isEmpty() || !projectSearchTerm.isEmpty() )
+  if ( isAppending )
   {
     emit projectsAppended( projectOwnerName, projectSearchTerm );
   }
