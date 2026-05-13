@@ -157,14 +157,13 @@ QSet<QString> QFieldCloudProjectsModel::busyProjectIds() const
   return result;
 }
 
-void QFieldCloudProjectsModel::refreshProjectsList( bool shouldResetModel, bool shouldFetchPublic, int projectFetchOffset )
+void QFieldCloudProjectsModel::refreshProjectsList( bool shouldResetModel, int projectFetchOffset )
 {
   switch ( mCloudConnection->status() )
   {
     case QFieldCloudConnection::ConnectionStatus::LoggedIn:
     {
-      QString url = shouldFetchPublic ? QStringLiteral( "/api/v1/projects/public/" ) : QStringLiteral( "/api/v1/projects/" );
-
+      const QString url = QStringLiteral( "/api/v1/projects/" );
       QVariantMap params;
       params["limit"] = QString::number( mProjectsPerFetch );
       params["offset"] = QString::number( projectFetchOffset );
@@ -174,7 +173,6 @@ void QFieldCloudProjectsModel::refreshProjectsList( bool shouldResetModel, bool 
       request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
 
       request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ResetModel ), shouldResetModel );
-      request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FetchPublicProjects ), shouldFetchPublic );
       request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::ProjectsFetchOffset ), projectFetchOffset );
 
       mIsRefreshing = true;
@@ -549,8 +547,7 @@ void QFieldCloudProjectsModel::projectListReceived()
     }
     else
     {
-      const bool fetchPublic = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FetchPublicProjects ) ).toBool();
-      refreshProjectsList( resetModel, fetchPublic, projectFetchOffset + mProjectsPerFetch );
+      refreshProjectsList( resetModel, projectFetchOffset + mProjectsPerFetch );
     }
     return;
   }
