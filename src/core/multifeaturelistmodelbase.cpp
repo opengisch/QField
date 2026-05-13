@@ -613,7 +613,20 @@ bool MultiFeatureListModelBase::mergeSelection()
     }
   }
 
-  if ( !QgsWkbTypes::isMultiType( vlayer->wkbType() ) )
+  if ( QgsWkbTypes::isMultiType( vlayer->wkbType() ) )
+  {
+    // Attempt to fix merged geometries resulting in a GeometryCollection of mixed geometries
+    if ( QgsWkbTypes::flatType( combinedGeometry.wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( combinedGeometry.constGet() );
+      QgsGeometry fixedGeometry = QgsGeometry( geometryCollection->extractPartsByType( QgsWkbTypes::singleType( vlayer->wkbType() ) ) );
+      if ( combinedGeometry.isEmpty() )
+      {
+        isSuccess = false;
+      }
+    }
+  }
+  else
   {
     const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( combinedGeometry.constGet() );
     if ( ( geometryCollection && geometryCollection->partCount() > 1 ) || !combinedGeometry.convertToSingleType() )
