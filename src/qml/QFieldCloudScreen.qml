@@ -196,7 +196,7 @@ Page {
 
         QfTabBar {
           id: filterBar
-          model: [qsTr("My Projects"), qsTr("Community")]
+          model: [qsTr("Projects")]
           Layout.fillWidth: true
           Layout.preferredHeight: defaultHeight
         }
@@ -219,16 +219,9 @@ Page {
 
             model: QFieldCloudProjectsFilterModel {
               projectsModel: cloudProjectsModel
-              filter: filterBar.currentIndex === 0 ? QFieldCloudProjectsFilterModel.PrivateProjects : QFieldCloudProjectsFilterModel.PublicProjects
               showLocalOnly: cloudConnection.status !== QFieldCloudConnection.LoggedIn
               showInValidProjects: settings ? settings.valueBool("/QField/showInvalidProjects", false) : false
-              showFeaturedOnTop: filterBar.currentIndex === 1
               textFilter: searchBar.searchTerm
-              onFilterChanged: {
-                if (cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
-                  refreshProjectsList(false, filter === QFieldCloudProjectsFilterModel.PublicProjects);
-                }
-              }
             }
 
             ScrollBar.vertical: QfScrollBar {
