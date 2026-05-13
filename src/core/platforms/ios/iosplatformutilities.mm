@@ -64,8 +64,9 @@ IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {
 }
 
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
-  PlatformUtilities::Capabilities capabilities =
-      Capabilities() | NativeCamera | AdjustBrightness | FilePicker;
+  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera |
+                                                 AdjustBrightness | FilePicker |
+                                                 CustomImport;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
