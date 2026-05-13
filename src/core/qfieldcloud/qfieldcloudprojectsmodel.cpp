@@ -1198,25 +1198,6 @@ QFieldCloudProjectsModel *QFieldCloudProjectsFilterModel::projectsModel() const
   return mSourceModel;
 }
 
-void QFieldCloudProjectsFilterModel::setFilter( ProjectsFilter filter )
-{
-  if ( mFilter == filter )
-  {
-    return;
-  }
-
-  beginFilterChange();
-  mFilter = filter;
-  endFilterChange( QSortFilterProxyModel::Direction::Rows );
-
-  emit filterChanged();
-}
-
-QFieldCloudProjectsFilterModel::ProjectsFilter QFieldCloudProjectsFilterModel::filter() const
-{
-  return mFilter;
-}
-
 void QFieldCloudProjectsFilterModel::setShowLocalOnly( bool showLocalOnly )
 {
   if ( mShowLocalOnly == showLocalOnly )
@@ -1270,34 +1251,32 @@ bool QFieldCloudProjectsFilterModel::lessThan( const QModelIndex &sourceLeft, co
 bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
   const QModelIndex currentRowIndex = mSourceModel->index( source_row, 0, source_parent );
+
   if ( mShowLocalOnly && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty() )
   {
     return false;
   }
 
-  bool matchesProjectType = false;
-  switch ( mFilter )
+  if ( !mIncludePublic && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() == QStringLiteral( "public" ) )
   {
-    case PrivateProjects:
-      // the list will include public "community" projects that are present locally so they can appear in the "My projects" list
-      matchesProjectType = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() != QStringLiteral( "public" )
-                           || !mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty();
-      break;
-    case PublicProjects:
-      matchesProjectType = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() == QStringLiteral( "public" );
-      break;
+    return false;
+  }
+
+  if ( !mShowInValidProjects && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::StatusRole ).toInt() == static_cast<int>( QFieldCloudProject::ProjectStatus::Failing ) )
+  {
+    return false;
+  }
+
+  if ( mTextFilter.isEmpty() )
+  {
+    return true;
   }
 
   const QString name = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::NameRole ).toString();
   const QString description = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::DescriptionRole ).toString();
   const QString owner = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
-  const int status = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::StatusRole ).toInt();
 
-  const bool matchesTextFilter = mTextFilter.isEmpty() || name.contains( mTextFilter, Qt::CaseInsensitive ) || description.contains( mTextFilter, Qt::CaseInsensitive ) || owner.contains( mTextFilter, Qt::CaseInsensitive );
-
-  const bool validProjectsFilter = mShowInValidProjects || status != static_cast<int>( QFieldCloudProject::ProjectStatus::Failing );
-
-  return matchesProjectType && matchesTextFilter && validProjectsFilter;
+  return name.contains( mTextFilter, Qt::CaseInsensitive ) || description.contains( mTextFilter, Qt::CaseInsensitive ) || owner.contains( mTextFilter, Qt::CaseInsensitive );
 }
 
 void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )

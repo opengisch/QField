@@ -268,20 +268,12 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_OBJECT
 
     Q_PROPERTY( QFieldCloudProjectsModel *projectsModel READ projectsModel WRITE setProjectsModel NOTIFY projectsModelChanged )
-    Q_PROPERTY( ProjectsFilter filter READ filter WRITE setFilter NOTIFY filterChanged )
-    Q_PROPERTY( bool showLocalOnly READ showLocalOnly WRITE setShowLocalOnly NOTIFY showLocalOnlyChanged )
     Q_PROPERTY( QString textFilter READ textFilter WRITE setTextFilter NOTIFY textFilterChanged )
+    Q_PROPERTY( bool showLocalOnly READ showLocalOnly WRITE setShowLocalOnly NOTIFY showLocalOnlyChanged )
     Q_PROPERTY( bool showInValidProjects READ showInValidProjects WRITE setShowInValidProjects NOTIFY showInValidProjectsChanged )
     Q_PROPERTY( bool showFeaturedOnTop READ showFeaturedOnTop WRITE setShowFeaturedOnTop NOTIFY showFeaturedOnTopChanged )
 
   public:
-    enum ProjectsFilter
-    {
-      PrivateProjects,
-      PublicProjects,
-    };
-    Q_ENUM( ProjectsFilter )
-
     explicit QFieldCloudProjectsFilterModel( QObject *parent = nullptr );
 
     /**
@@ -294,16 +286,6 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
      * \param projectsModel the source cloud project model
      */
     void setProjectsModel( QFieldCloudProjectsModel *projectsModel );
-
-    /**
-     * Returns the current cloud projects filter.
-     */
-    ProjectsFilter filter() const;
-
-    /**
-     * Sets the cloud project \a filter.
-     */
-    void setFilter( ProjectsFilter filter );
 
     /**
      * Returns whether the filtered cloud projects list will only contain those available locally.
@@ -366,13 +348,11 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
 
   private:
     QFieldCloudProjectsModel *mSourceModel = nullptr;
-    ProjectsFilter mFilter = PrivateProjects;
     bool mShowLocalOnly = false;
     bool mShowInValidProjects = false;
     bool mShowFeaturedOnTop = false;
     QString mTextFilter;
+    bool mIncludePublic = false;
 };
-
-Q_DECLARE_METATYPE( QFieldCloudProjectsFilterModel::ProjectsFilter )
 
 #endif // QFIELDCLOUDPROJECTSMODEL_H
