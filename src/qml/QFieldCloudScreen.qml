@@ -225,10 +225,6 @@ Page {
             }
           }
 
-          onReturnPressed: {
-            table.model.textFilter = searchBar.searchTerm;
-          }
-
           onSearchTriggered: {
             table.model.textFilter = searchBar.searchTerm;
           }
@@ -237,7 +233,6 @@ Page {
             if (projectFilter.visible) {
               projectFilter.clear();
             } else {
-              searchBar.clear();
               table.model.textFilter = "";
             }
           }

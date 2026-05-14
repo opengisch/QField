@@ -14,7 +14,6 @@ Item {
   property bool filterActive: false
   property var parameterKeys: []
 
-  signal returnPressed
   signal filterClicked
   signal searchTriggered
   signal cleared
@@ -63,9 +62,9 @@ Item {
       iconSource: Theme.getThemeVectorIcon('ic_clear_white_24dp')
       iconColor: Theme.mainTextColor
       bgcolor: "transparent"
-      visible: searchField.text !== "" || searchBar.filterActive
+      visible: searchField.text !== ""
       onClicked: {
-        searchBar.cleared();
+        searchBar.clear();
       }
     }
 
@@ -114,7 +113,7 @@ Item {
       color: highlightOverlay.visible ? "transparent" : Theme.mainTextColor
       Keys.onPressed: event => {
         if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
-          searchBar.returnPressed();
+          searchBar.searchTriggered();
         }
       }
     }
@@ -145,5 +144,6 @@ Item {
 
   function clear() {
     searchField.text = '';
+    cleared();
   }
 }
