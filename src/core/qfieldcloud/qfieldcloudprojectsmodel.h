@@ -373,7 +373,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     bool mShowInValidProjects = false;
     bool mShowFeaturedOnTop = false;
     QString mTextFilter;
-    QString mSearchTermFilter;
+    QStringList mKeywordFilter;
     QString mOwnerFilter;
     bool mIncludePublic = false;
     bool mIsSearching = false;
