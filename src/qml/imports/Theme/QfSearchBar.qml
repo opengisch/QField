@@ -12,8 +12,7 @@ Item {
   property string placeHolderText: qsTr("Search")
   property bool enableFilterButton: false
   property bool filterActive: false
-  property var parameterKeys: ["owner", "include"]
-  property var parameterFlags: ["public"]
+  property var parameterKeys: []
 
   signal returnPressed
   signal filterClicked
@@ -26,6 +25,13 @@ Item {
     if (!raw) {
       return "";
     }
+
+    // Encode HTML < and > characters to avoid text going missing
+    raw = raw.replace('<', '&lt;').replace('>', '&gt;');
+    if (parameterKeys.length == 0) {
+      return raw;
+    }
+
     let html = "";
     const parts = raw.split(/(\s+)/);
     for (const part of parts) {

@@ -348,7 +348,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     void setIncludePublic( bool includePublic );
 
     /**
-     * Returns TRUE while an asynchronous fetch triggered by an owner filter is in flight.
+     * Returns TRUE while an asynchronous projects appending was triggered by a text filter.
      */
     bool isSearching() const;
 

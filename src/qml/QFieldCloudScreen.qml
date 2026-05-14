@@ -208,6 +208,7 @@ Page {
           enableFilterButton: true
           filterActive: projectFilter.visible
           placeHolderText: qsTr("Search for project")
+          parameterKeys: ["owner", "include"]
 
           onFilterClicked: {
             projectFilter.visible = !projectFilter.visible;
