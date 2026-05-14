@@ -617,15 +617,16 @@ Page {
             z: 1
 
             currentUsername: cloudConnection.username
+
             onQueryStringChanged: {
               if (visible) {
                 searchBar.setSearchTerm(queryString);
               }
             }
-            onFilterApplied: {
-              table.model.includePublic = includePublic;
-              searchBar.setSearchTerm(queryString);
+
+            onApplyFilter: {
               table.model.textFilter = queryString;
+              searchBar.setSearchTerm(queryString);
               visible = false;
             }
           }

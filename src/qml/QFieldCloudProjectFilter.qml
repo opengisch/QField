@@ -8,8 +8,9 @@ import Theme
 Pane {
   id: filterPanel
 
-  property string currentUsername: ""
+  signal applyFilter
 
+  property string currentUsername: ""
   property string activePreset: ""
   readonly property var presets: [
     {
@@ -20,36 +21,35 @@ Pane {
     }
   ]
 
-  readonly property string ownerTerm: ownerCombo.editText.trim()
-  readonly property string searchTerm: searchTermField.text.trim()
-  readonly property bool includePublic: publicSwitch.checked
+  property string queryString: ""
 
-  readonly property string queryString: {
-    const parts = [];
-    if (ownerTerm) {
-      parts.push("owner:" + ownerTerm);
+  function updateQueryString() {
+    let parts = [];
+    if (ownerComboBox.editText !== "") {
+      parts.push("owner:" + ownerComboBox.editText);
     }
-    if (includePublic) {
+    if (includePublicSwitch.checked) {
       parts.push("include:public");
     }
-    if (searchTerm) {
-      parts.push(searchTerm);
+    if (searchTermTextField !== "") {
+      parts.push(searchTermTextField.text);
     }
-    return parts.join(" ");
+
+    queryString = parts.join(" ");
   }
 
-  signal filterApplied
-
   function clear() {
-    searchTermField.clear();
-    ownerCombo.editText = "";
-    publicSwitch.checked = false;
+    searchTermTextField.clear();
+    ownerComboBox.editText = "";
+    includePublicSwitch.checked = false;
     activePreset = "";
   }
 
   onVisibleChanged: {
     if (visible) {
-      ownerCombo.model = cloudProjectsModel.uniqueOwners();
+      const previousOwner = ownerComboBox.currentText;
+      ownerComboBox.model = [""].concat(cloudProjectsModel.uniqueOwners());
+      ownerComboBox.editText = ownerComboBox.currentText;
     }
   }
 
@@ -57,12 +57,16 @@ Pane {
     if (!activePreset) {
       return;
     }
+
     const p = presets.find(x => x.id === activePreset);
     if (!p) {
       return;
     }
-    ownerCombo.editText = p.owner;
-    publicSwitch.checked = p.includePublic;
+
+    ownerComboBox.editText = p.owner;
+    includePublicSwitch.checked = p.includePublic;
+
+    updateQueryString();
   }
 
   padding: 0
@@ -87,7 +91,7 @@ Pane {
       Label {
         Layout.fillWidth: true
         text: qsTr("Predefined Filters")
-        font.pointSize: Theme.secondaryTitleFont.pointSize
+        font: Theme.secondaryTitleFont
         color: Theme.mainTextColor
       }
 
@@ -108,39 +112,53 @@ Pane {
           radius: 4
           bgcolor: isActive ? Theme.mainColor : "transparent"
           color: isActive ? Theme.mainBackgroundColor : Theme.mainColor
-          onClicked: filterPanel.activePreset = isActive ? "" : modelData.id
+          onClicked: {
+            filterPanel.activePreset = modelData.id;
+          }
         }
       }
 
       Label {
         Layout.fillWidth: true
         text: qsTr("Criteria")
-        font.pointSize: Theme.secondaryTitleFont.pointSize
+        font: Theme.secondaryTitleFont
         color: Theme.mainTextColor
       }
 
       Label {
         Layout.fillWidth: true
         text: qsTr("Search term")
-        font.pointSize: Theme.tipFont.pointSize
+        font: Theme.tipFont
         color: Theme.mainTextColor
       }
+
       QfTextField {
-        id: searchTermField
+        id: searchTermTextField
         Layout.fillWidth: true
+        font: Theme.defaultFont
+
+        onTextEdited: {
+          updateQueryString();
+        }
       }
 
       Label {
         Layout.fillWidth: true
         text: qsTr("Owner")
-        font.pointSize: Theme.tipFont.pointSize
+        font: Theme.tipFont
         color: Theme.mainTextColor
       }
+
       QfComboBox {
-        id: ownerCombo
+        id: ownerComboBox
         Layout.fillWidth: true
         editable: true
         Material.accent: Theme.mainColor
+        font: Theme.defaultFont
+
+        onEditTextChanged: {
+          updateQueryString();
+        }
       }
 
       RowLayout {
@@ -150,13 +168,17 @@ Pane {
         Label {
           Layout.fillWidth: true
           text: qsTr("Include public projects")
-          font.pointSize: Theme.tipFont.pointSize
+          font: Theme.tipFont
           color: Theme.mainTextColor
         }
 
         Switch {
-          id: publicSwitch
+          id: includePublicSwitch
           Layout.alignment: Qt.AlignRight
+
+          onClicked: {
+            updateQueryString();
+          }
         }
       }
     }
@@ -181,7 +203,7 @@ Pane {
       text: qsTr("Search")
       bgcolor: Theme.mainColor
       color: Theme.mainBackgroundColor
-      onClicked: filterPanel.filterApplied()
+      onClicked: filterPanel.applyFilter()
     }
   }
 }
