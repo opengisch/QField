@@ -101,7 +101,6 @@ Pane {
   padding: 0
   background: Rectangle {
     color: Theme.mainBackgroundColor
-    opacity: 0.95
   }
 
   ScrollView {
@@ -221,21 +220,22 @@ Pane {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    height: searchButton.height + 20
-    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
+    height: searchButton.height + 10
+    color: "transparent"
 
     QfButton {
       id: searchButton
+      anchors.top: parent.top
       anchors.left: parent.left
       anchors.right: parent.right
-      anchors.bottom: parent.bottom
-      anchors.leftMargin: 10
-      anchors.rightMargin: 10
-      anchors.bottomMargin: 10
+      anchors.topMargin: 10
       text: qsTr("Search")
       bgcolor: Theme.mainColor
       color: Theme.mainBackgroundColor
-      onClicked: filterPanel.applyFilter()
+
+      onClicked: {
+        filterPanel.applyFilter();
+      }
     }
   }
 }
