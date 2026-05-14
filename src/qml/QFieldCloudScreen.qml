@@ -211,9 +211,11 @@ Page {
           parameterKeys: ["owner", "include"]
 
           onFilterClicked: {
-            projectFilter.visible = !projectFilter.visible;
-            if (projectFilter.visible) {
+            if (!projectFilter.visible) {
+              projectFilter.visible = true;
               projectFilter.updateQueryFromString(searchBar.searchTerm);
+            } else {
+              projectFilter.applyFilter();
             }
           }
 
@@ -1002,6 +1004,11 @@ Page {
   Keys.onReleased: event => {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       event.accepted = true;
+      if (projectFilter.visible) {
+        projectFilter.applyFilter();
+        return;
+      }
+
       header.onFinished();
     }
   }
