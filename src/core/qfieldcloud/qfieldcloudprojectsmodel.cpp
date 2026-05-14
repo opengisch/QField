@@ -37,6 +37,8 @@
 #include <qgsproject.h>
 #include <qgsproviderregistry.h>
 
+#include <algorithm>
+
 
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
 {
@@ -288,6 +290,25 @@ void QFieldCloudProjectsModel::appendProjects( const QString &owner, const QStri
 
   const NetworkReply *reply = mCloudConnection->get( request, url, params );
   connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectListReceived );
+}
+
+QStringList QFieldCloudProjectsModel::uniqueOwners() const
+{
+  QStringList owners;
+  for ( const QFieldCloudProject *project : std::as_const( mProjects ) )
+  {
+    if ( project->userRoleOrigin() == QStringLiteral( "public" ) )
+    {
+      continue;
+    }
+    const QString owner = project->owner();
+    if ( !owners.contains( owner ) )
+    {
+      owners.append( owner );
+    }
+  }
+  std::sort( owners.begin(), owners.end() );
+  return owners;
 }
 
 void QFieldCloudProjectsModel::removeLocalProject( const QString &projectId )
@@ -1273,14 +1294,9 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
   if ( !mSearchTermFilter.isEmpty() )
   {
     const QStringList words = mSearchTermFilter.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
-    for ( const QString &word : words )
-    {
-      if ( !name.contains( word, Qt::CaseInsensitive ) && !description.contains( word, Qt::CaseInsensitive ) )
-      {
-        matchesSearchTerm = false;
-        break;
-      }
-    }
+    matchesSearchTerm = std::all_of( words.cbegin(), words.cend(), [&name, &description]( const QString &word ) {
+      return name.contains( word, Qt::CaseInsensitive ) || description.contains( word, Qt::CaseInsensitive );
+    } );
   }
 
   const bool matchesOwner = mOwnerFilter.isEmpty() || owner.compare( mOwnerFilter, Qt::CaseInsensitive ) == 0;

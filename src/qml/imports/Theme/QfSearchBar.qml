@@ -18,6 +18,7 @@ Item {
   signal returnPressed
   signal filterClicked
   signal searchTriggered
+  signal cleared
 
   height: childrenRect.height
 
@@ -56,9 +57,9 @@ Item {
       iconSource: Theme.getThemeVectorIcon('ic_clear_white_24dp')
       iconColor: Theme.mainTextColor
       bgcolor: "transparent"
-      visible: searchField.text !== ""
+      visible: searchField.text !== "" || searchBar.filterActive
       onClicked: {
-        clear();
+        searchBar.cleared();
       }
     }
 

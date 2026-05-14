@@ -17,12 +17,6 @@ Pane {
       label: qsTr("My Own Projects"),
       owner: filterPanel.currentUsername,
       includePublic: false
-    },
-    {
-      id: "shared",
-      label: qsTr("Projects shared with me"),
-      owner: "",
-      includePublic: false
     }
   ]
 
@@ -53,6 +47,12 @@ Pane {
     activePreset = "";
   }
 
+  onVisibleChanged: {
+    if (visible) {
+      ownerCombo.model = cloudProjectsModel.uniqueOwners();
+    }
+  }
+
   onActivePresetChanged: {
     if (!activePreset) {
       return;
@@ -71,109 +71,116 @@ Pane {
     opacity: 0.95
   }
 
-  ColumnLayout {
+  ScrollView {
     anchors.fill: parent
-    anchors.margins: 16
-    spacing: 14
+    anchors.bottomMargin: searchButtonRow.height
+    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+    ScrollBar.vertical: QfScrollBar {}
+    clip: true
 
-    Label {
-      Layout.fillWidth: true
-      text: qsTr("Predefined Filters")
-      font.pointSize: Theme.secondaryTitleFont.pointSize
-      color: Theme.mainTextColor
-    }
-
-    ListView {
-      Layout.fillWidth: true
-      Layout.preferredHeight: 40
-      orientation: ListView.Horizontal
-      spacing: 10
-      clip: true
-      boundsBehavior: Flickable.StopAtBounds
-      model: filterPanel.presets
-
-      delegate: QfButton {
-        readonly property bool isActive: filterPanel.activePreset === modelData.id
-        height: ListView.view.height
-        text: modelData.label
-        font.pointSize: Theme.tipFont.pointSize
-        radius: 4
-        bgcolor: isActive ? Theme.mainColor : "transparent"
-        color: isActive ? Theme.mainBackgroundColor : Theme.mainColor
-        onClicked: filterPanel.activePreset = isActive ? "" : modelData.id
-      }
-    }
-
-    Label {
-      Layout.fillWidth: true
-      text: qsTr("Criteria")
-      font.pointSize: Theme.secondaryTitleFont.pointSize
-      color: Theme.mainTextColor
-    }
-
-    Label {
-      Layout.fillWidth: true
-      text: qsTr("Search term")
-      font.pointSize: Theme.tipFont.pointSize
-      color: Theme.mainTextColor
-    }
-    QfTextField {
-      id: searchTermField
-      Layout.fillWidth: true
-      placeholderText: qsTr("Title, description or related keywords...")
-    }
-
-    Label {
-      Layout.fillWidth: true
-      text: qsTr("Owner")
-      font.pointSize: Theme.tipFont.pointSize
-      color: Theme.mainTextColor
-    }
-    QfComboBox {
-      id: ownerCombo
-      Layout.fillWidth: true
-      editable: true
-    }
-
-    RowLayout {
-      Layout.fillWidth: true
-      Layout.topMargin: 8
+    ColumnLayout {
+      width: filterPanel.width - 32
+      x: 16
+      y: 16
+      spacing: 14
 
       Label {
         Layout.fillWidth: true
-        text: qsTr("Include public projects")
+        text: qsTr("Predefined Filters")
+        font.pointSize: Theme.secondaryTitleFont.pointSize
+        color: Theme.mainTextColor
+      }
+
+      ListView {
+        Layout.fillWidth: true
+        Layout.preferredHeight: 40
+        orientation: ListView.Horizontal
+        spacing: 10
+        clip: true
+        boundsBehavior: Flickable.StopAtBounds
+        model: filterPanel.presets
+
+        delegate: QfButton {
+          readonly property bool isActive: filterPanel.activePreset === modelData.id
+          height: ListView.view.height
+          text: modelData.label
+          font.pointSize: Theme.tipFont.pointSize
+          radius: 4
+          bgcolor: isActive ? Theme.mainColor : "transparent"
+          color: isActive ? Theme.mainBackgroundColor : Theme.mainColor
+          onClicked: filterPanel.activePreset = isActive ? "" : modelData.id
+        }
+      }
+
+      Label {
+        Layout.fillWidth: true
+        text: qsTr("Criteria")
+        font.pointSize: Theme.secondaryTitleFont.pointSize
+        color: Theme.mainTextColor
+      }
+
+      Label {
+        Layout.fillWidth: true
+        text: qsTr("Search term")
         font.pointSize: Theme.tipFont.pointSize
         color: Theme.mainTextColor
       }
-
-      Switch {
-        id: publicSwitch
-        Layout.alignment: Qt.AlignRight
+      QfTextField {
+        id: searchTermField
+        Layout.fillWidth: true
       }
-    }
 
-    Item {
-      Layout.fillHeight: true
-    }
-
-    RowLayout {
-      Layout.alignment: Qt.AlignRight
-      Layout.topMargin: 8
-      spacing: 10
-
-      QfButton {
-        text: qsTr("Reset")
-        bgcolor: Theme.controlBackgroundDisabledColor
+      Label {
+        Layout.fillWidth: true
+        text: qsTr("Owner")
+        font.pointSize: Theme.tipFont.pointSize
         color: Theme.mainTextColor
-        onClicked: filterPanel.clear()
+      }
+      QfComboBox {
+        id: ownerCombo
+        Layout.fillWidth: true
+        editable: true
       }
 
-      QfButton {
-        text: qsTr("Search")
-        bgcolor: Theme.mainColor
-        color: Theme.mainBackgroundColor
-        onClicked: filterPanel.filterApplied()
+      RowLayout {
+        Layout.fillWidth: true
+        Layout.topMargin: 8
+
+        Label {
+          Layout.fillWidth: true
+          text: qsTr("Include public projects")
+          font.pointSize: Theme.tipFont.pointSize
+          color: Theme.mainTextColor
+        }
+
+        Switch {
+          id: publicSwitch
+          Layout.alignment: Qt.AlignRight
+        }
       }
+    }
+  }
+
+  Rectangle {
+    id: searchButtonRow
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: searchButton.height + 20
+    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
+
+    QfButton {
+      id: searchButton
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.bottom: parent.bottom
+      anchors.leftMargin: 10
+      anchors.rightMargin: 10
+      anchors.bottomMargin: 10
+      text: qsTr("Search")
+      bgcolor: Theme.mainColor
+      color: Theme.mainBackgroundColor
+      onClicked: filterPanel.filterApplied()
     }
   }
 }

@@ -220,6 +220,15 @@ Page {
           onSearchTriggered: {
             table.model.textFilter = searchBar.searchTerm;
           }
+
+          onCleared: {
+            if (projectFilter.visible) {
+              projectFilter.clear();
+            } else {
+              searchBar.clear();
+              table.model.textFilter = "";
+            }
+          }
         }
 
         Item {

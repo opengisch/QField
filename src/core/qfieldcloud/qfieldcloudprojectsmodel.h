@@ -192,6 +192,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Fetches all cloud projects tied to a given \a search term and/or \a owner name.
     Q_INVOKABLE void appendProjects( const QString &owner, const QString &search, int projectFetchOffset = 0 );
 
+    //! Returns a list of unique project owners, excluding projects where the user has access only through public visibility.
+    Q_INVOKABLE QStringList uniqueOwners() const;
+
     /**
      * Transform a locally-stored project into a cloud project by uploading its content to the
      * QFieldCloud server.
