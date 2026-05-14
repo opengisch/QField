@@ -211,6 +211,9 @@ Page {
 
           onFilterClicked: {
             projectFilter.visible = !projectFilter.visible;
+            if (projectFilter.visible) {
+              projectFilter.updateQueryFromString(searchBar.searchTerm);
+            }
           }
 
           onSearchTermChanged: {

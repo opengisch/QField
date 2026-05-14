@@ -11,19 +11,25 @@ Pane {
   signal applyFilter
 
   property string currentUsername: ""
+
   property string activePreset: ""
   readonly property var presets: [
     {
       id: "mine",
       label: qsTr("My Own Projects"),
-      owner: filterPanel.currentUsername,
-      includePublic: false
+      query: "owner:" + filterPanel.currentUsername
     }
   ]
 
   property string queryString: ""
 
-  function updateQueryString() {
+  property bool blockQueryUpdate: false
+
+  function updateQuery() {
+    if (filterPanel.blockQueryUpdate) {
+      return;
+    }
+
     let parts = [];
     if (ownerComboBox.editText !== "") {
       parts.push("owner:" + ownerComboBox.editText);
@@ -35,38 +41,61 @@ Pane {
       parts.push(searchTermTextField.text);
     }
 
-    queryString = parts.join(" ");
+    queryString = parts.join(" ").trim();
+
+    const preset = presets.find(preset => preset.query === queryString);
+    const presetName = preset ? preset.id : "";
+    if (activePreset !== presetName) {
+      activePreset = presetName;
+    }
+  }
+
+  function updateQueryFromString(query) {
+    blockQueryUpdate = true;
+
+    let searchTerm = [];
+    let owner = "";
+    let includePublic = false;
+
+    let parts = query.trim().split(/\s+/);
+    for (const part of parts) {
+      if (part.indexOf("owner:") === 0) {
+        owner = part.substring(6);
+      } else if (part.indexOf("include:public") === 0) {
+        includePublic = true;
+      } else {
+        searchTerm.push(part);
+      }
+    }
+
+    searchTermTextField.text = searchTerm.join(' ');
+    ownerComboBox.editText = owner;
+    includePublicSwitch.checked = includePublic;
+
+    queryString = query;
+
+    blockQueryUpdate = false;
+
+    const preset = presets.find(preset => preset.query === queryString);
+    const presetName = preset ? preset.id : "";
+    if (activePreset !== presetName) {
+      activePreset = presetName;
+    }
   }
 
   function clear() {
-    searchTermTextField.clear();
-    ownerComboBox.editText = "";
-    includePublicSwitch.checked = false;
+    updateQueryFromString("");
     activePreset = "";
   }
 
   onVisibleChanged: {
     if (visible) {
-      const previousOwner = ownerComboBox.currentText;
+      blockQueryUpdate = true;
+      const previousOwner = ownerComboBox.editText;
       ownerComboBox.model = [""].concat(cloudProjectsModel.uniqueOwners());
-      ownerComboBox.editText = ownerComboBox.currentText;
+      ownerComboBox.editText = previousOwner;
+      blockQueryUpdate = false;
     }
-  }
-
-  onActivePresetChanged: {
-    if (!activePreset) {
-      return;
-    }
-
-    const p = presets.find(x => x.id === activePreset);
-    if (!p) {
-      return;
-    }
-
-    ownerComboBox.editText = p.owner;
-    includePublicSwitch.checked = p.includePublic;
-
-    updateQueryString();
   }
 
   padding: 0
@@ -114,6 +143,9 @@ Pane {
           color: isActive ? Theme.mainBackgroundColor : Theme.mainColor
           onClicked: {
             filterPanel.activePreset = modelData.id;
+            if (filterPanel.queryString !== modelData.query) {
+              updateQueryFromString(modelData.query);
+            }
           }
         }
       }
@@ -138,7 +170,7 @@ Pane {
         font: Theme.defaultFont
 
         onTextEdited: {
-          updateQueryString();
+          updateQuery();
         }
       }
 
@@ -157,7 +189,7 @@ Pane {
         font: Theme.defaultFont
 
         onEditTextChanged: {
-          updateQueryString();
+          updateQuery();
         }
       }
 
@@ -177,7 +209,7 @@ Pane {
           Layout.alignment: Qt.AlignRight
 
           onClicked: {
-            updateQueryString();
+            updateQuery();
           }
         }
       }
