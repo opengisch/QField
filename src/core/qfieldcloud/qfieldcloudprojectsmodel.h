@@ -363,6 +363,9 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     void includePublicChanged();
     void isSearchingChanged();
 
+  private slots:
+    void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
+
   protected:
     bool lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const override;
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;

@@ -1206,8 +1206,18 @@ void QFieldCloudProjectsFilterModel::setProjectsModel( QFieldCloudProjectsModel 
     return;
   }
 
+  if ( mSourceModel )
+  {
+    disconnect( mSourceModel, &QFieldCloudProjectsModel::projectsAppended, this, &QFieldCloudProjectsFilterModel::projectsAppended );
+  }
+
   mSourceModel = projectsModel;
   setSourceModel( mSourceModel );
+
+  if ( mSourceModel )
+  {
+    connect( mSourceModel, &QFieldCloudProjectsModel::projectsAppended, this, &QFieldCloudProjectsFilterModel::projectsAppended );
+  }
 
   emit projectsModelChanged();
 }
@@ -1309,6 +1319,20 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
   return true;
 }
 
+void QFieldCloudProjectsFilterModel::projectsAppended( const QString &owner, const QString &search, const bool hasError, const QString &errorString )
+{
+  if ( mOwnerFilter.isEmpty() && mKeywordFilter.isEmpty() )
+  {
+    return;
+  }
+
+  if ( mOwnerFilter == owner && mKeywordFilter == search.split( QLatin1Char( ' ' ) ) )
+  {
+    mIsSearching = false;
+    emit isSearchingChanged();
+  }
+}
+
 void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
 {
   if ( mTextFilter == text )
@@ -1357,14 +1381,6 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
   {
     mIsSearching = true;
     emit isSearchingChanged();
-
-    QMetaObject::Connection *conn = new QMetaObject::Connection;
-    *conn = connect( mSourceModel, &QFieldCloudProjectsModel::projectsAppended, this, [this, conn]( const QString &, const QString &, bool, const QString & ) {
-      mIsSearching = false;
-      emit isSearchingChanged();
-      QObject::disconnect( *conn );
-      delete conn;
-    } );
 
     mSourceModel->appendProjects( mOwnerFilter, mKeywordFilter.join( QLatin1Char( ' ' ) ) );
   }
