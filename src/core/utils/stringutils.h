@@ -64,6 +64,9 @@ class QFIELD_CORE_EXPORT StringUtils : public QObject
      * values.
      */
     static Q_INVOKABLE QString replaceFilenameTags( const QString &string, const QString &filename );
+
+    //! Returns a short snippet representing the beginning of a longer text.
+    static Q_INVOKABLE QString snippet( const QString &string, int desiredCharactersLength = 160 );
 };
 
 #endif // STRINGUTILS_H

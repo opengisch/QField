@@ -214,7 +214,7 @@ EditorWidgetBase {
             listModel.setFilterFixedString(searchTerm);
           }
 
-          onReturnPressed: {
+          onSearchTriggered: {
             if (listModel.rowCount() === 1) {
               resultsList.itemAtIndex(0).performClick();
               searchFeaturePopup.close();

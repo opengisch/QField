@@ -192,6 +192,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Fetches all cloud projects tied to a given \a search term and/or \a owner name.
     Q_INVOKABLE void appendProjects( const QString &owner, const QString &search, int projectFetchOffset = 0 );
 
+    //! Returns a list of unique project owners, excluding projects where the user has access only through public visibility.
+    Q_INVOKABLE QStringList uniqueOwners() const;
+
     /**
      * Transform a locally-stored project into a cloud project by uploading its content to the
      * QFieldCloud server.
@@ -271,6 +274,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_PROPERTY( bool showLocalOnly READ showLocalOnly WRITE setShowLocalOnly NOTIFY showLocalOnlyChanged )
     Q_PROPERTY( bool showInValidProjects READ showInValidProjects WRITE setShowInValidProjects NOTIFY showInValidProjectsChanged )
     Q_PROPERTY( bool showFeaturedOnTop READ showFeaturedOnTop WRITE setShowFeaturedOnTop NOTIFY showFeaturedOnTopChanged )
+    Q_PROPERTY( bool isSearching READ isSearching NOTIFY isSearchingChanged )
 
   public:
     explicit QFieldCloudProjectsFilterModel( QObject *parent = nullptr );
@@ -332,6 +336,11 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
      */
     bool showFeaturedOnTop() const;
 
+    /**
+     * Returns TRUE while an asynchronous projects appending was triggered by a text filter.
+     */
+    bool isSearching() const;
+
   signals:
 
     void projectsModelChanged();
@@ -340,6 +349,11 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     void textFilterChanged();
     void showInValidProjectsChanged();
     void showFeaturedOnTopChanged();
+    void isSearchingChanged();
+
+  private slots:
+    void triggerProjectsAppending();
+    void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
 
   protected:
     bool lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const override;
@@ -351,7 +365,12 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     bool mShowInValidProjects = false;
     bool mShowFeaturedOnTop = false;
     QString mTextFilter;
+    QStringList mKeywordFilter;
+    QString mOwnerFilter;
     bool mIncludePublic = false;
+    bool mIsSearching = false;
+
+    QTimer mProjectsAppendingTimer;
 };
 
 #endif // QFIELDCLOUDPROJECTSMODEL_H

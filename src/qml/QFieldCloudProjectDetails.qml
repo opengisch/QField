@@ -276,7 +276,7 @@ ColumnLayout {
         return qsTr('Synchronize');
       }
       visible: true
-      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== undefined && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
+      enabled: cloudProject != undefined && cloudProject.status === QFieldCloudProject.Idle && cloudProject.deltaFileWrapper !== null && !cloudProject.deltaFileWrapper.hasError
 
       onClicked: {
         synchronize();

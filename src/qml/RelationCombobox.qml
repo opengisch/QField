@@ -98,7 +98,7 @@ Item {
           featureListModel.searchTerm = searchTerm;
         }
 
-        onReturnPressed: {
+        onSearchTriggered: {
           if (featureListModel.rowCount() === 1) {
             resultsList.itemAtIndex(0).performClick();
             searchFeaturePopup.close();

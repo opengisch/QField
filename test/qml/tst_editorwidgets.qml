@@ -888,7 +888,7 @@ TestCase {
     const valueRelationListComponentParent = valueRelation.children[2];
     const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
     const valueRelationSearchBar = Utils.findChildren(valueRelationListComponentParent, "ValueRelationSearchBar");
-    const searchTextField = valueRelationSearchBar.children[0].children[2];
+    const searchTextField = valueRelationSearchBar.children[0].children[3];
 
     // turn on editable mode
     valueRelation.isEnabled = true;
@@ -965,7 +965,7 @@ TestCase {
     wait(500);
     compare(relationComboBoxParent.searchPopup.opened, true);
     const searchFeaturePopup = relationComboBoxParent.searchPopup.contentItem;
-    const searchBarTextField = searchFeaturePopup.children[0].children[1].children[0].children[0].children[2];
+    const searchBarTextField = searchFeaturePopup.children[0].children[1].children[0].children[0].children[3];
     const searchFeatureResultsList = searchFeaturePopup.children[0].children[1].children[1];
     const featureListModel = searchFeatureResultsList.model;
     compare(searchFeatureResultsList.count, 8);

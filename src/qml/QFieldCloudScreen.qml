@@ -205,7 +205,37 @@ Page {
           id: searchBar
           Layout.fillWidth: true
           Layout.preferredHeight: 41
+          enableFilterButton: true
+          filterActive: projectFilter.visible
           placeHolderText: qsTr("Search for project")
+          parameterKeys: ["owner", "include"]
+
+          onFilterClicked: {
+            if (!projectFilter.visible) {
+              projectFilter.visible = true;
+              projectFilter.updateQueryFromString(searchBar.searchTerm);
+            } else {
+              projectFilter.applyFilter();
+            }
+          }
+
+          onSearchTermChanged: {
+            if (!projectFilter.visible) {
+              table.model.textFilter = searchBar.searchTerm;
+            }
+          }
+
+          onSearchTriggered: {
+            table.model.textFilter = searchBar.searchTerm;
+          }
+
+          onCleared: {
+            if (projectFilter.visible) {
+              projectFilter.clear();
+            } else {
+              table.model.textFilter = "";
+            }
+          }
         }
 
         Item {
@@ -218,10 +248,10 @@ Page {
             property bool overshootRefresh: false
 
             model: QFieldCloudProjectsFilterModel {
+              id: filterModel
               projectsModel: cloudProjectsModel
               showLocalOnly: cloudConnection.status !== QFieldCloudConnection.LoggedIn
               showInValidProjects: settings ? settings.valueBool("/QField/showInvalidProjects", false) : false
-              textFilter: searchBar.searchTerm
             }
 
             ScrollBar.vertical: QfScrollBar {
@@ -363,6 +393,7 @@ Page {
                 ColumnLayout {
                   id: inner
                   width: projectDelegate.width - type.width - menuButton.width - 16
+                  anchors.verticalCenter: line.verticalCenter
 
                   Text {
                     id: projectTitle
@@ -381,7 +412,7 @@ Page {
                     leftPadding: 3
                     text: {
                       if (cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
-                        return qsTr('Available locally');
+                        return StringUtils.snippet(Description);
                       } else {
                         var status = '';
 
@@ -420,26 +451,12 @@ Page {
                           status = qsTr('Uploading error. ') + QFieldCloudUtils.userFriendlyErrorString(ErrorString);
                           break;
                         }
+
                         if (!status) {
-                          switch (Checkout) {
-                          case QFieldCloudProject.LocalCheckout:
-                            status = UserRoleOrigin === "public" ? qsTr('Available locally') : qsTr('Available locally, missing on the cloud');
-                            break;
-                          case QFieldCloudProject.RemoteCheckout:
-                            status = qsTr('Available on the cloud');
-                            break;
-                          case QFieldCloudProject.LocalAndRemoteCheckout:
-                            status = qsTr('Available locally');
-                            if (ProjectOutdated) {
-                              status += qsTr(', updated data available on the cloud');
-                            }
-                            break;
-                          default:
-                            break;
-                          }
+                          status = StringUtils.snippet(Description);
                         }
-                        var localChanges = (LocalDeltasCount > 0) ? qsTr(', has changes locally') : '';
-                        var str = status + localChanges;
+
+                        var str = status;
                         return str.trim();
                       }
                     }
@@ -519,7 +536,23 @@ Page {
               anchors.fill: parent
               anchors.margins: 20
               visible: cloudConnection.status === QFieldCloudConnection.LoggedIn && parent.count === 0 && filterBar.currentIndex === 0
-              text: cloudProjectsModel.isRefreshing ? qsTr("Refreshing projects list") : qsTr("No cloud projects found. To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>")
+              text: {
+                let labelText = "";
+                if (cloudProjectsModel.isRefreshing) {
+                  labelText = qsTr("Refreshing projects list...");
+                } else if (table.model.isSearching) {
+                  labelText = qsTr("Searching for projects...");
+                } else if (searchBar.searchTerm !== "") {
+                  labelText = qsTr("No cloud projects found.");
+                  if (searchBar.searchTerm.indexOf("include:public") === -1) {
+                    labelText += "\n\n<i>" + qsTr("Hint: try including public projects.") + "</i>";
+                  }
+                } else {
+                  labelText = qsTr("No cloud projects found.") + "\n\n" + qsTr("To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>");
+                }
+                return labelText;
+              }
+              textFormat: Text.MarkdownText
               font: Theme.defaultFont
               wrapMode: Text.WordWrap
               horizontalAlignment: Text.AlignHCenter
@@ -580,11 +613,33 @@ Page {
               }
             }
           }
+
+          QFieldCloudProjectFilter {
+            id: projectFilter
+            anchors.fill: parent
+            visible: false
+            z: 1
+
+            currentUsername: cloudConnection.username
+
+            onQueryStringChanged: {
+              if (visible) {
+                searchBar.setSearchTerm(queryString);
+              }
+            }
+
+            onApplyFilter: {
+              table.model.textFilter = queryString;
+              searchBar.setSearchTerm(queryString);
+              visible = false;
+            }
+          }
         }
 
         RowLayout {
           Layout.fillWidth: true
           Layout.topMargin: 5
+          visible: !projectFilter.visible
 
           QfButton {
             id: refreshProjectsListBtn
@@ -947,6 +1002,11 @@ Page {
   Keys.onReleased: event => {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       event.accepted = true;
+      if (projectFilter.visible) {
+        projectFilter.applyFilter();
+        return;
+      }
+
       header.onFinished();
     }
   }

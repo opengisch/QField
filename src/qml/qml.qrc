@@ -152,6 +152,7 @@
         <file>QFieldCloudDeltaHistory.qml</file>
         <file>QFieldCloudPackageLayersFeedback.qml</file>
         <file>QFieldCloudProjectDetails.qml</file>
+        <file>QFieldCloudProjectFilter.qml</file>
         <file>QFieldLocalDataPickerScreen.qml</file>
         <file>QFieldSketcher.qml</file>
         <file>PluginManagerSettings.qml</file>

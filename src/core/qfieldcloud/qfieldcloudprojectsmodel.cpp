@@ -26,6 +26,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QRegularExpression>
 #include <QSettings>
 #include <QTemporaryFile>
 #include <qgis.h>
@@ -35,6 +36,8 @@
 #include <qgsnetworkaccessmanager.h>
 #include <qgsproject.h>
 #include <qgsproviderregistry.h>
+
+#include <algorithm>
 
 
 QFieldCloudProjectsModel::QFieldCloudProjectsModel()
@@ -287,6 +290,25 @@ void QFieldCloudProjectsModel::appendProjects( const QString &owner, const QStri
 
   const NetworkReply *reply = mCloudConnection->get( request, url, params );
   connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectListReceived );
+}
+
+QStringList QFieldCloudProjectsModel::uniqueOwners() const
+{
+  QStringList owners;
+  for ( const QFieldCloudProject *project : std::as_const( mProjects ) )
+  {
+    if ( project->userRoleOrigin() == QStringLiteral( "public" ) )
+    {
+      continue;
+    }
+    const QString owner = project->owner();
+    if ( !owners.contains( owner ) )
+    {
+      owners.append( owner );
+    }
+  }
+  std::sort( owners.begin(), owners.end() );
+  return owners;
 }
 
 void QFieldCloudProjectsModel::removeLocalProject( const QString &projectId )
@@ -1175,6 +1197,10 @@ QFieldCloudProjectsFilterModel::QFieldCloudProjectsFilterModel( QObject *parent 
   setDynamicSortFilter( true );
   setSortLocaleAware( true );
   sort( 0 );
+
+  mProjectsAppendingTimer.setInterval( 500 );
+  mProjectsAppendingTimer.setSingleShot( true );
+  connect( &mProjectsAppendingTimer, &QTimer::timeout, this, &QFieldCloudProjectsFilterModel::triggerProjectsAppending );
 }
 
 void QFieldCloudProjectsFilterModel::setProjectsModel( QFieldCloudProjectsModel *projectsModel )
@@ -1184,8 +1210,18 @@ void QFieldCloudProjectsFilterModel::setProjectsModel( QFieldCloudProjectsModel 
     return;
   }
 
+  if ( mSourceModel )
+  {
+    disconnect( mSourceModel, &QFieldCloudProjectsModel::projectsAppended, this, &QFieldCloudProjectsFilterModel::projectsAppended );
+  }
+
   mSourceModel = projectsModel;
   setSourceModel( mSourceModel );
+
+  if ( mSourceModel )
+  {
+    connect( mSourceModel, &QFieldCloudProjectsModel::projectsAppended, this, &QFieldCloudProjectsFilterModel::projectsAppended );
+  }
 
   emit projectsModelChanged();
 }
@@ -1254,9 +1290,12 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
     return false;
   }
 
-  if ( !mIncludePublic && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() == QStringLiteral( "public" ) )
+  if ( !mIncludePublic )
   {
-    return false;
+    if ( mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() == QStringLiteral( "public" ) && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty() )
+    {
+      return false;
+    }
   }
 
   if ( !mShowInValidProjects && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::StatusRole ).toInt() == static_cast<int>( QFieldCloudProject::ProjectStatus::Failing ) )
@@ -1264,16 +1303,49 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
     return false;
   }
 
-  if ( mTextFilter.isEmpty() )
+  if ( !mOwnerFilter.isEmpty() )
   {
-    return true;
+    const QString owner = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
+    if ( owner.compare( mOwnerFilter, Qt::CaseInsensitive ) != 0 )
+    {
+      return false;
+    }
   }
 
   const QString name = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::NameRole ).toString();
   const QString description = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::DescriptionRole ).toString();
-  const QString owner = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
 
-  return name.contains( mTextFilter, Qt::CaseInsensitive ) || description.contains( mTextFilter, Qt::CaseInsensitive ) || owner.contains( mTextFilter, Qt::CaseInsensitive );
+  if ( !mKeywordFilter.isEmpty() )
+  {
+    if ( std::any_of( mKeywordFilter.begin(), mKeywordFilter.end(), [&name, &description]( const QString &keyword ) { return !name.contains( keyword, Qt::CaseInsensitive ) && !description.contains( keyword, Qt::CaseInsensitive ); } ) )
+    {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+void QFieldCloudProjectsFilterModel::projectsAppended( const QString &owner, const QString &search, const bool hasError, const QString &errorString )
+{
+  if ( mOwnerFilter.isEmpty() && mKeywordFilter.isEmpty() )
+  {
+    return;
+  }
+
+  if ( mOwnerFilter == owner && mKeywordFilter == search.split( QLatin1Char( ' ' ) ) )
+  {
+    mIsSearching = false;
+    emit isSearchingChanged();
+  }
+}
+
+void QFieldCloudProjectsFilterModel::triggerProjectsAppending()
+{
+  if ( mSourceModel && ( !mOwnerFilter.isEmpty() || !mKeywordFilter.isEmpty() ) )
+  {
+    mSourceModel->appendProjects( mOwnerFilter, mKeywordFilter.join( QLatin1Char( ' ' ) ) );
+  }
 }
 
 void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
@@ -1285,6 +1357,54 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
 
   beginFilterChange();
   mTextFilter = text;
+
+  QString searchTerm;
+  QString owner;
+  bool includePublic = false;
+
+  const QStringList tokens = text.split( QLatin1Char( ' ' ), Qt::SkipEmptyParts );
+  for ( const QString &token : tokens )
+  {
+    if ( token.startsWith( QStringLiteral( "owner:" ), Qt::CaseInsensitive ) )
+    {
+      owner = token.mid( 6 ).trimmed();
+    }
+    else if ( token.compare( QStringLiteral( "include:public" ), Qt::CaseInsensitive ) == 0 )
+    {
+      includePublic = true;
+    }
+    else
+    {
+      if ( !searchTerm.isEmpty() )
+      {
+        searchTerm += QLatin1Char( ' ' );
+      }
+      searchTerm += token;
+    }
+  }
+
+  mKeywordFilter = searchTerm.split( QLatin1Char( ' ' ), Qt::SkipEmptyParts );
+  mOwnerFilter = owner;
+  mIncludePublic = includePublic;
+
+  if ( mSourceModel && ( !mOwnerFilter.isEmpty() || !mKeywordFilter.isEmpty() ) )
+  {
+    mIsSearching = true;
+    emit isSearchingChanged();
+
+    mProjectsAppendingTimer.start();
+  }
+  else
+  {
+    if ( mIsSearching )
+    {
+      mIsSearching = false;
+      emit isSearchingChanged();
+    }
+
+    mProjectsAppendingTimer.stop();
+  }
+
   endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
   emit textFilterChanged();
@@ -1331,4 +1451,9 @@ void QFieldCloudProjectsFilterModel::setShowFeaturedOnTop( bool showFeaturedOnTo
 bool QFieldCloudProjectsFilterModel::showFeaturedOnTop() const
 {
   return mShowFeaturedOnTop;
+}
+
+bool QFieldCloudProjectsFilterModel::isSearching() const
+{
+  return mIsSearching;
 }

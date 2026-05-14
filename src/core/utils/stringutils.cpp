@@ -219,3 +219,55 @@ QString StringUtils::highlightText( const QString &string, const QString &highli
 
   return formattedString;
 }
+
+QString StringUtils::snippet( const QString &string, int desiredCharactersLength )
+{
+  if ( string.isEmpty() )
+  {
+    return QString();
+  }
+
+  QString snippet = string.trimmed().replace( QRegularExpression( QString( "[\r\n]+" ) ), " " );
+  if ( snippet.size() <= desiredCharactersLength )
+  {
+    return snippet;
+  }
+  snippet.clear();
+
+  const QString paragraph = string.split( QRegularExpression( QString( "[\r\n]+" ) ), Qt::SkipEmptyParts ).at( 0 );
+  const QStringList sentences = paragraph.split( QRegularExpression( QString( "\\." ) ), Qt::SkipEmptyParts );
+  for ( const QString &sentence : sentences )
+  {
+    if ( snippet.size() + sentence.size() < desiredCharactersLength )
+    {
+      snippet += QStringLiteral( "%1." ).arg( sentence );
+    }
+    else
+    {
+      if ( snippet.isEmpty() )
+      {
+        const QStringList parts = string.split( QRegularExpression( QString( "\\s" ) ), Qt::SkipEmptyParts );
+        if ( !parts.isEmpty() )
+        {
+          for ( const QString &part : parts )
+          {
+            if ( snippet.size() + part.size() < desiredCharactersLength )
+            {
+              snippet += QStringLiteral( "%1 " ).arg( part );
+            }
+          }
+        }
+
+        if ( snippet.isEmpty() )
+        {
+          snippet = QStringLiteral( "%1" ).arg( sentence.mid( 0, desiredCharactersLength ) );
+        }
+
+        snippet += QStringLiteral( "…" );
+      }
+      break;
+    }
+  }
+
+  return snippet;
+}
