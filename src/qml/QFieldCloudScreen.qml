@@ -393,6 +393,7 @@ Page {
                 ColumnLayout {
                   id: inner
                   width: projectDelegate.width - type.width - menuButton.width - 16
+                  anchors.verticalCenter: line.verticalCenter
 
                   Text {
                     id: projectTitle
@@ -411,7 +412,7 @@ Page {
                     leftPadding: 3
                     text: {
                       if (cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
-                        return qsTr('Available locally');
+                        return StringUtils.snippet(Description);
                       } else {
                         var status = '';
 
@@ -450,26 +451,12 @@ Page {
                           status = qsTr('Uploading error. ') + QFieldCloudUtils.userFriendlyErrorString(ErrorString);
                           break;
                         }
+
                         if (!status) {
-                          switch (Checkout) {
-                          case QFieldCloudProject.LocalCheckout:
-                            status = UserRoleOrigin === "public" ? qsTr('Available locally') : qsTr('Available locally, missing on the cloud');
-                            break;
-                          case QFieldCloudProject.RemoteCheckout:
-                            status = qsTr('Available on the cloud');
-                            break;
-                          case QFieldCloudProject.LocalAndRemoteCheckout:
-                            status = qsTr('Available locally');
-                            if (ProjectOutdated) {
-                              status += qsTr(', updated data available on the cloud');
-                            }
-                            break;
-                          default:
-                            break;
-                          }
+                          status = StringUtils.snippet(Description);
                         }
-                        var localChanges = (LocalDeltasCount > 0) ? qsTr(', has changes locally') : '';
-                        var str = status + localChanges;
+
+                        var str = status;
                         return str.trim();
                       }
                     }
