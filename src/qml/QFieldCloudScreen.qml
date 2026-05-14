@@ -213,6 +213,12 @@ Page {
             projectFilter.visible = !projectFilter.visible;
           }
 
+          onSearchTermChanged: {
+            if (!projectFilter.visible) {
+              table.model.textFilter = searchBar.searchTerm;
+            }
+          }
+
           onReturnPressed: {
             table.model.textFilter = searchBar.searchTerm;
           }
