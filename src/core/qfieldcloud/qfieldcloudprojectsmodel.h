@@ -274,7 +274,6 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_PROPERTY( bool showLocalOnly READ showLocalOnly WRITE setShowLocalOnly NOTIFY showLocalOnlyChanged )
     Q_PROPERTY( bool showInValidProjects READ showInValidProjects WRITE setShowInValidProjects NOTIFY showInValidProjectsChanged )
     Q_PROPERTY( bool showFeaturedOnTop READ showFeaturedOnTop WRITE setShowFeaturedOnTop NOTIFY showFeaturedOnTopChanged )
-    Q_PROPERTY( bool includePublic READ includePublic WRITE setIncludePublic NOTIFY includePublicChanged )
     Q_PROPERTY( bool isSearching READ isSearching NOTIFY isSearchingChanged )
 
   public:
@@ -338,16 +337,6 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     bool showFeaturedOnTop() const;
 
     /**
-     * Returns TRUE if public projects are currently included in the filtered list of cloud projects.
-     */
-    bool includePublic() const;
-
-    /**
-     * Sets whether to include public projects in the filtered list of cloud projects.
-     */
-    void setIncludePublic( bool includePublic );
-
-    /**
      * Returns TRUE while an asynchronous projects appending was triggered by a text filter.
      */
     bool isSearching() const;
@@ -360,7 +349,6 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     void textFilterChanged();
     void showInValidProjectsChanged();
     void showFeaturedOnTopChanged();
-    void includePublicChanged();
     void isSearchingChanged();
 
   private slots:

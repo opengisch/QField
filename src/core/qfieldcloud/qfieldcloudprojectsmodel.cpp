@@ -1290,9 +1290,12 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
     return false;
   }
 
-  if ( !mIncludePublic && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() == QStringLiteral( "public" ) )
+  if ( !mIncludePublic )
   {
-    return false;
+    if ( mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() == QStringLiteral( "public" ) && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty() )
+    {
+      return false;
+    }
   }
 
   if ( !mShowInValidProjects && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::StatusRole ).toInt() == static_cast<int>( QFieldCloudProject::ProjectStatus::Failing ) )
@@ -1357,7 +1360,7 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
 
   QString searchTerm;
   QString owner;
-  bool includePublic = mIncludePublic;
+  bool includePublic = false;
 
   const QStringList tokens = text.split( QLatin1Char( ' ' ), Qt::SkipEmptyParts );
   for ( const QString &token : tokens )
@@ -1382,12 +1385,7 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
 
   mKeywordFilter = searchTerm.split( QLatin1Char( ' ' ), Qt::SkipEmptyParts );
   mOwnerFilter = owner;
-
-  if ( mIncludePublic != includePublic )
-  {
-    mIncludePublic = includePublic;
-    emit includePublicChanged();
-  }
+  mIncludePublic = includePublic;
 
   if ( mSourceModel && ( !mOwnerFilter.isEmpty() || !mKeywordFilter.isEmpty() ) )
   {
@@ -1398,6 +1396,12 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
   }
   else
   {
+    if ( mIsSearching )
+    {
+      mIsSearching = false;
+      emit isSearchingChanged();
+    }
+
     mProjectsAppendingTimer.stop();
   }
 
@@ -1447,25 +1451,6 @@ void QFieldCloudProjectsFilterModel::setShowFeaturedOnTop( bool showFeaturedOnTo
 bool QFieldCloudProjectsFilterModel::showFeaturedOnTop() const
 {
   return mShowFeaturedOnTop;
-}
-
-bool QFieldCloudProjectsFilterModel::includePublic() const
-{
-  return mIncludePublic;
-}
-
-void QFieldCloudProjectsFilterModel::setIncludePublic( bool includePublic )
-{
-  if ( mIncludePublic == includePublic )
-  {
-    return;
-  }
-
-  beginFilterChange();
-  mIncludePublic = includePublic;
-  endFilterChange( QSortFilterProxyModel::Direction::Rows );
-
-  emit includePublicChanged();
 }
 
 bool QFieldCloudProjectsFilterModel::isSearching() const
