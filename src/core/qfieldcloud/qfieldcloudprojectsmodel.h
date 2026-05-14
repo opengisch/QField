@@ -364,6 +364,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     void isSearchingChanged();
 
   private slots:
+    void triggerProjectsAppending();
     void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
 
   protected:
@@ -380,6 +381,8 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     QString mOwnerFilter;
     bool mIncludePublic = false;
     bool mIsSearching = false;
+
+    QTimer mProjectsAppendingTimer;
 };
 
 #endif // QFIELDCLOUDPROJECTSMODEL_H

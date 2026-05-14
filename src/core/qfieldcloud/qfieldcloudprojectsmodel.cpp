@@ -1197,6 +1197,10 @@ QFieldCloudProjectsFilterModel::QFieldCloudProjectsFilterModel( QObject *parent 
   setDynamicSortFilter( true );
   setSortLocaleAware( true );
   sort( 0 );
+
+  mProjectsAppendingTimer.setInterval( 500 );
+  mProjectsAppendingTimer.setSingleShot( true );
+  connect( &mProjectsAppendingTimer, &QTimer::timeout, this, &QFieldCloudProjectsFilterModel::triggerProjectsAppending );
 }
 
 void QFieldCloudProjectsFilterModel::setProjectsModel( QFieldCloudProjectsModel *projectsModel )
@@ -1333,6 +1337,14 @@ void QFieldCloudProjectsFilterModel::projectsAppended( const QString &owner, con
   }
 }
 
+void QFieldCloudProjectsFilterModel::triggerProjectsAppending()
+{
+  if ( mSourceModel && ( !mOwnerFilter.isEmpty() || !mKeywordFilter.isEmpty() ) )
+  {
+    mSourceModel->appendProjects( mOwnerFilter, mKeywordFilter.join( QLatin1Char( ' ' ) ) );
+  }
+}
+
 void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
 {
   if ( mTextFilter == text )
@@ -1377,13 +1389,18 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
     emit includePublicChanged();
   }
 
-  if ( ( !mOwnerFilter.isEmpty() || !mKeywordFilter.isEmpty() ) )
+  if ( mSourceModel && ( !mOwnerFilter.isEmpty() || !mKeywordFilter.isEmpty() ) )
   {
     mIsSearching = true;
     emit isSearchingChanged();
 
-    mSourceModel->appendProjects( mOwnerFilter, mKeywordFilter.join( QLatin1Char( ' ' ) ) );
+    mProjectsAppendingTimer.start();
   }
+  else
+  {
+    mProjectsAppendingTimer.stop();
+  }
+
   endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
   emit textFilterChanged();
