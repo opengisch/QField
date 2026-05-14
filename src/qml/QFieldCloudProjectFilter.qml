@@ -140,6 +140,7 @@ Pane {
         id: ownerCombo
         Layout.fillWidth: true
         editable: true
+        Material.accent: Theme.mainColor
       }
 
       RowLayout {
