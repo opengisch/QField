@@ -37,7 +37,7 @@ Pane {
     if (includePublicSwitch.checked) {
       parts.push("include:public");
     }
-    if (searchTermTextField !== "") {
+    if (searchTermTextField.text !== "") {
       parts.push(searchTermTextField.text);
     }
 
