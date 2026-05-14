@@ -549,7 +549,23 @@ Page {
               anchors.fill: parent
               anchors.margins: 20
               visible: cloudConnection.status === QFieldCloudConnection.LoggedIn && parent.count === 0 && filterBar.currentIndex === 0
-              text: cloudProjectsModel.isRefreshing ? qsTr("Refreshing projects list") : qsTr("No cloud projects found. To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>")
+              text: {
+                let labelText = "";
+                if (cloudProjectsModel.isRefreshing) {
+                  labelText = qsTr("Refreshing projects list...");
+                } else if (table.model.isSearching) {
+                  labelText = qsTr("Searching for projects...");
+                } else if (searchBar.searchTerm !== "") {
+                  labelText = qsTr("No cloud projects found.");
+                  if (searchBar.searchTerm.indexOf("include:public") === -1) {
+                    labelText += "\n\n<i>" + qsTr("Hint: try including public projects.") + "</i>";
+                  }
+                } else {
+                  labelText = qsTr("No cloud projects found.") + "\n\n" + qsTr("To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>");
+                }
+                return labelText;
+              }
+              textFormat: Text.MarkdownText
               font: Theme.defaultFont
               wrapMode: Text.WordWrap
               horizontalAlignment: Text.AlignHCenter
