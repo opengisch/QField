@@ -73,7 +73,7 @@ TestCase {
   property var projectsSwipeView: mainColumnLayout.children[2]
   property var projectsColumnLayout: projectsSwipeView.contentChildren[0]
   property var filterBar: projectsColumnLayout.children[1]
-  property var searchBarTextArea: projectsColumnLayout.children[2].children[0].children[2]
+  property var searchBarTextArea: projectsColumnLayout.children[2].children[0].children[3]
   property var tableContainer: projectsColumnLayout.children[3]
   property var table: tableContainer.children[0]
   property var projectDetails: projectsSwipeView.contentChildren[1]
