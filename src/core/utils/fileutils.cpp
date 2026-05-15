@@ -418,7 +418,9 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
   QgsReadWriteContext readWriteContent;
   readWriteContent.setPathResolver( QgsProject::instance()->pathResolver() );
   QVariantMap metadata = QgsExifTools::readTags( imagePath );
-  QImage img( imagePath );
+  QImageReader imageReader( imagePath );
+  imageReader.setAutoTransform( true );
+  QImage img = imageReader.read();
   if ( !img.isNull() )
   {
     QPainter painter( &img );
@@ -511,6 +513,11 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
 
     for ( const QString &key : metadata.keys() )
     {
+      if ( key == QLatin1String( "Exif.Image.Orientation" ) )
+      {
+        // The rotation transform already happened when we loaded the image, skip the tag
+        continue;
+      }
       QgsExifTools::tagImage( imagePath, key, metadata[key] );
     }
   }
