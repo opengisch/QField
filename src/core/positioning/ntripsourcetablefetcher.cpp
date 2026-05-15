@@ -188,23 +188,24 @@ QStringList NtripSourceTableFetcher::parseSourceTable( const QByteArray &data ) 
 {
   QStringList mountPoints;
 
-  // Skip HTTP headers: find the blank line separator
-  const int headerEnd = 0; //data.indexOf( "\r\n\r\n" );
-  const QByteArray body = ( headerEnd >= 0 ) ? data.mid( headerEnd + 4 ) : data;
-
-  const QList<QByteArray> lines = body.split( '\n' );
-  for ( const QByteArray &line : lines )
+  const int strBegin = data.indexOf( "STR;" );
+  if ( strBegin >= 0 )
   {
-    const QByteArray trimmed = line.trimmed();
-    if ( !trimmed.startsWith( "STR;" ) )
-      continue;
-
-    const QList<QByteArray> fields = trimmed.split( ';' );
-    if ( fields.size() >= 2 )
+    const QByteArray body = data.mid( strBegin + 4 );
+    const QList<QByteArray> lines = body.split( '\n' );
+    for ( const QByteArray &line : lines )
     {
-      const QString mountpoint = QString::fromUtf8( fields.at( 1 ) ).trimmed();
-      if ( !mountpoint.isEmpty() )
-        mountPoints.append( mountpoint );
+      const QByteArray trimmed = line.trimmed();
+      if ( !trimmed.startsWith( "STR;" ) )
+        continue;
+
+      const QList<QByteArray> fields = trimmed.split( ';' );
+      if ( fields.size() >= 2 )
+      {
+        const QString mountpoint = QString::fromUtf8( fields.at( 1 ) ).trimmed();
+        if ( !mountpoint.isEmpty() )
+          mountPoints.append( mountpoint );
+      }
     }
   }
 
