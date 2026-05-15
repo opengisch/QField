@@ -597,7 +597,7 @@ void QFieldCloudConnection::getUserOrganizations( const QString &user )
     const QJsonArray array = doc.array();
 
     QStringList organizations;
-    for ( const QJsonValue &value : array )
+    for ( const auto &value : array )
     {
       const QString username = value.toObject().value( QStringLiteral( "username" ) ).toString();
       if ( !username.isEmpty() )
