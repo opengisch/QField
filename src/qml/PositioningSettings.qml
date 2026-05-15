@@ -22,7 +22,7 @@ Settings {
   property bool showPositionInformation: false
 
   property bool enableNtrip: false
-  property var ntripSettings: []
+  property var ntripSettings: ({})
 
   property bool alwaysShowPreciseView: false
   property real preciseViewPrecision: 2.5

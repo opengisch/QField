@@ -24,21 +24,21 @@ class NtripSourceTableFetcher : public QObject
     Q_OBJECT
 
     Q_PROPERTY( bool fetching READ fetching NOTIFY fetchingChanged )
-    Q_PROPERTY( QStringList mountpoints READ mountpoints NOTIFY mountpointsChanged )
+    Q_PROPERTY( QStringList mountPoints READ mountPoints NOTIFY mountPointsChanged )
 
   public:
     explicit NtripSourceTableFetcher( QObject *parent = nullptr );
     ~NtripSourceTableFetcher() noexcept override = default;
 
     bool fetching() const { return mFetching; }
-    QStringList mountpoints() const { return mMountpoints; }
+    QStringList mountPoints() const { return mMountPoints; }
 
     Q_INVOKABLE void fetch( const QString &host, int port, const QString &username, const QString &password, int version );
     Q_INVOKABLE void cancel();
 
   signals:
     void fetchingChanged();
-    void mountpointsChanged();
+    void mountPointsChanged();
     void fetchError( const QString &message );
 
   private slots:
@@ -60,5 +60,5 @@ class NtripSourceTableFetcher : public QObject
     QByteArray mBuffer;
     bool mHeadersParsed = false;
     bool mFetching = false;
-    QStringList mMountpoints;
+    QStringList mMountPoints;
 };

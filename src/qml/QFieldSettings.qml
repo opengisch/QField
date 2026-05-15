@@ -114,22 +114,6 @@ Page {
     iface.setupNetworkProxy();
   }
 
-  NtripSourceTableFetcher {
-    id: ntripFetcher
-    onMountpointsChanged: {
-      // Preserve edited mountpoint text after model update
-      var savedText = positioningSettings.ntripMountpoint;
-      Qt.callLater(function () {
-        if (ntripMountpointCombo.editText !== savedText)
-          ntripMountpointCombo.editText = savedText;
-      });
-    }
-    onFetchError: function (message) {
-      ntripFetchErrorLabel.text = message;
-      ntripFetchErrorLabel.visible = true;
-    }
-  }
-
   Settings {
     id: registry
     property bool showScaleBar: true
@@ -1325,6 +1309,63 @@ Page {
                   }
                 }
               }
+
+              Label {
+                text: qsTr("Enable NTRIP corrections")
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+
+                MouseArea {
+                  anchors.fill: parent
+                  onClicked: enableNtripClient.toggle()
+                }
+              }
+
+              QfSwitch {
+                id: enableNtripClient
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop
+                checked: positioningSettings.enableNtrip
+                onCheckedChanged: {
+                  positioningSettings.enableNtrip = checked;
+                }
+              }
+
+              Label {
+                id: ntripFeedbackLabel
+                Layout.fillWidth: true
+                visible: positioningSettings.enableNtrip
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                text: {
+                  if (positionSource.ntripState === Positioning.NtripState.Disconnected) {
+                    return qsTr("Disconnected");
+                  } else {
+                    return qsTr("Connected") + "\n↑" + positionSource.ntripBytesSent + " ↓" + positionSource.ntripBytesReceived;
+                  }
+                }
+              }
+
+              QfToolButton {
+                id: showNtripSettings
+                Layout.preferredWidth: 48
+                Layout.preferredHeight: 48
+                Layout.alignment: Qt.AlignVCenter
+                visible: positioningSettings.enableNtrip
+
+                iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
+                iconColor: Theme.mainTextColor
+                bgcolor: "transparent"
+                clip: true
+
+                onClicked: {
+                  positioningNtripSettings.updateFromNtripSettings(PositioningUtils.createNtripSettings(positioningSettings.ntripSettings));
+                  positioningNtripSettings.open();
+                }
+              }
             }
 
             GridLayout {
@@ -1944,72 +1985,6 @@ Page {
                   positioningSettings.logging = checked;
                 }
               }
-
-              Label {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                Layout.topMargin: 20
-                Layout.bottomMargin: 10
-                text: qsTr("NTRIP Client")
-                font: Theme.strongFont
-                color: Theme.mainColor
-              }
-
-              Rectangle {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                Layout.bottomMargin: 10
-                height: 1
-                color: Theme.mainColor
-              }
-
-              RowLayout {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                spacing: 10
-
-                Label {
-                  text: qsTr("Enable NTRIP client")
-                  font: Theme.defaultFont
-                  color: Theme.mainTextColor
-                  wrapMode: Text.WordWrap
-                  Layout.preferredWidth: 120
-
-                  MouseArea {
-                    anchors.fill: parent
-                    onClicked: enableNtripClient.toggle()
-                  }
-                }
-
-                RowLayout {
-                  Layout.fillWidth: true
-                  spacing: 10
-
-                  Label {
-                    text: positioningSettings.ntripState || ""
-                    font: Theme.tipFont
-                    color: Theme.secondaryTextColor
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                  }
-
-                  Label {
-                    text: positioningSettings.enableNtrip ? qsTr("↑%1 ↓%2").arg(positioningSettings.ntripBytesSent).arg(positioningSettings.ntripBytesReceived) : ""
-                    font: Theme.tipFont
-                    color: Theme.secondaryTextColor
-                  }
-                }
-
-                QfSwitch {
-                  id: enableNtripClient
-                  Layout.preferredWidth: implicitContentWidth
-                  Layout.alignment: Qt.AlignTop
-                  checked: positioningSettings.enableNtrip
-                  onCheckedChanged: {
-                    positioningSettings.enableNtrip = checked;
-                  }
-                }
-              }
             }
 
             Item {
@@ -2050,6 +2025,14 @@ Page {
       }
       var index = positioningDeviceModel.addDevice(type, name, settings);
       positioningDeviceComboBox.currentIndex = index;
+    }
+  }
+
+  PositioningNtripSettings {
+    id: positioningNtripSettings
+
+    onApply: {
+      positioningSettings.ntripSettings = createSettingsMap();
     }
   }
 

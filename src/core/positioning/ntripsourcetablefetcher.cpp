@@ -146,12 +146,20 @@ void NtripSourceTableFetcher::onSocketDisconnected()
     return;
   }
 
-  const QStringList mountpoints = parseSourceTable( mBuffer );
-  mMountpoints = mountpoints;
-  emit mountpointsChanged();
+  const QStringList mountPoints = parseSourceTable( mBuffer );
 
-  if ( mountpoints.isEmpty() )
+  if ( !mountPoints.isEmpty() )
+  {
+    if ( mMountPoints != mountPoints )
+    {
+      mMountPoints = mountPoints;
+      emit mountPointsChanged();
+    }
+  }
+  else
+  {
     emit fetchError( tr( "No mountpoints found in NTRIP source table" ) );
+  }
 
   cleanup();
 }
@@ -172,7 +180,7 @@ void NtripSourceTableFetcher::onSocketError( QAbstractSocket::SocketError error 
 
 QStringList NtripSourceTableFetcher::parseSourceTable( const QByteArray &data ) const
 {
-  QStringList mountpoints;
+  QStringList mountPoints;
 
   // Skip HTTP headers: find the blank line separator
   const int headerEnd = 0; //data.indexOf( "\r\n\r\n" );
@@ -190,11 +198,9 @@ QStringList NtripSourceTableFetcher::parseSourceTable( const QByteArray &data ) 
     {
       const QString mountpoint = QString::fromUtf8( fields.at( 1 ) ).trimmed();
       if ( !mountpoint.isEmpty() )
-        mountpoints.append( mountpoint );
+        mountPoints.append( mountpoint );
     }
   }
 
-  qDebug() << "XXX" << data;
-  qDebug() << "YYY" << mountpoints;
-  return mountpoints;
+  return mountPoints;
 }

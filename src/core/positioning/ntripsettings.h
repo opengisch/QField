@@ -27,6 +27,14 @@ class NtripSettings
 {
     Q_GADGET
 
+    Q_PROPERTY( QString host READ host )
+    Q_PROPERTY( int port READ port )
+    Q_PROPERTY( Protocol protocol READ protocol )
+    Q_PROPERTY( QString mountPoint READ mountPoint )
+    Q_PROPERTY( QString username READ username )
+    Q_PROPERTY( QString password READ password )
+    Q_PROPERTY( bool forwardNmeaSentences READ forwardNmeaSentences )
+
   public:
     //! NTRIP server version
     enum Protocol
@@ -69,7 +77,7 @@ class NtripSettings
     void setForwardNmeaSentences( bool forwardNmeaSentences );
 
     Q_INVOKABLE QVariantMap toMap() const;
-    Q_INVOKABLE static NtripSettings fromMap( const QVariantMap &settings );
+    static NtripSettings fromMap( const QVariantMap &settings );
 
   private:
     QString mHost;

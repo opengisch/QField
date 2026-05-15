@@ -32,6 +32,7 @@
         <file>NavigationRenderer.qml</file>
         <file>NotesItem.qml</file>
         <file>PositioningDeviceSettings.qml</file>
+        <file>PositioningNtripSettings.qml</file>
         <file>PositioningSettings.qml</file>
         <file>PositioningInformationView.qml</file>
         <file>PositioningPreciseView.qml</file>

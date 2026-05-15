@@ -575,6 +575,17 @@ PositioningSource::NtripState Positioning::ntripState() const
 
 qint64 Positioning::ntripBytesSent() const
 {
+  qDebug() << "ntripBytesSent";
+  qDebug() << "ntripBytesSent";
+  qDebug() << "ntripBytesSent";
+  qDebug() << "ntripBytesSent";
+  qDebug() << "ntripBytesSent";
+  qDebug() << "ntripBytesSent";
+  if ( isSourceAvailable() )
+  {
+    qDebug() << mPositioningSourceReplica->property( "ntripBytesSent" ).toLongLong();
+    qDebug() << mPositioningSourceReplica->property( "ntripBytesSent" ).toLongLong();
+  }
   return isSourceAvailable() ? mPositioningSourceReplica->property( "ntripBytesSent" ).toLongLong() : 0;
 }
 
