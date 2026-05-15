@@ -529,148 +529,48 @@ void Positioning::setBackgroundMode( bool enabled )
   emit backgroundModeChanged();
 }
 
-bool Positioning::enableNtripClient() const
+bool Positioning::enableNtrip() const
 {
-  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "enableNtripClient" ) : mProperties.value( "enableNtripClient", false ) ).toBool();
+  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "enableNtrip" ) : mProperties.value( "enableNtrip", false ) ).toBool();
 }
 
-bool Positioning::ntripSendNmea() const
-{
-  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripSendNmea" ) : mProperties.value( "ntripSendNmea", false ) ).toBool();
-}
-
-void Positioning::setEnableNtripClient( bool enableNtripClient )
+void Positioning::setEnableNtrip( bool enableNtrip )
 {
   if ( isSourceAvailable() )
   {
-    mPositioningSourceReplica->setProperty( "enableNtripClient", enableNtripClient );
+    mPositioningSourceReplica->setProperty( "enableNtrip", enableNtrip );
   }
   else
   {
-    mProperties["enableNtripClient"] = enableNtripClient;
-    emit enableNtripClientChanged();
+    mProperties["enableNtrip"] = enableNtrip;
+    emit enableNtripChanged();
   }
 }
 
-void Positioning::setNtripSendNmea( bool sendNmea )
+NtripSettings Positioning::ntripSettings() const
 {
   if ( isSourceAvailable() )
   {
-    mPositioningSourceReplica->setProperty( "ntripSendNmea", sendNmea );
+    return mPositioningSourceReplica->property( "ntripSettings" ).value<NtripSettings>();
   }
-  else
+  else if ( mProperties.contains( "ntripSettings" ) )
   {
-    mProperties["ntripSendNmea"] = sendNmea;
-    emit ntripSendNmeaChanged();
+    return mProperties.value( "ntripSettings" ).value<NtripSettings>();
   }
+
+  return NtripSettings();
 }
 
-QString Positioning::ntripHost() const
-{
-  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripHost" ) : mProperties.value( "ntripHost", "" ) ).toString();
-}
-
-void Positioning::setNtripHost( const QString &ntripHost )
+void Positioning::setNtripSettings( const NtripSettings &ntripSettings )
 {
   if ( isSourceAvailable() )
   {
-    mPositioningSourceReplica->setProperty( "ntripHost", ntripHost );
+    mPositioningSourceReplica->setProperty( "ntripSettings", QVariant::fromValue<NtripSettings>( ntripSettings ) );
   }
   else
   {
-    mProperties["ntripHost"] = ntripHost;
-    emit ntripHostChanged();
-  }
-}
-
-int Positioning::ntripPort() const
-{
-  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripPort" ) : mProperties.value( "ntripPort", 2101 ) ).toInt();
-}
-
-int Positioning::ntripVersion() const
-{
-  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripVersion" ) : mProperties.value( "ntripVersion", 1 ) ).toInt();
-}
-
-void Positioning::setNtripPort( int ntripPort )
-{
-  if ( isSourceAvailable() )
-  {
-    mPositioningSourceReplica->setProperty( "ntripPort", ntripPort );
-  }
-  else
-  {
-    mProperties["ntripPort"] = ntripPort;
-    emit ntripPortChanged();
-  }
-}
-
-void Positioning::setNtripVersion( int ntripVersion )
-{
-  const int clampedVersion = ( ntripVersion == 2 ) ? 2 : 1;
-  if ( isSourceAvailable() )
-  {
-    mPositioningSourceReplica->setProperty( "ntripVersion", clampedVersion );
-  }
-  else
-  {
-    mProperties["ntripVersion"] = clampedVersion;
-    emit ntripVersionChanged();
-  }
-}
-
-QString Positioning::ntripMountpoint() const
-{
-  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripMountpoint" ) : mProperties.value( "ntripMountpoint", "" ) ).toString();
-}
-
-void Positioning::setNtripMountpoint( const QString &ntripMountpoint )
-{
-  if ( isSourceAvailable() )
-  {
-    mPositioningSourceReplica->setProperty( "ntripMountpoint", ntripMountpoint );
-  }
-  else
-  {
-    mProperties["ntripMountpoint"] = ntripMountpoint;
-    emit ntripMountpointChanged();
-  }
-}
-
-QString Positioning::ntripUsername() const
-{
-  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripUsername" ) : mProperties.value( "ntripUsername", "" ) ).toString();
-}
-
-void Positioning::setNtripUsername( const QString &ntripUsername )
-{
-  if ( isSourceAvailable() )
-  {
-    mPositioningSourceReplica->setProperty( "ntripUsername", ntripUsername );
-  }
-  else
-  {
-    mProperties["ntripUsername"] = ntripUsername;
-    emit ntripUsernameChanged();
-  }
-}
-
-QString Positioning::ntripPassword() const
-{
-  return ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripPassword" ) : mProperties.value( "ntripPassword", "" ) ).toString();
-}
-
-void Positioning::setNtripPassword( const QString &ntripPassword )
-{
-  if ( isSourceAvailable() )
-  {
-    mPositioningSourceReplica->setProperty( "ntripPassword", ntripPassword );
-  }
-  else
-  {
-    mProperties["ntripPassword"] = ntripPassword;
-    emit ntripPasswordChanged();
+    mProperties["ntripSettings"] = QVariant::fromValue<NtripSettings>( ntripSettings );
+    emit ntripSettingsChanged();
   }
 }
 

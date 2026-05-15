@@ -13,10 +13,16 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#pragma once
+
+#ifndef NTRIPCLIENT_H
+#define NTRIPCLIENT_H
+
+#include "ntripsettings.h"
 
 #include <QFile>
 #include <QObject>
+#include <QTcpSocket>
+#include <QTimer>
 
 class NtripSocketClient;
 
@@ -27,7 +33,7 @@ class NtripClient : public QObject
     explicit NtripClient( QObject *parent = nullptr );
     ~NtripClient() noexcept override;
 
-    void start( const QString &ntripHost, const quint16 &port, const QString &mountpoint, const QString &username, const QString &password, int version = 1 );
+    void start( const NtripSettings &ntripSettings );
     void stop();
 
     void sendNmeaSentence( const QString &sentence );
@@ -54,3 +60,51 @@ class NtripClient : public QObject
     QFile mLogFile;
     int mLogBlockCount = 0;
 };
+
+class NtripSocketClient : public QObject
+{
+    Q_OBJECT
+  public:
+    explicit NtripSocketClient( QObject *parent = nullptr );
+    ~NtripSocketClient() noexcept override;
+
+    qint64 start( const NtripSettings &ntripSettings );
+
+    qint64 sendNmeaSentence( const QByteArray &sentence );
+
+    void stop();
+
+  signals:
+    void correctionDataReceived( const QByteArray &data );
+    void errorOccurred( const QString &message, bool isPermanent );
+    void streamConnected();
+    void streamDisconnected();
+
+  private slots:
+    void onConnected();
+    void onReadyRead();
+    void onDisconnected();
+    void onSocketError( QAbstractSocket::SocketError error );
+
+  private:
+    qint64 estimateRequestSize() const;
+    void processChunkedData( const QByteArray &data );
+    int parseHttpStatusCode( const QByteArray &headerBlock );
+    bool isPermanentHttpError( int statusCode );
+
+    QTcpSocket *mSocket;
+    bool mHeadersSent = false;
+    QByteArray mHeaderBuffer;
+    QString mHost;
+    quint16 mPort = 0;
+    QString mMountPoint;
+    QString mUsername;
+    QString mPassword;
+    bool mPendingError = false;
+    NtripSettings::Protocol mProtocol = NtripSettings::NtripVersion1;
+    bool mChunkedEncoding = false;
+    QByteArray mChunkBuffer;
+    int mChunkRemaining = -1;
+};
+
+#endif // NTRIPCLIENT_H

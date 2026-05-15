@@ -163,17 +163,17 @@ void PositioningSource::setBackgroundMode( bool backgroundMode )
 }
 
 
-void PositioningSource::setEnableNtripClient( bool enableNtripClient )
+void PositioningSource::setEnableNtrip( bool enableNtrip )
 {
-  if ( mEnableNtripClient == enableNtripClient )
-    return;
-
-  mEnableNtripClient = enableNtripClient;
-
-  // Start or stop NTRIP client based on the setting
-  if ( mEnableNtripClient )
+  if ( mEnableNtrip == enableNtrip )
   {
-    qDebug() << "starting!";
+    return;
+  }
+
+  mEnableNtrip = enableNtrip;
+
+  if ( mEnableNtrip )
+  {
     startNtripClient();
   }
   else
@@ -181,119 +181,24 @@ void PositioningSource::setEnableNtripClient( bool enableNtripClient )
     stopNtripClient();
   }
 
-  emit enableNtripClientChanged();
+  emit enableNtripChanged();
 }
 
-void PositioningSource::setNtripSendNmea( bool sendNmea )
+void PositioningSource::setNtripSettings( const NtripSettings &ntripSettings )
 {
-  if ( mNtripSendNmea == sendNmea )
-    return;
-
-  mNtripSendNmea = sendNmea;
-  emit ntripSendNmeaChanged();
-}
-
-void PositioningSource::setNtripHost( const QString &ntripHost )
-{
-  if ( mNtripHost == ntripHost )
-    return;
-
-  mNtripHost = ntripHost;
-
-  // Restart NTRIP client if enabled and parameters changed
-  if ( mEnableNtripClient && mNtripClient )
+  if ( mNtripSettings == ntripSettings )
   {
-    stopNtripClient();
+    return;
+  }
+
+  mNtripSettings = ntripSettings;
+
+  if ( mEnableNtrip )
+  {
     startNtripClient();
   }
 
-  emit ntripHostChanged();
-}
-
-void PositioningSource::setNtripPort( int ntripPort )
-{
-  if ( mNtripPort == ntripPort )
-    return;
-
-  mNtripPort = ntripPort;
-
-  // Restart NTRIP client if enabled and parameters changed
-  if ( mEnableNtripClient && mNtripClient )
-  {
-    stopNtripClient();
-    startNtripClient();
-  }
-
-  emit ntripPortChanged();
-}
-
-void PositioningSource::setNtripVersion( int ntripVersion )
-{
-  const int clampedVersion = ( ntripVersion == 2 ) ? 2 : 1;
-  if ( mNtripVersion == clampedVersion )
-    return;
-
-  mNtripVersion = clampedVersion;
-
-  // Restart NTRIP client if enabled and parameters changed
-  if ( mEnableNtripClient && mNtripClient )
-  {
-    stopNtripClient();
-    startNtripClient();
-  }
-
-  emit ntripVersionChanged();
-}
-
-void PositioningSource::setNtripMountpoint( const QString &ntripMountpoint )
-{
-  if ( mNtripMountpoint == ntripMountpoint )
-    return;
-
-  mNtripMountpoint = ntripMountpoint;
-
-  // Restart NTRIP client if enabled and parameters changed
-  if ( mEnableNtripClient && mNtripClient )
-  {
-    stopNtripClient();
-    startNtripClient();
-  }
-
-  emit ntripMountpointChanged();
-}
-
-void PositioningSource::setNtripUsername( const QString &ntripUsername )
-{
-  if ( mNtripUsername == ntripUsername )
-    return;
-
-  mNtripUsername = ntripUsername;
-
-  // Restart NTRIP client if enabled and parameters changed
-  if ( mEnableNtripClient && mNtripClient )
-  {
-    stopNtripClient();
-    startNtripClient();
-  }
-
-  emit ntripUsernameChanged();
-}
-
-void PositioningSource::setNtripPassword( const QString &ntripPassword )
-{
-  if ( mNtripPassword == ntripPassword )
-    return;
-
-  mNtripPassword = ntripPassword;
-
-  // Restart NTRIP client if enabled and parameters changed
-  if ( mEnableNtripClient && mNtripClient )
-  {
-    stopNtripClient();
-    startNtripClient();
-  }
-
-  emit ntripPasswordChanged();
+  emit ntripSettingsChanged();
 }
 
 QList<GnssPositionInformation> PositioningSource::getBackgroundPositionInformation() const
@@ -407,7 +312,7 @@ void PositioningSource::setupDevice()
       mReceiver = std::make_unique<BluetoothReceiver>( mDeviceId, this );
 
       // Start NTRIP client if enabled for Bluetooth receivers
-      if ( mEnableNtripClient )
+      if ( mEnableNtrip )
       {
         startNtripClient();
       }
@@ -525,7 +430,7 @@ void PositioningSource::onDeviceSocketStateChanged()
       stopNtripClient();
     }
     // Start NTRIP client when external receiver connects and setting is enabled
-    else if ( !mNtripClient && mEnableNtripClient && !mDeviceId.isEmpty() && state == QAbstractSocket::ConnectedState )
+    else if ( !mNtripClient && mEnableNtrip && !mDeviceId.isEmpty() && state == QAbstractSocket::ConnectedState )
     {
       startNtripClient();
     }
@@ -543,96 +448,88 @@ void PositioningSource::triggerConnectDevice()
 
 void PositioningSource::startNtripClient()
 {
-  // Only start NTRIP client if we have an external receiver that can use RTK corrections
-  if ( true ) //mReceiver && !mDeviceId.isEmpty() )
+  if ( !mNtripSettings.isValid() )
   {
-    // Check that all required NTRIP parameters are configured
-    if ( mNtripHost.isEmpty() || mNtripMountpoint.isEmpty() || mNtripUsername.isEmpty() || mNtripPassword.isEmpty() )
-    {
-      setNtripLastError( QStringLiteral( "Missing parameters" ) );
-      qWarning() << "NTRIP Client: Missing required connection parameters (host, mountpoint, username, or password)";
-      return;
-    }
+    return;
+  }
 
-    if ( !mNtripClient )
-      mNtripClient = std::make_unique<NtripClient>( this );
+  if ( mReceiver && !mDeviceId.isEmpty() )
+  {
+    return;
+  }
 
-    // Reset byte counters
-    mNtripBytesSent = 0;
-    mNtripBytesReceived = 0;
-    emit ntripBytesSentChanged();
-    emit ntripBytesReceivedChanged();
+  if ( !mNtripClient )
+  {
+    mNtripClient = std::make_unique<NtripClient>( this );
+  }
 
-    setNtripState( NtripState::Disconnected );
-    mNtripClient->start( mNtripHost, static_cast<quint16>( mNtripPort ), mNtripMountpoint, mNtripUsername, mNtripPassword, mNtripVersion );
+  // Reset byte counters
+  mNtripBytesSent = 0;
+  mNtripBytesReceived = 0;
+  emit ntripBytesSentChanged();
+  emit ntripBytesReceivedChanged();
 
-    // Connect to receiver if it supports RTK corrections
+  setNtripState( NtripState::Disconnected );
+
+  mNtripClient->start( mNtripSettings );
+
+  // Connect to receiver if it supports RTK corrections
 #ifdef WITH_BLUETOOTH
-    if ( auto bluetoothReceiver = dynamic_cast<BluetoothReceiver *>( mReceiver.get() ) )
-    {
-      connect( mNtripClient.get(), &NtripClient::correctionDataReceived, bluetoothReceiver, &BluetoothReceiver::onCorrectionDataReceived );
-    }
+  if ( BluetoothReceiver *bluetoothReceiver = dynamic_cast<BluetoothReceiver *>( mReceiver.get() ) )
+  {
+    connect( mNtripClient.get(), &NtripClient::correctionDataReceived, bluetoothReceiver, &BluetoothReceiver::onCorrectionDataReceived );
+  }
 #endif
 
-    // Track connection status through signals
-    connect( mNtripClient.get(), &NtripClient::streamConnected,
-             this, [this]() {
-               setNtripState( NtripState::Connected );
-               setNtripLastError( QString() );
-             } );
+  // Track connection status through signals
+  connect( mNtripClient.get(), &NtripClient::streamConnected, this, [this]() {
+    setNtripState( NtripState::Connected );
+    setNtripLastError( QString() );
+  } );
 
-    connect( mNtripClient.get(), &NtripClient::streamDisconnected,
-             this, [this]() {
-               setNtripState( NtripState::Disconnected );
-             } );
+  connect( mNtripClient.get(), &NtripClient::streamDisconnected, this, [this]() {
+    setNtripState( NtripState::Disconnected );
+  } );
 
-    connect( mNtripClient.get(), &NtripClient::errorOccurred,
-             this, [this]( const QString &msg ) {
-               setNtripLastError( msg );
-               qWarning() << "NTRIP Client Error:" << msg;
-             } );
+  connect( mNtripClient.get(), &NtripClient::errorOccurred, this, [this]( const QString &msg ) {
+    setNtripLastError( msg );
+    qInfo() << "NTRIP Client Error:" << msg;
+  } );
 
-    // Track byte counters
-    connect( mNtripClient.get(), &NtripClient::bytesCountersChanged,
-             this, [this]() {
-               mNtripBytesSent = mNtripClient->bytesSent();
-               mNtripBytesReceived = mNtripClient->bytesReceived();
-               emit ntripBytesSentChanged();
-               emit ntripBytesReceivedChanged();
-             } );
+  connect( mNtripClient.get(), &NtripClient::bytesCountersChanged, this, [this]() {
+    mNtripBytesSent = mNtripClient->bytesSent();
+    mNtripBytesReceived = mNtripClient->bytesReceived();
+    emit ntripBytesSentChanged();
+    emit ntripBytesReceivedChanged();
+  } );
 
-    if ( const NmeaGnssReceiver *nmeaReceiver = dynamic_cast<const NmeaGnssReceiver *>( mReceiver.get() ) )
-    {
-      connect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, [this]( const QString &sentence ) {
-        if ( !mNtripClient )
-        {
-          return;
-        }
-
-        if ( !mNtripSendNmea )
-        {
-          return;
-        }
-
-        if ( !( sentence.startsWith( "$GPGGA" ) || sentence.startsWith( "$GNGGA" ) || sentence.startsWith( "$GLGGA" ) || sentence.startsWith( "$GAGGA" ) || sentence.startsWith( "$GBGGA" ) ) )
-        {
-          return;
-        }
-
-        const qint64 nowMs = QDateTime::currentMSecsSinceEpoch();
-        if ( mLastNtripGgaSentMs != 0 && ( nowMs - mLastNtripGgaSentMs ) < 900 )
-        {
-          return;
-        }
-        mLastNtripGgaSentMs = nowMs;
-
-        mNtripClient->sendNmeaSentence( sentence );
-      } );
-    }
-  }
-  else
+  if ( const NmeaGnssReceiver *nmeaReceiver = dynamic_cast<const NmeaGnssReceiver *>( mReceiver.get() ) )
   {
-    setNtripLastError( QStringLiteral( "No external receiver" ) );
+    connect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, [this]( const QString &sentence ) {
+      if ( !mNtripClient )
+      {
+        return;
+      }
+
+      if ( !mNtripSettings.forwardNmeaSentences() )
+      {
+        return;
+      }
+
+      if ( !( sentence.startsWith( "$GPGGA" ) || sentence.startsWith( "$GNGGA" ) || sentence.startsWith( "$GLGGA" ) || sentence.startsWith( "$GAGGA" ) || sentence.startsWith( "$GBGGA" ) ) )
+      {
+        return;
+      }
+
+      const qint64 nowMs = QDateTime::currentMSecsSinceEpoch();
+      if ( mLastNtripGgaSentMs != 0 && ( nowMs - mLastNtripGgaSentMs ) < 900 )
+      {
+        return;
+      }
+      mLastNtripGgaSentMs = nowMs;
+
+      mNtripClient->sendNmeaSentence( sentence );
+    } );
   }
 }
 

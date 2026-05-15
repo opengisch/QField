@@ -92,6 +92,7 @@
 #include "navigation.h"
 #include "navigationmodel.h"
 #include "nearfieldreader.h"
+#include "ntripsettings.h"
 #include "ntripsourcetablefetcher.h"
 #include "orderedrelationmodel.h"
 #include "parameterizedimage.h"
@@ -582,8 +583,11 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
 
+  qmlRegisterUncreatableType<NtripSettings>( "org.qfield", 1, 0, "NtripSettings", "Used for property values" );
+  qmlRegisterUncreatableMetaObject( NtripSettings::staticMetaObject, "org.qfield", 1, 0, "NtripSettings", "Used to access to enum values" );
+
   qmlRegisterUncreatableType<GnssPositionInformation>( "org.qfield", 1, 0, "gnssPositionInformation", "Used for property values" );
-  qmlRegisterUncreatableMetaObject( GnssPositionInformation::staticMetaObject, "org.qfield", 1, 0, "GnssPositionInformation", "USed to access to enum values" );
+  qmlRegisterUncreatableMetaObject( GnssPositionInformation::staticMetaObject, "org.qfield", 1, 0, "GnssPositionInformation", "Used to access to enum values" );
   qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
 
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
