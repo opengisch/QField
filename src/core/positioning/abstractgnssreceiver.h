@@ -74,6 +74,9 @@ class AbstractGnssReceiver : public QObject
     void socketStateStringChanged( const QString &socketStateString );
     void lastErrorChanged( const QString &lastError );
 
+  public slots:
+    virtual void onCorrectionDataReceived( const QByteArray &data ) {}
+
   private:
     friend class InternalGnssReceiver;
     friend class EgenioussReceiver;

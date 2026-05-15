@@ -28,11 +28,12 @@ NmeaGnssReceiver::NmeaGnssReceiver( QObject *parent )
 
 AbstractGnssReceiver::Capabilities NmeaGnssReceiver::capabilities() const
 {
-  return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging | AbstractGnssReceiver::NtripCorrection;
+  return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging;
 }
 
 void NmeaGnssReceiver::initNmeaConnection( QIODevice *ioDevice )
 {
+  mIoDevice = ioDevice;
   mNmeaConnection = std::make_unique<QgsNmeaConnection>( ioDevice );
 
   //QgsGpsConnection state changed (received location string)
@@ -212,4 +213,18 @@ void NmeaGnssReceiver::processImuSentence( const QString &sentence )
   mImuPosition.steeringZ = parameters[18].toDouble();
 
   mImuPosition.valid = true;
+}
+
+void NmeaGnssReceiver::onCorrectionDataReceived( const QByteArray &data )
+{
+  if ( !mIoDevice || !mIoDevice->isOpen() )
+  {
+    return;
+  }
+
+  qint64 bytesWritten = mIoDevice->write( data );
+  if ( bytesWritten == -1 )
+  {
+    qInfo() << "Failed to write corrections to NMEA receiver socket:" << mIoDevice->errorString();
+  }
 }

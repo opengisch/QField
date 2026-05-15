@@ -57,6 +57,11 @@ TcpReceiver::~TcpReceiver()
   mSocket = nullptr;
 }
 
+AbstractGnssReceiver::Capabilities TcpReceiver::capabilities() const
+{
+  return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging | AbstractGnssReceiver::NtripCorrection;
+}
+
 void TcpReceiver::handleConnectDevice()
 {
   if ( mAddress.isEmpty() || mPort == 0 )

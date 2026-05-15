@@ -453,7 +453,7 @@ void PositioningSource::startNtripClient()
     return;
   }
 
-  if ( mReceiver && !mDeviceId.isEmpty() )
+  if ( !mReceiver || mReceiver->capabilities() & AbstractGnssReceiver::NtripCorrection )
   {
     return;
   }
@@ -461,6 +461,46 @@ void PositioningSource::startNtripClient()
   if ( !mNtripClient )
   {
     mNtripClient = std::make_unique<NtripClient>( this );
+
+    connect( mNtripClient.get(), &NtripClient::streamConnected, this, [this]() {
+      setNtripState( NtripState::Connected );
+      setNtripLastError( QString() );
+    } );
+
+    connect( mNtripClient.get(), &NtripClient::streamDisconnected, this, [this]() {
+      setNtripState( NtripState::Disconnected );
+    } );
+
+    connect( mNtripClient.get(), &NtripClient::errorOccurred, this, [this]( const QString &msg ) {
+      setNtripLastError( msg );
+      qInfo() << "NTRIP Client Error:" << msg;
+    } );
+
+    connect( mNtripClient.get(), &NtripClient::bytesCountersChanged, this, [this]() {
+      mNtripBytesSent = mNtripClient->bytesSent();
+      mNtripBytesReceived = mNtripClient->bytesReceived();
+      emit ntripBytesSentChanged();
+      emit ntripBytesReceivedChanged();
+    } );
+
+    connect( mNtripClient.get(), &NtripClient::correctionDataReceived, mReceiver.get(), &AbstractGnssReceiver::onCorrectionDataReceived );
+
+    if ( const NmeaGnssReceiver *nmeaReceiver = dynamic_cast<const NmeaGnssReceiver *>( mReceiver.get() ) )
+    {
+      connect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, [this]( const QString &sentence ) {
+        if ( !mNtripClient || !mNtripSettings.forwardNmeaSentences() )
+        {
+          return;
+        }
+
+        if ( !( sentence.startsWith( "$GPGGA" ) || sentence.startsWith( "$GNGGA" ) || sentence.startsWith( "$GLGGA" ) || sentence.startsWith( "$GAGGA" ) || sentence.startsWith( "$GBGGA" ) ) )
+        {
+          return;
+        }
+
+        mNtripClient->sendNmeaSentence( sentence );
+      } );
+    }
   }
 
   // Reset byte counters
@@ -468,69 +508,9 @@ void PositioningSource::startNtripClient()
   mNtripBytesReceived = 0;
   emit ntripBytesSentChanged();
   emit ntripBytesReceivedChanged();
-
   setNtripState( NtripState::Disconnected );
 
   mNtripClient->start( mNtripSettings );
-
-  // Connect to receiver if it supports RTK corrections
-#ifdef WITH_BLUETOOTH
-  if ( BluetoothReceiver *bluetoothReceiver = dynamic_cast<BluetoothReceiver *>( mReceiver.get() ) )
-  {
-    connect( mNtripClient.get(), &NtripClient::correctionDataReceived, bluetoothReceiver, &BluetoothReceiver::onCorrectionDataReceived );
-  }
-#endif
-
-  // Track connection status through signals
-  connect( mNtripClient.get(), &NtripClient::streamConnected, this, [this]() {
-    setNtripState( NtripState::Connected );
-    setNtripLastError( QString() );
-  } );
-
-  connect( mNtripClient.get(), &NtripClient::streamDisconnected, this, [this]() {
-    setNtripState( NtripState::Disconnected );
-  } );
-
-  connect( mNtripClient.get(), &NtripClient::errorOccurred, this, [this]( const QString &msg ) {
-    setNtripLastError( msg );
-    qInfo() << "NTRIP Client Error:" << msg;
-  } );
-
-  connect( mNtripClient.get(), &NtripClient::bytesCountersChanged, this, [this]() {
-    mNtripBytesSent = mNtripClient->bytesSent();
-    mNtripBytesReceived = mNtripClient->bytesReceived();
-    emit ntripBytesSentChanged();
-    emit ntripBytesReceivedChanged();
-  } );
-
-  if ( const NmeaGnssReceiver *nmeaReceiver = dynamic_cast<const NmeaGnssReceiver *>( mReceiver.get() ) )
-  {
-    connect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, [this]( const QString &sentence ) {
-      if ( !mNtripClient )
-      {
-        return;
-      }
-
-      if ( !mNtripSettings.forwardNmeaSentences() )
-      {
-        return;
-      }
-
-      if ( !( sentence.startsWith( "$GPGGA" ) || sentence.startsWith( "$GNGGA" ) || sentence.startsWith( "$GLGGA" ) || sentence.startsWith( "$GAGGA" ) || sentence.startsWith( "$GBGGA" ) ) )
-      {
-        return;
-      }
-
-      const qint64 nowMs = QDateTime::currentMSecsSinceEpoch();
-      if ( mLastNtripGgaSentMs != 0 && ( nowMs - mLastNtripGgaSentMs ) < 900 )
-      {
-        return;
-      }
-      mLastNtripGgaSentMs = nowMs;
-
-      mNtripClient->sendNmeaSentence( sentence );
-    } );
-  }
 }
 
 void PositioningSource::stopNtripClient()
@@ -540,6 +520,7 @@ void PositioningSource::stopNtripClient()
     mNtripClient->stop();
     mNtripClient.reset();
   }
+
   setNtripState( NtripState::Disconnected );
   setNtripLastError( QString() );
 }
@@ -561,7 +542,6 @@ void PositioningSource::setNtripLastError( const QString &error )
   mNtripLastError = error;
   emit ntripLastErrorChanged();
 }
-
 
 void PositioningSource::triggerDisconnectDevice()
 {

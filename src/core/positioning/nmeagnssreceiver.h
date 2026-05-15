@@ -20,6 +20,7 @@
 #include "qgsnmeaconnection.h"
 
 #include <QFile>
+#include <QIODevice>
 #include <QObject>
 
 /**
@@ -42,14 +43,17 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
   signals:
     void nmeaSentenceReceived( const QString &sentence );
 
-  protected:
-    std::unique_ptr<QgsNmeaConnection> mNmeaConnection;
-
-    bool mLastGnssPositionValid = false;
+  public slots:
+    void onCorrectionDataReceived( const QByteArray &data ) override;
 
   private slots:
     void stateChanged( const QgsGpsInformation &info );
     void onNmeaSentenceReceived( const QString &substring );
+
+  protected:
+    std::unique_ptr<QgsNmeaConnection> mNmeaConnection;
+
+    bool mLastGnssPositionValid = false;
 
   private:
     void handleStartLogging( const QString &path ) override;
@@ -64,6 +68,8 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
     QTextStream mLogStream;
 
     GnssPositionInformation mCurrentNmeaGnssPositionInformation;
+
+    QIODevice *mIoDevice = nullptr;
 
     struct ImuPosition
     {

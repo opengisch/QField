@@ -63,23 +63,9 @@ BluetoothReceiver::~BluetoothReceiver()
   mSocket = nullptr;
 }
 
-void BluetoothReceiver::onCorrectionDataReceived( const QByteArray &data )
+AbstractGnssReceiver::Capabilities BluetoothReceiver::capabilities() const
 {
-  if ( !mSocket || !mSocket->isOpen() )
-  {
-    qWarning() << "Bluetooth socket not open—cannot forward corrections.";
-    return;
-  }
-
-  qint64 bytesWritten = mSocket->write( data );
-  if ( bytesWritten == -1 )
-  {
-    qWarning() << "Failed to write corrections to Bluetooth socket:" << mSocket->errorString();
-  }
-  else
-  {
-    qDebug() << "Forwarded" << bytesWritten << "bytes of correction data to Bluetooth.";
-  }
+  return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging | AbstractGnssReceiver::NtripCorrection;
 }
 
 void BluetoothReceiver::handleDisconnectDevice()

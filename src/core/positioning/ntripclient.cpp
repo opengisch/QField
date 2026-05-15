@@ -38,7 +38,7 @@ void NtripClient::start( const NtripSettings &ntripSettings )
   qDebug() << "START!";
   if ( mSocketClient )
   {
-    return;
+    stop();
   }
 
   mBytesSent = 0;
@@ -92,6 +92,13 @@ void NtripClient::sendNmeaSentence( const QString &sentence )
   {
     return;
   }
+
+  const qint64 epoch = QDateTime::currentMSecsSinceEpoch();
+  if ( mLastNtripGgaSent != 0 && ( epoch - mLastNtripGgaSent ) < 900 )
+  {
+    return;
+  }
+  mLastNtripGgaSent = epoch;
 
   const qint64 bytesWritten = mSocketClient->sendNmeaSentence( sentence.toUtf8() );
   if ( bytesWritten > 0 )

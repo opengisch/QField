@@ -59,6 +59,8 @@ class NtripClient : public QObject
     qint64 mBytesReceived = 0;
     QFile mLogFile;
     int mLogBlockCount = 0;
+
+    qint64 mLastNtripGgaSent = 0;
 };
 
 class NtripSocketClient : public QObject
