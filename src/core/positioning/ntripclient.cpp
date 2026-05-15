@@ -14,6 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "abstractgnssreceiver.h"
+#include "nmeagnssreceiver.h"
 #include "ntripclient.h"
 
 #include <QDataStream>
@@ -33,12 +35,34 @@ NtripClient::~NtripClient() noexcept
   stop();
 }
 
-void NtripClient::start( const NtripSettings &ntripSettings )
+void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceiver *receiver )
 {
-  qDebug() << "START!";
   if ( mSocketClient )
   {
     stop();
+  }
+
+  if ( mReceiver )
+  {
+    disconnect( this, &NtripClient::correctionDataReceived, mReceiver, &AbstractGnssReceiver::onCorrectionDataReceived );
+
+    if ( const NmeaGnssReceiver *nmeaReceiver = dynamic_cast<const NmeaGnssReceiver *>( mReceiver.get() ) )
+    {
+      disconnect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, &NtripClient::nmeaSentenceReceived );
+    }
+  }
+  mReceiver = receiver;
+  if ( mReceiver )
+  {
+    connect( this, &NtripClient::correctionDataReceived, mReceiver, &AbstractGnssReceiver::onCorrectionDataReceived );
+
+    if ( ntripSettings.forwardNmeaSentences() )
+    {
+      if ( const NmeaGnssReceiver *nmeaReceiver = dynamic_cast<const NmeaGnssReceiver *>( mReceiver.get() ) )
+      {
+        connect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, &NtripClient::nmeaSentenceReceived );
+      }
+    }
   }
 
   mBytesSent = 0;
@@ -46,7 +70,7 @@ void NtripClient::start( const NtripSettings &ntripSettings )
 
   mSocketClient = new NtripSocketClient( this );
 
-  connect( mSocketClient, &NtripSocketClient::correctionDataReceived, [this]( const QByteArray &data ) {
+  connect( mSocketClient, &NtripSocketClient::correctionDataReceived, this, [this]( const QByteArray &data ) {
     mBytesReceived += data.size();
 
     emit correctionDataReceived( data );
@@ -55,16 +79,16 @@ void NtripClient::start( const NtripSettings &ntripSettings )
     logRtcmData( data );
   } );
 
-  connect( mSocketClient, &NtripSocketClient::errorOccurred, [this]( const QString &msg, bool isPermanent ) {
+  connect( mSocketClient, &NtripSocketClient::errorOccurred, this, [this]( const QString &msg, bool isPermanent ) {
     qWarning() << msg;
     emit errorOccurred( msg, isPermanent );
   } );
 
-  connect( mSocketClient, &NtripSocketClient::streamConnected, [this]() {
+  connect( mSocketClient, &NtripSocketClient::streamConnected, this, [this]() {
     emit streamConnected();
   } );
 
-  connect( mSocketClient, &NtripSocketClient::streamDisconnected, [this]() {
+  connect( mSocketClient, &NtripSocketClient::streamDisconnected, this, [this]() {
     emit streamDisconnected();
   } );
 
@@ -92,13 +116,6 @@ void NtripClient::sendNmeaSentence( const QString &sentence )
   {
     return;
   }
-
-  const qint64 epoch = QDateTime::currentMSecsSinceEpoch();
-  if ( mLastNtripGgaSent != 0 && ( epoch - mLastNtripGgaSent ) < 900 )
-  {
-    return;
-  }
-  mLastNtripGgaSent = epoch;
 
   const qint64 bytesWritten = mSocketClient->sendNmeaSentence( sentence.toUtf8() );
   if ( bytesWritten > 0 )
@@ -154,6 +171,22 @@ void NtripClient::logRtcmData( const QByteArray &data )
   {
     mLogFile.flush();
   }
+}
+void NtripClient::nmeaSentenceReceived( const QString &sentence )
+{
+  const qint64 epoch = QDateTime::currentMSecsSinceEpoch();
+  if ( mLastNtripGgaSent != 0 && ( epoch - mLastNtripGgaSent ) < 900 )
+  {
+    return;
+  }
+  mLastNtripGgaSent = epoch;
+
+  if ( !( sentence.startsWith( "$GPGGA" ) || sentence.startsWith( "$GNGGA" ) || sentence.startsWith( "$GLGGA" ) || sentence.startsWith( "$GAGGA" ) || sentence.startsWith( "$GBGGA" ) ) )
+  {
+    return;
+  }
+
+  sendNmeaSentence( sentence );
 }
 
 // ---

@@ -17,10 +17,12 @@
 #ifndef NTRIPCLIENT_H
 #define NTRIPCLIENT_H
 
+#include "abstractgnssreceiver.h"
 #include "ntripsettings.h"
 
 #include <QFile>
 #include <QObject>
+#include <QPointer>
 #include <QTcpSocket>
 #include <QTimer>
 
@@ -33,7 +35,7 @@ class NtripClient : public QObject
     explicit NtripClient( QObject *parent = nullptr );
     ~NtripClient() noexcept override;
 
-    void start( const NtripSettings &ntripSettings );
+    void start( const NtripSettings &ntripSettings, AbstractGnssReceiver *receiver );
     void stop();
 
     void sendNmeaSentence( const QString &sentence );
@@ -51,6 +53,9 @@ class NtripClient : public QObject
     void streamConnected();
     void streamDisconnected();
 
+  private slots:
+    void nmeaSentenceReceived( const QString &sentence );
+
   private:
     void logRtcmData( const QByteArray &data );
 
@@ -61,6 +66,8 @@ class NtripClient : public QObject
     int mLogBlockCount = 0;
 
     qint64 mLastNtripGgaSent = 0;
+
+    QPointer<AbstractGnssReceiver> mReceiver;
 };
 
 class NtripSocketClient : public QObject

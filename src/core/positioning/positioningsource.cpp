@@ -62,7 +62,7 @@ void PositioningSource::setActive( bool active )
     }
     else
     {
-      mReceiver->connectDevice();
+      triggerConnectDevice();
     }
     if ( !QSensor::sensorsForType( QCompass::sensorType ).isEmpty() )
     {
@@ -338,7 +338,7 @@ void PositioningSource::setupDevice()
 
   if ( mActive )
   {
-    mReceiver->connectDevice();
+    triggerConnectDevice();
   }
 
   return;
@@ -442,9 +442,13 @@ void PositioningSource::triggerConnectDevice()
   if ( mReceiver )
   {
     mReceiver->connectDevice();
+
+    if ( mEnableNtrip )
+    {
+      startNtripClient();
+    }
   }
 }
-
 
 void PositioningSource::startNtripClient()
 {
@@ -482,35 +486,15 @@ void PositioningSource::startNtripClient()
       emit ntripBytesSentChanged();
       emit ntripBytesReceivedChanged();
     } );
-
-    connect( mNtripClient.get(), &NtripClient::correctionDataReceived, mReceiver.get(), &AbstractGnssReceiver::onCorrectionDataReceived );
-
-    if ( const NmeaGnssReceiver *nmeaReceiver = dynamic_cast<const NmeaGnssReceiver *>( mReceiver.get() ) )
-    {
-      connect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, [this]( const QString &sentence ) {
-        if ( !mNtripClient || !mNtripSettings.forwardNmeaSentences() )
-        {
-          return;
-        }
-
-        if ( !( sentence.startsWith( "$GPGGA" ) || sentence.startsWith( "$GNGGA" ) || sentence.startsWith( "$GLGGA" ) || sentence.startsWith( "$GAGGA" ) || sentence.startsWith( "$GBGGA" ) ) )
-        {
-          return;
-        }
-
-        mNtripClient->sendNmeaSentence( sentence );
-      } );
-    }
   }
 
-  // Reset byte counters
   mNtripBytesSent = 0;
   mNtripBytesReceived = 0;
   emit ntripBytesSentChanged();
   emit ntripBytesReceivedChanged();
   setNtripState( NtripState::Disconnected );
 
-  mNtripClient->start( mNtripSettings );
+  mNtripClient->start( mNtripSettings, mReceiver.get() );
 }
 
 void PositioningSource::stopNtripClient()
