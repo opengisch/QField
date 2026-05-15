@@ -1310,63 +1310,71 @@ Page {
                 }
               }
 
-              Label {
-                text: qsTr("Enable NTRIP corrections")
-                font: Theme.defaultFont
-                color: Theme.mainTextColor
-                wrapMode: Text.WordWrap
+              RowLayout {
                 Layout.fillWidth: true
-                visible: enableNtripClient.enabled
+                Layout.columnSpan: 2
+                visible: positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
 
-                MouseArea {
-                  anchors.fill: parent
-                  onClicked: enableNtripClient.toggle()
+                Label {
+                  text: qsTr("Enable NTRIP corrections")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+
+                  MouseArea {
+                    anchors.fill: parent
+                    onClicked: enableNtripClient.toggle()
+                  }
                 }
-              }
 
-              QfSwitch {
-                id: enableNtripClient
-                Layout.preferredWidth: implicitContentWidth
-                Layout.alignment: Qt.AlignTop
-                checked: positioningSettings.enableNtrip
-                enabled: positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude
-                visible: enabled
-                onCheckedChanged: {
-                  positioningSettings.enableNtrip = checked;
+                QfToolButton {
+                  id: showNtripSettings
+                  Layout.preferredWidth: 48
+                  Layout.preferredHeight: 48
+                  Layout.alignment: Qt.AlignVCenter
+
+                  iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
+                  iconColor: Theme.mainTextColor
+                  bgcolor: "transparent"
+                  clip: true
+
+                  onClicked: {
+                    positioningNtripSettings.updateFromNtripSettings(PositioningUtils.createNtripSettings(positioningSettings.ntripSettings));
+                    positioningNtripSettings.open();
+                  }
+                }
+
+                QfSwitch {
+                  id: enableNtripClient
+                  Layout.preferredWidth: implicitContentWidth
+                  Layout.alignment: Qt.AlignVCenter
+                  checked: positioningSettings.enableNtrip
+                  visible: enabled
+                  onCheckedChanged: {
+                    positioningSettings.enableNtrip = checked;
+                  }
                 }
               }
 
               Label {
                 id: ntripFeedbackLabel
                 Layout.fillWidth: true
-                visible: enableNtripClient.enabled && positioningSettings.enableNtrip
+                Layout.columnSpan: 2
+                visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
                 text: {
-                  if (positionSource.ntripState === Positioning.NtripState.Disconnected) {
-                    return qsTr("Disconnected");
+                  if (positionSource.ntripSettings.isValid) {
+                    if (positionSource.ntripState === Positioning.NtripState.Disconnected) {
+                      return qsTr("NTRIP client disconnected");
+                    } else {
+                      return qsTr("NTRIP client connected") + "\n↑" + positionSource.ntripBytesSent + " ↓" + positionSource.ntripBytesReceived;
+                    }
                   } else {
-                    return qsTr("Connected") + "\n↑" + positionSource.ntripBytesSent + " ↓" + positionSource.ntripBytesReceived;
+                    return qsTr("Please provide valid NTRIP settings");
                   }
-                }
-              }
-
-              QfToolButton {
-                id: showNtripSettings
-                Layout.preferredWidth: 48
-                Layout.preferredHeight: 48
-                Layout.alignment: Qt.AlignVCenter
-                visible: enableNtripClient.enabled && positioningSettings.enableNtrip
-
-                iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
-                iconColor: Theme.mainTextColor
-                bgcolor: "transparent"
-                clip: true
-
-                onClicked: {
-                  positioningNtripSettings.updateFromNtripSettings(PositioningUtils.createNtripSettings(positioningSettings.ntripSettings));
-                  positioningNtripSettings.open();
                 }
               }
             }

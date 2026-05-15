@@ -4458,23 +4458,7 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Show Position Information")
-      height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      font: Theme.defaultFont
-
-      checkable: true
-      checked: positioningSettings.showPositionInformation
-      indicator.height: 20
-      indicator.width: 20
-      indicator.implicitHeight: 24
-      indicator.implicitWidth: 24
-
-      onTriggered: positioningSettings.showPositionInformation = checked
-    }
-
-    MenuItem {
-      text: qsTr("Enable NTRIP Client")
+      text: qsTr("Enable NTRIP Corrections")
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
@@ -4502,6 +4486,22 @@ ApplicationWindow {
 
     MenuSeparator {
       width: parent.width
+    }
+
+    MenuItem {
+      text: qsTr("Show Position Information")
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+      font: Theme.defaultFont
+
+      checkable: true
+      checked: positioningSettings.showPositionInformation
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+
+      onTriggered: positioningSettings.showPositionInformation = checked
     }
 
     MenuItem {

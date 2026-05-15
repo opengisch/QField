@@ -27,6 +27,8 @@ class NtripSettings
 {
     Q_GADGET
 
+    Q_PROPERTY( bool isValid READ isValid )
+
     Q_PROPERTY( QString host READ host )
     Q_PROPERTY( int port READ port )
     Q_PROPERTY( Protocol protocol READ protocol )
