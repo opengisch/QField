@@ -901,6 +901,7 @@ Page {
     function onStatusChanged() {
       if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         prepareCloudScreen();
+        cloudConnection.getUserOrganizations(cloudConnection.username);
       } else if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
         if (table.count === 0) {
           projectsSwipeView.visible = false;

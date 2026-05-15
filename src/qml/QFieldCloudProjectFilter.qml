@@ -41,6 +41,9 @@ Pane {
     function onUserOrganizationsReceived(organizations) {
       filterPanel.organizations = organizations;
     }
+    function onUsernameChanged() {
+      filterPanel.organizations = [];
+    }
   }
 
   function updateQuery() {
@@ -113,10 +116,6 @@ Pane {
       ownerComboBox.model = [""].concat(cloudProjectsModel.uniqueOwners());
       ownerComboBox.editText = previousOwner;
       blockQueryUpdate = false;
-
-      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-        cloudConnection.getUserOrganizations(cloudConnection.username);
-      }
     }
   }
 
