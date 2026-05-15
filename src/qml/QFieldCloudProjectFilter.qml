@@ -11,19 +11,37 @@ Pane {
   signal applyFilter
 
   property string currentUsername: ""
+  property var organizations: []
 
   property string activePreset: ""
-  readonly property var presets: [
-    {
-      id: "mine",
-      label: qsTr("My Own Projects"),
-      query: "owner:" + filterPanel.currentUsername
+  readonly property var presets: {
+    const list = [
+      {
+        id: "mine",
+        label: qsTr("My Own Projects"),
+        query: "owner:" + filterPanel.currentUsername
+      }
+    ];
+    for (const org of filterPanel.organizations) {
+      list.push({
+        id: "org_" + org,
+        label: qsTr("%1's projects").arg(org),
+        query: "owner:" + org
+      });
     }
-  ]
+    return list;
+  }
 
   property string queryString: ""
 
   property bool blockQueryUpdate: false
+
+  Connections {
+    target: cloudConnection
+    function onUserOrganizationsReceived(organizations) {
+      filterPanel.organizations = organizations;
+    }
+  }
 
   function updateQuery() {
     if (filterPanel.blockQueryUpdate) {
@@ -95,6 +113,10 @@ Pane {
       ownerComboBox.model = [""].concat(cloudProjectsModel.uniqueOwners());
       ownerComboBox.editText = previousOwner;
       blockQueryUpdate = false;
+
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        cloudConnection.getUserOrganizations(cloudConnection.username);
+      }
     }
   }
 
