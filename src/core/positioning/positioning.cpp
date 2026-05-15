@@ -94,7 +94,7 @@ void Positioning::setupSource()
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceSocketStateStringChanged() ), this, SIGNAL( deviceSocketStateStringChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
 
-  connect( mPositioningSourceReplica.data(), SIGNAL( enableNtripClientChanged() ), this, SIGNAL( enableNtripClientChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( enableNtripChanged() ), this, SIGNAL( enableNtripChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripSendNmeaChanged() ), this, SIGNAL( ntripSendNmeaChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripHostChanged() ), this, SIGNAL( ntripHostChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripPortChanged() ), this, SIGNAL( ntripPortChanged() ) );

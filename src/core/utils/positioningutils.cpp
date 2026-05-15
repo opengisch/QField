@@ -336,3 +336,8 @@ void PositioningUtils::buildTimeZones()
   sTimeZones->insert( -39600, QgsRectangle( -178.601, -58.079, -157.499, 83.161 ) );
   sTimeZones->insert( -43200, QgsRectangle( -179.999, -58.025, -172.499, 83.169 ) );
 }
+
+NtripSettings PositioningUtils::createNtripSettings( const QVariantMap &settings )
+{
+  return NtripSettings::fromMap( settings );
+}

@@ -21,17 +21,8 @@ Settings {
 
   property bool showPositionInformation: false
 
-  property bool enableNtripClient: false
-  property bool ntripSendNmea: true
-  property string ntripHost: "crtk.net"
-  property int ntripPort: 2101
-  property int ntripVersion: 1
-  property string ntripMountpoint: ""
-  property string ntripUsername: "QfieldNtripClient"
-  property string ntripPassword: "QfieldNtripClient"
-  property string ntripStatus: ""
-  property int ntripBytesSent: 0
-  property int ntripBytesReceived: 0
+  property bool enableNtrip: false
+  property var ntripSettings: []
 
   property bool alwaysShowPreciseView: false
   property real preciseViewPrecision: 2.5

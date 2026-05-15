@@ -68,8 +68,8 @@ class NtripSettings
     bool forwardNmeaSentences() const { return mForwardNmeaSentences; }
     void setForwardNmeaSentences( bool forwardNmeaSentences );
 
-    QVariantMap toMap() const;
-    static NtripSettings fromMap( const QVariantMap &settings );
+    Q_INVOKABLE QVariantMap toMap() const;
+    Q_INVOKABLE static NtripSettings fromMap( const QVariantMap &settings );
 
   private:
     QString mHost;

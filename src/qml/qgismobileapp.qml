@@ -399,14 +399,8 @@ ApplicationWindow {
     loggingPath: platformUtilities.appDataDirs()[0] + "/logs"
     logging: positioningSettings.logging
 
-    enableNtripClient: positioningSettings.enableNtripClient
-    ntripSendNmea: positioningSettings.ntripSendNmea
-    ntripHost: positioningSettings.ntripHost
-    ntripPort: positioningSettings.ntripPort
-    ntripVersion: positioningSettings.ntripVersion
-    ntripMountpoint: positioningSettings.ntripMountpoint
-    ntripUsername: positioningSettings.ntripUsername
-    ntripPassword: positioningSettings.ntripPassword
+    enableNtrip: positioningSettings.enableNtrip
+    ntripSettings: PositioningUtils.createNtripSettings(positioningSettings.ntripSettings)
 
     onNtripStatusChanged: {
       positioningSettings.ntripStatus = ntripStatus;
@@ -4498,12 +4492,12 @@ ApplicationWindow {
       font: Theme.defaultFont
 
       checkable: true
-      checked: positioningSettings.enableNtripClient
+      checked: positioningSettings.enableNtrip
       indicator.height: 20
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: positioningSettings.enableNtripClient = checked
+      onCheckedChanged: positioningSettings.enableNtrip = checked
     }
 
     MenuItem {

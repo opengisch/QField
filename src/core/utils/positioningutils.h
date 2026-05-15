@@ -16,6 +16,7 @@
 #ifndef POSITIONINGUTILS_H
 #define POSITIONINGUTILS_H
 
+#include "ntripsettings.h"
 #include "qfield_core_export.h"
 
 #include <QObject>
@@ -65,6 +66,8 @@ class QFIELD_CORE_EXPORT PositioningUtils : public QObject
      * can optionally be clipped to a QgsRectangle.
      */
     static Q_INVOKABLE QgsRectangle createExtentForDevice( const GnssPositionInformation &positionInformation, const QgsCoordinateReferenceSystem &crs = QgsCoordinateReferenceSystem::fromEpsgId( 4326 ), const QgsRectangle &withinRectangle = QgsRectangle() );
+
+    static Q_INVOKABLE NtripSettings createNtripSettings( const QVariantMap &settings );
 
   private:
     static void initTimeZones();
