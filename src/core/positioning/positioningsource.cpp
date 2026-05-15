@@ -457,7 +457,7 @@ void PositioningSource::startNtripClient()
     return;
   }
 
-  if ( !mReceiver || mReceiver->capabilities() & AbstractGnssReceiver::NtripCorrection )
+  if ( !mReceiver || !( mReceiver->capabilities() & AbstractGnssReceiver::NtripCorrection ) )
   {
     return;
   }

@@ -37,6 +37,7 @@ NtripClient::~NtripClient() noexcept
 
 void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceiver *receiver )
 {
+  qDebug() << "Starting NTRIP Client";
   if ( mSocketClient )
   {
     stop();
@@ -51,7 +52,9 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
       disconnect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, &NtripClient::nmeaSentenceReceived );
     }
   }
+
   mReceiver = receiver;
+
   if ( mReceiver )
   {
     connect( this, &NtripClient::correctionDataReceived, mReceiver, &AbstractGnssReceiver::onCorrectionDataReceived );
@@ -80,7 +83,7 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
   } );
 
   connect( mSocketClient, &NtripSocketClient::errorOccurred, this, [this]( const QString &msg, bool isPermanent ) {
-    qWarning() << msg;
+    qInfo() << msg;
     emit errorOccurred( msg, isPermanent );
   } );
 
@@ -93,8 +96,6 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
   } );
 
   mBytesSent = mSocketClient->start( ntripSettings );
-
-  // Emit immediately to show sent bytes
   emit bytesCountersChanged();
 }
 

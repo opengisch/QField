@@ -20,15 +20,16 @@ NtripSourceTableFetcher::NtripSourceTableFetcher( QObject *parent )
 {
 }
 
-void NtripSourceTableFetcher::fetch( const QString &host, int port, const QString &username, const QString &password, int version )
+void NtripSourceTableFetcher::fetch( const NtripSettings &ntripSettings )
 {
   cancel();
 
-  mHost = host;
-  mPort = static_cast<quint16>( port );
-  mUsername = username;
-  mPassword = password;
-  mVersion = version;
+  mHost = ntripSettings.host();
+  mPort = static_cast<quint16>( ntripSettings.port() );
+  mUsername = ntripSettings.username();
+  mPassword = ntripSettings.password();
+  mProtocol = ntripSettings.protocol();
+
   mBuffer.clear();
   mHeadersParsed = false;
 
@@ -79,26 +80,31 @@ void NtripSourceTableFetcher::onSocketConnected()
   QByteArray base64 = credentials.toUtf8().toBase64();
 
   QByteArray request;
-  if ( mVersion == 2 )
+  switch ( mProtocol )
   {
-    request.append( "GET / HTTP/1.1\r\n" );
-    request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
-    request.append( "Ntrip-Version: Ntrip/2.0\r\n" );
-    request.append( "User-Agent: QField NTRIP QtSocketClient/2.0\r\n" );
-    request.append( "Accept: */*\r\n" );
-    request.append( "Authorization: Basic " + base64 + "\r\n" );
-    request.append( "Connection: close\r\n" );
-    request.append( "\r\n" );
-  }
-  else
-  {
-    request.append( "GET / HTTP/1.0\r\n" );
-    request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
-    request.append( "User-Agent: QField NTRIP QtSocketClient/1.0\r\n" );
-    request.append( "Accept: */*\r\n" );
-    request.append( "Authorization: Basic " + base64 + "\r\n" );
-    request.append( "Connection: close\r\n" );
-    request.append( "\r\n" );
+    case NtripSettings::NtripVersion2:
+    {
+      request.append( "GET / HTTP/1.1\r\n" );
+      request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
+      request.append( "Ntrip-Version: Ntrip/2.0\r\n" );
+      request.append( "User-Agent: QField NTRIP QtSocketClient/2.0\r\n" );
+      request.append( "Accept: */*\r\n" );
+      request.append( "Authorization: Basic " + base64 + "\r\n" );
+      request.append( "Connection: close\r\n" );
+      request.append( "\r\n" );
+      break;
+    }
+    case NtripSettings::NtripVersion1:
+    {
+      request.append( "GET / HTTP/1.0\r\n" );
+      request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
+      request.append( "User-Agent: QField NTRIP QtSocketClient/1.0\r\n" );
+      request.append( "Accept: */*\r\n" );
+      request.append( "Authorization: Basic " + base64 + "\r\n" );
+      request.append( "Connection: close\r\n" );
+      request.append( "\r\n" );
+      break;
+    }
   }
 
   mSocket->write( request );

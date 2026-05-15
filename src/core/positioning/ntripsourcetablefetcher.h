@@ -13,7 +13,11 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#pragma once
+
+#ifndef NTRIPSOURCETABLEFETCHER_H
+#define NTRIPSOURCETABLEFETCHER_H
+
+#include "ntripsettings.h"
 
 #include <QObject>
 #include <QStringList>
@@ -33,7 +37,7 @@ class NtripSourceTableFetcher : public QObject
     bool fetching() const { return mFetching; }
     QStringList mountPoints() const { return mMountPoints; }
 
-    Q_INVOKABLE void fetch( const QString &host, int port, const QString &username, const QString &password, int version );
+    Q_INVOKABLE void fetch( const NtripSettings &ntripSettings );
     Q_INVOKABLE void cancel();
 
   signals:
@@ -51,14 +55,17 @@ class NtripSourceTableFetcher : public QObject
     void cleanup();
     QStringList parseSourceTable( const QByteArray &data ) const;
 
-    QTcpSocket *mSocket = nullptr;
     QString mHost;
     quint16 mPort = 0;
     QString mUsername;
     QString mPassword;
-    int mVersion = 1;
+    NtripSettings::Protocol mProtocol = NtripSettings::NtripVersion1;
+
+    QTcpSocket *mSocket = nullptr;
     QByteArray mBuffer;
     bool mHeadersParsed = false;
     bool mFetching = false;
     QStringList mMountPoints;
 };
+
+#endif // NTRIPSOURCETABLEFETCHER_H
