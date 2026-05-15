@@ -153,6 +153,8 @@ QfPopup {
           id: ntripPasswordTextField
           Layout.fillWidth: true
           font: Theme.defaultFont
+          echoMode: TextInput.Password
+          passwordMaskDelay: Qt.platform.os === "ios" || Qt.platform.os === "android" ? 1000 : 0
         }
 
         Label {
