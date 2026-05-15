@@ -72,7 +72,7 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool enableNtrip READ enableNtrip WRITE setEnableNtrip NOTIFY enableNtripChanged )
     Q_PROPERTY( NtripSettings ntripSettings READ ntripSettings WRITE setNtripSettings NOTIFY ntripSettingsChanged )
-    Q_PROPERTY( QString ntripStatus READ ntripStatus NOTIFY ntripStatusChanged )
+    Q_PROPERTY( PositioningSource::NtripState ntripState READ ntripState NOTIFY ntripState )
     Q_PROPERTY( qint64 ntripBytesSent READ ntripBytesSent NOTIFY ntripBytesSentChanged )
     Q_PROPERTY( qint64 ntripBytesReceived READ ntripBytesReceived NOTIFY ntripBytesReceivedChanged )
 
@@ -306,7 +306,7 @@ class Positioning : public QObject
     /**
      * Returns the current NTRIP connection status.
      */
-    QString ntripStatus() const;
+    PositioningSource::NtripState ntripState() const;
 
     /**
      * Returns the number of bytes sent via NTRIP.
@@ -365,7 +365,7 @@ class Positioning : public QObject
     //Ntrip client signals
     void enableNtripChanged();
     void ntripSettingsChanged();
-    void ntripStatusChanged();
+    void ntripStateChanged();
     void ntripBytesSentChanged();
     void ntripBytesReceivedChanged();
 

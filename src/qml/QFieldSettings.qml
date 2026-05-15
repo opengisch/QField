@@ -1986,7 +1986,7 @@ Page {
                   spacing: 10
 
                   Label {
-                    text: positioningSettings.ntripStatus || ""
+                    text: positioningSettings.ntripState || ""
                     font: Theme.tipFont
                     color: Theme.secondaryTextColor
                     wrapMode: Text.WordWrap

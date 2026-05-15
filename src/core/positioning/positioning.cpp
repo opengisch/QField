@@ -95,14 +95,8 @@ void Positioning::setupSource()
   connect( mPositioningSourceReplica.data(), SIGNAL( orientationChanged() ), this, SIGNAL( orientationChanged() ) );
 
   connect( mPositioningSourceReplica.data(), SIGNAL( enableNtripChanged() ), this, SIGNAL( enableNtripChanged() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( ntripSendNmeaChanged() ), this, SIGNAL( ntripSendNmeaChanged() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( ntripHostChanged() ), this, SIGNAL( ntripHostChanged() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( ntripPortChanged() ), this, SIGNAL( ntripPortChanged() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( ntripVersionChanged() ), this, SIGNAL( ntripVersionChanged() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( ntripMountpointChanged() ), this, SIGNAL( ntripMountpointChanged() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( ntripUsernameChanged() ), this, SIGNAL( ntripUsernameChanged() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( ntripPasswordChanged() ), this, SIGNAL( ntripPasswordChanged() ) );
-  connect( mPositioningSourceReplica.data(), SIGNAL( ntripStatusChanged() ), this, SIGNAL( ntripStatusChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripSettingsChanged() ), this, SIGNAL( ntripSettingsChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( ntripStateChanged() ), this, SIGNAL( ntripStateChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripBytesSentChanged() ), this, SIGNAL( ntripBytesSentChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( ntripBytesReceivedChanged() ), this, SIGNAL( ntripBytesReceivedChanged() ) );
 
@@ -574,9 +568,9 @@ void Positioning::setNtripSettings( const NtripSettings &ntripSettings )
   }
 }
 
-QString Positioning::ntripStatus() const
+PositioningSource::NtripState Positioning::ntripState() const
 {
-  return isSourceAvailable() ? mPositioningSourceReplica->property( "ntripStatus" ).toString() : QString();
+  return static_cast<PositioningSource::NtripState>( ( isSourceAvailable() ? mPositioningSourceReplica->property( "ntripState" ).toInt() : static_cast<int>( PositioningSource::NtripState::Disconnected ) ) );
 }
 
 qint64 Positioning::ntripBytesSent() const

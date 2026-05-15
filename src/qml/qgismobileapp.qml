@@ -402,18 +402,6 @@ ApplicationWindow {
     enableNtrip: positioningSettings.enableNtrip
     ntripSettings: PositioningUtils.createNtripSettings(positioningSettings.ntripSettings)
 
-    onNtripStatusChanged: {
-      positioningSettings.ntripStatus = ntripStatus;
-    }
-
-    onNtripBytesSentChanged: {
-      positioningSettings.ntripBytesSent = ntripBytesSent;
-    }
-
-    onNtripBytesReceivedChanged: {
-      positioningSettings.ntripBytesReceived = ntripBytesReceived;
-    }
-
     onPositionInformationChanged: {
       if (active) {
         if (jumpToPosition && positionSource.projectedPosition.x) {
