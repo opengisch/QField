@@ -248,7 +248,7 @@ void PositioningSource::setupDevice()
 {
   if ( mReceiver )
   {
-    mReceiver->disconnectDevice();
+    triggerDisconnectDevice();
     mReceiver->stopLogging();
     disconnect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
     disconnect( mReceiver.get(), &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
@@ -450,6 +450,15 @@ void PositioningSource::triggerConnectDevice()
   }
 }
 
+void PositioningSource::triggerDisconnectDevice()
+{
+  if ( mReceiver )
+  {
+    mReceiver->disconnectDevice();
+    stopNtripClient();
+  }
+}
+
 void PositioningSource::startNtripClient()
 {
   if ( !mNtripSettings.isValid() )
@@ -503,16 +512,18 @@ void PositioningSource::stopNtripClient()
   {
     mNtripClient->stop();
     mNtripClient.reset();
-  }
 
-  setNtripState( NtripState::Disconnected );
-  setNtripLastError( QString() );
+    setNtripState( NtripState::Disconnected );
+    setNtripLastError( QString() );
+  }
 }
 
 void PositioningSource::setNtripState( NtripState state )
 {
   if ( mNtripState == state )
+  {
     return;
+  }
 
   mNtripState = state;
   emit ntripStateChanged();
@@ -521,18 +532,12 @@ void PositioningSource::setNtripState( NtripState state )
 void PositioningSource::setNtripLastError( const QString &error )
 {
   if ( mNtripLastError == error )
+  {
     return;
+  }
 
   mNtripLastError = error;
   emit ntripLastErrorChanged();
-}
-
-void PositioningSource::triggerDisconnectDevice()
-{
-  if ( mReceiver )
-  {
-    mReceiver->disconnectDevice();
-  }
 }
 
 int PositioningSource::deviceCapabilities() const
