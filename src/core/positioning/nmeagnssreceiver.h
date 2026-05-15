@@ -35,6 +35,8 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
     explicit NmeaGnssReceiver( QObject *parent = nullptr );
     ~NmeaGnssReceiver() override = default;
 
+    AbstractGnssReceiver::Capabilities capabilities() const override;
+
     void initNmeaConnection( QIODevice *ioDevice );
 
   signals:

@@ -1316,6 +1316,7 @@ Page {
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
+                visible: enableNtripClient.enabled
 
                 MouseArea {
                   anchors.fill: parent
@@ -1328,6 +1329,8 @@ Page {
                 Layout.preferredWidth: implicitContentWidth
                 Layout.alignment: Qt.AlignTop
                 checked: positioningSettings.enableNtrip
+                enabled: positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude
+                visible: enabled
                 onCheckedChanged: {
                   positioningSettings.enableNtrip = checked;
                 }
@@ -1336,7 +1339,7 @@ Page {
               Label {
                 id: ntripFeedbackLabel
                 Layout.fillWidth: true
-                visible: positioningSettings.enableNtrip
+                visible: enableNtripClient.enabled && positioningSettings.enableNtrip
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
@@ -1354,7 +1357,7 @@ Page {
                 Layout.preferredWidth: 48
                 Layout.preferredHeight: 48
                 Layout.alignment: Qt.AlignVCenter
-                visible: positioningSettings.enableNtrip
+                visible: enableNtripClient.enabled && positioningSettings.enableNtrip
 
                 iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
                 iconColor: Theme.mainTextColor

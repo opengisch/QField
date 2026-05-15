@@ -39,6 +39,7 @@ class PositioningSource : public QObject
     Q_PROPERTY( bool valid READ valid NOTIFY validChanged )
 
     Q_PROPERTY( QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged )
+    Q_PROPERTY( int deviceCapabilities READ deviceCapabilities NOTIFY deviceChanged )
     Q_PROPERTY( GnssPositionDetails deviceDetails READ deviceDetails NOTIFY positionInformationChanged )
     Q_PROPERTY( QString deviceLastError READ deviceLastError NOTIFY deviceLastErrorChanged )
     Q_PROPERTY( QAbstractSocket::SocketState deviceSocketState READ deviceSocketState NOTIFY deviceSocketStateChanged )
@@ -114,7 +115,7 @@ class PositioningSource : public QObject
      * Returns the current positioning device \a id used to fetch position information.
      * \see setDevice
      */
-    Q_INVOKABLE QString deviceId() const { return mDeviceId; }
+    QString deviceId() const { return mDeviceId; }
 
     /**
      * Sets the positioning device \a id used to fetch position information.
@@ -122,6 +123,12 @@ class PositioningSource : public QObject
      * bluetooth addresses will trigger an NMEA connection to external devices.
      */
     void setDeviceId( const QString &id );
+
+    /**
+     * Returns device capabiities.
+     * \note Due to Qt Remote Object issues with flags, we use an int property.
+     */
+    int deviceCapabilities() const;
 
     /**
      * Returns the current positioning device.

@@ -21,6 +21,11 @@ AbstractGnssReceiver::AbstractGnssReceiver( QObject *parent )
 {
 }
 
+AbstractGnssReceiver::Capabilities AbstractGnssReceiver::capabilities() const
+{
+  return AbstractGnssReceiver::NoCapabilities;
+}
+
 QString AbstractGnssReceiver::socketStateString()
 {
   switch ( mSocketState )

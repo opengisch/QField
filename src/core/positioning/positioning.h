@@ -42,7 +42,7 @@ class Positioning : public QObject
     Q_PROPERTY( bool valid READ valid NOTIFY validChanged )
 
     Q_PROPERTY( QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged )
-    Q_PROPERTY( AbstractGnssReceiver::Capabilities deviceCapabilities READ deviceCapabilities NOTIFY deviceIdChanged )
+    Q_PROPERTY( AbstractGnssReceiver::Capabilities deviceCapabilities READ deviceCapabilities NOTIFY deviceChanged )
     Q_PROPERTY( QString deviceLastError READ deviceLastError NOTIFY deviceLastErrorChanged )
     Q_PROPERTY( QAbstractSocket::SocketState deviceSocketState READ deviceSocketState NOTIFY deviceSocketStateChanged )
     Q_PROPERTY( QString deviceSocketStateString READ deviceSocketStateString NOTIFY deviceSocketStateStringChanged )
@@ -350,6 +350,7 @@ class Positioning : public QObject
     void activeChanged();
     void validChanged();
     void deviceIdChanged();
+    void deviceChanged();
     void elevationCorrectionModeChanged();
     void antennaHeightChanged();
     void loggingChanged();

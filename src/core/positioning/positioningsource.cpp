@@ -570,3 +570,8 @@ void PositioningSource::triggerDisconnectDevice()
     mReceiver->disconnectDevice();
   }
 }
+
+int PositioningSource::deviceCapabilities() const
+{
+  return mReceiver ? mReceiver->capabilities() : AbstractGnssReceiver::NoCapabilities;
+}

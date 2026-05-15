@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "abstractgnssreceiver.h"
 #include "positioningsource.h"
 #include "qfield_android.h"
 #include "qfieldpositioningservice.h"
@@ -29,6 +30,7 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   : QAndroidService( argc, argv )
 {
   qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
+  qRegisterMetaType<AbstractGnssReceiver>( "AbstractGnssReceiver" );
 
   mPositioningSource.reset( new PositioningSource( this ) );
   mHost.setHostUrl( QUrl( QStringLiteral( "localabstract:" APP_PACKAGE_NAME "replica" ) ) );

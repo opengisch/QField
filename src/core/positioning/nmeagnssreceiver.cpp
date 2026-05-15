@@ -26,6 +26,11 @@ NmeaGnssReceiver::NmeaGnssReceiver( QObject *parent )
 {
 }
 
+AbstractGnssReceiver::Capabilities NmeaGnssReceiver::capabilities() const
+{
+  return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging | AbstractGnssReceiver::NtripCorrection;
+}
+
 void NmeaGnssReceiver::initNmeaConnection( QIODevice *ioDevice )
 {
   mNmeaConnection = std::make_unique<QgsNmeaConnection>( ioDevice );

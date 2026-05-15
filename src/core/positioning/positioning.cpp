@@ -83,6 +83,7 @@ void Positioning::setupSource()
   connect( mPositioningSourceReplica.data(), SIGNAL( activeChanged() ), this, SLOT( onActiveChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( validChanged() ), this, SLOT( onValidChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( deviceIdChanged() ), this, SLOT( onDeviceIdChanged() ) );
+  connect( mPositioningSourceReplica.data(), SIGNAL( deviceChanged() ), this, SIGNAL( deviceChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( elevationCorrectionModeChanged() ), this, SLOT( onElevationCorrectionModeChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( antennaHeightChanged() ), this, SLOT( onAntennaHeightChanged() ) );
   connect( mPositioningSourceReplica.data(), SIGNAL( loggingChanged() ), this, SLOT( onLoggingChanged() ) );
@@ -362,21 +363,7 @@ GnssPositionDetails Positioning::deviceDetails() const
 
 AbstractGnssReceiver::Capabilities Positioning::deviceCapabilities() const
 {
-  const QString deviceId = ( isSourceAvailable() ? mPositioningSourceReplica->property( "deviceId" ) : mProperties.value( "deviceId" ) ).toString();
-  if ( !deviceId.isEmpty() || deviceId.startsWith( TcpReceiver::identifier + ":" ) || deviceId.startsWith( UdpReceiver::identifier + ":" ) )
-  {
-    // NMEA-based devices
-    return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging;
-  }
-#ifdef WITH_SERIALPORT
-  else if ( deviceId.startsWith( SerialPortReceiver::identifier + ":" ) )
-  {
-    // NMEA-based device
-    return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging;
-  }
-#endif
-
-  return AbstractGnssReceiver::NoCapabilities;
+  return isSourceAvailable() ? static_cast<AbstractGnssReceiver::Capabilities>( mPositioningSourceReplica->property( "deviceCapabilities" ).toInt() ) : AbstractGnssReceiver::NoCapabilities;
 }
 
 int Positioning::averagedPositionCount() const
