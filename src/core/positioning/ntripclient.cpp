@@ -176,7 +176,7 @@ void NtripClient::logRtcmData( const QByteArray &data )
 void NtripClient::nmeaSentenceReceived( const QString &sentence )
 {
   const qint64 epoch = QDateTime::currentMSecsSinceEpoch();
-  if ( mLastNtripGgaSent != 0 && ( epoch - mLastNtripGgaSent ) < 900 )
+  if ( mLastNtripGgaSent != 0 && ( epoch - mLastNtripGgaSent ) < 1000 )
   {
     return;
   }
