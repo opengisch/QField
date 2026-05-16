@@ -100,12 +100,14 @@ class NtripClient : public QObject
     void nmeaSentenceReceived( const QString &sentence );
 
   private:
-    void logRtcmData( const QByteArray &data );
+    void logData( const QByteArray &data );
 
     NtripSocket *mSocket = nullptr;
     qint64 mBytesSent = 0;
     qint64 mBytesReceived = 0;
+
     QFile mLogFile;
+    QDataStream mLogStream;
     int mLogBlockCount = 0;
 
     qint64 mLastNtripGgaSent = 0;

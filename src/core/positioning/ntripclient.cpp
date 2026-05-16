@@ -79,7 +79,7 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
     emit correctionDataReceived( data );
     emit bytesCountersChanged();
 
-    logRtcmData( data );
+    logData( data );
   } );
 
   connect( mSocket, &NtripSocket::errorOccurred, this, [this]( const QString &msg, bool isPermanent ) {
@@ -140,13 +140,17 @@ void NtripClient::startLogging( const QString &path )
 
   const QString timestamp = QDateTime::currentDateTime().toString( "yyyy-MM-ddThh-mm-ss" );
 
-  mLogFile.setFileName( path + "/rtcm-" + timestamp + ".bin" );
+  mLogFile.setFileName( path + "/ntrip-" + timestamp + ".bin" );
 
   if ( !mLogFile.open( QIODevice::WriteOnly ) )
   {
-    qInfo() << "NTRIP Client: Failed to open RTCM log file" << mLogFile.fileName() << mLogFile.errorString();
+    qInfo() << "NTRIP Client: Failed to open log file" << mLogFile.fileName() << mLogFile.errorString();
     return;
   }
+
+  mLogStream.setDevice( &mLogFile );
+  mLogStream.setByteOrder( QDataStream::LittleEndian );
+
   mLogBlockCount = 0;
 }
 
@@ -157,21 +161,20 @@ void NtripClient::stopLogging()
     mLogFile.flush();
     mLogFile.close();
   }
+
   mLogBlockCount = 0;
 }
 
-void NtripClient::logRtcmData( const QByteArray &data )
+void NtripClient::logData( const QByteArray &data )
 {
   if ( !mLogFile.isOpen() )
   {
     return;
   }
 
-  QDataStream stream( &mLogFile );
-  stream.setByteOrder( QDataStream::LittleEndian );
-  stream << static_cast<qint64>( QDateTime::currentMSecsSinceEpoch() );
-  stream << static_cast<quint32>( data.size() );
-  stream.writeRawData( data.constData(), data.size() );
+  mLogStream << static_cast<qint64>( QDateTime::currentMSecsSinceEpoch() );
+  mLogStream << static_cast<quint32>( data.size() );
+  mLogStream.writeRawData( data.constData(), data.size() );
 
   mLogBlockCount++;
   if ( mLogBlockCount % 10 == 0 )

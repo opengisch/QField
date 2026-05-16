@@ -118,10 +118,18 @@ void PositioningSource::setLogging( bool logging )
     if ( mLogging && !mLoggingPath.isEmpty() )
     {
       mReceiver->startLogging( mLoggingPath );
+      if ( mNtripClient )
+      {
+        mNtripClient->startLogging( mLoggingPath );
+      }
     }
     else
     {
       mReceiver->stopLogging();
+      if ( mNtripClient )
+      {
+        mNtripClient->stopLogging();
+      }
     }
   }
 
@@ -138,6 +146,10 @@ void PositioningSource::setLoggingPath( const QString &path )
   if ( mReceiver && mLogging )
   {
     mReceiver->startLogging( mLoggingPath );
+    if ( mNtripClient )
+    {
+      mNtripClient->startLogging( mLoggingPath );
+    }
   }
 
   emit loggingPathChanged();
@@ -503,6 +515,11 @@ void PositioningSource::startNtripClient()
   emit ntripBytesReceivedChanged();
   setNtripState( NtripState::Disconnected );
 
+  if ( mLogging )
+  {
+    mNtripClient->startLogging( mLoggingPath );
+  }
+
   mNtripClient->start( mNtripSettings, mReceiver.get() );
 }
 
@@ -511,6 +528,10 @@ void PositioningSource::stopNtripClient()
   if ( mNtripClient )
   {
     mNtripClient->stop();
+    if ( mLogging )
+    {
+      mNtripClient->stopLogging();
+    }
     mNtripClient.reset();
 
     setNtripState( NtripState::Disconnected );
