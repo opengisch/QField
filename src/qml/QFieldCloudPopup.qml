@@ -583,34 +583,36 @@ Popup {
               if (!cloudProjectsModel.currentProject) {
                 return '';
               }
-              var exportText = '';
-              var exportDt = cloudProjectsModel.currentProject.lastLocalExportedAt;
-              var timeDeltaMinutes = null;
-              if (exportDt) {
-                exportDt = new Date(exportDt);
-                timeDeltaMinutes = parseInt(Math.max(new Date() - exportDt, 0) / (60 * 1000));
-                if (timeDeltaMinutes < 1)
+
+              let timeDeltaMinutes = 0;
+              let exportText = '';
+              let exportDt = cloudProjectsModel.currentProject.lastLocalExportedAt;
+              timeDeltaMinutes = parseInt(Math.max(new Date() - exportDt, 0) / (60 * 1000));
+              if (!isNaN(timeDeltaMinutes)) {
+                if (timeDeltaMinutes < 1) {
                   exportText = qsTr('Last synchronized just now');
-                else if (timeDeltaMinutes < 60)
+                } else if (timeDeltaMinutes < 60) {
                   exportText = qsTr('Last synchronized %1 minutes ago').arg(timeDeltaMinutes);
-                else if (exportDt.toLocaleDateString() === new Date().toLocaleDateString())
+                } else if (exportDt.toLocaleDateString() === new Date().toLocaleDateString()) {
                   exportText = qsTr('Last synchronized at %1').arg(exportDt.toLocaleTimeString());
-                else
+                } else {
                   exportText = qsTr('Last synchronized on %1').arg(exportDt.toLocaleString());
+                }
               }
-              var pushText = '';
-              var pushDt = cloudProjectsModel.currentProject.lastLocalPushDeltas;
-              if (pushDt) {
-                pushDt = new Date(pushDt);
-                timeDeltaMinutes = parseInt(Math.max(new Date() - pushDt, 0) / (60 * 1000));
-                if (timeDeltaMinutes < 1)
+
+              let pushText = '';
+              let pushDt = cloudProjectsModel.currentProject.lastLocalPushDeltas;
+              timeDeltaMinutes = parseInt(Math.max(new Date() - pushDt, 0) / (60 * 1000));
+              if (!isNaN(timeDeltaMinutes)) {
+                if (timeDeltaMinutes < 1) {
                   pushText = qsTr('Last changes pushed just now');
-                else if (timeDeltaMinutes < 60)
+                } else if (timeDeltaMinutes < 60) {
                   pushText = qsTr('Last changes pushed %1 minutes ago').arg(timeDeltaMinutes);
-                else if (pushDt.toLocaleDateString() === new Date().toLocaleDateString())
+                } else if (pushDt.toLocaleDateString() === new Date().toLocaleDateString()) {
                   pushText = qsTr('Last changes pushed at %1').arg(pushDt.toLocaleTimeString());
-                else
+                } else {
                   pushText = qsTr('Last changes pushed on %1').arg(pushDt.toLocaleString());
+                }
               } else {
                 pushText = qsTr('No changes pushed yet');
               }
