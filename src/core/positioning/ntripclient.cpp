@@ -192,7 +192,10 @@ void NtripClient::nmeaSentenceReceived( const QString &sentence )
   }
   mLastNtripGgaSent = epoch;
 
-  if ( !( sentence.startsWith( "$GPGGA" ) || sentence.startsWith( "$GNGGA" ) || sentence.startsWith( "$GLGGA" ) || sentence.startsWith( "$GAGGA" ) || sentence.startsWith( "$GBGGA" ) ) )
+  const thread_local QRegularExpression rxSentence( u"^\\$([A-Z]{2})([A-Z]{3})"_s );
+  const QRegularExpressionMatch sentenceMatch = rxSentence.match( sentence );
+  const QString sentenceId = sentenceMatch.captured( 2 );
+  if ( sentenceId != QStringLiteral( "GGA" ) )
   {
     return;
   }
@@ -516,7 +519,7 @@ void NtripSocket::onSocketError( QAbstractSocket::SocketError error )
 int NtripSocket::parseHttpStatusCode( const QByteArray &headerBlock )
 {
   // Match first line: "HTTP/1.0 200 OK", "ICY 200 OK", "SOURCETABLE 200 OK"
-  static const QRegularExpression re( QStringLiteral( "^(?:HTTP/\\d\\.\\d|ICY|SOURCETABLE)\\s+(\\d{3})" ) );
+  const thread_local QRegularExpression re( QStringLiteral( "^(?:HTTP/\\d\\.\\d|ICY|SOURCETABLE)\\s+(\\d{3})" ) );
   const QString firstLine = QString::fromLatin1( headerBlock.left( headerBlock.indexOf( "\r\n" ) ) );
   const QRegularExpressionMatch match = re.match( firstLine );
   return match.hasMatch() ? match.captured( 1 ).toInt() : -1;
