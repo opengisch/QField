@@ -3316,6 +3316,37 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>உரிமையாளர்</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>தேடல்</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3478,11 +3509,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>எனது திட்டங்கள்</translation>
+        <translation type="vanished">எனது திட்டங்கள்</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>சமூகம்</translation>
+        <translation type="vanished">சமூகம்</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3510,7 +3541,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>உள்நாட்டில் கிடைக்கிறது, மேகக்கணியில் இல்லை</translation>
+        <translation type="vanished">உள்நாட்டில் கிடைக்கிறது, மேகக்கணியில் இல்லை</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3518,7 +3549,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally</source>
-        <translation>உள்நாட்டில் கிடைக்கும்</translation>
+        <translation type="vanished">உள்நாட்டில் கிடைக்கும்</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3565,10 +3596,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>திட்ட நடவடிக்கைகள்</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, மேகக்கணியில் புதுப்பிக்கப்பட்ட தரவு கிடைக்கிறது</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud உங்களுக்கான அண்மைக் கால தரவை பேக்கேசிங் செய்கிறது; இதற்கு சிறிது நேரம் ஆகலாம், தயவுசெய்து இறுக்கமாகப் பிடித்துக் கொள்ளுங்கள்</translation>
     </message>
@@ -3585,10 +3612,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>திட்டத்தைப் பதிவிறக்க QFieldCloud ஐ அணுகவும்</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>முகில் திட்டப்பணிகள் எதுவும் இல்லை. தொடங்குவதற்கு,% 1ஆவணத்தை படிக்கவும்% 2.</translation>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>திட்டத்தைத் தேடுங்கள்</translation>
     </message>
@@ -3603,14 +3626,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Show invalid projects</source>
         <translation>தவறான திட்டங்களைக் காட்டு</translation>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation>மேகக்கணியில் கிடைக்கும்</translation>
-    </message>
-    <message>
-        <source>, has changes locally</source>
-        <translation>, உள்நாட்டில் மாற்றங்கள் உள்ளன</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -3635,6 +3650,30 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Push changes</source>
         <translation>புச் மாற்றங்கள்</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>திட்டங்கள்</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3320,6 +3320,37 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Zoeken</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3482,11 +3513,11 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Mijn Projecten</translation>
+        <translation type="vanished">Mijn Projecten</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Gemeenschap</translation>
+        <translation type="vanished">Gemeenschap</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3514,7 +3545,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Lokaal beschikbaar, ontbreekt in de cloud</translation>
+        <translation type="vanished">Lokaal beschikbaar, ontbreekt in de cloud</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3522,7 +3553,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Lokaal beschikbaarbaar</translation>
+        <translation type="vanished">Lokaal beschikbaarbaar</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3569,10 +3600,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <translation>Projectacties</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, update beschikbaar in de cloud</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud is de nieuwste gegevens speciaal voor u aan het inpakken; dit kan even duren.</translation>
     </message>
@@ -3589,10 +3616,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <translation>QFieldCloud benaderen om project te downloaden</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>Geen cloudprojecten gevonden. Om te beginnen, %1lees de documentatie%2.</translation>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>Zoeken in projecten</translation>
     </message>
@@ -3607,14 +3630,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Show invalid projects</source>
         <translation>Toon ongeldige projecten</translation>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>, has changes locally</source>
-        <translation>, bevat lokale aanpassingen</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -3639,6 +3654,30 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Push changes</source>
         <translation>Push wijzigingen</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projecten</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

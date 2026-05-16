@@ -3319,6 +3319,37 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation>我的专属工程</translation>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation>预定义过滤</translation>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation>准则</translation>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation>检索词</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>所有者</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation>包含公开工程</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>搜索</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3481,11 +3512,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>我的工程</translation>
+        <translation type="vanished">我的工程</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>社区</translation>
+        <translation type="vanished">社区</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3513,7 +3544,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>本地可用，云端缺失</translation>
+        <translation type="vanished">本地可用，云端缺失</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3521,7 +3552,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally</source>
-        <translation>本地可用</translation>
+        <translation type="vanished">本地可用</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3568,10 +3599,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>工程动作</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, 云端可用的更新数据</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud正在为您打包最新数据；这可能需要一些时间，请稍等</translation>
     </message>
@@ -3588,10 +3615,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>联系QFieldCloud下载工程</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>未找到云工程。要开始，请%1阅读文档%2。</translation>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>搜索工程</translation>
     </message>
@@ -3606,14 +3629,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Show invalid projects</source>
         <translation>显示无效工程</translation>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation>可在云端使用</translation>
-    </message>
-    <message>
-        <source>, has changes locally</source>
-        <translation>, 在本地有更改</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -3638,6 +3653,30 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Push changes</source>
         <translation>推送修改</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>工程</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation>刷新工程列表...</translation>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation>搜索工程...</translation>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation>未找到云工程。</translation>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation>提示：尝试加入公开工程。</translation>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation>首先, %1请阅读文档%2。</translation>
     </message>
 </context>
 <context>

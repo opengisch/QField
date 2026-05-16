@@ -2862,7 +2862,8 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1Server URL
+(Pozostaw puste, aby użyć domyślnego serwera)</translation>
     </message>
 </context>
 <context>
@@ -3324,6 +3325,37 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation>Moje własne projekty</translation>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation>Predefiniowane filtry</translation>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation>Kryteria</translation>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation>Wyszukaj wyrażenia</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Właściciel</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation>Uwzględnij projekty publiczne</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Szukaj</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3486,11 +3518,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Moje projekty</translation>
+        <translation type="vanished">Moje projekty</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Społeczność</translation>
+        <translation type="vanished">Społeczność</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3518,7 +3550,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Dostępny lokalnie, brak w chmurze</translation>
+        <translation type="vanished">Dostępny lokalnie, brak w chmurze</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3526,7 +3558,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Dostępny lokalnie</translation>
+        <translation type="vanished">Dostępny lokalnie</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3573,10 +3605,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Działania projektu</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, zaktualizowane dane dostępne w chmurze</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud pakuje właśnie dla Ciebie ostatnie dane, a to może trochę potrwać. Proszę czekać.</translation>
     </message>
@@ -3593,10 +3621,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Łączenie się z QFieldCloud w celu pobrania projektu</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>Nie znaleziono projektów w chmurze. Aby rozpocząć, %1przeczytaj dokumentację%2.</translation>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>Wyszukaj projekt</translation>
     </message>
@@ -3611,14 +3635,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Show invalid projects</source>
         <translation>Pokaż nieprawidłowe projekty</translation>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation>Dostępne w chmurze</translation>
-    </message>
-    <message>
-        <source>, has changes locally</source>
-        <translation>, posiada zmiany lokalnie</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -3643,6 +3659,30 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Push changes</source>
         <translation>Wyślij zmiany</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projekty</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation>Odświeżanie listy projektów...</translation>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation>Wyszukiwanie projektów...</translation>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation>Nie znaleziono żadnych projektów w chmurze.</translation>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation>Wskazówka: spróbuj uwzględnić projekty publiczne.</translation>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation>Aby rozpocząć, %1 przeczytaj dokumentację%2.</translation>
     </message>
 </context>
 <context>

@@ -3321,6 +3321,37 @@ epäonnistui, syy: %2</translation>
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Omistaja</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Etsi</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3483,11 +3514,11 @@ syy: %2</translation>
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Omat projektini</translation>
+        <translation type="vanished">Omat projektini</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Yhteisö</translation>
+        <translation type="vanished">Yhteisö</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3516,7 +3547,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Saatavilla lokaalisti, puuttuu pilvestä</translation>
+        <translation type="vanished">Saatavilla lokaalisti, puuttuu pilvestä</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3524,7 +3555,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Saatavila lokaalisti</translation>
+        <translation type="vanished">Saatavila lokaalisti</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3571,10 +3602,6 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <translation>Projektin toimet</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, päivitetty data saatavilla cloud-palvelussa</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud pakkaa uusimmat tiedot juuri sinua varten; tämä saattaa kestää jonkin aikaa, ole hyvä ja odota</translation>
     </message>
@@ -3591,10 +3618,6 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <translation>Sisäänkirjaudu QFieldCloudiin projektin lataamiseksi</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>Pilviprojekteja ei löytynyt. Aloita %1lukemalla dokumentaatio%2.</translation>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>Etsi projekti</translation>
     </message>
@@ -3609,14 +3632,6 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     <message>
         <source>Show invalid projects</source>
         <translation>Näytä virheelliset projektit</translation>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation>Saatavilla pilvi-palvelussa</translation>
-    </message>
-    <message>
-        <source>, has changes locally</source>
-        <translation>, lokaaleja muutoksia</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -3641,6 +3656,30 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     <message>
         <source>Push changes</source>
         <translation>Aja muutokset</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projektit</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

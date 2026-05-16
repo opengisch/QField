@@ -3323,6 +3323,37 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3488,11 +3519,11 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>My Projects</source>
-        <translation>I miei Progetti</translation>
+        <translation type="vanished">I miei Progetti</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Comunità</translation>
+        <translation type="vanished">Comunità</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3520,7 +3551,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Disponibile in locale, assente in cloud</translation>
+        <translation type="vanished">Disponibile in locale, assente in cloud</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3528,7 +3559,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Disponibile in locale</translation>
+        <translation type="vanished">Disponibile in locale</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3575,10 +3606,6 @@ Messaggio dell&apos;errore: %4</translation>
         <translation>Azioni del progetto</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, dati aggiornati disponibili sul cloud</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud sta confezionando i dati più recenti solo per te; potrebbe volerci del tempo, tieni saldo</translation>
     </message>
@@ -3595,10 +3622,6 @@ Messaggio dell&apos;errore: %4</translation>
         <translation>Raggiungi QFieldCloud per scaricare il progetto</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation type="unfinished"/>
     </message>
@@ -3612,14 +3635,6 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>, has changes locally</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3645,6 +3660,30 @@ Messaggio dell&apos;errore: %4</translation>
     <message>
         <source>Push changes</source>
         <translation>Invia le modifiche</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Progetti</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

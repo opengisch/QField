@@ -3306,6 +3306,37 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>ເຈົ້າຂອງ</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>ຄົ້ນ​ຫາ</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3464,11 +3495,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>ໂຄງການຂອງຂ້ອຍ</translation>
+        <translation type="vanished">ໂຄງການຂອງຂ້ອຍ</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>ຊຸມຊົນ</translation>
+        <translation type="vanished">ຊຸມຊົນ</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3496,7 +3527,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>ມີຢູ່ໃນເຄື່ອງ, ບໍ່ມີຢູ່ໃນຄລາວ</translation>
+        <translation type="vanished">ມີຢູ່ໃນເຄື່ອງ, ບໍ່ມີຢູ່ໃນຄລາວ</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3504,7 +3535,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally</source>
-        <translation>ມີຢູ່ໃນເຄື່ອງ</translation>
+        <translation type="vanished">ມີຢູ່ໃນເຄື່ອງ</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3551,10 +3582,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>ການດໍາເນີນການໂຄງການ</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>ຂໍ້ມູນອັບເດດທີ່ມີຢູ່ໃນຄລາວ</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud ກຳລັງຫຸ້ມຫໍ່ຂໍ້ມູນຫລ້າສຸດສໍາລັບທ່ານ; ອາດຈະໃຊ້ເວລາ, ກະລຸນາລໍຖ້າ</translation>
     </message>
@@ -3571,10 +3598,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>ກຳລັງເຂົ້າຫາ QFieldCloud ເພື່ອດາວໂຫລດໂຄງການ</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>ບໍ່ພົບໂຄງການຄລາວ. ເພື່ອເລີ່ມຕົ້ນ, %1ອ່ານເອກະສານ%2.</translation>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>ຄົ້ນ​ຫາ​​ໂຄງ​ການ</translation>
     </message>
@@ -3589,14 +3612,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Show invalid projects</source>
         <translation>ສະແດງໂຄງການທີ່ບໍ່ຖືກຕ້ອງ</translation>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation>ມີຢູ່ໃນຄລາວ</translation>
-    </message>
-    <message>
-        <source>, has changes locally</source>
-        <translation>ມີການປ່ຽນແປງໃນເຄື່ອງ</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -3621,6 +3636,30 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Push changes</source>
         <translation>ຊຸກປ່ຽນແປງ</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>ໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3320,6 +3320,37 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3480,11 +3511,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Moji projekti</translation>
+        <translation type="vanished">Moji projekti</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Zajednica</translation>
+        <translation type="vanished">Zajednica</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3512,7 +3543,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Dostupno lokalno, nedostaje u oblaku</translation>
+        <translation type="vanished">Dostupno lokalno, nedostaje u oblaku</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3520,7 +3551,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Dostupno lokalno</translation>
+        <translation type="vanished">Dostupno lokalno</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3567,10 +3598,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Akcije projekta</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation type="unfinished"/>
     </message>
@@ -3587,10 +3614,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation type="unfinished"/>
     </message>
@@ -3604,14 +3627,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>, has changes locally</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3637,6 +3652,30 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Push changes</source>
         <translation>Poguraj promjene</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projekti</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

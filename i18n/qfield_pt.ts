@@ -3322,6 +3322,37 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3484,11 +3515,11 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Meus Projetos</translation>
+        <translation type="vanished">Meus Projetos</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Comunidade</translation>
+        <translation type="vanished">Comunidade</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3516,7 +3547,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Disponível localmente, ausente na cloud</translation>
+        <translation type="vanished">Disponível localmente, ausente na cloud</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3524,7 +3555,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Disponível localmente</translation>
+        <translation type="vanished">Disponível localmente</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3571,10 +3602,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation>Ações de Projeto</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, dados atualizados disponíveis na nuvem</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud está empacotando os dados mais recentes só para você; isso pode levar algum tempo, por favor aguarde</translation>
     </message>
@@ -3591,10 +3618,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation>Ligando-se ao QFieldCloud para baixar o projeto</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation type="unfinished"/>
     </message>
@@ -3608,14 +3631,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>, has changes locally</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3641,6 +3656,30 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>Push changes</source>
         <translation>Enviar alterações</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projetos</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

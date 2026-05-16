@@ -3320,6 +3320,37 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Propietario</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Buscar</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3482,11 +3513,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Mis proyectos</translation>
+        <translation type="vanished">Mis proyectos</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Comunidad</translation>
+        <translation type="vanished">Comunidad</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3514,7 +3545,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Disponible localmente, falta en la nube</translation>
+        <translation type="vanished">Disponible localmente, falta en la nube</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3522,7 +3553,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Disponible localmente</translation>
+        <translation type="vanished">Disponible localmente</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3569,10 +3600,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Acciones del proyecto</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, datos actualizados disponibles en la nube</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud está empaquetando los datos más recientes para usted; esto puede llevar algún tiempo, por favor espere.</translation>
     </message>
@@ -3589,10 +3616,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Conectándose con QFieldCloud para descargar el proyecto</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>No se ha encontrado ningún proyecto en la nube. Para comenzar, %1lea la documentación%2.</translation>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>Buscar proyecto</translation>
     </message>
@@ -3607,14 +3630,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Show invalid projects</source>
         <translation>Mostrar proyectos no válidos</translation>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation>Disponible en la nube</translation>
-    </message>
-    <message>
-        <source>, has changes locally</source>
-        <translation>, tiene cambios localmente</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -3639,6 +3654,30 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Push changes</source>
         <translation>Subir cambios</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Proyectos</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

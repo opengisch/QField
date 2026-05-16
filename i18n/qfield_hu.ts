@@ -3316,6 +3316,37 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Keresés</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3476,11 +3507,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Projektjeim</translation>
+        <translation type="vanished">Projektjeim</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Közösség</translation>
+        <translation type="vanished">Közösség</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3508,7 +3539,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Elérhető helyileg, hiányzik a felhőről</translation>
+        <translation type="vanished">Elérhető helyileg, hiányzik a felhőről</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3516,7 +3547,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Elérhető helyben</translation>
+        <translation type="vanished">Elérhető helyben</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3563,10 +3594,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>Projekt műveletek</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, frissített adatok érhetők el a felhőben</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>A QFieldCloud az Ön számára csomagolja a legfrissebb adatokat; ez eltarthat egy ideig, kérjük legyen türelmes</translation>
     </message>
@@ -3583,10 +3610,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>A projekt letöltését kezdeményezze a QFieldCloud-ról</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>Nincsenek a felhőben projektek. Az elinduláshoz, %1olvasd el a dokumentációt%2.</translation>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>Projektek keresése</translation>
     </message>
@@ -3600,14 +3623,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>, has changes locally</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3633,6 +3648,30 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Push changes</source>
         <translation>Változtatások feltöltése</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projektek</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

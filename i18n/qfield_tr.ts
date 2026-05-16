@@ -3315,6 +3315,37 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Sahibi</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Arama</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3477,11 +3508,11 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Projelerim</translation>
+        <translation type="vanished">Projelerim</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Topluluk</translation>
+        <translation type="vanished">Topluluk</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3509,7 +3540,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Yerel olarak mevcut, bulutta eksik</translation>
+        <translation type="vanished">Yerel olarak mevcut, bulutta eksik</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3517,7 +3548,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Yerel olarak mevcut</translation>
+        <translation type="vanished">Yerel olarak mevcut</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3564,10 +3595,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation>Proje Eylemleri</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, bulutta güncellenmiş veriler mevcut</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud, sizin için en son verileri paketliyor; bu biraz zaman alabilir, lütfen bekleyin</translation>
     </message>
@@ -3584,10 +3611,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation>Proje indirmek için QFieldCloud ile iletişime geçiliyor</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>Hiç bulut projesi bulunamadı. Başlamak için %1belgeyi okuyun%2.</translation>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>Proje ara</translation>
     </message>
@@ -3602,14 +3625,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <message>
         <source>Show invalid projects</source>
         <translation>Geçersiz projeleri göster</translation>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation>Bulutta mevcut</translation>
-    </message>
-    <message>
-        <source>, has changes locally</source>
-        <translation>, yerel olarak değişiklikler var</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -3634,6 +3649,30 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <message>
         <source>Push changes</source>
         <translation>Değişiklikleri Gönder</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projeler</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

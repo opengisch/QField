@@ -3319,6 +3319,37 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Besitzer</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Suche</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3479,11 +3510,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Meine Projekte</translation>
+        <translation type="vanished">Meine Projekte</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Gemeinschaft</translation>
+        <translation type="vanished">Gemeinschaft</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3511,7 +3542,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Lokal verfügbar, fehlt in der Cloud</translation>
+        <translation type="vanished">Lokal verfügbar, fehlt in der Cloud</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3519,7 +3550,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Lokal verfügbar</translation>
+        <translation type="vanished">Lokal verfügbar</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3566,10 +3597,6 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
         <translation>Projektoptionen</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, aktualisierte Daten in der Cloud verfügbar</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud packt die neusten Daten für dich. Dies könnte einen Moment dauern, bitte habe ein klein wenig Geduld.</translation>
     </message>
@@ -3586,10 +3613,6 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
         <translation>Verbinde mit der QFieldCloud um das Projekt herunterzuladen</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>Keine Cloud-Projekte gefunden. Um loszulegen, %1lies die Dokumentation%2.</translation>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>Suche nach Projekt</translation>
     </message>
@@ -3604,14 +3627,6 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Show invalid projects</source>
         <translation>Zeige ungültige Projekte</translation>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation>In der Cloud verfügbar</translation>
-    </message>
-    <message>
-        <source>, has changes locally</source>
-        <translation>, wurde lokal geändert</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -3636,6 +3651,30 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Push changes</source>
         <translation>Änderungen pushen</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projekte</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3324,6 +3324,37 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Власник</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Пошук</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3486,11 +3517,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Мій проєкт</translation>
+        <translation type="vanished">Мій проєкт</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Спільнота</translation>
+        <translation type="vanished">Спільнота</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3518,7 +3549,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Доступний локально, відсутній у хмарі</translation>
+        <translation type="vanished">Доступний локально, відсутній у хмарі</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3526,7 +3557,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Доступний локально</translation>
+        <translation type="vanished">Доступний локально</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3573,10 +3604,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, оновлені дані доступні в хмарі</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud пакує найновіші дані спеціально для Вас; це може зайняти деякий час, будь ласка, зачекайте.</translation>
     </message>
@@ -3593,10 +3620,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Звернутись до QFieldCloud, щоб завантажити проект</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>Пошук проекту</translation>
     </message>
@@ -3611,14 +3634,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Show invalid projects</source>
         <translation>Показати недійсні проекти</translation>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation>Доступно в хмарі</translation>
-    </message>
-    <message>
-        <source>, has changes locally</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>View Project Details</source>
@@ -3643,6 +3658,30 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Push changes</source>
         <translation>Внести зміни</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Проекти</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

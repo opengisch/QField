@@ -3318,6 +3318,37 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>所有者</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>検索</translation>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3480,11 +3511,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My Projects</source>
-        <translation>マイ・プロジェクト</translation>
+        <translation type="vanished">マイ・プロジェクト</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>コミュニティ</translation>
+        <translation type="vanished">コミュニティ</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3512,7 +3543,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>ローカルで利用可能、クラウドにはありません</translation>
+        <translation type="vanished">ローカルで利用可能、クラウドにはありません</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3520,7 +3551,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Available locally</source>
-        <translation>ローカルで利用可能</translation>
+        <translation type="vanished">ローカルで利用可能</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3567,10 +3598,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>プロジェクトのアクション</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>クラウド上で利用可能な更新データがあります</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloudは最新のデータを準備しています。少し時間がかかるかもしれませんが、しばらくお待ちください…</translation>
     </message>
@@ -3587,10 +3614,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>プロジェクトをダウンロードするためにQFieldCloudに連絡する</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation>クラウド・プロジェクトがありません。始めるには、%1ドキュメントをお読みください%2。</translation>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation>プロジェクトを検索する</translation>
     </message>
@@ -3605,14 +3628,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Show invalid projects</source>
         <translation>無効なプロジェクトを表示</translation>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation>クラウドで利用可能</translation>
-    </message>
-    <message>
-        <source>, has changes locally</source>
-        <translation>ローカルでの変更があります</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -3637,6 +3652,30 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Push changes</source>
         <translation>変更点をプッシュ</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>プロジェクト</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3323,6 +3323,37 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
 </context>
 <context>
+    <name>QFieldCloudProjectFilter</name>
+    <message>
+        <source>My Own Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search term</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
@@ -3485,11 +3516,11 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>My Projects</source>
-        <translation>Moje projekty</translation>
+        <translation type="vanished">Moje projekty</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Komunita</translation>
+        <translation type="vanished">Komunita</translation>
     </message>
     <message>
         <source>(Available locally)</source>
@@ -3517,7 +3548,7 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Dostupné lokálne, chýba na cloude</translation>
+        <translation type="vanished">Dostupné lokálne, chýba na cloude</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
@@ -3525,7 +3556,7 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Dostupné lokálne</translation>
+        <translation type="vanished">Dostupné lokálne</translation>
     </message>
     <message>
         <source>Has changes. </source>
@@ -3572,10 +3603,6 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <translation>Projektové akcie</translation>
     </message>
     <message>
-        <source>, updated data available on the cloud</source>
-        <translation>, aktualizované údaje dostupné v cloude</translation>
-    </message>
-    <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
         <translation>QFieldCloud pripravuje aktuálne dáta, čo môže chvíľu trvať, zatiaľ si spravte kávu.</translation>
     </message>
@@ -3592,10 +3619,6 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <translation>Kontaktuje sa QFieldCloud pre stiahnutie projektu</translation>
     </message>
     <message>
-        <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Search for project</source>
         <translation type="unfinished"/>
     </message>
@@ -3609,14 +3632,6 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available on the cloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>, has changes locally</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3642,6 +3657,30 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     <message>
         <source>Push changes</source>
         <translation>Nahrať zmeny</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projekty</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hint: try including public projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
