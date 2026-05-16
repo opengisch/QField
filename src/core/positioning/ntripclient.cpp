@@ -37,7 +37,6 @@ NtripClient::~NtripClient() noexcept
 
 void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceiver *receiver )
 {
-  qDebug() << "Starting NTRIP Client";
   if ( mSocketClient )
   {
     stop();
@@ -71,6 +70,7 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
   mBytesSent = 0;
   mBytesReceived = 0;
 
+  qInfo() << QStringLiteral( "Starting NTRIP client: host %1, port %2, mounnt point %3" ).arg( ntripSettings.host(), QString::number( ntripSettings.port() ), ntripSettings.mountPoint() );
   mSocketClient = new NtripSocketClient( this );
 
   connect( mSocketClient, &NtripSocketClient::correctionDataReceived, this, [this]( const QByteArray &data ) {
@@ -266,14 +266,16 @@ void NtripSocketClient::stop()
 
 void NtripSocketClient::onConnected()
 {
-  qDebug() << "Connected to NTRIP caster:" << mHost << mPort << "mount:" << mMountPoint;
+  qInfo() << QStringLiteral( "Connected to NTRIP caster:  host %1, port %2, mounnt point %3" ).arg( mHost, QString::number( mPort ), mMountPoint );
 
   QString credentials = mUsername + ":" + mPassword;
   QByteArray base64 = credentials.toUtf8().toBase64();
 
   QByteArray mp = mMountPoint.toUtf8();
   if ( !mp.startsWith( '/' ) )
+  {
     mp.prepend( '/' );
+  }
 
   QByteArray request;
   switch ( mProtocol )
