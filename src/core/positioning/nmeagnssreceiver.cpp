@@ -38,7 +38,7 @@ void NmeaGnssReceiver::initNmeaConnection( QIODevice *ioDevice )
 
   //QgsGpsConnection state changed (received location string)
   connect( mNmeaConnection.get(), &QgsGpsConnection::stateChanged, this, &NmeaGnssReceiver::stateChanged );
-  connect( mNmeaConnection.get(), &QgsGpsConnection::nmeaSentenceReceived, this, &NmeaGnssReceiver::nmeaSentenceReceived );
+  connect( mNmeaConnection.get(), &QgsGpsConnection::nmeaSentenceReceived, this, &NmeaGnssReceiver::onNmeaSentenceReceived );
 }
 
 void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )

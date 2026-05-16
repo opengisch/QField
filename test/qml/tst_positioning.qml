@@ -159,13 +159,21 @@ TestCase {
     coordinateTransformer.verticalGrid = '';
 
     // wait a few seconds so positioning can catch some NMEA strings
-    wait(2500);
-    compare(positioning.positionInformation.qualityDescription, "Float RTK + IMU");
-    compare(positioning.positionInformation.imuCorrection, true);
-    compare(positioning.positionInformation.imuRollValid, true);
-    compare(positioning.positionInformation.imuPitchValid, true);
-    compare(positioning.positionInformation.imuHeadingValid, true);
-    compare(positioning.positionInformation.imuSteeringValid, true);
+    let compared = false;
+    for (let i = 0; i < 10; i++) {
+      wait(500);
+      if (positioning.positionInformation.qualityDescription === "Float RTK + IMU") {
+        compare(positioning.positionInformation.qualityDescription, "Float RTK + IMU");
+        compare(positioning.positionInformation.imuCorrection, true);
+        compare(positioning.positionInformation.imuRollValid, true);
+        compare(positioning.positionInformation.imuPitchValid, true);
+        compare(positioning.positionInformation.imuHeadingValid, true);
+        compare(positioning.positionInformation.imuSteeringValid, true);
+        compared = true;
+        break;
+      }
+    }
+    compare(compared, true);
   }
 
   function test_07_happyMonch2IMU() {
