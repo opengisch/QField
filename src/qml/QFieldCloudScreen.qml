@@ -318,7 +318,7 @@ Page {
                 anchors.bottom: line.bottom
                 anchors.left: line.left
                 anchors.right: parent.right
-                height: 6
+                height: 4
                 indeterminate: PackagingStatus !== QFieldCloudProject.PackagingFinishedStatus && DownloadProgress === 0.0
                 value: DownloadProgress
                 visible: Status === QFieldCloudProject.ProjectStatus.Downloading
@@ -330,8 +330,8 @@ Page {
                 width: parent.width
                 leftPadding: 6
                 rightPadding: 6
-                topPadding: 4
-                bottomPadding: 8
+                topPadding: 6
+                bottomPadding: 6
                 spacing: 2
 
                 ParameterizedImage {
@@ -394,11 +394,11 @@ Page {
                   id: inner
                   width: projectDelegate.width - type.width - menuButton.width - 16
                   anchors.verticalCenter: line.verticalCenter
+                  spacing: 2
 
                   Text {
                     id: projectTitle
                     Layout.fillWidth: true
-                    topPadding: 5
                     leftPadding: 3
                     text: Name
                     font.pointSize: Theme.tipFont.pointSize
