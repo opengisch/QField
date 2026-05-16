@@ -21,6 +21,7 @@
 
 
 /**
+ * \brief A class containing NTRIP server settings.
  * \ingroup core
  */
 class NtripSettings
@@ -38,7 +39,7 @@ class NtripSettings
     Q_PROPERTY( bool forwardNmeaSentences READ forwardNmeaSentences )
 
   public:
-    //! NTRIP server version
+    //! NTRIP server protocol
     enum Protocol
     {
       NtripVersion1,
@@ -47,38 +48,61 @@ class NtripSettings
 
     Q_ENUM( Protocol )
 
-    /**
-     * NtripSettings constructor
-     */
+    //! The NTRIP settings constructor
     NtripSettings();
 
     bool operator==( const NtripSettings &other ) const;
     bool operator!=( const NtripSettings &other ) const { return !operator==( other ); }
 
+    //! Returns TRUE if the settings are complete enough to connect to an NTRIP server
     bool isValid() const;
 
+    //! Returns the NTRIP server host
     QString host() const { return mHost; }
+
+    //! Sets the NTRIP server host
     void setHost( const QString &host );
 
+    //! Returns the NTRIP server port
     int port() const { return mPort; }
+
+    //! Sets the NTRIP server port
     void setPort( int port );
 
+    //! Returns the NTRIP server protocol
     Protocol protocol() const { return mProtocol; }
+
+    //! Sets the NTRIP server protocol
     void setProtocol( Protocol protocol );
 
+    //! Returns the NTRIP server mount point
     QString mountPoint() const { return mMountPoint; }
+
+    //! Sets the NTRIP server mount point
     void setMountPoint( const QString &mountPoint );
 
+    //! Returns the username to connect ot he NTRIP server
     QString username() const { return mUsername; }
+
+    //! Sets the username to connect ot he NTRIP server
     void setUsername( const QString &username );
 
+    //! Returns the password to connect ot he NTRIP server
     QString password() const { return mPassword; }
+
+    //! Sets the password to connect ot he NTRIP server
     void setPassword( const QString &password );
 
+    //! Returns TRUE if NMEA sentences will be forwarded to the NTRIP server
     bool forwardNmeaSentences() const { return mForwardNmeaSentences; }
+
+    //! Sets whether NMEA sentences will be forwarded to the NTRIP server
     void setForwardNmeaSentences( bool forwardNmeaSentences );
 
+    //! Return a map of settings
     Q_INVOKABLE QVariantMap toMap() const;
+
+    //! Creates an NtripSettings object from a map of settings
     static NtripSettings fromMap( const QVariantMap &settings );
 
   private:

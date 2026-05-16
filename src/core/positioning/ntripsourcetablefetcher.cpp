@@ -39,8 +39,8 @@ void NtripSourceTableFetcher::fetch( const NtripSettings &ntripSettings )
   connect( mSocket, &QTcpSocket::disconnected, this, &NtripSourceTableFetcher::onSocketDisconnected );
   connect( mSocket, &QAbstractSocket::errorOccurred, this, &NtripSourceTableFetcher::onSocketError );
 
-  mFetching = true;
-  emit fetchingChanged();
+  mIsFetching = true;
+  emit isFetchingChanged();
 
   mSocket->connectToHost( mHost, mPort );
 }
@@ -50,14 +50,8 @@ void NtripSourceTableFetcher::cancel()
   if ( mSocket )
   {
     mSocket->abort();
-    mSocket->deleteLater();
-    mSocket = nullptr;
   }
-  if ( mFetching )
-  {
-    mFetching = false;
-    emit fetchingChanged();
-  }
+  cleanup();
 }
 
 void NtripSourceTableFetcher::cleanup()
@@ -67,10 +61,10 @@ void NtripSourceTableFetcher::cleanup()
     mSocket->deleteLater();
     mSocket = nullptr;
   }
-  if ( mFetching )
+  if ( mIsFetching )
   {
-    mFetching = false;
-    emit fetchingChanged();
+    mIsFetching = false;
+    emit isFetchingChanged();
   }
 }
 
@@ -87,7 +81,7 @@ void NtripSourceTableFetcher::onSocketConnected()
       request.append( "GET / HTTP/1.1\r\n" );
       request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
       request.append( "Ntrip-Version: Ntrip/2.0\r\n" );
-      request.append( "User-Agent: QField NTRIP QtSocketClient/2.0\r\n" );
+      request.append( "User-Agent: QField NTRIP Client/2.0\r\n" );
       request.append( "Accept: */*\r\n" );
       request.append( "Authorization: Basic " + base64 + "\r\n" );
       request.append( "Connection: close\r\n" );
@@ -98,7 +92,7 @@ void NtripSourceTableFetcher::onSocketConnected()
     {
       request.append( "GET / HTTP/1.0\r\n" );
       request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
-      request.append( "User-Agent: QField NTRIP QtSocketClient/1.0\r\n" );
+      request.append( "User-Agent: QField NTRIP Client/1.0\r\n" );
       request.append( "Accept: */*\r\n" );
       request.append( "Authorization: Basic " + base64 + "\r\n" );
       request.append( "Connection: close\r\n" );
@@ -114,7 +108,9 @@ void NtripSourceTableFetcher::onSocketConnected()
 void NtripSourceTableFetcher::onSocketReadyRead()
 {
   if ( !mSocket )
+  {
     return;
+  }
 
   mBuffer.append( mSocket->readAll() );
 
@@ -133,7 +129,9 @@ void NtripSourceTableFetcher::onSocketReadyRead()
     {
       emit fetchError( tr( "Unexpected response from NTRIP caster" ) );
       if ( mSocket )
+      {
         mSocket->abort();
+      }
       cleanup();
       return;
     }
@@ -142,12 +140,14 @@ void NtripSourceTableFetcher::onSocketReadyRead()
 
 void NtripSourceTableFetcher::onSocketDisconnected()
 {
-  if ( !mFetching )
+  if ( !mIsFetching )
+  {
     return;
+  }
 
   if ( !mHeadersParsed )
   {
-    emit fetchError( tr( "Disconnected before receiving sourcetable" ) );
+    emit fetchError( tr( "Disconnected before receiving source table" ) );
     cleanup();
     return;
   }
@@ -172,12 +172,16 @@ void NtripSourceTableFetcher::onSocketDisconnected()
 
 void NtripSourceTableFetcher::onSocketError( QAbstractSocket::SocketError error )
 {
-  if ( !mFetching )
+  if ( !mIsFetching )
+  {
     return;
+  }
 
   // Expected when server closes after sending sourcetable.
   if ( error == QAbstractSocket::RemoteHostClosedError )
+  {
     return;
+  }
 
   const QString message = mSocket ? mSocket->errorString() : QString::number( static_cast<int>( error ) );
   emit fetchError( tr( "NTRIP source table fetch error: " ) + message );

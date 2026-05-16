@@ -184,8 +184,8 @@ QfPopup {
 
           QfToolButton {
             id: refreshNtripMountPointsButton
-            enabled: !ntripSourceTableFetcher.fetching && ntripHostTextField.text !== "" && ntripPortTextField.text !== ""
-            visible: !ntripSourceTableFetcher.fetching
+            enabled: !ntripSourceTableFetcher.isFetching && ntripHostTextField.text !== "" && ntripPortTextField.text !== ""
+            visible: !ntripSourceTableFetcher.isFetching
             iconSource: Theme.getThemeVectorIcon("refresh_24dp")
             iconColor: Theme.mainTextColor
             bgcolor: "transparent"
@@ -202,8 +202,8 @@ QfPopup {
             id: refreshNtripMountPointsIndicator
             Layout.preferredWidth: refreshNtripMountPointsButton.height
             Layout.preferredHeight: refreshNtripMountPointsButton.height
-            running: ntripSourceTableFetcher.fetching
-            visible: ntripSourceTableFetcher.fetching
+            running: ntripSourceTableFetcher.isFetching
+            visible: ntripSourceTableFetcher.isFetching
           }
         }
 

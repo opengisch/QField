@@ -23,26 +23,48 @@
 #include <QStringList>
 #include <QTcpSocket>
 
+
+/**
+ * \brief A class to fetch information such as mount points from an NTRIP server's source table.
+ * \ingroup core
+ */
 class NtripSourceTableFetcher : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( bool fetching READ fetching NOTIFY fetchingChanged )
+    Q_PROPERTY( bool isFetching READ isFetching NOTIFY isFetchingChanged )
     Q_PROPERTY( QStringList mountPoints READ mountPoints NOTIFY mountPointsChanged )
 
   public:
+    //! The NTRIP source table fetcher constructor
     explicit NtripSourceTableFetcher( QObject *parent = nullptr );
+
+    //! The NTRIP source table fetcher destructor
     ~NtripSourceTableFetcher() noexcept override = default;
 
-    bool fetching() const { return mFetching; }
+    //! Returns TRUE if on ongoing source table fetching operation is ongoing
+    bool isFetching() const { return mIsFetching; }
+
+    //! Returns the mount points collected during the last source table fetching operation
     QStringList mountPoints() const { return mMountPoints; }
 
+    /**
+     * Fetches details from an NTRIP server source table
+     * \param ntripSettings The NTRIP settings of the server
+     */
     Q_INVOKABLE void fetch( const NtripSettings &ntripSettings );
+
+    //! Cancels any ongoing fetching operation
     Q_INVOKABLE void cancel();
 
   signals:
-    void fetchingChanged();
+    //! Emitted when a fetching operation has begun or ended
+    void isFetchingChanged();
+
+    //! Emitted when the list of collected mount points has changed
     void mountPointsChanged();
+
+    //! Emitted when an error has occured during a fetching operation
     void fetchError( const QString &message );
 
   private slots:
@@ -55,6 +77,8 @@ class NtripSourceTableFetcher : public QObject
     void cleanup();
     QStringList parseSourceTable( const QByteArray &data ) const;
 
+    bool mIsFetching = false;
+
     QString mHost;
     quint16 mPort = 0;
     QString mUsername;
@@ -64,7 +88,6 @@ class NtripSourceTableFetcher : public QObject
     QTcpSocket *mSocket = nullptr;
     QByteArray mBuffer;
     bool mHeadersParsed = false;
-    bool mFetching = false;
     QStringList mMountPoints;
 };
 

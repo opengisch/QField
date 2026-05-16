@@ -37,7 +37,7 @@ NtripClient::~NtripClient() noexcept
 
 void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceiver *receiver )
 {
-  if ( mSocketClient )
+  if ( mSocket )
   {
     stop();
   }
@@ -71,9 +71,9 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
   mBytesReceived = 0;
 
   qInfo() << QStringLiteral( "Starting NTRIP client: host %1, port %2, mounnt point %3" ).arg( ntripSettings.host(), QString::number( ntripSettings.port() ), ntripSettings.mountPoint() );
-  mSocketClient = new NtripSocketClient( this );
+  mSocket = new NtripSocket( this );
 
-  connect( mSocketClient, &NtripSocketClient::correctionDataReceived, this, [this]( const QByteArray &data ) {
+  connect( mSocket, &NtripSocket::correctionDataReceived, this, [this]( const QByteArray &data ) {
     mBytesReceived += data.size();
 
     emit correctionDataReceived( data );
@@ -82,20 +82,20 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
     logRtcmData( data );
   } );
 
-  connect( mSocketClient, &NtripSocketClient::errorOccurred, this, [this]( const QString &msg, bool isPermanent ) {
+  connect( mSocket, &NtripSocket::errorOccurred, this, [this]( const QString &msg, bool isPermanent ) {
     qInfo() << msg;
     emit errorOccurred( msg, isPermanent );
   } );
 
-  connect( mSocketClient, &NtripSocketClient::streamConnected, this, [this]() {
+  connect( mSocket, &NtripSocket::streamConnected, this, [this]() {
     emit streamConnected();
   } );
 
-  connect( mSocketClient, &NtripSocketClient::streamDisconnected, this, [this]() {
+  connect( mSocket, &NtripSocket::streamDisconnected, this, [this]() {
     emit streamDisconnected();
   } );
 
-  mBytesSent = mSocketClient->start( ntripSettings );
+  mBytesSent = mSocket->connectToHost( ntripSettings );
   emit bytesCountersChanged();
 }
 
@@ -103,22 +103,22 @@ void NtripClient::stop()
 {
   stopLogging();
 
-  if ( mSocketClient )
+  if ( mSocket )
   {
-    mSocketClient->stop();
-    mSocketClient->deleteLater();
-    mSocketClient = nullptr;
+    mSocket->abort();
+    mSocket->deleteLater();
+    mSocket = nullptr;
   }
 }
 
 void NtripClient::sendNmeaSentence( const QString &sentence )
 {
-  if ( !mSocketClient )
+  if ( !mSocket )
   {
     return;
   }
 
-  const qint64 bytesWritten = mSocketClient->sendNmeaSentence( sentence.toUtf8() );
+  const qint64 bytesWritten = mSocket->writeNmeaSentence( sentence.toUtf8() );
   if ( bytesWritten > 0 )
   {
     mBytesSent += bytesWritten;
@@ -129,10 +129,14 @@ void NtripClient::sendNmeaSentence( const QString &sentence )
 void NtripClient::startLogging( const QString &path )
 {
   if ( mLogFile.isOpen() )
+  {
     return;
+  }
 
   if ( !QFileInfo::exists( path ) )
+  {
     return;
+  }
 
   const QString timestamp = QDateTime::currentDateTime().toString( "yyyy-MM-ddThh-mm-ss" );
 
@@ -140,7 +144,7 @@ void NtripClient::startLogging( const QString &path )
 
   if ( !mLogFile.open( QIODevice::WriteOnly ) )
   {
-    qWarning() << "NtripClient: Failed to open RTCM log file" << mLogFile.fileName() << mLogFile.errorString();
+    qInfo() << "NTRIP Client: Failed to open RTCM log file" << mLogFile.fileName() << mLogFile.errorString();
     return;
   }
   mLogBlockCount = 0;
@@ -159,7 +163,9 @@ void NtripClient::stopLogging()
 void NtripClient::logRtcmData( const QByteArray &data )
 {
   if ( !mLogFile.isOpen() )
+  {
     return;
+  }
 
   QDataStream stream( &mLogFile );
   stream.setByteOrder( QDataStream::LittleEndian );
@@ -173,6 +179,7 @@ void NtripClient::logRtcmData( const QByteArray &data )
     mLogFile.flush();
   }
 }
+
 void NtripClient::nmeaSentenceReceived( const QString &sentence )
 {
   const qint64 epoch = QDateTime::currentMSecsSinceEpoch();
@@ -192,23 +199,24 @@ void NtripClient::nmeaSentenceReceived( const QString &sentence )
 
 // ---
 
-NtripSocketClient::NtripSocketClient( QObject *parent )
-  : QObject( parent ), mSocket( new QTcpSocket( this ) )
+NtripSocket::NtripSocket( QObject *parent )
+  : QObject( parent )
+  , mSocket( new QTcpSocket( this ) )
 {
   mSocket->setSocketOption( QAbstractSocket::LowDelayOption, true );
 
-  connect( mSocket, &QTcpSocket::connected, this, &NtripSocketClient::onConnected );
-  connect( mSocket, &QTcpSocket::readyRead, this, &NtripSocketClient::onReadyRead );
-  connect( mSocket, &QTcpSocket::disconnected, this, &NtripSocketClient::onDisconnected );
-  connect( mSocket, &QAbstractSocket::errorOccurred, this, &NtripSocketClient::onSocketError );
+  connect( mSocket, &QTcpSocket::connected, this, &NtripSocket::onConnected );
+  connect( mSocket, &QTcpSocket::readyRead, this, &NtripSocket::onReadyRead );
+  connect( mSocket, &QTcpSocket::disconnected, this, &NtripSocket::onDisconnected );
+  connect( mSocket, &QAbstractSocket::errorOccurred, this, &NtripSocket::onSocketError );
 }
 
-NtripSocketClient::~NtripSocketClient() noexcept
+NtripSocket::~NtripSocket() noexcept
 {
-  stop();
+  abort();
 }
 
-qint64 NtripSocketClient::start( const NtripSettings &ntripSettings )
+qint64 NtripSocket::connectToHost( const NtripSettings &ntripSettings )
 {
   mHost = ntripSettings.host();
   mPort = ntripSettings.port();
@@ -224,14 +232,16 @@ qint64 NtripSocketClient::start( const NtripSettings &ntripSettings )
   mChunkRemaining = -1;
 
   if ( mSocket->isOpen() )
-    stop();
+  {
+    abort();
+  }
 
   mSocket->connectToHost( mHost, mPort );
 
   return estimateRequestSize();
 }
 
-qint64 NtripSocketClient::estimateRequestSize() const
+qint64 NtripSocket::estimateRequestSize() const
 {
   QString credentials = mUsername + ":" + mPassword;
   QByteArray base64 = credentials.toUtf8().toBase64();
@@ -239,7 +249,7 @@ qint64 NtripSocketClient::estimateRequestSize() const
   return 200 + base64.size() + mMountPoint.size();
 }
 
-qint64 NtripSocketClient::sendNmeaSentence( const QByteArray &sentence )
+qint64 NtripSocket::writeNmeaSentence( const QByteArray &sentence )
 {
   if ( !mSocket->isOpen() || mSocket->state() != QAbstractSocket::ConnectedState )
   {
@@ -255,7 +265,7 @@ qint64 NtripSocketClient::sendNmeaSentence( const QByteArray &sentence )
   return mSocket->write( payload );
 }
 
-void NtripSocketClient::stop()
+void NtripSocket::abort()
 {
   if ( mSocket->isOpen() )
   {
@@ -264,7 +274,7 @@ void NtripSocketClient::stop()
   mHeadersSent = false;
 }
 
-void NtripSocketClient::onConnected()
+void NtripSocket::onConnected()
 {
   qInfo() << QStringLiteral( "Connected to NTRIP caster:  host %1, port %2, mounnt point %3" ).arg( mHost, QString::number( mPort ), mMountPoint );
 
@@ -285,7 +295,7 @@ void NtripSocketClient::onConnected()
       request.append( "GET " + mp + " HTTP/1.1\r\n" );
       request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
       request.append( "Ntrip-Version: Ntrip/2.0\r\n" );
-      request.append( "User-Agent: QField NTRIP QtSocketClient/2.0\r\n" );
+      request.append( "User-Agent: QField NTRIP Client/2.0\r\n" );
       request.append( "Accept: */*\r\n" );
       request.append( "Authorization: Basic " + base64 + "\r\n" );
       request.append( "Connection: close\r\n" );
@@ -297,7 +307,7 @@ void NtripSocketClient::onConnected()
     {
       request.append( "GET " + mp + " HTTP/1.0\r\n" );
       request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
-      request.append( "User-Agent: QField NTRIP QtSocketClient/1.0\r\n" );
+      request.append( "User-Agent: QField NTRIP Client/1.0\r\n" );
       request.append( "Accept: */*\r\n" );
       request.append( "Authorization: Basic " + base64 + "\r\n" );
       request.append( "Connection: close\r\n" );
@@ -310,7 +320,7 @@ void NtripSocketClient::onConnected()
   mSocket->flush();
 }
 
-void NtripSocketClient::onReadyRead()
+void NtripSocket::onReadyRead()
 {
   QByteArray data = mSocket->readAll();
 
@@ -412,7 +422,7 @@ void NtripSocketClient::onReadyRead()
   }
 }
 
-void NtripSocketClient::processChunkedData( const QByteArray &data )
+void NtripSocket::processChunkedData( const QByteArray &data )
 {
   mChunkBuffer.append( data );
 
@@ -423,7 +433,9 @@ void NtripSocketClient::processChunkedData( const QByteArray &data )
       // Reading chunk size line
       const int lineEnd = mChunkBuffer.indexOf( "\r\n" );
       if ( lineEnd == -1 )
+      {
         break; // Need more data
+      }
 
       const QByteArray sizeLine = mChunkBuffer.left( lineEnd ).trimmed();
       bool ok = false;
@@ -460,7 +472,10 @@ void NtripSocketClient::processChunkedData( const QByteArray &data )
     {
       // mChunkRemaining == 0: between chunks, skip trailing \r\n
       if ( mChunkBuffer.size() < 2 )
-        break; // Need more data
+      {
+        // Need more data
+        break;
+      }
 
       mChunkBuffer.remove( 0, 2 );
       mChunkRemaining = -1;
@@ -468,7 +483,7 @@ void NtripSocketClient::processChunkedData( const QByteArray &data )
   }
 }
 
-void NtripSocketClient::onDisconnected()
+void NtripSocket::onDisconnected()
 {
   if ( mHeadersSent )
   {
@@ -485,7 +500,7 @@ void NtripSocketClient::onDisconnected()
   }
 }
 
-void NtripSocketClient::onSocketError( QAbstractSocket::SocketError error )
+void NtripSocket::onSocketError( QAbstractSocket::SocketError error )
 {
   emit errorOccurred( QStringLiteral( "NTRIP socket error on " ) + mHost
                         + QStringLiteral( ":" ) + QString::number( mPort )
@@ -495,18 +510,16 @@ void NtripSocketClient::onSocketError( QAbstractSocket::SocketError error )
                       false );
 }
 
-int NtripSocketClient::parseHttpStatusCode( const QByteArray &headerBlock )
+int NtripSocket::parseHttpStatusCode( const QByteArray &headerBlock )
 {
   // Match first line: "HTTP/1.0 200 OK", "ICY 200 OK", "SOURCETABLE 200 OK"
   static const QRegularExpression re( QStringLiteral( "^(?:HTTP/\\d\\.\\d|ICY|SOURCETABLE)\\s+(\\d{3})" ) );
   const QString firstLine = QString::fromLatin1( headerBlock.left( headerBlock.indexOf( "\r\n" ) ) );
   const QRegularExpressionMatch match = re.match( firstLine );
-  if ( match.hasMatch() )
-    return match.captured( 1 ).toInt();
-  return -1;
+  return match.hasMatch() ? match.captured( 1 ).toInt() : -1;
 }
 
-bool NtripSocketClient::isPermanentHttpError( int statusCode )
+bool NtripSocket::isPermanentHttpError( int statusCode )
 {
   return statusCode >= 400 && statusCode < 500;
 }
