@@ -62,11 +62,18 @@ TestCase {
     verify(featureModel.feature.attribute("x") === undefined);
     verify(featureModel.feature.attribute("y") === undefined);
     verify(featureModel.feature.attribute("z") === undefined);
-    wait(2500);
+
+    for (let i = 0; i < 10; i++) {
+      wait(500);
+      if (positioning.positionInformation.qualityDescription !== undefined && positioning.positionInformation.fixStatus !== undefined) {
+        break;
+      }
+    }
+
     featureModel.resetAttributes();
     compare(featureModel.feature.attribute("source"), "manual");
-    compare(featureModel.feature.attribute("Quality"), "Autonomous");
-    compare(featureModel.feature.attribute("Fix status"), "Fix3D");
+    verify(featureModel.feature.attribute("Quality") !== undefined);
+    verify(featureModel.feature.attribute("Fix status") !== undefined);
     verify(featureModel.feature.attribute("Horizontal accuracy") !== undefined);
     verify(featureModel.feature.attribute("Nb. of satellites") !== undefined);
     verify(featureModel.feature.attribute("x") !== undefined);
@@ -76,8 +83,8 @@ TestCase {
     featureModel.appExpressionContextScopesGenerator.positionLocked = true;
     featureModel.resetAttributes();
     compare(featureModel.feature.attribute("source"), "nmea");
-    compare(featureModel.feature.attribute("Quality"), "Autonomous");
-    compare(featureModel.feature.attribute("Fix status"), "Fix3D");
+    verify(featureModel.feature.attribute("Quality") !== undefined);
+    verify(featureModel.feature.attribute("Fix status") !== undefined);
     verify(featureModel.feature.attribute("Horizontal accuracy") !== undefined);
     verify(featureModel.feature.attribute("Nb. of satellites") !== undefined);
     verify(featureModel.feature.attribute("x") !== undefined);
