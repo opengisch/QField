@@ -12,7 +12,7 @@ Pane {
 
   property string currentUsername: ""
   property var organizations: []
-
+  property bool organizationsFetched: false
   property string activePreset: ""
   readonly property var presets: {
     const list = [
@@ -43,6 +43,7 @@ Pane {
     }
     function onUsernameChanged() {
       filterPanel.organizations = [];
+      filterPanel.organizationsFetched = false;
     }
   }
 
@@ -116,6 +117,11 @@ Pane {
       ownerComboBox.model = [""].concat(cloudProjectsModel.uniqueOwners());
       ownerComboBox.editText = previousOwner;
       blockQueryUpdate = false;
+
+      if (!filterPanel.organizationsFetched && cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        cloudConnection.getUserOrganizations(filterPanel.currentUsername);
+        filterPanel.organizationsFetched = true;
+      }
     }
   }
 
