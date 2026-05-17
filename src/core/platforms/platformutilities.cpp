@@ -336,6 +336,14 @@ void PlatformUtilities::removeFolder( const QString &path ) const
   }
 }
 
+bool PlatformUtilities::removeDir( const QString &path ) const
+{
+  QDir dir( path );
+  if ( !dir.exists() )
+    return true;
+  return dir.removeRecursively();
+}
+
 ResourceSource *PlatformUtilities::getCameraPicture( const QString &, const QString &, const QString &, QObject * )
 {
   return nullptr;

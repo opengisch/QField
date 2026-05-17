@@ -1009,3 +1009,12 @@ QVariantMap FileUtils::deleteFiles( const QStringList &filePaths )
 
   return results;
 }
+
+QStringList FileUtils::listDir( const QString &path, const QString &filter )
+{
+  QDir dir( path );
+  if ( !dir.exists() )
+    return QStringList();
+  const QDir::Filters filters = QDir::Dirs | QDir::NoDotAndDotDot;
+  return filter.isEmpty() ? dir.entryList( filters ) : dir.entryList( QStringList() << filter, filters );
+}

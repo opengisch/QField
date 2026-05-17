@@ -305,6 +305,9 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      */
     Q_INVOKABLE virtual void vibrate( int milliseconds ) const { Q_UNUSED( milliseconds ) }
 
+	//! Removes a directory at the given \a path (no path restriction)
+	Q_INVOKABLE virtual bool removeDir( const QString &path ) const;
+
     /**
      * Starts a positioning service on supported platforms and returns the remote object URL.
      */
