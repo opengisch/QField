@@ -175,13 +175,13 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
      */
     Q_INVOKABLE static QVariantMap deleteFiles( const QStringList &filePaths );
 
-	/**
+    /**
 	 * Lists directory entries matching an optional wildcard \a filter.
 	 * \param path the directory path to list
 	 * \param filter an optional wildcard filter (e.g. "oktos_*"); if empty, all entries are returned
 	 * \returns a list of entry names (not full paths)
 	 */
-	Q_INVOKABLE static QStringList listDir( const QString &path, const QString &filter = QString() );
+    Q_INVOKABLE static QStringList listDir( const QString &path, const QString &filter = QString() );
 
   private:
     static int copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping );
