@@ -145,6 +145,30 @@ ColumnLayout {
           spacing: 5
 
           Text {
+            id: projectDetailsStorageSizeLabel
+            Layout.fillWidth: true
+            font: Theme.strongFont
+            color: Theme.mainTextColor
+
+            text: qsTr("Storage size")
+          }
+
+          Text {
+            id: projectDetailsStorageSize
+            Layout.fillWidth: true
+            font: Theme.defaultFont
+            color: Theme.secondaryTextColor
+            wrapMode: Text.WordWrap
+
+            text: cloudProject != undefined ? FileUtils.representFileSize(cloudProject.remoteSizeBytes) : ""
+          }
+        }
+
+        ColumnLayout {
+          Layout.fillWidth: true
+          spacing: 5
+
+          Text {
             id: projectDetailsOwnerLabel
             Layout.fillWidth: true
             font: Theme.strongFont

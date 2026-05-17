@@ -651,6 +651,7 @@ void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *>
           mProjects[i]->setUserRoleOrigin( project->userRoleOrigin() );
           mProjects[i]->setCreatedAt( project->createdAt() );
           mProjects[i]->setUpdatedAt( project->updatedAt() );
+          mProjects[i]->setRemoteSizeBytes( project->remoteSizeBytes() );
           mProjects[i]->setCanRepackage( project->canRepackage() );
           mProjects[i]->setNeedsRepackaging( project->needsRepackaging() );
           mProjects[i]->setSharedDatasetsProjectId( project->sharedDatasetsProjectId() );
