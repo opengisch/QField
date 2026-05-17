@@ -169,6 +169,8 @@ Pane {
             filterPanel.activePreset = modelData.id;
             if (filterPanel.queryString !== modelData.query) {
               updateQueryFromString(modelData.query);
+            } else {
+              filterPanel.applyFilter();
             }
           }
         }
