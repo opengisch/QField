@@ -618,7 +618,6 @@ Page {
             id: projectFilter
             anchors.fill: parent
             visible: false
-            z: 1
 
             currentUsername: cloudConnection.username
 

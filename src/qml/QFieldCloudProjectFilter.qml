@@ -138,9 +138,7 @@ Pane {
     clip: true
 
     ColumnLayout {
-      width: filterPanel.width - 32
-      x: 16
-      y: 16
+      width: filterPanel.width
       spacing: 14
 
       Label {
@@ -247,7 +245,7 @@ Pane {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    height: searchButton.height + 10
+    height: searchButton.height + 12
     color: "transparent"
 
     QfButton {
