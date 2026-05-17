@@ -132,6 +132,7 @@ ColumnLayout {
           color: Theme.mainTextColor
           wrapMode: Text.WordWrap
           textFormat: Text.MarkdownText
+          visible: text !== ""
 
           text: cloudProject != undefined ? cloudProject.description.trim() : ""
 
