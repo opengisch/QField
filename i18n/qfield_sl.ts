@@ -1038,7 +1038,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>Ustavit sledenje tega objekta, da urediš njegovo geometrijo</translation>
+        <translation>Ustavi sledenje tega objekta, da urediš njegovo geometrijo</translation>
     </message>
     <message>
         <source>Changes saved</source>
@@ -1599,7 +1599,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Tracking active on this layer.</source>
-        <translation type="unfinished"/>
+        <translation>Sledenje omogočeno na tem sloju.</translation>
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
@@ -2535,7 +2535,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track your position?</source>
-        <translation type="unfinished"/>
+        <translation>Sledim tvojemu položaju?</translation>
     </message>
     <message>
         <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
@@ -2594,7 +2594,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Tracks</source>
-        <translation type="unfinished"/>
+        <translation>Sledi</translation>
     </message>
     <message>
         <source>Basemap</source>
@@ -2730,7 +2730,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Session expired</source>
-        <translation type="unfinished"/>
+        <translation>Seja je potekla</translation>
     </message>
     <message>
         <source>Login temporary unavailable</source>
@@ -2934,7 +2934,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation type="unfinished"/>
+        <translation>Ni lokalnih sprememb</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -2958,7 +2958,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation type="unfinished"/>
+        <translation>Povrni lokalne spremembe</translation>
     </message>
     <message>
         <source>Reset project</source>
@@ -2998,23 +2998,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation type="unfinished"/>
+        <translation>Zadnje spremembe so bile pravkar poslane</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Zadnje spremembe so bile posredovane pred %1 minutami</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation type="unfinished"/>
+        <translation>Zadnje spremembe so bile posredovane ob %1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Zadnje spremembe so bile posredovane dne %1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation type="unfinished"/>
+        <translation>Spremembe še niso bile posredovane</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3022,7 +3022,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation type="unfinished"/>
+        <translation>Ali naj se lokalne spremembe povrnejo?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3042,11 +3042,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation type="unfinished"/>
+        <translation>Razveljavitev sprememb ni uspela</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation type="unfinished"/>
+        <translation>Ni sprememb, ki bi jih bilo treba razveljaviti</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
