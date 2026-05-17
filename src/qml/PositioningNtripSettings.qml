@@ -86,12 +86,14 @@ QfPopup {
             id: ntripHostTextField
             Layout.fillWidth: true
             font: Theme.defaultFont
+            inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
           }
 
           TextField {
             id: ntripPortTextField
             Layout.preferredWidth: 100
             font: Theme.defaultFont
+            inputMethodHints: Qt.ImhFormattedNumbersOnly | Qt.ImhNoPredictiveText
           }
         }
 
@@ -139,6 +141,7 @@ QfPopup {
           id: ntripUsernameTextField
           Layout.fillWidth: true
           font: Theme.defaultFont
+          inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         }
 
         Label {
@@ -155,6 +158,7 @@ QfPopup {
           font: Theme.defaultFont
           echoMode: TextInput.Password
           passwordMaskDelay: Qt.platform.os === "ios" || Qt.platform.os === "android" ? 1000 : 0
+          inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         }
 
         Label {
