@@ -189,8 +189,8 @@ QfPopup {
             iconSource: Theme.getThemeVectorIcon("refresh_24dp")
             iconColor: Theme.mainTextColor
             bgcolor: "transparent"
-            Layout.preferredWidth: 36
-            Layout.preferredHeight: 36
+            Layout.preferredWidth: 48
+            Layout.preferredHeight: 48
             padding: 0
 
             onClicked: {
@@ -216,11 +216,26 @@ QfPopup {
           Layout.fillWidth: true
         }
 
-        CheckBox {
-          id: ntripForwardNmeaSentencesCheckBox
+        RowLayout {
           Layout.fillWidth: true
-          text: qsTr('Forward NMEA sentences to NTRIP caster')
-          font: Theme.defaultFont
+
+          Label {
+            id: ntripForwardNmeaSentencesLabel
+            Layout.fillWidth: true
+            text: qsTr('Forward NMEA sentences to the NTRIP caster')
+            font: Theme.defaultFont
+            wrapMode: Text.WordWrap
+
+            MouseArea {
+              anchors.fill: parent
+              onClicked: ntripForwardNmeaSentencesSwitch.toggle()
+            }
+          }
+
+          QfSwitch {
+            id: ntripForwardNmeaSentencesSwitch
+            Layout.preferredWidth: 48
+          }
         }
       }
     }
@@ -250,7 +265,7 @@ QfPopup {
     ntripUsernameTextField.text = ntripSettings.username;
     ntripPasswordTextField.text = ntripSettings.password;
     ntripMountPointComboBox.editText = ntripSettings.mountPoint;
-    ntripForwardNmeaSentencesCheckBox.checked = ntripSettings.forwardNmeaSentences;
+    ntripForwardNmeaSentencesSwitch.checked = ntripSettings.forwardNmeaSentences;
   }
 
   function createSettingsMap() {
@@ -261,7 +276,7 @@ QfPopup {
       "username": ntripUsernameTextField.text,
       "password": ntripPasswordTextField.text,
       "mountPoint": ntripMountPointComboBox.editText,
-      "forwardNmeaSentences": ntripForwardNmeaSentencesCheckBox.checked
+      "forwardNmeaSentences": ntripForwardNmeaSentencesSwitch.checked
     };
   }
 }
