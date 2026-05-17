@@ -107,7 +107,7 @@ class NtripSettings
 
   private:
     QString mHost;
-    int mPort = 0;
+    int mPort = 2101;
     Protocol mProtocol = NtripVersion1;
 
     QString mMountPoint;
