@@ -532,34 +532,6 @@ Page {
               }
             }
 
-            Label {
-              anchors.fill: parent
-              anchors.margins: 20
-              visible: cloudConnection.status === QFieldCloudConnection.LoggedIn && parent.count === 0 && filterBar.currentIndex === 0
-              text: {
-                let labelText = "";
-                if (cloudProjectsModel.isRefreshing) {
-                  labelText = qsTr("Refreshing projects list...");
-                } else if (table.model.isSearching) {
-                  labelText = qsTr("Searching for projects...");
-                } else if (searchBar.searchTerm !== "") {
-                  labelText = qsTr("No cloud projects found.");
-                  if (searchBar.searchTerm.indexOf("include:public") === -1) {
-                    labelText += "\n\n<i>" + qsTr("Hint: try including public projects.") + "</i>";
-                  }
-                } else {
-                  labelText = qsTr("No cloud projects found.") + "\n\n" + qsTr("To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>");
-                }
-                return labelText;
-              }
-              textFormat: Text.MarkdownText
-              font: Theme.defaultFont
-              wrapMode: Text.WordWrap
-              horizontalAlignment: Text.AlignHCenter
-              verticalAlignment: Text.AlignVCenter
-              onLinkActivated: link => Qt.openUrlExternally(link)
-            }
-
             MouseArea {
               property Item pressedItem
               propagateComposedEvents: false
@@ -610,6 +582,45 @@ Page {
                   removeProject.visible = item.projectLocalPath !== '';
                   projectActions.popup(mouse.x, mouse.y);
                 }
+              }
+            }
+          }
+
+          Label {
+            anchors.fill: parent
+            anchors.margins: 20
+            visible: cloudConnection.status === QFieldCloudConnection.LoggedIn && filterBar.currentIndex === 0 && table.count === 0
+            text: {
+              let labelText = "";
+              if (cloudProjectsModel.isRefreshing) {
+                labelText = qsTr("Refreshing projects list...");
+              } else if (table.model.isSearching) {
+                labelText = qsTr("Searching for projects...");
+              } else if (searchBar.searchTerm.trim() !== "") {
+                labelText = qsTr("No cloud projects found.");
+                const parameters = projectFilter.getQueryParametersFromString(searchBar.searchTerm);
+                if (parameters["includePublic"] === false) {
+                  if (cloudConnection.url == cloudConnection.defaultUrl) {
+                    labelText += "\n\n" + qsTr("Try to %1include public projects%2 and see what the commmunity has to offer.").arg("<a href=\"#includePublic\">").arg("</a>");
+                  } else {
+                    labelText += "\n\n" + qsTr("Try to %1include public projects%2.").arg("<a href=\"#includePublic\">").arg("</a>");
+                  }
+                }
+              } else {
+                labelText = qsTr("No cloud projects found.") + "\n\n" + qsTr("To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>");
+              }
+              return labelText;
+            }
+            textFormat: Text.MarkdownText
+            font: Theme.defaultFont
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            onLinkActivated: link => {
+              if (link === "#includePublic") {
+                searchBar.setSearchTerm("include:public " + searchBar.searchTerm.trim());
+              } else {
+                Qt.openUrlExternally(link);
               }
             }
           }

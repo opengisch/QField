@@ -75,27 +75,12 @@ Pane {
   function updateQueryFromString(query) {
     blockQueryUpdate = true;
 
-    let searchTerm = [];
-    let owner = "";
-    let includePublic = false;
-
-    let parts = query.trim().split(/\s+/);
-    for (const part of parts) {
-      if (part.indexOf("owner:") === 0) {
-        owner = part.substring(6);
-      } else if (part.indexOf("include:public") === 0) {
-        includePublic = true;
-      } else {
-        searchTerm.push(part);
-      }
-    }
-
-    searchTermTextField.text = searchTerm.join(' ');
-    ownerComboBox.editText = owner;
-    includePublicSwitch.checked = includePublic;
+    const parameters = getQueryParametersFromString(query);
+    searchTermTextField.text = parameters["searchTerm"];
+    ownerComboBox.editText = parameters["owner"];
+    includePublicSwitch.checked = parameters["includePublic"];
 
     queryString = query;
-
     blockQueryUpdate = false;
 
     const preset = presets.find(preset => preset.query === queryString);
@@ -103,6 +88,29 @@ Pane {
     if (activePreset !== presetName) {
       activePreset = presetName;
     }
+  }
+
+  function getQueryParametersFromString(query) {
+    let parameters = {
+      "searchTerm": "",
+      "owner": "",
+      "includePublic": false
+    };
+
+    let searchTerm = [];
+    let parts = query.trim().split(/\s+/);
+    for (const part of parts) {
+      if (part.indexOf("owner:") === 0) {
+        parameters["owner"] = part.substring(6);
+      } else if (part.indexOf("include:public") === 0) {
+        parameters["includePublic"] = true;
+      } else {
+        searchTerm.push(part);
+      }
+    }
+    parameters["searchTerm"] = searchTerm.join(" ");
+
+    return parameters;
   }
 
   function clear() {
