@@ -171,6 +171,7 @@ class QFieldCloudConnection : public QObject
     Q_INVOKABLE void login( const QString &password = QString() );
     Q_INVOKABLE void logout();
 
+    Q_INVOKABLE void getUserOrganizations( const QString &user );
     Q_INVOKABLE void getSubscriptionInformation( const QString &user );
 
     Q_INVOKABLE void getServerInformation();
@@ -271,6 +272,7 @@ class QFieldCloudConnection : public QObject
     void isReachableChanged();
     void queuedProjectPushRequested( const QString &projectId );
 
+    void userOrganizationsReceived( const QStringList &organizations );
     void subscriptionInformationReceived( const CloudSubscriptionInformation &subscriptionInformation );
 
   private:

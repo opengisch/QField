@@ -172,7 +172,7 @@ TestCase {
   // Helper: Login and refresh projects list
   function loginAndRefresh(data) {
     loginToServer(data);
-    cloudProjectsModel.refreshProjectsList(true, false, 0);
+    cloudProjectsModel.refreshProjectsList(true);
     tryCompare(cloudProjectsModel, "isRefreshing", true, 5000);
     tryCompare(cloudProjectsModel, "isRefreshing", false, 30000);
     wait(500);

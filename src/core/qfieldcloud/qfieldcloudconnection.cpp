@@ -574,6 +574,42 @@ void QFieldCloudConnection::logout()
   setStatus( ConnectionStatus::Disconnected );
 }
 
+void QFieldCloudConnection::getUserOrganizations( const QString &user )
+{
+  if ( mStatus != ConnectionStatus::LoggedIn )
+  {
+    return;
+  }
+
+  NetworkReply *reply = get( QStringLiteral( "/api/v1/users/%1/organizations/" ).arg( user ) );
+
+  connect( reply, &NetworkReply::finished, this, [this, reply]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+    reply->deleteLater();
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to fetch user organizations: %1" ).arg( rawReply->errorString() ), QStringLiteral( "QFieldCloud" ) );
+      return;
+    }
+
+    const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
+    const QJsonArray array = doc.array();
+
+    QStringList organizations;
+    for ( const auto &value : array )
+    {
+      const QString username = value.toObject().value( QStringLiteral( "username" ) ).toString();
+      if ( !username.isEmpty() )
+      {
+        organizations.append( username );
+      }
+    }
+
+    emit userOrganizationsReceived( organizations );
+  } );
+}
+
 void QFieldCloudConnection::getSubscriptionInformation( const QString &user )
 {
   if ( mStatus != ConnectionStatus::LoggedIn )
