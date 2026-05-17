@@ -105,6 +105,10 @@ QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorString )
   {
     resultErrorString = tr( "The project owner's available storage is full." );
   }
+  else if ( errorString.contains( errorCodePlanInsufficient() ) )
+  {
+    resultErrorString = tr( "The project owner's subscription plan is insufficient." );
+  }
 
   return resultErrorString;
 }
@@ -115,6 +119,7 @@ QString QFieldCloudUtils::documentationFromErrorString( const QString &errorStri
   {
     return QStringLiteral( "https://docs.qfield.org/get-started/storage-qfc/#adding-qfieldcloud-storage" );
   }
+
   return QString();
 }
 
