@@ -455,7 +455,7 @@ class QFieldCloudProject : public QObject
 
     void downloadAttachmentFinished( const QString &fileName, const QString &error = QString() );
     void downloadFinished( const QString &error = QString() );
-    void downloaded( const QString &name, const QString &error = QString() );
+    void downloaded( const QString &error = QString() );
 
     void pushFinished( bool isDownloading, const QString &error = QString() );
 

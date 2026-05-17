@@ -790,7 +790,7 @@ void QFieldCloudProject::packageAndDownload()
 
     setStatus( ProjectStatus::Idle );
 
-    emit downloaded( mName, error );
+    emit downloaded( error );
   } );
 }
 

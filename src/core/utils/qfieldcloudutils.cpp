@@ -103,7 +103,7 @@ QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorString )
 
   if ( errorString.contains( errorCodeOverQuota() ) )
   {
-    resultErrorString = tr( "Your account's available storage is full." );
+    resultErrorString = tr( "The project owner's available storage is full." );
   }
 
   return resultErrorString;

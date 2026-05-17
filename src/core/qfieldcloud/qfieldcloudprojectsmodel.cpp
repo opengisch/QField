@@ -684,10 +684,10 @@ void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *proj
     emit dataChanged( idx, idx, QVector<int>() << ProjectFileOutdatedRole );
   } );
 
-  connect( project, &QFieldCloudProject::downloaded, this, [this]( const QString &name, const QString &error ) {
+  connect( project, &QFieldCloudProject::downloaded, this, [this]( const QString &error ) {
     const QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     const QModelIndex idx = findProjectIndex( p->id() );
-    emit projectDownloaded( p->id(), name, !error.isEmpty(), error );
+    emit projectDownloaded( p->id(), p->name(), p->owner(), !error.isEmpty(), error );
     emit dataChanged( idx, idx, QVector<int>() << StatusRole << PackagingStatusRole << ErrorStatusRole << ErrorStringRole );
   } );
 
