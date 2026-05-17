@@ -1114,6 +1114,17 @@ Page {
               rowSpacing: 5
 
               Label {
+                text: qsTr('Positioning Device')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                Layout.bottomMargin: 5
+                Layout.columnSpan: 2
+              }
+
+              Label {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 text: qsTr("Positioning device in use:")
@@ -1387,6 +1398,17 @@ Page {
               rowSpacing: 5
 
               Label {
+                text: qsTr('Map Canvas')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                Layout.bottomMargin: 2
+                Layout.columnSpan: 2
+              }
+
+              Label {
                 text: qsTr("Show position information")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
@@ -1454,6 +1476,17 @@ Page {
                 color: Theme.secondaryTextColor
 
                 wrapMode: Text.WordWrap
+              }
+
+              Label {
+                text: qsTr('Digitizing & Editing')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 10
+                Layout.bottomMargin: 5
+                Layout.columnSpan: 2
               }
 
               Label {
@@ -1758,6 +1791,17 @@ Page {
               }
 
               Label {
+                text: qsTr('Elevation Adjustment')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 10
+                Layout.bottomMargin: 5
+                Layout.columnSpan: 2
+              }
+
+              Label {
                 text: qsTr("Antenna height compensation")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
@@ -1970,6 +2014,18 @@ Page {
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
+              }
+
+              Label {
+                text: qsTr('Advanced')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 10
+                Layout.bottomMargin: 5
+                Layout.columnSpan: 2
+                visible: positionSource.deviceCapabilities & AbstractGnssReceiver.Logging
               }
 
               Label {
