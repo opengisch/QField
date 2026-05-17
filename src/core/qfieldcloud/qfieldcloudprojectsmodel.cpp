@@ -1401,7 +1401,7 @@ void QFieldCloudProjectsFilterModel::setTextFilter( const QString &text )
   mOwnerFilter = owner;
   mIncludePublic = includePublic;
 
-  if ( mSourceModel && ( !mOwnerFilter.isEmpty() || !mKeywordFilter.isEmpty() ) )
+  if ( mSourceModel && ( !mOwnerFilter.isEmpty() || searchTerm.size() > 1 ) )
   {
     mIsSearching = true;
     emit isSearchingChanged();
