@@ -1285,36 +1285,49 @@ bool QFieldCloudProjectsFilterModel::lessThan( const QModelIndex &sourceLeft, co
 bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
   const QModelIndex currentRowIndex = mSourceModel->index( source_row, 0, source_parent );
-
-  if ( mShowLocalOnly && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty() )
+  const QFieldCloudProject *project = mSourceModel->findProject( mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::IdRole ).toString() );
+  if ( !project )
   {
     return false;
   }
 
-  if ( !mIncludePublic )
+  if ( mShowLocalOnly && project->localPath().isEmpty() )
   {
-    if ( mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::UserRoleOriginRole ).toString() == QStringLiteral( "public" ) && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::LocalPathRole ).toString().isEmpty() )
+    return false;
+  }
+
+  const bool isPublic = project->localPath().isEmpty() && project->userRoleOrigin() == QStringLiteral( "public" );
+  if ( mIncludePublic )
+  {
+    if ( project->remoteSizeBytes() == 0 && isPublic && project->updatedAt().toSecsSinceEpoch() - project->createdAt().toSecsSinceEpoch() < 300 )
+    {
+      // This is most likely an empty project, skip
+      return false;
+    }
+  }
+  else
+  {
+    if ( isPublic )
     {
       return false;
     }
   }
 
-  if ( !mShowInValidProjects && mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::StatusRole ).toInt() == static_cast<int>( QFieldCloudProject::ProjectStatus::Failing ) )
+  if ( !mShowInValidProjects && project->status() == QFieldCloudProject::ProjectStatus::Failing )
   {
     return false;
   }
 
   if ( !mOwnerFilter.isEmpty() )
   {
-    const QString owner = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::OwnerRole ).toString();
-    if ( owner.compare( mOwnerFilter, Qt::CaseInsensitive ) != 0 )
+    if ( project->owner().compare( mOwnerFilter, Qt::CaseInsensitive ) != 0 )
     {
       return false;
     }
   }
 
-  const QString name = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::NameRole ).toString();
-  const QString description = mSourceModel->data( currentRowIndex, QFieldCloudProjectsModel::DescriptionRole ).toString();
+  const QString name = project->name();
+  const QString description = project->description();
 
   if ( !mKeywordFilter.isEmpty() )
   {
