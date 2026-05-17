@@ -415,3 +415,29 @@ TEST_CASE( "FileUtils" )
     REQUIRE( FileUtils::isWithinProjectDirectory( "relative/path/file.txt" ) == false );
   }
 }
+
+SECTION( "ListDir" )
+{
+  QTemporaryDir tempDir;
+  REQUIRE( tempDir.isValid() );
+
+  // Create some subdirectories
+  QDir dir( tempDir.path() );
+  REQUIRE( dir.mkdir( QStringLiteral( "oktos_project1" ) ) );
+  REQUIRE( dir.mkdir( QStringLiteral( "oktos_project2" ) ) );
+  REQUIRE( dir.mkdir( QStringLiteral( "other_folder" ) ) );
+
+  // Without filter — returns all entries
+  QStringList all = FileUtils::listDir( tempDir.path() );
+  REQUIRE( all.size() == 3 );
+
+  // With wildcard filter
+  QStringList filtered = FileUtils::listDir( tempDir.path(), QStringLiteral( "oktos_*" ) );
+  REQUIRE( filtered.size() == 2 );
+  REQUIRE( filtered.contains( QStringLiteral( "oktos_project1" ) ) );
+  REQUIRE( filtered.contains( QStringLiteral( "oktos_project2" ) ) );
+
+  // Non-existent directory returns empty list
+  QStringList empty = FileUtils::listDir( QStringLiteral( "/nonexistent/path" ) );
+  REQUIRE( empty.isEmpty() );
+}
