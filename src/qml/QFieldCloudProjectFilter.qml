@@ -213,6 +213,7 @@ Pane {
         editable: true
         Material.accent: Theme.mainColor
         font: Theme.defaultFont
+        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
 
         onEditTextChanged: {
           updateQuery();
