@@ -67,6 +67,7 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
     }
   }
 
+  mLastNtripGgaSent = 0;
   mBytesSent = 0;
   mBytesReceived = 0;
 
@@ -186,11 +187,10 @@ void NtripClient::logData( const QByteArray &data )
 void NtripClient::nmeaSentenceReceived( const QString &sentence )
 {
   const qint64 epoch = QDateTime::currentMSecsSinceEpoch();
-  if ( mLastNtripGgaSent != 0 && ( epoch - mLastNtripGgaSent ) < 1000 )
+  if ( mLastNtripGgaSent != 0 && ( epoch - mLastNtripGgaSent ) < 30000 )
   {
     return;
   }
-  mLastNtripGgaSent = epoch;
 
   const thread_local QRegularExpression rxSentence( u"^\\$([A-Z]{2})([A-Z]{3})"_s );
   const QRegularExpressionMatch sentenceMatch = rxSentence.match( sentence );
@@ -201,6 +201,7 @@ void NtripClient::nmeaSentenceReceived( const QString &sentence )
   }
 
   sendNmeaSentence( sentence );
+  mLastNtripGgaSent = epoch;
 }
 
 // ---
