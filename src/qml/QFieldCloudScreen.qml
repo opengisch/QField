@@ -28,7 +28,7 @@ Page {
     showCancelButton: false
     showMenuButton: true
 
-    busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting || cloudConnection.state === QFieldCloudConnection.Busy ? 'on' : 'off' || cloudProjectsModel.busyProjectIds.length > 0
+    busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting ? 'on' : 'off'
     busyIndicatorValue: busyIndicatorState === 'on' ? 0 : 1
 
     topMargin: mainWindow.sceneTopMargin
@@ -656,6 +656,8 @@ Page {
             Layout.fillWidth: true
             text: qsTr("Refresh projects list")
             enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+            showProgress: cloudProjectsModel.isRefreshing
+            progressValue: 0
             onClicked: {
               refreshProjectsList(true);
             }
