@@ -601,7 +601,7 @@ Page {
                 const parameters = projectFilter.getQueryParametersFromString(searchBar.searchTerm);
                 if (parameters["includePublic"] === false) {
                   if (cloudConnection.url == cloudConnection.defaultUrl) {
-                    labelText += "\n\n" + qsTr("Try to %1include public projects%2 and see what the commmunity has to offer.").arg("<a href=\"#includePublic\">").arg("</a>");
+                    labelText += "\n\n" + qsTr("Try to %1include public projects%2 and see what the community has to offer.").arg("<a href=\"#includePublic\">").arg("</a>");
                   } else {
                     labelText += "\n\n" + qsTr("Try to %1include public projects%2.").arg("<a href=\"#includePublic\">").arg("</a>");
                   }

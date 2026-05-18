@@ -897,7 +897,7 @@ Popup {
   function projectPush(shouldDownloadUpdates) {
     if (shouldDownloadUpdates && storageMeterBar.value >= 1.0) {
       if (storageMeterBar.relatedUrl != "") {
-        displayToast(qsTr("Project %1 cannot be packaged as yours available storage is full.").arg(ProjectUtils.title(qgisProject)), 'info', qsTr('Upgrade storage'), function () {
+        displayToast(qsTr("Project %1 cannot be packaged as your available storage is full.").arg(ProjectUtils.title(qgisProject)), 'info', qsTr('Upgrade storage'), function () {
           Qt.openUrlExternally(storageMeterBar.relatedUrl);
         });
       } else {
