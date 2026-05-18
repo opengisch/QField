@@ -25,6 +25,36 @@
 
 
 /**
+ * \brief A class containing information on an NTRIP mount point
+ * \ingroup core
+ */
+class NtripMountPoint
+{
+    Q_GADGET
+
+    Q_PROPERTY( QString mountPoint MEMBER mountPoint )
+    Q_PROPERTY( QString identifier MEMBER identifier )
+    Q_PROPERTY( QString format MEMBER format )
+
+  public:
+    explicit NtripMountPoint( const QString &mountPoint = QString(), const QString &identifier = QString(), const QString &format = QString() )
+      : mountPoint( mountPoint )
+      , identifier( identifier )
+      , format( format )
+    {}
+
+    bool operator==( const NtripMountPoint &other ) const { return mountPoint == other.mountPoint && identifier == other.identifier && format == other.format; }
+    bool operator!=( const NtripMountPoint &other ) const { return !operator==( other ); }
+
+    QString mountPoint;
+    QString identifier;
+    QString format;
+};
+
+Q_DECLARE_METATYPE( NtripMountPoint )
+
+
+/**
  * \brief A class to fetch information such as mount points from an NTRIP server's source table.
  * \ingroup core
  */
@@ -33,7 +63,7 @@ class NtripSourceTableFetcher : public QObject
     Q_OBJECT
 
     Q_PROPERTY( bool isFetching READ isFetching NOTIFY isFetchingChanged )
-    Q_PROPERTY( QStringList mountPoints READ mountPoints NOTIFY mountPointsChanged )
+    Q_PROPERTY( QList<NtripMountPoint> mountPoints READ mountPoints NOTIFY mountPointsChanged )
 
   public:
     //! The NTRIP source table fetcher constructor
@@ -46,7 +76,7 @@ class NtripSourceTableFetcher : public QObject
     bool isFetching() const { return mIsFetching; }
 
     //! Returns the mount points collected during the last source table fetching operation
-    QStringList mountPoints() const { return mMountPoints; }
+    QList<NtripMountPoint> mountPoints() const { return mMountPoints; }
 
     /**
      * Fetches details from an NTRIP server source table
@@ -75,7 +105,7 @@ class NtripSourceTableFetcher : public QObject
 
   private:
     void cleanup();
-    QStringList parseSourceTable( const QByteArray &data ) const;
+    QList<NtripMountPoint> parseSourceTable( const QByteArray &data ) const;
 
     bool mIsFetching = false;
 
@@ -88,7 +118,7 @@ class NtripSourceTableFetcher : public QObject
     QTcpSocket *mSocket = nullptr;
     QByteArray mBuffer;
     bool mHeadersParsed = false;
-    QStringList mMountPoints;
+    QList<NtripMountPoint> mMountPoints;
 };
 
 #endif // NTRIPSOURCETABLEFETCHER_H

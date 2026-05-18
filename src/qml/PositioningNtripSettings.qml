@@ -182,8 +182,24 @@ QfPopup {
             popup.bottomMargin: mainWindow.sceneTopMargin
 
             model: []
+            textRole: "mountPoint"
+            valueRole: "mountPoint"
 
             editable: true
+
+            onEditTextChanged: {
+              const idx = ntripMountPointComboBox.indexOfValue(editText);
+              let details = [];
+              if (idx > -1) {
+                if (model[currentIndex].identifier !== '') {
+                  details.push(qsTr("Source identifier: ") + model[currentIndex].identifier);
+                }
+                if (model[currentIndex].format !== '') {
+                  details.push(qsTr("Data format: ") + model[currentIndex].format);
+                }
+              }
+              ntripMountPointsDetails.text = details.join('\n');
+            }
           }
 
           QfToolButton {
@@ -212,12 +228,23 @@ QfPopup {
         }
 
         Label {
+          id: ntripMountPointsDetails
+          visible: text !== ""
+          font: Theme.defaultFont
+          color: Theme.secondaryTextColor
+          wrapMode: Text.WordWrap
+          Layout.fillWidth: true
+          Layout.leftMargin: 10
+        }
+
+        Label {
           id: refreshNtripMountPointsFeedback
           visible: text !== ""
           font: Theme.defaultFont
           color: Theme.errorColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
+          Layout.leftMargin: 10
         }
 
         RowLayout {

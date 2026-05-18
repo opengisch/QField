@@ -152,7 +152,7 @@ void NtripSourceTableFetcher::onSocketDisconnected()
     return;
   }
 
-  const QStringList mountPoints = parseSourceTable( mBuffer );
+  const QList<NtripMountPoint> mountPoints = parseSourceTable( mBuffer );
 
   if ( !mountPoints.isEmpty() )
   {
@@ -188,9 +188,9 @@ void NtripSourceTableFetcher::onSocketError( QAbstractSocket::SocketError error 
   cleanup();
 }
 
-QStringList NtripSourceTableFetcher::parseSourceTable( const QByteArray &data ) const
+QList<NtripMountPoint> NtripSourceTableFetcher::parseSourceTable( const QByteArray &data ) const
 {
-  QStringList mountPoints;
+  QList<NtripMountPoint> mountPoints;
 
   const int strBegin = data.indexOf( "STR;" );
   if ( strBegin >= 0 )
@@ -206,9 +206,15 @@ QStringList NtripSourceTableFetcher::parseSourceTable( const QByteArray &data ) 
       const QList<QByteArray> fields = trimmed.split( ';' );
       if ( fields.size() >= 2 )
       {
-        const QString mountpoint = QString::fromUtf8( fields.at( 1 ) ).trimmed();
+        // STR format details
+        // https://software.rtcm-ntrip.org/wiki/STR
+        const QString mountpoint = QString::fromUtf8( fields.value( 1 ) ).trimmed();
+        const QString identifier = QString::fromUtf8( fields.value( 2 ) ).trimmed();
+        const QString format = QString::fromUtf8( fields.value( 3 ) ).trimmed();
         if ( !mountpoint.isEmpty() )
-          mountPoints.append( mountpoint );
+        {
+          mountPoints.append( NtripMountPoint( mountpoint, identifier, format ) );
+        }
       }
     }
   }

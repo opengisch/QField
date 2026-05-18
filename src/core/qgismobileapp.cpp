@@ -573,6 +573,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<PositioningInformationModel>( "org.qfield", 1, 0, "PositioningInformationModel" );
   qmlRegisterType<PositioningDeviceModel>( "org.qfield", 1, 0, "PositioningDeviceModel" );
   qmlRegisterType<NtripSourceTableFetcher>( "org.qfield", 1, 0, "NtripSourceTableFetcher" );
+  qRegisterMetaType<NtripMountPoint>( "NtripMountPoint" );
   qmlRegisterType<WebdavConnection>( "org.qfield", 1, 0, "WebdavConnection" );
   qmlRegisterType<AppExpressionContextScopesGenerator>( "org.qfield", 1, 0, "AppExpressionContextScopesGenerator" );
   qmlRegisterType<AudioAnalyzer>( "org.qfield", 1, 0, "AudioAnalyzer" );
