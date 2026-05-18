@@ -255,3 +255,67 @@ void BluetoothReceiver::pairingFinished( const QBluetoothAddress &address, QBlue
     }
   }
 }
+
+void BluetoothReceiver::onCorrectionDataReceived( const QByteArray &data )
+{
+  if ( !mSocket || !mSocket->isOpen() )
+  {
+    return;
+  }
+
+  if ( mAddress.startsWith( "C8:47:8C" ) )
+  {
+    auto shortToByteArray = []( qint16 s ) -> QByteArray {
+      QByteArray targets;
+
+      targets.resize( 2 );
+
+      for ( int i = 0; i < targets.length(); i++ )
+      {
+        int offset = ( targets.length() - 1 - i ) * 8;
+        // Cast to quint16 to mimic Java's unsigned right shift (>>>)
+        targets[i] = static_cast<char>( ( static_cast<quint16>( s ) >> offset ) & 0xFF );
+      }
+      return targets;
+    };
+
+    const QByteArray headByte = QStringLiteral( "$$GI" ).toUtf8();
+
+    qint16 length = static_cast<qint16>( data.length() + 1 );
+    QByteArray lengthByte = shortToByteArray( length );
+    std::reverse( lengthByte.begin(), lengthByte.end() );
+
+    char startOfData = 0x02;
+    int checkCode = 0;
+    for ( int i = 0; i < headByte.length(); i++ )
+    {
+      checkCode ^= static_cast<quint8>( 0xFF & headByte[i] );
+    }
+
+    checkCode ^= static_cast<quint8>( 0xFF & lengthByte[0] );
+    checkCode ^= static_cast<quint8>( 0xFF & lengthByte[1] );
+    checkCode ^= static_cast<quint8>( 0xFF & startOfData );
+
+    for ( int i = 0; i < data.length(); i++ )
+    {
+      checkCode ^= static_cast<quint8>( 0xFF & data[i] );
+    }
+    char checkChar = static_cast<char>( checkCode );
+
+    QByteArray packet;
+    packet.reserve( headByte.length() + lengthByte.length() + 1 + data.length() + 1 + 2 );
+
+    packet.append( headByte );
+    packet.append( lengthByte );
+    packet.append( startOfData );
+    packet.append( data );
+    packet.append( checkChar );
+    packet.append( "\r\n" );
+
+    NmeaGnssReceiver::onCorrectionDataReceived( packet );
+  }
+  else
+  {
+    NmeaGnssReceiver::onCorrectionDataReceived( data );
+  }
+}

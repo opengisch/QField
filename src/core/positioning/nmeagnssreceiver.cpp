@@ -221,7 +221,6 @@ void NmeaGnssReceiver::onCorrectionDataReceived( const QByteArray &data )
   {
     return;
   }
-
   qint64 bytesWritten = mIoDevice->write( data );
   if ( bytesWritten == -1 )
   {
