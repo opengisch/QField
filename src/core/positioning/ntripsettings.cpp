@@ -92,7 +92,7 @@ NtripSettings NtripSettings::fromMap( const QVariantMap &settings )
 {
   NtripSettings ntripSettings;
   ntripSettings.setHost( settings.value( QStringLiteral( "host" ) ).toString() );
-  ntripSettings.setPort( settings.value( QStringLiteral( "port" ), 0 ).toInt() );
+  ntripSettings.setPort( settings.value( QStringLiteral( "port" ), 2101 ).toInt() );
   ntripSettings.setProtocol( static_cast<Protocol>( settings.value( QStringLiteral( "protocol" ), static_cast<int>( NtripVersion1 ) ).toInt() ) );
   ntripSettings.setMountPoint( settings.value( QStringLiteral( "mountPoint" ) ).toString() );
   ntripSettings.setUsername( settings.value( QStringLiteral( "username" ) ).toString() );
