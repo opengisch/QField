@@ -1012,10 +1012,11 @@ QVariantMap FileUtils::deleteFiles( const QStringList &filePaths )
 
 QStringList FileUtils::listDir( const QString &path, const QString &filter )
 {
-  const QString appDir = PlatformUtilities::instance()->applicationDirectory();
+  const QString appDir = QDir::cleanPath( PlatformUtilities::instance()->applicationDirectory() );
   const QString appDirParent = QDir::cleanPath( appDir + "/.." );
+  const QString cleanPath = QDir::cleanPath( path );
 
-  if ( !QDir::cleanPath( path ).startsWith( appDirParent ) )
+  if ( !cleanPath.startsWith( appDirParent ) )
   {
     qWarning() << QStringLiteral( "Security: listDir called outside allowed directories: %1" ).arg( path );
     return QStringList();
