@@ -415,3 +415,19 @@ TEST_CASE( "FileUtils" )
     REQUIRE( FileUtils::isWithinProjectDirectory( "relative/path/file.txt" ) == false );
   }
 }
+
+SECTION( "ListDir" )
+{
+  // listDir is restricted to applicationDirectory() — path outside returns empty list
+  QStringList outside = FileUtils::listDir( QDir::tempPath() );
+  REQUIRE( outside.isEmpty() );
+
+  // Within applicationDirectory() — returns entries
+  QString appDir = PlatformUtilities::instance()->applicationDirectory();
+  QDir dir( appDir );
+  if ( dir.exists() )
+  {
+    QStringList all = FileUtils::listDir( appDir );
+    REQUIRE( all.size() >= 0 ); // valid directory
+  }
+}

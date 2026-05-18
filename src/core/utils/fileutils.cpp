@@ -1009,3 +1009,21 @@ QVariantMap FileUtils::deleteFiles( const QStringList &filePaths )
 
   return results;
 }
+
+QStringList FileUtils::listDir( const QString &path, const QString &filter )
+{
+  const QString appDir = QDir::cleanPath( PlatformUtilities::instance()->applicationDirectory() );
+  const QString appDirParent = QDir::cleanPath( appDir + "/.." );
+  const QString cleanPath = QDir::cleanPath( path );
+
+  if ( !cleanPath.startsWith( appDirParent ) )
+  {
+    qWarning() << QStringLiteral( "Security: listDir called outside allowed directories: %1" ).arg( path );
+    return QStringList();
+  }
+  QDir dir( path );
+  if ( !dir.exists() )
+    return QStringList();
+  const QDir::Filters filters = QDir::Dirs | QDir::NoDotAndDotDot;
+  return filter.isEmpty() ? dir.entryList( filters ) : dir.entryList( QStringList() << filter, filters );
+}
