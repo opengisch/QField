@@ -132,11 +132,36 @@ ColumnLayout {
           color: Theme.mainTextColor
           wrapMode: Text.WordWrap
           textFormat: Text.MarkdownText
+          visible: text !== ""
 
           text: cloudProject != undefined ? cloudProject.description.trim() : ""
 
           onLinkActivated: link => {
             Qt.openUrlExternally(link);
+          }
+        }
+
+        ColumnLayout {
+          Layout.fillWidth: true
+          spacing: 5
+
+          Text {
+            id: projectDetailsStorageSizeLabel
+            Layout.fillWidth: true
+            font: Theme.strongFont
+            color: Theme.mainTextColor
+
+            text: qsTr("Storage size")
+          }
+
+          Text {
+            id: projectDetailsStorageSize
+            Layout.fillWidth: true
+            font: Theme.defaultFont
+            color: Theme.secondaryTextColor
+            wrapMode: Text.WordWrap
+
+            text: cloudProject != undefined ? FileUtils.representFileSize(cloudProject.remoteSizeBytes) : ""
           }
         }
 

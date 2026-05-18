@@ -218,7 +218,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectCreated( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
     void projectAppended( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
     void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
-    void projectDownloaded( const QString &projectId, const QString &projectName, const bool hasError = false, const QString &errorString = QString() );
+    void projectDownloaded( const QString &projectId, const QString &projectName, const QString &projectOwner, const bool hasError = false, const QString &errorString = QString() );
     void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError = false, const QString &errorString = QString() );
 
     void deltaListModelChanged();

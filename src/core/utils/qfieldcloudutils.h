@@ -169,6 +169,7 @@ class QFieldCloudUtils : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QString errorCodeOverQuota READ errorCodeOverQuota CONSTANT )
+    Q_PROPERTY( QString errorCodePlanInsufficient READ errorCodePlanInsufficient CONSTANT )
 
   public:
     /**
@@ -263,6 +264,7 @@ class QFieldCloudUtils : public QObject
     static void writeFileDetails( const QString &fileName, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream );
 
     static inline const QString errorCodeOverQuota() { return QStringLiteral( "over_quota" ); };
+    static inline const QString errorCodePlanInsufficient() { return QStringLiteral( "permission_denied_plan_insufficient" ); };
 };
 
 #endif // QFIELDCLOUDUTILS_H

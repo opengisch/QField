@@ -186,6 +186,15 @@ void QFieldCloudProject::setUpdatedAt( const QDateTime &updatedAt )
   emit updatedAtChanged();
 }
 
+void QFieldCloudProject::setRemoteSizeBytes( qint64 remoteSizeBytes )
+{
+  if ( mRemoteSizeBytes == remoteSizeBytes )
+    return;
+
+  mRemoteSizeBytes = remoteSizeBytes;
+  emit remoteSizeBytesChanged();
+}
+
 void QFieldCloudProject::setDataLastUpdatedAt( const QDateTime &dataLastUpdatedAt )
 {
   if ( mDataLastUpdatedAt == dataLastUpdatedAt )
@@ -790,7 +799,7 @@ void QFieldCloudProject::packageAndDownload()
 
     setStatus( ProjectStatus::Idle );
 
-    emit downloaded( mName, error );
+    emit downloaded( error );
   } );
 }
 
@@ -2047,6 +2056,7 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     setUserRoleOrigin( mUserRoleOrigin = projectData.value( "user_role_origin" ).toString() );
     setCreatedAt( QDateTime::fromString( projectData.value( "created_at" ).toString(), Qt::ISODate ) );
     setUpdatedAt( QDateTime::fromString( projectData.value( "updated_at" ).toString(), Qt::ISODate ) );
+    setRemoteSizeBytes( projectData.value( "file_storage_bytes" ).toInteger() );
     setIsPublic( projectData.value( "is_public" ).toBool() );
     setIsFeatured( projectData.value( "is_featured" ).toBool() );
     setCanRepackage( projectData.value( "can_repackage" ).toBool() );
@@ -2061,6 +2071,7 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "userRoleOrigin" ), mUserRoleOrigin );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "createdAt" ), mCreatedAt.toString( Qt::DateFormat::ISODate ) );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "updatedAt" ), mUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+    QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "remoteSizeBytes" ), mRemoteSizeBytes );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isPublic" ), mIsPublic );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "isFeatured" ), mIsFeatured );
     QFieldCloudUtils::setProjectSetting( mId, QStringLiteral( "canRepackage" ), mCanRepackage );
@@ -2157,6 +2168,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   project->mStatus = details.value( "status" ).toString() == "failed" ? ProjectStatus::Failing : ProjectStatus::Idle;
   project->mCreatedAt = QDateTime::fromString( details.value( "created_at" ).toString(), Qt::ISODate );
   project->mUpdatedAt = QDateTime::fromString( details.value( "updated_at" ).toString(), Qt::ISODate );
+  project->mRemoteSizeBytes = details.value( "file_storage_bytes" ).toLongLong();
   project->mDataLastUpdatedAt = QDateTime::fromString( details.value( "data_last_updated_at" ).toString(), Qt::ISODate );
   project->mRestrictedDataLastUpdatedAt = QDateTime::fromString( details.value( "restricted_data_last_updated_at" ).toString(), Qt::ISODate );
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
@@ -2172,6 +2184,7 @@ QFieldCloudProject *QFieldCloudProject::fromDetails( const QVariantHash &details
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "userRoleOrigin" ), project->userRoleOrigin() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "createdAt" ), project->createdAt().toString( Qt::DateFormat::ISODate ) );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "updatedAt" ), project->updatedAt().toString( Qt::DateFormat::ISODate ) );
+  QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "remoteSizeBytes" ), project->remoteSizeBytes() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "canRepackage" ), project->canRepackage() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "needsRepackaging" ), project->needsRepackaging() );
   QFieldCloudUtils::setProjectSetting( project->id(), QStringLiteral( "sharedDatasetsProjectId" ), project->sharedDatasetsProjectId() );
@@ -2216,6 +2229,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   const QString userRoleOrigin = QFieldCloudUtils::projectSetting( id, QStringLiteral( "userRoleOrigin" ) ).toString();
   const QDateTime createdAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "createdAt" ) ).toString(), Qt::DateFormat::ISODate );
   const QDateTime updatedAt = QDateTime::fromString( QFieldCloudUtils::projectSetting( id, QStringLiteral( "updatedAt" ) ).toString(), Qt::DateFormat::ISODate );
+  const qint64 remoteSizeBytes = QFieldCloudUtils::projectSetting( id, QStringLiteral( "remoteSizeBytes" ) ).toLongLong();
   const QString sharedDatasetsProjectId = QFieldCloudUtils::projectSetting( id, QStringLiteral( "sharedDatasetsProjectId" ) ).toString();
   const bool isSharedDatasetsProject = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool();
   const bool isAttachmentDownloadOnDemand = QFieldCloudUtils::projectSetting( id, QStringLiteral( "isAttachmentDownloadOnDemand" ) ).toBool();
@@ -2234,6 +2248,7 @@ QFieldCloudProject *QFieldCloudProject::fromLocalSettings( const QString &id, QF
   project->mStatus = status == "failed" ? ProjectStatus::Failing : ProjectStatus::Idle;
   project->mCreatedAt = createdAt;
   project->mUpdatedAt = updatedAt;
+  project->mRemoteSizeBytes = remoteSizeBytes;
   project->mDataLastUpdatedAt = dataLastUpdatedAt;
   project->mRestrictedDataLastUpdatedAt = restrictedDataLastUpdatedAt;
   project->mCanRepackage = false;

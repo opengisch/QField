@@ -75,27 +75,12 @@ Pane {
   function updateQueryFromString(query) {
     blockQueryUpdate = true;
 
-    let searchTerm = [];
-    let owner = "";
-    let includePublic = false;
-
-    let parts = query.trim().split(/\s+/);
-    for (const part of parts) {
-      if (part.indexOf("owner:") === 0) {
-        owner = part.substring(6);
-      } else if (part.indexOf("include:public") === 0) {
-        includePublic = true;
-      } else {
-        searchTerm.push(part);
-      }
-    }
-
-    searchTermTextField.text = searchTerm.join(' ');
-    ownerComboBox.editText = owner;
-    includePublicSwitch.checked = includePublic;
+    const parameters = getQueryParametersFromString(query);
+    searchTermTextField.text = parameters["searchTerm"];
+    ownerComboBox.editText = parameters["owner"];
+    includePublicSwitch.checked = parameters["includePublic"];
 
     queryString = query;
-
     blockQueryUpdate = false;
 
     const preset = presets.find(preset => preset.query === queryString);
@@ -103,6 +88,29 @@ Pane {
     if (activePreset !== presetName) {
       activePreset = presetName;
     }
+  }
+
+  function getQueryParametersFromString(query) {
+    let parameters = {
+      "searchTerm": "",
+      "owner": "",
+      "includePublic": false
+    };
+
+    let searchTerm = [];
+    let parts = query.trim().split(/\s+/);
+    for (const part of parts) {
+      if (part.indexOf("owner:") === 0) {
+        parameters["owner"] = part.substring(6);
+      } else if (part.indexOf("include:public") === 0) {
+        parameters["includePublic"] = true;
+      } else {
+        searchTerm.push(part);
+      }
+    }
+    parameters["searchTerm"] = searchTerm.join(" ");
+
+    return parameters;
   }
 
   function clear() {
@@ -138,9 +146,7 @@ Pane {
     clip: true
 
     ColumnLayout {
-      width: filterPanel.width - 32
-      x: 16
-      y: 16
+      width: filterPanel.width
       spacing: 14
 
       Label {
@@ -171,6 +177,8 @@ Pane {
             filterPanel.activePreset = modelData.id;
             if (filterPanel.queryString !== modelData.query) {
               updateQueryFromString(modelData.query);
+            } else {
+              filterPanel.applyFilter();
             }
           }
         }
@@ -213,6 +221,7 @@ Pane {
         editable: true
         Material.accent: Theme.mainColor
         font: Theme.defaultFont
+        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
 
         onEditTextChanged: {
           updateQuery();
@@ -247,7 +256,7 @@ Pane {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    height: searchButton.height + 10
+    height: searchButton.height + 12
     color: "transparent"
 
     QfButton {

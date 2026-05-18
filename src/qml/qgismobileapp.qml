@@ -5155,15 +5155,24 @@ ApplicationWindow {
     layerObserver: layerObserverAlias
     gpkgFlusher: gpkgFlusherAlias
 
-    onProjectDownloaded: (projectId, projectName, hasError, errorString) => {
+    onProjectDownloaded: (projectId, projectName, projectOwner, hasError, errorString) => {
       if (hasError) {
+        const ownerIsUser = cloudConnection.username === projectOwner;
         if (errorString.indexOf(`"code":"${QFieldCloudUtils.errorCodeOverQuota}"`) >= 0) {
-          if (cloudConnection.url == QFieldCloudConnection.defaultUrl) {
-            displayToast(qsTr("Project %1 cannot be packaged as your account's available storage is full.").arg(projectName), 'info', qsTr('Upgrade storage'), function () {
+          if (ownerIsUser && cloudConnection.url == cloudConnection.defaultUrl) {
+            displayToast(qsTr("Project %1 cannot be packaged as your available storage is full.").arg(projectName), 'info', qsTr('Upgrade storage'), function () {
               Qt.openUrlExternally('https://app.qfield.cloud/plans');
             });
           } else {
-            displayToast(qsTr("Project %1 cannot be packaged as your account's available storage is full.").arg(projectName), 'warning');
+            displayToast(qsTr("Project %1 cannot be packaged as the project owner's available storage is full.").arg(projectName), 'warning');
+          }
+        } else if (errorString.indexOf(`"code":"${QFieldCloudUtils.errorCodePlanInsufficient}"`) >= 0) {
+          if (ownerIsUser && cloudConnection.url == cloudConnection.defaultUrl) {
+            displayToast(qsTr("Project %1 cannot be downloaded as your subscription plan is insufficient.").arg(projectName), 'info', qsTr('Upgrade plan'), function () {
+              Qt.openUrlExternally('https://app.qfield.cloud/plans');
+            });
+          } else {
+            displayToast(qsTr("Project %1 cannot be downloaded as the project owner's subscription plan is insufficient.").arg(projectName), 'warning');
           }
         } else {
           displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error');
