@@ -3352,6 +3352,10 @@ Messaggio dell&apos;errore: %4</translation>
         <source>Search</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

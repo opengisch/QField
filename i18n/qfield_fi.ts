@@ -3350,6 +3350,10 @@ epäonnistui, syy: %2</translation>
         <source>Search</source>
         <translation>Etsi</translation>
     </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

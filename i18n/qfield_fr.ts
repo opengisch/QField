@@ -3350,6 +3350,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>Search</source>
         <translation>Recherche</translation>
     </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

@@ -3354,6 +3354,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Search</source>
         <translation>Szukaj</translation>
     </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation>Projekty %1</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

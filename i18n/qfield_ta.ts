@@ -3345,6 +3345,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Search</source>
         <translation>தேடல்</translation>
     </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

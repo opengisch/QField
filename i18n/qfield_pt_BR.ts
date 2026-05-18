@@ -3345,6 +3345,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <source>Search</source>
         <translation>Pesquisar</translation>
     </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

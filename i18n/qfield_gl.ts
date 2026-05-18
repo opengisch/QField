@@ -3349,6 +3349,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <source>Search</source>
         <translation>Buscar</translation>
     </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

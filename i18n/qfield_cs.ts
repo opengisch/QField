@@ -3352,6 +3352,10 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <source>Search</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

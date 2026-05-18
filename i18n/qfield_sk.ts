@@ -3352,6 +3352,10 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <source>Search</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

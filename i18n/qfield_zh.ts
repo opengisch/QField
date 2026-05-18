@@ -3348,6 +3348,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Search</source>
         <translation>搜索</translation>
     </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation>%1&apos;s 工程</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>

@@ -3345,6 +3345,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
