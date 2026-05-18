@@ -86,6 +86,7 @@ Item {
     Label {
       id: serialPortName
       Layout.fillWidth: true
+      Layout.leftMargin: 10
       visible: deviceAddress != ''
       font: Theme.defaultFont
       color: Theme.secondaryTextColor
@@ -96,6 +97,7 @@ Item {
     Label {
       id: serialPortAddress
       Layout.fillWidth: true
+      Layout.leftMargin: 10
       visible: deviceAddress != ''
       font: Theme.defaultFont
       color: Theme.secondaryTextColor

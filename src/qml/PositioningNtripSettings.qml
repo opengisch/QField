@@ -220,8 +220,9 @@ QfPopup {
 
           BusyIndicator {
             id: refreshNtripMountPointsIndicator
-            Layout.preferredWidth: refreshNtripMountPointsButton.height
-            Layout.preferredHeight: refreshNtripMountPointsButton.height
+            Layout.margins: 6
+            Layout.preferredWidth: 36
+            Layout.preferredHeight: 36
             running: ntripSourceTableFetcher.isFetching
             visible: ntripSourceTableFetcher.isFetching
           }

@@ -56,20 +56,12 @@ Item {
         enabled: !bluetoothDeviceChooser.isScanning
         width: parent.width
         text: qsTr('Scan for nearby devices')
+        showProgress: bluetoothDeviceChooser.isScanning
+        progressValue: 0
 
         onClicked: {
           bluetoothDeviceModel.startServiceDiscovery();
         }
-      }
-
-      BusyIndicator {
-        id: busyIndicator
-        Layout.preferredWidth: width
-        Layout.alignment: Qt.AlignVCenter
-        width: 36
-        height: width
-        running: bluetoothDeviceChooser.isScanning
-        visible: running
       }
     }
 
@@ -141,6 +133,7 @@ Item {
     Label {
       id: bluetoothDeviceName
       Layout.fillWidth: true
+      Layout.leftMargin: 10
       visible: deviceAddress != ''
       font: Theme.defaultFont
       color: Theme.secondaryTextColor
@@ -151,6 +144,7 @@ Item {
     Label {
       id: bluetoothDeviceAddress
       Layout.fillWidth: true
+      Layout.leftMargin: 10
       visible: deviceAddress != ''
       font: Theme.defaultFont
       color: Theme.secondaryTextColor
