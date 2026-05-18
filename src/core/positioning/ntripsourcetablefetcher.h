@@ -22,6 +22,7 @@
 #include <QObject>
 #include <QStringList>
 #include <QTcpSocket>
+#include <qgspoint.h>
 
 
 /**
@@ -35,20 +36,26 @@ class NtripMountPoint
     Q_PROPERTY( QString mountPoint MEMBER mountPoint )
     Q_PROPERTY( QString identifier MEMBER identifier )
     Q_PROPERTY( QString format MEMBER format )
+    Q_PROPERTY( QgsPoint point MEMBER point )
 
   public:
-    explicit NtripMountPoint( const QString &mountPoint = QString(), const QString &identifier = QString(), const QString &format = QString() )
+    explicit NtripMountPoint( const QString &mountPoint = QString(), const QString &identifier = QString(), const QString &format = QString(), const QgsPointXY point = QgsPointXY() )
       : mountPoint( mountPoint )
       , identifier( identifier )
       , format( format )
+      , point( point )
     {}
 
-    bool operator==( const NtripMountPoint &other ) const { return mountPoint == other.mountPoint && identifier == other.identifier && format == other.format; }
+    bool operator==( const NtripMountPoint &other ) const
+    {
+      return mountPoint == other.mountPoint && identifier == other.identifier && format == other.format && point == other.point;
+    }
     bool operator!=( const NtripMountPoint &other ) const { return !operator==( other ); }
 
     QString mountPoint;
     QString identifier;
     QString format;
+    QgsPoint point;
 };
 
 Q_DECLARE_METATYPE( NtripMountPoint )

@@ -13,7 +13,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "ntripsourcetablefetcher.h"
+
+#include <qgspoint.h>
 
 NtripSourceTableFetcher::NtripSourceTableFetcher( QObject *parent )
   : QObject( parent )
@@ -204,16 +207,17 @@ QList<NtripMountPoint> NtripSourceTableFetcher::parseSourceTable( const QByteArr
         continue;
 
       const QList<QByteArray> fields = trimmed.split( ';' );
-      if ( fields.size() >= 2 )
+      if ( fields.size() >= 11 )
       {
         // STR format details
         // https://software.rtcm-ntrip.org/wiki/STR
-        const QString mountpoint = QString::fromUtf8( fields.value( 1 ) ).trimmed();
-        const QString identifier = QString::fromUtf8( fields.value( 2 ) ).trimmed();
-        const QString format = QString::fromUtf8( fields.value( 3 ) ).trimmed();
+        const QString mountpoint = QString::fromUtf8( fields.at( 1 ) ).trimmed();
+        const QString identifier = QString::fromUtf8( fields.at( 2 ) ).trimmed();
+        const QString format = QString::fromUtf8( fields.at( 3 ) ).trimmed();
+        const QgsPoint point = QgsPoint( QString::fromUtf8( fields.at( 10 ) ).toDouble(), QString::fromUtf8( fields.at( 9 ) ).toDouble() );
         if ( !mountpoint.isEmpty() )
         {
-          mountPoints.append( NtripMountPoint( mountpoint, identifier, format ) );
+          mountPoints.append( NtripMountPoint( mountpoint, identifier, format, point ) );
         }
       }
     }

@@ -279,7 +279,18 @@ QfPopup {
     onMountPointsChanged: {
       // Preserve edited mountpoint text after model update
       const previousMountPoint = ntripMountPointComboBox.editText;
-      ntripMountPointComboBox.model = mountPoints;
+      let mps = [...mountPoints];
+      if (positionSource.positionInformation.latitudeValid) {
+        const pos = GeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
+        mps.sort((a, b) => {
+          return GeometryUtils.distanceBetweenPoints(a.point, pos) > GeometryUtils.distanceBetweenPoints(b.point, pos) ? 1 : -1;
+        });
+      } else {
+        mps.sort((a, b) => {
+          return a.mountPoint > b.mountPoint ? 1 : -1;
+        });
+      }
+      ntripMountPointComboBox.model = mps;
       if (previousMountPoint !== "") {
         ntripMountPointComboBox.editText = previousMountPoint;
       }
