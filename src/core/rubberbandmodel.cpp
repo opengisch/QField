@@ -374,7 +374,6 @@ void RubberbandModel::smoothSegment( qsizetype firstVertex, qsizetype lastVertex
   }
 
   const int previousCurrentIndex = mCurrentCoordinateIndex;
-  const int previousLastIndex = static_cast<int>( mPointList.size() - 1 );
 
   const int removedCount = static_cast<int>( lastVertex - firstVertex + 1 );
   mPointList.remove( static_cast<int>( firstVertex ), removedCount );
@@ -386,13 +385,7 @@ void RubberbandModel::smoothSegment( qsizetype firstVertex, qsizetype lastVertex
   }
   emit verticesInserted( static_cast<int>( firstVertex ), smoothed->numPoints() );
 
-  const int newLastIndex = static_cast<int>( mPointList.size() - 1 );
-
-  if ( previousCurrentIndex == previousLastIndex )
-  {
-    mCurrentCoordinateIndex = newLastIndex;
-  }
-  else if ( previousCurrentIndex == static_cast<int>( lastVertex ) )
+  if ( previousCurrentIndex == static_cast<int>( lastVertex ) )
   {
     mCurrentCoordinateIndex = static_cast<int>( firstVertex ) + smoothed->numPoints() - 1;
   }
@@ -402,7 +395,7 @@ void RubberbandModel::smoothSegment( qsizetype firstVertex, qsizetype lastVertex
   }
   else
   {
-    mCurrentCoordinateIndex = newLastIndex;
+    mCurrentCoordinateIndex = static_cast<int>( mPointList.size() - 1 );
   }
 
   emit vertexCountChanged();
