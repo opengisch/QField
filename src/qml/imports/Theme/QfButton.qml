@@ -56,56 +56,99 @@ Button {
 
     Loader {
       active: showProgress
-      sourceComponent: progressValue == 0.0 ? indeterminateProgressComponent : progressComponent
+      sourceComponent: progressComponent
     }
 
     Component {
       id: progressComponent
-      Rectangle {
-        width: Math.max(24, backgroundRectangle.width * progressValue)
-        height: backgroundRectangle.height
-        topLeftRadius: backgroundRectangle.radius
-        bottomLeftRadius: backgroundRectangle.radius
-        topRightRadius: width >= backgroundRectangle.width - 24 ? 24 : 0
-        bottomRightRadius: width >= backgroundRectangle.width - 24 ? 24 : 0
-        color: Theme.mainColor
-        clip: true
 
-        Behavior on width {
-          NumberAnimation {
-            duration: 200
+      Shape {
+        x: progressPath.strokeWidth / 2
+        y: progressPath.strokeWidth / 2
+        ShapePath {
+          id: progressPath
+          strokeColor: Theme.mainColor
+          strokeWidth: 2
+          strokeStyle: ShapePath.DashLine
+          fillColor: "transparent"
+          capStyle: ShapePath.RoundCap
+
+          property real shapeWidth: button.width - progressPath.strokeWidth
+          property real shapeHeight: button.height - progressPath.strokeWidth
+          property real shapeRadius: button.radius - progressPath.strokeWidth
+          property real shapeLength: {
+            const circumferenceLength = 2 * Math.PI * progressPath.shapeRadius;
+            const straightLinesLength = 2 * (progressPath.shapeWidth - (2 * progressPath.shapeRadius)) + 2 * (progressPath.shapeHeight - (2 * progressPath.shapeRadius));
+            return (circumferenceLength + straightLinesLength) / progressPath.strokeWidth;
           }
-        }
-      }
-    }
-    Component {
-      id: indeterminateProgressComponent
-      Item {
-        width: backgroundRectangle.width
-        height: backgroundRectangle.height
-        clip: true
 
-        Rectangle {
-          id: bar
-          width: parent.width * 0.3
-          height: parent.height
-          radius: backgroundRectangle.radius
-          color: Theme.mainColor
-          opacity: 0.9
-          SequentialAnimation on x {
+          dashPattern: dashAnimation.running ? [progressPath.shapeLength * 0.2, progressPath.shapeLength - progressPath.shapeLength * 0.2] : [progressPath.shapeLength, progressPath.shapeLength * 2]
+          dashOffset: dashAnimation.running ? progressPath.shapeLength * progressPath.dashOffsetMultiplier : progressPath.shapeLength * (1 - button.progressValue)
+          property real dashOffsetMultiplier: 1
+          NumberAnimation on dashOffsetMultiplier {
+            id: dashAnimation
+            running: button.progressValue == 0
+            from: 1
+            to: 0
+            duration: 3000
             loops: Animation.Infinite
-            NumberAnimation {
-              from: -bar.width
-              to: parent.width
-              duration: 2000
-              easing.type: Easing.Linear
-            }
-            NumberAnimation {
-              from: parent.width
-              to: -bar.width
-              duration: 2000
-              easing.type: Easing.Linear
-            }
+            easing.type: Easing.Linear
+          }
+
+          startX: progressPath.shapeRadius
+          startY: 0
+
+          PathLine {
+            x: progressPath.shapeWidth - progressPath.shapeRadius
+            y: 0
+          }
+
+          PathArc {
+            x: progressPath.shapeWidth
+            y: progressPath.shapeRadius
+            radiusX: progressPath.shapeRadius
+            radiusY: progressPath.shapeRadius
+            useLargeArc: false
+            direction: PathArc.Clockwise
+          }
+
+          PathLine {
+            x: progressPath.shapeWidth
+            y: progressPath.shapeHeight - progressPath.shapeRadius
+          }
+
+          PathArc {
+            x: progressPath.shapeWidth - progressPath.shapeRadius
+            y: progressPath.shapeHeight
+            radiusX: progressPath.shapeRadius
+            radiusY: progressPath.shapeRadius
+            direction: PathArc.Clockwise
+          }
+
+          PathLine {
+            x: progressPath.shapeRadius
+            y: progressPath.shapeHeight
+          }
+
+          PathArc {
+            x: 0
+            y: progressPath.shapeHeight - progressPath.shapeRadius
+            radiusX: progressPath.shapeRadius
+            radiusY: progressPath.shapeRadius
+            direction: PathArc.Clockwise
+          }
+
+          PathLine {
+            x: 0
+            y: progressPath.shapeRadius
+          }
+
+          PathArc {
+            x: progressPath.shapeRadius
+            y: 0
+            radiusX: progressPath.shapeRadius
+            radiusY: progressPath.shapeRadius
+            direction: PathArc.Clockwise
           }
         }
       }
