@@ -95,7 +95,7 @@ Rectangle {
   Rectangle {
     id: busyCard
     anchors.centerIn: parent
-    width: Math.min(parent.width * 0.8, 320)
+    width: Math.min(parent.width * 0.8, 420)
     height: contentColumn.height + 24
     color: Theme.mainBackgroundColor
     radius: 12
@@ -114,7 +114,7 @@ Rectangle {
         font: Theme.defaultFont
         color: Theme.mainTextColor
         text: ''
-        wrapMode: Text.WordWrap
+        wrapMode: Text.Wrap
         visible: text.length > 0
       }
 
