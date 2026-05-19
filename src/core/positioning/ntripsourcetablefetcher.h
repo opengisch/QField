@@ -39,7 +39,7 @@ class NtripMountPoint
     Q_PROPERTY( QgsPoint point MEMBER point )
 
   public:
-    explicit NtripMountPoint( const QString &mountPoint = QString(), const QString &identifier = QString(), const QString &format = QString(), const QgsPointXY point = QgsPointXY() )
+    explicit NtripMountPoint( const QString &mountPoint = QString(), const QString &identifier = QString(), const QString &format = QString(), const QgsPointXY &point = QgsPointXY() )
       : mountPoint( mountPoint )
       , identifier( identifier )
       , format( format )

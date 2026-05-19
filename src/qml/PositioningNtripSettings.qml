@@ -1,5 +1,8 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.impl
+import QtQuick.Controls.Material
+import QtQuick.Controls.Material.impl
 import QtQuick.Layouts
 import org.qgis
 import org.qfield
@@ -187,23 +190,55 @@ QfPopup {
 
             editable: true
 
-            onEditTextChanged: {
-              const idx = ntripMountPointComboBox.indexOfValue(editText);
-              let details = [];
-              if (idx > -1) {
-                if (model[currentIndex].identifier !== '') {
-                  details.push(qsTr("Identifier: ") + model[currentIndex].identifier);
+            delegate: MenuItem {
+              id: menuItem
+
+              required property var model
+              required property int index
+
+              padding: 16
+              verticalPadding: Material.menuItemVerticalPadding
+              spacing: 16
+
+              width: ListView.view.width
+              Material.foreground: ntripMountPointComboBox.currentIndex === index ? ListView.view.contentItem.Material.accent : ListView.view.contentItem.Material.foreground
+              highlighted: ntripMountPointComboBox.highlightedIndex === index
+              hoverEnabled: ntripMountPointComboBox.hoverEnabled
+
+              contentItem: RowLayout {
+                width: menuItem.width
+                height: menuItem.height
+
+                Label {
+                  Layout.fillWidth: true
+                  Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                  font: ntripMountPointComboBox.font
+                  color: Theme.mainTextColor
+                  elide: Text.ElideRight
+                  text: model.mountPoint
                 }
-                if (model[currentIndex].format !== '') {
-                  details.push(qsTr("Data format: ") + model[currentIndex].format);
-                }
-                if (positionSource.positionInformation.latitudeValid) {
-                  const pos = GeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
-                  const distance = GeometryUtils.formattedDistanceBetweenPoints(model[currentIndex].point, pos, CoordinateReferenceSystemUtils.wgs84Crs());
-                  details.push(qsTr("Distance from position: ") + distance);
+
+                Label {
+                  Layout.maximumWidth: distanceLabelMetrics.width
+                  Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                  visible: text !== ''
+                  font: ntripMountPointComboBox.font
+                  color: Theme.secondaryTextColor
+                  text: {
+                    if (ntripMountPointComboBox.popup.visible && positionSource.positionInformation.latitudeValid) {
+                      const pos = GeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
+                      return GeometryUtils.formattedDistanceBetweenPoints(model.point, pos, CoordinateReferenceSystemUtils.wgs84Crs());
+                    }
+                    return '';
+                  }
                 }
               }
-              ntripMountPointsDetails.text = details.join('\n');
+            }
+
+            TextMetrics {
+              id: distanceLabelMetrics
+              font: ntripMountPointComboBox.font
+              text: 'XXX.XX XX'
             }
           }
 
@@ -241,6 +276,25 @@ QfPopup {
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
           Layout.leftMargin: 10
+          text: {
+            const mountPoint = ntripMountPointComboBox.editText;
+            const idx = ntripMountPointComboBox.indexOfValue(mountPoint);
+            let details = [];
+            if (idx > -1) {
+              if (ntripMountPointComboBox.model[idx].identifier !== '') {
+                details.push(qsTr("Identifier: ") + ntripMountPointComboBox.model[idx].identifier);
+              }
+              if (ntripMountPointComboBox.model[idx].format !== '') {
+                details.push(qsTr("Data format: ") + ntripMountPointComboBox.model[idx].format);
+              }
+              if (positionSource.positionInformation.latitudeValid) {
+                const pos = GeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
+                const distance = GeometryUtils.formattedDistanceBetweenPoints(ntripMountPointComboBox.model[idx].point, pos, CoordinateReferenceSystemUtils.wgs84Crs());
+                details.push(qsTr("Distance: ") + distance);
+              }
+            }
+            return details.join('\n');
+          }
         }
 
         Label {
@@ -303,6 +357,8 @@ QfPopup {
         } else {
           ntripMountPointComboBox.editText = previousMountPoint;
         }
+      } else {
+        ntripMountPointComboBox.currentIndex = 0;
       }
     }
 
