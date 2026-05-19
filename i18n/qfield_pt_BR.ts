@@ -3127,11 +3127,15 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
+        <source>Upgrade storage</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Upgrade storage</source>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3312,6 +3316,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Using %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage size</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3672,11 +3680,15 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Hint: try including public projects.</source>
+        <source>To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>To get started, %1read the documentation%2.</source>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3725,8 +3737,12 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation>Ocorreu um erro na rede, por favor tente novamente.</translation>
     </message>
     <message>
-        <source>Your account&apos;s available storage is full.</source>
-        <translation>O armazenamento de sua conta acabou.</translation>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7044,10 +7060,6 @@ para mostrar as ações</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Upgrade storage</source>
         <translation type="unfinished"/>
     </message>
@@ -7057,6 +7069,26 @@ para mostrar as ações</translation>
     </message>
     <message>
         <source>Project plugin loaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade plan</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
         <translation type="unfinished"/>
     </message>
 </context>

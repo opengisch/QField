@@ -3130,12 +3130,16 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>已使用%2的%1</translation>
     </message>
     <message>
-        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation>无法打包工程%1，因为您的帐户的可用存储已满。</translation>
-    </message>
-    <message>
         <source>Upgrade storage</source>
         <translation>升级存储</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation>由于您的可用存储空间已满，无法打包工程%1。</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation>由于工程所有者的可用存储空间已满，无法打包工程%1。</translation>
     </message>
 </context>
 <context>
@@ -3316,6 +3320,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Using %1 of %2</source>
         <translation>正在使用%2的%1</translation>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation>存储容量</translation>
     </message>
 </context>
 <context>
@@ -3675,12 +3683,16 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>未找到云工程。</translation>
     </message>
     <message>
-        <source>Hint: try including public projects.</source>
-        <translation>提示：尝试加入公开工程。</translation>
-    </message>
-    <message>
         <source>To get started, %1read the documentation%2.</source>
         <translation>首先, %1请阅读文档%2。</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation>尝试%1包含公开工程%2，查看社区能为您提供什么。</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
+        <translation>尝试%1包含公开工程%2。</translation>
     </message>
 </context>
 <context>
@@ -3728,8 +3740,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>网络出现错误，请重试。</translation>
     </message>
     <message>
-        <source>Your account&apos;s available storage is full.</source>
-        <translation>您帐户已无可用存储空间。</translation>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation>工程所有者的可用存储空间已满。</translation>
+    </message>
+    <message>
+        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <translation>工程所有者的订阅计划不足。</translation>
     </message>
 </context>
 <context>
@@ -7047,10 +7063,6 @@ to show actions</source>
         <translation>长按您的位置标记显示动作选项</translation>
     </message>
     <message>
-        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation>无法打包工程%1，因为您的帐户的可用存储已满。</translation>
-    </message>
-    <message>
         <source>Upgrade storage</source>
         <translation>升级存储</translation>
     </message>
@@ -7061,6 +7073,26 @@ to show actions</source>
     <message>
         <source>Project plugin loaded</source>
         <translation>工程插件已加载</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation>由于您的可用存储空间已满，无法打包工程%1。</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation>由于工程所有者的可用存储空间已满，无法打包工程%1。</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
+        <translation>由于您的订阅计划不足，无法下载工程%1。</translation>
+    </message>
+    <message>
+        <source>Upgrade plan</source>
+        <translation>升级计划</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation>由于工程所有者的订阅计划不足，无法下载工程%1。</translation>
     </message>
 </context>
 <context>

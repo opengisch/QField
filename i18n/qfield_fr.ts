@@ -3132,12 +3132,16 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Utilisé %1 sur %2</translation>
     </message>
     <message>
-        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation>Le projet %1 ne peut pas être créé car le stockage disponible de ton compte est plein.</translation>
-    </message>
-    <message>
         <source>Upgrade storage</source>
         <translation>Améliorer le stockage</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3318,6 +3322,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Using %1 of %2</source>
         <translation>Utilisation de %1 sur %2</translation>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3675,11 +3683,15 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Hint: try including public projects.</source>
+        <source>To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>To get started, %1read the documentation%2.</source>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3728,8 +3740,12 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Une erreur de réseau s&apos;est produite, veuillez réessayer.</translation>
     </message>
     <message>
-        <source>Your account&apos;s available storage is full.</source>
-        <translation>L&apos;espace de stockage à disposition de votre compte est plein.</translation>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7048,10 +7064,6 @@ pour afficher des actions</translation>
         <translation>Appuyez longuement sur le marqueur de localisation pour afficher les actions.</translation>
     </message>
     <message>
-        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation>Le projet %1 ne peut pas être créé car le stockage disponible de ton compte est plein.</translation>
-    </message>
-    <message>
         <source>Upgrade storage</source>
         <translation>Améliorer le stockage</translation>
     </message>
@@ -7062,6 +7074,26 @@ pour afficher des actions</translation>
     <message>
         <source>Project plugin loaded</source>
         <translation>Plugin projet chargé</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade plan</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

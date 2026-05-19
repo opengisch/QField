@@ -3118,11 +3118,15 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
+        <source>Upgrade storage</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Upgrade storage</source>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3302,6 +3306,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Using %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage size</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3658,11 +3666,15 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Hint: try including public projects.</source>
+        <source>To get started, %1read the documentation%2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>To get started, %1read the documentation%2.</source>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3711,8 +3723,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>ເຄືອຂ່າຍຜິດພາດເກີດຂຶ້ນ, ກະລຸນາລອງໃໝ່ອີກຄັ້ງ.</translation>
     </message>
     <message>
-        <source>Your account&apos;s available storage is full.</source>
-        <translation>ພື້ນທີ່ຈັດເກັບຂໍ້ມູນໃນບັນຊີຂອງທ່ານເຕັມແລ້ວ.</translation>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7028,10 +7044,6 @@ to show actions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Upgrade storage</source>
         <translation type="unfinished"/>
     </message>
@@ -7041,6 +7053,26 @@ to show actions</source>
     </message>
     <message>
         <source>Project plugin loaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade plan</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
         <translation type="unfinished"/>
     </message>
 </context>
