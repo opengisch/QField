@@ -313,7 +313,7 @@ QfPopup {
           Label {
             id: ntripForwardNmeaSentencesLabel
             Layout.fillWidth: true
-            text: qsTr('Forward NMEA sentences to the NTRIP caster')
+            text: qsTr('Forward position to NTRIP caster')
             font: Theme.defaultFont
             wrapMode: Text.WordWrap
 
