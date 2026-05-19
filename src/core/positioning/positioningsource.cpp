@@ -521,6 +521,7 @@ void PositioningSource::startNtripClient()
   }
 
   mNtripClient->start( mNtripSettings, mReceiver.get() );
+  setNtripState( NtripState::Connecting );
 }
 
 void PositioningSource::stopNtripClient()

@@ -71,7 +71,8 @@ class PositioningSource : public QObject
     enum class NtripState
     {
       Disconnected, //! NTRIP client is disconnected
-      Connected     //! NTRIP client is connected
+      Connecting,   //! NTRIP client is connecting
+      Connected,    //! NTRIP client is connected
     };
     Q_ENUM( NtripState )
 

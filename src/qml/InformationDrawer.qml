@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 import org.qfield
 import Theme
 
@@ -69,18 +70,74 @@ Item {
       }
     }
 
-    QfOverlayContainer {
+    // Must respect characteristics of a QfOverlayContainer
+    Rectangle {
       visible: positioningInformationViewEnabled
 
-      title: qsTr("Positioning")
+      width: parent.width
+      height: childrenRect.height
+      color: Theme.mainBackgroundColorSemiOpaque
+      radius: 8
+      clip: true
 
-      PositioningInformationView {
-        id: positioningInformationView
-        width: parent.width
-        height: Math.min(contentHeight, mainWindow.height / 3)
-        visible: positioningInformationViewEnabled
-        positionSource: controller.positionSource
-        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
+      Column {
+        width: parent.width - 10
+        anchors.horizontalCenter: parent.horizontalCenter
+        topPadding: 5
+        bottomPadding: 5
+        spacing: 4
+
+        RowLayout {
+          width: parent.width
+
+          Text {
+            Layout.fillWidth: true
+            Layout.leftMargin: 6
+            Layout.rightMargin: 6
+            text: qsTr("Positioning")
+            font: Theme.strongTipFont
+            color: Theme.mainTextColor
+          }
+
+          Text {
+            visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
+            text: qsTr("NTRIP")
+            font: Theme.tipFont
+            color: positionSource.ntripState === Positioning.NtripState.Connected ? Theme.mainTextColor : Theme.secondaryTextColor
+          }
+
+          Rectangle {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: 42
+            Layout.preferredHeight: 12
+            Layout.rightMargin: 6
+            visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
+            radius: height / 2
+            color: Theme.controlBackgroundAlternateColor
+            border.width: 1
+            border.color: Theme.controlBorderColor
+
+            Rectangle {
+              anchors.top: parent.top
+              anchors.left: parent.left
+              anchors.topMargin: 1
+              anchors.leftMargin: 1
+              width: positioningInformationViewEnabled && positionSource.ntripState === Positioning.NtripState.Connected ? (parent.width - 2) * ((positionSource.ntripBytesReceived % 10000) / 10000) : 0
+              height: parent.height - 2
+              radius: height / 2
+              color: Theme.positionColor
+            }
+          }
+        }
+
+        PositioningInformationView {
+          id: positioningInformationView
+          width: parent.width
+          height: Math.min(contentHeight, mainWindow.height / 3)
+          visible: positioningInformationViewEnabled
+          positionSource: controller.positionSource
+          antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
+        }
       }
     }
 

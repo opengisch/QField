@@ -9,6 +9,8 @@ import Theme
  * \ingroup qml
  */
 Page {
+  id: page
+
   signal finished
 
   property alias currentPanel: bar.currentIndex
@@ -1360,31 +1362,96 @@ Page {
                   id: enableNtripClient
                   Layout.preferredWidth: implicitContentWidth
                   Layout.alignment: Qt.AlignVCenter
-                  checked: positioningSettings.enableNtrip
+                  checked: positioningSettings.enableNtrip && positionSource.ntripState !== Positioning.NtripState.Disconnected
                   visible: enabled
-                  onCheckedChanged: {
-                    positioningSettings.enableNtrip = checked;
+
+                  onClicked: {
+                    if (positioningSettings.enableNtrip) {
+                      if (positionSource.ntripSettings.isValid && positionSource.ntripState === Positioning.NtripState.Disconnected) {
+                        // The server has disconnected, tapping on the toggle must indicate an intent to reconnect
+                        positioningSettings.enableNtrip = false;
+                        positioningSettings.enableNtrip = true;
+                      } else {
+                        positioningSettings.enableNtrip = false;
+                      }
+                    } else {
+                      positioningSettings.enableNtrip = true;
+                    }
                   }
                 }
               }
 
-              Label {
-                id: ntripFeedbackLabel
+              GridLayout {
+                id: ntripFeedbackLayout
                 Layout.fillWidth: true
+                Layout.rightMargin: 6
                 Layout.columnSpan: 2
+                columns: 2
+                columnSpacing: 2
+                rowSpacing: 2
                 visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
-                font: Theme.tipFont
-                color: Theme.secondaryTextColor
-                wrapMode: Text.WordWrap
-                text: {
-                  if (positionSource.ntripSettings.isValid) {
-                    if (positionSource.ntripState === Positioning.NtripState.Disconnected) {
-                      return qsTr("NTRIP client disconnected");
+
+                Label {
+                  Layout.fillWidth: true
+                  font: Theme.tipFont
+                  color: Theme.secondaryTextColor
+                  wrapMode: Text.WordWrap
+                  text: {
+                    if (positionSource.ntripSettings.isValid) {
+                      switch (positionSource.ntripState) {
+                      case Positioning.NtripState.Disconnected:
+                        return qsTr("NTRIP client disconnected");
+                      case Positioning.NtripState.Connecting:
+                        return qsTr("NTRIP client connecting");
+                      case Positioning.NtripState.Connected:
+                        return qsTr("NTRIP client connected");
+                      }
                     } else {
-                      return qsTr("NTRIP client connected") + "\n↑" + positionSource.ntripBytesSent + " ↓" + positionSource.ntripBytesReceived;
+                      return qsTr("Please provide valid NTRIP settings");
                     }
-                  } else {
-                    return qsTr("Please provide valid NTRIP settings");
+                  }
+                }
+
+                Rectangle {
+                  Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                  Layout.preferredWidth: 42
+                  Layout.preferredHeight: 12
+                  radius: height / 2
+                  color: Theme.controlBackgroundAlternateColor
+                  border.width: 1
+                  border.color: Theme.controlBorderColor
+
+                  Rectangle {
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.topMargin: 1
+                    anchors.leftMargin: 1
+                    width: page.visible && positionSource.ntripState === Positioning.NtripState.Connected ? (parent.width - 2) * ((positionSource.ntripBytesReceived % 10000) / 10000) : 0
+                    height: parent.height - 2
+                    radius: height / 2
+                    color: Theme.positionColor
+                  }
+                }
+
+                Label {
+                  Layout.fillWidth: true
+                  visible: positionSource.ntripState === Positioning.NtripState.Connected
+                  font: Theme.tipFont
+                  color: Theme.secondaryTextColor
+                  wrapMode: Text.WordWrap
+                  text: positionSource.ntripSettings.mountPoint
+                }
+
+                Label {
+                  visible: positionSource.ntripState === Positioning.NtripState.Connected
+                  font: Theme.tipFont
+                  color: Theme.secondaryTextColor
+                  wrapMode: Text.WordWrap
+                  text: {
+                    if (page.visible && positionSource.ntripState === Positioning.NtripState.Connected) {
+                      return "↑" + positionSource.ntripBytesSent + " ↓" + positionSource.ntripBytesReceived;
+                    }
+                    return '';
                   }
                 }
               }
