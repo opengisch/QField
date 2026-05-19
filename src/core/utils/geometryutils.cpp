@@ -18,9 +18,11 @@
 #include "rubberbandmodel.h"
 
 #include <qgscoordinatetransform.h>
+#include <qgsdistancearea.h>
 #include <qgslinestring.h>
 #include <qgspolygon.h>
 #include <qgsproject.h>
+#include <qgsunittypes.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 
@@ -349,9 +351,32 @@ QgsPoint GeometryUtils::coordinateToPoint( const QGeoCoordinate &coor )
   return QgsPoint( coor.longitude(), coor.latitude(), coor.altitude() );
 }
 
-double GeometryUtils::distanceBetweenPoints( const QgsPoint &start, const QgsPoint &end )
+double GeometryUtils::distanceBetweenPoints( const QgsPoint &start, const QgsPoint &end, const QgsCoordinateReferenceSystem &crs )
 {
-  return start.distance( end );
+  if ( !crs.isValid() )
+  {
+    return start.distance( end );
+  }
+
+  QgsDistanceArea da;
+  da.setSourceCrs( crs, QgsProject::instance()->transformContext() );
+  da.setEllipsoid( QgsProject::instance()->fileName().isEmpty() ? QStringLiteral( "EPSG:7030" ) : QgsProject::instance()->ellipsoid() );
+  return da.measureLength( QgsGeometry( new QgsLineString( start, end ) ) );
+}
+
+QString GeometryUtils::formattedDistanceBetweenPoints( const QgsPoint &start, const QgsPoint &end, const QgsCoordinateReferenceSystem &crs )
+{
+  if ( !crs.isValid() )
+  {
+    const double length = start.distance( end );
+    return QString::number( length, 'g', 2 );
+  }
+
+  QgsDistanceArea da;
+  da.setSourceCrs( crs, QgsProject::instance()->transformContext() );
+  da.setEllipsoid( QgsProject::instance()->fileName().isEmpty() ? QStringLiteral( "EPSG:7030" ) : QgsProject::instance()->ellipsoid() );
+  const double length = da.measureLength( QgsGeometry( new QgsLineString( start, end ) ) );
+  return QgsUnitTypes::formatDistance( length, 2, da.lengthUnits() );
 }
 
 QgsPoint GeometryUtils::reprojectPointToWgs84( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs )
