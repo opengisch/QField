@@ -206,7 +206,10 @@ QfPopup {
               hoverEnabled: ntripMountPointComboBox.hoverEnabled
 
               contentItem: RowLayout {
-                width: menuItem.width
+                anchors.left: parent.left
+                anchors.leftMargin: parent.padding
+                anchors.right: parent.right
+                anchors.rightMargin: parent.padding
                 height: menuItem.height
 
                 Label {
@@ -219,11 +222,12 @@ QfPopup {
                 }
 
                 Label {
-                  Layout.maximumWidth: distanceLabelMetrics.width
+                  Layout.preferredWidth: distanceLabelMetrics.width
                   Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                   visible: text !== ''
                   font: ntripMountPointComboBox.font
                   color: Theme.secondaryTextColor
+                  horizontalAlignment: Text.AlignRight
                   text: {
                     if (ntripMountPointComboBox.popup.visible && positionSource.positionInformation.latitudeValid) {
                       const pos = GeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
@@ -238,7 +242,7 @@ QfPopup {
             TextMetrics {
               id: distanceLabelMetrics
               font: ntripMountPointComboBox.font
-              text: 'XXX.XX XX'
+              text: 'XXXXXXXXX'
             }
           }
 
