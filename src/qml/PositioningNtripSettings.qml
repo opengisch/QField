@@ -192,10 +192,15 @@ QfPopup {
               let details = [];
               if (idx > -1) {
                 if (model[currentIndex].identifier !== '') {
-                  details.push(qsTr("Source identifier: ") + model[currentIndex].identifier);
+                  details.push(qsTr("Identifier: ") + model[currentIndex].identifier);
                 }
                 if (model[currentIndex].format !== '') {
                   details.push(qsTr("Data format: ") + model[currentIndex].format);
+                }
+                if (positionSource.positionInformation.latitudeValid) {
+                  const pos = GeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
+                  const distance = GeometryUtils.formattedDistanceBetweenPoints(model[currentIndex].point, pos, CoordinateReferenceSystemUtils.wgs84Crs());
+                  details.push(qsTr("Distance from position: ") + distance);
                 }
               }
               ntripMountPointsDetails.text = details.join('\n');
@@ -292,7 +297,12 @@ QfPopup {
       }
       ntripMountPointComboBox.model = mps;
       if (previousMountPoint !== "") {
-        ntripMountPointComboBox.editText = previousMountPoint;
+        const idx = ntripMountPointComboBox.indexOfValue(previousMountPoint);
+        if (idx > -1) {
+          ntripMountPointComboBox.currentIndex = idx;
+        } else {
+          ntripMountPointComboBox.editText = previousMountPoint;
+        }
       }
     }
 
