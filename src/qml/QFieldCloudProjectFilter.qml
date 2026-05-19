@@ -18,7 +18,7 @@ Pane {
     const list = [
       {
         id: "mine",
-        label: qsTr("My Own Projects"),
+        label: qsTr("My own projects"),
         query: "owner:" + filterPanel.currentUsername
       }
     ];

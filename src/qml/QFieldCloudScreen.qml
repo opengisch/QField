@@ -656,7 +656,7 @@ Page {
             Layout.fillWidth: true
             text: qsTr("Refresh projects list")
             enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
-            showProgress: cloudProjectsModel.isRefreshing
+            showProgress: cloudProjectsModel.isRefreshing || table.model.isSearching
             progressValue: 0
             onClicked: {
               refreshProjectsList(true);
