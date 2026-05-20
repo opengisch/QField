@@ -227,7 +227,11 @@ Page {
           }
 
           onSearchTriggered: {
-            table.model.textFilter = searchBar.searchTerm;
+            if (projectFilter.visible) {
+              projectFilter.applyFilter();
+            } else {
+              table.model.textFilter = searchBar.searchTerm;
+            }
           }
 
           onCleared: {
