@@ -51,9 +51,9 @@ Item {
     width: parent.width
     height: 40
     radius: 6
-    border.width: 1
     color: Theme.mainBackgroundColor
     border.color: searchField.activeFocus ? Theme.mainColor : "transparent"
+    border.width: 2
 
     QfToolButton {
       id: clearButton
