@@ -169,12 +169,18 @@ Popup {
           property alias camera: camera
           property alias imageCapture: imageCapture
           property alias recorder: recorder
-          property alias videoOutput: videoOutput   // expose it
+          property alias videoOutput: videoOutput
+          property alias orientationNormalizer: orientationNormalizer
+
+          CameraOrientationNormalizer {
+            id: orientationNormalizer
+          }
 
           VideoOutput {
             id: videoOutput
             anchors.fill: parent
             visible: cameraItem.state == "PhotoCapture" || cameraItem.state == "VideoCapture"
+            orientation: orientationNormalizer.previewRotation
           }
 
           CaptureSession {
@@ -231,12 +237,12 @@ Popup {
 
               onImageSaved: (requestId, path) => {
                 currentPath = path;
+                orientationNormalizer.normalizeImageOrientation(currentPath);
+                photoPreview.source = "file://" + currentPath;
               }
 
               onPreviewChanged: {
                 cameraItem.state = "PhotoPreview";
-                photoPreview.source = "";
-                Qt.callLater(() => photoPreview.source = imageCapture.preview);
               }
             }
 
@@ -375,7 +381,6 @@ Popup {
       id: photoPreview
 
       visible: cameraItem.state == "PhotoPreview"
-
       anchors.fill: parent
       cache: false
       fillMode: Image.PreserveAspectFit
@@ -487,6 +492,7 @@ Popup {
                   platformUtilities.createDir(qgisProject.homePath, 'DCIM');
                   captureLoader.item.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
                   captureFlashAnimation.start();
+                  captureLoader.item.orientationNormalizer.recordCaptureOrientation();
                   if (positionSource.active) {
                     currentPosition = positionSource.positionInformation;
                     currentProjectedPosition = positionSource.projectedPosition;
