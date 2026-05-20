@@ -2876,11 +2876,19 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QFieldCloud měl potíže s zabalením vašeho projektu</translation>
+        <translation type="vanished">QFieldCloud měl potíže s zabalením vašeho projektu</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Některé vrstvy nebyly v QFieldCloudu správně zabaleny. Tyto vrstvy mohou být špatně nakonfigurovány nebo jejich zdroj dat není přístupný ze serveru QFieldCloud. Zkontrolujte prosím protokoly poslední úlohy balení na webové stránce qfield.cloud.</translation>
+        <translation type="vanished">Některé vrstvy nebyly v QFieldCloudu správně zabaleny. Tyto vrstvy mohou být špatně nakonfigurovány nebo jejich zdroj dat není přístupný ze serveru QFieldCloud. Zkontrolujte prosím protokoly poslední úlohy balení na webové stránce qfield.cloud.</translation>
+    </message>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3333,10 +3341,6 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
-        <source>My Own Projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation type="unfinished"/>
     </message>
@@ -3362,6 +3366,10 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My own projects</source>
         <translation type="unfinished"/>
     </message>
 </context>

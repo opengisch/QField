@@ -2872,11 +2872,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QFieldCloud在打包工程时遇到问题</translation>
+        <translation type="vanished">QFieldCloud在打包工程时遇到问题</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>QFieldCloud的某些图层未正确打包。这些图层可能配置错误，或者无法从QFieldCloud服务器访问其的数据源。请在 qfield.cloud 网站查看最新打包作业日志。</translation>
+        <translation type="vanished">QFieldCloud的某些图层未正确打包。这些图层可能配置错误，或者无法从QFieldCloud服务器访问其的数据源。请在 qfield.cloud 网站查看最新打包作业日志。</translation>
+    </message>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation>某些图层未正确打包。这些图层可能配置错误，或者无法从QFieldCloud服务器访问其数据源。</translation>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation>请查看以下详细反馈信息及QFieldCloud网站的最新打包作业日志。</translation>
     </message>
 </context>
 <context>
@@ -3329,10 +3337,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
-        <source>My Own Projects</source>
-        <translation>我的专属工程</translation>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation>预定义过滤</translation>
     </message>
@@ -3359,6 +3363,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>%1&apos;s projects</source>
         <translation>%1&apos;s 工程</translation>
+    </message>
+    <message>
+        <source>My own projects</source>
+        <translation>我的专属工程</translation>
     </message>
 </context>
 <context>

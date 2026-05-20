@@ -2873,11 +2873,19 @@ syy: %2</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QFieldCloudilla oli ongelmia projektisi pakkaamisessa</translation>
+        <translation type="vanished">QFieldCloudilla oli ongelmia projektisi pakkaamisessa</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Joitakin tasoja ei ole pakattu oikein QFieldCloudiin. Nämä tasot voivat olla määritetty väärin tai niiden tietolähde ei ole käytettävissä QFieldCloud-palvelimelta. Tarkista viimeisimmän pakkaustyön lokit qfield.cloud-verkkosivustolta.</translation>
+        <translation type="vanished">Joitakin tasoja ei ole pakattu oikein QFieldCloudiin. Nämä tasot voivat olla määritetty väärin tai niiden tietolähde ei ole käytettävissä QFieldCloud-palvelimelta. Tarkista viimeisimmän pakkaustyön lokit qfield.cloud-verkkosivustolta.</translation>
+    </message>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3331,10 +3339,6 @@ epäonnistui, syy: %2</translation>
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
-        <source>My Own Projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation type="unfinished"/>
     </message>
@@ -3360,6 +3364,10 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My own projects</source>
         <translation type="unfinished"/>
     </message>
 </context>

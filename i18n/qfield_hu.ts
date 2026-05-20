@@ -2871,11 +2871,19 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>A QFieldCloud probléma a projekt csomagolása közben.</translation>
+        <translation type="vanished">A QFieldCloud probléma a projekt csomagolása közben.</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Néhány réteg nincs megfelelően csomagolva a QFieldCloudban. Lehetséges, hogy ezek a rétegek rosszul vannak konfigurálva, vagy adatforrásuk nem érhető el a QFieldCloud szerverről. Kérjük, ellenőrizze a naplófájlokat a qfield.cloud webhelyen.</translation>
+        <translation type="vanished">Néhány réteg nincs megfelelően csomagolva a QFieldCloudban. Lehetséges, hogy ezek a rétegek rosszul vannak konfigurálva, vagy adatforrásuk nem érhető el a QFieldCloud szerverről. Kérjük, ellenőrizze a naplófájlokat a qfield.cloud webhelyen.</translation>
+    </message>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3326,10 +3334,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
-        <source>My Own Projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation type="unfinished"/>
     </message>
@@ -3355,6 +3359,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My own projects</source>
         <translation type="unfinished"/>
     </message>
 </context>

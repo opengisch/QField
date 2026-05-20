@@ -2875,11 +2875,19 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QFieldCloud tuvo problemas para empaquetar su proyecto</translation>
+        <translation type="vanished">QFieldCloud tuvo problemas para empaquetar su proyecto</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Algunas capas no se han empaquetado correctamente en QFieldCloud. Estas capas pueden estar mal configuradas o no se puede acceder a su fuente de datos desde el servidor QFieldCloud. Consulte los registros del último trabajo de empaquetado en el sitio web qfield.cloud.</translation>
+        <translation type="vanished">Algunas capas no se han empaquetado correctamente en QFieldCloud. Estas capas pueden estar mal configuradas o no se puede acceder a su fuente de datos desde el servidor QFieldCloud. Consulte los registros del último trabajo de empaquetado en el sitio web qfield.cloud.</translation>
+    </message>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3330,10 +3338,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
-        <source>My Own Projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation type="unfinished"/>
     </message>
@@ -3359,6 +3363,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My own projects</source>
         <translation type="unfinished"/>
     </message>
 </context>

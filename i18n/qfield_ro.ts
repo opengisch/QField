@@ -2877,11 +2877,19 @@ Motiv:
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QFieldCloud a avut probleme la împachetarea proiectului dumneavoastră</translation>
+        <translation type="vanished">QFieldCloud a avut probleme la împachetarea proiectului dumneavoastră</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Unele straturi nu au fost împachetate corect pe QFieldCloud. Aceste straturi pot fi configurate greșit sau sursa lor de date nu este accesibilă din serverul QFieldCloud. Vă rugăm să verificați jurnalele pentru cele mai recente pachete de pe site-ul qfield.cloud.</translation>
+        <translation type="vanished">Unele straturi nu au fost împachetate corect pe QFieldCloud. Aceste straturi pot fi configurate greșit sau sursa lor de date nu este accesibilă din serverul QFieldCloud. Vă rugăm să verificați jurnalele pentru cele mai recente pachete de pe site-ul qfield.cloud.</translation>
+    </message>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3334,10 +3342,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
-        <source>My Own Projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation type="unfinished"/>
     </message>
@@ -3363,6 +3367,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My own projects</source>
         <translation type="unfinished"/>
     </message>
 </context>

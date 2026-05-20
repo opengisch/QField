@@ -2872,11 +2872,19 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QFieldCloud hat Probleme beim Packen Ihres Projekts.</translation>
+        <translation type="vanished">QFieldCloud hat Probleme beim Packen Ihres Projekts.</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist für den QFieldCloud-Server nicht zugänglich. Bitte prüfe die Protokolle des letzten Paketierungsauftrags auf der qfield.cloud-Webseite.</translation>
+        <translation type="vanished">Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist für den QFieldCloud-Server nicht zugänglich. Bitte prüfe die Protokolle des letzten Paketierungsauftrags auf der qfield.cloud-Webseite.</translation>
+    </message>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3329,10 +3337,6 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
-        <source>My Own Projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation type="unfinished"/>
     </message>
@@ -3358,6 +3362,10 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My own projects</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -2875,11 +2875,19 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QFieldCloud teve problemas no package do seu projeto</translation>
+        <translation type="vanished">QFieldCloud teve problemas no package do seu projeto</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Algumas camadas não foram empacotadas corretamente no QFieldCloud. Essas camadas podem estar mal configuradas ou a sua origem de dados não pode ser acessada a partir do servidor QFieldCloud. Verifique os logs do último trabalho de package no site qfield.cloud.</translation>
+        <translation type="vanished">Algumas camadas não foram empacotadas corretamente no QFieldCloud. Essas camadas podem estar mal configuradas ou a sua origem de dados não pode ser acessada a partir do servidor QFieldCloud. Verifique os logs do último trabalho de package no site qfield.cloud.</translation>
+    </message>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3332,10 +3340,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
-        <source>My Own Projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation type="unfinished"/>
     </message>
@@ -3361,6 +3365,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My own projects</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -2874,11 +2874,19 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QFieldCloud rencontre des problèmes pour empaqueter votre projet</translation>
+        <translation type="vanished">QFieldCloud rencontre des problèmes pour empaqueter votre projet</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Certaines couches n&apos;ont pas été empaquetées correctement sur QFieldCloud. Ces couches sont peut-être mal configurées ou la source de données n&apos;est pas accessible depuis le serveur QFieldCloud. Merci de vérifier le journal de la dernière tâche d&apos;empaquetage sur le site internet https://qfield.cloud/ .</translation>
+        <translation type="vanished">Certaines couches n&apos;ont pas été empaquetées correctement sur QFieldCloud. Ces couches sont peut-être mal configurées ou la source de données n&apos;est pas accessible depuis le serveur QFieldCloud. Merci de vérifier le journal de la dernière tâche d&apos;empaquetage sur le site internet https://qfield.cloud/ .</translation>
+    </message>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation>Certaines couches n&apos;ont pas été emballées correctement. Ces couches peuvent être mal configurées ou leur source de données n&apos;est pas accessible depuis le serveur QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation>Consulter les commentaires détaillés ci-dessous et les derniers journaux de travail sur l&apos;emballage sur le site Web QFieldCloud.</translation>
     </message>
 </context>
 <context>
@@ -3137,11 +3145,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Le projet %1 ne peut pas être emballé car ton espace de stockage est plein.</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Le projet %1 ne peut pas être emballé car l&apos;espace de stockage du propriétaire du projet est plein.</translation>
     </message>
 </context>
 <context>
@@ -3325,26 +3333,22 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Storage size</source>
-        <translation type="unfinished"/>
+        <translation>Taille du stockage</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
-        <source>My Own Projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Predefined Filters</source>
-        <translation type="unfinished"/>
+        <translation>Filtres prédéfinis</translation>
     </message>
     <message>
         <source>Criteria</source>
-        <translation type="unfinished"/>
+        <translation>Critère</translation>
     </message>
     <message>
         <source>Search term</source>
-        <translation type="unfinished"/>
+        <translation>Terme recherché</translation>
     </message>
     <message>
         <source>Owner</source>
@@ -3352,7 +3356,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Include public projects</source>
-        <translation type="unfinished"/>
+        <translation>Inclure les projets publics</translation>
     </message>
     <message>
         <source>Search</source>
@@ -3360,7 +3364,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>%1&apos;s projects</source>
-        <translation type="unfinished"/>
+        <translation>Les projets de %1</translation>
+    </message>
+    <message>
+        <source>My own projects</source>
+        <translation>Mes propres projets</translation>
     </message>
 </context>
 <context>
@@ -3672,27 +3680,27 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
+        <translation>Rafraîchir la liste des projets...</translation>
     </message>
     <message>
         <source>Searching for projects...</source>
-        <translation type="unfinished"/>
+        <translation>Recherche des projets...</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
+        <translation>Aucun projet cloud trouvé.</translation>
     </message>
     <message>
         <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Pour commencer, %1lis la documentation%2.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Essaie de %1inclure des projets publics%2 et vois ce que la communauté a à offrir.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
+        <translation>Essaie de %1inclure des projets publics%2.</translation>
     </message>
 </context>
 <context>
@@ -3741,11 +3749,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>The project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;espace de stockage disponible du propriétaire du projet est plein.</translation>
     </message>
     <message>
         <source>The project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Le plan d&apos;abonnement du propriétaire de projet est insuffisant.</translation>
     </message>
 </context>
 <context>
@@ -7077,23 +7085,23 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Le projet %1 ne peut pas être emballé car ton espace de stockage est plein.</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Le projet %1 ne peut pas être emballé car l&apos;espace de stockage du propriétaire du projet est plein.</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Le projet %1 ne peut pas être téléchargé car ton plan d&apos;abonnement est insuffisant.</translation>
     </message>
     <message>
         <source>Upgrade plan</source>
-        <translation type="unfinished"/>
+        <translation>Mettre à niveau le plan d&apos;abonnement</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Le projet %1 ne peut pas être téléchargé car le plan d&apos;abonnement du propriétaire du projet est insuffisant.</translation>
     </message>
 </context>
 <context>
