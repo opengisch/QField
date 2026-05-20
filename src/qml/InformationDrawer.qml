@@ -107,17 +107,41 @@ Item {
           }
 
           Rectangle {
+            id: ntripIndicator
             Layout.alignment: Qt.AlignVCenter
             Layout.preferredWidth: 12
             Layout.preferredHeight: 12
             Layout.rightMargin: 6
+            Layout.bottomMargin: 1
             visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
             radius: height / 2
+            opacity: 1
             color: {
               if (positionSource.ntripState === Positioning.NtripState.Connected) {
                 return positionSource.ntripCurrentness ? Theme.positionColor : Theme.warningColor;
               }
               return Theme.secondaryTextColor;
+            }
+
+            SequentialAnimation {
+              running: positionSource.ntripState === Positioning.NtripState.Connected && !positionSource.ntripCurrentness
+              loops: Animation.Infinite
+
+              NumberAnimation {
+                target: ntripIndicator
+                property: "opacity"
+                to: 0.0
+                duration: 1000
+                easing.type: Easing.InOutQuad
+              }
+
+              NumberAnimation {
+                target: ntripIndicator
+                property: "opacity"
+                to: 1.0
+                duration: 1000
+                easing.type: Easing.InOutQuad
+              }
             }
           }
         }
