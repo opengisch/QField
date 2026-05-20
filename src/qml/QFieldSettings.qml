@@ -1430,6 +1430,7 @@ Page {
 
                   Rectangle {
                     Layout.alignment: Qt.AlignVCenter
+                    Layout.bottomMargin: 1
                     Layout.preferredWidth: 12
                     Layout.preferredHeight: 12
                     radius: height / 2
