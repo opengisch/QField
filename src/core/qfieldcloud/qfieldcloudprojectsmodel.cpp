@@ -1326,12 +1326,9 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
     }
   }
 
-  const QString name = project->name();
-  const QString description = project->description();
-
   if ( !mKeywordFilter.isEmpty() )
   {
-    if ( std::any_of( mKeywordFilter.begin(), mKeywordFilter.end(), [&name, &description]( const QString &keyword ) { return !name.contains( keyword, Qt::CaseInsensitive ) && !description.contains( keyword, Qt::CaseInsensitive ); } ) )
+    if ( std::any_of( mKeywordFilter.begin(), mKeywordFilter.end(), [project]( const QString &keyword ) { return !project->name().contains( keyword, Qt::CaseInsensitive ) && !project->description().contains( keyword, Qt::CaseInsensitive ) && !project->owner().contains( keyword, Qt::CaseInsensitive ); } ) )
     {
       return false;
     }
