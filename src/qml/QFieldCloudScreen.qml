@@ -196,9 +196,10 @@ Page {
 
         QfTabBar {
           id: filterBar
-          model: [qsTr("Projects")]
           Layout.fillWidth: true
           Layout.preferredHeight: defaultHeight
+          visible: false
+          model: [qsTr("Projects")]
         }
 
         QfSearchBar {
