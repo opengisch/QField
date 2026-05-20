@@ -78,7 +78,7 @@ Item {
     let vxMs = (last.x - first.x) / dt;
     let vyMs = (last.y - first.y) / dt;
     const speed = Math.sqrt(vxMs * vxMs + vyMs * vyMs);
-    if (speed < 0.15) {
+    if (speed < 0.2) {
       return;
     }
     if (speed > 5.0) {
@@ -156,9 +156,9 @@ Item {
           kineticHandler.panAccumX -= moveX;
           kineticHandler.panAccumY -= moveY;
         }
-        kineticHandler.panVx *= 0.96;
-        kineticHandler.panVy *= 0.96;
-        if (kineticHandler.panVx * kineticHandler.panVx + kineticHandler.panVy * kineticHandler.panVy < 0.25) {
+        kineticHandler.panVx *= 0.92;
+        kineticHandler.panVy *= 0.92;
+        if (kineticHandler.panVx * kineticHandler.panVx + kineticHandler.panVy * kineticHandler.panVy < 1.0) {
           kineticHandler.panRunning = false;
         }
       }
