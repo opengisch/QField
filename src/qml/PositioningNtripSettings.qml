@@ -231,7 +231,8 @@ QfPopup {
                   text: {
                     if (ntripMountPointComboBox.popup.visible && positionSource.positionInformation.latitudeValid) {
                       const pos = GeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
-                      return GeometryUtils.formattedDistanceBetweenPoints(model.point, pos, CoordinateReferenceSystemUtils.wgs84Crs());
+                      const distance = GeometryUtils.distanceBetweenPoints(model.point, pos) * UnitTypes.fromUnitToUnitFactor(Qgis.DistanceUnit.Degrees, projectInfo.distanceUnits);
+                      return UnitTypes.formatDistance(distance, 2, projectInfo.distanceUnits);
                     }
                     return '';
                   }
@@ -286,15 +287,15 @@ QfPopup {
             let details = [];
             if (idx > -1) {
               if (ntripMountPointComboBox.model[idx].identifier !== '') {
-                details.push(qsTr("Identifier: ") + ntripMountPointComboBox.model[idx].identifier);
+                details.push(qsTr("Identifier:") + " " + ntripMountPointComboBox.model[idx].identifier);
               }
               if (ntripMountPointComboBox.model[idx].format !== '') {
-                details.push(qsTr("Data format: ") + ntripMountPointComboBox.model[idx].format);
+                details.push(qsTr("Data format:") + " " + ntripMountPointComboBox.model[idx].format);
               }
               if (positionSource.positionInformation.latitudeValid) {
                 const pos = GeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
-                const distance = GeometryUtils.formattedDistanceBetweenPoints(ntripMountPointComboBox.model[idx].point, pos, CoordinateReferenceSystemUtils.wgs84Crs());
-                details.push(qsTr("Distance: ") + distance);
+                const distance = GeometryUtils.distanceBetweenPoints(ntripMountPointComboBox.model[idx].point, pos) * UnitTypes.fromUnitToUnitFactor(Qgis.DistanceUnit.Degrees, projectInfo.distanceUnits);
+                details.push(qsTr("Distance:") + " " + UnitTypes.formatDistance(distance, 2, projectInfo.distanceUnits));
               }
             }
             return details.join('\n');
