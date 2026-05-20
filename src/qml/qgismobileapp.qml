@@ -4459,7 +4459,8 @@ ApplicationWindow {
 
     MenuItem {
       text: qsTr("Enable NTRIP Corrections")
-      height: 48
+      visible: positionSource.ntripSettings.isValid && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
+      height: positionSource.ntripSettings.isValid && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection ? 48 : 0
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
