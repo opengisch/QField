@@ -49,6 +49,9 @@ set(QFIELD_CORE_SRCS
     positioning/udpreceiver.cpp
     positioning/positioning.cpp
     positioning/positioningsource.cpp
+    positioning/ntripclient.cpp
+    positioning/ntripsettings.cpp
+    positioning/ntripsourcetablefetcher.cpp
     positioning/positioningdevicemodel.cpp
     positioning/geofencer.cpp
     positioning/positioninginformationmodel.cpp
@@ -196,6 +199,9 @@ set(QFIELD_CORE_HDRS
     positioning/nmeagnssreceiver.h
     positioning/egenioussreceiver.h
     positioning/filereceiver.h
+    positioning/ntripclient.h
+    positioning/ntripsettings.h
+    positioning/ntripsourcetablefetcher.h
     positioning/tcpreceiver.h
     positioning/udpreceiver.h
     positioning/geofencer.h

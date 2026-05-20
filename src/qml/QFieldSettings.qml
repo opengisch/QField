@@ -9,6 +9,8 @@ import Theme
  * \ingroup qml
  */
 Page {
+  id: page
+
   signal finished
 
   property alias currentPanel: bar.currentIndex
@@ -1114,6 +1116,17 @@ Page {
               rowSpacing: 5
 
               Label {
+                text: qsTr('Positioning Device')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                Layout.bottomMargin: 5
+                Layout.columnSpan: 2
+              }
+
+              Label {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 text: qsTr("Positioning device in use:")
@@ -1309,6 +1322,139 @@ Page {
                   }
                 }
               }
+
+              RowLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                visible: positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
+
+                Label {
+                  text: qsTr("Enable NTRIP corrections")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
+                  Layout.fillWidth: true
+
+                  MouseArea {
+                    anchors.fill: parent
+                    onClicked: enableNtripClient.toggle()
+                  }
+                }
+
+                QfToolButton {
+                  id: showNtripSettings
+                  Layout.preferredWidth: 48
+                  Layout.preferredHeight: 48
+                  Layout.alignment: Qt.AlignVCenter
+
+                  iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
+                  iconColor: Theme.mainTextColor
+                  bgcolor: "transparent"
+                  clip: true
+
+                  onClicked: {
+                    positioningNtripSettings.updateFromNtripSettings(PositioningUtils.createNtripSettings(positioningSettings.ntripSettings));
+                    positioningNtripSettings.open();
+                  }
+                }
+
+                QfSwitch {
+                  id: enableNtripClient
+                  Layout.preferredWidth: implicitContentWidth
+                  Layout.alignment: Qt.AlignVCenter
+                  checked: positioningSettings.enableNtrip && positionSource.ntripState !== Positioning.NtripState.Disconnected
+                  visible: enabled
+
+                  onClicked: {
+                    if (positioningSettings.enableNtrip) {
+                      if (positionSource.ntripSettings.isValid && positionSource.ntripState === Positioning.NtripState.Disconnected) {
+                        // The server has disconnected, tapping on the toggle must indicate an intent to reconnect
+                        positioningSettings.enableNtrip = false;
+                        positioningSettings.enableNtrip = true;
+                      } else {
+                        positioningSettings.enableNtrip = false;
+                      }
+                    } else {
+                      positioningSettings.enableNtrip = true;
+                    }
+                  }
+                }
+              }
+
+              GridLayout {
+                id: ntripFeedbackLayout
+                Layout.fillWidth: true
+                Layout.rightMargin: 6
+                Layout.columnSpan: 2
+                columns: 2
+                columnSpacing: 2
+                rowSpacing: 2
+                visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
+
+                Label {
+                  Layout.fillWidth: true
+                  font: Theme.tipFont
+                  color: Theme.secondaryTextColor
+                  wrapMode: Text.WordWrap
+                  text: {
+                    if (positionSource.ntripSettings.isValid) {
+                      switch (positionSource.ntripState) {
+                      case Positioning.NtripState.Disconnected:
+                        return qsTr("NTRIP client disconnected");
+                      case Positioning.NtripState.Connecting:
+                        return qsTr("NTRIP client connecting");
+                      case Positioning.NtripState.Connected:
+                        return qsTr("NTRIP client connected");
+                      }
+                    } else {
+                      return qsTr("Please provide valid NTRIP settings");
+                    }
+                  }
+                }
+
+                Rectangle {
+                  Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                  Layout.preferredWidth: 42
+                  Layout.preferredHeight: 12
+                  radius: height / 2
+                  color: Theme.controlBackgroundAlternateColor
+                  border.width: 1
+                  border.color: Theme.controlBorderColor
+
+                  Rectangle {
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.topMargin: 1
+                    anchors.leftMargin: 1
+                    width: page.visible && positionSource.ntripState === Positioning.NtripState.Connected ? (parent.width - 2) * ((positionSource.ntripBytesReceived % 10000) / 10000) : 0
+                    height: parent.height - 2
+                    radius: height / 2
+                    color: Theme.positionColor
+                  }
+                }
+
+                Label {
+                  Layout.fillWidth: true
+                  visible: positionSource.ntripState === Positioning.NtripState.Connected
+                  font: Theme.tipFont
+                  color: Theme.secondaryTextColor
+                  wrapMode: Text.WordWrap
+                  text: positionSource.ntripSettings.mountPoint
+                }
+
+                Label {
+                  visible: positionSource.ntripState === Positioning.NtripState.Connected
+                  font: Theme.tipFont
+                  color: Theme.secondaryTextColor
+                  wrapMode: Text.WordWrap
+                  text: {
+                    if (page.visible && positionSource.ntripState === Positioning.NtripState.Connected) {
+                      return "↑" + positionSource.ntripBytesSent + " ↓" + positionSource.ntripBytesReceived;
+                    }
+                    return '';
+                  }
+                }
+              }
             }
 
             GridLayout {
@@ -1317,6 +1463,17 @@ Page {
               columns: 2
               columnSpacing: 0
               rowSpacing: 5
+
+              Label {
+                text: qsTr('Map Canvas')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                Layout.bottomMargin: 2
+                Layout.columnSpan: 2
+              }
 
               Label {
                 text: qsTr("Show position information")
@@ -1386,6 +1543,17 @@ Page {
                 color: Theme.secondaryTextColor
 
                 wrapMode: Text.WordWrap
+              }
+
+              Label {
+                text: qsTr('Digitizing & Editing')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 10
+                Layout.bottomMargin: 5
+                Layout.columnSpan: 2
               }
 
               Label {
@@ -1690,6 +1858,17 @@ Page {
               }
 
               Label {
+                text: qsTr('Elevation Adjustment')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 10
+                Layout.bottomMargin: 5
+                Layout.columnSpan: 2
+              }
+
+              Label {
                 text: qsTr("Antenna height compensation")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
@@ -1905,6 +2084,18 @@ Page {
               }
 
               Label {
+                text: qsTr('Advanced')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 10
+                Layout.bottomMargin: 5
+                Layout.columnSpan: 2
+                visible: positionSource.deviceCapabilities & AbstractGnssReceiver.Logging
+              }
+
+              Label {
                 text: qsTr("Log NMEA sentences from device to file")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
@@ -1968,6 +2159,14 @@ Page {
       }
       var index = positioningDeviceModel.addDevice(type, name, settings);
       positioningDeviceComboBox.currentIndex = index;
+    }
+  }
+
+  PositioningNtripSettings {
+    id: positioningNtripSettings
+
+    onApply: {
+      positioningSettings.ntripSettings = createSettingsMap();
     }
   }
 

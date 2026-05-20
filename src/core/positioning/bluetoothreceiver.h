@@ -35,8 +35,12 @@ class BluetoothReceiver : public NmeaGnssReceiver
     explicit BluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
     ~BluetoothReceiver();
 
+    AbstractGnssReceiver::Capabilities capabilities() const override;
+
   public slots:
     QString socketStateString() override;
+
+    void onCorrectionDataReceived( const QByteArray &data ) override;
 
   private slots:
     /**

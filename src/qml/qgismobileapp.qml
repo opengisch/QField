@@ -399,6 +399,9 @@ ApplicationWindow {
     loggingPath: platformUtilities.appDataDirs()[0] + "/logs"
     logging: positioningSettings.logging
 
+    enableNtrip: positioningSettings.enableNtrip
+    ntripSettings: PositioningUtils.createNtripSettings(positioningSettings.ntripSettings)
+
     onPositionInformationChanged: {
       if (active) {
         if (jumpToPosition && positionSource.projectedPosition.x) {
@@ -4455,19 +4458,31 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Show Position Information")
+      text: qsTr("Enable NTRIP Corrections")
       height: 48
       leftPadding: Theme.menuItemCheckLeftPadding
       font: Theme.defaultFont
 
       checkable: true
-      checked: positioningSettings.showPositionInformation
+      checked: positioningSettings.enableNtrip && positionSource.ntripState !== Positioning.NtripState.Disconnected
       indicator.height: 20
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
 
-      onTriggered: positioningSettings.showPositionInformation = checked
+      onClicked: {
+        if (positioningSettings.enableNtrip) {
+          if (positionSource.ntripSettings.isValid && positionSource.ntripState === Positioning.NtripState.Disconnected) {
+            // The server has disconnected, tapping on the toggle must indicate an intent to reconnect
+            positioningSettings.enableNtrip = false;
+            positioningSettings.enableNtrip = true;
+          } else {
+            positioningSettings.enableNtrip = false;
+          }
+        } else {
+          positioningSettings.enableNtrip = true;
+        }
+      }
     }
 
     MenuItem {
@@ -4484,6 +4499,22 @@ ApplicationWindow {
 
     MenuSeparator {
       width: parent.width
+    }
+
+    MenuItem {
+      text: qsTr("Show Position Information")
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+      font: Theme.defaultFont
+
+      checkable: true
+      checked: positioningSettings.showPositionInformation
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+
+      onTriggered: positioningSettings.showPositionInformation = checked
     }
 
     MenuItem {

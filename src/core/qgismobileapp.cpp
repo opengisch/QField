@@ -92,6 +92,8 @@
 #include "navigation.h"
 #include "navigationmodel.h"
 #include "nearfieldreader.h"
+#include "ntripsettings.h"
+#include "ntripsourcetablefetcher.h"
 #include "orderedrelationmodel.h"
 #include "parameterizedimage.h"
 #include "permissions.h"
@@ -486,6 +488,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<QFieldCloudProject::ProjectModification>( "QFieldCloudProject::ProjectModification" );
   qRegisterMetaType<Tracker::MeasureType>( "Tracker::MeasureType" );
   qRegisterMetaType<PositioningSource::ElevationCorrectionMode>( "PositioningSource::ElevationCorrectionMode" );
+  qRegisterMetaType<PositioningSource::NtripState>( "PositioningSource::NtripState" );
 
   qmlRegisterType<MultiFeatureListModel>( "org.qfield", 1, 0, "MultiFeatureListModel" );
   qmlRegisterType<FeatureListModel>( "org.qfield", 1, 0, "FeatureListModel" );
@@ -569,6 +572,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
   qmlRegisterType<PositioningInformationModel>( "org.qfield", 1, 0, "PositioningInformationModel" );
   qmlRegisterType<PositioningDeviceModel>( "org.qfield", 1, 0, "PositioningDeviceModel" );
+  qmlRegisterType<NtripSourceTableFetcher>( "org.qfield", 1, 0, "NtripSourceTableFetcher" );
+  qRegisterMetaType<NtripMountPoint>( "NtripMountPoint" );
   qmlRegisterType<WebdavConnection>( "org.qfield", 1, 0, "WebdavConnection" );
   qmlRegisterType<AppExpressionContextScopesGenerator>( "org.qfield", 1, 0, "AppExpressionContextScopesGenerator" );
   qmlRegisterType<AudioAnalyzer>( "org.qfield", 1, 0, "AudioAnalyzer" );
@@ -580,8 +585,11 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
 
+  qmlRegisterUncreatableType<NtripSettings>( "org.qfield", 1, 0, "NtripSettings", "Used for property values" );
+  qmlRegisterUncreatableMetaObject( NtripSettings::staticMetaObject, "org.qfield", 1, 0, "NtripSettings", "Used to access to enum values" );
+
   qmlRegisterUncreatableType<GnssPositionInformation>( "org.qfield", 1, 0, "gnssPositionInformation", "Used for property values" );
-  qmlRegisterUncreatableMetaObject( GnssPositionInformation::staticMetaObject, "org.qfield", 1, 0, "GnssPositionInformation", "USed to access to enum values" );
+  qmlRegisterUncreatableMetaObject( GnssPositionInformation::staticMetaObject, "org.qfield", 1, 0, "GnssPositionInformation", "Used to access to enum values" );
   qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
 
   qRegisterMetaType<PluginInformation>( "PluginInformation" );

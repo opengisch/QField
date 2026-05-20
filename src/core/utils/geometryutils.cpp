@@ -18,9 +18,11 @@
 #include "rubberbandmodel.h"
 
 #include <qgscoordinatetransform.h>
+#include <qgsdistancearea.h>
 #include <qgslinestring.h>
 #include <qgspolygon.h>
 #include <qgsproject.h>
+#include <qgsunittypes.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 

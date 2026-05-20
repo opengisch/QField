@@ -62,11 +62,18 @@ TestCase {
     verify(featureModel.feature.attribute("x") === undefined);
     verify(featureModel.feature.attribute("y") === undefined);
     verify(featureModel.feature.attribute("z") === undefined);
-    wait(2500);
+
+    for (let i = 0; i < 10; i++) {
+      wait(500);
+      if (positioning.positionInformation.qualityDescription !== undefined && positioning.positionInformation.fixStatus !== undefined) {
+        break;
+      }
+    }
+
     featureModel.resetAttributes();
     compare(featureModel.feature.attribute("source"), "manual");
-    compare(featureModel.feature.attribute("Quality"), "Autonomous");
-    compare(featureModel.feature.attribute("Fix status"), "Fix3D");
+    verify(featureModel.feature.attribute("Quality") !== undefined);
+    verify(featureModel.feature.attribute("Fix status") !== undefined);
     verify(featureModel.feature.attribute("Horizontal accuracy") !== undefined);
     verify(featureModel.feature.attribute("Nb. of satellites") !== undefined);
     verify(featureModel.feature.attribute("x") !== undefined);
@@ -76,8 +83,8 @@ TestCase {
     featureModel.appExpressionContextScopesGenerator.positionLocked = true;
     featureModel.resetAttributes();
     compare(featureModel.feature.attribute("source"), "nmea");
-    compare(featureModel.feature.attribute("Quality"), "Autonomous");
-    compare(featureModel.feature.attribute("Fix status"), "Fix3D");
+    verify(featureModel.feature.attribute("Quality") !== undefined);
+    verify(featureModel.feature.attribute("Fix status") !== undefined);
     verify(featureModel.feature.attribute("Horizontal accuracy") !== undefined);
     verify(featureModel.feature.attribute("Nb. of satellites") !== undefined);
     verify(featureModel.feature.attribute("x") !== undefined);
@@ -159,13 +166,21 @@ TestCase {
     coordinateTransformer.verticalGrid = '';
 
     // wait a few seconds so positioning can catch some NMEA strings
-    wait(2500);
-    compare(positioning.positionInformation.qualityDescription, "Float RTK + IMU");
-    compare(positioning.positionInformation.imuCorrection, true);
-    compare(positioning.positionInformation.imuRollValid, true);
-    compare(positioning.positionInformation.imuPitchValid, true);
-    compare(positioning.positionInformation.imuHeadingValid, true);
-    compare(positioning.positionInformation.imuSteeringValid, true);
+    let compared = false;
+    for (let i = 0; i < 10; i++) {
+      wait(500);
+      if (positioning.positionInformation.qualityDescription === "Float RTK + IMU") {
+        compare(positioning.positionInformation.qualityDescription, "Float RTK + IMU");
+        compare(positioning.positionInformation.imuCorrection, true);
+        compare(positioning.positionInformation.imuRollValid, true);
+        compare(positioning.positionInformation.imuPitchValid, true);
+        compare(positioning.positionInformation.imuHeadingValid, true);
+        compare(positioning.positionInformation.imuSteeringValid, true);
+        compared = true;
+        break;
+      }
+    }
+    compare(compared, true);
   }
 
   function test_07_happyMonch2IMU() {

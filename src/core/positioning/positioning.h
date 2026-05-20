@@ -18,6 +18,7 @@
 #define POSITIONING_H
 
 #include "gnsspositioninformation.h"
+#include "ntripsettings.h"
 #include "positioningsource.h"
 #include "qgsquickcoordinatetransformer.h"
 
@@ -41,7 +42,7 @@ class Positioning : public QObject
     Q_PROPERTY( bool valid READ valid NOTIFY validChanged )
 
     Q_PROPERTY( QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged )
-    Q_PROPERTY( AbstractGnssReceiver::Capabilities deviceCapabilities READ deviceCapabilities NOTIFY deviceIdChanged )
+    Q_PROPERTY( AbstractGnssReceiver::Capabilities deviceCapabilities READ deviceCapabilities NOTIFY deviceChanged )
     Q_PROPERTY( QString deviceLastError READ deviceLastError NOTIFY deviceLastErrorChanged )
     Q_PROPERTY( QAbstractSocket::SocketState deviceSocketState READ deviceSocketState NOTIFY deviceSocketStateChanged )
     Q_PROPERTY( QString deviceSocketStateString READ deviceSocketStateString NOTIFY deviceSocketStateStringChanged )
@@ -68,6 +69,12 @@ class Positioning : public QObject
 
     Q_PROPERTY( bool serviceMode READ serviceMode WRITE setServiceMode NOTIFY serviceModeChanged )
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
+
+    Q_PROPERTY( bool enableNtrip READ enableNtrip WRITE setEnableNtrip NOTIFY enableNtripChanged )
+    Q_PROPERTY( NtripSettings ntripSettings READ ntripSettings WRITE setNtripSettings NOTIFY ntripSettingsChanged )
+    Q_PROPERTY( PositioningSource::NtripState ntripState READ ntripState NOTIFY ntripStateChanged )
+    Q_PROPERTY( qint64 ntripBytesSent READ ntripBytesSent NOTIFY ntripBytesSentChanged )
+    Q_PROPERTY( qint64 ntripBytesReceived READ ntripBytesReceived NOTIFY ntripBytesReceivedChanged )
 
     Q_PROPERTY( double badAccuracyThreshold READ badAccuracyThreshold WRITE setBadAccuracyThreshold NOTIFY badAccuracyThresholdChanged )
     Q_PROPERTY( double excellentAccuracyThreshold READ excellentAccuracyThreshold WRITE setExcellentAccuracyThreshold NOTIFY excellentAccuracyThresholdChanged )
@@ -275,6 +282,42 @@ class Positioning : public QObject
      */
     void setBackgroundMode( bool enabled );
 
+
+    /**
+     * Returns TRUE if the NTRIP client is enabled.
+     */
+    bool enableNtrip() const;
+
+    /**
+     * Sets whether the NTRIP client is enabled.
+     */
+    void setEnableNtrip( bool enableNtrip );
+
+    /**
+     * Returns the NTRIP settings.
+     */
+    NtripSettings ntripSettings() const;
+
+    /**
+     * Sets the NTRIP settings.
+     */
+    void setNtripSettings( const NtripSettings &ntripSettings );
+
+    /**
+     * Returns the current NTRIP connection status.
+     */
+    PositioningSource::NtripState ntripState() const;
+
+    /**
+     * Returns the number of bytes sent via NTRIP.
+     */
+    qint64 ntripBytesSent() const;
+
+    /**
+     * Returns the number of bytes received via NTRIP.
+     */
+    qint64 ntripBytesReceived() const;
+
     /**
      * Returns a list of position information collected while background mode is active.
      * \see backgroundMode()
@@ -307,6 +350,7 @@ class Positioning : public QObject
     void activeChanged();
     void validChanged();
     void deviceIdChanged();
+    void deviceChanged();
     void elevationCorrectionModeChanged();
     void antennaHeightChanged();
     void loggingChanged();
@@ -318,6 +362,13 @@ class Positioning : public QObject
     void deviceSocketStateChanged();
     void deviceSocketStateStringChanged();
     void orientationChanged();
+
+    //Ntrip client signals
+    void enableNtripChanged();
+    void ntripSettingsChanged();
+    void ntripStateChanged();
+    void ntripBytesSentChanged();
+    void ntripBytesReceivedChanged();
 
     // Signals forwarded to positioning source
     void triggerConnectDevice();
