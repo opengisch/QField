@@ -210,6 +210,28 @@ Page {
           filterActive: projectFilter.visible
           placeHolderText: qsTr("Search for projects")
           parameterKeys: ["owner", "include"]
+          z: 10
+
+          QFieldCloudProjectFilter {
+            id: projectFilter
+            width: parent.width
+            height: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneBottomMargin - 186, 400)
+            visible: false
+
+            currentUsername: cloudConnection.username
+
+            onQueryStringChanged: {
+              if (visible) {
+                searchBar.setSearchTerm(queryString);
+              }
+            }
+
+            onApplyFilter: {
+              table.model.textFilter = queryString;
+              searchBar.setSearchTerm(queryString);
+              visible = false;
+            }
+          }
 
           onFilterClicked: {
             if (!projectFilter.visible) {
@@ -292,6 +314,7 @@ Page {
                 }
               }
             }
+            enabled: !projectFilter.visible
             clip: true
 
             onMovingChanged: {
@@ -633,26 +656,6 @@ Page {
               } else {
                 Qt.openUrlExternally(link);
               }
-            }
-          }
-
-          QFieldCloudProjectFilter {
-            id: projectFilter
-            anchors.fill: parent
-            visible: false
-
-            currentUsername: cloudConnection.username
-
-            onQueryStringChanged: {
-              if (visible) {
-                searchBar.setSearchTerm(queryString);
-              }
-            }
-
-            onApplyFilter: {
-              table.model.textFilter = queryString;
-              searchBar.setSearchTerm(queryString);
-              visible = false;
             }
           }
         }
