@@ -37,11 +37,11 @@ QfPopup {
       id: pageHeader
       title: qsTr("NTRIP Settings")
 
-      showBackButton: true
+      showBackButton: false
       showCancelButton: false
-      showApplyButton: false
+      showApplyButton: true
 
-      onBack: {
+      onApply: {
         popup.close();
       }
     }
