@@ -78,7 +78,7 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
     mBytesReceived += data.size();
 
     emit correctionDataReceived( data );
-    emit bytesCountersChanged();
+    emit bytesReceivedChanged();
 
     logData( data );
   } );
@@ -97,7 +97,7 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
   } );
 
   mBytesSent = mSocket->connectToHost( ntripSettings );
-  emit bytesCountersChanged();
+  emit bytesSentChanged();
 }
 
 void NtripClient::stop()
@@ -123,7 +123,7 @@ void NtripClient::sendNmeaSentence( const QString &sentence )
   if ( bytesWritten > 0 )
   {
     mBytesSent += bytesWritten;
-    emit bytesCountersChanged();
+    emit bytesSentChanged();
   }
 }
 

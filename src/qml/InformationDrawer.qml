@@ -108,24 +108,16 @@ Item {
 
           Rectangle {
             Layout.alignment: Qt.AlignVCenter
-            Layout.preferredWidth: 42
+            Layout.preferredWidth: 12
             Layout.preferredHeight: 12
             Layout.rightMargin: 6
             visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
             radius: height / 2
-            color: Theme.controlBackgroundAlternateColor
-            border.width: 1
-            border.color: Theme.controlBorderColor
-
-            Rectangle {
-              anchors.top: parent.top
-              anchors.left: parent.left
-              anchors.topMargin: 1
-              anchors.leftMargin: 1
-              width: positioningInformationViewEnabled && positionSource.ntripState === Positioning.NtripState.Connected ? (parent.width - 2) * ((positionSource.ntripBytesReceived % 10000) / 10000) : 0
-              height: parent.height - 2
-              radius: height / 2
-              color: Theme.positionColor
+            color: {
+              if (positionSource.ntripState === Positioning.NtripState.Connected) {
+                return positionSource.ntripCurrentness ? Theme.positionColor : Theme.warningColor;
+              }
+              return Theme.secondaryTextColor;
             }
           }
         }

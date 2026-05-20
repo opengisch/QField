@@ -75,6 +75,7 @@ class Positioning : public QObject
     Q_PROPERTY( PositioningSource::NtripState ntripState READ ntripState NOTIFY ntripStateChanged )
     Q_PROPERTY( qint64 ntripBytesSent READ ntripBytesSent NOTIFY ntripBytesSentChanged )
     Q_PROPERTY( qint64 ntripBytesReceived READ ntripBytesReceived NOTIFY ntripBytesReceivedChanged )
+    Q_PROPERTY( QDateTime ntripLastBytesReceivedUtcDateTime READ ntripLastBytesReceivedUtcDateTime NOTIFY ntripLastBytesReceivedUtcDateTimeChanged )
 
     Q_PROPERTY( double badAccuracyThreshold READ badAccuracyThreshold WRITE setBadAccuracyThreshold NOTIFY badAccuracyThresholdChanged )
     Q_PROPERTY( double excellentAccuracyThreshold READ excellentAccuracyThreshold WRITE setExcellentAccuracyThreshold NOTIFY excellentAccuracyThresholdChanged )
@@ -319,6 +320,11 @@ class Positioning : public QObject
     qint64 ntripBytesReceived() const;
 
     /**
+     * Returns the last received bytes time in UTC.
+     */
+    QDateTime ntripLastBytesReceivedUtcDateTime() const;
+
+    /**
      * Returns a list of position information collected while background mode is active.
      * \see backgroundMode()
      * \see setBackgroundMode()
@@ -369,6 +375,7 @@ class Positioning : public QObject
     void ntripStateChanged();
     void ntripBytesSentChanged();
     void ntripBytesReceivedChanged();
+    void ntripLastBytesReceivedUtcDateTimeChanged();
 
     // Signals forwarded to positioning source
     void triggerConnectDevice();

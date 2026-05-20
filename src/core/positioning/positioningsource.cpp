@@ -501,18 +501,25 @@ void PositioningSource::startNtripClient()
       qInfo() << "NTRIP Client Error:" << msg;
     } );
 
-    connect( mNtripClient.get(), &NtripClient::bytesCountersChanged, this, [this]() {
+    connect( mNtripClient.get(), &NtripClient::bytesSentChanged, this, [this]() {
       mNtripBytesSent = mNtripClient->bytesSent();
-      mNtripBytesReceived = mNtripClient->bytesReceived();
       emit ntripBytesSentChanged();
+    } );
+
+    connect( mNtripClient.get(), &NtripClient::bytesReceivedChanged, this, [this]() {
+      mNtripBytesReceived = mNtripClient->bytesReceived();
+      mNtripLastBytesReceivedUtcDateTime = QDateTime::currentDateTimeUtc();
       emit ntripBytesReceivedChanged();
+      emit ntripLastBytesReceivedUtcDateTimeChanged();
     } );
   }
 
   mNtripBytesSent = 0;
   mNtripBytesReceived = 0;
+  mNtripLastBytesReceivedUtcDateTime = QDateTime();
   emit ntripBytesSentChanged();
   emit ntripBytesReceivedChanged();
+  emit ntripLastBytesReceivedUtcDateTimeChanged();
   setNtripState( NtripState::Disconnected );
 
   if ( mLogging )
