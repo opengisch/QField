@@ -147,20 +147,20 @@ Pane {
 
     ColumnLayout {
       width: filterPanel.width
-      spacing: 14
+      spacing: 10
 
       Label {
         Layout.fillWidth: true
         text: qsTr("Predefined Filters")
-        font: Theme.secondaryTitleFont
+        font: Theme.strongTipFont
         color: Theme.mainTextColor
       }
 
       ListView {
         Layout.fillWidth: true
-        Layout.preferredHeight: 40
+        Layout.preferredHeight: 38
         orientation: ListView.Horizontal
-        spacing: 10
+        spacing: 6
         clip: true
         boundsBehavior: Flickable.StopAtBounds
         model: filterPanel.presets
@@ -187,64 +187,69 @@ Pane {
       Label {
         Layout.fillWidth: true
         text: qsTr("Criteria")
-        font: Theme.secondaryTitleFont
+        font: Theme.strongTipFont
         color: Theme.mainTextColor
       }
 
-      Label {
+      ColumnLayout {
         Layout.fillWidth: true
-        text: qsTr("Title or description contains")
-        font: Theme.tipFont
-        color: Theme.mainTextColor
-      }
-
-      QfTextField {
-        id: searchTermTextField
-        Layout.fillWidth: true
-        font: Theme.defaultFont
-
-        onTextEdited: {
-          updateQuery();
-        }
-      }
-
-      Label {
-        Layout.fillWidth: true
-        text: qsTr("Owner is")
-        font: Theme.tipFont
-        color: Theme.mainTextColor
-      }
-
-      QfComboBox {
-        id: ownerComboBox
-        Layout.fillWidth: true
-        editable: true
-        Material.accent: Theme.mainColor
-        font: Theme.defaultFont
-        inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-
-        onEditTextChanged: {
-          updateQuery();
-        }
-      }
-
-      RowLayout {
-        Layout.fillWidth: true
-        Layout.topMargin: 8
+        spacing: 6
 
         Label {
           Layout.fillWidth: true
-          text: qsTr("Include public projects")
+          text: qsTr("Title or description contains")
           font: Theme.tipFont
           color: Theme.mainTextColor
         }
 
-        Switch {
-          id: includePublicSwitch
-          Layout.alignment: Qt.AlignRight
+        QfTextField {
+          id: searchTermTextField
+          Layout.fillWidth: true
+          font: Theme.defaultFont
 
-          onClicked: {
+          onTextEdited: {
             updateQuery();
+          }
+        }
+
+        Label {
+          Layout.fillWidth: true
+          text: qsTr("Owner is")
+          font: Theme.tipFont
+          color: Theme.mainTextColor
+        }
+
+        QfComboBox {
+          id: ownerComboBox
+          Layout.fillWidth: true
+          editable: true
+          Material.accent: Theme.mainColor
+          font: Theme.defaultFont
+          inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
+
+          onEditTextChanged: {
+            updateQuery();
+          }
+        }
+
+        RowLayout {
+          Layout.fillWidth: true
+          Layout.topMargin: 8
+
+          Label {
+            Layout.fillWidth: true
+            text: qsTr("Include public projects")
+            font: Theme.tipFont
+            color: Theme.mainTextColor
+          }
+
+          Switch {
+            id: includePublicSwitch
+            Layout.alignment: Qt.AlignRight
+
+            onClicked: {
+              updateQuery();
+            }
           }
         }
       }
