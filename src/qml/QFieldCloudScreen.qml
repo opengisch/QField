@@ -196,9 +196,10 @@ Page {
 
         QfTabBar {
           id: filterBar
-          model: [qsTr("Projects")]
           Layout.fillWidth: true
           Layout.preferredHeight: defaultHeight
+          visible: false
+          model: [qsTr("Projects")]
         }
 
         QfSearchBar {
@@ -207,8 +208,30 @@ Page {
           Layout.preferredHeight: 41
           enableFilterButton: true
           filterActive: projectFilter.visible
-          placeHolderText: qsTr("Search for project")
+          placeHolderText: qsTr("Search for projects")
           parameterKeys: ["owner", "include"]
+          z: 10
+
+          QFieldCloudProjectFilter {
+            id: projectFilter
+            width: parent.width
+            height: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneBottomMargin - 186, 400)
+            visible: false
+
+            currentUsername: cloudConnection.username
+
+            onQueryStringChanged: {
+              if (visible) {
+                searchBar.setSearchTerm(queryString);
+              }
+            }
+
+            onApplyFilter: {
+              table.model.textFilter = queryString;
+              searchBar.setSearchTerm(queryString);
+              visible = false;
+            }
+          }
 
           onFilterClicked: {
             if (!projectFilter.visible) {
@@ -225,8 +248,18 @@ Page {
             }
           }
 
+          onSearchTermEdited: {
+            if (projectFilter.visible) {
+              projectFilter.updateQueryFromString(searchBar.searchTerm);
+            }
+          }
+
           onSearchTriggered: {
-            table.model.textFilter = searchBar.searchTerm;
+            if (projectFilter.visible) {
+              projectFilter.applyFilter();
+            } else {
+              table.model.textFilter = searchBar.searchTerm;
+            }
           }
 
           onCleared: {
@@ -281,6 +314,7 @@ Page {
                 }
               }
             }
+            enabled: !projectFilter.visible
             clip: true
 
             onMovingChanged: {
@@ -622,26 +656,6 @@ Page {
               } else {
                 Qt.openUrlExternally(link);
               }
-            }
-          }
-
-          QFieldCloudProjectFilter {
-            id: projectFilter
-            anchors.fill: parent
-            visible: false
-
-            currentUsername: cloudConnection.username
-
-            onQueryStringChanged: {
-              if (visible) {
-                searchBar.setSearchTerm(queryString);
-              }
-            }
-
-            onApplyFilter: {
-              table.model.textFilter = queryString;
-              searchBar.setSearchTerm(queryString);
-              visible = false;
             }
           }
         }

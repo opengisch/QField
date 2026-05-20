@@ -8,7 +8,9 @@ import org.qfield
 Item {
   id: searchBar
 
-  property alias searchTerm: searchField.displayText
+  default property alias contents: filterContainer.children
+
+  readonly property alias searchTerm: searchField.text
   property string placeHolderText: qsTr("Search")
 
   property bool enableFilterButton: false
@@ -16,10 +18,11 @@ Item {
   property var parameterKeys: []
 
   signal filterClicked
+  signal searchTermEdited
   signal searchTriggered
   signal cleared
 
-  height: childrenRect.height
+  height: searchBarContainer.height
 
   function highlightedText(raw) {
     if (!raw) {
@@ -48,12 +51,13 @@ Item {
   }
 
   Rectangle {
+    id: searchBarContainer
     width: parent.width
-    height: 40
+    height: searchField.height + (filterActive ? filterContainer.childrenRect.height + filterContainer.anchors.margins + 8 : 0)
     radius: 6
-    border.width: 1
     color: Theme.mainBackgroundColor
-    border.color: searchField.activeFocus ? Theme.mainColor : "transparent"
+    border.color: filterActive || searchField.activeFocus ? Theme.mainColor : "transparent"
+    border.width: 2
 
     QfToolButton {
       id: clearButton
@@ -109,9 +113,15 @@ Item {
       selectByMouse: true
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
       placeholderText: (!searchField.activeFocus && text === "" && displayText === "") ? searchBar.placeHolderText : ""
-      background: Item {}
       font: Theme.defaultFont
       color: highlightOverlay.visible ? "transparent" : Theme.mainTextColor
+
+      background: Item {}
+
+      onTextEdited: {
+        searchBar.searchTermEdited();
+      }
+
       Keys.onPressed: event => {
         if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
           searchBar.searchTriggered();
@@ -132,6 +142,23 @@ Item {
       elide: Text.ElideRight
       clip: true
       text: searchBar.highlightedText(searchField.text)
+    }
+
+    Column {
+      id: filterContainer
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.top: searchField.bottom
+      anchors.margins: 10
+    }
+
+    Rectangle {
+      anchors.top: searchField.bottom
+      anchors.horizontalCenter: parent.horizontalCenter
+      width: parent.width - 70
+      height: 1
+      color: searchField.placeholderTextColor
+      visible: filterActive
     }
   }
 
