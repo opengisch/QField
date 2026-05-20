@@ -263,7 +263,7 @@ void BluetoothReceiver::onCorrectionDataReceived( const QByteArray &data )
     return;
   }
 
-  if ( mAddress.startsWith( "C8:47:8C" ) )
+  if ( mAddress.startsWith( "C8:47:8C" ) ) // Beken Corp. handling
   {
     auto shortToByteArray = []( qint16 s ) -> QByteArray {
       QByteArray targets;
@@ -314,7 +314,7 @@ void BluetoothReceiver::onCorrectionDataReceived( const QByteArray &data )
 
     NmeaGnssReceiver::onCorrectionDataReceived( packet );
   }
-  else
+  else // Generic handling
   {
     NmeaGnssReceiver::onCorrectionDataReceived( data );
   }

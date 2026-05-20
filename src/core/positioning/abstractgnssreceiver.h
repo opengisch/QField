@@ -34,7 +34,7 @@ class AbstractGnssReceiver : public QObject
       NoCapabilities = 0,       //!< No capabilities
       OrthometricAltitude = 1,  //!< Orthometric altitude support
       Logging = 1 << 1,         //!< Logging support
-      NtripCorrection = 1 << 2, //!< Logging support
+      NtripCorrection = 1 << 2, //!< NTRIP correction support
     };
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )

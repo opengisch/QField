@@ -71,7 +71,7 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
   mBytesSent = 0;
   mBytesReceived = 0;
 
-  qInfo() << QStringLiteral( "Starting NTRIP client: host %1, port %2, mounnt point %3" ).arg( ntripSettings.host(), QString::number( ntripSettings.port() ), ntripSettings.mountPoint() );
+  qInfo() << QStringLiteral( "Starting NTRIP client: host %1, port %2, mount point %3" ).arg( ntripSettings.host(), QString::number( ntripSettings.port() ), ntripSettings.mountPoint() );
   mSocket = new NtripSocket( this );
 
   connect( mSocket, &NtripSocket::correctionDataReceived, this, [this]( const QByteArray &data ) {
@@ -283,7 +283,7 @@ void NtripSocket::abort()
 
 void NtripSocket::onConnected()
 {
-  qInfo() << QStringLiteral( "Connected to NTRIP caster:  host %1, port %2, mounnt point %3" ).arg( mHost, QString::number( mPort ), mMountPoint );
+  qInfo() << QStringLiteral( "Connected to NTRIP caster:  host %1, port %2, mount point %3" ).arg( mHost, QString::number( mPort ), mMountPoint );
 
   QString credentials = mUsername + ":" + mPassword;
   QByteArray base64 = credentials.toUtf8().toBase64();

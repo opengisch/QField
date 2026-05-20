@@ -198,7 +198,7 @@ QList<NtripMountPoint> NtripSourceTableFetcher::parseSourceTable( const QByteArr
   const int strBegin = data.indexOf( "STR;" );
   if ( strBegin >= 0 )
   {
-    const QByteArray body = data.mid( strBegin + 4 );
+    const QByteArray body = data.mid( strBegin );
     const QList<QByteArray> lines = body.split( '\n' );
     for ( const QByteArray &line : lines )
     {

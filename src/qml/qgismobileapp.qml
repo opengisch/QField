@@ -4464,12 +4464,25 @@ ApplicationWindow {
       font: Theme.defaultFont
 
       checkable: true
-      checked: positioningSettings.enableNtrip
+      checked: positioningSettings.enableNtrip && positionSource.ntripState !== Positioning.NtripState.Disconnected
       indicator.height: 20
       indicator.width: 20
       indicator.implicitHeight: 24
       indicator.implicitWidth: 24
-      onCheckedChanged: positioningSettings.enableNtrip = checked
+
+      onClicked: {
+        if (positioningSettings.enableNtrip) {
+          if (positionSource.ntripSettings.isValid && positionSource.ntripState === Positioning.NtripState.Disconnected) {
+            // The server has disconnected, tapping on the toggle must indicate an intent to reconnect
+            positioningSettings.enableNtrip = false;
+            positioningSettings.enableNtrip = true;
+          } else {
+            positioningSettings.enableNtrip = false;
+          }
+        } else {
+          positioningSettings.enableNtrip = true;
+        }
+      }
     }
 
     MenuItem {
