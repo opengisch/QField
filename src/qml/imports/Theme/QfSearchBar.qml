@@ -8,7 +8,7 @@ import org.qfield
 Item {
   id: searchBar
 
-  property alias searchTerm: searchField.displayText
+  readonly property alias searchTerm: searchField.text
   property string placeHolderText: qsTr("Search")
 
   property bool enableFilterButton: false
@@ -16,6 +16,7 @@ Item {
   property var parameterKeys: []
 
   signal filterClicked
+  signal searchTermEdited
   signal searchTriggered
   signal cleared
 
@@ -112,6 +113,11 @@ Item {
       background: Item {}
       font: Theme.defaultFont
       color: highlightOverlay.visible ? "transparent" : Theme.mainTextColor
+
+      onTextEdited: {
+        searchBar.searchTermEdited();
+      }
+
       Keys.onPressed: event => {
         if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
           searchBar.searchTriggered();

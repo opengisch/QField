@@ -226,6 +226,12 @@ Page {
             }
           }
 
+          onSearchTermEdited: {
+            if (projectFilter.visible) {
+              projectFilter.updateQueryFromString(searchBar.searchTerm);
+            }
+          }
+
           onSearchTriggered: {
             if (projectFilter.visible) {
               projectFilter.applyFilter();
