@@ -193,7 +193,7 @@ Pane {
 
       Label {
         Layout.fillWidth: true
-        text: qsTr("Search term")
+        text: qsTr("Title or description contains")
         font: Theme.tipFont
         color: Theme.mainTextColor
       }
@@ -210,7 +210,7 @@ Pane {
 
       Label {
         Layout.fillWidth: true
-        text: qsTr("Owner")
+        text: qsTr("Owner is")
         font: Theme.tipFont
         color: Theme.mainTextColor
       }

@@ -208,7 +208,7 @@ Page {
           Layout.preferredHeight: 41
           enableFilterButton: true
           filterActive: projectFilter.visible
-          placeHolderText: qsTr("Search for project")
+          placeHolderText: qsTr("Search for projects")
           parameterKeys: ["owner", "include"]
 
           onFilterClicked: {
