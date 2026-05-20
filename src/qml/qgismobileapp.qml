@@ -380,8 +380,10 @@ ApplicationWindow {
     excellentAccuracyThreshold: positioningSettings.accuracyExcellent
     averagedPositionFilterAccuracy: positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement
 
-    property bool jumpToPosition: false
     property bool currentness: false
+    property bool ntripCurrentness: false
+
+    property bool jumpToPosition: false
     property alias destinationCrs: positionSource.coordinateTransformer.destinationCrs
     property real bearingTrueNorth: 0.0
 
@@ -515,6 +517,9 @@ ApplicationWindow {
           locatorItem.locatorFiltersModel.setGeocoderLocatorFiltersDefaulByPosition(positionSource.positionInformation);
           geocoderLocatorFiltersChecked = true;
         }
+      }
+      if (positionSource.ntripState === Positioning.NtripState.Connected) {
+        positionSource.ntripCurrentness = ((Date.now() - positionSource.ntripLastBytesReceivedUtcDateTime.getTime()) / 1000) < 10;
       }
     }
   }

@@ -1412,47 +1412,44 @@ Page {
                   }
                 }
 
-                Rectangle {
-                  Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                  Layout.preferredWidth: 42
-                  Layout.preferredHeight: 12
-                  radius: height / 2
-                  color: Theme.controlBackgroundAlternateColor
-                  border.width: 1
-                  border.color: Theme.controlBorderColor
+                RowLayout {
+                  Layout.alignment: Qt.AlignRight
+
+                  Label {
+                    visible: positionSource.ntripState === Positioning.NtripState.Connected
+                    font: Theme.tipFont
+                    color: Theme.secondaryTextColor
+                    wrapMode: Text.WordWrap
+                    text: {
+                      if (page.visible && positionSource.ntripState === Positioning.NtripState.Connected) {
+                        return "↑" + positionSource.ntripBytesSent + " ↓" + positionSource.ntripBytesReceived;
+                      }
+                      return '';
+                    }
+                  }
 
                   Rectangle {
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    anchors.topMargin: 1
-                    anchors.leftMargin: 1
-                    width: page.visible && positionSource.ntripState === Positioning.NtripState.Connected ? (parent.width - 2) * ((positionSource.ntripBytesReceived % 10000) / 10000) : 0
-                    height: parent.height - 2
+                    Layout.alignment: Qt.AlignVCenter
+                    Layout.preferredWidth: 12
+                    Layout.preferredHeight: 12
                     radius: height / 2
-                    color: Theme.positionColor
+                    color: {
+                      if (positionSource.ntripState === Positioning.NtripState.Connected) {
+                        return positionSource.ntripCurrentness ? Theme.positionColor : Theme.warningColor;
+                      }
+                      return Theme.secondaryTextColor;
+                    }
                   }
                 }
 
                 Label {
                   Layout.fillWidth: true
+                  Layout.columnSpan: 2
                   visible: positionSource.ntripState === Positioning.NtripState.Connected
                   font: Theme.tipFont
                   color: Theme.secondaryTextColor
                   wrapMode: Text.WordWrap
                   text: positionSource.ntripSettings.mountPoint
-                }
-
-                Label {
-                  visible: positionSource.ntripState === Positioning.NtripState.Connected
-                  font: Theme.tipFont
-                  color: Theme.secondaryTextColor
-                  wrapMode: Text.WordWrap
-                  text: {
-                    if (page.visible && positionSource.ntripState === Positioning.NtripState.Connected) {
-                      return "↑" + positionSource.ntripBytesSent + " ↓" + positionSource.ntripBytesReceived;
-                    }
-                    return '';
-                  }
                 }
               }
             }

@@ -87,8 +87,11 @@ class NtripClient : public QObject
     //! Emmitted when an error occured while communicating with an NTRIP server
     void errorOccurred( const QString &message, bool isPermanent );
 
-    //! Emitted when the bytes sent and received counts have changed
-    void bytesCountersChanged();
+    //! Emitted when the received bytes counts have changed
+    void bytesReceivedChanged();
+
+    //! Emitted when the sent bytes counts have changed
+    void bytesSentChanged();
 
     //! Emitted when successfully connected to an NTRIP server
     void streamConnected();

@@ -63,6 +63,7 @@ class PositioningSource : public QObject
     Q_PROPERTY( QString ntripLastError READ ntripLastError NOTIFY ntripLastErrorChanged )
     Q_PROPERTY( qint64 ntripBytesSent READ ntripBytesSent NOTIFY ntripBytesSentChanged )
     Q_PROPERTY( qint64 ntripBytesReceived READ ntripBytesReceived NOTIFY ntripBytesReceivedChanged )
+    Q_PROPERTY( QDateTime ntripLastBytesReceivedUtcDateTime READ ntripLastBytesReceivedUtcDateTime NOTIFY ntripLastBytesReceivedUtcDateTimeChanged )
 
   public:
     /**
@@ -271,6 +272,10 @@ class PositioningSource : public QObject
      */
     qint64 ntripBytesReceived() const { return mNtripBytesReceived; }
 
+    /**
+     * Returns the last received bytes time in UTC.
+     */
+    QDateTime ntripLastBytesReceivedUtcDateTime() const { return mNtripLastBytesReceivedUtcDateTime; }
 
     /**
      * Returns a list of position information collected while background mode is active.
@@ -302,6 +307,7 @@ class PositioningSource : public QObject
     void ntripLastErrorChanged();
     void ntripBytesSentChanged();
     void ntripBytesReceivedChanged();
+    void ntripLastBytesReceivedUtcDateTimeChanged();
 
   public slots:
 
@@ -342,6 +348,7 @@ class PositioningSource : public QObject
     QString mNtripLastError;
     qint64 mNtripBytesSent = 0;
     qint64 mNtripBytesReceived = 0;
+    QDateTime mNtripLastBytesReceivedUtcDateTime;
 
     std::unique_ptr<AbstractGnssReceiver> mReceiver;
     std::unique_ptr<NtripClient> mNtripClient;
